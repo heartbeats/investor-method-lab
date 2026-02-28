@@ -1,0 +1,288 @@
+{
+  "as_of_date": "2026-02-27",
+  "definition": {
+    "min_track_record_years": 10,
+    "ranking_basis": "publicly reported annualized return (mixed gross/net; vehicle-dependent)",
+    "note": "Numbers are not fully apples-to-apples. Use for research prioritization, not direct performance comparison."
+  },
+  "investors": [
+    {
+      "rank": 1,
+      "id": "peter_brandt",
+      "name_en": "Peter Brandt",
+      "name_cn": "彼得·布兰特",
+      "annualized_return_pct": 50.0,
+      "return_type": "approx",
+      "period": "1981-1995",
+      "years": 15,
+      "style": "趋势交易（商品/外汇）",
+      "thesis": "只做高质量形态，重仓顺势，严格止损",
+      "representative_holdings": ["原油期货", "黄金期货", "外汇"]
+    },
+    {
+      "rank": 2,
+      "id": "joel_greenblatt",
+      "name_en": "Joel Greenblatt",
+      "name_cn": "乔尔·格林布拉特",
+      "annualized_return_pct": 50.0,
+      "return_type": "annualized",
+      "period": "1985-1995",
+      "years": 10,
+      "style": "系统化价值+特殊情境",
+      "thesis": "高资本回报+低估值，规则化执行",
+      "representative_holdings": ["高ROIC低估值股票", "分拆/重组情境标的"]
+    },
+    {
+      "rank": 3,
+      "id": "james_simons",
+      "name_en": "James Simons",
+      "name_cn": "詹姆斯·西蒙斯",
+      "annualized_return_pct": 39.1,
+      "return_type": "net",
+      "period": "1988-2018",
+      "years": 30,
+      "style": "量化统计套利",
+      "thesis": "海量数据+多信号组合+风险中性化",
+      "representative_holdings": ["股票多空组合", "期货", "外汇"]
+    },
+    {
+      "rank": 4,
+      "id": "george_soros",
+      "name_en": "George Soros",
+      "name_cn": "乔治·索罗斯",
+      "annualized_return_pct": 32.0,
+      "return_type": "annualized",
+      "period": "1969-2000",
+      "years": 31,
+      "style": "全球宏观+反身性",
+      "thesis": "叙事与资金流自我强化，抓趋势拐点",
+      "representative_holdings": ["英镑空头", "宏观货币头寸", "股指/利率资产"]
+    },
+    {
+      "rank": 5,
+      "id": "stanley_druckenmiller",
+      "name_en": "Stanley Druckenmiller",
+      "name_cn": "斯坦利·德鲁肯米勒",
+      "annualized_return_pct": 30.4,
+      "return_type": "annualized",
+      "period": "1981-2010",
+      "years": 30,
+      "style": "宏观+趋势+集中仓位",
+      "thesis": "宏观判断后重仓高确信度标的，错了快速止损",
+      "representative_holdings": ["外汇", "利率", "科技龙头股"]
+    },
+    {
+      "rank": 6,
+      "id": "michael_steinhardt",
+      "name_en": "Michael Steinhardt",
+      "name_cn": "迈克尔·斯坦哈特",
+      "annualized_return_pct": 30.0,
+      "return_type": "gross_over",
+      "period": "1967-1995",
+      "years": 28,
+      "style": "交易型宏观/事件驱动",
+      "thesis": "催化驱动下的交易时机与仓位灵活切换",
+      "representative_holdings": ["股票", "债券", "货币"]
+    },
+    {
+      "rank": 7,
+      "id": "steven_cohen",
+      "name_en": "Steven Cohen",
+      "name_cn": "史蒂文·科恩",
+      "annualized_return_pct": 30.0,
+      "return_type": "annualized",
+      "period": "1992-2003",
+      "years": 12,
+      "style": "股票多空+高周转",
+      "thesis": "信息效率与执行速度驱动超额",
+      "representative_holdings": ["科技股", "医药股", "美股多空组合"]
+    },
+    {
+      "rank": 8,
+      "id": "peter_lynch",
+      "name_en": "Peter Lynch",
+      "name_cn": "彼得·林奇",
+      "annualized_return_pct": 29.2,
+      "return_type": "annualized",
+      "period": "1977-1990",
+      "years": 13,
+      "style": "GARP自下而上",
+      "thesis": "买得懂且增长可持续的公司，估值不过热",
+      "representative_holdings": ["消费与零售龙头", "成长股篮子"]
+    },
+    {
+      "rank": 9,
+      "id": "leon_levy",
+      "name_en": "Leon Levy",
+      "name_cn": "里昂·利维",
+      "annualized_return_pct": 28.0,
+      "return_type": "annualized",
+      "period": "Odyssey Fund 14-year span",
+      "years": 14,
+      "style": "多策略套利",
+      "thesis": "用结构化套利与事件驱动获取非对称收益",
+      "representative_holdings": ["可转债套利", "并购套利", "事件驱动股票"]
+    },
+    {
+      "rank": 10,
+      "id": "bill_ackman",
+      "name_en": "Bill Ackman",
+      "name_cn": "比尔·阿克曼",
+      "annualized_return_pct": 27.7,
+      "return_type": "gross",
+      "period": "2004-2014",
+      "years": 10,
+      "style": "激进主义+集中投资",
+      "thesis": "深度研究后通过治理与催化释放价值",
+      "representative_holdings": ["Universal Music Group", "Hilton", "Chipotle", "Alphabet"]
+    },
+    {
+      "rank": 11,
+      "id": "paul_tudor_jones",
+      "name_en": "Paul Tudor Jones",
+      "name_cn": "保罗·都铎·琼斯",
+      "annualized_return_pct": 27.2,
+      "return_type": "annualized",
+      "period": "1984-2010",
+      "years": 26,
+      "style": "宏观趋势交易",
+      "thesis": "先保护本金，再通过趋势放大利润",
+      "representative_holdings": ["股指期货", "外汇", "利率期货", "商品期货"]
+    },
+    {
+      "rank": 12,
+      "id": "mohnish_pabrai",
+      "name_en": "Mohnish Pabrai",
+      "name_cn": "莫尼什·帕伯莱",
+      "annualized_return_pct": 25.7,
+      "return_type": "annualized",
+      "period": "18-year span",
+      "years": 18,
+      "style": "深度价值+克隆策略",
+      "thesis": "高赔率、低下行的不对称下注",
+      "representative_holdings": ["价值股集中组合", "周期反转股"]
+    },
+    {
+      "rank": 13,
+      "id": "shelby_davis",
+      "name_en": "Shelby Davis",
+      "name_cn": "谢尔比·戴维斯",
+      "annualized_return_pct": 23.0,
+      "return_type": "compounded",
+      "period": "multi-decade",
+      "years": 20,
+      "style": "保险行业价值投资",
+      "thesis": "抓住保险业长期复利和低估值阶段",
+      "representative_holdings": ["保险股篮子"]
+    },
+    {
+      "rank": 14,
+      "id": "bruce_kovner",
+      "name_en": "Bruce Kovner",
+      "name_cn": "布鲁斯·科夫纳",
+      "annualized_return_pct": 21.0,
+      "return_type": "annualized_over",
+      "period": "28-year span",
+      "years": 28,
+      "style": "宏观CTA",
+      "thesis": "大趋势交易+低波动风控",
+      "representative_holdings": ["外汇", "商品", "利率", "股指期货"]
+    },
+    {
+      "rank": 15,
+      "id": "dan_loeb",
+      "name_en": "Dan Loeb",
+      "name_cn": "丹·勒布",
+      "annualized_return_pct": 20.0,
+      "return_type": "gross_over",
+      "period": "nearly 20 years",
+      "years": 20,
+      "style": "事件驱动+基本面",
+      "thesis": "催化事件叠加估值修复",
+      "representative_holdings": ["Amazon", "Microsoft", "NVIDIA", "Alphabet"]
+    },
+    {
+      "rank": 16,
+      "id": "walter_schloss",
+      "name_en": "Walter Schloss",
+      "name_cn": "沃尔特·施洛斯",
+      "annualized_return_pct": 20.0,
+      "return_type": "annualized",
+      "period": "47-year span",
+      "years": 47,
+      "style": "深度价值分散",
+      "thesis": "低估值分散买入，靠均值回归获利",
+      "representative_holdings": ["美股小盘价值股篮子"]
+    },
+    {
+      "rank": 17,
+      "id": "warren_buffett",
+      "name_en": "Warren Buffett",
+      "name_cn": "沃伦·巴菲特",
+      "annualized_return_pct": 19.9,
+      "return_type": "annualized",
+      "period": "1965-2024",
+      "years": 60,
+      "style": "价值+质量长期复利",
+      "thesis": "能力圈内买入高质量公司并长期持有",
+      "representative_holdings": ["Apple", "American Express", "Coca-Cola", "Bank of America"]
+    },
+    {
+      "rank": 18,
+      "id": "howard_marks",
+      "name_en": "Howard Marks",
+      "name_cn": "霍华德·马克斯",
+      "annualized_return_pct": 19.9,
+      "return_type": "gross_irr",
+      "period": "nearly two decades",
+      "years": 20,
+      "style": "信用周期/困境债",
+      "thesis": "周期位置和下行保护优先于追高收益",
+      "representative_holdings": ["困境债", "高收益信用", "不良资产重组机会"]
+    },
+    {
+      "rank": 19,
+      "id": "charlie_munger",
+      "name_en": "Charlie Munger",
+      "name_cn": "查理·芒格",
+      "annualized_return_pct": 19.8,
+      "return_type": "annualized",
+      "period": "1962-1975",
+      "years": 14,
+      "style": "高质量集中投资",
+      "thesis": "少而精，长期持有最优商业模式",
+      "representative_holdings": ["Costco", "BYD", "优质消费/平台型资产"]
+    },
+    {
+      "rank": 20,
+      "id": "seth_klarman",
+      "name_en": "Seth Klarman",
+      "name_cn": "塞思·卡拉曼",
+      "annualized_return_pct": 17.0,
+      "return_type": "net",
+      "period": "30+ years",
+      "years": 30,
+      "style": "绝对收益价值投资",
+      "thesis": "安全边际、流动性缓冲和逆向布局",
+      "representative_holdings": ["困境资产", "价值股", "现金与对冲组合"]
+    }
+  ],
+  "sources": [
+    {
+      "name": "The Investment Masters",
+      "url": "https://mastersinvest.com/masters"
+    },
+    {
+      "name": "Berkshire Hathaway 2024 Annual Report (as cited by CNBC)",
+      "url": "https://www.cnbc.com/2025/05/05/warren-buffetts-return-tally-after-60-years-5502284percent.html"
+    },
+    {
+      "name": "Soros fund profile/context",
+      "url": "https://money.cnn.com/2000/04/28/mutualfunds/soros/index.htm"
+    },
+    {
+      "name": "Appendix dataset references for famous funds",
+      "url": "https://gist.github.com/breeko/b2b133e998d20ddcf2b6f2d40aa8f735"
+    }
+  ]
+}

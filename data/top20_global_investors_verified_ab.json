@@ -1,0 +1,479 @@
+{
+  "as_of_date": "2026-02-27",
+  "min_confidence": "B",
+  "included_count": 20,
+  "excluded_count": 0,
+  "investors": [
+    {
+      "rank": 1,
+      "id": "peter_brandt",
+      "name_en": "Peter Brandt",
+      "name_cn": "彼得·布兰特",
+      "calibrated_return_pct": 58.0,
+      "return_basis": "annualized_compounded_from_book_profile",
+      "period": "late 1981-2020 (27 active trading years across two segments)",
+      "confidence": "B",
+      "style": "趋势交易",
+      "thesis": "形态+仓位纪律+硬止损",
+      "representative_holdings": [
+        "商品期货",
+        "外汇"
+      ],
+      "source_refs": [
+        "unknown_market_wizards_everand",
+        "benzinga_factor_audit_2017"
+      ],
+      "methodology_bucket": "趋势交易",
+      "verified_rank": 1
+    },
+    {
+      "rank": 2,
+      "id": "joel_greenblatt",
+      "name_en": "Joel Greenblatt",
+      "name_cn": "乔尔·格林布拉特",
+      "calibrated_return_pct": 50.0,
+      "return_basis": "before_incentive_fee",
+      "period": "1985-1994",
+      "confidence": "B",
+      "style": "系统化价值+特殊情境",
+      "thesis": "高ROIC+低估值+纪律执行",
+      "representative_holdings": [
+        "特殊情境股票",
+        "分拆/重组标的"
+      ],
+      "source_refs": [
+        "forbes_greenblatt_2010"
+      ],
+      "methodology_bucket": "系统化价值",
+      "verified_rank": 2
+    },
+    {
+      "rank": 3,
+      "id": "james_simons",
+      "name_en": "James Simons",
+      "name_cn": "詹姆斯·西蒙斯",
+      "calibrated_return_pct": 39.1,
+      "return_basis": "net",
+      "period": "1988-2018",
+      "confidence": "B",
+      "style": "量化统计套利",
+      "thesis": "多信号组合+统计优势+风控中性化",
+      "representative_holdings": [
+        "多资产量化组合"
+      ],
+      "source_refs": [
+        "book_appendix_public_citations"
+      ],
+      "methodology_bucket": "量化统计套利",
+      "verified_rank": 3
+    },
+    {
+      "rank": 13,
+      "id": "bruce_kovner",
+      "name_en": "Bruce Kovner",
+      "name_cn": "布鲁斯·科夫纳",
+      "calibrated_return_pct": 33.1,
+      "return_basis": "annualized_return_primary_speech",
+      "period": "1995-2003 (Caxton 20th anniversary speech window)",
+      "confidence": "B",
+      "style": "宏观CTA",
+      "thesis": "趋势驱动+低波动风控",
+      "representative_holdings": [
+        "外汇",
+        "商品",
+        "利率"
+      ],
+      "source_refs": [
+        "bruce_kovner_caxton_20th_anniversary",
+        "forbes_money_mavens_2007"
+      ],
+      "methodology_bucket": "宏观 CTA",
+      "verified_rank": 4
+    },
+    {
+      "rank": 4,
+      "id": "george_soros",
+      "name_en": "George Soros",
+      "name_cn": "乔治·索罗斯",
+      "calibrated_return_pct": 32.0,
+      "return_basis": "annualized",
+      "period": "1969-2000 (Quantum Fund core public track-record window)",
+      "confidence": "B",
+      "style": "全球宏观+反身性",
+      "thesis": "叙事-资金-价格反馈循环",
+      "representative_holdings": [
+        "英镑空头",
+        "宏观货币头寸"
+      ],
+      "source_refs": [
+        "book_appendix_public_citations",
+        "mastersinvest"
+      ],
+      "methodology_bucket": "全球宏观/反身性",
+      "verified_rank": 5
+    },
+    {
+      "rank": 5,
+      "id": "stanley_druckenmiller",
+      "name_en": "Stanley Druckenmiller",
+      "name_cn": "斯坦利·德鲁肯米勒",
+      "calibrated_return_pct": 30.4,
+      "return_basis": "annualized",
+      "period": "1981-2010",
+      "confidence": "B",
+      "style": "宏观+趋势+集中仓位",
+      "thesis": "高确信度重仓，错误快速纠偏",
+      "representative_holdings": [
+        "外汇",
+        "利率",
+        "科技股"
+      ],
+      "source_refs": [
+        "public_interviews_compilations"
+      ],
+      "methodology_bucket": "宏观+趋势",
+      "verified_rank": 6
+    },
+    {
+      "rank": 7,
+      "id": "steven_cohen",
+      "name_en": "Steven Cohen",
+      "name_cn": "史蒂文·科恩",
+      "calibrated_return_pct": 30.0,
+      "return_basis": "annualized",
+      "period": "1992-2013",
+      "confidence": "B",
+      "style": "股票多空/高周转",
+      "thesis": "研究深度+执行速度",
+      "representative_holdings": [
+        "科技",
+        "医药",
+        "多空组合"
+      ],
+      "source_refs": [
+        "washington_post_2010",
+        "ft_profile_2024"
+      ],
+      "methodology_bucket": "股票多空",
+      "verified_rank": 7
+    },
+    {
+      "rank": 8,
+      "id": "peter_lynch",
+      "name_en": "Peter Lynch",
+      "name_cn": "彼得·林奇",
+      "calibrated_return_pct": 29.2,
+      "return_basis": "annualized",
+      "period": "1977-1990",
+      "confidence": "B",
+      "style": "GARP",
+      "thesis": "买得懂的公司+增长与估值匹配",
+      "representative_holdings": [
+        "消费",
+        "零售",
+        "成长股"
+      ],
+      "source_refs": [
+        "forbes_lynch_2009",
+        "marketwatch_2025_lynch"
+      ],
+      "methodology_bucket": "GARP 成长",
+      "verified_rank": 8
+    },
+    {
+      "rank": 6,
+      "id": "michael_steinhardt",
+      "name_en": "Michael Steinhardt",
+      "name_cn": "迈克尔·斯坦哈特",
+      "calibrated_return_pct": 24.0,
+      "return_basis": "annualized_after_fees",
+      "period": "1967-1995 (Steinhardt Partners)",
+      "confidence": "B",
+      "style": "交易型宏观/事件驱动",
+      "thesis": "催化驱动+战术切换",
+      "representative_holdings": [
+        "股票",
+        "债券",
+        "货币"
+      ],
+      "source_refs": [
+        "forbes_steinhardt_2014",
+        "time_steinhardt_1995"
+      ],
+      "methodology_bucket": "宏观/事件驱动交易",
+      "verified_rank": 9
+    },
+    {
+      "rank": 10,
+      "id": "paul_tudor_jones",
+      "name_en": "Paul Tudor Jones",
+      "name_cn": "保罗·都铎·琼斯",
+      "calibrated_return_pct": 24.0,
+      "return_basis": "net_annualized",
+      "period": "1986-2012 (Tudor BVI Global, net annualized)",
+      "confidence": "B",
+      "style": "宏观趋势交易",
+      "thesis": "先控制回撤再放大利润",
+      "representative_holdings": [
+        "股指期货",
+        "外汇",
+        "商品"
+      ],
+      "source_refs": [
+        "institutional_investor_ptj_2012",
+        "institutional_investor_bucks_stop_here_2004"
+      ],
+      "methodology_bucket": "宏观趋势交易",
+      "verified_rank": 10
+    },
+    {
+      "rank": 9,
+      "id": "leon_levy",
+      "name_en": "Leon Levy",
+      "name_cn": "里昂·利维",
+      "calibrated_return_pct": 22.4,
+      "return_basis": "annualized",
+      "period": "1982-1997 (Odyssey Partners, annualized)",
+      "confidence": "B",
+      "style": "多策略套利",
+      "thesis": "结构性错配与事件驱动",
+      "representative_holdings": [
+        "可转债套利",
+        "并购套利"
+      ],
+      "source_refs": [
+        "latimes_nash_odyssey_2008"
+      ],
+      "methodology_bucket": "套利/事件驱动",
+      "verified_rank": 11
+    },
+    {
+      "rank": 12,
+      "id": "shelby_davis",
+      "name_en": "Shelby Davis",
+      "name_cn": "谢尔比·戴维斯",
+      "calibrated_return_pct": 22.1,
+      "return_basis": "derived_annualized_from_official_growth_statement",
+      "period": "late 1940s to early 1990s (~45 years, from $100k to >$800m)",
+      "confidence": "B",
+      "style": "行业价值",
+      "thesis": "保险行业长期复利",
+      "representative_holdings": [
+        "保险股篮子"
+      ],
+      "source_refs": [
+        "davis_funds_about",
+        "nasdaq_contrarian_2022"
+      ],
+      "methodology_bucket": "行业价值",
+      "verified_rank": 12
+    },
+    {
+      "rank": 14,
+      "id": "warren_buffett",
+      "name_en": "Warren Buffett",
+      "name_cn": "沃伦·巴菲特",
+      "calibrated_return_pct": 19.9,
+      "return_basis": "compounded_annual_gain",
+      "period": "1965-2024",
+      "confidence": "A",
+      "style": "价值+质量长期复利",
+      "thesis": "能力圈+护城河+资本配置",
+      "representative_holdings": [
+        "Apple",
+        "American Express",
+        "Coca-Cola",
+        "Bank of America"
+      ],
+      "source_refs": [
+        "berkshire_2024_letter"
+      ],
+      "methodology_bucket": "价值质量复利",
+      "verified_rank": 13
+    },
+    {
+      "rank": 16,
+      "id": "charlie_munger",
+      "name_en": "Charlie Munger",
+      "name_cn": "查理·芒格",
+      "calibrated_return_pct": 19.8,
+      "return_basis": "partnership_pre_fee",
+      "period": "1962-1975",
+      "confidence": "B",
+      "style": "高质量集中投资",
+      "thesis": "少而精，长期持有优质企业",
+      "representative_holdings": [
+        "Costco",
+        "BYD"
+      ],
+      "source_refs": [
+        "columbia_superinvestors",
+        "historical_compilations"
+      ],
+      "methodology_bucket": "价值质量复利",
+      "verified_rank": 14
+    },
+    {
+      "rank": 17,
+      "id": "seth_klarman",
+      "name_en": "Seth Klarman",
+      "name_cn": "塞思·卡拉曼",
+      "calibrated_return_pct": 19.0,
+      "return_basis": "annualized_oldest_partnership_since_1983",
+      "period": "1983-2010 (oldest Baupost partnership)",
+      "confidence": "B",
+      "style": "绝对收益价值",
+      "thesis": "安全边际+流动性缓冲",
+      "representative_holdings": [
+        "困境资产",
+        "价值股",
+        "现金与对冲"
+      ],
+      "source_refs": [
+        "institutional_investor_profile"
+      ],
+      "methodology_bucket": "绝对收益价值",
+      "verified_rank": 15
+    },
+    {
+      "rank": 18,
+      "id": "bill_ackman",
+      "name_en": "Bill Ackman",
+      "name_cn": "比尔·阿克曼",
+      "calibrated_return_pct": 16.1,
+      "return_basis": "net_after_performance_fee",
+      "period": "2004-2024 (PSLP inception to PSH)",
+      "confidence": "A",
+      "style": "激进主义+集中持股",
+      "thesis": "治理优化+催化释放价值",
+      "representative_holdings": [
+        "Hilton",
+        "Chipotle",
+        "Alphabet",
+        "Universal Music Group"
+      ],
+      "source_refs": [
+        "sec_exhibit_psh_2025"
+      ],
+      "methodology_bucket": "激进主义投资",
+      "verified_rank": 16
+    },
+    {
+      "rank": 15,
+      "id": "howard_marks",
+      "name_en": "Howard Marks",
+      "name_cn": "霍华德·马克斯",
+      "calibrated_return_pct": 15.7,
+      "return_basis": "net_irr_since_inception_opportunistic_credit",
+      "period": "1988-2024 (Oaktree opportunistic credit strategy)",
+      "confidence": "A",
+      "style": "信用周期/困境债",
+      "thesis": "周期位置优先，下行保护先于收益",
+      "representative_holdings": [
+        "困境债",
+        "高收益信用"
+      ],
+      "source_refs": [
+        "sec_oaktree_10k_2025"
+      ],
+      "methodology_bucket": "信用周期",
+      "verified_rank": 17
+    },
+    {
+      "rank": 19,
+      "id": "walter_schloss",
+      "name_en": "Walter Schloss",
+      "name_cn": "沃尔特·施洛斯",
+      "calibrated_return_pct": 15.3,
+      "return_basis": "compounded",
+      "period": "~45 years (1955-2000)",
+      "confidence": "B",
+      "style": "深度价值分散",
+      "thesis": "低估值分散买入，等待均值回归",
+      "representative_holdings": [
+        "美股小盘价值股篮子"
+      ],
+      "source_refs": [
+        "walter_schloss_profile",
+        "columbia_superinvestors_context"
+      ],
+      "methodology_bucket": "深度价值分散",
+      "verified_rank": 18
+    },
+    {
+      "rank": 11,
+      "id": "mohnish_pabrai",
+      "name_en": "Mohnish Pabrai",
+      "name_cn": "莫尼什·帕伯莱",
+      "calibrated_return_pct": 15.0,
+      "return_basis": "derived_annualized_from_cumulative_net",
+      "period": "2000-2013 (from cumulative net return since inception)",
+      "confidence": "B",
+      "style": "深度价值",
+      "thesis": "高赔率低下行不对称下注",
+      "representative_holdings": [
+        "价值股集中组合"
+      ],
+      "source_refs": [
+        "forbes_pabrai_2013",
+        "forbes_pabrai_2010"
+      ],
+      "methodology_bucket": "深度价值",
+      "verified_rank": 19
+    },
+    {
+      "rank": 20,
+      "id": "dan_loeb",
+      "name_en": "Dan Loeb",
+      "name_cn": "丹·勒布",
+      "calibrated_return_pct": 13.2,
+      "return_basis": "annualized_net",
+      "period": "since Dec 1996 (as of Sep 2025)",
+      "confidence": "B",
+      "style": "事件驱动+基本面",
+      "thesis": "事件催化+资本结构重估",
+      "representative_holdings": [
+        "Amazon",
+        "Microsoft",
+        "NVIDIA",
+        "PG&E"
+      ],
+      "source_refs": [
+        "third_point_q3_2025_letter_mirror"
+      ],
+      "methodology_bucket": "事件驱动",
+      "verified_rank": 20
+    }
+  ],
+  "excluded": [],
+  "source_legend": {
+    "berkshire_2024_letter": "https://www.berkshirehathaway.com/letters/2024ltr.pdf",
+    "forbes_greenblatt_2010": "https://www.forbes.com/2010/04/16/formula-s-and-p-500-intelligent-investing-greenblatt.html",
+    "forbes_lynch_2009": "https://www.forbes.com/2009/02/23/lynch-fidelity-magellan-personal-finance_peter_lynch.html",
+    "marketwatch_2025_lynch": "https://www.marketwatch.com/story/more-famous-than-warren-buffett-in-decades-past-peter-lynch-of-fidelity-says-its-still-all-about-investing-in-what-you-know-808a7f8f",
+    "columbia_superinvestors": "https://business.columbia.edu/cgi-finance/chazen-global-insights/superinvestors-graham-and-doddsville",
+    "sec_exhibit_psh_2025": "https://www.sec.gov/Archives/edgar/data/1981792/000110465925003068/tm253187d1_ex99-2.htm",
+    "third_point_q3_2025_letter_mirror": "https://seekingalpha.com/article/4837143-third-point-q3-2025-investor-letter",
+    "institutional_investor_ptj_2012": "https://www.institutionalinvestor.com/article/2bsvlexhhb6xk5fzzvfnk/portfolio/paul-tudor-jones-iis-new-fund-has-an-eye-to-retirement",
+    "institutional_investor_bucks_stop_here_2004": "https://www.institutionalinvestor.com/article/2btgjr6f5taemnllr6br4/home/the-bucks-stop-here",
+    "bruce_kovner_caxton_20th_anniversary": "https://www.brucekovner.com/Caxton20thAnniversary.html",
+    "forbes_money_mavens_2007": "https://www.forbes.com/forbes/2007/1008/258.html",
+    "forbes_pabrai_2013": "https://www.forbes.com/sites/phildemuth/2013/09/23/how-mohnish-pabrai-crushed-the-market-by-1100-since-2000/",
+    "forbes_pabrai_2010": "https://www.forbes.com/2010/10/19/mohnish-pabrai-value-investing-intelligent-investing-nomad-john-hempton.html",
+    "forbes_steinhardt_2014": "https://www.forbes.com/sites/michaelnoer/2014/01/22/michael-steinhardt-wall-streets-greatest-trader-is-back-and-hes-reinventing-investing-again/",
+    "time_steinhardt_1995": "https://content.time.com/time/subscriber/article/0,33009,983600,00.html",
+    "latimes_nash_odyssey_2008": "https://www.latimes.com/archives/la-xpm-2008-aug-02-me-nash2-story.html",
+    "davis_funds_about": "https://www.davisfunds.com/about",
+    "nasdaq_contrarian_2022": "https://www.nasdaq.com/articles/thinking-alike-crowded-trades-and-contrarian-investing-bubble-2022-01-11",
+    "unknown_market_wizards_everand": "https://www.everand.com/book/475113824/Unknown-Market-Wizards-The-best-traders-you-ve-never-heard-of",
+    "benzinga_factor_audit_2017": "https://www.benzinga.com/news/17/06/9572095/grown-from-grain-peter-brandt-to-talk-career-market-philosophy-on-premarket-prep/",
+    "sec_oaktree_10k_2025": "https://www.sec.gov/Archives/edgar/data/1403528/000140352825000013/oak-20241231.htm",
+    "washington_post_2010": "https://www.washingtonpost.com/archive/business/2010/04/25/steve-cohens-trade-secrets/02b1e609-c3d5-4a70-812f-a91937992a7d/",
+    "ft_profile_2024": "https://www.ft.com/content/44de49bc-0d9d-419c-93d2-1c5343f98247",
+    "walter_schloss_profile": "https://en.wikipedia.org/wiki/Walter_Schloss",
+    "book_appendix_public_citations": "https://gist.github.com/breeko/b2b133e998d20ddcf2b6f2d40aa8f735",
+    "mastersinvest": "https://mastersinvest.com/masters",
+    "historical_compilations": "https://www.fool.com/investing/2023/11/28/charlie-munger-appreciation/",
+    "institutional_investor_profile": "https://bsporigin.institutionalinvestor.com/article/2btgfi071p6yvdlmytfy8/premium/the-value-of-seth-klarman"
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "score_weights": {
+    "performance": 0.38,
+    "risk_control": 0.22,
+    "longevity": 0.2,
+    "transparency": 0.2
+  },
+  "investors": [
+    {
+      "id": "warren_buffett",
+      "name": "Warren Buffett",
+      "region": "US",
+      "methodology_ids": ["value_quality"],
+      "style_tags": ["能力圈", "护城河", "长期复利"],
+      "metrics": {
+        "performance": 97,
+        "risk_control": 91,
+        "longevity": 100,
+        "transparency": 98
+      },
+      "key_frameworks": ["买企业而不是买代码", "内在价值折现", "长期持有高质量资产"]
+    },
+    {
+      "id": "charlie_munger",
+      "name": "Charlie Munger",
+      "region": "US",
+      "methodology_ids": ["value_quality"],
+      "style_tags": ["多元思维模型", "少而精", "高质量优先"],
+      "metrics": {
+        "performance": 93,
+        "risk_control": 89,
+        "longevity": 98,
+        "transparency": 95
+      },
+      "key_frameworks": ["跨学科决策", "反过来想", "避免愚蠢"]
+    },
+    {
+      "id": "peter_lynch",
+      "name": "Peter Lynch",
+      "region": "US",
+      "methodology_ids": ["growth_at_reasonable_price"],
+      "style_tags": ["自下而上", "实地调研", "GARP"],
+      "metrics": {
+        "performance": 95,
+        "risk_control": 83,
+        "longevity": 89,
+        "transparency": 93
+      },
+      "key_frameworks": ["你熟悉的生意", "盈利增长匹配估值", "分散中的集中"]
+    },
+    {
+      "id": "howard_marks",
+      "name": "Howard Marks",
+      "region": "US",
+      "methodology_ids": ["deep_value_contrarian", "credit_cycle"],
+      "style_tags": ["周期", "风险优先", "二级思维"],
+      "metrics": {
+        "performance": 88,
+        "risk_control": 93,
+        "longevity": 92,
+        "transparency": 97
+      },
+      "key_frameworks": ["风险不是波动而是永久损失", "钟摆思维", "逆向而不盲目"]
+    },
+    {
+      "id": "ray_dalio",
+      "name": "Ray Dalio",
+      "region": "US",
+      "methodology_ids": ["macro_regime"],
+      "style_tags": ["宏观配置", "风险平价", "原则驱动"],
+      "metrics": {
+        "performance": 90,
+        "risk_control": 90,
+        "longevity": 94,
+        "transparency": 92
+      },
+      "key_frameworks": ["经济机器", "去相关配置", "制度化决策"]
+    },
+    {
+      "id": "seth_klarman",
+      "name": "Seth Klarman",
+      "region": "US",
+      "methodology_ids": ["deep_value_contrarian"],
+      "style_tags": ["安全边际", "耐心", "下行保护"],
+      "metrics": {
+        "performance": 90,
+        "risk_control": 94,
+        "longevity": 90,
+        "transparency": 72
+      },
+      "key_frameworks": ["赔率思维", "安全边际优先", "等待错误定价"]
+    },
+    {
+      "id": "joel_greenblatt",
+      "name": "Joel Greenblatt",
+      "region": "US",
+      "methodology_ids": ["systematic_quality_value"],
+      "style_tags": ["魔法公式", "量化价值", "规则化执行"],
+      "metrics": {
+        "performance": 89,
+        "risk_control": 84,
+        "longevity": 86,
+        "transparency": 93
+      },
+      "key_frameworks": ["高资本回报+低估值", "纪律执行", "简化复杂策略"]
+    },
+    {
+      "id": "stanley_druckenmiller",
+      "name": "Stanley Druckenmiller",
+      "region": "US",
+      "methodology_ids": ["macro_regime", "trend_following"],
+      "style_tags": ["宏观+趋势", "动态仓位", "止损纪律"],
+      "metrics": {
+        "performance": 96,
+        "risk_control": 87,
+        "longevity": 94,
+        "transparency": 80
+      },
+      "key_frameworks": ["重仓高确定性", "顺势而为", "错了就快撤"]
+    },
+    {
+      "id": "george_soros",
+      "name": "George Soros",
+      "region": "US/EU",
+      "methodology_ids": ["macro_regime", "reflexivity"],
+      "style_tags": ["反身性", "宏观交易", "高杠杆时机"],
+      "metrics": {
+        "performance": 95,
+        "risk_control": 78,
+        "longevity": 91,
+        "transparency": 85
+      },
+      "key_frameworks": ["反身性与叙事", "趋势拐点识别", "高回报高风险"]
+    },
+    {
+      "id": "li_lu",
+      "name": "Li Lu",
+      "region": "CN/US",
+      "methodology_ids": ["value_quality"],
+      "style_tags": ["安全边际", "长期主义", "集中投资"],
+      "metrics": {
+        "performance": 89,
+        "risk_control": 90,
+        "longevity": 84,
+        "transparency": 84
+      },
+      "key_frameworks": ["长期赔率", "能力圈内重仓", "逆向耐心"]
+    },
+    {
+      "id": "mohnish_pabrai",
+      "name": "Mohnish Pabrai",
+      "region": "US",
+      "methodology_ids": ["deep_value_contrarian"],
+      "style_tags": ["克隆优秀策略", "低风险高不对称", "集中押注"],
+      "metrics": {
+        "performance": 86,
+        "risk_control": 80,
+        "longevity": 78,
+        "transparency": 90
+      },
+      "key_frameworks": ["Heads I win, tails I don't lose much", "克隆顶级思路", "不对称下注"]
+    },
+    {
+      "id": "nick_sleep",
+      "name": "Nick Sleep",
+      "region": "UK",
+      "methodology_ids": ["scale_economies_shared"],
+      "style_tags": ["共享规模经济", "长期复利", "商业模式洞察"],
+      "metrics": {
+        "performance": 92,
+        "risk_control": 86,
+        "longevity": 79,
+        "transparency": 77
+      },
+      "key_frameworks": ["低价带来需求", "规模反哺成本", "飞轮效应"]
+    }
+  ]
+}

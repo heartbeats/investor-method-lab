@@ -1,0 +1,76 @@
+{
+  "as_of_date": "2026-02-27",
+  "description": "Map Top20 investor methodology buckets to executable stock-selection groups.",
+  "groups": [
+    {
+      "id": "value_quality_compound",
+      "name": "价值质量复利",
+      "base_strategy_id": "value_quality",
+      "core_question": "能否以安全边际买入长期复利型优质公司？",
+      "bucket_matches": ["价值质量复利"]
+    },
+    {
+      "id": "industry_compounder",
+      "name": "行业复利",
+      "base_strategy_id": "scale_economies_shared",
+      "core_question": "行业结构优势是否能持续转化为长期复利？",
+      "bucket_matches": ["行业价值"]
+    },
+    {
+      "id": "garp_growth",
+      "name": "GARP 成长",
+      "base_strategy_id": "growth_at_reasonable_price",
+      "core_question": "是否以合理估值买入可持续成长？",
+      "bucket_matches": ["GARP 成长"]
+    },
+    {
+      "id": "deep_value_recovery",
+      "name": "深度价值修复",
+      "base_strategy_id": "deep_value_contrarian",
+      "core_question": "是否存在错杀带来的非对称修复机会？",
+      "bucket_matches": ["深度价值", "深度价值分散", "绝对收益价值"]
+    },
+    {
+      "id": "macro_regime",
+      "name": "宏观周期",
+      "base_strategy_id": "macro_regime",
+      "core_question": "当前宏观状态最受益的方向在哪里？",
+      "bucket_matches": ["全球宏观/反身性", "宏观+趋势", "宏观 CTA", "宏观趋势交易", "宏观/事件驱动交易"]
+    },
+    {
+      "id": "trend_following",
+      "name": "趋势跟随",
+      "base_strategy_id": "trend_following",
+      "core_question": "主趋势是否足够清晰且可交易？",
+      "bucket_matches": ["趋势交易"]
+    },
+    {
+      "id": "systematic_quant",
+      "name": "系统化量化",
+      "base_strategy_id": "systematic_quality_value",
+      "core_question": "规则化因子组合是否能稳定获取超额？",
+      "bucket_matches": ["系统化价值", "量化统计套利"]
+    },
+    {
+      "id": "event_driven_activist",
+      "name": "事件驱动激进",
+      "core_question": "催化事件能否驱动估值重估？",
+      "custom_weights": {
+        "margin_of_safety": 0.13,
+        "quality": 0.16,
+        "growth": 0.08,
+        "momentum": 0.11,
+        "catalyst": 0.34,
+        "risk_control": 0.18
+      },
+      "bucket_matches": ["事件驱动", "套利/事件驱动", "激进主义投资", "股票多空"]
+    },
+    {
+      "id": "credit_cycle",
+      "name": "信用周期",
+      "base_strategy_id": "credit_cycle",
+      "core_question": "信用扩张/收缩对胜率的影响是什么？",
+      "bucket_matches": ["信用周期"]
+    }
+  ]
+}

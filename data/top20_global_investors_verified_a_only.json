@@ -1,0 +1,209 @@
+{
+  "as_of_date": "2026-02-27",
+  "min_confidence": "A",
+  "included_count": 3,
+  "excluded_count": 17,
+  "investors": [
+    {
+      "rank": 14,
+      "id": "warren_buffett",
+      "name_en": "Warren Buffett",
+      "name_cn": "沃伦·巴菲特",
+      "calibrated_return_pct": 19.9,
+      "return_basis": "compounded_annual_gain",
+      "period": "1965-2024",
+      "confidence": "A",
+      "style": "价值+质量长期复利",
+      "thesis": "能力圈+护城河+资本配置",
+      "representative_holdings": [
+        "Apple",
+        "American Express",
+        "Coca-Cola",
+        "Bank of America"
+      ],
+      "source_refs": [
+        "berkshire_2024_letter"
+      ],
+      "methodology_bucket": "价值质量复利",
+      "verified_rank": 1
+    },
+    {
+      "rank": 18,
+      "id": "bill_ackman",
+      "name_en": "Bill Ackman",
+      "name_cn": "比尔·阿克曼",
+      "calibrated_return_pct": 16.1,
+      "return_basis": "net_after_performance_fee",
+      "period": "2004-2024 (PSLP inception to PSH)",
+      "confidence": "A",
+      "style": "激进主义+集中持股",
+      "thesis": "治理优化+催化释放价值",
+      "representative_holdings": [
+        "Hilton",
+        "Chipotle",
+        "Alphabet",
+        "Universal Music Group"
+      ],
+      "source_refs": [
+        "sec_exhibit_psh_2025"
+      ],
+      "methodology_bucket": "激进主义投资",
+      "verified_rank": 2
+    },
+    {
+      "rank": 15,
+      "id": "howard_marks",
+      "name_en": "Howard Marks",
+      "name_cn": "霍华德·马克斯",
+      "calibrated_return_pct": 15.7,
+      "return_basis": "net_irr_since_inception_opportunistic_credit",
+      "period": "1988-2024 (Oaktree opportunistic credit strategy)",
+      "confidence": "A",
+      "style": "信用周期/困境债",
+      "thesis": "周期位置优先，下行保护先于收益",
+      "representative_holdings": [
+        "困境债",
+        "高收益信用"
+      ],
+      "source_refs": [
+        "sec_oaktree_10k_2025"
+      ],
+      "methodology_bucket": "信用周期",
+      "verified_rank": 3
+    }
+  ],
+  "excluded": [
+    {
+      "id": "peter_brandt",
+      "name_cn": "彼得·布兰特",
+      "name_en": "Peter Brandt",
+      "confidence": "B"
+    },
+    {
+      "id": "joel_greenblatt",
+      "name_cn": "乔尔·格林布拉特",
+      "name_en": "Joel Greenblatt",
+      "confidence": "B"
+    },
+    {
+      "id": "james_simons",
+      "name_cn": "詹姆斯·西蒙斯",
+      "name_en": "James Simons",
+      "confidence": "B"
+    },
+    {
+      "id": "bruce_kovner",
+      "name_cn": "布鲁斯·科夫纳",
+      "name_en": "Bruce Kovner",
+      "confidence": "B"
+    },
+    {
+      "id": "george_soros",
+      "name_cn": "乔治·索罗斯",
+      "name_en": "George Soros",
+      "confidence": "B"
+    },
+    {
+      "id": "stanley_druckenmiller",
+      "name_cn": "斯坦利·德鲁肯米勒",
+      "name_en": "Stanley Druckenmiller",
+      "confidence": "B"
+    },
+    {
+      "id": "steven_cohen",
+      "name_cn": "史蒂文·科恩",
+      "name_en": "Steven Cohen",
+      "confidence": "B"
+    },
+    {
+      "id": "peter_lynch",
+      "name_cn": "彼得·林奇",
+      "name_en": "Peter Lynch",
+      "confidence": "B"
+    },
+    {
+      "id": "michael_steinhardt",
+      "name_cn": "迈克尔·斯坦哈特",
+      "name_en": "Michael Steinhardt",
+      "confidence": "B"
+    },
+    {
+      "id": "paul_tudor_jones",
+      "name_cn": "保罗·都铎·琼斯",
+      "name_en": "Paul Tudor Jones",
+      "confidence": "B"
+    },
+    {
+      "id": "leon_levy",
+      "name_cn": "里昂·利维",
+      "name_en": "Leon Levy",
+      "confidence": "B"
+    },
+    {
+      "id": "shelby_davis",
+      "name_cn": "谢尔比·戴维斯",
+      "name_en": "Shelby Davis",
+      "confidence": "B"
+    },
+    {
+      "id": "charlie_munger",
+      "name_cn": "查理·芒格",
+      "name_en": "Charlie Munger",
+      "confidence": "B"
+    },
+    {
+      "id": "seth_klarman",
+      "name_cn": "塞思·卡拉曼",
+      "name_en": "Seth Klarman",
+      "confidence": "B"
+    },
+    {
+      "id": "walter_schloss",
+      "name_cn": "沃尔特·施洛斯",
+      "name_en": "Walter Schloss",
+      "confidence": "B"
+    },
+    {
+      "id": "mohnish_pabrai",
+      "name_cn": "莫尼什·帕伯莱",
+      "name_en": "Mohnish Pabrai",
+      "confidence": "B"
+    },
+    {
+      "id": "dan_loeb",
+      "name_cn": "丹·勒布",
+      "name_en": "Dan Loeb",
+      "confidence": "B"
+    }
+  ],
+  "source_legend": {
+    "berkshire_2024_letter": "https://www.berkshirehathaway.com/letters/2024ltr.pdf",
+    "forbes_greenblatt_2010": "https://www.forbes.com/2010/04/16/formula-s-and-p-500-intelligent-investing-greenblatt.html",
+    "forbes_lynch_2009": "https://www.forbes.com/2009/02/23/lynch-fidelity-magellan-personal-finance_peter_lynch.html",
+    "marketwatch_2025_lynch": "https://www.marketwatch.com/story/more-famous-than-warren-buffett-in-decades-past-peter-lynch-of-fidelity-says-its-still-all-about-investing-in-what-you-know-808a7f8f",
+    "columbia_superinvestors": "https://business.columbia.edu/cgi-finance/chazen-global-insights/superinvestors-graham-and-doddsville",
+    "sec_exhibit_psh_2025": "https://www.sec.gov/Archives/edgar/data/1981792/000110465925003068/tm253187d1_ex99-2.htm",
+    "third_point_q3_2025_letter_mirror": "https://seekingalpha.com/article/4837143-third-point-q3-2025-investor-letter",
+    "institutional_investor_ptj_2012": "https://www.institutionalinvestor.com/article/2bsvlexhhb6xk5fzzvfnk/portfolio/paul-tudor-jones-iis-new-fund-has-an-eye-to-retirement",
+    "institutional_investor_bucks_stop_here_2004": "https://www.institutionalinvestor.com/article/2btgjr6f5taemnllr6br4/home/the-bucks-stop-here",
+    "bruce_kovner_caxton_20th_anniversary": "https://www.brucekovner.com/Caxton20thAnniversary.html",
+    "forbes_money_mavens_2007": "https://www.forbes.com/forbes/2007/1008/258.html",
+    "forbes_pabrai_2013": "https://www.forbes.com/sites/phildemuth/2013/09/23/how-mohnish-pabrai-crushed-the-market-by-1100-since-2000/",
+    "forbes_pabrai_2010": "https://www.forbes.com/2010/10/19/mohnish-pabrai-value-investing-intelligent-investing-nomad-john-hempton.html",
+    "forbes_steinhardt_2014": "https://www.forbes.com/sites/michaelnoer/2014/01/22/michael-steinhardt-wall-streets-greatest-trader-is-back-and-hes-reinventing-investing-again/",
+    "washington_post_steinhardt_retire_1995": "https://www.washingtonpost.com/archive/business/1995/10/12/wall-sts-michael-steinhardt-to-retire/f772d79b-d6f1-4cd0-8d0c-86da1a7c2c18/",
+    "latimes_nash_odyssey_2008": "https://www.latimes.com/archives/la-xpm-2008-aug-02-me-nash2-story.html",
+    "davis_funds_about": "https://www.davisfunds.com/about",
+    "nasdaq_contrarian_2022": "https://www.nasdaq.com/articles/thinking-alike-crowded-trades-and-contrarian-investing-bubble-2022-01-11",
+    "unknown_market_wizards_everand": "https://www.everand.com/book/475113824/Unknown-Market-Wizards-The-best-traders-you-ve-never-heard-of",
+    "benzinga_factor_audit_2017": "https://www.benzinga.com/news/17/06/9572095/grown-from-grain-peter-brandt-to-talk-career-market-philosophy-on-premarket-prep/",
+    "sec_oaktree_10k_2025": "https://www.sec.gov/Archives/edgar/data/1403528/000140352825000013/oak-20241231.htm",
+    "washington_post_2010": "https://www.washingtonpost.com/archive/business/2010/04/25/steve-cohens-trade-secrets/02b1e609-c3d5-4a70-812f-a91937992a7d/",
+    "ft_profile_2024": "https://www.ft.com/content/44de49bc-0d9d-419c-93d2-1c5343f98247",
+    "walter_schloss_profile": "https://en.wikipedia.org/wiki/Walter_Schloss",
+    "book_appendix_public_citations": "https://gist.github.com/breeko/b2b133e998d20ddcf2b6f2d40aa8f735",
+    "mastersinvest": "https://mastersinvest.com/masters",
+    "historical_compilations": "https://www.fool.com/investing/2023/11/28/charlie-munger-appreciation/",
+    "institutional_investor_profile": "https://bsporigin.institutionalinvestor.com/article/2btgfi071p6yvdlmytfy8/premium/the-value-of-seth-klarman"
+  }
+}

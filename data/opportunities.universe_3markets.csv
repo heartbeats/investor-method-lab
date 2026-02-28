@@ -1,0 +1,31 @@
+ticker,name,sector,note
+AAPL,Apple,Technology,US core
+MSFT,Microsoft,Technology,US core
+GOOGL,Alphabet,Communication Services,US core
+AMZN,Amazon,Consumer Cyclical,US core
+META,Meta Platforms,Communication Services,US core
+TSLA,Tesla,Consumer Cyclical,US growth
+NVDA,NVIDIA,Technology,US growth
+BRK.B,Berkshire Hathaway,Financial Services,US quality
+JPM,JPMorgan,Financial Services,US quality
+V,Visa,Financial Services,US quality
+XOM,Exxon Mobil,Energy,US cyclical
+UNH,UnitedHealth,Healthcare,US healthcare
+ADBE,Adobe,Technology,US software
+0700.HK,Tencent Holdings,Communication Services,HK core
+3690.HK,Meituan,Consumer Cyclical,HK internet
+9988.HK,Alibaba Group HK,Consumer Cyclical,HK internet
+1810.HK,Xiaomi,Technology,HK hardware
+1211.HK,BYD Company HK,Consumer Cyclical,HK auto
+9618.HK,JD.com HK,Consumer Cyclical,HK ecommerce
+9999.HK,NetEase HK,Communication Services,HK game
+0981.HK,SMIC,Technology,HK semiconductor
+600519.SS,贵州茅台,Consumer Defensive,A core
+000858.SZ,五粮液,Consumer Defensive,A core
+300750.SZ,宁德时代,Industrials,A growth
+600036.SS,招商银行,Financial Services,A quality
+601318.SS,中国平安,Financial Services,A quality
+600900.SS,长江电力,Utilities,A defensive
+002594.SZ,比亚迪A,Consumer Cyclical,A auto
+600276.SS,恒瑞医药,Healthcare,A healthcare
+601899.SS,紫金矿业,Basic Materials,A resources

@@ -1,0 +1,175 @@
+{
+  "strategies": [
+    {
+      "id": "value_quality",
+      "name": "价值+质量",
+      "core_question": "这是不是一家被低估的高质量公司？",
+      "screening_rules": [
+        "价格显著低于合理价值",
+        "ROIC/现金流质量优秀",
+        "业务护城河可持续"
+      ],
+      "weights": {
+        "margin_of_safety": 0.3,
+        "quality": 0.28,
+        "growth": 0.08,
+        "momentum": 0.04,
+        "catalyst": 0.14,
+        "risk_control": 0.16
+      },
+      "investor_ids": ["warren_buffett", "charlie_munger", "li_lu"]
+    },
+    {
+      "id": "growth_at_reasonable_price",
+      "name": "合理价格成长（GARP）",
+      "core_question": "能否以合理价格买到可持续增长？",
+      "screening_rules": [
+        "增长质量高且估值不过热",
+        "行业空间未见顶",
+        "管理层执行强"
+      ],
+      "weights": {
+        "margin_of_safety": 0.16,
+        "quality": 0.2,
+        "growth": 0.32,
+        "momentum": 0.1,
+        "catalyst": 0.14,
+        "risk_control": 0.08
+      },
+      "investor_ids": ["peter_lynch"]
+    },
+    {
+      "id": "deep_value_contrarian",
+      "name": "深度价值反转",
+      "core_question": "市场是否因情绪极端错杀资产？",
+      "screening_rules": [
+        "估值极端便宜",
+        "下行有硬资产/现金流保护",
+        "有明确修复催化"
+      ],
+      "weights": {
+        "margin_of_safety": 0.36,
+        "quality": 0.12,
+        "growth": 0.04,
+        "momentum": 0.05,
+        "catalyst": 0.22,
+        "risk_control": 0.21
+      },
+      "investor_ids": ["howard_marks", "seth_klarman", "mohnish_pabrai"]
+    },
+    {
+      "id": "macro_regime",
+      "name": "宏观周期配置",
+      "core_question": "当前宏观阶段下该押注哪个方向？",
+      "screening_rules": [
+        "确定宏观状态（通胀/增长/流动性）",
+        "选择受益资产方向",
+        "动态调仓并控制回撤"
+      ],
+      "weights": {
+        "margin_of_safety": 0.08,
+        "quality": 0.12,
+        "growth": 0.12,
+        "momentum": 0.24,
+        "catalyst": 0.26,
+        "risk_control": 0.18
+      },
+      "investor_ids": ["ray_dalio", "stanley_druckenmiller", "george_soros"]
+    },
+    {
+      "id": "systematic_quality_value",
+      "name": "系统化质量价值",
+      "core_question": "能否用规则稳定捕捉高质量低估值？",
+      "screening_rules": [
+        "先定义指标，再执行纪律",
+        "避免主观临场波动",
+        "定期再平衡"
+      ],
+      "weights": {
+        "margin_of_safety": 0.25,
+        "quality": 0.24,
+        "growth": 0.09,
+        "momentum": 0.09,
+        "catalyst": 0.12,
+        "risk_control": 0.21
+      },
+      "investor_ids": ["joel_greenblatt"]
+    },
+    {
+      "id": "trend_following",
+      "name": "趋势跟随",
+      "core_question": "主趋势是否形成并有继续强化迹象？",
+      "screening_rules": [
+        "趋势结构清晰",
+        "催化未结束",
+        "止损纪律清晰"
+      ],
+      "weights": {
+        "margin_of_safety": 0.05,
+        "quality": 0.08,
+        "growth": 0.13,
+        "momentum": 0.41,
+        "catalyst": 0.23,
+        "risk_control": 0.1
+      },
+      "investor_ids": ["stanley_druckenmiller"]
+    },
+    {
+      "id": "scale_economies_shared",
+      "name": "共享规模经济",
+      "core_question": "企业是否把规模优势持续让利并形成飞轮？",
+      "screening_rules": [
+        "成本优势随规模强化",
+        "让利带来更高需求",
+        "飞轮持续自增强"
+      ],
+      "weights": {
+        "margin_of_safety": 0.2,
+        "quality": 0.26,
+        "growth": 0.2,
+        "momentum": 0.08,
+        "catalyst": 0.12,
+        "risk_control": 0.14
+      },
+      "investor_ids": ["nick_sleep"]
+    },
+    {
+      "id": "credit_cycle",
+      "name": "信用周期",
+      "core_question": "信用扩张/收缩阶段对应哪类资产胜率更高？",
+      "screening_rules": [
+        "识别信用宽松与收紧",
+        "关注违约率和利差变化",
+        "优先考虑下行保护"
+      ],
+      "weights": {
+        "margin_of_safety": 0.22,
+        "quality": 0.12,
+        "growth": 0.08,
+        "momentum": 0.19,
+        "catalyst": 0.2,
+        "risk_control": 0.19
+      },
+      "investor_ids": ["howard_marks"]
+    },
+    {
+      "id": "reflexivity",
+      "name": "反身性交易",
+      "core_question": "叙事和资金流是否正在自我强化？",
+      "screening_rules": [
+        "识别叙事闭环",
+        "捕捉加速和失真",
+        "反转时快速收缩风险"
+      ],
+      "weights": {
+        "margin_of_safety": 0.02,
+        "quality": 0.07,
+        "growth": 0.13,
+        "momentum": 0.36,
+        "catalyst": 0.28,
+        "risk_control": 0.14
+      },
+      "investor_ids": ["george_soros"]
+    }
+  ]
+}

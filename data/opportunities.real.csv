@@ -1,0 +1,19 @@
+ticker,name,sector,price_to_fair_value,quality_score,growth_score,momentum_score,catalyst_score,risk_score,certainty_score,note
+AAPL,Apple,Technology,0.9118,52.2,33.1,36.9,56.2,48.4,47.7,现金流与生态壁垒稳健 | real-data@2026-02-27 | close=267.22 | target=293.07 | upside=9.7%
+MSFT,Microsoft,Technology,0.6617,37.6,16.9,79.2,11.5,56.7,36.5,AI+云增长持续 | real-data@2026-02-27 | close=394.38 | target=596.00 | upside=51.1%
+GOOGL,Alphabet,Communication Services,0.8151,41.3,22.2,26.1,36.8,75.2,30.6,广告复苏+算力投入 | real-data@2026-02-27 | close=307.20 | target=376.86 | upside=22.7%
+AMZN,Amazon,Consumer Cyclical,0.7408,68.8,57.2,69.2,35.6,51.9,48.9,零售效率改善+云服务增长 | real-data@2026-02-27 | close=207.77 | target=280.47 | upside=35.0%
+META,Meta Platforms,Communication Services,0.7434,43.5,40.0,58.9,34.1,41.9,42.1,广告效率提升 | real-data@2026-02-27 | close=641.71 | target=863.20 | upside=34.5%
+TSM,Taiwan Semi,Technology,0.8860,31.2,16.7,12.5,54.4,51.8,47.6,先进制程需求强 | real-data@2026-02-27 | close=373.46 | target=421.49 | upside=12.9%
+ASML,ASML,Technology,0.9740,46.9,64.7,5.6,73.3,49.2,56.7,设备壁垒高 | real-data@2026-02-27 | close=1449.76 | target=1488.50 | upside=2.7%
+BRK.B,Berkshire Hathaway,Financial Services,0.9567,63.4,53.8,42.5,70.6,92.1,51.3,保险浮存金与多元资产 | real-data@2026-02-27 | close=503.21 | target=526.00 | upside=4.5%
+JPM,JPMorgan,Financial Services,0.8589,66.4,75.8,42.5,73.6,71.7,55.3,利率周期下息差韧性 | real-data@2026-02-27 | close=295.77 | target=344.35 | upside=16.4%
+V,Visa,Financial Services,0.7906,24.7,38.6,65.8,39.7,78.5,27.5,支付网络强定价权 | real-data@2026-02-27 | close=316.88 | target=400.81 | upside=26.5%
+XOM,Exxon Mobil,Energy,1.0661,75.2,85.3,20.0,89.8,89.5,51.4,供需错配带来周期机会 | real-data@2026-02-27 | close=151.43 | target=142.04 | upside=-6.2%
+NVO,Novo Nordisk,Healthcare,0.6958,30.7,83.9,100.0,58.6,28.2,57.9,减重新药高增长但估值偏贵 | real-data@2026-02-27 | close=37.41 | target=53.77 | upside=43.7%
+UNH,UnitedHealth,Healthcare,0.8030,89.4,82.5,71.1,68.1,26.5,79.9,医保管理现金流稳定 | real-data@2026-02-27 | close=292.80 | target=364.62 | upside=24.5%
+TSLA,Tesla,Consumer Cyclical,0.9480,80.5,94.4,37.5,83.6,32.7,67.6,高成长高波动 | real-data@2026-02-27 | close=399.81 | target=421.73 | upside=5.5%
+PLTR,Palantir,Technology,0.7276,37.4,5.6,63.6,39.9,21.4,56.6,AI叙事强但风险较高 | real-data@2026-02-27 | close=135.24 | target=185.87 | upside=37.4%
+BABA,Alibaba,Consumer Cyclical,0.7200,77.3,83.1,46.1,45.4,42.5,61.0,低估值+治理与竞争不确定 | real-data@2026-02-27 | close=144.38 | target=200.52 | upside=38.9%
+PDD,PDD,Consumer Cyclical,0.6960,46.7,47.2,78.1,34.0,59.2,45.3,出海增长快 | real-data@2026-02-27 | close=104.14 | target=149.62 | upside=43.7%
+ADBE,Adobe,Technology,0.6376,36.7,49.0,94.4,44.8,32.9,51.1,高续费率与现金流 | real-data@2026-02-27 | close=260.43 | target=408.47 | upside=56.8%

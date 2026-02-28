@@ -1,0 +1,347 @@
+from __future__ import annotations
+
+from dataclasses import dataclass
+from typing import Any, Dict, Iterable, List, Tuple
+
+from investor_method_lab.scoring import (
+    clamp01,
+    normalize_weights,
+    parse_float,
+    score_opportunity,
+    top_reasons,
+)
+
+
+@dataclass
+class GroupProfile:
+    id: str
+    name: str
+    core_question: str
+    weights: Dict[str, float]
+    members: List[Dict[str, Any]]
+    group_weight: float
+    bucket_matches: List[str]
+
+
+VALUE_QUALITY_COMPOUND_RULES = {
+    "min_margin_of_safety": 0.15,
+    "preferred_margin_of_safety": 0.30,
+    "min_certainty_score": 65.0,
+    "soft_certainty_score": 75.0,
+    "margin_soft_penalty": 0.88,
+    "certainty_soft_penalty": 0.92,
+}
+
+
+def _get_weights(
+    spec: Dict[str, Any], strategy_by_id: Dict[str, Dict[str, Any]]
+) -> Dict[str, float]:
+    if "custom_weights" in spec:
+        return normalize_weights(spec["custom_weights"])
+
+    strategy_id = spec.get("base_strategy_id")
+    if not strategy_id or strategy_id not in strategy_by_id:
+        raise ValueError(f"Unknown base strategy: {strategy_id}")
+    return normalize_weights(strategy_by_id[strategy_id].get("weights", {}))
+
+
+def build_group_profiles(
+    investors: Iterable[Dict[str, Any]],
+    framework: Dict[str, Any],
+    strategies: Iterable[Dict[str, Any]],
+) -> List[GroupProfile]:
+    investor_list = list(investors)
+    strategy_by_id = {item.get("id"): item for item in strategies}
+
+    profiles: List[GroupProfile] = []
+    total_members = 0
+
+    for spec in framework.get("groups", []):
+        buckets = set(spec.get("bucket_matches", []))
+        members = [
+            investor
+            for investor in investor_list
+            if investor.get("methodology_bucket") in buckets
+        ]
+        if not members:
+            continue
+
+        weights = _get_weights(spec, strategy_by_id)
+        total_members += len(members)
+        profiles.append(
+            GroupProfile(
+                id=spec.get("id", ""),
+                name=spec.get("name", ""),
+                core_question=spec.get("core_question", ""),
+                weights=weights,
+                members=members,
+                group_weight=0.0,
+                bucket_matches=sorted(buckets),
+            )
+        )
+
+    if total_members == 0:
+        return profiles
+
+    for profile in profiles:
+        profile.group_weight = len(profile.members) / total_members
+
+    return profiles
+
+
+def _format_member_names(members: List[Dict[str, Any]]) -> str:
+    return "、".join(item.get("name_cn", item.get("name_en", "")) for item in members)
+
+
+def _apply_group_rules(
+    profile: GroupProfile,
+    row: Dict[str, Any],
+    score: float,
+) -> Tuple[bool, float]:
+    if profile.id != "value_quality_compound":
+        return True, score
+
+    price_to_fair_value = parse_float(row.get("price_to_fair_value"), 1.0)
+    margin_of_safety = clamp01(1.0 - price_to_fair_value)
+    if margin_of_safety < VALUE_QUALITY_COMPOUND_RULES["min_margin_of_safety"]:
+        return False, 0.0
+
+    adjusted = score
+    if margin_of_safety < VALUE_QUALITY_COMPOUND_RULES["preferred_margin_of_safety"]:
+        adjusted *= VALUE_QUALITY_COMPOUND_RULES["margin_soft_penalty"]
+
+    if row.get("certainty_score") not in (None, ""):
+        certainty_score = parse_float(row.get("certainty_score"), 50.0)
+        if certainty_score < VALUE_QUALITY_COMPOUND_RULES["min_certainty_score"]:
+            return False, 0.0
+        if certainty_score < VALUE_QUALITY_COMPOUND_RULES["soft_certainty_score"]:
+            adjusted *= VALUE_QUALITY_COMPOUND_RULES["certainty_soft_penalty"]
+
+    return True, adjusted
+
+
+def _score_row_for_weights(
+    row: Dict[str, Any],
+    profile: GroupProfile,
+    weights: Dict[str, float],
+    score_key: str = "score",
+) -> Dict[str, Any] | None:
+    score, factors, contributions = score_opportunity(row, weights)
+    eligible, adjusted_score = _apply_group_rules(profile, row, score)
+    if not eligible:
+        return None
+
+    item = dict(row)
+    item[score_key] = round(adjusted_score, 2)
+    item["reason"] = " | ".join(top_reasons(contributions, top_n=2))
+    item["margin_of_safety"] = round(factors.get("margin_of_safety", 0.0) * 100, 1)
+    item["risk_control"] = round(factors.get("risk_control", 0.0) * 100, 1)
+    return item
+
+
+def rank_opportunities_for_each_group(
+    opportunities: Iterable[Dict[str, Any]],
+    profiles: List[GroupProfile],
+    top_n_per_group: int = 5,
+) -> List[Tuple[GroupProfile, List[Dict[str, Any]]]]:
+    opportunity_list = [dict(row) for row in opportunities]
+    ranked_by_group: List[Tuple[GroupProfile, List[Dict[str, Any]]]] = []
+
+    for profile in profiles:
+        rows = []
+        for row in opportunity_list:
+            scored = _score_row_for_weights(
+                row,
+                profile=profile,
+                weights=profile.weights,
+                score_key="group_score",
+            )
+            if scored is not None:
+                rows.append(scored)
+        rows.sort(key=lambda x: x["group_score"], reverse=True)
+        ranked_by_group.append((profile, rows[:top_n_per_group]))
+
+    return ranked_by_group
+
+
+def _rank_composite_opportunities(
+    opportunities: Iterable[Dict[str, Any]],
+    profiles: List[GroupProfile],
+) -> List[Dict[str, Any]]:
+    ranked: List[Dict[str, Any]] = []
+
+    for row in opportunities:
+        row_dict = dict(row)
+
+        total_score = 0.0
+        best_group_name = ""
+        best_group_weighted = -1.0
+        best_group_reasons: List[str] = []
+        best_group_factors: Dict[str, float] = {}
+
+        for profile in profiles:
+            score, factors, contributions = score_opportunity(row_dict, profile.weights)
+            eligible, adjusted_score = _apply_group_rules(profile, row_dict, score)
+            if not eligible:
+                continue
+
+            weighted = adjusted_score * profile.group_weight
+            total_score += weighted
+
+            if weighted > best_group_weighted:
+                best_group_weighted = weighted
+                best_group_name = profile.name
+                best_group_reasons = top_reasons(contributions, top_n=2)
+                best_group_factors = factors
+
+        if best_group_weighted < 0:
+            continue
+
+        row_dict["composite_score"] = round(total_score, 2)
+        row_dict["best_group"] = best_group_name
+        row_dict["best_reason"] = " | ".join(best_group_reasons)
+        row_dict["margin_of_safety"] = round(best_group_factors.get("margin_of_safety", 0.0) * 100, 1)
+        row_dict["risk_control"] = round(best_group_factors.get("risk_control", 0.0) * 100, 1)
+        ranked.append(row_dict)
+
+    ranked.sort(key=lambda x: x["composite_score"], reverse=True)
+    return ranked
+
+
+def rank_first_batch_opportunities(
+    opportunities: Iterable[Dict[str, Any]],
+    profiles: List[GroupProfile],
+    top_n: int = 10,
+) -> List[Dict[str, Any]]:
+    return _rank_composite_opportunities(opportunities, profiles)[:top_n]
+
+
+def rank_diversified_opportunities(
+    opportunities: Iterable[Dict[str, Any]],
+    profiles: List[GroupProfile],
+    top_n: int = 10,
+    max_per_sector: int = 2,
+) -> List[Dict[str, Any]]:
+    if max_per_sector <= 0:
+        raise ValueError("max_per_sector must be >= 1")
+
+    ranked_all = _rank_composite_opportunities(opportunities, profiles)
+    selected: List[Dict[str, Any]] = []
+    selected_tickers = set()
+    sector_count: Dict[str, int] = {}
+
+    for row in ranked_all:
+        sector = str(row.get("sector", "") or "Unknown")
+        if sector_count.get(sector, 0) >= max_per_sector:
+            continue
+        selected.append(row)
+        selected_tickers.add(row.get("ticker", ""))
+        sector_count[sector] = sector_count.get(sector, 0) + 1
+        if len(selected) >= top_n:
+            return selected
+
+    for row in ranked_all:
+        ticker = row.get("ticker", "")
+        if ticker in selected_tickers:
+            continue
+        selected.append(row)
+        if len(selected) >= top_n:
+            break
+
+    return selected
+
+
+def _weight_to_pct(value: float) -> str:
+    return f"{value * 100:.1f}%"
+
+
+def _escape_md_cell(value: Any) -> str:
+    text = str(value)
+    text = text.replace("|", "\\|")
+    return text.replace("\n", "<br>")
+
+
+def render_opportunity_pack_markdown(
+    as_of_date: str,
+    profiles: List[GroupProfile],
+    top_rows: List[Dict[str, Any]],
+    group_top_rows: List[Tuple[GroupProfile, List[Dict[str, Any]]]] | None = None,
+    diversified_rows: List[Dict[str, Any]] | None = None,
+    per_group_top_n: int = 5,
+    max_per_sector: int = 2,
+) -> str:
+    lines: List[str] = []
+    lines.append("# Top20 方法论机会包")
+    lines.append("")
+    lines.append(f"更新时间：{as_of_date}")
+    lines.append("")
+
+    lines.append("## 1) 方法论分组")
+    lines.append("")
+    lines.append("| 分组 | 核心问题 | 代表投资人 | 人数 | 组合权重 |")
+    lines.append("|---|---|---|---:|---:|")
+    for profile in profiles:
+        lines.append(
+            f"| {_escape_md_cell(profile.name)} | {_escape_md_cell(profile.core_question)} | "
+            f"{_escape_md_cell(_format_member_names(profile.members))} | "
+            f"{len(profile.members)} | {_weight_to_pct(profile.group_weight)} |"
+        )
+
+    lines.append("")
+    lines.append("## 2) 因子权重")
+    lines.append("")
+    lines.append("| 分组 | 安全边际 | 质量 | 成长 | 趋势 | 催化 | 风控 |")
+    lines.append("|---|---:|---:|---:|---:|---:|---:|")
+    for profile in profiles:
+        w = profile.weights
+        lines.append(
+            f"| {_escape_md_cell(profile.name)} | {_weight_to_pct(w.get('margin_of_safety', 0.0))} | "
+            f"{_weight_to_pct(w.get('quality', 0.0))} | {_weight_to_pct(w.get('growth', 0.0))} | "
+            f"{_weight_to_pct(w.get('momentum', 0.0))} | {_weight_to_pct(w.get('catalyst', 0.0))} | "
+            f"{_weight_to_pct(w.get('risk_control', 0.0))} |"
+        )
+
+    lines.append("")
+    lines.append("## 3) 首批机会池 TOP10（组合评分）")
+    lines.append("")
+    lines.append("| 排名 | 代码 | 公司 | 行业 | 组合分 | 最匹配方法论 | 理由 | 备注 |")
+    lines.append("|---|---|---|---|---:|---|---|---|")
+    for idx, row in enumerate(top_rows, start=1):
+        lines.append(
+            f"| {idx} | {_escape_md_cell(row.get('ticker', ''))} | {_escape_md_cell(row.get('name', ''))} | "
+            f"{_escape_md_cell(row.get('sector', ''))} | {row.get('composite_score', 0.0):.2f} | "
+            f"{_escape_md_cell(row.get('best_group', ''))} | {_escape_md_cell(row.get('best_reason', ''))} | "
+            f"{_escape_md_cell(row.get('note', ''))} |"
+        )
+
+    if group_top_rows:
+        lines.append("")
+        lines.append(f"## 4) 各方法论 Top{per_group_top_n} 机会池")
+        lines.append("")
+        for profile, rows in group_top_rows:
+            lines.append(f"### {profile.name}")
+            lines.append("")
+            lines.append("| 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |")
+            lines.append("|---|---|---|---|---:|---|---|")
+            for idx, row in enumerate(rows, start=1):
+                lines.append(
+                    f"| {idx} | {_escape_md_cell(row.get('ticker', ''))} | {_escape_md_cell(row.get('name', ''))} | "
+                    f"{_escape_md_cell(row.get('sector', ''))} | {row.get('group_score', 0.0):.2f} | "
+                    f"{_escape_md_cell(row.get('reason', ''))} | {_escape_md_cell(row.get('note', ''))} |"
+                )
+            lines.append("")
+
+    if diversified_rows:
+        lines.append(f"## 5) 行业分散约束版 TOP10（单行业最多 {max_per_sector} 个）")
+        lines.append("")
+        lines.append("| 排名 | 代码 | 公司 | 行业 | 组合分 | 最匹配方法论 | 理由 | 备注 |")
+        lines.append("|---|---|---|---|---:|---|---|---|")
+        for idx, row in enumerate(diversified_rows, start=1):
+            lines.append(
+                f"| {idx} | {_escape_md_cell(row.get('ticker', ''))} | {_escape_md_cell(row.get('name', ''))} | "
+                f"{_escape_md_cell(row.get('sector', ''))} | {row.get('composite_score', 0.0):.2f} | "
+                f"{_escape_md_cell(row.get('best_group', ''))} | {_escape_md_cell(row.get('best_reason', ''))} | "
+                f"{_escape_md_cell(row.get('note', ''))} |"
+            )
+
+    return "\n".join(lines)
