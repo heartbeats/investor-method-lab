@@ -1,0 +1,184 @@
+{
+  "as_of_utc": "2026-03-02T13:26:27.862436+00:00",
+  "source_count": 11,
+  "status_counts": {
+    "ok": 10,
+    "blocked": 1
+  },
+  "sources": [
+    {
+      "id": "sec_edgar_api",
+      "name": "SEC EDGAR API",
+      "category": "holdings_filings",
+      "markets": [
+        "US"
+      ],
+      "url": "https://www.sec.gov/edgar/sec-api-documentation",
+      "update_frequency": "near_real_time",
+      "auth": "none",
+      "notes": "13F/10K/10Q 等官方披露主源",
+      "status": "ok",
+      "detail": "http 200; json key `filings` 命中",
+      "latency_ms": 1663
+    },
+    {
+      "id": "13f_info_mirror",
+      "name": "13f.info Mirror",
+      "category": "holdings_filings",
+      "markets": [
+        "US"
+      ],
+      "url": "https://13f.info",
+      "update_frequency": "quarterly_13f",
+      "auth": "none",
+      "notes": "SEC 13F 镜像，用于官方接口异常时回退",
+      "status": "ok",
+      "detail": "http 200",
+      "latency_ms": 1257
+    },
+    {
+      "id": "yahoo_yfinance",
+      "name": "Yahoo Finance (yfinance)",
+      "category": "quotes",
+      "markets": [
+        "US",
+        "HK",
+        "CN"
+      ],
+      "url": "https://finance.yahoo.com",
+      "update_frequency": "delayed_realtime",
+      "auth": "none",
+      "notes": "当前网页默认价格源之一",
+      "status": "ok",
+      "detail": "AAPL 行情可获取",
+      "latency_ms": 2591
+    },
+    {
+      "id": "futu_opend",
+      "name": "Futu OpenD",
+      "category": "quotes_broker_data",
+      "markets": [
+        "US",
+        "HK",
+        "CN"
+      ],
+      "url": "https://www.futunn.com/OpenAPI",
+      "update_frequency": "realtime_with_permission",
+      "auth": "broker_login+market_permission",
+      "notes": "可用于实时报价、持仓、交易流水（需权限）",
+      "status": "ok",
+      "detail": "OpenD 可用，已完成行情权限探测。 | US=no_permission, HK=ok, CN=ok",
+      "latency_ms": null
+    },
+    {
+      "id": "ark_etf_holdings",
+      "name": "ARK ETF Holdings CSV",
+      "category": "fund_holdings",
+      "markets": [
+        "US"
+      ],
+      "url": "https://www.ark-funds.com/funds/arkk",
+      "update_frequency": "daily",
+      "auth": "none",
+      "notes": "木头姐相关 ETF 日度持仓（当前环境可能被反爬阻断）",
+      "status": "blocked",
+      "detail": "http 403",
+      "latency_ms": 2292
+    },
+    {
+      "id": "hkex_di",
+      "name": "HKEX Disclosure of Interests",
+      "category": "insider_substantial_holder",
+      "markets": [
+        "HK"
+      ],
+      "url": "https://di.hkex.com.hk/di/notes/NSSrchPersonList.htm",
+      "update_frequency": "event_driven",
+      "auth": "none",
+      "notes": "港股董监高/大股东权益披露",
+      "status": "ok",
+      "detail": "http 200",
+      "latency_ms": 1305
+    },
+    {
+      "id": "eastmoney_quote_api",
+      "name": "Eastmoney Quote API",
+      "category": "quotes",
+      "markets": [
+        "CN"
+      ],
+      "url": "https://push2.eastmoney.com/api/qt/stock/get?secid=1.600519&fields=f43,f57,f58,f60",
+      "update_frequency": "intraday",
+      "auth": "none",
+      "notes": "A 股行情补源（公开接口，稳定性需监控）",
+      "status": "ok",
+      "detail": "http 200; json key `data` 命中",
+      "latency_ms": 86
+    },
+    {
+      "id": "openinsider",
+      "name": "OpenInsider",
+      "category": "insider_trades",
+      "markets": [
+        "US"
+      ],
+      "url": "http://openinsider.com/",
+      "update_frequency": "daily",
+      "auth": "none",
+      "notes": "SEC Form 4 聚合检索，可补高管交易信号",
+      "status": "ok",
+      "detail": "http 200",
+      "latency_ms": 3009
+    },
+    {
+      "id": "us_house_disclosure",
+      "name": "US House Financial Disclosure",
+      "category": "politician_disclosure",
+      "markets": [
+        "US"
+      ],
+      "url": "https://disclosures-clerk.house.gov/FinancialDisclosure/ViewReport",
+      "update_frequency": "event_driven",
+      "auth": "none",
+      "notes": "美国众议院官方财务披露/PTR 入口",
+      "status": "ok",
+      "detail": "http 200",
+      "latency_ms": 3196
+    },
+    {
+      "id": "us_senate_disclosure",
+      "name": "US Senate eFD Search",
+      "category": "politician_disclosure",
+      "markets": [
+        "US"
+      ],
+      "url": "https://efdsearch.senate.gov/search/home/",
+      "update_frequency": "event_driven",
+      "auth": "none",
+      "notes": "美国参议院官方 eFD 披露检索入口",
+      "status": "ok",
+      "detail": "http 200",
+      "latency_ms": 6566
+    },
+    {
+      "id": "capitol_trades",
+      "name": "Capitol Trades",
+      "category": "politician_disclosure_aggregator",
+      "markets": [
+        "US"
+      ],
+      "url": "https://www.capitoltrades.com/trades?page=1",
+      "update_frequency": "daily",
+      "auth": "none",
+      "notes": "议员交易聚合页（辅助交叉核对）",
+      "status": "ok",
+      "detail": "http 200",
+      "latency_ms": 1338
+    }
+  ],
+  "recommendation": [
+    "优先把 status=ok/partial 的源接入自动任务，status=blocked 的源做浏览器会话下载或人工补录。",
+    "对 OpenD 维持市场级权限监控（US/HK/CN），避免误判“已可量化”。",
+    "对议员披露源建立双源交叉（官方入口 + 聚合站）以降低漏单风险。"
+  ]
+}

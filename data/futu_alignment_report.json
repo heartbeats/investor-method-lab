@@ -1,0 +1,3012 @@
+{
+  "as_of_utc": "2026-03-02T13:41:55.242588+00:00",
+  "focus_investor_ids": [
+    "duan_yongping",
+    "joel_greenblatt",
+    "li_lu",
+    "james_simons",
+    "bruce_kovner",
+    "george_soros",
+    "stanley_druckenmiller",
+    "steven_cohen",
+    "paul_tudor_jones",
+    "warren_buffett",
+    "charlie_munger",
+    "seth_klarman",
+    "bill_ackman",
+    "howard_marks",
+    "dan_loeb",
+    "cathie_wood",
+    "jensen_huang"
+  ],
+  "target_selection_mode": "auto_by_futu_alignment_status",
+  "target_statuses": [
+    "partial_direct_plus_lookthrough",
+    "ready_for_futu_compare"
+  ],
+  "futu_runtime_snapshot": {
+    "status": "verified",
+    "endpoint": "127.0.0.1:11112",
+    "port": 11112,
+    "note": "OpenD 可用，已完成行情权限探测。",
+    "market_permissions": {
+      "US": "no_permission",
+      "HK": "ok",
+      "CN": "ok"
+    },
+    "market_probe_note": {
+      "US": "无权限获取US.AAPL的行情，请检查美国市场股票行情权限",
+      "HK": "quote success",
+      "CN": "quote success"
+    }
+  },
+  "summary": {
+    "focus_investor_count": 17,
+    "total_holdings": 152,
+    "total_quote_eligible_hits": 73,
+    "total_any_source_priced_hits": 72,
+    "all_interface_asset_coverage_pct": 98.63,
+    "total_expected_opend_hits": 2,
+    "total_actual_opend_hits": 2,
+    "overall_expected_hit_rate_pct": 100.0,
+    "total_missing_expected_rows": 0,
+    "total_permission_blocked_rows": 71
+  },
+  "investors": [
+    {
+      "id": "duan_yongping",
+      "name_cn": "段永平",
+      "name_en": "Duan Yongping",
+      "role_type": "investor",
+      "futu_alignment_status": "ready_for_futu_compare",
+      "futu_alignment_note": "已具备13F映射，可继续与富途页面做逐项对照。",
+      "holdings_total": 9,
+      "quote_eligible_hits": 9,
+      "any_source_priced_hits": 9,
+      "all_interface_asset_coverage_pct": 100.0,
+      "market_count": {
+        "US": 8,
+        "HK": 1,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 1,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 97.09,
+      "disclosed_weight_any_source_coverage_pct": 100.0,
+      "expected_opend_hits": 1,
+      "actual_opend_hits": 1,
+      "expected_hit_rate_pct": 100.0,
+      "disclosed_weight_sum_pct": 97.09,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": 0.0,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [
+        {
+          "asset": "APPLE INC",
+          "ticker": "AAPL",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "BERKSHIRE HATHAWAY INC DEL",
+          "ticker": "BRK-B",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "NVIDIA CORPORATION",
+          "ticker": "NVDA",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "PDD HOLDINGS INC",
+          "ticker": "PDD",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "ALPHABET INC",
+          "ticker": "GOOG",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "OCCIDENTAL PETE CORP",
+          "ticker": "OXY",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "MICROSOFT CORP",
+          "ticker": "MSFT",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "ALIBABA GROUP HLDG LTD",
+          "ticker": "BABA",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        }
+      ],
+      "rows": [
+        {
+          "asset": "APPLE INC",
+          "ticker": "AAPL",
+          "market": "US",
+          "weight_pct": 50.3,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "264.1800",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "BERKSHIRE HATHAWAY INC DEL",
+          "ticker": "BRK-B",
+          "market": "US",
+          "weight_pct": 20.63,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "504.9500",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "NVIDIA CORPORATION",
+          "ticker": "NVDA",
+          "market": "US",
+          "weight_pct": 7.72,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "177.1900",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "PDD HOLDINGS INC",
+          "ticker": "PDD",
+          "market": "US",
+          "weight_pct": 7.48,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "103.7300",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "ALPHABET INC",
+          "ticker": "GOOG",
+          "market": "US",
+          "weight_pct": 3.33,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "311.4300",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "OCCIDENTAL PETE CORP",
+          "ticker": "OXY",
+          "market": "US",
+          "weight_pct": 3.1,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "53.0800",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "MICROSOFT CORP",
+          "ticker": "MSFT",
+          "market": "US",
+          "weight_pct": 2.38,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "392.7400",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "ALIBABA GROUP HLDG LTD",
+          "ticker": "BABA",
+          "market": "US",
+          "weight_pct": 2.15,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "144.1100",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "Tencent",
+          "ticker": "0700.HK",
+          "market": "HK",
+          "weight_pct": null,
+          "price_source": "Futu OpenD",
+          "price_text": "518.0000",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": true,
+          "opend_hit": true
+        }
+      ]
+    },
+    {
+      "id": "joel_greenblatt",
+      "name_cn": "乔尔·格林布拉特",
+      "name_en": "Joel Greenblatt",
+      "role_type": "investor",
+      "futu_alignment_status": "ready_for_futu_compare",
+      "futu_alignment_note": "已具备13F映射，可继续与富途页面做逐项对照。",
+      "holdings_total": 11,
+      "quote_eligible_hits": 4,
+      "any_source_priced_hits": 4,
+      "all_interface_asset_coverage_pct": 100.0,
+      "market_count": {
+        "US": 4,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 7
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 5.22,
+      "disclosed_weight_any_source_coverage_pct": 17.95,
+      "expected_opend_hits": 0,
+      "actual_opend_hits": 0,
+      "expected_hit_rate_pct": null,
+      "disclosed_weight_sum_pct": 29.08,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": 0.0,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [
+        {
+          "asset": "NVIDIA CORPORATION",
+          "ticker": "NVDA",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "APPLE INC",
+          "ticker": "AAPL",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "AMAZON COM INC",
+          "ticker": "AMZN",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "ALPHABET INC",
+          "ticker": "GOOG",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        }
+      ],
+      "rows": [
+        {
+          "asset": "SPDR S&P 500 ETF TR",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 16.75,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "ISHARES TR",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 3.13,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "TIDAL TRUST I",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 2.59,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "NVIDIA CORPORATION",
+          "ticker": "NVDA",
+          "market": "US",
+          "weight_pct": 2.01,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "177.1900",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "APPLE INC",
+          "ticker": "AAPL",
+          "market": "US",
+          "weight_pct": 1.55,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "264.1800",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "VANGUARD INDEX FDS",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 1.39,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "AMAZON COM INC",
+          "ticker": "AMZN",
+          "market": "US",
+          "weight_pct": 0.84,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "210.0000",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "ALPHABET INC",
+          "ticker": "GOOG",
+          "market": "US",
+          "weight_pct": 0.82,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "311.4300",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "General Growth Properties（破产重组）",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "分拆/重组特殊情境组合",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "高ROIC+低估值股票组合（Magic Formula）",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        }
+      ]
+    },
+    {
+      "id": "li_lu",
+      "name_cn": "李录",
+      "name_en": "Li Lu",
+      "role_type": "investor",
+      "futu_alignment_status": "ready_for_futu_compare",
+      "futu_alignment_note": "已具备13F映射，可继续与富途页面做逐项对照。",
+      "holdings_total": 8,
+      "quote_eligible_hits": 8,
+      "any_source_priced_hits": 8,
+      "all_interface_asset_coverage_pct": 100.0,
+      "market_count": {
+        "US": 8,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 100.0,
+      "disclosed_weight_any_source_coverage_pct": 100.0,
+      "expected_opend_hits": 0,
+      "actual_opend_hits": 0,
+      "expected_hit_rate_pct": null,
+      "disclosed_weight_sum_pct": 100.0,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": 0.0,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [
+        {
+          "asset": "ALPHABET INC",
+          "ticker": "GOOG",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "BK OF AMERICA CORP",
+          "ticker": "BAC",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "PDD HOLDINGS INC",
+          "ticker": "PDD",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "BERKSHIRE HATHAWAY INC DEL",
+          "ticker": "BRK-B",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "EAST WEST BANCORP INC",
+          "ticker": "EWBC",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "OCCIDENTAL PETE CORP",
+          "ticker": "OXY",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "CROCS INC",
+          "ticker": "CROX",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "APPLE INC",
+          "ticker": "AAPL",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        }
+      ],
+      "rows": [
+        {
+          "asset": "ALPHABET INC",
+          "ticker": "GOOG",
+          "market": "US",
+          "weight_pct": 43.86,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "311.4300",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "BK OF AMERICA CORP",
+          "ticker": "BAC",
+          "market": "US",
+          "weight_pct": 16.08,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "49.8300",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "PDD HOLDINGS INC",
+          "ticker": "PDD",
+          "market": "US",
+          "weight_pct": 14.64,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "103.7300",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "BERKSHIRE HATHAWAY INC DEL",
+          "ticker": "BRK-B",
+          "market": "US",
+          "weight_pct": 12.64,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "504.9500",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "EAST WEST BANCORP INC",
+          "ticker": "EWBC",
+          "market": "US",
+          "weight_pct": 8.74,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "109.4500",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "OCCIDENTAL PETE CORP",
+          "ticker": "OXY",
+          "market": "US",
+          "weight_pct": 1.69,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "53.0800",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "CROCS INC",
+          "ticker": "CROX",
+          "market": "US",
+          "weight_pct": 1.51,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "90.7100",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "APPLE INC",
+          "ticker": "AAPL",
+          "market": "US",
+          "weight_pct": 0.84,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "264.1800",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        }
+      ]
+    },
+    {
+      "id": "james_simons",
+      "name_cn": "詹姆斯·西蒙斯",
+      "name_en": "James Simons",
+      "role_type": "investor",
+      "futu_alignment_status": "ready_for_futu_compare",
+      "futu_alignment_note": "已具备13F映射，可继续与富途页面做逐项对照。",
+      "holdings_total": 11,
+      "quote_eligible_hits": 3,
+      "any_source_priced_hits": 3,
+      "all_interface_asset_coverage_pct": 100.0,
+      "market_count": {
+        "US": 3,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 8
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 4.71,
+      "disclosed_weight_any_source_coverage_pct": 45.82,
+      "expected_opend_hits": 0,
+      "actual_opend_hits": 0,
+      "expected_hit_rate_pct": null,
+      "disclosed_weight_sum_pct": 10.28,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": 0.0,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [
+        {
+          "asset": "PALANTIR TECHNOLOGIES INC",
+          "ticker": "PLTR",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "MICRON TECHNOLOGY INC",
+          "ticker": "MU",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "TESLA INC",
+          "ticker": "TSLA",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        }
+      ],
+      "rows": [
+        {
+          "asset": "PALANTIR TECHNOLOGIES INC",
+          "ticker": "PLTR",
+          "market": "US",
+          "weight_pct": 2.43,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "137.1900",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "UNITED THERAPEUTICS CORP DEL",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 1.44,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "MICRON TECHNOLOGY INC",
+          "ticker": "MU",
+          "market": "US",
+          "weight_pct": 1.33,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "412.3700",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "KINROSS GOLD CORP",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 1.09,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "VERISIGN INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 1.05,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "NETFLIX INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 1.04,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "TESLA INC",
+          "ticker": "TSLA",
+          "market": "US",
+          "weight_pct": 0.95,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "402.5100",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "EXELIXIS INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 0.95,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "高频股票统计套利组合",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "期货量化组合",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "外汇与跨资产量化组合",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        }
+      ]
+    },
+    {
+      "id": "bruce_kovner",
+      "name_cn": "布鲁斯·科夫纳",
+      "name_en": "Bruce Kovner",
+      "role_type": "investor",
+      "futu_alignment_status": "ready_for_futu_compare",
+      "futu_alignment_note": "已具备13F映射，可继续与富途页面做逐项对照。",
+      "holdings_total": 11,
+      "quote_eligible_hits": 3,
+      "any_source_priced_hits": 3,
+      "all_interface_asset_coverage_pct": 100.0,
+      "market_count": {
+        "US": 3,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 8
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 47.72,
+      "disclosed_weight_any_source_coverage_pct": 79.81,
+      "expected_opend_hits": 0,
+      "actual_opend_hits": 0,
+      "expected_hit_rate_pct": null,
+      "disclosed_weight_sum_pct": 59.79,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": 0.0,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [
+        {
+          "asset": "TESLA INC",
+          "ticker": "TSLA",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "AMAZON COM INC",
+          "ticker": "AMZN",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "ADVANCED MICRO DEVICES INC",
+          "ticker": "AMD",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        }
+      ],
+      "rows": [
+        {
+          "asset": "TESLA INC",
+          "ticker": "TSLA",
+          "market": "US",
+          "weight_pct": 26.79,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "402.5100",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "AMAZON COM INC",
+          "ticker": "AMZN",
+          "market": "US",
+          "weight_pct": 16.75,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "210.0000",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "ADVANCED MICRO DEVICES INC",
+          "ticker": "AMD",
+          "market": "US",
+          "weight_pct": 4.18,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "200.2100",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "ADOBE INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 3.64,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "CADENCE DESIGN SYSTEM INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 2.52,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "CENTENE CORP DEL",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 2.1,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "BOSTON SCIENTIFIC CORP",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 1.97,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "NETFLIX INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 1.84,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "G10外汇组合",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "利率期货组合",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "能源与农产品期货",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        }
+      ]
+    },
+    {
+      "id": "george_soros",
+      "name_cn": "乔治·索罗斯",
+      "name_en": "George Soros",
+      "role_type": "investor",
+      "futu_alignment_status": "ready_for_futu_compare",
+      "futu_alignment_note": "已具备13F映射，可继续与富途页面做逐项对照。",
+      "holdings_total": 11,
+      "quote_eligible_hits": 2,
+      "any_source_priced_hits": 2,
+      "all_interface_asset_coverage_pct": 100.0,
+      "market_count": {
+        "US": 2,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 9
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 9.43,
+      "disclosed_weight_any_source_coverage_pct": 34.5,
+      "expected_opend_hits": 0,
+      "actual_opend_hits": 0,
+      "expected_hit_rate_pct": null,
+      "disclosed_weight_sum_pct": 27.33,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": 0.0,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [
+        {
+          "asset": "AMAZON COM INC",
+          "ticker": "AMZN",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "ALPHABET INC",
+          "ticker": "GOOG",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        }
+      ],
+      "rows": [
+        {
+          "asset": "AMAZON COM INC",
+          "ticker": "AMZN",
+          "market": "US",
+          "weight_pct": 7.11,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "210.0000",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "SPDR SERIES TRUST",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 5.07,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "CONFLUENT INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 3.09,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "DROPBOX INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 2.68,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "SPOTIFY USA INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 2.56,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "ALPHABET INC",
+          "ticker": "GOOG",
+          "market": "US",
+          "weight_pct": 2.32,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "311.4300",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "SPDR S&P 500 ETF TR",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 2.3,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "RIVIAN AUTOMOTIVE INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 2.2,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "英镑空头（1992）",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "欧洲汇率机制相关货币头寸",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "宏观利率与货币组合",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        }
+      ]
+    },
+    {
+      "id": "stanley_druckenmiller",
+      "name_cn": "斯坦利·德鲁肯米勒",
+      "name_en": "Stanley Druckenmiller",
+      "role_type": "investor",
+      "futu_alignment_status": "ready_for_futu_compare",
+      "futu_alignment_note": "已具备13F映射，可继续与富途页面做逐项对照。",
+      "holdings_total": 11,
+      "quote_eligible_hits": 1,
+      "any_source_priced_hits": 1,
+      "all_interface_asset_coverage_pct": 100.0,
+      "market_count": {
+        "US": 1,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 10
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 4.3,
+      "disclosed_weight_any_source_coverage_pct": 8.94,
+      "expected_opend_hits": 0,
+      "actual_opend_hits": 0,
+      "expected_hit_rate_pct": null,
+      "disclosed_weight_sum_pct": 48.09,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": 0.0,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [
+        {
+          "asset": "AMAZON COM INC",
+          "ticker": "AMZN",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        }
+      ],
+      "rows": [
+        {
+          "asset": "NATERA INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 12.8,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "SELECT SECTOR SPDR TR",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 6.7,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "INSMED INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 5.74,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "ISHARES INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 5.5,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "INVESCO EXCHANGE TRADED FD T",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 5.0,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "AMAZON COM INC",
+          "ticker": "AMZN",
+          "market": "US",
+          "weight_pct": 4.3,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "210.0000",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "TEVA PHARMACEUTICAL INDS LTD",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 4.08,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "WOODWARD INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 3.97,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "科技成长股集中仓（历史）",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "美元与利率头寸",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "全球股指期货仓位",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        }
+      ]
+    },
+    {
+      "id": "steven_cohen",
+      "name_cn": "史蒂文·科恩",
+      "name_en": "Steven Cohen",
+      "role_type": "investor",
+      "futu_alignment_status": "ready_for_futu_compare",
+      "futu_alignment_note": "已具备13F映射，可继续与富途页面做逐项对照。",
+      "holdings_total": 11,
+      "quote_eligible_hits": 4,
+      "any_source_priced_hits": 4,
+      "all_interface_asset_coverage_pct": 100.0,
+      "market_count": {
+        "US": 4,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 7
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 6.21,
+      "disclosed_weight_any_source_coverage_pct": 43.7,
+      "expected_opend_hits": 0,
+      "actual_opend_hits": 0,
+      "expected_hit_rate_pct": null,
+      "disclosed_weight_sum_pct": 14.21,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": 0.0,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [
+        {
+          "asset": "NVIDIA CORPORATION",
+          "ticker": "NVDA",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "AMAZON COM INC",
+          "ticker": "AMZN",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "BROADCOM INC",
+          "ticker": "AVGO",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "MICROSOFT CORP",
+          "ticker": "MSFT",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        }
+      ],
+      "rows": [
+        {
+          "asset": "SPDR S&P 500 ETF TR",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 3.24,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "NVIDIA CORPORATION",
+          "ticker": "NVDA",
+          "market": "US",
+          "weight_pct": 2.19,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "177.1900",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "INVESCO QQQ TR",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 1.75,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "TAIWAN SEMICONDUCTOR MFG LTD",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 1.73,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "AMAZON COM INC",
+          "ticker": "AMZN",
+          "market": "US",
+          "weight_pct": 1.52,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "210.0000",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "BROADCOM INC",
+          "ticker": "AVGO",
+          "market": "US",
+          "weight_pct": 1.3,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "319.5500",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "ARISTA NETWORKS INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 1.28,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "MICROSOFT CORP",
+          "ticker": "MSFT",
+          "market": "US",
+          "weight_pct": 1.2,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "392.7400",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "美股科技龙头交易仓",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "医药生物交易仓",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "消费成长多空组合",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        }
+      ]
+    },
+    {
+      "id": "paul_tudor_jones",
+      "name_cn": "保罗·都铎·琼斯",
+      "name_en": "Paul Tudor Jones",
+      "role_type": "investor",
+      "futu_alignment_status": "ready_for_futu_compare",
+      "futu_alignment_note": "已具备13F映射，可继续与富途页面做逐项对照。",
+      "holdings_total": 11,
+      "quote_eligible_hits": 3,
+      "any_source_priced_hits": 3,
+      "all_interface_asset_coverage_pct": 100.0,
+      "market_count": {
+        "US": 3,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 8
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 5.56,
+      "disclosed_weight_any_source_coverage_pct": 15.1,
+      "expected_opend_hits": 0,
+      "actual_opend_hits": 0,
+      "expected_hit_rate_pct": null,
+      "disclosed_weight_sum_pct": 36.82,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": 0.0,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [
+        {
+          "asset": "NVIDIA CORP - US",
+          "ticker": "NVDA",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "MICROSOFT CORP - US",
+          "ticker": "MSFT",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "APPLE INC - US",
+          "ticker": "AAPL",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        }
+      ],
+      "rows": [
+        {
+          "asset": "ISHARES RUSSELL 2000 ETF - US ETP",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 17.25,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "INVESCO QQQ TRUST SERIES 1 - US ETP",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 7.96,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "STATE STREET SPDR S&P 500 ETF TRUST - US ETP",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 2.66,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "NVIDIA CORP - US",
+          "ticker": "NVDA",
+          "market": "US",
+          "weight_pct": 2.14,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "177.1900",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "MICROSOFT CORP - US",
+          "ticker": "MSFT",
+          "market": "US",
+          "weight_pct": 1.88,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "392.7400",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "ISHARES CORE S&P 500 ETF - US ETP",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 1.82,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "STATE STREET ENERGY SELECT SECTOR SPDR ETF - US ET",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 1.57,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "APPLE INC - US",
+          "ticker": "AAPL",
+          "market": "US",
+          "weight_pct": 1.54,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "264.1800",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "1987年股指期货空头",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "外汇宏观头寸",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "利率与商品期货组合",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        }
+      ]
+    },
+    {
+      "id": "warren_buffett",
+      "name_cn": "沃伦·巴菲特",
+      "name_en": "Warren Buffett",
+      "role_type": "investor",
+      "futu_alignment_status": "ready_for_futu_compare",
+      "futu_alignment_note": "已具备13F映射，可继续与富途页面做逐项对照。",
+      "holdings_total": 6,
+      "quote_eligible_hits": 6,
+      "any_source_priced_hits": 6,
+      "all_interface_asset_coverage_pct": 100.0,
+      "market_count": {
+        "US": 6,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 64.47,
+      "disclosed_weight_any_source_coverage_pct": 100.0,
+      "expected_opend_hits": 0,
+      "actual_opend_hits": 0,
+      "expected_hit_rate_pct": null,
+      "disclosed_weight_sum_pct": 64.47,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": 0.0,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [
+        {
+          "asset": "Apple",
+          "ticker": "AAPL",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "American Express",
+          "ticker": "AXP",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "Bank of America",
+          "ticker": "BAC",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "Coca-Cola",
+          "ticker": "KO",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "Chevron",
+          "ticker": "CVX",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "Occidental Petroleum",
+          "ticker": "OXY",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        }
+      ],
+      "rows": [
+        {
+          "asset": "Apple",
+          "ticker": "AAPL",
+          "market": "US",
+          "weight_pct": 22.6,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "264.1800",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "American Express",
+          "ticker": "AXP",
+          "market": "US",
+          "weight_pct": 20.46,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "308.9000",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "Bank of America",
+          "ticker": "BAC",
+          "market": "US",
+          "weight_pct": null,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "49.8300",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "Coca-Cola",
+          "ticker": "KO",
+          "market": "US",
+          "weight_pct": 10.2,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "81.5600",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "Chevron",
+          "ticker": "CVX",
+          "market": "US",
+          "weight_pct": 7.24,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "186.7600",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "Occidental Petroleum",
+          "ticker": "OXY",
+          "market": "US",
+          "weight_pct": 3.97,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "53.0800",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        }
+      ]
+    },
+    {
+      "id": "charlie_munger",
+      "name_cn": "查理·芒格",
+      "name_en": "Charlie Munger",
+      "role_type": "investor",
+      "futu_alignment_status": "ready_for_futu_compare",
+      "futu_alignment_note": "已具备13F映射，可继续与富途页面做逐项对照。",
+      "holdings_total": 3,
+      "quote_eligible_hits": 2,
+      "any_source_priced_hits": 2,
+      "all_interface_asset_coverage_pct": 100.0,
+      "market_count": {
+        "US": 1,
+        "HK": 1,
+        "CN": 0,
+        "OTHER": 1
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 1,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_any_source_coverage_pct": null,
+      "expected_opend_hits": 1,
+      "actual_opend_hits": 1,
+      "expected_hit_rate_pct": 100.0,
+      "disclosed_weight_sum_pct": 0.0,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": null,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [
+        {
+          "asset": "Costco",
+          "ticker": "COST",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        }
+      ],
+      "rows": [
+        {
+          "asset": "Costco",
+          "ticker": "COST",
+          "market": "US",
+          "weight_pct": null,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "1010.7900",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "BYD",
+          "ticker": "1211.HK",
+          "market": "HK",
+          "weight_pct": null,
+          "price_source": "Futu OpenD",
+          "price_text": "94.9500",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": true,
+          "opend_hit": true
+        },
+        {
+          "asset": "Daily Journal 公开持仓（历史）",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        }
+      ]
+    },
+    {
+      "id": "seth_klarman",
+      "name_cn": "塞思·卡拉曼",
+      "name_en": "Seth Klarman",
+      "role_type": "investor",
+      "futu_alignment_status": "ready_for_futu_compare",
+      "futu_alignment_note": "已具备13F映射，可继续与富途页面做逐项对照。",
+      "holdings_total": 11,
+      "quote_eligible_hits": 3,
+      "any_source_priced_hits": 3,
+      "all_interface_asset_coverage_pct": 100.0,
+      "market_count": {
+        "US": 3,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 8
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 26.18,
+      "disclosed_weight_any_source_coverage_pct": 41.93,
+      "expected_opend_hits": 0,
+      "actual_opend_hits": 0,
+      "expected_hit_rate_pct": null,
+      "disclosed_weight_sum_pct": 62.44,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": 0.0,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [
+        {
+          "asset": "RESTAURANT BRANDS INTL INC",
+          "ticker": "QSR",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "AMAZON COM INC",
+          "ticker": "AMZN",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "ALPHABET INC",
+          "ticker": "GOOG",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        }
+      ],
+      "rows": [
+        {
+          "asset": "RESTAURANT BRANDS INTL INC",
+          "ticker": "QSR",
+          "market": "US",
+          "weight_pct": 10.44,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "71.7100",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "AMAZON COM INC",
+          "ticker": "AMZN",
+          "market": "US",
+          "weight_pct": 9.28,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "210.0000",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "WILLIS TOWERS WATSON PLC LTD",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 8.45,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "ELEVANCE HEALTH INC FORMERLY",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 8.43,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "UNION PAC CORP",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 7.13,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "WESCO INTL INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 6.58,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "ALPHABET INC",
+          "ticker": "GOOG",
+          "market": "US",
+          "weight_pct": 6.46,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "311.4300",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "FIDELITY NATL INFORMATION SV",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 5.67,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "困境债与破产重组资产",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "深度价值股组合",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "现金与对冲头寸",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        }
+      ]
+    },
+    {
+      "id": "bill_ackman",
+      "name_cn": "比尔·阿克曼",
+      "name_en": "Bill Ackman",
+      "role_type": "investor",
+      "futu_alignment_status": "ready_for_futu_compare",
+      "futu_alignment_note": "已具备13F映射，可继续与富途页面做逐项对照。",
+      "holdings_total": 5,
+      "quote_eligible_hits": 5,
+      "any_source_priced_hits": 5,
+      "all_interface_asset_coverage_pct": 100.0,
+      "market_count": {
+        "US": 5,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 15.65,
+      "disclosed_weight_any_source_coverage_pct": 100.0,
+      "expected_opend_hits": 0,
+      "actual_opend_hits": 0,
+      "expected_hit_rate_pct": null,
+      "disclosed_weight_sum_pct": 15.65,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": 0.0,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [
+        {
+          "asset": "Hilton",
+          "ticker": "HLT",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "Chipotle",
+          "ticker": "CMG",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "Lowe's",
+          "ticker": "LOW",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "Universal Music Group",
+          "ticker": "UMG.AS",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "Restaurant Brands（历史）",
+          "ticker": "QSR",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        }
+      ],
+      "rows": [
+        {
+          "asset": "Hilton",
+          "ticker": "HLT",
+          "market": "US",
+          "weight_pct": 5.6,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "311.7800",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "Chipotle",
+          "ticker": "CMG",
+          "market": "US",
+          "weight_pct": null,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "37.2200",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "Lowe's",
+          "ticker": "LOW",
+          "market": "US",
+          "weight_pct": null,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "264.5700",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "Universal Music Group",
+          "ticker": "UMG.AS",
+          "market": "US",
+          "weight_pct": null,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "19.1100",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "Restaurant Brands（历史）",
+          "ticker": "QSR",
+          "market": "US",
+          "weight_pct": 10.05,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "71.7100",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        }
+      ]
+    },
+    {
+      "id": "howard_marks",
+      "name_cn": "霍华德·马克斯",
+      "name_en": "Howard Marks",
+      "role_type": "investor",
+      "futu_alignment_status": "ready_for_futu_compare",
+      "futu_alignment_note": "已具备13F映射，可继续与富途页面做逐项对照。",
+      "holdings_total": 11,
+      "quote_eligible_hits": 0,
+      "any_source_priced_hits": 0,
+      "all_interface_asset_coverage_pct": null,
+      "market_count": {
+        "US": 0,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 11
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_any_source_coverage_pct": 0.0,
+      "expected_opend_hits": 0,
+      "actual_opend_hits": 0,
+      "expected_hit_rate_pct": null,
+      "disclosed_weight_sum_pct": 39.74,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": 0.0,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [],
+      "rows": [
+        {
+          "asset": "EXPAND ENERGY CORP",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 8.08,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "TORM PLC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 7.5,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "ANGLOGOLD ASHANTI PLC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 4.67,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "VANECK SEMICONDUCTOR ETF",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 4.43,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "GARRETT MOTION INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 4.24,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "STATE STREET CORP",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 3.74,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "INDIVIOR PHARMACEUTICALS INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 3.63,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "VIPER ENERGY INC",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": 3.45,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "困境债务（Distressed Debt）",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "高收益债（High Yield）",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "不良贷款/重组债权",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        }
+      ]
+    },
+    {
+      "id": "dan_loeb",
+      "name_cn": "丹·勒布",
+      "name_en": "Dan Loeb",
+      "role_type": "investor",
+      "futu_alignment_status": "ready_for_futu_compare",
+      "futu_alignment_note": "已具备13F映射，可继续与富途页面做逐项对照。",
+      "holdings_total": 4,
+      "quote_eligible_hits": 2,
+      "any_source_priced_hits": 2,
+      "all_interface_asset_coverage_pct": 100.0,
+      "market_count": {
+        "US": 2,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 2
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 14.68,
+      "disclosed_weight_any_source_coverage_pct": 100.0,
+      "expected_opend_hits": 0,
+      "actual_opend_hits": 0,
+      "expected_hit_rate_pct": null,
+      "disclosed_weight_sum_pct": 14.68,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": 0.0,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [
+        {
+          "asset": "Alibaba（阶段性重仓）",
+          "ticker": "BABA",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "Amazon/Microsoft（近年核心仓位）",
+          "ticker": "AMZN",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        }
+      ],
+      "rows": [
+        {
+          "asset": "Yahoo!（激进主义历史案例）",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "Sony（激进主义历史案例）",
+          "ticker": null,
+          "market": "OTHER",
+          "weight_pct": null,
+          "price_source": null,
+          "price_text": "不适用（非标准股票代码）",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "Alibaba（阶段性重仓）",
+          "ticker": "BABA",
+          "market": "US",
+          "weight_pct": 1.66,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "144.1100",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "Amazon/Microsoft（近年核心仓位）",
+          "ticker": "AMZN",
+          "market": "US",
+          "weight_pct": 13.02,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "210.0000",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        }
+      ]
+    },
+    {
+      "id": "cathie_wood",
+      "name_cn": "木头姐",
+      "name_en": "Cathie Wood",
+      "role_type": "fund_manager",
+      "futu_alignment_status": "ready_for_futu_compare",
+      "futu_alignment_note": "已具备13F映射，可继续与富途页面做逐项对照。",
+      "holdings_total": 12,
+      "quote_eligible_hits": 12,
+      "any_source_priced_hits": 12,
+      "all_interface_asset_coverage_pct": 100.0,
+      "market_count": {
+        "US": 12,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 35.75,
+      "disclosed_weight_any_source_coverage_pct": 100.0,
+      "expected_opend_hits": 0,
+      "actual_opend_hits": 0,
+      "expected_hit_rate_pct": null,
+      "disclosed_weight_sum_pct": 35.75,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": 0.0,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [
+        {
+          "asset": "TESLA INC",
+          "ticker": "TSLA",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "SHOPIFY INC",
+          "ticker": "SHOP",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "ROKU INC",
+          "ticker": "ROKU",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "COINBASE GLOBAL INC",
+          "ticker": "COIN",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "PALANTIR TECHNOLOGIES INC",
+          "ticker": "PLTR",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "CRISPR THERAPEUTICS AG",
+          "ticker": "CRSP",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "ADVANCED MICRO DEVICES INC",
+          "ticker": "AMD",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "ROBINHOOD MARKETS INC",
+          "ticker": "HOOD",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "Tesla",
+          "ticker": "TSLA",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "Coinbase",
+          "ticker": "COIN",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "Roku",
+          "ticker": "ROKU",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "UiPath",
+          "ticker": "PATH",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        }
+      ],
+      "rows": [
+        {
+          "asset": "TESLA INC",
+          "ticker": "TSLA",
+          "market": "US",
+          "weight_pct": 8.7,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "402.5100",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "SHOPIFY INC",
+          "ticker": "SHOP",
+          "market": "US",
+          "weight_pct": 4.25,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "120.7300",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "ROKU INC",
+          "ticker": "ROKU",
+          "market": "US",
+          "weight_pct": 4.24,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "98.4100",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "COINBASE GLOBAL INC",
+          "ticker": "COIN",
+          "market": "US",
+          "weight_pct": 3.82,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "175.8500",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "PALANTIR TECHNOLOGIES INC",
+          "ticker": "PLTR",
+          "market": "US",
+          "weight_pct": 3.81,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "137.1900",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "CRISPR THERAPEUTICS AG",
+          "ticker": "CRSP",
+          "market": "US",
+          "weight_pct": 3.66,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "60.1400",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "ADVANCED MICRO DEVICES INC",
+          "ticker": "AMD",
+          "market": "US",
+          "weight_pct": 3.66,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "200.2100",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "ROBINHOOD MARKETS INC",
+          "ticker": "HOOD",
+          "market": "US",
+          "weight_pct": 3.61,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "75.8500",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "Tesla",
+          "ticker": "TSLA",
+          "market": "US",
+          "weight_pct": null,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "402.5100",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "Coinbase",
+          "ticker": "COIN",
+          "market": "US",
+          "weight_pct": null,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "175.8500",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "Roku",
+          "ticker": "ROKU",
+          "market": "US",
+          "weight_pct": null,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "98.4100",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "UiPath",
+          "ticker": "PATH",
+          "market": "US",
+          "weight_pct": null,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "10.7300",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        }
+      ]
+    },
+    {
+      "id": "jensen_huang",
+      "name_cn": "黄仁勋",
+      "name_en": "Jensen Huang",
+      "role_type": "insider",
+      "futu_alignment_status": "partial_direct_plus_lookthrough",
+      "futu_alignment_note": "已采用“管理层直接持股+公司13F间接敞口”双层口径；非个人完整账户。",
+      "holdings_total": 6,
+      "quote_eligible_hits": 6,
+      "any_source_priced_hits": 5,
+      "all_interface_asset_coverage_pct": 83.33,
+      "market_count": {
+        "US": 6,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "market_opend_hits": {
+        "US": 0,
+        "HK": 0,
+        "CN": 0,
+        "OTHER": 0
+      },
+      "any_source_disclosed_weight_sum_pct": 99.24,
+      "disclosed_weight_any_source_coverage_pct": 99.24,
+      "expected_opend_hits": 0,
+      "actual_opend_hits": 0,
+      "expected_hit_rate_pct": null,
+      "disclosed_weight_sum_pct": 100.0,
+      "opend_disclosed_weight_sum_pct": 0.0,
+      "disclosed_weight_opend_coverage_pct": 0.0,
+      "missing_expected_rows": [],
+      "permission_blocked_rows": [
+        {
+          "asset": "NVIDIA",
+          "ticker": "NVDA",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "（间接，NVIDIA 13F）INTEL CORP",
+          "ticker": "INTC",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "（间接，NVIDIA 13F）SYNOPSYS INC",
+          "ticker": "SNPS",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "（间接，NVIDIA 13F）COREWEAVE INC",
+          "ticker": "CRWV",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "（间接，NVIDIA 13F）NOKIA CORP",
+          "ticker": "NOK",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        },
+        {
+          "asset": "（间接，NVIDIA 13F）NEBIUS GROUP N.V.",
+          "ticker": "YNDX",
+          "market": "US",
+          "permission": "no_permission",
+          "reason": "该市场当前 OpenD 权限非 ok，暂无法要求命中 OpenD。"
+        }
+      ],
+      "rows": [
+        {
+          "asset": "NVIDIA",
+          "ticker": "NVDA",
+          "market": "US",
+          "weight_pct": null,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "177.1900",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "（间接，NVIDIA 13F）INTEL CORP",
+          "ticker": "INTC",
+          "market": "US",
+          "weight_pct": 60.48,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "45.6100",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "（间接，NVIDIA 13F）SYNOPSYS INC",
+          "ticker": "SNPS",
+          "market": "US",
+          "weight_pct": 17.28,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "414.0000",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "（间接，NVIDIA 13F）COREWEAVE INC",
+          "ticker": "CRWV",
+          "market": "US",
+          "weight_pct": 13.27,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "79.5600",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "（间接，NVIDIA 13F）NOKIA CORP",
+          "ticker": "NOK",
+          "market": "US",
+          "weight_pct": 8.21,
+          "price_source": "Yahoo Finance via yfinance",
+          "price_text": "7.7200",
+          "price_as_of": "2026-02-27",
+          "any_source_priced": true,
+          "expected_opend": false,
+          "opend_hit": false
+        },
+        {
+          "asset": "（间接，NVIDIA 13F）NEBIUS GROUP N.V.",
+          "ticker": "YNDX",
+          "market": "US",
+          "weight_pct": 0.76,
+          "price_source": null,
+          "price_text": "行情拉取失败",
+          "price_as_of": null,
+          "any_source_priced": false,
+          "expected_opend": false,
+          "opend_hit": false
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "主口径为“全接口价格覆盖”（Futu OpenD + Yahoo 等），用于衡量持仓可报价覆盖率。",
+    "OpenD 命中字段保留为诊断项（用于定位富途权限/映射问题），不是主可用性指标。",
+    "expected_opend 由市场权限推断（US/HK/CN），并不代表该 ticker 一定可交易或一定可拉取。",
+    "若 US 权限缺失，US 行不会计入 expected_opend_hits，因此命中率不会被 US 权限问题拉低。"
+  ]
+}

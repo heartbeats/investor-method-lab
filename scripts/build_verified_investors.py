@@ -89,6 +89,8 @@ def main() -> None:
             for item in result.excluded
         ],
         "source_legend": data.get("source_legend", {}),
+        "holdings_weight_coverage_note": data.get("holdings_weight_coverage_note", ""),
+        "holdings_weight_last_updated": data.get("holdings_weight_last_updated", ""),
     }
 
     dump_json(args.output_json, payload)

@@ -38,8 +38,8 @@
 | 2 | PDD | PDD | Ecommerce | 64.42 | 宏观周期 | 催化:19.8 \| 趋势:19.7 | 出海增长快 |
 | 3 | META | Meta Platforms | Technology | 61.74 | 宏观周期 | 趋势:19.2 \| 催化:17.7 | 广告效率提升 |
 | 4 | GOOGL | Alphabet | Technology | 60.56 | 宏观周期 | 催化:16.6 \| 趋势:14.6 | 广告复苏+算力投入 |
-| 5 | NVO | Novo Nordisk | Healthcare | 58.59 | 宏观周期 | 催化:21.1 \| 趋势:18.5 | 减重新药高增长但估值偏贵 |
-| 6 | MSFT | Microsoft | Technology | 58.19 | 宏观周期 | 催化:17.4 \| 趋势:16.6 | AI+云增长持续 |
+| 5 | MSFT | Microsoft | Technology | 58.19 | 宏观周期 | 催化:17.4 \| 趋势:16.6 | AI+云增长持续 |
+| 6 | NVO | Novo Nordisk | Healthcare | 57.65 | 宏观周期 | 催化:21.1 \| 趋势:18.5 | 减重新药高增长但估值偏贵 |
 | 7 | ASML | ASML | Semiconductor | 56.60 | 宏观周期 | 催化:18.7 \| 趋势:13.9 | 设备壁垒高 |
 | 8 | V | Visa | Financial | 56.56 | 宏观周期 | 催化:15.9 \| 趋势:15.6 | 支付网络强定价权 |
 | 9 | BABA | Alibaba | Ecommerce | 56.41 | 宏观周期 | 催化:16.9 \| 趋势:12.5 | 低估值+治理与竞争不确定 |
@@ -64,8 +64,8 @@
 | 1 | TSM | Taiwan Semi | Semiconductor | 68.16 | 质量:23.7 \| 成长:16.4 | 先进制程需求强 |
 | 2 | MSFT | Microsoft | Technology | 66.46 | 质量:24.2 \| 成长:15.6 | AI+云增长持续 |
 | 3 | PDD | PDD | Ecommerce | 65.86 | 质量:20.3 \| 成长:17.0 | 出海增长快 |
-| 4 | NVO | Novo Nordisk | Healthcare | 65.44 | 质量:23.1 \| 成长:17.6 | 减重新药高增长但估值偏贵 |
-| 5 | V | Visa | Financial | 64.72 | 质量:23.9 \| 成长:14.0 | 支付网络强定价权 |
+| 4 | V | Visa | Financial | 64.72 | 质量:23.9 \| 成长:14.0 | 支付网络强定价权 |
+| 5 | ASML | ASML | Semiconductor | 64.70 | 质量:23.4 \| 成长:15.4 | 设备壁垒高 |
 
 ### GARP 成长
 
@@ -73,7 +73,7 @@
 |---|---|---|---|---:|---|---|
 | 1 | TSM | Taiwan Semi | Semiconductor | 70.28 | 成长:26.2 \| 质量:18.2 | 先进制程需求强 |
 | 2 | PDD | PDD | Ecommerce | 70.20 | 成长:27.2 \| 质量:15.6 | 出海增长快 |
-| 3 | NVO | Novo Nordisk | Healthcare | 70.04 | 成长:28.2 \| 质量:17.8 | 减重新药高增长但估值偏贵 |
+| 3 | NVO | Novo Nordisk | Healthcare | 69.08 | 成长:28.2 \| 质量:17.8 | 减重新药高增长但估值偏贵 |
 | 4 | MSFT | Microsoft | Technology | 67.84 | 成长:25.0 \| 质量:18.6 | AI+云增长持续 |
 | 5 | META | Meta Platforms | Technology | 66.28 | 成长:24.3 \| 质量:17.0 | 广告效率提升 |
 
@@ -91,7 +91,7 @@
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | NVO | Novo Nordisk | Healthcare | 72.12 | 催化:21.1 \| 趋势:18.5 | 减重新药高增长但估值偏贵 |
+| 1 | NVO | Novo Nordisk | Healthcare | 71.64 | 催化:21.1 \| 趋势:18.5 | 减重新药高增长但估值偏贵 |
 | 2 | PDD | PDD | Ecommerce | 70.98 | 催化:19.8 \| 趋势:19.7 | 出海增长快 |
 | 3 | TSM | Taiwan Semi | Semiconductor | 69.56 | 催化:19.5 \| 趋势:15.1 | 先进制程需求强 |
 | 4 | MSFT | Microsoft | Technology | 69.42 | 催化:17.4 \| 趋势:16.6 | AI+云增长持续 |
@@ -102,8 +102,8 @@
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
 | 1 | PDD | PDD | Ecommerce | 75.19 | 趋势:33.6 \| 催化:17.5 | 出海增长快 |
-| 2 | NVO | Novo Nordisk | Healthcare | 75.06 | 趋势:31.6 \| 催化:18.6 | 减重新药高增长但估值偏贵 |
-| 3 | PLTR | Palantir | Software | 73.07 | 趋势:34.4 \| 催化:18.2 | AI叙事强但风险较高 |
+| 2 | NVO | Novo Nordisk | Healthcare | 74.76 | 趋势:31.6 \| 催化:18.6 | 减重新药高增长但估值偏贵 |
+| 3 | PLTR | Palantir | Software | 72.17 | 趋势:34.4 \| 催化:18.2 | AI叙事强但风险较高 |
 | 4 | META | Meta Platforms | Technology | 72.02 | 趋势:32.8 \| 催化:15.6 | 广告效率提升 |
 | 5 | MSFT | Microsoft | Technology | 69.63 | 趋势:28.3 \| 催化:15.4 | AI+云增长持续 |
 
@@ -122,7 +122,7 @@
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
 | 1 | TSM | Taiwan Semi | Semiconductor | 68.83 | 催化:25.5 \| 质量:14.6 | 先进制程需求强 |
-| 2 | NVO | Novo Nordisk | Healthcare | 68.63 | 催化:27.5 \| 质量:14.2 | 减重新药高增长但估值偏贵 |
+| 2 | NVO | Novo Nordisk | Healthcare | 67.85 | 催化:27.5 \| 质量:14.2 | 减重新药高增长但估值偏贵 |
 | 3 | PDD | PDD | Ecommerce | 67.42 | 催化:25.8 \| 质量:12.5 | 出海增长快 |
 | 4 | MSFT | Microsoft | Technology | 66.96 | 催化:22.8 \| 质量:14.9 | AI+云增长持续 |
 | 5 | ASML | ASML | Semiconductor | 66.12 | 催化:24.5 \| 质量:14.4 | 设备壁垒高 |
@@ -134,8 +134,8 @@
 | 1 | PDD | PDD | Ecommerce | 63.11 | 趋势:15.6 \| 催化:15.2 | 出海增长快 |
 | 2 | TSM | Taiwan Semi | Semiconductor | 62.40 | 催化:15.0 \| 风控:13.1 | 先进制程需求强 |
 | 3 | MSFT | Microsoft | Technology | 61.15 | 风控:14.8 \| 催化:13.4 | AI+云增长持续 |
-| 4 | NVO | Novo Nordisk | Healthcare | 60.52 | 催化:16.2 \| 趋势:14.6 | 减重新药高增长但估值偏贵 |
-| 5 | META | Meta Platforms | Technology | 60.19 | 趋势:15.2 \| 催化:13.6 | 广告效率提升 |
+| 4 | META | Meta Platforms | Technology | 60.19 | 趋势:15.2 \| 催化:13.6 | 广告效率提升 |
+| 5 | V | Visa | Financial | 59.85 | 风控:15.6 \| 趋势:12.4 | 支付网络强定价权 |
 
 ## 5) 行业分散约束版 TOP10（单行业最多 2 个）
 
@@ -145,9 +145,18 @@
 | 2 | PDD | PDD | Ecommerce | 64.42 | 宏观周期 | 催化:19.8 \| 趋势:19.7 | 出海增长快 |
 | 3 | META | Meta Platforms | Technology | 61.74 | 宏观周期 | 趋势:19.2 \| 催化:17.7 | 广告效率提升 |
 | 4 | GOOGL | Alphabet | Technology | 60.56 | 宏观周期 | 催化:16.6 \| 趋势:14.6 | 广告复苏+算力投入 |
-| 5 | NVO | Novo Nordisk | Healthcare | 58.59 | 宏观周期 | 催化:21.1 \| 趋势:18.5 | 减重新药高增长但估值偏贵 |
+| 5 | NVO | Novo Nordisk | Healthcare | 57.65 | 宏观周期 | 催化:21.1 \| 趋势:18.5 | 减重新药高增长但估值偏贵 |
 | 6 | ASML | ASML | Semiconductor | 56.60 | 宏观周期 | 催化:18.7 \| 趋势:13.9 | 设备壁垒高 |
 | 7 | V | Visa | Financial | 56.56 | 宏观周期 | 催化:15.9 \| 趋势:15.6 | 支付网络强定价权 |
 | 8 | BABA | Alibaba | Ecommerce | 56.41 | 宏观周期 | 催化:16.9 \| 趋势:12.5 | 低估值+治理与竞争不确定 |
 | 9 | JPM | JPMorgan | Financial | 55.79 | 宏观周期 | 催化:15.6 \| 趋势:13.2 | 利率周期下息差韧性 |
 | 10 | AMZN | Amazon | Consumer | 54.97 | 宏观周期 | 催化:18.2 \| 趋势:17.3 | 零售效率改善+云服务增长 |
+
+## 6) 安全边际口径参照
+
+- 项目主口径：`MOS_FV = (FV - P) / FV = 1 - P/FV`（分母为 FV，保留负值）。
+- 常见目标价口径：`UPSIDE_P = (FV - P) / P = FV/P - 1`（分母为现价 P）。
+- 口径换算：`UPSIDE_P = MOS_FV / (1 - MOS_FV)`；`MOS_FV = UPSIDE_P / (1 + UPSIDE_P)`。
+- Yahoo 参照：页面常见 `1y Target Est`（分析师一年目标价），通常按 `UPSIDE_P` 解读。
+- Morningstar 参照：常见 `Price/Fair Value`；折价口径可写为 `1 - Price/Fair Value`。
+- 详细来源与说明：`docs/margin_of_safety_references.md`。

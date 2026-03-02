@@ -1,0 +1,5 @@
+[pai-loop-guard] mode=real started_at=2026-03-02 09:10:01
+[pai-loop] run_id=20260302_091001
+[pai-loop] report=/home/afu/projects/investor-method-lab/output/pai_loop/20260302_091001/report.md
+[pai-loop] failed_steps=True drift_alerts=0
+[pai-loop-guard] failed rc=2

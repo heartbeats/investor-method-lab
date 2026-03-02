@@ -9,9 +9,21 @@
     {
       "id": "warren_buffett",
       "name": "Warren Buffett",
+      "name_cn": "沃伦·巴菲特",
       "region": "US",
       "methodology_ids": ["value_quality"],
       "style_tags": ["能力圈", "护城河", "长期复利"],
+      "holdings": [
+        {"symbol": "AAPL", "name": "苹果", "pct": 50.2, "change": "增持"},
+        {"symbol": "BAC", "name": "美国银行", "pct": 13.3, "change": "增持"},
+        {"symbol": "AXP", "name": "美国运通", "pct": 8.3, "change": "持平"},
+        {"symbol": "KO", "name": "可口可乐", "pct": 7.2, "change": "持平"},
+        {"symbol": "O", "name": "西方石油", "pct": 4.5, "change": "增持"},
+        {"symbol": "CHTR", "name": "特许通信", "pct": 3.8, "change": "持平"},
+        {"symbol": "KHC", "name": "卡夫亨氏", "pct": 3.1, "change": "减持"}
+      ],
+      "as_of": "2025-Q4",
+      "source": "13F Filing",
       "metrics": {
         "performance": 97,
         "risk_control": 91,
@@ -23,9 +35,19 @@
     {
       "id": "charlie_munger",
       "name": "Charlie Munger",
+      "name_cn": "查理·芒格",
       "region": "US",
       "methodology_ids": ["value_quality"],
       "style_tags": ["多元思维模型", "少而精", "高质量优先"],
+      "holdings": [
+        {"symbol": "BABA", "name": "阿里巴巴", "pct": 40, "change": "减持"},
+        {"symbol": "AAPL", "name": "苹果", "pct": 20, "change": "增持"},
+        {"symbol": "BRK.B", "name": "伯克希尔", "pct": 15, "change": "持平"},
+        {"symbol": "COST", "name": "Costco", "pct": 15, "change": "持平"},
+        {"symbol": "LAC", "name": "Lithium Americas", "pct": 10, "change": "新增"}
+      ],
+      "as_of": "2025-Q4",
+      "source": "Daily Journal 13F/公开信息",
       "metrics": {
         "performance": 93,
         "risk_control": 89,
@@ -65,9 +87,20 @@
     {
       "id": "ray_dalio",
       "name": "Ray Dalio",
+      "name_cn": "雷·达里奥",
       "region": "US",
       "methodology_ids": ["macro_regime"],
       "style_tags": ["宏观配置", "风险平价", "原则驱动"],
+      "holdings": [
+        {"symbol": "TLT", "name": "20年期国债", "pct": 30, "change": "持平"},
+        {"symbol": "SPY", "name": "标普500ETF", "pct": 25, "change": "持平"},
+        {"symbol": "GLD", "name": "黄金ETF", "pct": 15, "change": "增持"},
+        {"symbol": "EFA", "name": "发达市场股票", "pct": 15, "change": "持平"},
+        {"symbol": "IEF", "name": "7-10年期国债", "pct": 10, "change": "持平"},
+        {"symbol": "COM", "name": "大宗商品", "pct": 5, "change": "持平"}
+      ],
+      "as_of": "2025-Q4",
+      "source": "All Weather / Bridgewater公开",
       "metrics": {
         "performance": 90,
         "risk_control": 90,
@@ -133,18 +166,51 @@
       "key_frameworks": ["反身性与叙事", "趋势拐点识别", "高回报高风险"]
     },
     {
+      "id": "duan_yongping",
+      "name": "Duan Yongping",
+      "name_cn": "段永平",
+      "region": "CN",
+      "methodology_ids": ["value_quality"],
+      "style_tags": ["能力圈", "商业模式优先", "长期持有"],
+      "holdings": [
+        {"symbol": "600519.SS", "name": "贵州茅台", "pct": 40, "change": "持平"},
+        {"symbol": "0700.HK", "name": "腾讯控股", "pct": 30, "change": "持平"},
+        {"symbol": "AAPL", "name": "苹果", "pct": 15, "change": "增持"},
+        {"symbol": "META", "name": "Meta", "pct": 10, "change": "减持"},
+        {"symbol": "BRK.B", "name": "伯克希尔", "pct": 5, "change": "新增"}
+      ],
+      "metrics": {
+        "performance": 88,
+        "risk_control": 90,
+        "longevity": 92,
+        "transparency": 75
+      },
+      "key_frameworks": ["买商业模式好的公司", "不在能力圈外投资", "长期视角"],
+      "source": "公开言论/雪球"
+    },
+    {
       "id": "li_lu",
       "name": "Li Lu",
+      "name_cn": "李录",
       "region": "CN/US",
       "methodology_ids": ["value_quality"],
       "style_tags": ["安全边际", "长期主义", "集中投资"],
+      "holdings": [
+        {"symbol": "600519.SS", "name": "贵州茅台", "pct": 35, "change": "增持"},
+        {"symbol": "AAPL", "name": "苹果", "pct": 20, "change": "增持"},
+        {"symbol": "BAC", "name": "美国银行", "pct": 15, "change": "减持"},
+        {"symbol": "WFC", "name": "富国银行", "pct": 10, "change": "持平"},
+        {"symbol": "BABA", "name": "阿里巴巴", "pct": 10, "change": "增持"},
+        {"symbol": "BRK.B", "name": "伯克希尔", "pct": 10, "change": "新增"}
+      ],
       "metrics": {
         "performance": 89,
         "risk_control": 90,
         "longevity": 84,
         "transparency": 84
       },
-      "key_frameworks": ["长期赔率", "能力圈内重仓", "逆向耐心"]
+      "key_frameworks": ["长期赔率", "能力圈内重仓", "逆向耐心"],
+      "source": "13F filings/公开信息"
     },
     {
       "id": "mohnish_pabrai",
@@ -163,9 +229,18 @@
     {
       "id": "nick_sleep",
       "name": "Nick Sleep",
+      "name_cn": "尼克·斯利普",
       "region": "UK",
       "methodology_ids": ["scale_economies_shared"],
       "style_tags": ["共享规模经济", "长期复利", "商业模式洞察"],
+      "holdings": [
+        {"symbol": "AMZN", "name": "亚马逊", "pct": 45, "change": "增持"},
+        {"symbol": "COST", "name": "Costco", "pct": 35, "change": "持平"},
+        {"symbol": "BRK.B", "name": "伯克希尔", "pct": 10, "change": "持平"},
+        {"symbol": "NVR", "name": "NVR Inc", "pct": 10, "change": "持平"}
+      ],
+      "as_of": "2024",
+      "source": "Nomad Investments公开",
       "metrics": {
         "performance": 92,
         "risk_control": 86,

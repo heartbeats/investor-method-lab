@@ -1,0 +1,84 @@
+{
+  "version": "v2-draft-2026-03-02",
+  "description": "Investor methodology taxonomy v2 draft: one primary family + multiple execution/disclosure tags.",
+  "principles": [
+    "先分策略家族，再加执行标签，最后标注数据披露口径。",
+    "同义词归并到统一家族，避免“名字不同但本质一致”。",
+    "允许复合特征通过标签表达，不再强行单桶互斥。",
+    "披露跟踪类主体与完整组合投资主体分开标注。"
+  ],
+  "strategy_families": [
+    {
+      "id": "value_quality_compound",
+      "name": "价值质量复利",
+      "core_question": "能否以合理价格买入高质量、可持续复利的公司？"
+    },
+    {
+      "id": "garp_growth",
+      "name": "GARP成长",
+      "core_question": "能否在估值不过热时买入可持续增长？"
+    },
+    {
+      "id": "deep_value_distress",
+      "name": "深度价值/困境修复",
+      "core_question": "是否存在被错杀且下行受保护的修复机会？"
+    },
+    {
+      "id": "event_driven_special_situations",
+      "name": "事件驱动/特殊情境",
+      "core_question": "能否借助明确催化实现定价修复或价值释放？"
+    },
+    {
+      "id": "equity_long_short_trading",
+      "name": "股票多空交易",
+      "core_question": "能否通过多空配对与交易执行效率获取超额收益？"
+    },
+    {
+      "id": "macro_trend",
+      "name": "宏观/趋势",
+      "core_question": "宏观阶段与趋势方向是否提供更高赔率？"
+    },
+    {
+      "id": "systematic_quant",
+      "name": "系统化/量化",
+      "core_question": "能否通过规则化模型稳定获取超额收益？"
+    },
+    {
+      "id": "thematic_growth",
+      "name": "主题成长",
+      "core_question": "是否抓住长期产业趋势中的高弹性成长机会？"
+    },
+    {
+      "id": "disclosure_tracking",
+      "name": "披露跟踪",
+      "core_question": "能否基于公开披露交易行为跟踪风险偏好与主题方向？"
+    }
+  ],
+  "execution_tags": [
+    "长期持有",
+    "集中持仓",
+    "分散组合",
+    "基本面主导",
+    "系统化规则",
+    "宏观自上而下",
+    "趋势跟随",
+    "高换手",
+    "多空对冲",
+    "行业深耕",
+    "事件催化",
+    "激进主义",
+    "困境信用",
+    "主题进攻",
+    "披露行为跟踪",
+    "管理层行为跟踪"
+  ],
+  "disclosure_tags": [
+    "可审计历史收益",
+    "13F可核验",
+    "13F代理收益",
+    "管理层持股披露",
+    "议员交易披露",
+    "公开资料推断",
+    "非完整组合披露"
+  ]
+}

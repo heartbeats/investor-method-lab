@@ -61,13 +61,32 @@ bash scripts/install_pai_loop_cron.sh status
 
 默认计划：
 
-- 每天 `09:10` 跑样例数据闭环（快速体检）
-- 每周一/三/五 `09:25` 跑实时数据闭环（更新真实口径）
+- 每天 `09:10` 跑实时数据闭环（仅 `real`，更新真实口径）
+- 定时入口统一走 `scripts/pai_loop_guard.sh`，失败自动触发告警逻辑
 
 日志文件：
 
-- `output/pai_loop/cron_sample.log`
 - `output/pai_loop/cron_real.log`
+- `output/pai_loop/alert.log`
+
+飞书告警（可选）：
+
+```bash
+cat > .env.pai <<'EOF'
+PAI_FEISHU_WEBHOOK_URL='https://open.feishu.cn/open-apis/bot/v2/hook/xxxxx'
+# 或使用 FEISHU_BOT_WEBHOOK_URL 作为兼容变量
+# 或复用现有 app 推送环境（默认会尝试读取 ~/.config/dcf_notify.env）
+# PAI_NOTIFY_ENV_FILE="$HOME/.config/dcf_notify.env"
+# PAI_NOTIFY_ON_SUCCESS=1
+EOF
+```
+
+说明：
+
+- 未配置 webhook 时，会自动尝试 app 发送脚本（`/home/afu/codex-project/scripts/send_feishu_text_message.py`）。
+- 若 webhook 与 app 发送都不可用，不会中断任务，只写 `alert.log`。
+- 默认仅失败告警；若需成功也通知，设置 `PAI_NOTIFY_ON_SUCCESS=1`。
+- `scripts/pai_loop_guard.sh` 会优先加载项目根目录 `.env.pai`（可通过 `PAI_ENV_FILE` 改路径）。
 
 ## 6) 失败与告警处理
 

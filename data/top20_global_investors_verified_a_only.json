@@ -18,11 +18,70 @@
       "representative_holdings": [
         "Apple",
         "American Express",
+        "Bank of America",
         "Coca-Cola",
-        "Bank of America"
+        "Chevron",
+        "Occidental Petroleum"
       ],
       "source_refs": [
         "berkshire_2024_letter"
+      ],
+      "holdings_note": "以伯克希尔公开披露仓位为主，长期核心持仓特征明显。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "Apple",
+          "weight_pct": 22.6,
+          "weight_text": "22.60%",
+          "weight_note": "可核验：SEC 13F-HR 市值占比（仅美国长仓股票口径）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 市值占比（美国长仓股票口径）",
+          "weight_source": "SEC 13F-HR 0001193125-26-054580"
+        },
+        {
+          "asset": "American Express",
+          "weight_pct": 20.46,
+          "weight_text": "20.46%",
+          "weight_note": "可核验：SEC 13F-HR 市值占比（仅美国长仓股票口径）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 市值占比（美国长仓股票口径）",
+          "weight_source": "SEC 13F-HR 0001193125-26-054580"
+        },
+        {
+          "asset": "Bank of America",
+          "weight_pct": null,
+          "weight_text": "13F未命中",
+          "weight_note": "在最新13F未命中该资产（可能为历史仓位、非美股或策略头寸）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 对齐结果",
+          "weight_source": "SEC 13F-HR 0001193125-26-054580"
+        },
+        {
+          "asset": "Coca-Cola",
+          "weight_pct": 10.2,
+          "weight_text": "10.20%",
+          "weight_note": "可核验：SEC 13F-HR 市值占比（仅美国长仓股票口径）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 市值占比（美国长仓股票口径）",
+          "weight_source": "SEC 13F-HR 0001193125-26-054580"
+        },
+        {
+          "asset": "Chevron",
+          "weight_pct": 7.24,
+          "weight_text": "7.24%",
+          "weight_note": "可核验：SEC 13F-HR 市值占比（仅美国长仓股票口径）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 市值占比（美国长仓股票口径）",
+          "weight_source": "SEC 13F-HR 0001193125-26-054580"
+        },
+        {
+          "asset": "Occidental Petroleum",
+          "weight_pct": 3.97,
+          "weight_text": "3.97%",
+          "weight_note": "可核验：SEC 13F-HR 市值占比（仅美国长仓股票口径）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 市值占比（美国长仓股票口径）",
+          "weight_source": "SEC 13F-HR 0001193125-26-054580"
+        }
       ],
       "methodology_bucket": "价值质量复利",
       "verified_rank": 1
@@ -41,11 +100,60 @@
       "representative_holdings": [
         "Hilton",
         "Chipotle",
-        "Alphabet",
-        "Universal Music Group"
+        "Lowe's",
+        "Universal Music Group",
+        "Restaurant Brands（历史）"
       ],
       "source_refs": [
         "sec_exhibit_psh_2025"
+      ],
+      "holdings_note": "激进主义+集中持股，持仓公开度较高。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "Hilton",
+          "weight_pct": 5.6,
+          "weight_text": "5.60%",
+          "weight_note": "可核验：SEC 13F-HR 市值占比（仅美国长仓股票口径）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 市值占比（美国长仓股票口径）",
+          "weight_source": "SEC 13F-HR 0001172661-26-001091"
+        },
+        {
+          "asset": "Chipotle",
+          "weight_pct": null,
+          "weight_text": "13F未命中",
+          "weight_note": "在最新13F未命中该资产（可能为历史仓位、非美股或策略头寸）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 对齐结果",
+          "weight_source": "SEC 13F-HR 0001172661-26-001091"
+        },
+        {
+          "asset": "Lowe's",
+          "weight_pct": null,
+          "weight_text": "13F未命中",
+          "weight_note": "在最新13F未命中该资产（可能为历史仓位、非美股或策略头寸）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 对齐结果",
+          "weight_source": "SEC 13F-HR 0001172661-26-001091"
+        },
+        {
+          "asset": "Universal Music Group",
+          "weight_pct": null,
+          "weight_text": "13F未命中",
+          "weight_note": "在最新13F未命中该资产（可能为历史仓位、非美股或策略头寸）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 对齐结果",
+          "weight_source": "SEC 13F-HR 0001172661-26-001091"
+        },
+        {
+          "asset": "Restaurant Brands（历史）",
+          "weight_pct": 10.05,
+          "weight_text": "10.05%",
+          "weight_note": "可核验：SEC 13F-HR 市值占比（仅美国长仓股票口径）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 市值占比（美国长仓股票口径）",
+          "weight_source": "SEC 13F-HR 0001172661-26-001091"
+        }
       ],
       "methodology_bucket": "激进主义投资",
       "verified_rank": 2
@@ -62,11 +170,42 @@
       "style": "信用周期/困境债",
       "thesis": "周期位置优先，下行保护先于收益",
       "representative_holdings": [
-        "困境债",
-        "高收益信用"
+        "困境债务（Distressed Debt）",
+        "高收益债（High Yield）",
+        "不良贷款/重组债权"
       ],
       "source_refs": [
         "sec_oaktree_10k_2025"
+      ],
+      "holdings_note": "以信用周期与债务结构机会为主。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "困境债务（Distressed Debt）",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "高收益债（High Yield）",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "不良贷款/重组债权",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "信用周期",
       "verified_rank": 3
@@ -191,7 +330,7 @@
     "forbes_pabrai_2013": "https://www.forbes.com/sites/phildemuth/2013/09/23/how-mohnish-pabrai-crushed-the-market-by-1100-since-2000/",
     "forbes_pabrai_2010": "https://www.forbes.com/2010/10/19/mohnish-pabrai-value-investing-intelligent-investing-nomad-john-hempton.html",
     "forbes_steinhardt_2014": "https://www.forbes.com/sites/michaelnoer/2014/01/22/michael-steinhardt-wall-streets-greatest-trader-is-back-and-hes-reinventing-investing-again/",
-    "washington_post_steinhardt_retire_1995": "https://www.washingtonpost.com/archive/business/1995/10/12/wall-sts-michael-steinhardt-to-retire/f772d79b-d6f1-4cd0-8d0c-86da1a7c2c18/",
+    "time_steinhardt_1995": "https://content.time.com/time/subscriber/article/0,33009,983600,00.html",
     "latimes_nash_odyssey_2008": "https://www.latimes.com/archives/la-xpm-2008-aug-02-me-nash2-story.html",
     "davis_funds_about": "https://www.davisfunds.com/about",
     "nasdaq_contrarian_2022": "https://www.nasdaq.com/articles/thinking-alike-crowded-trades-and-contrarian-investing-bubble-2022-01-11",
@@ -205,5 +344,7 @@
     "mastersinvest": "https://mastersinvest.com/masters",
     "historical_compilations": "https://www.fool.com/investing/2023/11/28/charlie-munger-appreciation/",
     "institutional_investor_profile": "https://bsporigin.institutionalinvestor.com/article/2btgfi071p6yvdlmytfy8/premium/the-value-of-seth-klarman"
-  }
+  },
+  "holdings_weight_coverage_note": "占比优先采用 SEC 13F-HR 最新报告市值占比（仅美国长仓股票口径）；宏观/期货/非美股/历史仓位常无对应单票披露，统一标注为未披露或13F未命中。",
+  "holdings_weight_last_updated": "2026-03-01"
 }

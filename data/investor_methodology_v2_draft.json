@@ -1,0 +1,620 @@
+{
+  "version": "v2-draft-2026-03-02",
+  "generated_at_utc": "2026-03-02T13:56:34.518595+00:00",
+  "investor_count": 29,
+  "summary": {
+    "family_counts": {
+      "macro_trend": 6,
+      "disclosure_tracking": 5,
+      "value_quality_compound": 5,
+      "deep_value_distress": 4,
+      "event_driven_special_situations": 4,
+      "systematic_quant": 2,
+      "equity_long_short_trading": 1,
+      "garp_growth": 1,
+      "thematic_growth": 1
+    },
+    "role_counts": {
+      "investor": 22,
+      "politician_disclosure": 4,
+      "fund_manager": 1,
+      "insider": 1,
+      "public_figure": 1
+    },
+    "mapping_confidence_counts": {
+      "high": 27,
+      "medium": 2
+    }
+  },
+  "investors": [
+    {
+      "id": "peter_brandt",
+      "name_cn": "彼得·布兰特",
+      "name_en": "Peter Brandt",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "趋势交易",
+      "primary_family_id": "macro_trend",
+      "primary_family_name": "宏观/趋势",
+      "execution_tags": [
+        "宏观自上而下",
+        "趋势跟随"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "duan_yongping",
+      "name_cn": "段永平",
+      "name_en": "Duan Yongping",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "价值质量复利",
+      "primary_family_id": "value_quality_compound",
+      "primary_family_name": "价值质量复利",
+      "execution_tags": [
+        "长期持有",
+        "基本面主导",
+        "集中持仓"
+      ],
+      "disclosure_tags": [
+        "13F代理收益",
+        "13F可核验",
+        "公开资料推断"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "joel_greenblatt",
+      "name_cn": "乔尔·格林布拉特",
+      "name_en": "Joel Greenblatt",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "系统化价值+特殊情境",
+      "primary_family_id": "systematic_quant",
+      "primary_family_name": "系统化/量化",
+      "execution_tags": [
+        "系统化规则",
+        "分散组合"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益",
+        "13F可核验"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "li_lu",
+      "name_cn": "李录",
+      "name_en": "Li Lu",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "价值质量复利",
+      "primary_family_id": "value_quality_compound",
+      "primary_family_name": "价值质量复利",
+      "execution_tags": [
+        "长期持有",
+        "基本面主导",
+        "集中持仓"
+      ],
+      "disclosure_tags": [
+        "13F代理收益",
+        "13F可核验",
+        "公开资料推断"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "james_simons",
+      "name_cn": "詹姆斯·西蒙斯",
+      "name_en": "James Simons",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "量化统计套利",
+      "primary_family_id": "systematic_quant",
+      "primary_family_name": "系统化/量化",
+      "execution_tags": [
+        "系统化规则",
+        "分散组合"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益",
+        "13F可核验"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "bruce_kovner",
+      "name_cn": "布鲁斯·科夫纳",
+      "name_en": "Bruce Kovner",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "宏观CTA",
+      "primary_family_id": "macro_trend",
+      "primary_family_name": "宏观/趋势",
+      "execution_tags": [
+        "宏观自上而下",
+        "趋势跟随"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益",
+        "13F可核验"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "george_soros",
+      "name_cn": "乔治·索罗斯",
+      "name_en": "George Soros",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "全球宏观+反身性",
+      "primary_family_id": "macro_trend",
+      "primary_family_name": "宏观/趋势",
+      "execution_tags": [
+        "宏观自上而下",
+        "趋势跟随"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益",
+        "13F可核验"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "stanley_druckenmiller",
+      "name_cn": "斯坦利·德鲁肯米勒",
+      "name_en": "Stanley Druckenmiller",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "宏观+趋势+集中仓位",
+      "primary_family_id": "macro_trend",
+      "primary_family_name": "宏观/趋势",
+      "execution_tags": [
+        "宏观自上而下",
+        "趋势跟随",
+        "集中持仓"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益",
+        "13F可核验"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "steven_cohen",
+      "name_cn": "史蒂文·科恩",
+      "name_en": "Steven Cohen",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "股票多空/高周转",
+      "primary_family_id": "equity_long_short_trading",
+      "primary_family_name": "股票多空交易",
+      "execution_tags": [
+        "高换手",
+        "多空对冲",
+        "基本面主导"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益",
+        "13F可核验"
+      ],
+      "mapping_confidence": "medium",
+      "mapping_by": "id_override",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "peter_lynch",
+      "name_cn": "彼得·林奇",
+      "name_en": "Peter Lynch",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "GARP",
+      "primary_family_id": "garp_growth",
+      "primary_family_name": "GARP成长",
+      "execution_tags": [
+        "长期持有",
+        "基本面主导"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "paul_tudor_jones",
+      "name_cn": "保罗·都铎·琼斯",
+      "name_en": "Paul Tudor Jones",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "宏观趋势交易",
+      "primary_family_id": "macro_trend",
+      "primary_family_name": "宏观/趋势",
+      "execution_tags": [
+        "宏观自上而下",
+        "趋势跟随"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益",
+        "13F可核验"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "michael_steinhardt",
+      "name_cn": "迈克尔·斯坦哈特",
+      "name_en": "Michael Steinhardt",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "交易型宏观/事件驱动",
+      "primary_family_id": "macro_trend",
+      "primary_family_name": "宏观/趋势",
+      "execution_tags": [
+        "宏观自上而下",
+        "趋势跟随",
+        "事件催化"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "leon_levy",
+      "name_cn": "里昂·利维",
+      "name_en": "Leon Levy",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "多策略套利",
+      "primary_family_id": "event_driven_special_situations",
+      "primary_family_name": "事件驱动/特殊情境",
+      "execution_tags": [
+        "事件催化",
+        "基本面主导"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "shelby_davis",
+      "name_cn": "谢尔比·戴维斯",
+      "name_en": "Shelby Davis",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "行业价值",
+      "primary_family_id": "value_quality_compound",
+      "primary_family_name": "价值质量复利",
+      "execution_tags": [
+        "长期持有",
+        "基本面主导",
+        "集中持仓",
+        "行业深耕"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "warren_buffett",
+      "name_cn": "沃伦·巴菲特",
+      "name_en": "Warren Buffett",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "价值+质量长期复利",
+      "primary_family_id": "value_quality_compound",
+      "primary_family_name": "价值质量复利",
+      "execution_tags": [
+        "长期持有",
+        "基本面主导",
+        "集中持仓"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益",
+        "13F可核验"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "charlie_munger",
+      "name_cn": "查理·芒格",
+      "name_en": "Charlie Munger",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "高质量集中投资",
+      "primary_family_id": "value_quality_compound",
+      "primary_family_name": "价值质量复利",
+      "execution_tags": [
+        "长期持有",
+        "基本面主导",
+        "集中持仓"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益",
+        "13F可核验"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "seth_klarman",
+      "name_cn": "塞思·卡拉曼",
+      "name_en": "Seth Klarman",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "绝对收益价值",
+      "primary_family_id": "deep_value_distress",
+      "primary_family_name": "深度价值/困境修复",
+      "execution_tags": [
+        "基本面主导",
+        "事件催化"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益",
+        "13F可核验"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "bill_ackman",
+      "name_cn": "比尔·阿克曼",
+      "name_en": "Bill Ackman",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "激进主义+集中持股",
+      "primary_family_id": "event_driven_special_situations",
+      "primary_family_name": "事件驱动/特殊情境",
+      "execution_tags": [
+        "事件催化",
+        "基本面主导",
+        "集中持仓"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益",
+        "13F可核验"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "howard_marks",
+      "name_cn": "霍华德·马克斯",
+      "name_en": "Howard Marks",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "信用周期/困境债",
+      "primary_family_id": "deep_value_distress",
+      "primary_family_name": "深度价值/困境修复",
+      "execution_tags": [
+        "基本面主导",
+        "事件催化",
+        "困境信用"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益",
+        "13F可核验"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "walter_schloss",
+      "name_cn": "沃尔特·施洛斯",
+      "name_en": "Walter Schloss",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "深度价值分散",
+      "primary_family_id": "deep_value_distress",
+      "primary_family_name": "深度价值/困境修复",
+      "execution_tags": [
+        "基本面主导",
+        "事件催化",
+        "分散组合"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "mohnish_pabrai",
+      "name_cn": "莫尼什·帕伯莱",
+      "name_en": "Mohnish Pabrai",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "深度价值",
+      "primary_family_id": "deep_value_distress",
+      "primary_family_name": "深度价值/困境修复",
+      "execution_tags": [
+        "基本面主导",
+        "事件催化"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "dan_loeb",
+      "name_cn": "丹·勒布",
+      "name_en": "Dan Loeb",
+      "role_type": "investor",
+      "legacy_methodology_bucket": "事件驱动+基本面",
+      "primary_family_id": "event_driven_special_situations",
+      "primary_family_name": "事件驱动/特殊情境",
+      "execution_tags": [
+        "事件催化",
+        "基本面主导"
+      ],
+      "disclosure_tags": [
+        "可审计历史收益",
+        "13F可核验"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "cathie_wood",
+      "name_cn": "木头姐",
+      "name_en": "Cathie Wood",
+      "role_type": "fund_manager",
+      "legacy_methodology_bucket": "高成长主题",
+      "primary_family_id": "thematic_growth",
+      "primary_family_name": "主题成长",
+      "execution_tags": [
+        "主题进攻",
+        "集中持仓"
+      ],
+      "disclosure_tags": [
+        "13F代理收益",
+        "13F可核验"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "jensen_huang",
+      "name_cn": "黄仁勋",
+      "name_en": "Jensen Huang",
+      "role_type": "insider",
+      "legacy_methodology_bucket": "管理层持股跟踪",
+      "primary_family_id": "disclosure_tracking",
+      "primary_family_name": "披露跟踪",
+      "execution_tags": [
+        "披露行为跟踪",
+        "管理层行为跟踪"
+      ],
+      "disclosure_tags": [
+        "13F可核验",
+        "管理层持股披露",
+        "非完整组合披露"
+      ],
+      "mapping_confidence": "medium",
+      "mapping_by": "id_override",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "josh_gottheimer",
+      "name_cn": "乔什·哥特海默",
+      "name_en": "Josh Gottheimer",
+      "role_type": "politician_disclosure",
+      "legacy_methodology_bucket": "披露跟踪",
+      "primary_family_id": "disclosure_tracking",
+      "primary_family_name": "披露跟踪",
+      "execution_tags": [
+        "披露行为跟踪"
+      ],
+      "disclosure_tags": [
+        "议员交易披露",
+        "非完整组合披露"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "nancy_pelosi",
+      "name_cn": "佩洛西",
+      "name_en": "Nancy Pelosi",
+      "role_type": "politician_disclosure",
+      "legacy_methodology_bucket": "披露跟踪",
+      "primary_family_id": "disclosure_tracking",
+      "primary_family_name": "披露跟踪",
+      "execution_tags": [
+        "披露行为跟踪"
+      ],
+      "disclosure_tags": [
+        "议员交易披露",
+        "非完整组合披露"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "gil_cisneros",
+      "name_cn": "吉尔·西斯内罗斯",
+      "name_en": "Gil Cisneros",
+      "role_type": "politician_disclosure",
+      "legacy_methodology_bucket": "披露跟踪",
+      "primary_family_id": "disclosure_tracking",
+      "primary_family_name": "披露跟踪",
+      "execution_tags": [
+        "披露行为跟踪"
+      ],
+      "disclosure_tags": [
+        "议员交易披露",
+        "非完整组合披露"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "marjorie_taylor_greene",
+      "name_cn": "马乔利·格林",
+      "name_en": "Marjorie Taylor Greene",
+      "role_type": "politician_disclosure",
+      "legacy_methodology_bucket": "披露跟踪",
+      "primary_family_id": "disclosure_tracking",
+      "primary_family_name": "披露跟踪",
+      "execution_tags": [
+        "披露行为跟踪"
+      ],
+      "disclosure_tags": [
+        "议员交易披露",
+        "非完整组合披露"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    },
+    {
+      "id": "donald_trump",
+      "name_cn": "特朗普",
+      "name_en": "Donald Trump",
+      "role_type": "public_figure",
+      "legacy_methodology_bucket": "事件驱动",
+      "primary_family_id": "event_driven_special_situations",
+      "primary_family_name": "事件驱动/特殊情境",
+      "execution_tags": [
+        "事件催化",
+        "基本面主导",
+        "披露行为跟踪"
+      ],
+      "disclosure_tags": [
+        "公开资料推断",
+        "非完整组合披露"
+      ],
+      "mapping_confidence": "high",
+      "mapping_by": "bucket_mapping",
+      "mapping_note": "V2草案映射：用于统一分类口径，后续可人工微调。"
+    }
+  ],
+  "notes": [
+    "本文件是方法论V2分类草案，尚未替换线上筛选逻辑。",
+    "分类结构为：1个主策略家族 + 多个执行标签 + 多个披露口径标签。"
+  ]
+}

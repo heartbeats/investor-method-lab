@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investor Method Lab Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow bg-glow-a"></div>
+    <div class="bg-glow bg-glow-b"></div>
+
+    <header class="hero reveal">
+      <div>
+        <p class="eyebrow">Investor Method Lab</p>
+        <h1>投资方法论总览看板</h1>
+        <p class="subtitle" id="hero-subtitle">加载数据中...</p>
+      </div>
+      <div class="summary-grid">
+        <article class="summary-card">
+          <p class="summary-label">可审计投资人（A/B）</p>
+          <p class="summary-value" id="summary-investor-count">-</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-label">最严格 A 级</p>
+          <p class="summary-value" id="summary-a-count">-</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-label">方法论分组</p>
+          <p class="summary-value" id="summary-group-count">-</p>
+        </article>
+        <article class="summary-card">
+          <p class="summary-label">三市场样本数</p>
+          <p class="summary-value" id="summary-universe-count">-</p>
+        </article>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel reveal" id="investor-panel">
+        <div class="panel-head">
+          <h2>1. 投资者总览（可点进详情）</h2>
+          <p>含：个人介绍、方法论、持仓价格/占比/更新时间/变动比例</p>
+        </div>
+
+        <div class="control-row">
+          <label>
+            可信度
+            <select id="confidence-filter">
+              <option value="ALL">全部</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+            </select>
+          </label>
+
+          <label>
+            方法论
+            <select id="methodology-filter">
+              <option value="ALL">全部</option>
+            </select>
+          </label>
+
+          <label class="search-box">
+            搜索
+            <input id="investor-search" type="search" placeholder="姓名/风格/持仓关键词" />
+          </label>
+        </div>
+
+        <div class="table-wrap">
+          <table id="investor-table">
+            <thead>
+              <tr>
+                <th>排名</th>
+                <th>投资人</th>
+                <th>年化</th>
+                <th>类型</th>
+                <th>可信度</th>
+                <th>方法论主家族</th>
+                <th>风格</th>
+                <th>个人介绍</th>
+                <th>代表持仓与占比</th>
+                <th>详情页</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel reveal" id="method-panel">
+        <div class="panel-head">
+          <h2>2. 方法论分组（V3）</h2>
+          <p>主口径：`methodology_taxonomy_v3.json` + `investor_methodology_v3.json`（旧口径自动兜底）</p>
+        </div>
+        <div class="method-grid" id="method-grid"></div>
+      </section>
+
+      <section class="panel reveal">
+        <div class="panel-head">
+          <h2>3. 数据与口径说明</h2>
+          <p>首页不展开说明细节，统一在单独页面查看。</p>
+        </div>
+        <p class="muted"><a class="detail-link" href="./data-info.html">查看数据口径与数据源能力说明 →</a></p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        本页仅用于研究学习与方法论复盘，不构成任何投资建议。
+      </p>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

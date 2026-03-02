@@ -9,7 +9,7 @@ SRC_DIR = PROJECT_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-from investor_method_lab.verification import build_verified_universe
+from investor_method_lab.verification import build_verified_universe, render_verified_markdown
 
 
 class VerificationTest(unittest.TestCase):
@@ -49,6 +49,28 @@ class VerificationTest(unittest.TestCase):
         self.assertEqual(result.included[0]["verified_rank"], 1)
         self.assertEqual(result.included[1]["id"], "b")
         self.assertEqual(result.excluded[0]["id"], "a")
+
+    def test_render_verified_markdown_uses_weighted_holdings(self) -> None:
+        included = [
+            {
+                "verified_rank": 1,
+                "name_cn": "甲",
+                "name_en": "A",
+                "calibrated_return_pct": 30.0,
+                "return_basis": "test",
+                "period": "2000-2010",
+                "confidence": "A",
+                "methodology_bucket": "价值",
+                "style": "集中",
+                "representative_holdings": ["旧资产"],
+                "representative_holdings_with_weight": [
+                    {"asset": "新资产", "weight_text": "12.34%"}
+                ],
+            }
+        ]
+        rendered = render_verified_markdown(included, min_confidence="A", as_of_date="2026-03-01")
+        self.assertIn("新资产（12.34%）", rendered)
+        self.assertNotIn("旧资产", rendered)
 
 
 if __name__ == "__main__":

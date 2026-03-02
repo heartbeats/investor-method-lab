@@ -4,7 +4,6 @@ from dataclasses import dataclass
 from typing import Any, Dict, Iterable, List, Tuple
 
 from investor_method_lab.scoring import (
-    clamp01,
     normalize_weights,
     parse_float,
     score_opportunity,
@@ -102,7 +101,7 @@ def _apply_group_rules(
         return True, score
 
     price_to_fair_value = parse_float(row.get("price_to_fair_value"), 1.0)
-    margin_of_safety = clamp01(1.0 - price_to_fair_value)
+    margin_of_safety = 1.0 - price_to_fair_value
     if margin_of_safety < VALUE_QUALITY_COMPOUND_RULES["min_margin_of_safety"]:
         return False, 0.0
 
@@ -343,5 +342,15 @@ def render_opportunity_pack_markdown(
                 f"{_escape_md_cell(row.get('best_group', ''))} | {_escape_md_cell(row.get('best_reason', ''))} | "
                 f"{_escape_md_cell(row.get('note', ''))} |"
             )
+
+    lines.append("")
+    lines.append("## 6) 安全边际口径参照")
+    lines.append("")
+    lines.append("- 项目主口径：`MOS_FV = (FV - P) / FV = 1 - P/FV`（分母为 FV，保留负值）。")
+    lines.append("- 常见目标价口径：`UPSIDE_P = (FV - P) / P = FV/P - 1`（分母为现价 P）。")
+    lines.append("- 口径换算：`UPSIDE_P = MOS_FV / (1 - MOS_FV)`；`MOS_FV = UPSIDE_P / (1 + UPSIDE_P)`。")
+    lines.append("- Yahoo 参照：页面常见 `1y Target Est`（分析师一年目标价），通常按 `UPSIDE_P` 解读。")
+    lines.append("- Morningstar 参照：常见 `Price/Fair Value`；折价口径可写为 `1 - Price/Fair Value`。")
+    lines.append("- 详细来源与说明：`docs/margin_of_safety_references.md`。")
 
     return "\n".join(lines)

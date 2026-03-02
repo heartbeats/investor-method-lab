@@ -4,6 +4,8 @@ set -euo pipefail
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LOG_DIR="$ROOT_DIR/output/pai_loop"
 PYTHON_BIN="${PYTHON_BIN:-python3}"
+PAI_REAL_CRON="${PAI_REAL_CRON:-10 9 * * *}"
+TASK_REPORT_SCRIPT="${TASK_REPORT_SCRIPT:-/home/afu/codex-project/scripts/run_task_with_report.sh}"
 
 CRON_BEGIN="# BEGIN pai-loop"
 CRON_END="# END pai-loop"
@@ -13,10 +15,8 @@ mkdir -p "$LOG_DIR"
 build_block() {
   cat <<EOF
 $CRON_BEGIN
-# 每天样例数据闭环（非真实数据口径）
-10 9 * * * cd "$ROOT_DIR" && $PYTHON_BIN scripts/pai_loop.py >> "$LOG_DIR/cron_sample.log" 2>&1
-# 每周一/三/五实时数据闭环
-25 9 * * 1,3,5 cd "$ROOT_DIR" && $PYTHON_BIN scripts/pai_loop.py --with-real-data >> "$LOG_DIR/cron_real.log" 2>&1
+# 每天实时数据闭环（仅 real）
+$PAI_REAL_CRON PAI_NOTIFY_ON_SUCCESS=1 PYTHON_BIN="$PYTHON_BIN" bash "$TASK_REPORT_SCRIPT" --task 跟投实时闭环链路 --self-notify --report-on failure -- bash "$ROOT_DIR/scripts/pai_loop_guard.sh" real >> "$LOG_DIR/cron_real.log" 2>&1
 $CRON_END
 EOF
 }
@@ -73,7 +73,14 @@ Usage:
   bash scripts/install_pai_loop_cron.sh status
 
 Env:
-  PYTHON_BIN=python3  # override python binary if needed
+  PYTHON_BIN=python3              # override python binary if needed
+  PAI_REAL_CRON='10 9 * * *'      # real mode schedule (daily by default)
+  PAI_ENV_FILE=/path/to/.env.pai  # optional, env file for guard script
+  PAI_NOTIFY_ENV_FILE=...         # optional, fallback app env file
+  PAI_FEISHU_SEND_SCRIPT=...      # optional, fallback app sender script
+  PAI_FEISHU_WEBHOOK_URL=...      # optional, failed run alert webhook
+  FEISHU_BOT_WEBHOOK_URL=...      # optional fallback webhook
+  PAI_NOTIFY_ON_SUCCESS=1         # optional, notify success too
 EOF
 }
 

@@ -1,0 +1,426 @@
+{
+  "as_of_date": "2026-03-01",
+  "description": "补充关注投资者/交易主体（非 Top20 年化榜单口径）",
+  "investors": [
+    {
+      "id": "duan_yongping",
+      "name_en": "Duan Yongping",
+      "name_cn": "段永平",
+      "role_type": "investor",
+      "confidence": "B",
+      "calibrated_return_pct": null,
+      "return_basis": "not_publicly_audited",
+      "period": "长期（公开可见口径有限）",
+      "performance_summary": "公开可跟踪代表性持仓与仓位讨论，但未披露覆盖全部资产的统一审计年化收益率。",
+      "style": "价值投资+长期持有",
+      "thesis": "聚焦高质量公司，重视护城河与管理层，强调长期复利",
+      "personal_intro": "段永平是中国知名企业家与价值投资者，投资风格强调长期、能力圈与风险控制。",
+      "methodology_bucket": "价值质量复利",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "Apple",
+          "ticker": "AAPL",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "公开资料可见代表性持仓，未见完整仓位披露",
+          "weight_as_of": null
+        },
+        {
+          "asset": "Berkshire Hathaway",
+          "ticker": "BRK-B",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "公开资料可见代表性持仓，未见完整仓位披露",
+          "weight_as_of": null
+        },
+        {
+          "asset": "Tencent",
+          "ticker": "0700.HK",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "公开资料可见代表性持仓，未见完整仓位披露",
+          "weight_as_of": null
+        },
+        {
+          "asset": "PDD Holdings",
+          "ticker": "PDD",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "公开资料可见代表性持仓，未见完整仓位披露",
+          "weight_as_of": null
+        }
+      ],
+      "holdings_note": "该主体无统一强制披露组合口径，以下为公开讨论中的代表性持仓。",
+      "source_refs": ["public_interviews_and_reports", "sec_13f_disclosure_entity", "13f_info_mirror"]
+    },
+    {
+      "id": "li_lu",
+      "name_en": "Li Lu",
+      "name_cn": "李录",
+      "role_type": "investor",
+      "confidence": "B",
+      "calibrated_return_pct": null,
+      "return_basis": "not_publicly_audited",
+      "period": "长期（公开可见口径有限）",
+      "performance_summary": "公开可见持仓以代表性案例为主，缺少覆盖全部资产的连续审计净值序列，无法给出统一年化。",
+      "style": "价值投资+集中持仓",
+      "thesis": "在能力圈内做高确信度配置，重视长期回报与下行保护",
+      "personal_intro": "李录是价值投资者，长期关注高质量企业与资本配置效率，强调对企业内在价值的深度理解。",
+      "methodology_bucket": "价值质量复利",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "Berkshire Hathaway",
+          "ticker": "BRK-B",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "公开资料可见代表性持仓，未见完整仓位披露",
+          "weight_as_of": null
+        },
+        {
+          "asset": "Bank of America",
+          "ticker": "BAC",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "公开资料可见代表性持仓，未见完整仓位披露",
+          "weight_as_of": null
+        },
+        {
+          "asset": "Alphabet",
+          "ticker": "GOOG",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "公开资料可见代表性持仓，未见完整仓位披露",
+          "weight_as_of": null
+        },
+        {
+          "asset": "East West Bancorp",
+          "ticker": "EWBC",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "公开资料可见代表性持仓，未见完整仓位披露",
+          "weight_as_of": null
+        }
+      ],
+      "holdings_note": "该主体无统一强制披露组合口径，以下为公开讨论中的代表性持仓。",
+      "source_refs": ["public_interviews_and_reports", "sec_13f_disclosure_entity", "13f_info_mirror"]
+    },
+    {
+      "id": "nancy_pelosi",
+      "name_en": "Nancy Pelosi",
+      "name_cn": "佩洛西",
+      "role_type": "politician_disclosure",
+      "confidence": "C",
+      "calibrated_return_pct": null,
+      "return_basis": "public_transaction_disclosure",
+      "period": "公开披露窗口（非完整持仓）",
+      "performance_summary": "该口径为交易申报，缺少组合净值与完整仓位历史，不满足可审计年化收益率计算条件。",
+      "style": "事件驱动交易披露跟踪",
+      "thesis": "基于美国国会议员交易披露信息做事件与行业跟踪",
+      "personal_intro": "佩洛西相关交易常被市场跟踪，但披露口径为交易申报，不等同于完整持仓与组合权重。",
+      "methodology_bucket": "披露跟踪",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "NVIDIA",
+          "ticker": "NVDA",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "国会议员交易披露通常不提供组合总权重",
+          "weight_as_of": null
+        },
+        {
+          "asset": "Broadcom",
+          "ticker": "AVGO",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "国会议员交易披露通常不提供组合总权重",
+          "weight_as_of": null
+        },
+        {
+          "asset": "Palo Alto Networks",
+          "ticker": "PANW",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "国会议员交易披露通常不提供组合总权重",
+          "weight_as_of": null
+        },
+        {
+          "asset": "Tesla",
+          "ticker": "TSLA",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "国会议员交易披露通常不提供组合总权重",
+          "weight_as_of": null
+        }
+      ],
+      "holdings_note": "该主体口径为公开交易披露，不代表完整持仓。",
+      "source_refs": ["congressional_disclosure_trackers"]
+    },
+    {
+      "id": "jensen_huang",
+      "name_en": "Jensen Huang",
+      "name_cn": "黄仁勋",
+      "role_type": "insider",
+      "confidence": "C",
+      "calibrated_return_pct": null,
+      "return_basis": "insider_holding_disclosure",
+      "period": "公司高管披露窗口",
+      "performance_summary": "口径为高管持股与变动披露，可用于治理观察，不适用于基金式年化收益率统计。",
+      "style": "创始人/管理层持股",
+      "thesis": "通过核心管理层持股与减持节奏观察公司长期信号",
+      "personal_intro": "黄仁勋是英伟达创始人兼 CEO，其持股与披露动态常被用于观察公司治理与长期预期。",
+      "methodology_bucket": "管理层持股跟踪",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "NVIDIA",
+          "ticker": "NVDA",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "主要为高管持股披露口径，非公募组合权重",
+          "weight_as_of": null
+        }
+      ],
+      "holdings_note": "该主体口径为管理层持股披露，不等同于基金组合持仓。",
+      "source_refs": ["sec_insider_filings"]
+    },
+    {
+      "id": "cathie_wood",
+      "name_en": "Cathie Wood",
+      "name_cn": "木头姐",
+      "role_type": "fund_manager",
+      "confidence": "B",
+      "calibrated_return_pct": null,
+      "return_basis": "etf_portfolio_disclosure",
+      "period": "ARK 持仓披露窗口",
+      "performance_summary": "ARK 系列产品可按基金净值口径单独评估，但不同产品与窗口差异较大，当前页不合成单一年化值。",
+      "style": "高波动成长+主题投资",
+      "thesis": "押注技术创新赛道，通过主动调仓捕捉高成长机会",
+      "personal_intro": "Cathie Wood 是 ARK Investment 创始人，以高成长、创新主题与高换手风格著称。",
+      "methodology_bucket": "高成长主题",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "Tesla",
+          "ticker": "TSLA",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "若未接入 ETF 全量持仓抓取，则仅展示代表性资产",
+          "weight_as_of": null
+        },
+        {
+          "asset": "Coinbase",
+          "ticker": "COIN",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "若未接入 ETF 全量持仓抓取，则仅展示代表性资产",
+          "weight_as_of": null
+        },
+        {
+          "asset": "Roku",
+          "ticker": "ROKU",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "若未接入 ETF 全量持仓抓取，则仅展示代表性资产",
+          "weight_as_of": null
+        },
+        {
+          "asset": "UiPath",
+          "ticker": "PATH",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "若未接入 ETF 全量持仓抓取，则仅展示代表性资产",
+          "weight_as_of": null
+        }
+      ],
+      "holdings_note": "该主体可通过 ETF 日度持仓披露进一步补全权重与变动。",
+      "source_refs": ["ark_public_disclosure"]
+    },
+    {
+      "id": "donald_trump",
+      "name_en": "Donald Trump",
+      "name_cn": "特朗普",
+      "role_type": "public_figure",
+      "confidence": "C",
+      "calibrated_return_pct": null,
+      "return_basis": "public_disclosure_partial",
+      "period": "公开披露窗口（非完整持仓）",
+      "performance_summary": "公开披露以关联资产或交易事件为主，缺少完整组合净值轨迹，无法形成可审计长期年化。",
+      "style": "事件驱动/关联资产跟踪",
+      "thesis": "围绕公开披露与关联资产事件进行跟踪，不构成完整组合分析",
+      "personal_intro": "特朗普相关资产关注度高，但公开披露口径并不等同于专业机构可审计组合。",
+      "methodology_bucket": "事件驱动",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "Trump Media & Technology Group",
+          "ticker": "DJT",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "公开口径通常不提供可比的组合权重",
+          "weight_as_of": null
+        }
+      ],
+      "holdings_note": "以公开可见关联资产为主，不代表完整可审计持仓。",
+      "source_refs": ["public_market_filings"]
+    },
+    {
+      "id": "marjorie_taylor_greene",
+      "name_en": "Marjorie Taylor Greene",
+      "name_cn": "马乔利·格林",
+      "role_type": "politician_disclosure",
+      "confidence": "C",
+      "calibrated_return_pct": null,
+      "return_basis": "public_transaction_disclosure",
+      "period": "公开披露窗口（非完整持仓）",
+      "performance_summary": "该口径为交易申报，缺少完整仓位和组合净值数据，无法计算可审计年化收益率。",
+      "style": "事件驱动交易披露跟踪",
+      "thesis": "基于公开交易披露信息做主题与行业跟踪",
+      "personal_intro": "马乔利·格林相关信息来自交易披露，披露制度与基金持仓披露口径不同。",
+      "methodology_bucket": "披露跟踪",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "NVIDIA",
+          "ticker": "NVDA",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "国会议员交易披露通常不提供组合总权重",
+          "weight_as_of": null
+        },
+        {
+          "asset": "Apple",
+          "ticker": "AAPL",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "国会议员交易披露通常不提供组合总权重",
+          "weight_as_of": null
+        },
+        {
+          "asset": "Alphabet",
+          "ticker": "GOOGL",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "国会议员交易披露通常不提供组合总权重",
+          "weight_as_of": null
+        },
+        {
+          "asset": "Palantir",
+          "ticker": "PLTR",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "国会议员交易披露通常不提供组合总权重",
+          "weight_as_of": null
+        }
+      ],
+      "holdings_note": "该主体口径为公开交易披露，不代表完整持仓。",
+      "source_refs": ["congressional_disclosure_trackers"]
+    },
+    {
+      "id": "josh_gottheimer",
+      "name_en": "Josh Gottheimer",
+      "name_cn": "乔什·哥特海默",
+      "role_type": "politician_disclosure",
+      "confidence": "C",
+      "calibrated_return_pct": null,
+      "return_basis": "public_transaction_disclosure",
+      "period": "公开披露窗口（非完整持仓）",
+      "performance_summary": "该口径为交易申报，缺少完整仓位和组合净值数据，无法计算可审计年化收益率。",
+      "style": "事件驱动交易披露跟踪",
+      "thesis": "基于公开交易披露信息做主题与行业跟踪",
+      "personal_intro": "乔什·哥特海默相关信息来自公开交易披露，披露口径不等于完整组合权重。",
+      "methodology_bucket": "披露跟踪",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "Microsoft",
+          "ticker": "MSFT",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "国会议员交易披露通常不提供组合总权重",
+          "weight_as_of": null
+        },
+        {
+          "asset": "NVIDIA",
+          "ticker": "NVDA",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "国会议员交易披露通常不提供组合总权重",
+          "weight_as_of": null
+        },
+        {
+          "asset": "Amazon",
+          "ticker": "AMZN",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "国会议员交易披露通常不提供组合总权重",
+          "weight_as_of": null
+        },
+        {
+          "asset": "Alphabet",
+          "ticker": "GOOGL",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "国会议员交易披露通常不提供组合总权重",
+          "weight_as_of": null
+        }
+      ],
+      "holdings_note": "该主体口径为公开交易披露，不代表完整持仓。",
+      "source_refs": ["congressional_disclosure_trackers"]
+    },
+    {
+      "id": "gil_cisneros",
+      "name_en": "Gil Cisneros",
+      "name_cn": "吉尔·西斯内罗斯",
+      "role_type": "politician_disclosure",
+      "confidence": "C",
+      "calibrated_return_pct": null,
+      "return_basis": "public_transaction_disclosure",
+      "period": "公开披露窗口（非完整持仓）",
+      "performance_summary": "该口径为交易申报，缺少完整仓位和组合净值数据，无法计算可审计年化收益率。",
+      "style": "事件驱动交易披露跟踪",
+      "thesis": "基于公开交易披露信息做主题与行业跟踪",
+      "personal_intro": "吉尔·西斯内罗斯相关信息来自公开交易披露，披露口径不等于完整组合权重。",
+      "methodology_bucket": "披露跟踪",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "Apple",
+          "ticker": "AAPL",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "国会议员交易披露通常不提供组合总权重",
+          "weight_as_of": null
+        },
+        {
+          "asset": "Microsoft",
+          "ticker": "MSFT",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "国会议员交易披露通常不提供组合总权重",
+          "weight_as_of": null
+        },
+        {
+          "asset": "NVIDIA",
+          "ticker": "NVDA",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "国会议员交易披露通常不提供组合总权重",
+          "weight_as_of": null
+        },
+        {
+          "asset": "Amazon",
+          "ticker": "AMZN",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "国会议员交易披露通常不提供组合总权重",
+          "weight_as_of": null
+        }
+      ],
+      "holdings_note": "该主体口径为公开交易披露，不代表完整持仓。",
+      "source_refs": ["congressional_disclosure_trackers"]
+    }
+  ],
+  "source_legend": {
+    "public_interviews_and_reports": "公开采访/报道/历史资料整理（非统一监管组合披露）",
+    "sec_13f_disclosure_entity": "通过关联披露实体（CIK）抓取 SEC 13F 持仓（美国长仓口径）",
+    "13f_info_mirror": "13f.info 镜像（底层来源 SEC 13F，官方接口异常时用于回退）",
+    "congressional_disclosure_trackers": "美国国会议员交易公开披露跟踪口径（非完整持仓）",
+    "sec_insider_filings": "SEC insider filings（管理层持股披露）",
+    "ark_public_disclosure": "ARK 基金公开持仓披露口径",
+    "public_market_filings": "公开市场文件与披露资料"
+  }
+}

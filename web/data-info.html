@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数据口径与数据源说明 | Investor Method Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow bg-glow-a"></div>
+    <div class="bg-glow bg-glow-b"></div>
+
+    <main class="detail-page reveal">
+      <p class="breadcrumb"><a href="./index.html">← 返回总览页</a></p>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h1>数据口径与数据源说明</h1>
+          <p>首页仅保留入口，这里集中查看口径边界与数据源能力。</p>
+        </div>
+        <div class="detail-grid">
+          <article class="detail-item">
+            <h4>核心口径</h4>
+            <ul>
+              <li>方法论主口径：V3（投资方法主体与披露跟踪主体分轨）。</li>
+              <li>行情覆盖主口径：全接口覆盖（OpenD + Yahoo 等）。</li>
+              <li>OpenD 仅作为诊断项，不作为可用性主结论。</li>
+              <li>若为样本/代理/非实时数据，页面会明确标注。</li>
+            </ul>
+          </article>
+          <article class="detail-item">
+            <h4>关键文件入口</h4>
+            <ul>
+              <li><a class="detail-link" href="../data/methodology_taxonomy_v3.json" target="_blank" rel="noreferrer">methodology_taxonomy_v3.json</a></li>
+              <li><a class="detail-link" href="../data/investor_methodology_v3.json" target="_blank" rel="noreferrer">investor_methodology_v3.json</a></li>
+              <li><a class="detail-link" href="../data/data_source_catalog.json" target="_blank" rel="noreferrer">data_source_catalog.json</a></li>
+              <li><a class="detail-link" href="../data/futu_alignment_report.json" target="_blank" rel="noreferrer">futu_alignment_report.json</a></li>
+              <li><a class="detail-link" href="../docs/methodology_v3_perfect.md" target="_blank" rel="noreferrer">methodology_v3_perfect.md</a></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

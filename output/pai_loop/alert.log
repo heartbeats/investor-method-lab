@@ -1,0 +1,4 @@
+[2026-03-01 21:42:05] [run-failed] mode=sample rc=2 reason=步骤失败或漂移告警 report=/home/afu/projects/investor-method-lab/output/pai_loop/latest_report.md
+[2026-03-01 21:42:08] [notify-ok] sent via feishu app script
+[2026-03-02 09:10:58] [run-failed] mode=real rc=2 reason=步骤失败或漂移告警 report=/home/afu/projects/investor-method-lab/output/pai_loop/latest_report.md
+[2026-03-02 09:10:59] [notify-ok] sent via feishu app script

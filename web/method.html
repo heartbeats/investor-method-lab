@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>方法论详情 | Investor Method Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow bg-glow-a"></div>
+    <div class="bg-glow bg-glow-b"></div>
+
+    <main class="detail-page reveal">
+      <p class="breadcrumb">
+        <a href="./index.html">← 返回总览页</a>
+      </p>
+
+      <section class="panel profile-hero" id="method-hero">
+        <h1 id="method-title">加载中...</h1>
+        <p class="subtitle" id="method-subtitle">-</p>
+        <div class="badge-row" id="method-badges"></div>
+      </section>
+
+      <section class="panel" id="method-investor-panel"></section>
+
+      <section class="panel" id="method-opportunity-panel">
+        <div class="panel-head">
+          <h2>方法论对应机会</h2>
+          <p>点击股票代码或名称进入股票详情页。</p>
+        </div>
+        <div class="control-row">
+          <label>
+            数据口径
+            <select id="method-pack-select">
+              <option value="real3" selected>实时口径（A/HK/US）</option>
+              <option value="real">实时口径（US）</option>
+              <option value="sample">样本口径（非真实）</option>
+            </select>
+          </label>
+        </div>
+        <div id="method-opportunity-meta" class="muted"></div>
+        <div id="method-opportunity-content"></div>
+      </section>
+    </main>
+
+    <script src="./method.js"></script>
+  </body>
+</html>

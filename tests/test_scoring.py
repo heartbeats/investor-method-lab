@@ -66,6 +66,19 @@ class ScoringTest(unittest.TestCase):
         ranked = rank_opportunities(opportunities, strategy, top_n=2)
         self.assertEqual(ranked[0]["ticker"], "AAA")
 
+    def test_compute_factors_keeps_negative_margin_for_overvaluation(self) -> None:
+        factors = compute_factors(
+            {
+                "price_to_fair_value": "1.2",
+                "quality_score": "50",
+                "growth_score": "50",
+                "momentum_score": "50",
+                "catalyst_score": "50",
+                "risk_score": "50",
+            }
+        )
+        self.assertAlmostEqual(factors["margin_of_safety"], -0.2)
+
 
 if __name__ == "__main__":
     unittest.main()

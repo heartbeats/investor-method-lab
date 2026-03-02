@@ -73,7 +73,8 @@ def compute_factors(row: Dict[str, Any]) -> Dict[str, float]:
     catalyst_score = parse_float(row.get("catalyst_score"), 0.0)
     risk_score = parse_float(row.get("risk_score"), 100.0)
 
-    margin_of_safety = clamp01(1.0 - price_to_fair_value)
+    # Keep signed MOS so overvaluation can be expressed as negative values.
+    margin_of_safety = 1.0 - price_to_fair_value
     return {
         "margin_of_safety": margin_of_safety,
         "quality": clamp01(quality_score / 100.0),

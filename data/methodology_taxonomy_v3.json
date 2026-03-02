@@ -1,0 +1,142 @@
+{
+  "version": "v3-final-draft-2026-03-02",
+  "goal": "为“学习方法论 -> 选股找机会”提供稳定、可执行、可维护的分类体系。",
+  "design_rules": [
+    "先按主体性质分轨：投资方法主体 vs 披露跟踪主体。",
+    "每位主体仅有1个主方法论家族，但可有多个执行标签。",
+    "披露跟踪主体默认不进入可审计投资方法统计。",
+    "收益标签必须区分净口径可核验 vs 公开资料口径 vs 代理口径。"
+  ],
+  "tracks": [
+    {
+      "id": "investment_method",
+      "name": "投资方法主体",
+      "description": "可直接用于方法论学习与选股框架归纳的主体。",
+      "use_for_stock_selection": true
+    },
+    {
+      "id": "disclosure_observation",
+      "name": "披露跟踪主体",
+      "description": "主要用于观察行为与主题信号，不等同于完整可审计组合。",
+      "use_for_stock_selection": false
+    }
+  ],
+  "families": [
+    {
+      "id": "quality_value_compounding",
+      "track": "investment_method",
+      "name": "价值质量复利",
+      "core_question": "能否以合理价格长期持有高质量公司并复利？"
+    },
+    {
+      "id": "deep_value_distress",
+      "track": "investment_method",
+      "name": "深度价值/困境修复",
+      "core_question": "是否存在被错杀且下行受保护的修复机会？"
+    },
+    {
+      "id": "garp_growth",
+      "track": "investment_method",
+      "name": "GARP成长",
+      "core_question": "能否在估值不过热时买入高质量增长？"
+    },
+    {
+      "id": "thematic_innovation_growth",
+      "track": "investment_method",
+      "name": "主题创新成长",
+      "core_question": "能否抓住长期产业趋势中的高弹性成长资产？"
+    },
+    {
+      "id": "event_driven_special_situations",
+      "track": "investment_method",
+      "name": "事件驱动/特殊情境",
+      "core_question": "能否借助事件催化实现估值重估或价值释放？"
+    },
+    {
+      "id": "macro_discretionary",
+      "track": "investment_method",
+      "name": "主观宏观",
+      "core_question": "宏观变量变化是否提供方向性赔率？"
+    },
+    {
+      "id": "trend_following",
+      "track": "investment_method",
+      "name": "趋势跟随",
+      "core_question": "价格趋势是否清晰且具备可持续性？"
+    },
+    {
+      "id": "systematic_value_factors",
+      "track": "investment_method",
+      "name": "系统化价值因子",
+      "core_question": "能否用规则化因子长期稳定捕捉价值超额？"
+    },
+    {
+      "id": "quant_stat_arb",
+      "track": "investment_method",
+      "name": "量化统计套利",
+      "core_question": "能否通过统计规律和组合构造获取市场中性收益？"
+    },
+    {
+      "id": "equity_long_short_trading",
+      "track": "investment_method",
+      "name": "股票多空交易",
+      "core_question": "能否通过多空与交易执行效率获取超额收益？"
+    },
+    {
+      "id": "industry_specialist_value",
+      "track": "investment_method",
+      "name": "行业专精价值",
+      "core_question": "是否具备行业结构理解并长期兑现复利？"
+    },
+    {
+      "id": "insider_exposure_tracking",
+      "track": "disclosure_observation",
+      "name": "管理层持股敞口跟踪",
+      "core_question": "管理层持股和披露行为是否提供有效信号？"
+    },
+    {
+      "id": "congressional_disclosure_tracking",
+      "track": "disclosure_observation",
+      "name": "议员披露跟踪",
+      "core_question": "公开交易披露是否反映行业偏好和主题方向？"
+    },
+    {
+      "id": "public_figure_asset_event_tracking",
+      "track": "disclosure_observation",
+      "name": "公众人物关联资产跟踪",
+      "core_question": "关联资产事件是否产生可跟踪机会或风险？"
+    }
+  ],
+  "execution_tag_catalog": [
+    "长期持有",
+    "中线波段",
+    "短线交易",
+    "高换手",
+    "低换手",
+    "集中持仓",
+    "分散组合",
+    "基本面主导",
+    "宏观自上而下",
+    "趋势跟随",
+    "系统化规则",
+    "多空对冲",
+    "事件催化",
+    "激进主义",
+    "困境信用",
+    "主题进攻",
+    "行业深耕",
+    "纪律止损",
+    "披露行为跟踪",
+    "管理层行为跟踪"
+  ],
+  "disclosure_tag_catalog": [
+    "收益可核验(净口径)",
+    "公开资料收益口径",
+    "13F代理收益",
+    "13F持仓可核验",
+    "管理层持股披露",
+    "议员交易披露",
+    "公开资料推断",
+    "非完整组合披露"
+  ]
+}

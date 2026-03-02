@@ -16,12 +16,53 @@
       "style": "趋势交易",
       "thesis": "形态+仓位纪律+硬止损",
       "representative_holdings": [
-        "商品期货",
-        "外汇"
+        "原油期货",
+        "黄金期货",
+        "农产品期货",
+        "主要外汇货币对"
       ],
       "source_refs": [
         "unknown_market_wizards_everand",
         "benzinga_factor_audit_2017"
+      ],
+      "holdings_note": "以期货与外汇交易为主，公开披露更偏资产类别而非长期股权清单。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "原油期货",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "黄金期货",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "农产品期货",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "主要外汇货币对",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "趋势交易",
       "verified_rank": 1
@@ -38,11 +79,42 @@
       "style": "系统化价值+特殊情境",
       "thesis": "高ROIC+低估值+纪律执行",
       "representative_holdings": [
-        "特殊情境股票",
-        "分拆/重组标的"
+        "General Growth Properties（破产重组）",
+        "分拆/重组特殊情境组合",
+        "高ROIC+低估值股票组合（Magic Formula）"
       ],
       "source_refs": [
         "forbes_greenblatt_2010"
+      ],
+      "holdings_note": "代表仓位覆盖特殊情境与系统化价值两条主线。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "General Growth Properties（破产重组）",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "分拆/重组特殊情境组合",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "高ROIC+低估值股票组合（Magic Formula）",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "系统化价值",
       "verified_rank": 2
@@ -59,10 +131,42 @@
       "style": "量化统计套利",
       "thesis": "多信号组合+统计优势+风控中性化",
       "representative_holdings": [
-        "多资产量化组合"
+        "高频股票统计套利组合",
+        "期货量化组合",
+        "外汇与跨资产量化组合"
       ],
       "source_refs": [
         "book_appendix_public_citations"
+      ],
+      "holdings_note": "核心策略高度系统化，具体持仓公开透明度有限。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "高频股票统计套利组合",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "期货量化组合",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "外汇与跨资产量化组合",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "量化统计套利",
       "verified_rank": 3
@@ -79,13 +183,43 @@
       "style": "宏观CTA",
       "thesis": "趋势驱动+低波动风控",
       "representative_holdings": [
-        "外汇",
-        "商品",
-        "利率"
+        "G10外汇组合",
+        "利率期货组合",
+        "能源与农产品期货"
       ],
       "source_refs": [
         "bruce_kovner_caxton_20th_anniversary",
         "forbes_money_mavens_2007"
+      ],
+      "holdings_note": "以宏观与期货组合暴露为主。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "G10外汇组合",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "利率期货组合",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "能源与农产品期货",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "宏观 CTA",
       "verified_rank": 4
@@ -102,12 +236,43 @@
       "style": "全球宏观+反身性",
       "thesis": "叙事-资金-价格反馈循环",
       "representative_holdings": [
-        "英镑空头",
-        "宏观货币头寸"
+        "英镑空头（1992）",
+        "欧洲汇率机制相关货币头寸",
+        "宏观利率与货币组合"
       ],
       "source_refs": [
         "book_appendix_public_citations",
         "mastersinvest"
+      ],
+      "holdings_note": "以宏观货币与利率头寸见长，代表仓位强调事件窗口与反身性。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "英镑空头（1992）",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "欧洲汇率机制相关货币头寸",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "宏观利率与货币组合",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "全球宏观/反身性",
       "verified_rank": 5
@@ -124,12 +289,42 @@
       "style": "宏观+趋势+集中仓位",
       "thesis": "高确信度重仓，错误快速纠偏",
       "representative_holdings": [
-        "外汇",
-        "利率",
-        "科技股"
+        "科技成长股集中仓（历史）",
+        "美元与利率头寸",
+        "全球股指期货仓位"
       ],
       "source_refs": [
         "public_interviews_compilations"
+      ],
+      "holdings_note": "高确信度集中仓+动态风控，仓位切换速度快。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "科技成长股集中仓（历史）",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "美元与利率头寸",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "全球股指期货仓位",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "宏观+趋势",
       "verified_rank": 6
@@ -146,13 +341,43 @@
       "style": "股票多空/高周转",
       "thesis": "研究深度+执行速度",
       "representative_holdings": [
-        "科技",
-        "医药",
-        "多空组合"
+        "美股科技龙头交易仓",
+        "医药生物交易仓",
+        "消费成长多空组合"
       ],
       "source_refs": [
         "washington_post_2010",
         "ft_profile_2024"
+      ],
+      "holdings_note": "高周转多空风格，公开可见仓位更偏阶段性快照。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "美股科技龙头交易仓",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "医药生物交易仓",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "消费成长多空组合",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "股票多空",
       "verified_rank": 7
@@ -169,13 +394,53 @@
       "style": "GARP",
       "thesis": "买得懂的公司+增长与估值匹配",
       "representative_holdings": [
-        "消费",
-        "零售",
-        "成长股"
+        "Fannie Mae（历史）",
+        "Ford Motor（历史）",
+        "Philip Morris（历史）",
+        "Dunkin' Donuts（历史）"
       ],
       "source_refs": [
         "forbes_lynch_2009",
         "marketwatch_2025_lynch"
+      ],
+      "holdings_note": "以“买得懂”公司为主，代表仓位多为历史 Magellan 典型案例。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "Fannie Mae（历史）",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "Ford Motor（历史）",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "Philip Morris（历史）",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "Dunkin' Donuts（历史）",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "GARP 成长",
       "verified_rank": 8
@@ -192,13 +457,43 @@
       "style": "交易型宏观/事件驱动",
       "thesis": "催化驱动+战术切换",
       "representative_holdings": [
-        "股票",
-        "债券",
-        "货币"
+        "事件驱动股票组合",
+        "可转债与债券交易仓",
+        "宏观货币与利率头寸"
       ],
       "source_refs": [
         "forbes_steinhardt_2014",
         "time_steinhardt_1995"
+      ],
+      "holdings_note": "代表仓位横跨股票、债券与宏观交易。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "事件驱动股票组合",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "可转债与债券交易仓",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "宏观货币与利率头寸",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "宏观/事件驱动交易",
       "verified_rank": 9
@@ -215,13 +510,43 @@
       "style": "宏观趋势交易",
       "thesis": "先控制回撤再放大利润",
       "representative_holdings": [
-        "股指期货",
-        "外汇",
-        "商品"
+        "1987年股指期货空头",
+        "外汇宏观头寸",
+        "利率与商品期货组合"
       ],
       "source_refs": [
         "institutional_investor_ptj_2012",
         "institutional_investor_bucks_stop_here_2004"
+      ],
+      "holdings_note": "宏观趋势交易，头寸以衍生品为主。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "1987年股指期货空头",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "外汇宏观头寸",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "利率与商品期货组合",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "宏观趋势交易",
       "verified_rank": 10
@@ -238,11 +563,42 @@
       "style": "多策略套利",
       "thesis": "结构性错配与事件驱动",
       "representative_holdings": [
-        "可转债套利",
-        "并购套利"
+        "可转债套利组合",
+        "并购套利组合",
+        "风险套利/事件驱动股票"
       ],
       "source_refs": [
         "latimes_nash_odyssey_2008"
+      ],
+      "holdings_note": "以套利与事件驱动机会为核心。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "可转债套利组合",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "并购套利组合",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "风险套利/事件驱动股票",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "套利/事件驱动",
       "verified_rank": 11
@@ -259,11 +615,43 @@
       "style": "行业价值",
       "thesis": "保险行业长期复利",
       "representative_holdings": [
-        "保险股篮子"
+        "美国保险股组合",
+        "财险与寿险龙头",
+        "保险行业长期复利仓位"
       ],
       "source_refs": [
         "davis_funds_about",
         "nasdaq_contrarian_2022"
+      ],
+      "holdings_note": "年代较早，公开单票明细有限，行业暴露特征更清晰。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "美国保险股组合",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "财险与寿险龙头",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "保险行业长期复利仓位",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "行业价值",
       "verified_rank": 12
@@ -282,11 +670,70 @@
       "representative_holdings": [
         "Apple",
         "American Express",
+        "Bank of America",
         "Coca-Cola",
-        "Bank of America"
+        "Chevron",
+        "Occidental Petroleum"
       ],
       "source_refs": [
         "berkshire_2024_letter"
+      ],
+      "holdings_note": "以伯克希尔公开披露仓位为主，长期核心持仓特征明显。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "Apple",
+          "weight_pct": 22.6,
+          "weight_text": "22.60%",
+          "weight_note": "可核验：SEC 13F-HR 市值占比（仅美国长仓股票口径）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 市值占比（美国长仓股票口径）",
+          "weight_source": "SEC 13F-HR 0001193125-26-054580"
+        },
+        {
+          "asset": "American Express",
+          "weight_pct": 20.46,
+          "weight_text": "20.46%",
+          "weight_note": "可核验：SEC 13F-HR 市值占比（仅美国长仓股票口径）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 市值占比（美国长仓股票口径）",
+          "weight_source": "SEC 13F-HR 0001193125-26-054580"
+        },
+        {
+          "asset": "Bank of America",
+          "weight_pct": null,
+          "weight_text": "13F未命中",
+          "weight_note": "在最新13F未命中该资产（可能为历史仓位、非美股或策略头寸）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 对齐结果",
+          "weight_source": "SEC 13F-HR 0001193125-26-054580"
+        },
+        {
+          "asset": "Coca-Cola",
+          "weight_pct": 10.2,
+          "weight_text": "10.20%",
+          "weight_note": "可核验：SEC 13F-HR 市值占比（仅美国长仓股票口径）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 市值占比（美国长仓股票口径）",
+          "weight_source": "SEC 13F-HR 0001193125-26-054580"
+        },
+        {
+          "asset": "Chevron",
+          "weight_pct": 7.24,
+          "weight_text": "7.24%",
+          "weight_note": "可核验：SEC 13F-HR 市值占比（仅美国长仓股票口径）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 市值占比（美国长仓股票口径）",
+          "weight_source": "SEC 13F-HR 0001193125-26-054580"
+        },
+        {
+          "asset": "Occidental Petroleum",
+          "weight_pct": 3.97,
+          "weight_text": "3.97%",
+          "weight_note": "可核验：SEC 13F-HR 市值占比（仅美国长仓股票口径）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 市值占比（美国长仓股票口径）",
+          "weight_source": "SEC 13F-HR 0001193125-26-054580"
+        }
       ],
       "methodology_bucket": "价值质量复利",
       "verified_rank": 13
@@ -304,11 +751,42 @@
       "thesis": "少而精，长期持有优质企业",
       "representative_holdings": [
         "Costco",
-        "BYD"
+        "BYD",
+        "Daily Journal 公开持仓（历史）"
       ],
       "source_refs": [
         "columbia_superinvestors",
         "historical_compilations"
+      ],
+      "holdings_note": "长期集中持有高质量资产，公开持仓多来自关联实体披露。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "Costco",
+          "weight_pct": null,
+          "weight_text": "13F未命中",
+          "weight_note": "在最新13F未命中该资产（可能为历史仓位、非美股或策略头寸）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 对齐结果",
+          "weight_source": "SEC 13F-HR 0001437749-26-001178"
+        },
+        {
+          "asset": "BYD",
+          "weight_pct": null,
+          "weight_text": "13F未命中",
+          "weight_note": "在最新13F未命中该资产（可能为历史仓位、非美股或策略头寸）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 对齐结果",
+          "weight_source": "SEC 13F-HR 0001437749-26-001178"
+        },
+        {
+          "asset": "Daily Journal 公开持仓（历史）",
+          "weight_pct": null,
+          "weight_text": "13F未命中",
+          "weight_note": "在最新13F未命中该资产（可能为历史仓位、非美股或策略头寸）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 对齐结果",
+          "weight_source": "SEC 13F-HR 0001437749-26-001178"
+        }
       ],
       "methodology_bucket": "价值质量复利",
       "verified_rank": 14
@@ -325,12 +803,42 @@
       "style": "绝对收益价值",
       "thesis": "安全边际+流动性缓冲",
       "representative_holdings": [
-        "困境资产",
-        "价值股",
-        "现金与对冲"
+        "困境债与破产重组资产",
+        "深度价值股组合",
+        "现金与对冲头寸"
       ],
       "source_refs": [
         "institutional_investor_profile"
+      ],
+      "holdings_note": "强调下行保护与流动性缓冲，公开披露通常为阶段性。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "困境债与破产重组资产",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "深度价值股组合",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "现金与对冲头寸",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "绝对收益价值",
       "verified_rank": 15
@@ -349,11 +857,60 @@
       "representative_holdings": [
         "Hilton",
         "Chipotle",
-        "Alphabet",
-        "Universal Music Group"
+        "Lowe's",
+        "Universal Music Group",
+        "Restaurant Brands（历史）"
       ],
       "source_refs": [
         "sec_exhibit_psh_2025"
+      ],
+      "holdings_note": "激进主义+集中持股，持仓公开度较高。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "Hilton",
+          "weight_pct": 5.6,
+          "weight_text": "5.60%",
+          "weight_note": "可核验：SEC 13F-HR 市值占比（仅美国长仓股票口径）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 市值占比（美国长仓股票口径）",
+          "weight_source": "SEC 13F-HR 0001172661-26-001091"
+        },
+        {
+          "asset": "Chipotle",
+          "weight_pct": null,
+          "weight_text": "13F未命中",
+          "weight_note": "在最新13F未命中该资产（可能为历史仓位、非美股或策略头寸）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 对齐结果",
+          "weight_source": "SEC 13F-HR 0001172661-26-001091"
+        },
+        {
+          "asset": "Lowe's",
+          "weight_pct": null,
+          "weight_text": "13F未命中",
+          "weight_note": "在最新13F未命中该资产（可能为历史仓位、非美股或策略头寸）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 对齐结果",
+          "weight_source": "SEC 13F-HR 0001172661-26-001091"
+        },
+        {
+          "asset": "Universal Music Group",
+          "weight_pct": null,
+          "weight_text": "13F未命中",
+          "weight_note": "在最新13F未命中该资产（可能为历史仓位、非美股或策略头寸）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 对齐结果",
+          "weight_source": "SEC 13F-HR 0001172661-26-001091"
+        },
+        {
+          "asset": "Restaurant Brands（历史）",
+          "weight_pct": 10.05,
+          "weight_text": "10.05%",
+          "weight_note": "可核验：SEC 13F-HR 市值占比（仅美国长仓股票口径）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 市值占比（美国长仓股票口径）",
+          "weight_source": "SEC 13F-HR 0001172661-26-001091"
+        }
       ],
       "methodology_bucket": "激进主义投资",
       "verified_rank": 16
@@ -370,11 +927,42 @@
       "style": "信用周期/困境债",
       "thesis": "周期位置优先，下行保护先于收益",
       "representative_holdings": [
-        "困境债",
-        "高收益信用"
+        "困境债务（Distressed Debt）",
+        "高收益债（High Yield）",
+        "不良贷款/重组债权"
       ],
       "source_refs": [
         "sec_oaktree_10k_2025"
+      ],
+      "holdings_note": "以信用周期与债务结构机会为主。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "困境债务（Distressed Debt）",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "高收益债（High Yield）",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "不良贷款/重组债权",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "信用周期",
       "verified_rank": 17
@@ -391,11 +979,43 @@
       "style": "深度价值分散",
       "thesis": "低估值分散买入，等待均值回归",
       "representative_holdings": [
-        "美股小盘价值股篮子"
+        "美股小盘净净股组合",
+        "低市净率价值股分散组合",
+        "资产折价股篮子"
       ],
       "source_refs": [
         "walter_schloss_profile",
         "columbia_superinvestors_context"
+      ],
+      "holdings_note": "风格以分散深度价值为主，单票记录多为历史档案。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "美股小盘净净股组合",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "低市净率价值股分散组合",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "资产折价股篮子",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "深度价值分散",
       "verified_rank": 18
@@ -412,11 +1032,53 @@
       "style": "深度价值",
       "thesis": "高赔率低下行不对称下注",
       "representative_holdings": [
-        "价值股集中组合"
+        "Fiat Chrysler（历史）",
+        "Rain Industries（历史）",
+        "Micron（历史）",
+        "中概价值仓位（阶段性）"
       ],
       "source_refs": [
         "forbes_pabrai_2013",
         "forbes_pabrai_2010"
+      ],
+      "holdings_note": "集中持仓、高赔率下注，代表仓位以历史高确信度案例为主。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "Fiat Chrysler（历史）",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "Rain Industries（历史）",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "Micron（历史）",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        },
+        {
+          "asset": "中概价值仓位（阶段性）",
+          "weight_pct": null,
+          "weight_text": "未披露/不适用",
+          "weight_note": "未披露/不适用（该持仓通常不在13F口径，或无公开单票占比）",
+          "weight_as_of": null,
+          "weight_basis": "公开资料口径",
+          "weight_source": null
+        }
       ],
       "methodology_bucket": "深度价值",
       "verified_rank": 19
@@ -433,13 +1095,52 @@
       "style": "事件驱动+基本面",
       "thesis": "事件催化+资本结构重估",
       "representative_holdings": [
-        "Amazon",
-        "Microsoft",
-        "NVIDIA",
-        "PG&E"
+        "Yahoo!（激进主义历史案例）",
+        "Sony（激进主义历史案例）",
+        "Alibaba（阶段性重仓）",
+        "Amazon/Microsoft（近年核心仓位）"
       ],
       "source_refs": [
         "third_point_q3_2025_letter_mirror"
+      ],
+      "holdings_note": "事件驱动与基本面并用，仓位随催化节奏动态调整。",
+      "representative_holdings_with_weight": [
+        {
+          "asset": "Yahoo!（激进主义历史案例）",
+          "weight_pct": null,
+          "weight_text": "13F未命中",
+          "weight_note": "在最新13F未命中该资产（可能为历史仓位、非美股或策略头寸）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 对齐结果",
+          "weight_source": "SEC 13F-HR 0001040273-26-000001"
+        },
+        {
+          "asset": "Sony（激进主义历史案例）",
+          "weight_pct": null,
+          "weight_text": "13F未命中",
+          "weight_note": "在最新13F未命中该资产（可能为历史仓位、非美股或策略头寸）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 对齐结果",
+          "weight_source": "SEC 13F-HR 0001040273-26-000001"
+        },
+        {
+          "asset": "Alibaba（阶段性重仓）",
+          "weight_pct": 1.66,
+          "weight_text": "1.66%",
+          "weight_note": "可核验：SEC 13F-HR 市值占比（仅美国长仓股票口径）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 市值占比（美国长仓股票口径）",
+          "weight_source": "SEC 13F-HR 0001040273-26-000001"
+        },
+        {
+          "asset": "Amazon/Microsoft（近年核心仓位）",
+          "weight_pct": 13.02,
+          "weight_text": "13.02%",
+          "weight_note": "可核验：SEC 13F-HR 市值占比（仅美国长仓股票口径）",
+          "weight_as_of": "2025-12-31",
+          "weight_basis": "SEC 13F-HR 市值占比（美国长仓股票口径）",
+          "weight_source": "SEC 13F-HR 0001040273-26-000001"
+        }
       ],
       "methodology_bucket": "事件驱动",
       "verified_rank": 20
@@ -475,5 +1176,7 @@
     "mastersinvest": "https://mastersinvest.com/masters",
     "historical_compilations": "https://www.fool.com/investing/2023/11/28/charlie-munger-appreciation/",
     "institutional_investor_profile": "https://bsporigin.institutionalinvestor.com/article/2btgfi071p6yvdlmytfy8/premium/the-value-of-seth-klarman"
-  }
+  },
+  "holdings_weight_coverage_note": "占比优先采用 SEC 13F-HR 最新报告市值占比（仅美国长仓股票口径）；宏观/期货/非美股/历史仓位常无对应单票披露，统一标注为未披露或13F未命中。",
+  "holdings_weight_last_updated": "2026-03-01"
 }

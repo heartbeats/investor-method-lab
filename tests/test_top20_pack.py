@@ -164,6 +164,9 @@ class Top20PackTest(unittest.TestCase):
         self.assertIn("价值\\|复利", markdown)
         self.assertIn("催化:19.5 \\| 趋势:15.1", markdown)
         self.assertIn("note\\|1", markdown)
+        self.assertIn("## 6) 安全边际口径参照", markdown)
+        self.assertIn("MOS_FV = (FV - P) / FV", markdown)
+        self.assertIn("docs/margin_of_safety_references.md", markdown)
 
     def test_rank_opportunities_for_each_group(self) -> None:
         profiles = self._sample_profiles()

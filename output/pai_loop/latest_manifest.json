@@ -1,15 +1,15 @@
 {
   "data/top20_global_investors_verified_ab.json": {
     "exists": true,
-    "size": 16473,
-    "lines": 479,
-    "sha256": "bfdd294f9ba06ece8dddfe449e4707d1226a12f638369e709b94db4f6c09b518"
+    "size": 47195,
+    "lines": 1182,
+    "sha256": "89a137e2b295641ad0bc20b0a5eaee7223fb0eefaf214427e1db6484fd358e26"
   },
   "docs/top20_global_investors_verified_ab.md": {
     "exists": true,
-    "size": 3335,
+    "size": 6634,
     "lines": 26,
-    "sha256": "b453bd5dbead253882f2babdd281af39f3e0f96d1365049cc0d6e4bcceda7966"
+    "sha256": "3b84c67c5a6c052e627536edbbda4f0cebf4b5eddf8a3e763bd1a4a89f8049ab"
   },
   "docs/top20_verification_backlog.md": {
     "exists": true,
@@ -19,26 +19,26 @@
   },
   "docs/top20_opportunity_pack.md": {
     "exists": true,
-    "size": 10300,
-    "lines": 153,
-    "sha256": "0c123bd614e801c56a55776a565cd0f74319d72614b264debcadaf560105fb12"
+    "size": 10835,
+    "lines": 162,
+    "sha256": "a2867676091d1505220c7dcb8fe9e306f8649f7a36c1c60467b831e217088282"
   },
   "output/top20_first_batch_opportunities.csv": {
     "exists": true,
-    "size": 1141,
+    "size": 1142,
     "lines": 11,
-    "sha256": "c1df35b4d7d6d4cbae9f97f8cd5ced42ebc9425cb3cb54ae155359bfe87efdbe"
+    "sha256": "8ccf2adf7504fab014cf44b90fb3dd1b1384b877dff42716ef5b8f777ca69ee5"
   },
   "output/top20_methodology_top5_by_group.csv": {
     "exists": true,
-    "size": 5742,
+    "size": 5701,
     "lines": 46,
-    "sha256": "11079e0fe5bf86fb95373cc05d80fc44a802611370a9eed0b568b89074533d3b"
+    "sha256": "27befcaf66cc6e734163f424691e2b6873af158acd20dce0fdd5ebd9f45a9177"
   },
   "output/top20_diversified_opportunities.csv": {
     "exists": true,
-    "size": 1151,
+    "size": 1152,
     "lines": 11,
-    "sha256": "cf20af86f1fc0120a6ca2d5e8d2348a431fe80abcb9c7fcb6992181347bc9875"
+    "sha256": "da73f55de94f133c4c7744b5a58b36ebecbbb32c165b348638fae6054be993dd"
   }
 }

@@ -76,21 +76,37 @@ def build_verified_universe(
 def render_verified_markdown(
     included: List[Dict[str, Any]], min_confidence: str, as_of_date: str
 ) -> str:
+    def holdings_preview(item: Dict[str, Any]) -> str:
+        weighted = item.get("representative_holdings_with_weight", [])
+        if weighted:
+            parts: List[str] = []
+            for row in weighted[:4]:
+                asset = str(row.get("asset", "")).strip()
+                weight_text = str(row.get("weight_text", "")).strip()
+                if asset and weight_text:
+                    parts.append(f"{asset}（{weight_text}）")
+                elif asset:
+                    parts.append(asset)
+            if parts:
+                return "、".join(parts)
+        return "、".join(item.get("representative_holdings", [])[:4])
+
     lines: List[str] = []
     lines.append(f"# 可审计投资人榜单（最小可信度 {min_confidence.upper()}）")
     lines.append("")
     lines.append(f"更新时间：{as_of_date}")
     lines.append("")
     lines.append(
-        "| 排名 | 投资者 | 年化收益率 | 口径 | 统计区间 | 可信度 | 方法论分组 | 风格 |"
+        "| 排名 | 投资者 | 年化收益率 | 口径 | 统计区间 | 可信度 | 方法论分组 | 风格 | 代表持仓（历史/代表性） |"
     )
-    lines.append("|---|---|---:|---|---|---|---|---|")
+    lines.append("|---|---|---:|---|---|---|---|---|---|")
     for item in included:
         name = f"{item.get('name_cn', '')} / {item.get('name_en', '')}"
+        holdings = holdings_preview(item)
         lines.append(
             f"| {item.get('verified_rank')} | {name} | {item.get('calibrated_return_pct')}% | "
             f"{item.get('return_basis', '')} | {item.get('period', '')} | {item.get('confidence', '')} | "
-            f"{item.get('methodology_bucket', '')} | {item.get('style', '')} |"
+            f"{item.get('methodology_bucket', '')} | {item.get('style', '')} | {holdings} |"
         )
 
     return "\n".join(lines)
