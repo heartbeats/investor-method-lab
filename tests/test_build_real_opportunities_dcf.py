@@ -88,6 +88,7 @@ class BuildRealOpportunitiesDCFTest(unittest.TestCase):
                     "US.AAPL": mod.DCFValuation(
                         symbol="US.AAPL",
                         iv_base=130.0,
+                        consensus_fair_value=None,
                         price=100.0,
                         mos_base=0.3,
                         status="watch",
@@ -133,6 +134,28 @@ class BuildRealOpportunitiesDCFTest(unittest.TestCase):
         self.assertAlmostEqual(row.fair_value, 115.0)
         self.assertIn("fv_source=target_mean_price", row.note)
         self.assertEqual(meta["covered_tickers"], [])
+
+    def test_build_dcf_subprocess_env_for_loopback_base_url(self) -> None:
+        with mock.patch.dict(
+            mod.os.environ,
+            {
+                "HTTP_PROXY": "http://127.0.0.1:7897",
+                "HTTPS_PROXY": "http://127.0.0.1:7897",
+                "NO_PROXY": "10.0.0.0/8",
+            },
+            clear=False,
+        ):
+            env = mod._build_dcf_subprocess_env("http://127.0.0.1:8000")
+        self.assertIsNotNone(env)
+        self.assertNotIn("HTTP_PROXY", env)
+        self.assertNotIn("HTTPS_PROXY", env)
+        self.assertIn("127.0.0.1", env.get("NO_PROXY", ""))
+        self.assertIn("localhost", env.get("NO_PROXY", ""))
+        self.assertIn("::1", env.get("NO_PROXY", ""))
+
+    def test_build_dcf_subprocess_env_for_remote_base_url(self) -> None:
+        env = mod._build_dcf_subprocess_env("https://example.com")
+        self.assertIsNone(env)
 
 
 if __name__ == "__main__":

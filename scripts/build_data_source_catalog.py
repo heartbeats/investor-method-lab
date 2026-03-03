@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import json
+import os
+import subprocess
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -13,6 +15,8 @@ import yfinance as yf
 from build_investor_profiles import detect_futu_opend_status
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+STOCK_PROBE_SCRIPT = Path("/home/afu/.codex/skills/stock-data-fetch/scripts/probe_stock_sources.py")
+STOCK_PROBE_OUTPUT = PROJECT_ROOT / "data" / "stock_provider_probe.json"
 
 
 @dataclass
@@ -81,8 +85,57 @@ def _probe_yahoo() -> tuple[str, str, int | None]:
     return "ok", "AAPL 行情可获取", latency_ms
 
 
+def _run_stock_provider_probe() -> Dict[str, Any] | None:
+    if not STOCK_PROBE_SCRIPT.exists():
+        return None
+    cmd = [
+        "python3",
+        str(STOCK_PROBE_SCRIPT),
+        "--out",
+        str(STOCK_PROBE_OUTPUT),
+        "--skip-futu",
+    ]
+    secret_file = (os.getenv("IML_STOCK_SECRET_FILE") or "").strip()
+    candidates = [secret_file, "/mnt/c/Users/Jarvis/Desktop/openclaw的秘密.txt"]
+    for candidate in candidates:
+        if not candidate:
+            continue
+        if Path(candidate).exists():
+            cmd.extend(["--secret-file", candidate])
+            break
+    try:
+        completed = subprocess.run(
+            cmd,
+            check=False,
+            capture_output=True,
+            text=True,
+            timeout=180,
+        )
+    except Exception:  # noqa: BLE001
+        return None
+    if completed.returncode != 0:
+        return None
+    if not STOCK_PROBE_OUTPUT.exists():
+        return None
+    try:
+        return json.loads(STOCK_PROBE_OUTPUT.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def _status_from_probe_counts(success_count: int, total: int) -> str:
+    if total <= 0:
+        return "partial"
+    if success_count >= total:
+        return "ok"
+    if success_count > 0:
+        return "partial"
+    return "error"
+
+
 def build_catalog() -> Dict[str, Any]:
     probes: List[SourceProbe] = []
+    stock_probe = _run_stock_provider_probe()
 
     sec_status, sec_detail, sec_latency = _probe_http(
         "https://data.sec.gov/submissions/CIK0001067983.json",
@@ -122,6 +175,19 @@ def build_catalog() -> Dict[str, Any]:
     )
 
     yahoo_status, yahoo_detail, yahoo_latency = _probe_yahoo()
+    if isinstance(stock_probe, dict):
+        y = ((stock_probe.get("providers") or {}).get("yfinance") or {})
+        mk = y.get("US") if isinstance(y, dict) else None
+        if isinstance(mk, dict):
+            success_count = int(mk.get("success_count") or 0)
+            total = int(mk.get("total") or 0)
+            yahoo_status = _status_from_probe_counts(success_count, total)
+            yahoo_detail = (
+                f"probe: US {success_count}/{total}; "
+                f"p50={mk.get('p50_sec')}s; p95={mk.get('p95_sec')}s"
+            )
+            latency = mk.get("p50_sec")
+            yahoo_latency = int(float(latency) * 1000) if latency is not None else None
     probes.append(
         SourceProbe(
             source_id="yahoo_yfinance",
@@ -137,6 +203,125 @@ def build_catalog() -> Dict[str, Any]:
             latency_ms=yahoo_latency,
         )
     )
+
+    if isinstance(stock_probe, dict):
+        providers = stock_probe.get("providers") or {}
+
+        ak = providers.get("akshare_daily") if isinstance(providers, dict) else None
+        if isinstance(ak, dict):
+            ak_success = int(ak.get("success_count") or 0)
+            ak_total = int(ak.get("total") or 0)
+            probes.append(
+                SourceProbe(
+                    source_id="akshare_daily",
+                    name="AkShare Daily",
+                    category="quotes",
+                    markets=["CN"],
+                    url="https://akshare.akfamily.xyz/",
+                    update_frequency="daily_or_intraday_pull",
+                    auth="none",
+                    notes="A股历史/日线补源，适合作为非实时回退。",
+                    status=_status_from_probe_counts(ak_success, ak_total),
+                    detail=(
+                        f"probe: CN {ak_success}/{ak_total}; "
+                        f"p50={ak.get('p50_sec')}s; p95={ak.get('p95_sec')}s"
+                    ),
+                    latency_ms=(
+                        int(float(ak.get("p50_sec")) * 1000)
+                        if ak.get("p50_sec") is not None
+                        else None
+                    ),
+                )
+            )
+
+        av = providers.get("alpha_vantage") if isinstance(providers, dict) else None
+        if isinstance(av, dict):
+            av_global = av.get("global_quote") if isinstance(av.get("global_quote"), dict) else {}
+            av_target = av.get("analyst_target") if isinstance(av.get("analyst_target"), dict) else {}
+            av_status = "ok" if bool(av_global.get("ok")) else ("partial" if av.get("configured") else "disabled")
+            probes.append(
+                SourceProbe(
+                    source_id="alpha_vantage",
+                    name="Alpha Vantage",
+                    category="quotes_fundamentals_external_reference",
+                    markets=["US"],
+                    url="https://www.alphavantage.co/",
+                    update_frequency="api_rate_limited",
+                    auth="api_key",
+                    notes="免费额度严格，适合作为低频补源。",
+                    status=av_status,
+                    detail=(
+                        f"global_quote_ok={av_global.get('ok')}; "
+                        f"analyst_target_ok={av_target.get('ok')}; "
+                        f"target_has_information={av_target.get('has_information')}"
+                    ),
+                    latency_ms=(
+                        int(float(av_global.get("latency_sec")) * 1000)
+                        if av_global.get("latency_sec") is not None
+                        else None
+                    ),
+                )
+            )
+
+        fmp = providers.get("fmp") if isinstance(providers, dict) else None
+        if isinstance(fmp, dict):
+            fmp_quote = fmp.get("quote") if isinstance(fmp.get("quote"), dict) else {}
+            fmp_target = (
+                fmp.get("price_target_summary")
+                if isinstance(fmp.get("price_target_summary"), dict)
+                else {}
+            )
+            fmp_status = "ok" if bool(fmp_quote.get("ok")) else ("partial" if fmp.get("configured") else "disabled")
+            probes.append(
+                SourceProbe(
+                    source_id="fmp_quote",
+                    name="Financial Modeling Prep",
+                    category="quotes_fundamentals_external_reference",
+                    markets=["US", "global_partial"],
+                    url="https://site.financialmodelingprep.com/",
+                    update_frequency="api_rate_limited",
+                    auth="api_key",
+                    notes="可用于行情与目标价汇总；免费额度按天计数。",
+                    status=fmp_status,
+                    detail=(
+                        f"quote_ok={fmp_quote.get('ok')}; "
+                        f"target_summary_ok={fmp_target.get('ok')}"
+                    ),
+                    latency_ms=(
+                        int(float(fmp_quote.get("latency_sec")) * 1000)
+                        if fmp_quote.get("latency_sec") is not None
+                        else None
+                    ),
+                )
+            )
+
+        ts = providers.get("tushare") if isinstance(providers, dict) else None
+        if isinstance(ts, dict):
+            ts_ok = bool(ts.get("ok"))
+            ts_status = "ok" if ts_ok else ("partial" if ts.get("configured") else "disabled")
+            probes.append(
+                SourceProbe(
+                    source_id="tushare_pro",
+                    name="Tushare Pro",
+                    category="quotes_fundamentals",
+                    markets=["CN"],
+                    url="https://tushare.pro/",
+                    update_frequency="api_rate_limited",
+                    auth="token+points",
+                    notes="A股基础/财务重要补源；权限与频次受积分等级约束。",
+                    status=ts_status,
+                    detail=(
+                        "probe ok"
+                        if ts_ok
+                        else f"probe_error={str(ts.get('error') or ts.get('error_type') or 'unknown')[:160]}"
+                    ),
+                    latency_ms=(
+                        int(float(ts.get("latency_sec")) * 1000)
+                        if ts.get("latency_sec") is not None
+                        else None
+                    ),
+                )
+            )
 
     futu_runtime = detect_futu_opend_status()
     futu_status = "ok" if futu_runtime.get("status") == "verified" else "partial"
@@ -292,6 +477,20 @@ def build_catalog() -> Dict[str, Any]:
 
     return {
         "as_of_utc": datetime.now(timezone.utc).isoformat(),
+        "stock_provider_probe": (
+            {
+                "script": str(STOCK_PROBE_SCRIPT),
+                "output_file": str(STOCK_PROBE_OUTPUT),
+                "generated_at": stock_probe.get("generated_at"),
+            }
+            if isinstance(stock_probe, dict)
+            else {
+                "script": str(STOCK_PROBE_SCRIPT),
+                "output_file": str(STOCK_PROBE_OUTPUT),
+                "generated_at": None,
+                "note": "probe_unavailable_or_failed",
+            }
+        ),
         "source_count": len(probes),
         "status_counts": status_counts,
         "sources": [item.to_dict() for item in probes],

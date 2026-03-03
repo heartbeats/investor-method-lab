@@ -1,0 +1,801 @@
+ticker,market,name,sector,liquidity_tag,included_reason,note
+600519.SS,A,贵州茅台,Unknown,csi300_constituent,CSI300 constituent (weight=3.544%),A core | CSI300 constituent | weight=3.544%
+000858.SZ,A,五 粮 液,Unknown,csi300_constituent,CSI300 constituent (weight=0.786%),A core | CSI300 constituent | weight=0.786%
+300750.SZ,A,宁德时代,Unknown,csi300_constituent,CSI300 constituent (weight=3.518%),A core | CSI300 constituent | weight=3.518%
+600036.SS,A,招商银行,Unknown,csi300_constituent,CSI300 constituent (weight=1.866%),A core | CSI300 constituent | weight=1.866%
+601318.SS,A,中国平安,Unknown,csi300_constituent,CSI300 constituent (weight=2.616%),A core | CSI300 constituent | weight=2.616%
+600900.SS,A,长江电力,Unknown,csi300_constituent,CSI300 constituent (weight=1.239%),A core | CSI300 constituent | weight=1.239%
+002594.SZ,A,比亚迪,Unknown,csi300_constituent,CSI300 constituent (weight=0.944%),A core | CSI300 constituent | weight=0.944%
+600276.SS,A,恒瑞医药,Unknown,csi300_constituent,CSI300 constituent (weight=0.982%),A core | CSI300 constituent | weight=0.982%
+601899.SS,A,紫金矿业,Unknown,csi300_constituent,CSI300 constituent (weight=2.534%),A core | CSI300 constituent | weight=2.534%
+300308.SZ,A,中际旭创,Unknown,csi300_constituent,CSI300 constituent (weight=2.308%),A core | CSI300 constituent | weight=2.308%
+000333.SZ,A,美的集团,Unknown,csi300_constituent,CSI300 constituent (weight=1.506%),A core | CSI300 constituent | weight=1.506%
+300502.SZ,A,新易盛,Unknown,csi300_constituent,CSI300 constituent (weight=1.391%),A core | CSI300 constituent | weight=1.391%
+601166.SS,A,兴业银行,Unknown,csi300_constituent,CSI300 constituent (weight=1.206%),A core | CSI300 constituent | weight=1.206%
+300059.SZ,A,东方财富,Unknown,csi300_constituent,CSI300 constituent (weight=1.108%),A core | CSI300 constituent | weight=1.108%
+600030.SS,A,中信证券,Unknown,csi300_constituent,CSI300 constituent (weight=1.039%),A core | CSI300 constituent | weight=1.039%
+002475.SZ,A,立讯精密,Unknown,csi300_constituent,CSI300 constituent (weight=0.996%),A core | CSI300 constituent | weight=0.996%
+688256.SS,A,寒武纪,Unknown,csi300_constituent,CSI300 constituent (weight=0.966%),A core | CSI300 constituent | weight=0.966%
+688041.SS,A,海光信息,Unknown,csi300_constituent,CSI300 constituent (weight=0.944%),A core | CSI300 constituent | weight=0.944%
+603259.SS,A,药明康德,Unknown,csi300_constituent,CSI300 constituent (weight=0.943%),A core | CSI300 constituent | weight=0.943%
+688981.SS,A,中芯国际,Unknown,csi300_constituent,CSI300 constituent (weight=0.894%),A core | CSI300 constituent | weight=0.894%
+601398.SS,A,工商银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.871%),A core | CSI300 constituent | weight=0.871%
+601138.SS,A,工业富联,Unknown,csi300_constituent,CSI300 constituent (weight=0.861%),A core | CSI300 constituent | weight=0.861%
+601211.SS,A,国泰海通,Unknown,csi300_constituent,CSI300 constituent (weight=0.832%),A core | CSI300 constituent | weight=0.832%
+300274.SZ,A,阳光电源,Unknown,csi300_constituent,CSI300 constituent (weight=0.816%),A core | CSI300 constituent | weight=0.816%
+603993.SS,A,洛阳钼业,Unknown,csi300_constituent,CSI300 constituent (weight=0.815%),A core | CSI300 constituent | weight=0.815%
+002371.SZ,A,北方华创,Unknown,csi300_constituent,CSI300 constituent (weight=0.795%),A core | CSI300 constituent | weight=0.795%
+603986.SS,A,兆易创新,Unknown,csi300_constituent,CSI300 constituent (weight=0.779%),A core | CSI300 constituent | weight=0.779%
+688008.SS,A,澜起科技,Unknown,csi300_constituent,CSI300 constituent (weight=0.729%),A core | CSI300 constituent | weight=0.729%
+300476.SZ,A,胜宏科技,Unknown,csi300_constituent,CSI300 constituent (weight=0.721%),A core | CSI300 constituent | weight=0.721%
+601288.SS,A,农业银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.715%),A core | CSI300 constituent | weight=0.715%
+601328.SS,A,交通银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.680%),A core | CSI300 constituent | weight=0.680%
+600309.SS,A,万华化学,Unknown,csi300_constituent,CSI300 constituent (weight=0.679%),A core | CSI300 constituent | weight=0.679%
+300394.SZ,A,天孚通信,Unknown,csi300_constituent,CSI300 constituent (weight=0.669%),A core | CSI300 constituent | weight=0.669%
+600150.SS,A,中国船舶,Unknown,csi300_constituent,CSI300 constituent (weight=0.663%),A core | CSI300 constituent | weight=0.663%
+000651.SZ,A,格力电器,Unknown,csi300_constituent,CSI300 constituent (weight=0.653%),A core | CSI300 constituent | weight=0.653%
+600887.SS,A,伊利股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.642%),A core | CSI300 constituent | weight=0.642%
+000725.SZ,A,京东方A,Unknown,csi300_constituent,CSI300 constituent (weight=0.640%),A core | CSI300 constituent | weight=0.640%
+600111.SS,A,北方稀土,Unknown,csi300_constituent,CSI300 constituent (weight=0.614%),A core | CSI300 constituent | weight=0.614%
+688012.SS,A,中微公司,Unknown,csi300_constituent,CSI300 constituent (weight=0.601%),A core | CSI300 constituent | weight=0.601%
+600089.SS,A,特变电工,Unknown,csi300_constituent,CSI300 constituent (weight=0.596%),A core | CSI300 constituent | weight=0.596%
+600919.SS,A,江苏银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.591%),A core | CSI300 constituent | weight=0.591%
+000338.SZ,A,潍柴动力,Unknown,csi300_constituent,CSI300 constituent (weight=0.587%),A core | CSI300 constituent | weight=0.587%
+601816.SS,A,京沪高铁,Unknown,csi300_constituent,CSI300 constituent (weight=0.565%),A core | CSI300 constituent | weight=0.565%
+601601.SS,A,中国太保,Unknown,csi300_constituent,CSI300 constituent (weight=0.543%),A core | CSI300 constituent | weight=0.543%
+601088.SS,A,中国神华,Unknown,csi300_constituent,CSI300 constituent (weight=0.542%),A core | CSI300 constituent | weight=0.542%
+300124.SZ,A,汇川技术,Unknown,csi300_constituent,CSI300 constituent (weight=0.536%),A core | CSI300 constituent | weight=0.536%
+600031.SS,A,三一重工,Unknown,csi300_constituent,CSI300 constituent (weight=0.534%),A core | CSI300 constituent | weight=0.534%
+603019.SS,A,中科曙光,Unknown,csi300_constituent,CSI300 constituent (weight=0.525%),A core | CSI300 constituent | weight=0.525%
+002028.SZ,A,思源电气,Unknown,csi300_constituent,CSI300 constituent (weight=0.519%),A core | CSI300 constituent | weight=0.519%
+600000.SS,A,浦发银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.504%),A core | CSI300 constituent | weight=0.504%
+002230.SZ,A,科大讯飞,Unknown,csi300_constituent,CSI300 constituent (weight=0.502%),A core | CSI300 constituent | weight=0.502%
+002714.SZ,A,牧原股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.498%),A core | CSI300 constituent | weight=0.498%
+601688.SS,A,华泰证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.486%),A core | CSI300 constituent | weight=0.486%
+000063.SZ,A,中兴通讯,Unknown,csi300_constituent,CSI300 constituent (weight=0.484%),A core | CSI300 constituent | weight=0.484%
+601857.SS,A,中国石油,Unknown,csi300_constituent,CSI300 constituent (weight=0.479%),A core | CSI300 constituent | weight=0.479%
+000792.SZ,A,盐湖股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.472%),A core | CSI300 constituent | weight=0.472%
+603799.SS,A,华友钴业,Unknown,csi300_constituent,CSI300 constituent (weight=0.464%),A core | CSI300 constituent | weight=0.464%
+000425.SZ,A,徐工机械,Unknown,csi300_constituent,CSI300 constituent (weight=0.448%),A core | CSI300 constituent | weight=0.448%
+002415.SZ,A,海康威视,Unknown,csi300_constituent,CSI300 constituent (weight=0.448%),A core | CSI300 constituent | weight=0.448%
+002050.SZ,A,三花智控,Unknown,csi300_constituent,CSI300 constituent (weight=0.446%),A core | CSI300 constituent | weight=0.446%
+002463.SZ,A,沪电股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.438%),A core | CSI300 constituent | weight=0.438%
+300760.SZ,A,迈瑞医疗,Unknown,csi300_constituent,CSI300 constituent (weight=0.438%),A core | CSI300 constituent | weight=0.438%
+601012.SS,A,隆基绿能,Unknown,csi300_constituent,CSI300 constituent (weight=0.432%),A core | CSI300 constituent | weight=0.432%
+002384.SZ,A,东山精密,Unknown,csi300_constituent,CSI300 constituent (weight=0.427%),A core | CSI300 constituent | weight=0.427%
+600406.SS,A,国电南瑞,Unknown,csi300_constituent,CSI300 constituent (weight=0.426%),A core | CSI300 constituent | weight=0.426%
+601600.SS,A,中国铝业,Unknown,csi300_constituent,CSI300 constituent (weight=0.423%),A core | CSI300 constituent | weight=0.423%
+000001.SZ,A,平安银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.411%),A core | CSI300 constituent | weight=0.411%
+601668.SS,A,中国建筑,Unknown,csi300_constituent,CSI300 constituent (weight=0.405%),A core | CSI300 constituent | weight=0.405%
+603501.SS,A,豪威集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.405%),A core | CSI300 constituent | weight=0.405%
+000100.SZ,A,TCL科技,Unknown,csi300_constituent,CSI300 constituent (weight=0.402%),A core | CSI300 constituent | weight=0.402%
+002142.SZ,A,宁波银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.402%),A core | CSI300 constituent | weight=0.402%
+600660.SS,A,福耀玻璃,Unknown,csi300_constituent,CSI300 constituent (weight=0.376%),A core | CSI300 constituent | weight=0.376%
+600016.SS,A,民生银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.375%),A core | CSI300 constituent | weight=0.375%
+601229.SS,A,上海银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.375%),A core | CSI300 constituent | weight=0.375%
+600690.SS,A,海尔智家,Unknown,csi300_constituent,CSI300 constituent (weight=0.375%),A core | CSI300 constituent | weight=0.375%
+601919.SS,A,中远海控,Unknown,csi300_constituent,CSI300 constituent (weight=0.368%),A core | CSI300 constituent | weight=0.368%
+600028.SS,A,中国石化,Unknown,csi300_constituent,CSI300 constituent (weight=0.366%),A core | CSI300 constituent | weight=0.366%
+600489.SS,A,中金黄金,Unknown,csi300_constituent,CSI300 constituent (weight=0.360%),A core | CSI300 constituent | weight=0.360%
+601225.SS,A,陕西煤业,Unknown,csi300_constituent,CSI300 constituent (weight=0.358%),A core | CSI300 constituent | weight=0.358%
+002352.SZ,A,顺丰控股,Unknown,csi300_constituent,CSI300 constituent (weight=0.354%),A core | CSI300 constituent | weight=0.354%
+601728.SS,A,中国电信,Unknown,csi300_constituent,CSI300 constituent (weight=0.350%),A core | CSI300 constituent | weight=0.350%
+601127.SS,A,赛力斯,Unknown,csi300_constituent,CSI300 constituent (weight=0.341%),A core | CSI300 constituent | weight=0.341%
+600938.SS,A,中国海油,Unknown,csi300_constituent,CSI300 constituent (weight=0.334%),A core | CSI300 constituent | weight=0.334%
+600547.SS,A,山东黄金,Unknown,csi300_constituent,CSI300 constituent (weight=0.333%),A core | CSI300 constituent | weight=0.333%
+600941.SS,A,中国移动,Unknown,csi300_constituent,CSI300 constituent (weight=0.331%),A core | CSI300 constituent | weight=0.331%
+300498.SZ,A,温氏股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.331%),A core | CSI300 constituent | weight=0.331%
+300408.SZ,A,三环集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.329%),A core | CSI300 constituent | weight=0.329%
+300442.SZ,A,润泽科技,Unknown,csi300_constituent,CSI300 constituent (weight=0.329%),A core | CSI300 constituent | weight=0.329%
+600183.SS,A,生益科技,Unknown,csi300_constituent,CSI300 constituent (weight=0.327%),A core | CSI300 constituent | weight=0.327%
+002460.SZ,A,赣锋锂业,Unknown,csi300_constituent,CSI300 constituent (weight=0.321%),A core | CSI300 constituent | weight=0.321%
+600926.SS,A,杭州银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.321%),A core | CSI300 constituent | weight=0.321%
+000568.SZ,A,泸州老窖,Unknown,csi300_constituent,CSI300 constituent (weight=0.316%),A core | CSI300 constituent | weight=0.316%
+601169.SS,A,北京银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.310%),A core | CSI300 constituent | weight=0.310%
+600522.SS,A,中天科技,Unknown,csi300_constituent,CSI300 constituent (weight=0.309%),A core | CSI300 constituent | weight=0.309%
+601888.SS,A,中国中免,Unknown,csi300_constituent,CSI300 constituent (weight=0.306%),A core | CSI300 constituent | weight=0.306%
+600809.SS,A,山西汾酒,Unknown,csi300_constituent,CSI300 constituent (weight=0.306%),A core | CSI300 constituent | weight=0.306%
+300014.SZ,A,亿纬锂能,Unknown,csi300_constituent,CSI300 constituent (weight=0.302%),A core | CSI300 constituent | weight=0.302%
+600050.SS,A,中国联通,Unknown,csi300_constituent,CSI300 constituent (weight=0.299%),A core | CSI300 constituent | weight=0.299%
+601766.SS,A,中国中车,Unknown,csi300_constituent,CSI300 constituent (weight=0.298%),A core | CSI300 constituent | weight=0.298%
+600893.SS,A,航发动力,Unknown,csi300_constituent,CSI300 constituent (weight=0.296%),A core | CSI300 constituent | weight=0.296%
+002916.SZ,A,深南电路,Unknown,csi300_constituent,CSI300 constituent (weight=0.296%),A core | CSI300 constituent | weight=0.296%
+601988.SS,A,中国银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.294%),A core | CSI300 constituent | weight=0.294%
+601628.SS,A,中国人寿,Unknown,csi300_constituent,CSI300 constituent (weight=0.288%),A core | CSI300 constituent | weight=0.288%
+600010.SS,A,包钢股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.285%),A core | CSI300 constituent | weight=0.285%
+601939.SS,A,建设银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.283%),A core | CSI300 constituent | weight=0.283%
+002625.SZ,A,光启技术,Unknown,csi300_constituent,CSI300 constituent (weight=0.281%),A core | CSI300 constituent | weight=0.281%
+002027.SZ,A,分众传媒,Unknown,csi300_constituent,CSI300 constituent (weight=0.278%),A core | CSI300 constituent | weight=0.278%
+300033.SZ,A,同花顺,Unknown,csi300_constituent,CSI300 constituent (weight=0.278%),A core | CSI300 constituent | weight=0.278%
+601985.SS,A,中国核电,Unknown,csi300_constituent,CSI300 constituent (weight=0.273%),A core | CSI300 constituent | weight=0.273%
+300433.SZ,A,蓝思科技,Unknown,csi300_constituent,CSI300 constituent (weight=0.273%),A core | CSI300 constituent | weight=0.273%
+688111.SS,A,金山办公,Unknown,csi300_constituent,CSI300 constituent (weight=0.271%),A core | CSI300 constituent | weight=0.271%
+601009.SS,A,南京银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.271%),A core | CSI300 constituent | weight=0.271%
+600584.SS,A,长电科技,Unknown,csi300_constituent,CSI300 constituent (weight=0.268%),A core | CSI300 constituent | weight=0.268%
+000408.SZ,A,藏格矿业,Unknown,csi300_constituent,CSI300 constituent (weight=0.263%),A core | CSI300 constituent | weight=0.263%
+002241.SZ,A,歌尔股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.262%),A core | CSI300 constituent | weight=0.262%
+600104.SS,A,上汽集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.256%),A core | CSI300 constituent | weight=0.256%
+000977.SZ,A,浪潮信息,Unknown,csi300_constituent,CSI300 constituent (weight=0.255%),A core | CSI300 constituent | weight=0.255%
+000807.SZ,A,云铝股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.253%),A core | CSI300 constituent | weight=0.253%
+600176.SS,A,中国巨石,Unknown,csi300_constituent,CSI300 constituent (weight=0.253%),A core | CSI300 constituent | weight=0.253%
+688271.SS,A,联影医疗,Unknown,csi300_constituent,CSI300 constituent (weight=0.251%),A core | CSI300 constituent | weight=0.251%
+601390.SS,A,中国中铁,Unknown,csi300_constituent,CSI300 constituent (weight=0.251%),A core | CSI300 constituent | weight=0.251%
+000630.SZ,A,铜陵有色,Unknown,csi300_constituent,CSI300 constituent (weight=0.248%),A core | CSI300 constituent | weight=0.248%
+601336.SS,A,新华保险,Unknown,csi300_constituent,CSI300 constituent (weight=0.245%),A core | CSI300 constituent | weight=0.245%
+600019.SS,A,宝钢股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.244%),A core | CSI300 constituent | weight=0.244%
+601006.SS,A,大秦铁路,Unknown,csi300_constituent,CSI300 constituent (weight=0.240%),A core | CSI300 constituent | weight=0.240%
+600999.SS,A,招商证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.240%),A core | CSI300 constituent | weight=0.240%
+000776.SZ,A,广发证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.239%),A core | CSI300 constituent | weight=0.239%
+600585.SS,A,海螺水泥,Unknown,csi300_constituent,CSI300 constituent (weight=0.239%),A core | CSI300 constituent | weight=0.239%
+601100.SS,A,恒立液压,Unknown,csi300_constituent,CSI300 constituent (weight=0.235%),A core | CSI300 constituent | weight=0.235%
+002709.SZ,A,天赐材料,Unknown,csi300_constituent,CSI300 constituent (weight=0.234%),A core | CSI300 constituent | weight=0.234%
+600362.SS,A,江西铜业,Unknown,csi300_constituent,CSI300 constituent (weight=0.234%),A core | CSI300 constituent | weight=0.234%
+601818.SS,A,光大银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.234%),A core | CSI300 constituent | weight=0.234%
+603288.SS,A,海天味业,Unknown,csi300_constituent,CSI300 constituent (weight=0.233%),A core | CSI300 constituent | weight=0.233%
+600905.SS,A,三峡能源,Unknown,csi300_constituent,CSI300 constituent (weight=0.231%),A core | CSI300 constituent | weight=0.231%
+601689.SS,A,拓普集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.229%),A core | CSI300 constituent | weight=0.229%
+002466.SZ,A,天齐锂业,Unknown,csi300_constituent,CSI300 constituent (weight=0.228%),A core | CSI300 constituent | weight=0.228%
+600426.SS,A,华鲁恒升,Unknown,csi300_constituent,CSI300 constituent (weight=0.223%),A core | CSI300 constituent | weight=0.223%
+002600.SZ,A,领益智造,Unknown,csi300_constituent,CSI300 constituent (weight=0.219%),A core | CSI300 constituent | weight=0.219%
+600160.SS,A,巨化股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.218%),A core | CSI300 constituent | weight=0.218%
+000625.SZ,A,长安汽车,Unknown,csi300_constituent,CSI300 constituent (weight=0.214%),A core | CSI300 constituent | weight=0.214%
+601658.SS,A,邮储银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.213%),A core | CSI300 constituent | weight=0.213%
+002049.SZ,A,紫光国微,Unknown,csi300_constituent,CSI300 constituent (weight=0.211%),A core | CSI300 constituent | weight=0.211%
+600346.SS,A,恒力石化,Unknown,csi300_constituent,CSI300 constituent (weight=0.211%),A core | CSI300 constituent | weight=0.211%
+300418.SZ,A,昆仑万维,Unknown,csi300_constituent,CSI300 constituent (weight=0.209%),A core | CSI300 constituent | weight=0.209%
+600958.SS,A,东方证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.206%),A core | CSI300 constituent | weight=0.206%
+600989.SS,A,宝丰能源,Unknown,csi300_constituent,CSI300 constituent (weight=0.205%),A core | CSI300 constituent | weight=0.205%
+601872.SS,A,招商轮船,Unknown,csi300_constituent,CSI300 constituent (weight=0.204%),A core | CSI300 constituent | weight=0.204%
+000938.SZ,A,紫光股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.202%),A core | CSI300 constituent | weight=0.202%
+000975.SZ,A,山金国际,Unknown,csi300_constituent,CSI300 constituent (weight=0.201%),A core | CSI300 constituent | weight=0.201%
+000538.SZ,A,云南白药,Unknown,csi300_constituent,CSI300 constituent (weight=0.195%),A core | CSI300 constituent | weight=0.195%
+605499.SS,A,东鹏饮料,Unknown,csi300_constituent,CSI300 constituent (weight=0.195%),A core | CSI300 constituent | weight=0.195%
+000157.SZ,A,中联重科,Unknown,csi300_constituent,CSI300 constituent (weight=0.193%),A core | CSI300 constituent | weight=0.193%
+300015.SZ,A,爱尔眼科,Unknown,csi300_constituent,CSI300 constituent (weight=0.192%),A core | CSI300 constituent | weight=0.192%
+600219.SS,A,南山铝业,Unknown,csi300_constituent,CSI300 constituent (weight=0.192%),A core | CSI300 constituent | weight=0.192%
+600436.SS,A,片仔癀,Unknown,csi300_constituent,CSI300 constituent (weight=0.192%),A core | CSI300 constituent | weight=0.192%
+601669.SS,A,中国电建,Unknown,csi300_constituent,CSI300 constituent (weight=0.192%),A core | CSI300 constituent | weight=0.192%
+600438.SS,A,通威股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.191%),A core | CSI300 constituent | weight=0.191%
+600115.SS,A,中国东航,Unknown,csi300_constituent,CSI300 constituent (weight=0.190%),A core | CSI300 constituent | weight=0.190%
+600048.SS,A,保利发展,Unknown,csi300_constituent,CSI300 constituent (weight=0.190%),A core | CSI300 constituent | weight=0.190%
+601825.SS,A,沪农商行,Unknown,csi300_constituent,CSI300 constituent (weight=0.189%),A core | CSI300 constituent | weight=0.189%
+002001.SZ,A,新和成,Unknown,csi300_constituent,CSI300 constituent (weight=0.188%),A core | CSI300 constituent | weight=0.188%
+600760.SS,A,中航沈飞,Unknown,csi300_constituent,CSI300 constituent (weight=0.183%),A core | CSI300 constituent | weight=0.183%
+002493.SZ,A,荣盛石化,Unknown,csi300_constituent,CSI300 constituent (weight=0.182%),A core | CSI300 constituent | weight=0.182%
+601377.SS,A,兴业证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.181%),A core | CSI300 constituent | weight=0.181%
+600570.SS,A,恒生电子,Unknown,csi300_constituent,CSI300 constituent (weight=0.177%),A core | CSI300 constituent | weight=0.177%
+002311.SZ,A,海大集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.177%),A core | CSI300 constituent | weight=0.177%
+000166.SZ,A,申万宏源,Unknown,csi300_constituent,CSI300 constituent (weight=0.176%),A core | CSI300 constituent | weight=0.176%
+600875.SS,A,东方电气,Unknown,csi300_constituent,CSI300 constituent (weight=0.176%),A core | CSI300 constituent | weight=0.176%
+002179.SZ,A,中航光电,Unknown,csi300_constituent,CSI300 constituent (weight=0.176%),A core | CSI300 constituent | weight=0.176%
+601916.SS,A,浙商银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.175%),A core | CSI300 constituent | weight=0.175%
+600795.SS,A,国电电力,Unknown,csi300_constituent,CSI300 constituent (weight=0.170%),A core | CSI300 constituent | weight=0.170%
+601360.SS,A,三六零,Unknown,csi300_constituent,CSI300 constituent (weight=0.169%),A core | CSI300 constituent | weight=0.169%
+000768.SZ,A,中航西飞,Unknown,csi300_constituent,CSI300 constituent (weight=0.167%),A core | CSI300 constituent | weight=0.167%
+600015.SS,A,华夏银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.166%),A core | CSI300 constituent | weight=0.166%
+688126.SS,A,沪硅产业,Unknown,csi300_constituent,CSI300 constituent (weight=0.162%),A core | CSI300 constituent | weight=0.162%
+300803.SZ,A,指南针,Unknown,csi300_constituent,CSI300 constituent (weight=0.162%),A core | CSI300 constituent | weight=0.162%
+601058.SS,A,赛轮轮胎,Unknown,csi300_constituent,CSI300 constituent (weight=0.161%),A core | CSI300 constituent | weight=0.161%
+002074.SZ,A,国轩高科,Unknown,csi300_constituent,CSI300 constituent (weight=0.160%),A core | CSI300 constituent | weight=0.160%
+002938.SZ,A,鹏鼎控股,Unknown,csi300_constituent,CSI300 constituent (weight=0.160%),A core | CSI300 constituent | weight=0.160%
+601838.SS,A,成都银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.160%),A core | CSI300 constituent | weight=0.160%
+601995.SS,A,中金公司,Unknown,csi300_constituent,CSI300 constituent (weight=0.158%),A core | CSI300 constituent | weight=0.158%
+600415.SS,A,小商品城,Unknown,csi300_constituent,CSI300 constituent (weight=0.158%),A core | CSI300 constituent | weight=0.158%
+600029.SS,A,南方航空,Unknown,csi300_constituent,CSI300 constituent (weight=0.154%),A core | CSI300 constituent | weight=0.154%
+002648.SZ,A,卫星化学,Unknown,csi300_constituent,CSI300 constituent (weight=0.153%),A core | CSI300 constituent | weight=0.153%
+600066.SS,A,宇通客车,Unknown,csi300_constituent,CSI300 constituent (weight=0.153%),A core | CSI300 constituent | weight=0.153%
+002601.SZ,A,龙佰集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.152%),A core | CSI300 constituent | weight=0.152%
+600372.SS,A,中航机载,Unknown,csi300_constituent,CSI300 constituent (weight=0.152%),A core | CSI300 constituent | weight=0.152%
+002736.SZ,A,国信证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.150%),A core | CSI300 constituent | weight=0.150%
+600009.SS,A,上海机场,Unknown,csi300_constituent,CSI300 constituent (weight=0.148%),A core | CSI300 constituent | weight=0.148%
+605117.SS,A,德业股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.148%),A core | CSI300 constituent | weight=0.148%
+601998.SS,A,中信银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.148%),A core | CSI300 constituent | weight=0.148%
+002236.SZ,A,大华股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.148%),A core | CSI300 constituent | weight=0.148%
+603893.SS,A,瑞芯微,Unknown,csi300_constituent,CSI300 constituent (weight=0.147%),A core | CSI300 constituent | weight=0.147%
+600482.SS,A,中国动力,Unknown,csi300_constituent,CSI300 constituent (weight=0.147%),A core | CSI300 constituent | weight=0.147%
+600460.SS,A,士兰微,Unknown,csi300_constituent,CSI300 constituent (weight=0.146%),A core | CSI300 constituent | weight=0.146%
+603296.SS,A,华勤技术,Unknown,csi300_constituent,CSI300 constituent (weight=0.146%),A core | CSI300 constituent | weight=0.146%
+002920.SZ,A,德赛西威,Unknown,csi300_constituent,CSI300 constituent (weight=0.144%),A core | CSI300 constituent | weight=0.144%
+300316.SZ,A,晶盛机电,Unknown,csi300_constituent,CSI300 constituent (weight=0.142%),A core | CSI300 constituent | weight=0.142%
+001979.SZ,A,招商蛇口,Unknown,csi300_constituent,CSI300 constituent (weight=0.139%),A core | CSI300 constituent | weight=0.139%
+601877.SS,A,正泰电器,Unknown,csi300_constituent,CSI300 constituent (weight=0.138%),A core | CSI300 constituent | weight=0.138%
+600026.SS,A,中远海能,Unknown,csi300_constituent,CSI300 constituent (weight=0.134%),A core | CSI300 constituent | weight=0.134%
+000301.SZ,A,东方盛虹,Unknown,csi300_constituent,CSI300 constituent (weight=0.134%),A core | CSI300 constituent | weight=0.134%
+601077.SS,A,渝农商行,Unknown,csi300_constituent,CSI300 constituent (weight=0.134%),A core | CSI300 constituent | weight=0.134%
+002422.SZ,A,科伦药业,Unknown,csi300_constituent,CSI300 constituent (weight=0.133%),A core | CSI300 constituent | weight=0.133%
+601117.SS,A,中国化学,Unknown,csi300_constituent,CSI300 constituent (weight=0.133%),A core | CSI300 constituent | weight=0.133%
+601186.SS,A,中国铁建,Unknown,csi300_constituent,CSI300 constituent (weight=0.132%),A core | CSI300 constituent | weight=0.132%
+600196.SS,A,复星医药,Unknown,csi300_constituent,CSI300 constituent (weight=0.131%),A core | CSI300 constituent | weight=0.131%
+600233.SS,A,圆通速递,Unknown,csi300_constituent,CSI300 constituent (weight=0.131%),A core | CSI300 constituent | weight=0.131%
+002252.SZ,A,上海莱士,Unknown,csi300_constituent,CSI300 constituent (weight=0.130%),A core | CSI300 constituent | weight=0.130%
+688036.SS,A,传音控股,Unknown,csi300_constituent,CSI300 constituent (weight=0.129%),A core | CSI300 constituent | weight=0.129%
+000002.SZ,A,万科A,Unknown,csi300_constituent,CSI300 constituent (weight=0.128%),A core | CSI300 constituent | weight=0.128%
+601868.SS,A,中国能建,Unknown,csi300_constituent,CSI300 constituent (weight=0.128%),A core | CSI300 constituent | weight=0.128%
+301236.SZ,A,软通动力,Unknown,csi300_constituent,CSI300 constituent (weight=0.128%),A core | CSI300 constituent | weight=0.128%
+601788.SS,A,光大证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.126%),A core | CSI300 constituent | weight=0.126%
+002304.SZ,A,洋河股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.125%),A core | CSI300 constituent | weight=0.125%
+600011.SS,A,华能国际,Unknown,csi300_constituent,CSI300 constituent (weight=0.124%),A core | CSI300 constituent | weight=0.124%
+688047.SS,A,龙芯中科,Unknown,csi300_constituent,CSI300 constituent (weight=0.124%),A core | CSI300 constituent | weight=0.124%
+600886.SS,A,国投电力,Unknown,csi300_constituent,CSI300 constituent (weight=0.124%),A core | CSI300 constituent | weight=0.124%
+601901.SS,A,方正证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.123%),A core | CSI300 constituent | weight=0.123%
+000963.SZ,A,华东医药,Unknown,csi300_constituent,CSI300 constituent (weight=0.123%),A core | CSI300 constituent | weight=0.123%
+601111.SS,A,中国国航,Unknown,csi300_constituent,CSI300 constituent (weight=0.123%),A core | CSI300 constituent | weight=0.123%
+600188.SS,A,兖矿能源,Unknown,csi300_constituent,CSI300 constituent (weight=0.123%),A core | CSI300 constituent | weight=0.123%
+601881.SS,A,中国银河,Unknown,csi300_constituent,CSI300 constituent (weight=0.123%),A core | CSI300 constituent | weight=0.123%
+601698.SS,A,中国卫通,Unknown,csi300_constituent,CSI300 constituent (weight=0.123%),A core | CSI300 constituent | weight=0.123%
+000661.SZ,A,长春高新,Unknown,csi300_constituent,CSI300 constituent (weight=0.122%),A core | CSI300 constituent | weight=0.122%
+003816.SZ,A,中国广核,Unknown,csi300_constituent,CSI300 constituent (weight=0.121%),A core | CSI300 constituent | weight=0.121%
+601066.SS,A,中信建投,Unknown,csi300_constituent,CSI300 constituent (weight=0.121%),A core | CSI300 constituent | weight=0.121%
+300347.SZ,A,泰格医药,Unknown,csi300_constituent,CSI300 constituent (weight=0.120%),A core | CSI300 constituent | weight=0.120%
+600741.SS,A,华域汽车,Unknown,csi300_constituent,CSI300 constituent (weight=0.119%),A core | CSI300 constituent | weight=0.119%
+300759.SZ,A,康龙化成,Unknown,csi300_constituent,CSI300 constituent (weight=0.119%),A core | CSI300 constituent | weight=0.119%
+688396.SS,A,华润微,Unknown,csi300_constituent,CSI300 constituent (weight=0.118%),A core | CSI300 constituent | weight=0.118%
+300782.SZ,A,卓胜微,Unknown,csi300_constituent,CSI300 constituent (weight=0.117%),A core | CSI300 constituent | weight=0.117%
+688223.SS,A,晶科能源,Unknown,csi300_constituent,CSI300 constituent (weight=0.117%),A core | CSI300 constituent | weight=0.117%
+300661.SZ,A,圣邦股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.116%),A core | CSI300 constituent | weight=0.116%
+688169.SS,A,石头科技,Unknown,csi300_constituent,CSI300 constituent (weight=0.115%),A core | CSI300 constituent | weight=0.115%
+601878.SS,A,浙商证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.114%),A core | CSI300 constituent | weight=0.114%
+600588.SS,A,用友网络,Unknown,csi300_constituent,CSI300 constituent (weight=0.113%),A core | CSI300 constituent | weight=0.113%
+601800.SS,A,中国交建,Unknown,csi300_constituent,CSI300 constituent (weight=0.113%),A core | CSI300 constituent | weight=0.113%
+000786.SZ,A,北新建材,Unknown,csi300_constituent,CSI300 constituent (weight=0.111%),A core | CSI300 constituent | weight=0.111%
+300251.SZ,A,光线传媒,Unknown,csi300_constituent,CSI300 constituent (weight=0.111%),A core | CSI300 constituent | weight=0.111%
+600674.SS,A,川投能源,Unknown,csi300_constituent,CSI300 constituent (weight=0.110%),A core | CSI300 constituent | weight=0.110%
+601898.SS,A,中煤能源,Unknown,csi300_constituent,CSI300 constituent (weight=0.108%),A core | CSI300 constituent | weight=0.108%
+601319.SS,A,中国人保,Unknown,csi300_constituent,CSI300 constituent (weight=0.107%),A core | CSI300 constituent | weight=0.107%
+000895.SZ,A,双汇发展,Unknown,csi300_constituent,CSI300 constituent (weight=0.106%),A core | CSI300 constituent | weight=0.106%
+601021.SS,A,春秋航空,Unknown,csi300_constituent,CSI300 constituent (weight=0.105%),A core | CSI300 constituent | weight=0.105%
+600039.SS,A,四川路桥,Unknown,csi300_constituent,CSI300 constituent (weight=0.101%),A core | CSI300 constituent | weight=0.101%
+601633.SS,A,长城汽车,Unknown,csi300_constituent,CSI300 constituent (weight=0.100%),A core | CSI300 constituent | weight=0.100%
+600515.SS,A,海南机场,Unknown,csi300_constituent,CSI300 constituent (weight=0.094%),A core | CSI300 constituent | weight=0.094%
+002459.SZ,A,晶澳科技,Unknown,csi300_constituent,CSI300 constituent (weight=0.093%),A core | CSI300 constituent | weight=0.093%
+302132.SZ,A,中航成飞,Unknown,csi300_constituent,CSI300 constituent (weight=0.091%),A core | CSI300 constituent | weight=0.091%
+603369.SS,A,今世缘,Unknown,csi300_constituent,CSI300 constituent (weight=0.091%),A core | CSI300 constituent | weight=0.091%
+601618.SS,A,中国中冶,Unknown,csi300_constituent,CSI300 constituent (weight=0.089%),A core | CSI300 constituent | weight=0.089%
+000617.SZ,A,中油资本,Unknown,csi300_constituent,CSI300 constituent (weight=0.089%),A core | CSI300 constituent | weight=0.089%
+600600.SS,A,青岛啤酒,Unknown,csi300_constituent,CSI300 constituent (weight=0.086%),A core | CSI300 constituent | weight=0.086%
+301269.SZ,A,华大九天,Unknown,csi300_constituent,CSI300 constituent (weight=0.086%),A core | CSI300 constituent | weight=0.086%
+688506.SS,A,百利天恒,Unknown,csi300_constituent,CSI300 constituent (weight=0.085%),A core | CSI300 constituent | weight=0.085%
+300896.SZ,A,爱美客,Unknown,csi300_constituent,CSI300 constituent (weight=0.084%),A core | CSI300 constituent | weight=0.084%
+600023.SS,A,浙能电力,Unknown,csi300_constituent,CSI300 constituent (weight=0.083%),A core | CSI300 constituent | weight=0.083%
+688472.SS,A,阿特斯,Unknown,csi300_constituent,CSI300 constituent (weight=0.083%),A core | CSI300 constituent | weight=0.083%
+600085.SS,A,同仁堂,Unknown,csi300_constituent,CSI300 constituent (weight=0.082%),A core | CSI300 constituent | weight=0.082%
+600845.SS,A,宝信软件,Unknown,csi300_constituent,CSI300 constituent (weight=0.081%),A core | CSI300 constituent | weight=0.081%
+000983.SZ,A,山西焦煤,Unknown,csi300_constituent,CSI300 constituent (weight=0.081%),A core | CSI300 constituent | weight=0.081%
+300866.SZ,A,安克创新,Unknown,csi300_constituent,CSI300 constituent (weight=0.081%),A core | CSI300 constituent | weight=0.081%
+300122.SZ,A,智飞生物,Unknown,csi300_constituent,CSI300 constituent (weight=0.080%),A core | CSI300 constituent | weight=0.080%
+300832.SZ,A,新产业,Unknown,csi300_constituent,CSI300 constituent (weight=0.080%),A core | CSI300 constituent | weight=0.080%
+600027.SS,A,华电国际,Unknown,csi300_constituent,CSI300 constituent (weight=0.079%),A core | CSI300 constituent | weight=0.079%
+600918.SS,A,中泰证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.079%),A core | CSI300 constituent | weight=0.079%
+000596.SZ,A,古井贡酒,Unknown,csi300_constituent,CSI300 constituent (weight=0.077%),A core | CSI300 constituent | weight=0.077%
+001965.SZ,A,招商公路,Unknown,csi300_constituent,CSI300 constituent (weight=0.077%),A core | CSI300 constituent | weight=0.077%
+000876.SZ,A,新 希 望,Unknown,csi300_constituent,CSI300 constituent (weight=0.076%),A core | CSI300 constituent | weight=0.076%
+000999.SZ,A,华润三九,Unknown,csi300_constituent,CSI300 constituent (weight=0.075%),A core | CSI300 constituent | weight=0.075%
+601607.SS,A,上海医药,Unknown,csi300_constituent,CSI300 constituent (weight=0.075%),A core | CSI300 constituent | weight=0.075%
+600803.SS,A,新奥股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.074%),A core | CSI300 constituent | weight=0.074%
+300628.SZ,A,亿联网络,Unknown,csi300_constituent,CSI300 constituent (weight=0.074%),A core | CSI300 constituent | weight=0.074%
+600061.SS,A,国投资本,Unknown,csi300_constituent,CSI300 constituent (weight=0.074%),A core | CSI300 constituent | weight=0.074%
+603260.SS,A,合盛硅业,Unknown,csi300_constituent,CSI300 constituent (weight=0.071%),A core | CSI300 constituent | weight=0.071%
+300413.SZ,A,芒果超媒,Unknown,csi300_constituent,CSI300 constituent (weight=0.071%),A core | CSI300 constituent | weight=0.071%
+000708.SZ,A,中信特钢,Unknown,csi300_constituent,CSI300 constituent (weight=0.071%),A core | CSI300 constituent | weight=0.071%
+601238.SS,A,广汽集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.069%),A core | CSI300 constituent | weight=0.069%
+600025.SS,A,华能水电,Unknown,csi300_constituent,CSI300 constituent (weight=0.068%),A core | CSI300 constituent | weight=0.068%
+600930.SS,A,华电新能,Unknown,csi300_constituent,CSI300 constituent (weight=0.068%),A core | CSI300 constituent | weight=0.068%
+300999.SZ,A,金龙鱼,Unknown,csi300_constituent,CSI300 constituent (weight=0.068%),A core | CSI300 constituent | weight=0.068%
+601059.SS,A,信达证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.067%),A core | CSI300 constituent | weight=0.067%
+601018.SS,A,宁波港,Unknown,csi300_constituent,CSI300 constituent (weight=0.065%),A core | CSI300 constituent | weight=0.065%
+688082.SS,A,盛美上海,Unknown,csi300_constituent,CSI300 constituent (weight=0.064%),A core | CSI300 constituent | weight=0.064%
+600161.SS,A,天坛生物,Unknown,csi300_constituent,CSI300 constituent (weight=0.063%),A core | CSI300 constituent | weight=0.063%
+603392.SS,A,万泰生物,Unknown,csi300_constituent,CSI300 constituent (weight=0.061%),A core | CSI300 constituent | weight=0.061%
+688303.SS,A,大全能源,Unknown,csi300_constituent,CSI300 constituent (weight=0.060%),A core | CSI300 constituent | weight=0.060%
+688187.SS,A,时代电气,Unknown,csi300_constituent,CSI300 constituent (weight=0.060%),A core | CSI300 constituent | weight=0.060%
+601456.SS,A,国联民生,Unknown,csi300_constituent,CSI300 constituent (weight=0.060%),A core | CSI300 constituent | weight=0.060%
+688009.SS,A,中国通号,Unknown,csi300_constituent,CSI300 constituent (weight=0.058%),A core | CSI300 constituent | weight=0.058%
+600018.SS,A,上港集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.055%),A core | CSI300 constituent | weight=0.055%
+603195.SS,A,公牛集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.046%),A core | CSI300 constituent | weight=0.046%
+601236.SS,A,红塔证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.045%),A core | CSI300 constituent | weight=0.045%
+601808.SS,A,中海油服,Unknown,csi300_constituent,CSI300 constituent (weight=0.039%),A core | CSI300 constituent | weight=0.039%
+601136.SS,A,首创证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.039%),A core | CSI300 constituent | weight=0.039%
+300979.SZ,A,华利集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.032%),A core | CSI300 constituent | weight=0.032%
+601298.SS,A,青岛港,Unknown,csi300_constituent,CSI300 constituent (weight=0.025%),A core | CSI300 constituent | weight=0.025%
+600377.SS,A,宁沪高速,Unknown,csi300_constituent,CSI300 constituent (weight=0.023%),A core | CSI300 constituent | weight=0.023%
+001391.SZ,A,国货航,Unknown,csi300_constituent,CSI300 constituent (weight=0.023%),A core | CSI300 constituent | weight=0.023%
+0700.HK,HK,Tencent Holdings,Communication Services,seed_anchor,legacy_universe_anchor,HK core
+3690.HK,HK,Meituan,Consumer Cyclical,seed_anchor,legacy_universe_anchor,HK internet
+9988.HK,HK,Alibaba Group HK,Consumer Cyclical,seed_anchor,legacy_universe_anchor,HK internet
+1810.HK,HK,Xiaomi,Technology,seed_anchor,legacy_universe_anchor,HK hardware
+1211.HK,HK,BYD Company HK,Consumer Cyclical,seed_anchor,legacy_universe_anchor,HK auto
+9618.HK,HK,JD.com HK,Consumer Cyclical,seed_anchor,legacy_universe_anchor,HK ecommerce
+9999.HK,HK,NetEase HK,Communication Services,seed_anchor,legacy_universe_anchor,HK game
+0981.HK,HK,SMIC,Technology,seed_anchor,legacy_universe_anchor,HK semiconductor
+00001.HK,HK,CKH HOLDINGS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00002.HK,HK,CLP HOLDINGS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00003.HK,HK,HK & CHINA GAS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00004.HK,HK,WHARF HOLDINGS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00005.HK,HK,HSBC HOLDINGS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00006.HK,HK,POWER ASSETS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00008.HK,HK,PCCW,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00010.HK,HK,HANG LUNG GROUP,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00012.HK,HK,HENDERSON LAND,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00013.HK,HK,HUTCHMED,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00014.HK,HK,HYSAN DEV,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00016.HK,HK,SHK PPT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00017.HK,HK,NEW WORLD DEV,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00019.HK,HK,SWIRE PACIFIC A,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00020.HK,HK,SENSETIME-W,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00023.HK,HK,BANK OF E ASIA,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00027.HK,HK,GALAXY ENT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00028.HK,HK,TIAN AN,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00029.HK,HK,DYNAMIC HOLD,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00030.HK,HK,YNBY INTL,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00034.HK,HK,KOWLOON DEV,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00038.HK,HK,FIRST TRACTOR,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00041.HK,HK,GREAT EAGLE H,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00045.HK,HK,HK&S HOTELS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00050.HK,HK,HK FERRY (HOLD),Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00053.HK,HK,GUOCO GROUP,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00062.HK,HK,TRANSPORT INT'L,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00064.HK,HK,GET NICE,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00066.HK,HK,MTR CORPORATION,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00069.HK,HK,SHANGRI-LA ASIA,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00071.HK,HK,MIRAMAR HOTEL,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00081.HK,HK,CH OVS G OCEANS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00083.HK,HK,SINO LAND,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00085.HK,HK,CE HUADA TECH,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00086.HK,HK,SUN HUNG KAI CO,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00088.HK,HK,TAI CHEUNG HOLD,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00100.HK,HK,MINIMAX-WP,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00101.HK,HK,HANG LUNG PPT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00107.HK,HK,SICHUAN EXPRESS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00116.HK,HK,CHOW SANG SANG,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00119.HK,HK,POLY PROPERTY,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00123.HK,HK,YUEXIU PROPERTY,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00135.HK,HK,KUNLUN ENERGY,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00136.HK,HK,CHINA RUYI,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00142.HK,HK,FIRST PACIFIC,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00144.HK,HK,CHINA MER PORT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00147.HK,HK,IB SETTLEMENT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00148.HK,HK,KINGBOARD HLDG,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00151.HK,HK,WANT WANT CHINA,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00152.HK,HK,SHENZHEN INT'L,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00165.HK,HK,CHINA EB LTD,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00168.HK,HK,TSINGTAO BREW,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00173.HK,HK,K. WAH INT'L,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00175.HK,HK,GEELY AUTO,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00177.HK,HK,JIANGSU EXPRESS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00179.HK,HK,JOHNSON ELEC H,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00182.HK,HK,CONCORD NE,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00189.HK,HK,DONGYUE GROUP,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00200.HK,HK,MELCO INT'L DEV,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00215.HK,HK,HUTCHTEL HK,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00220.HK,HK,U-PRESID CHINA,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00241.HK,HK,ALI HEALTH,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00247.HK,HK,TST PROPERTIES,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00257.HK,HK,EB ENVIRONMENT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00267.HK,HK,CITIC,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00268.HK,HK,KINGDEE INT'L,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00270.HK,HK,GUANGDONG INV,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00272.HK,HK,SHUI ON LAND,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00285.HK,HK,BYD ELECTRONIC,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00288.HK,HK,WH GROUP,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00289.HK,HK,WING ON CO,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00290.HK,HK,GOFINTECH QUANT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00291.HK,HK,CHINA RES BEER,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00293.HK,HK,CATHAY PAC AIR,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00297.HK,HK,SINOFERT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00300.HK,HK,MIDEA GROUP,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00303.HK,HK,VTECH HOLDINGS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00308.HK,HK,CHINA TRAVEL HK,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00315.HK,HK,SMARTONE TELE,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00316.HK,HK,OOIL,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00317.HK,HK,COMEC,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00322.HK,HK,TINGYI,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00323.HK,HK,MAANSHAN IRON,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00325.HK,HK,BLOKS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00326.HK,HK,CHINA STAR ENT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00327.HK,HK,PAX GLOBAL,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00336.HK,HK,HUABAO INTL,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00338.HK,HK,SHANGHAI PECHEM,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00340.HK,HK,TONGGUAN GOLD,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00341.HK,HK,CAFE DE CORAL H,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00345.HK,HK,VITASOY INT'L,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00347.HK,HK,ANGANG STEEL,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00354.HK,HK,CHINASOFT INT'L,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00357.HK,HK,MEILAN AIRPORT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00358.HK,HK,JIANGXI COPPER,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00363.HK,HK,SHANGHAI IND H,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00371.HK,HK,BJ ENT WATER,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00373.HK,HK,ALLIED GROUP,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00376.HK,HK,YUNFENG FIN,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00384.HK,HK,CHINA GAS HOLD,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00386.HK,HK,SINOPEC CORP,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00388.HK,HK,HKEX,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00390.HK,HK,CHINA RAILWAY,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00392.HK,HK,BEIJING ENT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00400.HK,HK,INGDAN,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00412.HK,HK,SDHG,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00425.HK,HK,MINTH GROUP-100,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00434.HK,HK,BOYAA,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00440.HK,HK,DAH SING,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00460.HK,HK,SIHUAN PHARM,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00467.HK,HK,UNITEDENERGY GP,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00486.HK,HK,RUSAL,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00489.HK,HK,DONGFENG GROUP,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00506.HK,HK,CHINA FOODS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00511.HK,HK,TVB,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00512.HK,HK,GRAND PHARMA,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00517.HK,HK,COSCO SHIP INTL,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00521.HK,HK,CWT INT'L,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00522.HK,HK,ASMPT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00525.HK,HK,GUANGSHEN RAIL,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00546.HK,HK,FUFENG GROUP,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00548.HK,HK,SHENZHENEXPRESS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00551.HK,HK,YUE YUEN IND,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00552.HK,HK,CHINACOMSERVICE,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00558.HK,HK,LK TECH,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00564.HK,HK,ZCZL,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00565.HK,HK,ART GROUP HOLD,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00570.HK,HK,TRAD CHI MED,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00576.HK,HK,ZHEJIANGEXPRESS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00579.HK,HK,JNCEC,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00580.HK,HK,SUN.KING TECH,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00581.HK,HK,CHINA ORIENTAL,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00586.HK,HK,CONCH VENTURE,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00590.HK,HK,LUK FOOK HOLD,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00596.HK,HK,INSPUR DIGI ENT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00598.HK,HK,SINOTRANS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00604.HK,HK,SHENZHEN INVEST,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00622.HK,HK,OSHIDORI,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00631.HK,HK,SANY INT'L,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00636.HK,HK,KLN,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00639.HK,HK,SHOUGANG RES,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00656.HK,HK,FOSUN INTL,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00659.HK,HK,CTF SERVICES,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00662.HK,HK,ASIA FINANCIAL,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00666.HK,HK,REPT BATTERO,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00667.HK,HK,CHINA EAST EDU,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00669.HK,HK,TECHTRONIC IND,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00670.HK,HK,CHINA EAST AIR,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00683.HK,HK,KERRY PPT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00688.HK,HK,CHINA OVERSEAS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00694.HK,HK,BEIJING AIRPORT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00696.HK,HK,TRAVELSKY TECH,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00697.HK,HK,SHOUCHENG,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00700.HK,HK,TENCENT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00709.HK,HK,GIORDANO INT'L,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00710.HK,HK,BOE VARITRONIX,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00719.HK,HK,SHANDONG XINHUA,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00728.HK,HK,CHINA TELECOM,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00732.HK,HK,TRULY INT'L,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00751.HK,HK,SKYWORTH GROUP,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00752.HK,HK,PICO FAR EAST,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00753.HK,HK,AIR CHINA,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00754.HK,HK,HOPSON DEV HOLD,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00762.HK,HK,CHINA UNICOM,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00763.HK,HK,ZTE,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00772.HK,HK,CHINA LIT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00775.HK,HK,CKLIFE SCIENCES,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00777.HK,HK,NETDRAGON,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00780.HK,HK,TONGCHENGTRAVEL,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00788.HK,HK,CHINA TOWER,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00799.HK,HK,IGG,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00800.HK,HK,WERIDE-W,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00806.HK,HK,VALUE PARTNERS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00807.HK,HK,SIICENVIRONMENT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00811.HK,HK,XINHUA WINSHARE,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00817.HK,HK,CHINA JINMAO,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00819.HK,HK,TIANNENG POWER,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00826.HK,HK,TIANGONG INT'L,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00836.HK,HK,CHINA RES POWER,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00839.HK,HK,CHINA EDU GROUP,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00853.HK,HK,MICROPORT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00855.HK,HK,CHINA WATER,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00856.HK,HK,VSTECS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00857.HK,HK,PETROCHINA,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00861.HK,HK,DC HOLDINGS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00863.HK,HK,OSL GROUP,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00866.HK,HK,CHINA QINFA,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00867.HK,HK,CMS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00868.HK,HK,XINYI GLASS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00874.HK,HK,BAIYUNSHAN PH,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00880.HK,HK,SJM HOLDINGS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00881.HK,HK,ZHONGSHENG HLDG,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+AAPL,US,Apple Inc.,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+MSFT,US,Microsoft,Technology,seed_anchor,legacy_universe_anchor,US core
+GOOGL,US,Alphabet Inc. (Class A),Communication Services,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AMZN,US,Amazon,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+META,US,Meta Platforms,Communication Services,seed_anchor,legacy_universe_anchor,US core
+TSLA,US,Tesla,Consumer Cyclical,seed_anchor,legacy_universe_anchor,US growth
+NVDA,US,NVIDIA,Technology,seed_anchor,legacy_universe_anchor,US growth
+BRK.B,US,Berkshire Hathaway,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+JPM,US,JPMorgan Chase,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+V,US,Visa,Financial Services,seed_anchor,legacy_universe_anchor,US quality
+XOM,US,ExxonMobil,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
+UNH,US,UnitedHealth,Healthcare,seed_anchor,legacy_universe_anchor,US healthcare
+ADBE,US,Adobe Inc.,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+MMM,US,3M,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AOS,US,A. O. Smith,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ABT,US,Abbott Laboratories,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ABBV,US,AbbVie,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ACN,US,Accenture,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AMD,US,Advanced Micro Devices,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AES,US,AES Corporation,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AFL,US,Aflac,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+A,US,Agilent Technologies,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+APD,US,Air Products,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ABNB,US,Airbnb,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AKAM,US,Akamai Technologies,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ALB,US,Albemarle Corporation,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ARE,US,Alexandria Real Estate Equities,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ALGN,US,Align Technology,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ALLE,US,Allegion,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+LNT,US,Alliant Energy,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ALL,US,Allstate,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GOOG,US,Alphabet Inc. (Class C),Communication Services,sp500_core,S&P500 constituent,US core | S&P500 constituent
+MO,US,Altria,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AMCR,US,Amcor,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AEE,US,Ameren,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AEP,US,American Electric Power,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AXP,US,American Express,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AIG,US,American International Group,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AMT,US,American Tower,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AWK,US,American Water Works,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AMP,US,Ameriprise Financial,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AME,US,Ametek,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AMGN,US,Amgen,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+APH,US,Amphenol,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ADI,US,Analog Devices,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AON,US,Aon plc,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+APA,US,APA Corporation,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
+APO,US,Apollo Global Management,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AMAT,US,Applied Materials,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+APTV,US,Aptiv,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ACGL,US,Arch Capital Group,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ADM,US,Archer Daniels Midland,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ANET,US,Arista Networks,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AJG,US,Arthur J. Gallagher & Co.,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AIZ,US,Assurant,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+T,US,AT&T,Communication Services,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ATO,US,Atmos Energy,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ADSK,US,Autodesk,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ADP,US,Automatic Data Processing,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AZO,US,AutoZone,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AVB,US,AvalonBay Communities,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AVY,US,Avery Dennison,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AXON,US,Axon Enterprise,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BKR,US,Baker Hughes,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BALL,US,Ball Corporation,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BAC,US,Bank of America,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BAX,US,Baxter International,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BDX,US,Becton Dickinson,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BBY,US,Best Buy,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+TECH,US,Bio-Techne,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BIIB,US,Biogen,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BLK,US,BlackRock,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BX,US,Blackstone Inc.,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+XYZ,US,"Block, Inc.",Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BK,US,BNY Mellon,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BA,US,Boeing,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BKNG,US,Booking Holdings,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BSX,US,Boston Scientific,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BMY,US,Bristol Myers Squibb,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+AVGO,US,Broadcom,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BR,US,Broadridge Financial Solutions,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BRO,US,Brown & Brown,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BF.B,US,Brown–Forman,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BLDR,US,Builders FirstSource,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BG,US,Bunge Global,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BXP,US,"BXP, Inc.",Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CHRW,US,C.H. Robinson,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CDNS,US,Cadence Design Systems,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CZR,US,Caesars Entertainment,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CPT,US,Camden Property Trust,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CPB,US,Campbell's Company (The),Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+COF,US,Capital One,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CAH,US,Cardinal Health,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+KMX,US,CarMax,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CCL,US,Carnival,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CARR,US,Carrier Global,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CAT,US,Caterpillar Inc.,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CBOE,US,Cboe Global Markets,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CBRE,US,CBRE Group,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CDW,US,CDW Corporation,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+COR,US,Cencora,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CNC,US,Centene Corporation,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CNP,US,CenterPoint Energy,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CF,US,CF Industries,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CRL,US,Charles River Laboratories,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+SCHW,US,Charles Schwab Corporation,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CHTR,US,Charter Communications,Communication Services,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CVX,US,Chevron Corporation,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CMG,US,Chipotle Mexican Grill,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CB,US,Chubb Limited,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CHD,US,Church & Dwight,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CI,US,Cigna,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CINF,US,Cincinnati Financial,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CTAS,US,Cintas,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CSCO,US,Cisco,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+C,US,Citigroup,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CFG,US,Citizens Financial Group,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CLX,US,Clorox,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CME,US,CME Group,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CMS,US,CMS Energy,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+KO,US,Coca-Cola Company (The),Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CTSH,US,Cognizant,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+COIN,US,Coinbase,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CL,US,Colgate-Palmolive,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CMCSA,US,Comcast,Communication Services,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CAG,US,Conagra Brands,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+COP,US,ConocoPhillips,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ED,US,Consolidated Edison,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+STZ,US,Constellation Brands,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CEG,US,Constellation Energy,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+COO,US,Cooper Companies (The),Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CPRT,US,Copart,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GLW,US,Corning Inc.,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CPAY,US,Corpay,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CTVA,US,Corteva,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CSGP,US,CoStar Group,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+COST,US,Costco,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CTRA,US,Coterra,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CRWD,US,CrowdStrike,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CCI,US,Crown Castle,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CSX,US,CSX Corporation,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CMI,US,Cummins,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CVS,US,CVS Health,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DHR,US,Danaher Corporation,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DRI,US,Darden Restaurants,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DDOG,US,Datadog,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DVA,US,DaVita,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DAY,US,Dayforce,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DECK,US,Deckers Brands,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DE,US,Deere & Company,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DELL,US,Dell Technologies,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DAL,US,Delta Air Lines,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DVN,US,Devon Energy,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DXCM,US,Dexcom,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FANG,US,Diamondback Energy,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DLR,US,Digital Realty,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DG,US,Dollar General,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DLTR,US,Dollar Tree,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+D,US,Dominion Energy,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DPZ,US,Domino's,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DASH,US,DoorDash,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DOV,US,Dover Corporation,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DOW,US,Dow Inc.,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DHI,US,D. R. Horton,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DTE,US,DTE Energy,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DUK,US,Duke Energy,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DD,US,DuPont,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EMN,US,Eastman Chemical Company,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ETN,US,Eaton Corporation,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EBAY,US,eBay Inc.,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ECL,US,Ecolab,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EIX,US,Edison International,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EW,US,Edwards Lifesciences,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EA,US,Electronic Arts,Communication Services,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ELV,US,Elevance Health,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EMR,US,Emerson Electric,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ENPH,US,Enphase Energy,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ETR,US,Entergy,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EOG,US,EOG Resources,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EPAM,US,EPAM Systems,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EQT,US,EQT Corporation,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EFX,US,Equifax,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EQIX,US,Equinix,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EQR,US,Equity Residential,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ERIE,US,Erie Indemnity,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ESS,US,Essex Property Trust,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EL,US,Estée Lauder Companies (The),Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EG,US,Everest Group,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EVRG,US,Evergy,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ES,US,Eversource Energy,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EXC,US,Exelon,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EXE,US,Expand Energy,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EXPE,US,Expedia Group,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EXPD,US,Expeditors International,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EXR,US,Extra Space Storage,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FFIV,US,"F5, Inc.",Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FDS,US,FactSet,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FICO,US,Fair Isaac,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FAST,US,Fastenal,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FRT,US,Federal Realty Investment Trust,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FDX,US,FedEx,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FIS,US,Fidelity National Information Services,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FITB,US,Fifth Third Bancorp,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FSLR,US,First Solar,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FE,US,FirstEnergy,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FI,US,Fiserv,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+F,US,Ford Motor Company,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FTNT,US,Fortinet,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FTV,US,Fortive,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FOXA,US,Fox Corporation (Class A),Communication Services,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FOX,US,Fox Corporation (Class B),Communication Services,sp500_core,S&P500 constituent,US core | S&P500 constituent
+BEN,US,Franklin Resources,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FCX,US,Freeport-McMoRan,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GRMN,US,Garmin,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+IT,US,Gartner,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GE,US,GE Aerospace,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GEHC,US,GE HealthCare,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GEV,US,GE Vernova,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GEN,US,Gen Digital,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GNRC,US,Generac,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GD,US,General Dynamics,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GIS,US,General Mills,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GM,US,General Motors,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GPC,US,Genuine Parts Company,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GILD,US,Gilead Sciences,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GPN,US,Global Payments,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GL,US,Globe Life,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GDDY,US,GoDaddy,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+GS,US,Goldman Sachs,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HAL,US,Halliburton,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HIG,US,Hartford (The),Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HAS,US,Hasbro,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HCA,US,HCA Healthcare,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+DOC,US,Healthpeak Properties,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HSIC,US,Henry Schein,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HSY,US,Hershey Company (The),Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HPE,US,Hewlett Packard Enterprise,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HLT,US,Hilton Worldwide,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HOLX,US,Hologic,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HD,US,Home Depot (The),Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HON,US,Honeywell,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HRL,US,Hormel Foods,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HST,US,Host Hotels & Resorts,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HWM,US,Howmet Aerospace,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HPQ,US,HP Inc.,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HUBB,US,Hubbell Incorporated,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HUM,US,Humana,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HBAN,US,Huntington Bancshares,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+HII,US,Huntington Ingalls Industries,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+IBM,US,IBM,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+IEX,US,IDEX Corporation,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+IDXX,US,Idexx Laboratories,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ITW,US,Illinois Tool Works,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+INCY,US,Incyte,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+IR,US,Ingersoll Rand,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+PODD,US,Insulet Corporation,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+INTC,US,Intel,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ICE,US,Intercontinental Exchange,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+IFF,US,International Flavors & Fragrances,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+IP,US,International Paper,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+IPG,US,Interpublic Group of Companies (The),Communication Services,sp500_core,S&P500 constituent,US core | S&P500 constituent
+INTU,US,Intuit,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ISRG,US,Intuitive Surgical,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+IVZ,US,Invesco,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+INVH,US,Invitation Homes,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+IQV,US,IQVIA,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+IRM,US,Iron Mountain,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+JBHT,US,J.B. Hunt,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+JBL,US,Jabil,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+JKHY,US,Jack Henry & Associates,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+J,US,Jacobs Solutions,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+JNJ,US,Johnson & Johnson,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+JCI,US,Johnson Controls,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+K,US,Kellanova,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+KVUE,US,Kenvue,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+KDP,US,Keurig Dr Pepper,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+KEY,US,KeyCorp,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+KEYS,US,Keysight Technologies,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+KMB,US,Kimberly-Clark,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+KIM,US,Kimco Realty,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
+KMI,US,Kinder Morgan,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
+KKR,US,KKR & Co.,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+KLAC,US,KLA Corporation,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+KHC,US,Kraft Heinz,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+KR,US,Kroger,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+LHX,US,L3Harris,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+LH,US,Labcorp,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+LRCX,US,Lam Research,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+LW,US,Lamb Weston,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+LVS,US,Las Vegas Sands,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+LDOS,US,Leidos,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+LEN,US,Lennar,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+LII,US,Lennox International,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+LLY,US,Lilly (Eli),Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+LIN,US,Linde plc,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+LYV,US,Live Nation Entertainment,Communication Services,sp500_core,S&P500 constituent,US core | S&P500 constituent
+LKQ,US,LKQ Corporation,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
+LMT,US,Lockheed Martin,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+L,US,Loews Corporation,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+LOW,US,Lowe's,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent

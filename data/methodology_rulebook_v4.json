@@ -1,0 +1,1349 @@
+{
+  "version": "v4",
+  "as_of_date": "2026-03-03",
+  "goal": "平衡覆盖与质量，先保证规则可解释，再提升机会密度",
+  "defaults": {
+    "near_miss_tolerance": 0.05,
+    "tiering": {
+      "core_min_score": 70.0,
+      "tactical_min_score": 55.0,
+      "watch_multiplier": 0.8
+    }
+  },
+  "tier_weights": {
+    "core": 1.0,
+    "watch": 0.78,
+    "tactical": 0.9,
+    "rejected": 0.0
+  },
+  "explain_templates": {
+    "hard_fail": "未通过硬筛：{rules}",
+    "near_miss": "接近阈值，进入观察池：{rules}",
+    "soft_penalty": "命中软惩罚：{rules}",
+    "tier_core": "满足硬筛且质量段位高，进入核心池",
+    "tier_watch": "接近阈值但未达硬筛，进入观察池",
+    "tier_tactical": "通过硬筛但估值/质量并不完美，进入战术池"
+  },
+  "groups": [
+    {
+      "id": "value_quality_compound",
+      "name": "价值质量复利",
+      "suitable_markets": ["A", "HK", "US"],
+      "core_hypothesis": "以合理价格买入高质量公司，通过时间复利兑现收益",
+      "default": {
+        "hard_rules": [
+          {
+            "field": "margin_of_safety_raw",
+            "op": ">=",
+            "value": 0.1,
+            "label": "MOS>=10%"
+          },
+          {
+            "field": "quality_score_raw",
+            "op": ">=",
+            "value": 65.0,
+            "label": "质量>=65"
+          },
+          {
+            "field": "risk_control_raw",
+            "op": ">=",
+            "value": 40.0,
+            "label": "风控>=40"
+          }
+        ],
+        "soft_rules": [
+          {
+            "field": "margin_of_safety_raw",
+            "op": "<",
+            "value": 0.25,
+            "multiplier": 0.9,
+            "label": "MOS<25% 估值折价不足"
+          },
+          {
+            "field": "certainty_score_raw",
+            "op": "<",
+            "value": 55.0,
+            "multiplier": 0.95,
+            "label": "确定性<55"
+          },
+          {
+            "field": "market_norm_quality",
+            "op": "<",
+            "value": 0.55,
+            "multiplier": 0.94,
+            "label": "市场内质量分位<55%"
+          }
+        ],
+        "tiering": {
+          "core_min_score": 71.0,
+          "tactical_min_score": 56.0,
+          "watch_multiplier": 0.82
+        }
+      },
+      "market_overrides": {
+        "A": {
+          "hard_rules": [
+            {
+              "field": "margin_of_safety_raw",
+              "op": ">=",
+              "value": 0.12,
+              "label": "A股 MOS>=12%"
+            },
+            {
+              "field": "quality_score_raw",
+              "op": ">=",
+              "value": 68.0,
+              "label": "A股 质量>=68"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 45.0,
+              "label": "A股 风控>=45"
+            }
+          ]
+        },
+        "HK": {
+          "hard_rules": [
+            {
+              "field": "margin_of_safety_raw",
+              "op": ">=",
+              "value": 0.14,
+              "label": "港股 MOS>=14%"
+            },
+            {
+              "field": "quality_score_raw",
+              "op": ">=",
+              "value": 64.0,
+              "label": "港股 质量>=64"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 40.0,
+              "label": "港股 风控>=40"
+            }
+          ]
+        },
+        "US": {
+          "hard_rules": [
+            {
+              "field": "margin_of_safety_raw",
+              "op": ">=",
+              "value": 0.08,
+              "label": "美股 MOS>=8%"
+            },
+            {
+              "field": "quality_score_raw",
+              "op": ">=",
+              "value": 62.0,
+              "label": "美股 质量>=62"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 38.0,
+              "label": "美股 风控>=38"
+            }
+          ]
+        }
+      },
+      "common_false_negatives": [
+        "高质量公司在业绩切换初期估值看起来偏贵，容易被 MOS 过滤",
+        "强周期行业盈利谷底期质量分偏低，被硬筛提前淘汰"
+      ],
+      "risk_notes": [
+        "低利率阶段估值基准偏高，MOS 口径可能低估长期价值",
+        "会计质量突变会让历史质量分失真"
+      ],
+      "tuning_suggestions": [
+        "若核心池过少，先放宽 A 股 MOS 2~3 个百分点",
+        "若核心池过多，提升质量阈值并收紧 soft penalty"
+      ],
+      "change_log": [
+        {
+          "date": "2026-03-03",
+          "summary": "引入 A/HK/US 分市场硬筛阈值，默认三层池。"
+        }
+      ]
+    },
+    {
+      "id": "industry_compounder",
+      "name": "行业复利",
+      "suitable_markets": ["A", "HK", "US"],
+      "core_hypothesis": "寻找产业结构长期改善、竞争优势可持续扩大的龙头",
+      "default": {
+        "hard_rules": [
+          {
+            "field": "quality_score_raw",
+            "op": ">=",
+            "value": 70.0,
+            "label": "质量>=70"
+          },
+          {
+            "field": "growth_score_raw",
+            "op": ">=",
+            "value": 50.0,
+            "label": "成长>=50"
+          },
+          {
+            "field": "risk_control_raw",
+            "op": ">=",
+            "value": 45.0,
+            "label": "风控>=45"
+          },
+          {
+            "field": "margin_of_safety_raw",
+            "op": ">=",
+            "value": 0.03,
+            "label": "MOS>=3%"
+          }
+        ],
+        "soft_rules": [
+          {
+            "field": "growth_score_raw",
+            "op": "<",
+            "value": 58.0,
+            "multiplier": 0.93,
+            "label": "成长<58"
+          },
+          {
+            "field": "catalyst_score_raw",
+            "op": "<",
+            "value": 50.0,
+            "multiplier": 0.95,
+            "label": "催化<50"
+          }
+        ],
+        "tiering": {
+          "core_min_score": 70.0,
+          "tactical_min_score": 57.0,
+          "watch_multiplier": 0.8
+        }
+      },
+      "market_overrides": {
+        "A": {
+          "hard_rules": [
+            {
+              "field": "quality_score_raw",
+              "op": ">=",
+              "value": 72.0,
+              "label": "A股 质量>=72"
+            },
+            {
+              "field": "growth_score_raw",
+              "op": ">=",
+              "value": 52.0,
+              "label": "A股 成长>=52"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 47.0,
+              "label": "A股 风控>=47"
+            },
+            {
+              "field": "margin_of_safety_raw",
+              "op": ">=",
+              "value": 0.05,
+              "label": "A股 MOS>=5%"
+            }
+          ]
+        },
+        "HK": {
+          "hard_rules": [
+            {
+              "field": "quality_score_raw",
+              "op": ">=",
+              "value": 69.0,
+              "label": "港股 质量>=69"
+            },
+            {
+              "field": "growth_score_raw",
+              "op": ">=",
+              "value": 48.0,
+              "label": "港股 成长>=48"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 43.0,
+              "label": "港股 风控>=43"
+            },
+            {
+              "field": "margin_of_safety_raw",
+              "op": ">=",
+              "value": 0.05,
+              "label": "港股 MOS>=5%"
+            }
+          ]
+        },
+        "US": {
+          "hard_rules": [
+            {
+              "field": "quality_score_raw",
+              "op": ">=",
+              "value": 68.0,
+              "label": "美股 质量>=68"
+            },
+            {
+              "field": "growth_score_raw",
+              "op": ">=",
+              "value": 49.0,
+              "label": "美股 成长>=49"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 42.0,
+              "label": "美股 风控>=42"
+            },
+            {
+              "field": "margin_of_safety_raw",
+              "op": ">=",
+              "value": 0.02,
+              "label": "美股 MOS>=2%"
+            }
+          ]
+        }
+      },
+      "common_false_negatives": [
+        "高景气行业龙头短期估值偏高导致 MOS 不足",
+        "新平台公司现金流尚未释放，质量分被低估"
+      ],
+      "risk_notes": [
+        "行业景气反转时，历史高质量可能快速失效"
+      ],
+      "tuning_suggestions": [
+        "关注行业轮动期，观察池可放大到 core 的 1.5 倍"
+      ],
+      "change_log": [
+        {
+          "date": "2026-03-03",
+          "summary": "行业复利引入市场差异化质量门槛。"
+        }
+      ]
+    },
+    {
+      "id": "garp_growth",
+      "name": "GARP 成长",
+      "suitable_markets": ["A", "HK", "US"],
+      "core_hypothesis": "在成长性和估值之间做平衡，避免为叙事支付过高价格",
+      "default": {
+        "hard_rules": [
+          {
+            "field": "growth_score_raw",
+            "op": ">=",
+            "value": 55.0,
+            "label": "成长>=55"
+          },
+          {
+            "field": "quality_score_raw",
+            "op": ">=",
+            "value": 60.0,
+            "label": "质量>=60"
+          },
+          {
+            "field": "price_to_fair_value_raw",
+            "op": "<=",
+            "value": 1.25,
+            "label": "P/FV<=1.25"
+          },
+          {
+            "field": "risk_control_raw",
+            "op": ">=",
+            "value": 35.0,
+            "label": "风控>=35"
+          }
+        ],
+        "soft_rules": [
+          {
+            "field": "price_to_fair_value_raw",
+            "op": ">",
+            "value": 1.05,
+            "multiplier": 0.9,
+            "label": "P/FV>1.05 估值偏热"
+          },
+          {
+            "field": "momentum_score_raw",
+            "op": "<",
+            "value": 55.0,
+            "multiplier": 0.93,
+            "label": "趋势<55"
+          }
+        ],
+        "tiering": {
+          "core_min_score": 70.0,
+          "tactical_min_score": 56.0,
+          "watch_multiplier": 0.81
+        }
+      },
+      "market_overrides": {
+        "A": {
+          "hard_rules": [
+            {
+              "field": "growth_score_raw",
+              "op": ">=",
+              "value": 58.0,
+              "label": "A股 成长>=58"
+            },
+            {
+              "field": "quality_score_raw",
+              "op": ">=",
+              "value": 58.0,
+              "label": "A股 质量>=58"
+            },
+            {
+              "field": "price_to_fair_value_raw",
+              "op": "<=",
+              "value": 1.35,
+              "label": "A股 P/FV<=1.35"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 37.0,
+              "label": "A股 风控>=37"
+            }
+          ]
+        },
+        "HK": {
+          "hard_rules": [
+            {
+              "field": "growth_score_raw",
+              "op": ">=",
+              "value": 54.0,
+              "label": "港股 成长>=54"
+            },
+            {
+              "field": "quality_score_raw",
+              "op": ">=",
+              "value": 59.0,
+              "label": "港股 质量>=59"
+            },
+            {
+              "field": "price_to_fair_value_raw",
+              "op": "<=",
+              "value": 1.28,
+              "label": "港股 P/FV<=1.28"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 34.0,
+              "label": "港股 风控>=34"
+            }
+          ]
+        },
+        "US": {
+          "hard_rules": [
+            {
+              "field": "growth_score_raw",
+              "op": ">=",
+              "value": 56.0,
+              "label": "美股 成长>=56"
+            },
+            {
+              "field": "quality_score_raw",
+              "op": ">=",
+              "value": 61.0,
+              "label": "美股 质量>=61"
+            },
+            {
+              "field": "price_to_fair_value_raw",
+              "op": "<=",
+              "value": 1.2,
+              "label": "美股 P/FV<=1.20"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 35.0,
+              "label": "美股 风控>=35"
+            }
+          ]
+        }
+      },
+      "common_false_negatives": [
+        "成长拐点初期估值还未压缩，可能被 P/FV 过滤",
+        "质量分对平台型公司无形资产反映不足"
+      ],
+      "risk_notes": [
+        "成长失速时，估值会快速向下重定价"
+      ],
+      "tuning_suggestions": [
+        "观察池应重点跟踪估值回落与业绩确认的同步窗口"
+      ],
+      "change_log": [
+        {
+          "date": "2026-03-03",
+          "summary": "GARP 增加市场化 P/FV 上限与 near-miss 解释口径。"
+        }
+      ]
+    },
+    {
+      "id": "deep_value_recovery",
+      "name": "深度价值修复",
+      "suitable_markets": ["A", "HK", "US"],
+      "core_hypothesis": "抓取被错杀资产在基本面或催化修复阶段的非对称收益",
+      "default": {
+        "hard_rules": [
+          {
+            "field": "margin_of_safety_raw",
+            "op": ">=",
+            "value": 0.2,
+            "label": "MOS>=20%"
+          },
+          {
+            "field": "catalyst_score_raw",
+            "op": ">=",
+            "value": 50.0,
+            "label": "催化>=50"
+          },
+          {
+            "field": "risk_control_raw",
+            "op": ">=",
+            "value": 30.0,
+            "label": "风控>=30"
+          }
+        ],
+        "soft_rules": [
+          {
+            "field": "quality_score_raw",
+            "op": "<",
+            "value": 45.0,
+            "multiplier": 0.9,
+            "label": "质量<45"
+          },
+          {
+            "field": "momentum_score_raw",
+            "op": "<",
+            "value": 40.0,
+            "multiplier": 0.92,
+            "label": "趋势<40"
+          }
+        ],
+        "tiering": {
+          "core_min_score": 68.0,
+          "tactical_min_score": 54.0,
+          "watch_multiplier": 0.84
+        }
+      },
+      "market_overrides": {
+        "A": {
+          "hard_rules": [
+            {
+              "field": "margin_of_safety_raw",
+              "op": ">=",
+              "value": 0.23,
+              "label": "A股 MOS>=23%"
+            },
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 52.0,
+              "label": "A股 催化>=52"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 33.0,
+              "label": "A股 风控>=33"
+            }
+          ]
+        },
+        "HK": {
+          "hard_rules": [
+            {
+              "field": "margin_of_safety_raw",
+              "op": ">=",
+              "value": 0.25,
+              "label": "港股 MOS>=25%"
+            },
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 53.0,
+              "label": "港股 催化>=53"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 30.0,
+              "label": "港股 风控>=30"
+            }
+          ]
+        },
+        "US": {
+          "hard_rules": [
+            {
+              "field": "margin_of_safety_raw",
+              "op": ">=",
+              "value": 0.18,
+              "label": "美股 MOS>=18%"
+            },
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 48.0,
+              "label": "美股 催化>=48"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 30.0,
+              "label": "美股 风控>=30"
+            }
+          ]
+        }
+      },
+      "common_false_negatives": [
+        "逆向布局初期没有明显催化，容易停留在观察池"
+      ],
+      "risk_notes": [
+        "价值陷阱风险高，需结合资产负债表质量复核"
+      ],
+      "tuning_suggestions": [
+        "观察池中重点跟踪催化触发条件，不建议盲目提权"
+      ],
+      "change_log": [
+        {
+          "date": "2026-03-03",
+          "summary": "深度价值新增分市场 MOS 门槛。"
+        }
+      ]
+    },
+    {
+      "id": "macro_regime",
+      "name": "宏观周期",
+      "suitable_markets": ["A", "HK", "US"],
+      "core_hypothesis": "宏观状态决定资产定价，优先选择宏观顺风方向",
+      "default": {
+        "hard_rules": [
+          {
+            "field": "momentum_score_raw",
+            "op": ">=",
+            "value": 55.0,
+            "label": "趋势>=55"
+          },
+          {
+            "field": "catalyst_score_raw",
+            "op": ">=",
+            "value": 55.0,
+            "label": "催化>=55"
+          },
+          {
+            "field": "risk_control_raw",
+            "op": ">=",
+            "value": 30.0,
+            "label": "风控>=30"
+          }
+        ],
+        "soft_rules": [
+          {
+            "field": "growth_score_raw",
+            "op": "<",
+            "value": 45.0,
+            "multiplier": 0.95,
+            "label": "成长<45"
+          },
+          {
+            "field": "margin_of_safety_raw",
+            "op": "<",
+            "value": 0.0,
+            "multiplier": 0.95,
+            "label": "MOS<0"
+          }
+        ],
+        "tiering": {
+          "core_min_score": 69.0,
+          "tactical_min_score": 56.0,
+          "watch_multiplier": 0.8
+        }
+      },
+      "market_overrides": {
+        "A": {
+          "hard_rules": [
+            {
+              "field": "momentum_score_raw",
+              "op": ">=",
+              "value": 58.0,
+              "label": "A股 趋势>=58"
+            },
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 56.0,
+              "label": "A股 催化>=56"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 33.0,
+              "label": "A股 风控>=33"
+            }
+          ]
+        },
+        "HK": {
+          "hard_rules": [
+            {
+              "field": "momentum_score_raw",
+              "op": ">=",
+              "value": 56.0,
+              "label": "港股 趋势>=56"
+            },
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 57.0,
+              "label": "港股 催化>=57"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 30.0,
+              "label": "港股 风控>=30"
+            }
+          ]
+        },
+        "US": {
+          "hard_rules": [
+            {
+              "field": "momentum_score_raw",
+              "op": ">=",
+              "value": 54.0,
+              "label": "美股 趋势>=54"
+            },
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 55.0,
+              "label": "美股 催化>=55"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 30.0,
+              "label": "美股 风控>=30"
+            }
+          ]
+        }
+      },
+      "common_false_negatives": [
+        "宏观切换早期价格尚未形成趋势，可能留在观察池"
+      ],
+      "risk_notes": [
+        "政策突变会导致趋势与催化信号快速失效"
+      ],
+      "tuning_suggestions": [
+        "重点跟踪战术池中的风险事件触发条件"
+      ],
+      "change_log": [
+        {
+          "date": "2026-03-03",
+          "summary": "宏观周期新增分市场趋势阈值。"
+        }
+      ]
+    },
+    {
+      "id": "trend_following",
+      "name": "趋势跟随",
+      "suitable_markets": ["A", "HK", "US"],
+      "core_hypothesis": "趋势是最强定价变量，优先做主升段并严格控制回撤",
+      "default": {
+        "hard_rules": [
+          {
+            "field": "momentum_score_raw",
+            "op": ">=",
+            "value": 70.0,
+            "label": "趋势>=70"
+          },
+          {
+            "field": "catalyst_score_raw",
+            "op": ">=",
+            "value": 60.0,
+            "label": "催化>=60"
+          },
+          {
+            "field": "risk_control_raw",
+            "op": ">=",
+            "value": 30.0,
+            "label": "风控>=30"
+          }
+        ],
+        "soft_rules": [
+          {
+            "field": "price_to_fair_value_raw",
+            "op": ">",
+            "value": 1.2,
+            "multiplier": 0.9,
+            "label": "P/FV>1.2"
+          },
+          {
+            "field": "quality_score_raw",
+            "op": "<",
+            "value": 45.0,
+            "multiplier": 0.93,
+            "label": "质量<45"
+          }
+        ],
+        "tiering": {
+          "core_min_score": 72.0,
+          "tactical_min_score": 58.0,
+          "watch_multiplier": 0.79
+        }
+      },
+      "market_overrides": {
+        "A": {
+          "hard_rules": [
+            {
+              "field": "momentum_score_raw",
+              "op": ">=",
+              "value": 72.0,
+              "label": "A股 趋势>=72"
+            },
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 62.0,
+              "label": "A股 催化>=62"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 33.0,
+              "label": "A股 风控>=33"
+            }
+          ]
+        },
+        "HK": {
+          "hard_rules": [
+            {
+              "field": "momentum_score_raw",
+              "op": ">=",
+              "value": 71.0,
+              "label": "港股 趋势>=71"
+            },
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 60.0,
+              "label": "港股 催化>=60"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 31.0,
+              "label": "港股 风控>=31"
+            }
+          ]
+        },
+        "US": {
+          "hard_rules": [
+            {
+              "field": "momentum_score_raw",
+              "op": ">=",
+              "value": 69.0,
+              "label": "美股 趋势>=69"
+            },
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 59.0,
+              "label": "美股 催化>=59"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 30.0,
+              "label": "美股 风控>=30"
+            }
+          ]
+        }
+      },
+      "common_false_negatives": [
+        "趋势刚形成时动量分未充分反映，可能被误杀"
+      ],
+      "risk_notes": [
+        "趋势策略回撤速度快，需配合严格仓位纪律"
+      ],
+      "tuning_suggestions": [
+        "若战术池过大，可提高趋势阈值或收紧 P/FV 惩罚"
+      ],
+      "change_log": [
+        {
+          "date": "2026-03-03",
+          "summary": "趋势跟随强化核心池门槛，提升纪律性。"
+        }
+      ]
+    },
+    {
+      "id": "systematic_quant",
+      "name": "系统化量化",
+      "suitable_markets": ["A", "HK", "US"],
+      "core_hypothesis": "多因子规则组合在大样本中稳定获取超额收益",
+      "default": {
+        "hard_rules": [
+          {
+            "field": "quality_score_raw",
+            "op": ">=",
+            "value": 45.0,
+            "label": "质量>=45"
+          },
+          {
+            "field": "growth_score_raw",
+            "op": ">=",
+            "value": 45.0,
+            "label": "成长>=45"
+          },
+          {
+            "field": "momentum_score_raw",
+            "op": ">=",
+            "value": 45.0,
+            "label": "趋势>=45"
+          },
+          {
+            "field": "catalyst_score_raw",
+            "op": ">=",
+            "value": 45.0,
+            "label": "催化>=45"
+          },
+          {
+            "field": "risk_control_raw",
+            "op": ">=",
+            "value": 35.0,
+            "label": "风控>=35"
+          }
+        ],
+        "soft_rules": [
+          {
+            "field": "margin_of_safety_raw",
+            "op": "<",
+            "value": 0.0,
+            "multiplier": 0.93,
+            "label": "MOS<0"
+          },
+          {
+            "field": "market_norm_quality",
+            "op": "<",
+            "value": 0.35,
+            "multiplier": 0.95,
+            "label": "质量分位<35%"
+          }
+        ],
+        "tiering": {
+          "core_min_score": 68.0,
+          "tactical_min_score": 54.0,
+          "watch_multiplier": 0.83
+        }
+      },
+      "market_overrides": {
+        "A": {
+          "hard_rules": [
+            {
+              "field": "quality_score_raw",
+              "op": ">=",
+              "value": 46.0,
+              "label": "A股 质量>=46"
+            },
+            {
+              "field": "growth_score_raw",
+              "op": ">=",
+              "value": 45.0,
+              "label": "A股 成长>=45"
+            },
+            {
+              "field": "momentum_score_raw",
+              "op": ">=",
+              "value": 47.0,
+              "label": "A股 趋势>=47"
+            },
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 46.0,
+              "label": "A股 催化>=46"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 36.0,
+              "label": "A股 风控>=36"
+            }
+          ]
+        },
+        "HK": {
+          "hard_rules": [
+            {
+              "field": "quality_score_raw",
+              "op": ">=",
+              "value": 44.0,
+              "label": "港股 质量>=44"
+            },
+            {
+              "field": "growth_score_raw",
+              "op": ">=",
+              "value": 44.0,
+              "label": "港股 成长>=44"
+            },
+            {
+              "field": "momentum_score_raw",
+              "op": ">=",
+              "value": 45.0,
+              "label": "港股 趋势>=45"
+            },
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 45.0,
+              "label": "港股 催化>=45"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 34.0,
+              "label": "港股 风控>=34"
+            }
+          ]
+        },
+        "US": {
+          "hard_rules": [
+            {
+              "field": "quality_score_raw",
+              "op": ">=",
+              "value": 45.0,
+              "label": "美股 质量>=45"
+            },
+            {
+              "field": "growth_score_raw",
+              "op": ">=",
+              "value": 45.0,
+              "label": "美股 成长>=45"
+            },
+            {
+              "field": "momentum_score_raw",
+              "op": ">=",
+              "value": 45.0,
+              "label": "美股 趋势>=45"
+            },
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 45.0,
+              "label": "美股 催化>=45"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 35.0,
+              "label": "美股 风控>=35"
+            }
+          ]
+        }
+      },
+      "common_false_negatives": [
+        "转型企业短期因子不齐全，会落入观察池"
+      ],
+      "risk_notes": [
+        "因子拥挤交易可能导致阶段性失灵"
+      ],
+      "tuning_suggestions": [
+        "建议定期滚动评估因子稳定性，避免阈值老化"
+      ],
+      "change_log": [
+        {
+          "date": "2026-03-03",
+          "summary": "系统化量化升级为分市场阈值。"
+        }
+      ]
+    },
+    {
+      "id": "event_driven_activist",
+      "name": "事件驱动激进",
+      "suitable_markets": ["A", "HK", "US"],
+      "core_hypothesis": "事件催化是主要收益来源，估值与风险控制作为约束",
+      "default": {
+        "hard_rules": [
+          {
+            "field": "catalyst_score_raw",
+            "op": ">=",
+            "value": 55.0,
+            "label": "催化>=55"
+          },
+          {
+            "field": "momentum_score_raw",
+            "op": ">=",
+            "value": 40.0,
+            "label": "趋势>=40"
+          },
+          {
+            "field": "risk_control_raw",
+            "op": ">=",
+            "value": 30.0,
+            "label": "风控>=30"
+          },
+          {
+            "field": "price_to_fair_value_raw",
+            "op": "<=",
+            "value": 1.8,
+            "label": "P/FV<=1.8"
+          }
+        ],
+        "soft_rules": [
+          {
+            "field": "margin_of_safety_raw",
+            "op": "<",
+            "value": 0.05,
+            "multiplier": 0.95,
+            "label": "MOS<5%"
+          },
+          {
+            "field": "quality_score_raw",
+            "op": "<",
+            "value": 50.0,
+            "multiplier": 0.95,
+            "label": "质量<50"
+          }
+        ],
+        "tiering": {
+          "core_min_score": 67.0,
+          "tactical_min_score": 54.0,
+          "watch_multiplier": 0.84
+        }
+      },
+      "market_overrides": {
+        "A": {
+          "hard_rules": [
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 58.0,
+              "label": "A股 催化>=58"
+            },
+            {
+              "field": "momentum_score_raw",
+              "op": ">=",
+              "value": 42.0,
+              "label": "A股 趋势>=42"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 33.0,
+              "label": "A股 风控>=33"
+            },
+            {
+              "field": "price_to_fair_value_raw",
+              "op": "<=",
+              "value": 1.9,
+              "label": "A股 P/FV<=1.9"
+            }
+          ]
+        },
+        "HK": {
+          "hard_rules": [
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 56.0,
+              "label": "港股 催化>=56"
+            },
+            {
+              "field": "momentum_score_raw",
+              "op": ">=",
+              "value": 40.0,
+              "label": "港股 趋势>=40"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 30.0,
+              "label": "港股 风控>=30"
+            },
+            {
+              "field": "price_to_fair_value_raw",
+              "op": "<=",
+              "value": 2.0,
+              "label": "港股 P/FV<=2.0"
+            }
+          ]
+        },
+        "US": {
+          "hard_rules": [
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 54.0,
+              "label": "美股 催化>=54"
+            },
+            {
+              "field": "momentum_score_raw",
+              "op": ">=",
+              "value": 40.0,
+              "label": "美股 趋势>=40"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 30.0,
+              "label": "美股 风控>=30"
+            },
+            {
+              "field": "price_to_fair_value_raw",
+              "op": "<=",
+              "value": 1.75,
+              "label": "美股 P/FV<=1.75"
+            }
+          ]
+        }
+      },
+      "common_false_negatives": [
+        "催化已出现但动量尚未确认时，容易落入观察池"
+      ],
+      "risk_notes": [
+        "事件交易时效性强，超过窗口后胜率快速衰减"
+      ],
+      "tuning_suggestions": [
+        "战术池应叠加事件时钟管理，避免久拖成套牢"
+      ],
+      "change_log": [
+        {
+          "date": "2026-03-03",
+          "summary": "事件驱动新增分市场估值上限。"
+        }
+      ]
+    },
+    {
+      "id": "credit_cycle",
+      "name": "信用周期",
+      "suitable_markets": ["A", "HK", "US"],
+      "core_hypothesis": "信用扩张/收缩阶段驱动风险资产与防御资产轮动",
+      "default": {
+        "hard_rules": [
+          {
+            "field": "margin_of_safety_raw",
+            "op": ">=",
+            "value": 0.05,
+            "label": "MOS>=5%"
+          },
+          {
+            "field": "catalyst_score_raw",
+            "op": ">=",
+            "value": 50.0,
+            "label": "催化>=50"
+          },
+          {
+            "field": "risk_control_raw",
+            "op": ">=",
+            "value": 45.0,
+            "label": "风控>=45"
+          }
+        ],
+        "soft_rules": [
+          {
+            "field": "momentum_score_raw",
+            "op": "<",
+            "value": 50.0,
+            "multiplier": 0.95,
+            "label": "趋势<50"
+          },
+          {
+            "field": "quality_score_raw",
+            "op": "<",
+            "value": 45.0,
+            "multiplier": 0.95,
+            "label": "质量<45"
+          }
+        ],
+        "tiering": {
+          "core_min_score": 68.0,
+          "tactical_min_score": 55.0,
+          "watch_multiplier": 0.82
+        }
+      },
+      "market_overrides": {
+        "A": {
+          "hard_rules": [
+            {
+              "field": "margin_of_safety_raw",
+              "op": ">=",
+              "value": 0.07,
+              "label": "A股 MOS>=7%"
+            },
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 52.0,
+              "label": "A股 催化>=52"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 47.0,
+              "label": "A股 风控>=47"
+            }
+          ]
+        },
+        "HK": {
+          "hard_rules": [
+            {
+              "field": "margin_of_safety_raw",
+              "op": ">=",
+              "value": 0.08,
+              "label": "港股 MOS>=8%"
+            },
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 53.0,
+              "label": "港股 催化>=53"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 45.0,
+              "label": "港股 风控>=45"
+            }
+          ]
+        },
+        "US": {
+          "hard_rules": [
+            {
+              "field": "margin_of_safety_raw",
+              "op": ">=",
+              "value": 0.04,
+              "label": "美股 MOS>=4%"
+            },
+            {
+              "field": "catalyst_score_raw",
+              "op": ">=",
+              "value": 48.0,
+              "label": "美股 催化>=48"
+            },
+            {
+              "field": "risk_control_raw",
+              "op": ">=",
+              "value": 44.0,
+              "label": "美股 风控>=44"
+            }
+          ]
+        }
+      },
+      "common_false_negatives": [
+        "信用拐点初期催化分不足，会落入观察池"
+      ],
+      "risk_notes": [
+        "信用风险上升时，尾部风险会显著加大"
+      ],
+      "tuning_suggestions": [
+        "核心池中建议叠加资产负债表约束做二次过滤"
+      ],
+      "change_log": [
+        {
+          "date": "2026-03-03",
+          "summary": "信用周期补齐三市场硬筛。"
+        }
+      ]
+    }
+  ]
+}

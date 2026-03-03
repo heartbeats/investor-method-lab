@@ -34,6 +34,13 @@ python3 -m unittest discover -s tests
 ```
 
 `build_real_opportunities.py` 默认开启 24 小时缓存（`data/cache/yfinance`），用于非实时场景降低 API 限流风险；如需强制实时拉取可加 `--no-cache`。
+可选接入 `stock-data-hub`：设置 `IML_STOCK_DATA_HUB_URL=http://127.0.0.1:18123` 后，脚本会按需从 hub 兜底 `quote/external_valuation/fundamental`（仅在 Yahoo 缺失时触发）。
+
+`build_investor_profiles.py` 默认开启 24 小时缓存（`data/cache/holding_prices`），并按市场自动路由：
+- A/HK：`Futu OpenD -> Yahoo Finance`
+- US：`Futu OpenD(有权限时) -> yfinance -> FMP -> Alpha Vantage`
+- 可用环境变量 `IML_US_QUOTE_PROVIDERS` 覆盖 US 回退顺序（如 `yfinance,fmp,alpha_vantage`）。
+- 若设置 `IML_STOCK_DATA_HUB_URL`，报价会优先走 hub，再回退本地链路。
 
 `build_real_opportunities.py` 默认会尝试复用本机 DCF 能力（`~/.codex/skills/dcf-valuation-link/scripts/dcf_valuation_link.py`）：
 - 估值优先级：`dcf_iv_base > targetMeanPrice > close`
@@ -41,6 +48,17 @@ python3 -m unittest discover -s tests
 - 元信息新增：`dcf_integration`、`valuation_source_breakdown`
 
 如需关闭 DCF 覆盖，可加 `--disable-dcf`；如需严格模式（DCF 拉取失败即报错）可加 `--dcf-strict`。
+
+可用以下脚本批量补齐 DCF 覆盖（公司档案 + 财报快照 + 审核 + 估值）：
+
+```bash
+cd /home/afu/projects/investor-method-lab
+python3 scripts/seed_dcf_coverage_from_universe.py \
+  --universe-file data/opportunities.universe_3markets.csv \
+  --report-file data/dcf_coverage_seed_report.json
+```
+
+说明：该脚本基于 `yfinance` 财报与行情，失败项会在报告里逐条列出原因。
 
 ### 网页看板（查看全部整理信息）
 
@@ -83,6 +101,7 @@ bash scripts/run_dashboard.sh 8091
 - 13F 深挖：脚本会优先使用“投资人->披露实体(CIK)”映射抓取最新 13F（当前已接入段永平/李录/木头姐）
 - 口径边界：13F 仅覆盖美国可报告长仓，不包含非 13F 资产（如部分港股/A股、期权、现金等）
 - OpenD 行情：若 `Futu OpenD` 可用，则优先用于 A/HK 行情；若 US 权限不足会自动回退 Yahoo，并在页面“数据源能力面板”显示权限状态。
+- 数据源目录脚本会自动调用统一探测器：`/home/afu/.codex/skills/stock-data-fetch/scripts/probe_stock_sources.py`，并把 AkShare/FMP/Alpha/Tushare 的实测状态写入 `data/data_source_catalog.json` 与 `data/stock_provider_probe.json`。
 - 覆盖主口径：全接口价格覆盖（Futu OpenD + Yahoo 等）优先，用于评估“是否拿到可用行情”。
 - OpenD 口径：仅用于诊断富途权限/映射问题，不作为主覆盖能力结论。
 - 富途对账报告：`data/futu_alignment_report.json`，同时展示“全接口覆盖率（主）+ OpenD 命中率（诊断）”。

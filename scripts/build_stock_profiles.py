@@ -182,8 +182,21 @@ def summarize_products(summary: str) -> str:
     return "；".join(parts[:2])
 
 
+def to_yf_ticker(ticker: str) -> str:
+    base = (ticker or "").strip().upper()
+    if not base:
+        return base
+    mapped = YF_TICKER_MAP.get(base, base)
+    if mapped.endswith(".HK"):
+        code = mapped[:-3]
+        if code.isdigit():
+            # Yahoo 常用 4 位港股代码：00881.HK -> 0881.HK
+            mapped = f"{str(int(code)).zfill(4)}.HK"
+    return mapped
+
+
 def fetch_stock_profile(ticker: str) -> Dict[str, Any] | None:
-    yf_ticker = YF_TICKER_MAP.get(ticker, ticker)
+    yf_ticker = to_yf_ticker(ticker)
     ticker_obj = yf.Ticker(yf_ticker)
     history = ticker_obj.history(period="5d", interval="1d", auto_adjust=False)
     closes = history.get("Close")
@@ -296,4 +309,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

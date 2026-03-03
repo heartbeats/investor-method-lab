@@ -43,8 +43,27 @@
               <option value="sample">样本口径（非真实）</option>
             </select>
           </label>
+          <label>
+            层级
+            <select id="method-tier-select">
+              <option value="core" selected>核心池</option>
+              <option value="watch">观察池</option>
+              <option value="tactical">战术池</option>
+              <option value="ALL">全部层级</option>
+            </select>
+          </label>
+          <label>
+            市场
+            <select id="method-market-select">
+              <option value="ALL" selected>全部市场</option>
+              <option value="A">A 股</option>
+              <option value="HK">港股</option>
+              <option value="US">美股</option>
+            </select>
+          </label>
         </div>
         <div id="method-opportunity-meta" class="muted"></div>
+        <div id="method-trace-summary"></div>
         <div id="method-opportunity-content"></div>
       </section>
     </main>

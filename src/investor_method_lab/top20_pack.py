@@ -31,6 +31,45 @@ VALUE_QUALITY_COMPOUND_RULES = {
     "certainty_soft_penalty": 0.92,
 }
 
+GROUP_RULE_TEXTS: Dict[str, Dict[str, str]] = {
+    "value_quality_compound": {
+        "hard": "MOS>=15%，质量>=65；若有确定性分则>=65。",
+        "soft": "MOS<30% 折扣0.88；确定性<75 折扣0.92。",
+    },
+    "industry_compounder": {
+        "hard": "MOS>=5%，质量>=70，风控>=45%。",
+        "soft": "成长<55 折扣0.93；催化<50 折扣0.95。",
+    },
+    "garp_growth": {
+        "hard": "成长>=55，质量>=60，P/FV<=1.25，风控>=35%。",
+        "soft": "P/FV>1.05 折扣0.90；趋势<55 折扣0.93。",
+    },
+    "deep_value_recovery": {
+        "hard": "MOS>=20%，催化>=50，风控>=30%。",
+        "soft": "质量<45 折扣0.90；趋势<40 折扣0.92。",
+    },
+    "macro_regime": {
+        "hard": "趋势>=55，催化>=55，风控>=30%。",
+        "soft": "成长<45 折扣0.95；MOS<0 折扣0.95。",
+    },
+    "trend_following": {
+        "hard": "趋势>=70，催化>=60，风控>=30%。",
+        "soft": "P/FV>1.20 折扣0.90；质量<45 折扣0.93。",
+    },
+    "systematic_quant": {
+        "hard": "质量/成长/趋势/催化均>=45，风控>=35%。",
+        "soft": "MOS<0 折扣0.93。",
+    },
+    "event_driven_activist": {
+        "hard": "催化>=55，趋势>=40，风控>=30%，且P/FV<=1.80。",
+        "soft": "MOS<5% 折扣0.95；质量<50 折扣0.95。",
+    },
+    "credit_cycle": {
+        "hard": "MOS>=5%，催化>=50，风控>=45%。",
+        "soft": "趋势<50 折扣0.95；质量<45 折扣0.95。",
+    },
+}
+
 
 def _get_weights(
     spec: Dict[str, Any], strategy_by_id: Dict[str, Dict[str, Any]]
@@ -92,29 +131,155 @@ def _format_member_names(members: List[Dict[str, Any]]) -> str:
     return "、".join(item.get("name_cn", item.get("name_en", "")) for item in members)
 
 
+def _optional_score(row: Dict[str, Any], key: str) -> float | None:
+    raw = row.get(key)
+    if raw in (None, ""):
+        return None
+    return parse_float(raw, 0.0)
+
+
+def _row_metrics(row: Dict[str, Any]) -> Dict[str, float | None]:
+    price_to_fair_value = parse_float(row.get("price_to_fair_value"), 1.0)
+    quality = parse_float(row.get("quality_score"), 50.0)
+    growth = parse_float(row.get("growth_score"), 50.0)
+    momentum = parse_float(row.get("momentum_score"), 50.0)
+    catalyst = parse_float(row.get("catalyst_score"), 50.0)
+    risk_score = parse_float(row.get("risk_score"), 50.0)
+    risk_control = max(0.0, min(100.0, 100.0 - risk_score))
+    return {
+        "price_to_fair_value": price_to_fair_value,
+        "margin_of_safety": 1.0 - price_to_fair_value,
+        "quality_score": quality,
+        "growth_score": growth,
+        "momentum_score": momentum,
+        "catalyst_score": catalyst,
+        "risk_score": risk_score,
+        "risk_control_pct": risk_control,
+        "certainty_score": _optional_score(row, "certainty_score"),
+    }
+
+
 def _apply_group_rules(
     profile: GroupProfile,
     row: Dict[str, Any],
     score: float,
 ) -> Tuple[bool, float]:
-    if profile.id != "value_quality_compound":
-        return True, score
-
-    price_to_fair_value = parse_float(row.get("price_to_fair_value"), 1.0)
-    margin_of_safety = 1.0 - price_to_fair_value
-    if margin_of_safety < VALUE_QUALITY_COMPOUND_RULES["min_margin_of_safety"]:
-        return False, 0.0
-
+    metrics = _row_metrics(row)
+    margin_of_safety = float(metrics["margin_of_safety"] or 0.0)
+    quality_score = float(metrics["quality_score"] or 0.0)
+    growth_score = float(metrics["growth_score"] or 0.0)
+    momentum_score = float(metrics["momentum_score"] or 0.0)
+    catalyst_score = float(metrics["catalyst_score"] or 0.0)
+    risk_control_pct = float(metrics["risk_control_pct"] or 0.0)
+    certainty_score = metrics["certainty_score"]
     adjusted = score
-    if margin_of_safety < VALUE_QUALITY_COMPOUND_RULES["preferred_margin_of_safety"]:
-        adjusted *= VALUE_QUALITY_COMPOUND_RULES["margin_soft_penalty"]
 
-    if row.get("certainty_score") not in (None, ""):
-        certainty_score = parse_float(row.get("certainty_score"), 50.0)
-        if certainty_score < VALUE_QUALITY_COMPOUND_RULES["min_certainty_score"]:
+    if profile.id == "value_quality_compound":
+        if margin_of_safety < VALUE_QUALITY_COMPOUND_RULES["min_margin_of_safety"]:
             return False, 0.0
-        if certainty_score < VALUE_QUALITY_COMPOUND_RULES["soft_certainty_score"]:
+        if quality_score < 65.0:
+            return False, 0.0
+        if (
+            certainty_score is not None
+            and certainty_score < VALUE_QUALITY_COMPOUND_RULES["min_certainty_score"]
+        ):
+            return False, 0.0
+
+        if margin_of_safety < VALUE_QUALITY_COMPOUND_RULES["preferred_margin_of_safety"]:
+            adjusted *= VALUE_QUALITY_COMPOUND_RULES["margin_soft_penalty"]
+        if (
+            certainty_score is not None
+            and certainty_score < VALUE_QUALITY_COMPOUND_RULES["soft_certainty_score"]
+        ):
             adjusted *= VALUE_QUALITY_COMPOUND_RULES["certainty_soft_penalty"]
+
+        return True, adjusted
+
+    if profile.id == "industry_compounder":
+        if margin_of_safety < 0.05 or quality_score < 70.0 or risk_control_pct < 45.0:
+            return False, 0.0
+        if growth_score < 55.0:
+            adjusted *= 0.93
+        if catalyst_score < 50.0:
+            adjusted *= 0.95
+        return True, adjusted
+
+    if profile.id == "garp_growth":
+        if (
+            growth_score < 55.0
+            or quality_score < 60.0
+            or float(metrics["price_to_fair_value"] or 1.0) > 1.25
+            or risk_control_pct < 35.0
+        ):
+            return False, 0.0
+        if float(metrics["price_to_fair_value"] or 1.0) > 1.05:
+            adjusted *= 0.90
+        if momentum_score < 55.0:
+            adjusted *= 0.93
+        return True, adjusted
+
+    if profile.id == "deep_value_recovery":
+        if margin_of_safety < 0.20 or catalyst_score < 50.0 or risk_control_pct < 30.0:
+            return False, 0.0
+        if quality_score < 45.0:
+            adjusted *= 0.90
+        if momentum_score < 40.0:
+            adjusted *= 0.92
+        return True, adjusted
+
+    if profile.id == "macro_regime":
+        if momentum_score < 55.0 or catalyst_score < 55.0 or risk_control_pct < 30.0:
+            return False, 0.0
+        if growth_score < 45.0:
+            adjusted *= 0.95
+        if margin_of_safety < 0.0:
+            adjusted *= 0.95
+        return True, adjusted
+
+    if profile.id == "trend_following":
+        if momentum_score < 70.0 or catalyst_score < 60.0 or risk_control_pct < 30.0:
+            return False, 0.0
+        if float(metrics["price_to_fair_value"] or 1.0) > 1.20:
+            adjusted *= 0.90
+        if quality_score < 45.0:
+            adjusted *= 0.93
+        return True, adjusted
+
+    if profile.id == "systematic_quant":
+        if (
+            quality_score < 45.0
+            or growth_score < 45.0
+            or momentum_score < 45.0
+            or catalyst_score < 45.0
+            or risk_control_pct < 35.0
+        ):
+            return False, 0.0
+        if margin_of_safety < 0.0:
+            adjusted *= 0.93
+        return True, adjusted
+
+    if profile.id == "event_driven_activist":
+        if (
+            catalyst_score < 55.0
+            or momentum_score < 40.0
+            or risk_control_pct < 30.0
+            or float(metrics["price_to_fair_value"] or 1.0) > 1.80
+        ):
+            return False, 0.0
+        if margin_of_safety < 0.05:
+            adjusted *= 0.95
+        if quality_score < 50.0:
+            adjusted *= 0.95
+        return True, adjusted
+
+    if profile.id == "credit_cycle":
+        if margin_of_safety < 0.05 or catalyst_score < 50.0 or risk_control_pct < 45.0:
+            return False, 0.0
+        if momentum_score < 50.0:
+            adjusted *= 0.95
+        if quality_score < 45.0:
+            adjusted *= 0.95
+        return True, adjusted
 
     return True, adjusted
 
@@ -260,6 +425,11 @@ def _escape_md_cell(value: Any) -> str:
     return text.replace("\n", "<br>")
 
 
+def _group_rule_text(profile_id: str) -> Tuple[str, str]:
+    rule = GROUP_RULE_TEXTS.get(profile_id, {})
+    return rule.get("hard", "默认硬筛：无"), rule.get("soft", "默认软惩罚：无")
+
+
 def render_opportunity_pack_markdown(
     as_of_date: str,
     profiles: List[GroupProfile],
@@ -298,6 +468,17 @@ def render_opportunity_pack_markdown(
             f"{_weight_to_pct(w.get('quality', 0.0))} | {_weight_to_pct(w.get('growth', 0.0))} | "
             f"{_weight_to_pct(w.get('momentum', 0.0))} | {_weight_to_pct(w.get('catalyst', 0.0))} | "
             f"{_weight_to_pct(w.get('risk_control', 0.0))} |"
+        )
+
+    lines.append("")
+    lines.append("### 执行规则（统一口径）")
+    lines.append("")
+    lines.append("| 分组 | 硬筛条件 | 软惩罚 |")
+    lines.append("|---|---|---|")
+    for profile in profiles:
+        hard_text, soft_text = _group_rule_text(profile.id)
+        lines.append(
+            f"| {_escape_md_cell(profile.name)} | {_escape_md_cell(hard_text)} | {_escape_md_cell(soft_text)} |"
         )
 
     lines.append("")

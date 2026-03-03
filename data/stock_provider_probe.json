@@ -1,0 +1,123 @@
+{
+  "generated_at": "2026-03-03T16:03:31.806048+00:00",
+  "samples": {
+    "CN": [
+      "SH.600519",
+      "SZ.000858",
+      "SH.601318",
+      "SZ.300750",
+      "SH.600036",
+      "SZ.000333"
+    ],
+    "HK": [
+      "HK.00700",
+      "HK.03690",
+      "HK.09988",
+      "HK.01810",
+      "HK.00981",
+      "HK.01211"
+    ],
+    "US": [
+      "US.AAPL",
+      "US.MSFT",
+      "US.GOOGL",
+      "US.AMZN",
+      "US.META",
+      "US.NVDA"
+    ]
+  },
+  "key_presence": {
+    "tushare": true,
+    "alpha_vantage": true,
+    "fmp": true
+  },
+  "providers": {
+    "futu_opend": {
+      "enabled": false,
+      "host": "127.0.0.1",
+      "port": 11112,
+      "error": "skipped_by_flag"
+    },
+    "yfinance": {
+      "enabled": true,
+      "CN": {
+        "success_count": 6,
+        "total": 6,
+        "success_rate": 1.0,
+        "p50_sec": 1.111,
+        "p95_sec": 1.582
+      },
+      "HK": {
+        "success_count": 6,
+        "total": 6,
+        "success_rate": 1.0,
+        "p50_sec": 1.032,
+        "p95_sec": 1.129
+      },
+      "US": {
+        "success_count": 6,
+        "total": 6,
+        "success_rate": 1.0,
+        "p50_sec": 1.132,
+        "p95_sec": 1.229
+      }
+    },
+    "akshare_daily": {
+      "enabled": true,
+      "success_count": 6,
+      "total": 6,
+      "success_rate": 1.0,
+      "p50_sec": 1.354,
+      "p95_sec": 1.509
+    },
+    "alpha_vantage": {
+      "configured": true,
+      "global_quote": {
+        "status_code": 200,
+        "latency_sec": 1.781,
+        "ok": true,
+        "has_note": false,
+        "has_error": false,
+        "has_information": false,
+        "keys": [
+          "Global Quote"
+        ]
+      },
+      "analyst_target": {
+        "status_code": 200,
+        "latency_sec": 1.482,
+        "ok": false,
+        "has_note": false,
+        "has_error": false,
+        "has_information": true,
+        "keys": [
+          "Information"
+        ]
+      }
+    },
+    "fmp": {
+      "configured": true,
+      "quote": {
+        "status_code": 200,
+        "latency_sec": 1.693,
+        "ok": true,
+        "payload_type": "list",
+        "payload_size": 1,
+        "keys": null
+      },
+      "price_target_summary": {
+        "status_code": 200,
+        "latency_sec": 1.817,
+        "ok": true,
+        "payload_type": "list",
+        "payload_size": 1,
+        "keys": null
+      }
+    },
+    "tushare": {
+      "configured": true,
+      "ok": false,
+      "error": "tushare_python_not_found"
+    }
+  }
+}

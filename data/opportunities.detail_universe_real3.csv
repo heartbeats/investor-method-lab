@@ -1,0 +1,796 @@
+ticker,market,name,sector,liquidity_tag,included_reason
+000001.SZ,,平安银行,,,from_v4_outputs
+000002.SZ,,万科A,,,from_v4_outputs
+00001.HK,,CKH HOLDINGS,,,from_v4_outputs
+00002.HK,,CLP HOLDINGS,,,from_v4_outputs
+00003.HK,,HK & CHINA GAS,,,from_v4_outputs
+00004.HK,,WHARF HOLDINGS,,,from_v4_outputs
+00005.HK,,HSBC HOLDINGS,,,from_v4_outputs
+00006.HK,,POWER ASSETS,,,from_v4_outputs
+000063.SZ,,中兴通讯,,,from_v4_outputs
+00008.HK,,PCCW,,,from_v4_outputs
+00010.HK,,HANG LUNG GROUP,,,from_v4_outputs
+000100.SZ,,TCL科技,,,from_v4_outputs
+00012.HK,,HENDERSON LAND,,,from_v4_outputs
+00013.HK,,HUTCHMED,,,from_v4_outputs
+00014.HK,,HYSAN DEV,,,from_v4_outputs
+000157.SZ,,中联重科,,,from_v4_outputs
+00016.HK,,SHK PPT,,,from_v4_outputs
+000166.SZ,,申万宏源,,,from_v4_outputs
+00017.HK,,NEW WORLD DEV,,,from_v4_outputs
+00019.HK,,SWIRE PACIFIC A,,,from_v4_outputs
+00020.HK,,SENSETIME-W,,,from_v4_outputs
+00023.HK,,BANK OF E ASIA,,,from_v4_outputs
+00027.HK,,GALAXY ENT,,,from_v4_outputs
+00028.HK,,TIAN AN,,,from_v4_outputs
+00029.HK,,DYNAMIC HOLD,,,from_v4_outputs
+00030.HK,,YNBY INTL,,,from_v4_outputs
+000301.SZ,,东方盛虹,,,from_v4_outputs
+000333.SZ,,美的集团,,,from_v4_outputs
+000338.SZ,,潍柴动力,,,from_v4_outputs
+00034.HK,,KOWLOON DEV,,,from_v4_outputs
+00038.HK,,FIRST TRACTOR,,,from_v4_outputs
+000408.SZ,,藏格矿业,,,from_v4_outputs
+00041.HK,,GREAT EAGLE H,,,from_v4_outputs
+000425.SZ,,徐工机械,,,from_v4_outputs
+00045.HK,,HK&S HOTELS,,,from_v4_outputs
+00050.HK,,HK FERRY (HOLD),,,from_v4_outputs
+00053.HK,,GUOCO GROUP,,,from_v4_outputs
+000538.SZ,,云南白药,,,from_v4_outputs
+000568.SZ,,泸州老窖,,,from_v4_outputs
+000596.SZ,,古井贡酒,,,from_v4_outputs
+000617.SZ,,中油资本,,,from_v4_outputs
+00062.HK,,TRANSPORT INT'L,,,from_v4_outputs
+000625.SZ,,长安汽车,,,from_v4_outputs
+000630.SZ,,铜陵有色,,,from_v4_outputs
+00064.HK,,GET NICE,,,from_v4_outputs
+000651.SZ,,格力电器,,,from_v4_outputs
+00066.HK,,MTR CORPORATION,,,from_v4_outputs
+000661.SZ,,长春高新,,,from_v4_outputs
+00069.HK,,SHANGRI-LA ASIA,,,from_v4_outputs
+000708.SZ,,中信特钢,,,from_v4_outputs
+00071.HK,,MIRAMAR HOTEL,,,from_v4_outputs
+000725.SZ,,京东方A,,,from_v4_outputs
+000768.SZ,,中航西飞,,,from_v4_outputs
+000776.SZ,,广发证券,,,from_v4_outputs
+000786.SZ,,北新建材,,,from_v4_outputs
+000792.SZ,,盐湖股份,,,from_v4_outputs
+000807.SZ,,云铝股份,,,from_v4_outputs
+00081.HK,,CH OVS G OCEANS,,,from_v4_outputs
+00083.HK,,SINO LAND,,,from_v4_outputs
+00085.HK,,CE HUADA TECH,,,from_v4_outputs
+000858.SZ,,五粮液,,,from_v4_outputs
+00086.HK,,SUN HUNG KAI CO,,,from_v4_outputs
+000876.SZ,,新 希 望,,,from_v4_outputs
+00088.HK,,TAI CHEUNG HOLD,,,from_v4_outputs
+000895.SZ,,双汇发展,,,from_v4_outputs
+000938.SZ,,紫光股份,,,from_v4_outputs
+000963.SZ,,华东医药,,,from_v4_outputs
+000975.SZ,,山金国际,,,from_v4_outputs
+000977.SZ,,浪潮信息,,,from_v4_outputs
+000983.SZ,,山西焦煤,,,from_v4_outputs
+000999.SZ,,华润三九,,,from_v4_outputs
+00100.HK,,MINIMAX-WP,,,from_v4_outputs
+00101.HK,,HANG LUNG PPT,,,from_v4_outputs
+00107.HK,,SICHUAN EXPRESS,,,from_v4_outputs
+00116.HK,,CHOW SANG SANG,,,from_v4_outputs
+00119.HK,,POLY PROPERTY,,,from_v4_outputs
+00123.HK,,YUEXIU PROPERTY,,,from_v4_outputs
+00135.HK,,KUNLUN ENERGY,,,from_v4_outputs
+00136.HK,,CHINA RUYI,,,from_v4_outputs
+001391.SZ,,国货航,,,from_v4_outputs
+00142.HK,,FIRST PACIFIC,,,from_v4_outputs
+00144.HK,,CHINA MER PORT,,,from_v4_outputs
+00147.HK,,IB SETTLEMENT,,,from_v4_outputs
+00148.HK,,KINGBOARD HLDG,,,from_v4_outputs
+00151.HK,,WANT WANT CHINA,,,from_v4_outputs
+00152.HK,,SHENZHEN INT'L,,,from_v4_outputs
+00165.HK,,CHINA EB LTD,,,from_v4_outputs
+00168.HK,,TSINGTAO BREW,,,from_v4_outputs
+00173.HK,,K. WAH INT'L,,,from_v4_outputs
+00175.HK,,GEELY AUTO,,,from_v4_outputs
+00177.HK,,JIANGSU EXPRESS,,,from_v4_outputs
+00179.HK,,JOHNSON ELEC H,,,from_v4_outputs
+00182.HK,,CONCORD NE,,,from_v4_outputs
+00189.HK,,DONGYUE GROUP,,,from_v4_outputs
+001965.SZ,,招商公路,,,from_v4_outputs
+001979.SZ,,招商蛇口,,,from_v4_outputs
+00200.HK,,MELCO INT'L DEV,,,from_v4_outputs
+002001.SZ,,新和成,,,from_v4_outputs
+002027.SZ,,分众传媒,,,from_v4_outputs
+002028.SZ,,思源电气,,,from_v4_outputs
+002049.SZ,,紫光国微,,,from_v4_outputs
+002050.SZ,,三花智控,,,from_v4_outputs
+002074.SZ,,国轩高科,,,from_v4_outputs
+002142.SZ,,宁波银行,,,from_v4_outputs
+00215.HK,,HUTCHTEL HK,,,from_v4_outputs
+002179.SZ,,中航光电,,,from_v4_outputs
+00220.HK,,U-PRESID CHINA,,,from_v4_outputs
+002230.SZ,,科大讯飞,,,from_v4_outputs
+002236.SZ,,大华股份,,,from_v4_outputs
+002241.SZ,,歌尔股份,,,from_v4_outputs
+002252.SZ,,上海莱士,,,from_v4_outputs
+002304.SZ,,洋河股份,,,from_v4_outputs
+002311.SZ,,海大集团,,,from_v4_outputs
+002352.SZ,,顺丰控股,,,from_v4_outputs
+002371.SZ,,北方华创,,,from_v4_outputs
+002384.SZ,,东山精密,,,from_v4_outputs
+00241.HK,,ALI HEALTH,,,from_v4_outputs
+002415.SZ,,海康威视,,,from_v4_outputs
+002422.SZ,,科伦药业,,,from_v4_outputs
+002459.SZ,,晶澳科技,,,from_v4_outputs
+002460.SZ,,赣锋锂业,,,from_v4_outputs
+002463.SZ,,沪电股份,,,from_v4_outputs
+002466.SZ,,天齐锂业,,,from_v4_outputs
+00247.HK,,TST PROPERTIES,,,from_v4_outputs
+002475.SZ,,立讯精密,,,from_v4_outputs
+002493.SZ,,荣盛石化,,,from_v4_outputs
+00257.HK,,EB ENVIRONMENT,,,from_v4_outputs
+002594.SZ,,比亚迪A,,,from_v4_outputs
+002600.SZ,,领益智造,,,from_v4_outputs
+002601.SZ,,龙佰集团,,,from_v4_outputs
+002625.SZ,,光启技术,,,from_v4_outputs
+002648.SZ,,卫星化学,,,from_v4_outputs
+00267.HK,,CITIC,,,from_v4_outputs
+00268.HK,,KINGDEE INT'L,,,from_v4_outputs
+00270.HK,,GUANGDONG INV,,,from_v4_outputs
+002709.SZ,,天赐材料,,,from_v4_outputs
+002714.SZ,,牧原股份,,,from_v4_outputs
+00272.HK,,SHUI ON LAND,,,from_v4_outputs
+002736.SZ,,国信证券,,,from_v4_outputs
+00285.HK,,BYD ELECTRONIC,,,from_v4_outputs
+00288.HK,,WH GROUP,,,from_v4_outputs
+00289.HK,,WING ON CO,,,from_v4_outputs
+00290.HK,,GOFINTECH QUANT,,,from_v4_outputs
+00291.HK,,CHINA RES BEER,,,from_v4_outputs
+002916.SZ,,深南电路,,,from_v4_outputs
+002920.SZ,,德赛西威,,,from_v4_outputs
+00293.HK,,CATHAY PAC AIR,,,from_v4_outputs
+002938.SZ,,鹏鼎控股,,,from_v4_outputs
+00297.HK,,SINOFERT,,,from_v4_outputs
+00300.HK,,MIDEA GROUP,,,from_v4_outputs
+00303.HK,,VTECH HOLDINGS,,,from_v4_outputs
+00308.HK,,CHINA TRAVEL HK,,,from_v4_outputs
+00315.HK,,SMARTONE TELE,,,from_v4_outputs
+00316.HK,,OOIL,,,from_v4_outputs
+00317.HK,,COMEC,,,from_v4_outputs
+00322.HK,,TINGYI,,,from_v4_outputs
+00323.HK,,MAANSHAN IRON,,,from_v4_outputs
+00325.HK,,BLOKS,,,from_v4_outputs
+00326.HK,,CHINA STAR ENT,,,from_v4_outputs
+00327.HK,,PAX GLOBAL,,,from_v4_outputs
+00336.HK,,HUABAO INTL,,,from_v4_outputs
+00338.HK,,SHANGHAI PECHEM,,,from_v4_outputs
+00340.HK,,TONGGUAN GOLD,,,from_v4_outputs
+00341.HK,,CAFE DE CORAL H,,,from_v4_outputs
+00345.HK,,VITASOY INT'L,,,from_v4_outputs
+00347.HK,,ANGANG STEEL,,,from_v4_outputs
+00354.HK,,CHINASOFT INT'L,,,from_v4_outputs
+00357.HK,,MEILAN AIRPORT,,,from_v4_outputs
+00358.HK,,JIANGXI COPPER,,,from_v4_outputs
+00363.HK,,SHANGHAI IND H,,,from_v4_outputs
+00371.HK,,BJ ENT WATER,,,from_v4_outputs
+00373.HK,,ALLIED GROUP,,,from_v4_outputs
+00376.HK,,YUNFENG FIN,,,from_v4_outputs
+003816.SZ,,中国广核,,,from_v4_outputs
+00384.HK,,CHINA GAS HOLD,,,from_v4_outputs
+00386.HK,,SINOPEC CORP,,,from_v4_outputs
+00388.HK,,HKEX,,,from_v4_outputs
+00390.HK,,CHINA RAILWAY,,,from_v4_outputs
+00392.HK,,BEIJING ENT,,,from_v4_outputs
+00400.HK,,INGDAN,,,from_v4_outputs
+00412.HK,,SDHG,,,from_v4_outputs
+00425.HK,,MINTH GROUP-100,,,from_v4_outputs
+00434.HK,,BOYAA,,,from_v4_outputs
+00440.HK,,DAH SING,,,from_v4_outputs
+00460.HK,,SIHUAN PHARM,,,from_v4_outputs
+00467.HK,,UNITEDENERGY GP,,,from_v4_outputs
+00486.HK,,RUSAL,,,from_v4_outputs
+00489.HK,,DONGFENG GROUP,,,from_v4_outputs
+00506.HK,,CHINA FOODS,,,from_v4_outputs
+00511.HK,,TVB,,,from_v4_outputs
+00512.HK,,GRAND PHARMA,,,from_v4_outputs
+00517.HK,,COSCO SHIP INTL,,,from_v4_outputs
+00521.HK,,CWT INT'L,,,from_v4_outputs
+00522.HK,,ASMPT,,,from_v4_outputs
+00525.HK,,GUANGSHEN RAIL,,,from_v4_outputs
+00546.HK,,FUFENG GROUP,,,from_v4_outputs
+00548.HK,,SHENZHENEXPRESS,,,from_v4_outputs
+00551.HK,,YUE YUEN IND,,,from_v4_outputs
+00552.HK,,CHINACOMSERVICE,,,from_v4_outputs
+00558.HK,,LK TECH,,,from_v4_outputs
+00564.HK,,ZCZL,,,from_v4_outputs
+00565.HK,,ART GROUP HOLD,,,from_v4_outputs
+00570.HK,,TRAD CHI MED,,,from_v4_outputs
+00576.HK,,ZHEJIANGEXPRESS,,,from_v4_outputs
+00579.HK,,JNCEC,,,from_v4_outputs
+00580.HK,,SUN.KING TECH,,,from_v4_outputs
+00581.HK,,CHINA ORIENTAL,,,from_v4_outputs
+00586.HK,,CONCH VENTURE,,,from_v4_outputs
+00590.HK,,LUK FOOK HOLD,,,from_v4_outputs
+00596.HK,,INSPUR DIGI ENT,,,from_v4_outputs
+00598.HK,,SINOTRANS,,,from_v4_outputs
+00604.HK,,SHENZHEN INVEST,,,from_v4_outputs
+00622.HK,,OSHIDORI,,,from_v4_outputs
+00631.HK,,SANY INT'L,,,from_v4_outputs
+00636.HK,,KLN,,,from_v4_outputs
+00639.HK,,SHOUGANG RES,,,from_v4_outputs
+00656.HK,,FOSUN INTL,,,from_v4_outputs
+00659.HK,,CTF SERVICES,,,from_v4_outputs
+00662.HK,,ASIA FINANCIAL,,,from_v4_outputs
+00666.HK,,REPT BATTERO,,,from_v4_outputs
+00667.HK,,CHINA EAST EDU,,,from_v4_outputs
+00669.HK,,TECHTRONIC IND,,,from_v4_outputs
+00670.HK,,CHINA EAST AIR,,,from_v4_outputs
+00683.HK,,KERRY PPT,,,from_v4_outputs
+00688.HK,,CHINA OVERSEAS,,,from_v4_outputs
+00694.HK,,BEIJING AIRPORT,,,from_v4_outputs
+00696.HK,,TRAVELSKY TECH,,,from_v4_outputs
+00697.HK,,SHOUCHENG,,,from_v4_outputs
+00700.HK,,TENCENT,,,from_v4_outputs
+00709.HK,,GIORDANO INT'L,,,from_v4_outputs
+00710.HK,,BOE VARITRONIX,,,from_v4_outputs
+00719.HK,,SHANDONG XINHUA,,,from_v4_outputs
+00728.HK,,CHINA TELECOM,,,from_v4_outputs
+00732.HK,,TRULY INT'L,,,from_v4_outputs
+00751.HK,,SKYWORTH GROUP,,,from_v4_outputs
+00752.HK,,PICO FAR EAST,,,from_v4_outputs
+00753.HK,,AIR CHINA,,,from_v4_outputs
+00754.HK,,HOPSON DEV HOLD,,,from_v4_outputs
+00762.HK,,CHINA UNICOM,,,from_v4_outputs
+00763.HK,,ZTE,,,from_v4_outputs
+00772.HK,,CHINA LIT,,,from_v4_outputs
+00775.HK,,CKLIFE SCIENCES,,,from_v4_outputs
+00777.HK,,NETDRAGON,,,from_v4_outputs
+00780.HK,,TONGCHENGTRAVEL,,,from_v4_outputs
+00788.HK,,CHINA TOWER,,,from_v4_outputs
+00799.HK,,IGG,,,from_v4_outputs
+00800.HK,,WERIDE-W,,,from_v4_outputs
+00806.HK,,VALUE PARTNERS,,,from_v4_outputs
+00807.HK,,SIICENVIRONMENT,,,from_v4_outputs
+00811.HK,,XINHUA WINSHARE,,,from_v4_outputs
+00817.HK,,CHINA JINMAO,,,from_v4_outputs
+00819.HK,,TIANNENG POWER,,,from_v4_outputs
+00826.HK,,TIANGONG INT'L,,,from_v4_outputs
+00836.HK,,CHINA RES POWER,,,from_v4_outputs
+00839.HK,,CHINA EDU GROUP,,,from_v4_outputs
+00853.HK,,MICROPORT,,,from_v4_outputs
+00855.HK,,CHINA WATER,,,from_v4_outputs
+00856.HK,,VSTECS,,,from_v4_outputs
+00857.HK,,PETROCHINA,,,from_v4_outputs
+00861.HK,,DC HOLDINGS,,,from_v4_outputs
+00863.HK,,OSL GROUP,,,from_v4_outputs
+00866.HK,,CHINA QINFA,,,from_v4_outputs
+00867.HK,,CMS,,,from_v4_outputs
+00868.HK,,XINYI GLASS,,,from_v4_outputs
+00874.HK,,BAIYUNSHAN PH,,,from_v4_outputs
+00880.HK,,SJM HOLDINGS,,,from_v4_outputs
+00881.HK,,ZHONGSHENG HLDG,,,from_v4_outputs
+0700.HK,,Tencent Holdings,,,from_v4_outputs
+0981.HK,,SMIC,,,from_v4_outputs
+1211.HK,,BYD Company HK,,,from_v4_outputs
+1810.HK,,Xiaomi,,,from_v4_outputs
+300014.SZ,,亿纬锂能,,,from_v4_outputs
+300015.SZ,,爱尔眼科,,,from_v4_outputs
+300033.SZ,,同花顺,,,from_v4_outputs
+300059.SZ,,东方财富,,,from_v4_outputs
+300122.SZ,,智飞生物,,,from_v4_outputs
+300124.SZ,,汇川技术,,,from_v4_outputs
+300251.SZ,,光线传媒,,,from_v4_outputs
+300274.SZ,,阳光电源,,,from_v4_outputs
+300308.SZ,,中际旭创,,,from_v4_outputs
+300316.SZ,,晶盛机电,,,from_v4_outputs
+300347.SZ,,泰格医药,,,from_v4_outputs
+300394.SZ,,天孚通信,,,from_v4_outputs
+300408.SZ,,三环集团,,,from_v4_outputs
+300413.SZ,,芒果超媒,,,from_v4_outputs
+300418.SZ,,昆仑万维,,,from_v4_outputs
+300433.SZ,,蓝思科技,,,from_v4_outputs
+300442.SZ,,润泽科技,,,from_v4_outputs
+300476.SZ,,胜宏科技,,,from_v4_outputs
+300498.SZ,,温氏股份,,,from_v4_outputs
+300502.SZ,,新易盛,,,from_v4_outputs
+300628.SZ,,亿联网络,,,from_v4_outputs
+300661.SZ,,圣邦股份,,,from_v4_outputs
+300750.SZ,,宁德时代,,,from_v4_outputs
+300759.SZ,,康龙化成,,,from_v4_outputs
+300760.SZ,,迈瑞医疗,,,from_v4_outputs
+300782.SZ,,卓胜微,,,from_v4_outputs
+300803.SZ,,指南针,,,from_v4_outputs
+300832.SZ,,新产业,,,from_v4_outputs
+300866.SZ,,安克创新,,,from_v4_outputs
+300896.SZ,,爱美客,,,from_v4_outputs
+300979.SZ,,华利集团,,,from_v4_outputs
+300999.SZ,,金龙鱼,,,from_v4_outputs
+301236.SZ,,软通动力,,,from_v4_outputs
+301269.SZ,,华大九天,,,from_v4_outputs
+302132.SZ,,中航成飞,,,from_v4_outputs
+3690.HK,,Meituan,,,from_v4_outputs
+600000.SS,,浦发银行,,,from_v4_outputs
+600009.SS,,上海机场,,,from_v4_outputs
+600010.SS,,包钢股份,,,from_v4_outputs
+600011.SS,,华能国际,,,from_v4_outputs
+600015.SS,,华夏银行,,,from_v4_outputs
+600016.SS,,民生银行,,,from_v4_outputs
+600018.SS,,上港集团,,,from_v4_outputs
+600019.SS,,宝钢股份,,,from_v4_outputs
+600023.SS,,浙能电力,,,from_v4_outputs
+600025.SS,,华能水电,,,from_v4_outputs
+600026.SS,,中远海能,,,from_v4_outputs
+600027.SS,,华电国际,,,from_v4_outputs
+600028.SS,,中国石化,,,from_v4_outputs
+600029.SS,,南方航空,,,from_v4_outputs
+600030.SS,,中信证券,,,from_v4_outputs
+600031.SS,,三一重工,,,from_v4_outputs
+600036.SS,,招商银行,,,from_v4_outputs
+600039.SS,,四川路桥,,,from_v4_outputs
+600048.SS,,保利发展,,,from_v4_outputs
+600050.SS,,中国联通,,,from_v4_outputs
+600061.SS,,国投资本,,,from_v4_outputs
+600066.SS,,宇通客车,,,from_v4_outputs
+600085.SS,,同仁堂,,,from_v4_outputs
+600089.SS,,特变电工,,,from_v4_outputs
+600104.SS,,上汽集团,,,from_v4_outputs
+600111.SS,,北方稀土,,,from_v4_outputs
+600115.SS,,中国东航,,,from_v4_outputs
+600150.SS,,中国船舶,,,from_v4_outputs
+600160.SS,,巨化股份,,,from_v4_outputs
+600161.SS,,天坛生物,,,from_v4_outputs
+600176.SS,,中国巨石,,,from_v4_outputs
+600183.SS,,生益科技,,,from_v4_outputs
+600188.SS,,兖矿能源,,,from_v4_outputs
+600196.SS,,复星医药,,,from_v4_outputs
+600219.SS,,南山铝业,,,from_v4_outputs
+600233.SS,,圆通速递,,,from_v4_outputs
+600276.SS,,恒瑞医药,,,from_v4_outputs
+600309.SS,,万华化学,,,from_v4_outputs
+600346.SS,,恒力石化,,,from_v4_outputs
+600362.SS,,江西铜业,,,from_v4_outputs
+600372.SS,,中航机载,,,from_v4_outputs
+600377.SS,,宁沪高速,,,from_v4_outputs
+600406.SS,,国电南瑞,,,from_v4_outputs
+600415.SS,,小商品城,,,from_v4_outputs
+600426.SS,,华鲁恒升,,,from_v4_outputs
+600436.SS,,片仔癀,,,from_v4_outputs
+600438.SS,,通威股份,,,from_v4_outputs
+600460.SS,,士兰微,,,from_v4_outputs
+600482.SS,,中国动力,,,from_v4_outputs
+600489.SS,,中金黄金,,,from_v4_outputs
+600515.SS,,海南机场,,,from_v4_outputs
+600519.SS,,贵州茅台,,,from_v4_outputs
+600522.SS,,中天科技,,,from_v4_outputs
+600547.SS,,山东黄金,,,from_v4_outputs
+600570.SS,,恒生电子,,,from_v4_outputs
+600584.SS,,长电科技,,,from_v4_outputs
+600585.SS,,海螺水泥,,,from_v4_outputs
+600588.SS,,用友网络,,,from_v4_outputs
+600600.SS,,青岛啤酒,,,from_v4_outputs
+600660.SS,,福耀玻璃,,,from_v4_outputs
+600674.SS,,川投能源,,,from_v4_outputs
+600690.SS,,海尔智家,,,from_v4_outputs
+600741.SS,,华域汽车,,,from_v4_outputs
+600760.SS,,中航沈飞,,,from_v4_outputs
+600795.SS,,国电电力,,,from_v4_outputs
+600803.SS,,新奥股份,,,from_v4_outputs
+600809.SS,,山西汾酒,,,from_v4_outputs
+600845.SS,,宝信软件,,,from_v4_outputs
+600875.SS,,东方电气,,,from_v4_outputs
+600886.SS,,国投电力,,,from_v4_outputs
+600887.SS,,伊利股份,,,from_v4_outputs
+600893.SS,,航发动力,,,from_v4_outputs
+600900.SS,,长江电力,,,from_v4_outputs
+600905.SS,,三峡能源,,,from_v4_outputs
+600918.SS,,中泰证券,,,from_v4_outputs
+600919.SS,,江苏银行,,,from_v4_outputs
+600926.SS,,杭州银行,,,from_v4_outputs
+600930.SS,,华电新能,,,from_v4_outputs
+600938.SS,,中国海油,,,from_v4_outputs
+600941.SS,,中国移动,,,from_v4_outputs
+600958.SS,,东方证券,,,from_v4_outputs
+600989.SS,,宝丰能源,,,from_v4_outputs
+600999.SS,,招商证券,,,from_v4_outputs
+601006.SS,,大秦铁路,,,from_v4_outputs
+601009.SS,,南京银行,,,from_v4_outputs
+601012.SS,,隆基绿能,,,from_v4_outputs
+601018.SS,,宁波港,,,from_v4_outputs
+601021.SS,,春秋航空,,,from_v4_outputs
+601058.SS,,赛轮轮胎,,,from_v4_outputs
+601059.SS,,信达证券,,,from_v4_outputs
+601066.SS,,中信建投,,,from_v4_outputs
+601077.SS,,渝农商行,,,from_v4_outputs
+601088.SS,,中国神华,,,from_v4_outputs
+601100.SS,,恒立液压,,,from_v4_outputs
+601111.SS,,中国国航,,,from_v4_outputs
+601117.SS,,中国化学,,,from_v4_outputs
+601127.SS,,赛力斯,,,from_v4_outputs
+601136.SS,,首创证券,,,from_v4_outputs
+601138.SS,,工业富联,,,from_v4_outputs
+601166.SS,,兴业银行,,,from_v4_outputs
+601169.SS,,北京银行,,,from_v4_outputs
+601186.SS,,中国铁建,,,from_v4_outputs
+601211.SS,,国泰海通,,,from_v4_outputs
+601225.SS,,陕西煤业,,,from_v4_outputs
+601229.SS,,上海银行,,,from_v4_outputs
+601236.SS,,红塔证券,,,from_v4_outputs
+601238.SS,,广汽集团,,,from_v4_outputs
+601288.SS,,农业银行,,,from_v4_outputs
+601298.SS,,青岛港,,,from_v4_outputs
+601318.SS,,中国平安,,,from_v4_outputs
+601319.SS,,中国人保,,,from_v4_outputs
+601328.SS,,交通银行,,,from_v4_outputs
+601336.SS,,新华保险,,,from_v4_outputs
+601360.SS,,三六零,,,from_v4_outputs
+601377.SS,,兴业证券,,,from_v4_outputs
+601390.SS,,中国中铁,,,from_v4_outputs
+601398.SS,,工商银行,,,from_v4_outputs
+601456.SS,,国联民生,,,from_v4_outputs
+601600.SS,,中国铝业,,,from_v4_outputs
+601601.SS,,中国太保,,,from_v4_outputs
+601607.SS,,上海医药,,,from_v4_outputs
+601618.SS,,中国中冶,,,from_v4_outputs
+601628.SS,,中国人寿,,,from_v4_outputs
+601633.SS,,长城汽车,,,from_v4_outputs
+601658.SS,,邮储银行,,,from_v4_outputs
+601668.SS,,中国建筑,,,from_v4_outputs
+601669.SS,,中国电建,,,from_v4_outputs
+601688.SS,,华泰证券,,,from_v4_outputs
+601689.SS,,拓普集团,,,from_v4_outputs
+601698.SS,,中国卫通,,,from_v4_outputs
+601728.SS,,中国电信,,,from_v4_outputs
+601766.SS,,中国中车,,,from_v4_outputs
+601788.SS,,光大证券,,,from_v4_outputs
+601800.SS,,中国交建,,,from_v4_outputs
+601808.SS,,中海油服,,,from_v4_outputs
+601816.SS,,京沪高铁,,,from_v4_outputs
+601818.SS,,光大银行,,,from_v4_outputs
+601825.SS,,沪农商行,,,from_v4_outputs
+601838.SS,,成都银行,,,from_v4_outputs
+601857.SS,,中国石油,,,from_v4_outputs
+601868.SS,,中国能建,,,from_v4_outputs
+601872.SS,,招商轮船,,,from_v4_outputs
+601877.SS,,正泰电器,,,from_v4_outputs
+601878.SS,,浙商证券,,,from_v4_outputs
+601881.SS,,中国银河,,,from_v4_outputs
+601888.SS,,中国中免,,,from_v4_outputs
+601898.SS,,中煤能源,,,from_v4_outputs
+601899.SS,,紫金矿业,,,from_v4_outputs
+601901.SS,,方正证券,,,from_v4_outputs
+601916.SS,,浙商银行,,,from_v4_outputs
+601919.SS,,中远海控,,,from_v4_outputs
+601939.SS,,建设银行,,,from_v4_outputs
+601985.SS,,中国核电,,,from_v4_outputs
+601988.SS,,中国银行,,,from_v4_outputs
+601995.SS,,中金公司,,,from_v4_outputs
+601998.SS,,中信银行,,,from_v4_outputs
+603019.SS,,中科曙光,,,from_v4_outputs
+603195.SS,,公牛集团,,,from_v4_outputs
+603259.SS,,药明康德,,,from_v4_outputs
+603260.SS,,合盛硅业,,,from_v4_outputs
+603288.SS,,海天味业,,,from_v4_outputs
+603296.SS,,华勤技术,,,from_v4_outputs
+603369.SS,,今世缘,,,from_v4_outputs
+603392.SS,,万泰生物,,,from_v4_outputs
+603501.SS,,豪威集团,,,from_v4_outputs
+603799.SS,,华友钴业,,,from_v4_outputs
+603893.SS,,瑞芯微,,,from_v4_outputs
+603986.SS,,兆易创新,,,from_v4_outputs
+603993.SS,,洛阳钼业,,,from_v4_outputs
+605117.SS,,德业股份,,,from_v4_outputs
+605499.SS,,东鹏饮料,,,from_v4_outputs
+688008.SS,,澜起科技,,,from_v4_outputs
+688009.SS,,中国通号,,,from_v4_outputs
+688012.SS,,中微公司,,,from_v4_outputs
+688036.SS,,传音控股,,,from_v4_outputs
+688041.SS,,海光信息,,,from_v4_outputs
+688047.SS,,龙芯中科,,,from_v4_outputs
+688082.SS,,盛美上海,,,from_v4_outputs
+688111.SS,,金山办公,,,from_v4_outputs
+688126.SS,,沪硅产业,,,from_v4_outputs
+688169.SS,,石头科技,,,from_v4_outputs
+688187.SS,,时代电气,,,from_v4_outputs
+688223.SS,,晶科能源,,,from_v4_outputs
+688256.SS,,寒武纪,,,from_v4_outputs
+688271.SS,,联影医疗,,,from_v4_outputs
+688303.SS,,大全能源,,,from_v4_outputs
+688396.SS,,华润微,,,from_v4_outputs
+688472.SS,,阿特斯,,,from_v4_outputs
+688506.SS,,百利天恒,,,from_v4_outputs
+688981.SS,,中芯国际,,,from_v4_outputs
+9618.HK,,JD.com HK,,,from_v4_outputs
+9988.HK,,Alibaba Group HK,,,from_v4_outputs
+9999.HK,,NetEase HK,,,from_v4_outputs
+A,,Agilent Technologies,,,from_v4_outputs
+AAPL,,Apple,,,from_v4_outputs
+ABBV,,AbbVie,,,from_v4_outputs
+ABNB,,Airbnb,,,from_v4_outputs
+ABT,,Abbott Laboratories,,,from_v4_outputs
+ACGL,,Arch Capital Group,,,from_v4_outputs
+ACN,,Accenture,,,from_v4_outputs
+ADBE,,Adobe,,,from_v4_outputs
+ADI,,Analog Devices,,,from_v4_outputs
+ADM,,Archer Daniels Midland,,,from_v4_outputs
+ADP,,Automatic Data Processing,,,from_v4_outputs
+ADSK,,Autodesk,,,from_v4_outputs
+AEE,,Ameren,,,from_v4_outputs
+AEP,,American Electric Power,,,from_v4_outputs
+AES,,AES Corporation,,,from_v4_outputs
+AFL,,Aflac,,,from_v4_outputs
+AIG,,American International Group,,,from_v4_outputs
+AIZ,,Assurant,,,from_v4_outputs
+AJG,,Arthur J. Gallagher & Co.,,,from_v4_outputs
+AKAM,,Akamai Technologies,,,from_v4_outputs
+ALB,,Albemarle Corporation,,,from_v4_outputs
+ALGN,,Align Technology,,,from_v4_outputs
+ALL,,Allstate,,,from_v4_outputs
+ALLE,,Allegion,,,from_v4_outputs
+AMAT,,Applied Materials,,,from_v4_outputs
+AMCR,,Amcor,,,from_v4_outputs
+AMD,,Advanced Micro Devices,,,from_v4_outputs
+AME,,Ametek,,,from_v4_outputs
+AMGN,,Amgen,,,from_v4_outputs
+AMP,,Ameriprise Financial,,,from_v4_outputs
+AMT,,American Tower,,,from_v4_outputs
+AMZN,,Amazon,,,from_v4_outputs
+ANET,,Arista Networks,,,from_v4_outputs
+AON,,Aon plc,,,from_v4_outputs
+AOS,,A. O. Smith,,,from_v4_outputs
+APA,,APA Corporation,,,from_v4_outputs
+APD,,Air Products,,,from_v4_outputs
+APH,,Amphenol,,,from_v4_outputs
+APO,,Apollo Global Management,,,from_v4_outputs
+APTV,,Aptiv,,,from_v4_outputs
+ARE,,Alexandria Real Estate Equities,,,from_v4_outputs
+ATO,,Atmos Energy,,,from_v4_outputs
+AVB,,AvalonBay Communities,,,from_v4_outputs
+AVGO,,Broadcom,,,from_v4_outputs
+AVY,,Avery Dennison,,,from_v4_outputs
+AWK,,American Water Works,,,from_v4_outputs
+AXON,,Axon Enterprise,,,from_v4_outputs
+AXP,,American Express,,,from_v4_outputs
+AZO,,AutoZone,,,from_v4_outputs
+BA,,Boeing,,,from_v4_outputs
+BAC,,Bank of America,,,from_v4_outputs
+BALL,,Ball Corporation,,,from_v4_outputs
+BAX,,Baxter International,,,from_v4_outputs
+BBY,,Best Buy,,,from_v4_outputs
+BDX,,Becton Dickinson,,,from_v4_outputs
+BEN,,Franklin Resources,,,from_v4_outputs
+BG,,Bunge Global,,,from_v4_outputs
+BIIB,,Biogen,,,from_v4_outputs
+BK,,BNY Mellon,,,from_v4_outputs
+BKNG,,Booking Holdings,,,from_v4_outputs
+BKR,,Baker Hughes,,,from_v4_outputs
+BLDR,,Builders FirstSource,,,from_v4_outputs
+BLK,,BlackRock,,,from_v4_outputs
+BMY,,Bristol Myers Squibb,,,from_v4_outputs
+BR,,Broadridge Financial Solutions,,,from_v4_outputs
+BRK.B,,Berkshire Hathaway,,,from_v4_outputs
+BRO,,Brown & Brown,,,from_v4_outputs
+BSX,,Boston Scientific,,,from_v4_outputs
+BX,,Blackstone Inc.,,,from_v4_outputs
+BXP,,"BXP, Inc.",,,from_v4_outputs
+C,,Citigroup,,,from_v4_outputs
+CAG,,Conagra Brands,,,from_v4_outputs
+CAH,,Cardinal Health,,,from_v4_outputs
+CARR,,Carrier Global,,,from_v4_outputs
+CAT,,Caterpillar Inc.,,,from_v4_outputs
+CB,,Chubb Limited,,,from_v4_outputs
+CBOE,,Cboe Global Markets,,,from_v4_outputs
+CBRE,,CBRE Group,,,from_v4_outputs
+CCI,,Crown Castle,,,from_v4_outputs
+CCL,,Carnival,,,from_v4_outputs
+CDNS,,Cadence Design Systems,,,from_v4_outputs
+CDW,,CDW Corporation,,,from_v4_outputs
+CEG,,Constellation Energy,,,from_v4_outputs
+CF,,CF Industries,,,from_v4_outputs
+CFG,,Citizens Financial Group,,,from_v4_outputs
+CHD,,Church & Dwight,,,from_v4_outputs
+CHRW,,C.H. Robinson,,,from_v4_outputs
+CHTR,,Charter Communications,,,from_v4_outputs
+CI,,Cigna,,,from_v4_outputs
+CINF,,Cincinnati Financial,,,from_v4_outputs
+CL,,Colgate-Palmolive,,,from_v4_outputs
+CLX,,Clorox,,,from_v4_outputs
+CMCSA,,Comcast,,,from_v4_outputs
+CME,,CME Group,,,from_v4_outputs
+CMG,,Chipotle Mexican Grill,,,from_v4_outputs
+CMI,,Cummins,,,from_v4_outputs
+CMS,,CMS Energy,,,from_v4_outputs
+CNC,,Centene Corporation,,,from_v4_outputs
+CNP,,CenterPoint Energy,,,from_v4_outputs
+COF,,Capital One,,,from_v4_outputs
+COIN,,Coinbase,,,from_v4_outputs
+COO,,Cooper Companies (The),,,from_v4_outputs
+COP,,ConocoPhillips,,,from_v4_outputs
+COR,,Cencora,,,from_v4_outputs
+COST,,Costco,,,from_v4_outputs
+CPAY,,Corpay,,,from_v4_outputs
+CPB,,Campbell's Company (The),,,from_v4_outputs
+CPRT,,Copart,,,from_v4_outputs
+CPT,,Camden Property Trust,,,from_v4_outputs
+CRL,,Charles River Laboratories,,,from_v4_outputs
+CRWD,,CrowdStrike,,,from_v4_outputs
+CSCO,,Cisco,,,from_v4_outputs
+CSGP,,CoStar Group,,,from_v4_outputs
+CSX,,CSX Corporation,,,from_v4_outputs
+CTAS,,Cintas,,,from_v4_outputs
+CTRA,,Coterra,,,from_v4_outputs
+CTSH,,Cognizant,,,from_v4_outputs
+CTVA,,Corteva,,,from_v4_outputs
+CVS,,CVS Health,,,from_v4_outputs
+CVX,,Chevron Corporation,,,from_v4_outputs
+CZR,,Caesars Entertainment,,,from_v4_outputs
+D,,Dominion Energy,,,from_v4_outputs
+DAL,,Delta Air Lines,,,from_v4_outputs
+DASH,,DoorDash,,,from_v4_outputs
+DAY,,Dayforce,,,from_v4_outputs
+DD,,DuPont,,,from_v4_outputs
+DDOG,,Datadog,,,from_v4_outputs
+DE,,Deere & Company,,,from_v4_outputs
+DECK,,Deckers Brands,,,from_v4_outputs
+DELL,,Dell Technologies,,,from_v4_outputs
+DG,,Dollar General,,,from_v4_outputs
+DHI,,D. R. Horton,,,from_v4_outputs
+DHR,,Danaher Corporation,,,from_v4_outputs
+DLR,,Digital Realty,,,from_v4_outputs
+DLTR,,Dollar Tree,,,from_v4_outputs
+DOC,,Healthpeak Properties,,,from_v4_outputs
+DOV,,Dover Corporation,,,from_v4_outputs
+DOW,,Dow Inc.,,,from_v4_outputs
+DPZ,,Domino's,,,from_v4_outputs
+DRI,,Darden Restaurants,,,from_v4_outputs
+DTE,,DTE Energy,,,from_v4_outputs
+DUK,,Duke Energy,,,from_v4_outputs
+DVA,,DaVita,,,from_v4_outputs
+DVN,,Devon Energy,,,from_v4_outputs
+DXCM,,Dexcom,,,from_v4_outputs
+EA,,Electronic Arts,,,from_v4_outputs
+EBAY,,eBay Inc.,,,from_v4_outputs
+ECL,,Ecolab,,,from_v4_outputs
+ED,,Consolidated Edison,,,from_v4_outputs
+EFX,,Equifax,,,from_v4_outputs
+EG,,Everest Group,,,from_v4_outputs
+EIX,,Edison International,,,from_v4_outputs
+EL,,Estée Lauder Companies (The),,,from_v4_outputs
+ELV,,Elevance Health,,,from_v4_outputs
+EMN,,Eastman Chemical Company,,,from_v4_outputs
+EMR,,Emerson Electric,,,from_v4_outputs
+ENPH,,Enphase Energy,,,from_v4_outputs
+EOG,,EOG Resources,,,from_v4_outputs
+EPAM,,EPAM Systems,,,from_v4_outputs
+EQIX,,Equinix,,,from_v4_outputs
+EQR,,Equity Residential,,,from_v4_outputs
+EQT,,EQT Corporation,,,from_v4_outputs
+ERIE,,Erie Indemnity,,,from_v4_outputs
+ES,,Eversource Energy,,,from_v4_outputs
+ESS,,Essex Property Trust,,,from_v4_outputs
+ETN,,Eaton Corporation,,,from_v4_outputs
+EVRG,,Evergy,,,from_v4_outputs
+EW,,Edwards Lifesciences,,,from_v4_outputs
+EXC,,Exelon,,,from_v4_outputs
+EXE,,Expand Energy,,,from_v4_outputs
+EXPD,,Expeditors International,,,from_v4_outputs
+EXPE,,Expedia Group,,,from_v4_outputs
+EXR,,Extra Space Storage,,,from_v4_outputs
+F,,Ford Motor Company,,,from_v4_outputs
+FANG,,Diamondback Energy,,,from_v4_outputs
+FAST,,Fastenal,,,from_v4_outputs
+FCX,,Freeport-McMoRan,,,from_v4_outputs
+FDS,,FactSet,,,from_v4_outputs
+FDX,,FedEx,,,from_v4_outputs
+FE,,FirstEnergy,,,from_v4_outputs
+FFIV,,"F5, Inc.",,,from_v4_outputs
+FICO,,Fair Isaac,,,from_v4_outputs
+FIS,,Fidelity National Information Services,,,from_v4_outputs
+FITB,,Fifth Third Bancorp,,,from_v4_outputs
+FOX,,Fox Corporation (Class B),,,from_v4_outputs
+FOXA,,Fox Corporation (Class A),,,from_v4_outputs
+FRT,,Federal Realty Investment Trust,,,from_v4_outputs
+FSLR,,First Solar,,,from_v4_outputs
+FTNT,,Fortinet,,,from_v4_outputs
+FTV,,Fortive,,,from_v4_outputs
+GD,,General Dynamics,,,from_v4_outputs
+GDDY,,GoDaddy,,,from_v4_outputs
+GE,,GE Aerospace,,,from_v4_outputs
+GEHC,,GE HealthCare,,,from_v4_outputs
+GEN,,Gen Digital,,,from_v4_outputs
+GEV,,GE Vernova,,,from_v4_outputs
+GILD,,Gilead Sciences,,,from_v4_outputs
+GIS,,General Mills,,,from_v4_outputs
+GL,,Globe Life,,,from_v4_outputs
+GLW,,Corning Inc.,,,from_v4_outputs
+GM,,General Motors,,,from_v4_outputs
+GNRC,,Generac,,,from_v4_outputs
+GOOG,,Alphabet Inc. (Class C),,,from_v4_outputs
+GOOGL,,Alphabet,,,from_v4_outputs
+GPC,,Genuine Parts Company,,,from_v4_outputs
+GPN,,Global Payments,,,from_v4_outputs
+GRMN,,Garmin,,,from_v4_outputs
+GS,,Goldman Sachs,,,from_v4_outputs
+HAL,,Halliburton,,,from_v4_outputs
+HAS,,Hasbro,,,from_v4_outputs
+HBAN,,Huntington Bancshares,,,from_v4_outputs
+HCA,,HCA Healthcare,,,from_v4_outputs
+HD,,Home Depot (The),,,from_v4_outputs
+HIG,,Hartford (The),,,from_v4_outputs
+HII,,Huntington Ingalls Industries,,,from_v4_outputs
+HLT,,Hilton Worldwide,,,from_v4_outputs
+HOLX,,Hologic,,,from_v4_outputs
+HON,,Honeywell,,,from_v4_outputs
+HPE,,Hewlett Packard Enterprise,,,from_v4_outputs
+HPQ,,HP Inc.,,,from_v4_outputs
+HRL,,Hormel Foods,,,from_v4_outputs
+HSIC,,Henry Schein,,,from_v4_outputs
+HST,,Host Hotels & Resorts,,,from_v4_outputs
+HSY,,Hershey Company (The),,,from_v4_outputs
+HUBB,,Hubbell Incorporated,,,from_v4_outputs
+HUM,,Humana,,,from_v4_outputs
+HWM,,Howmet Aerospace,,,from_v4_outputs
+IBM,,IBM,,,from_v4_outputs
+ICE,,Intercontinental Exchange,,,from_v4_outputs
+IDXX,,Idexx Laboratories,,,from_v4_outputs
+IEX,,IDEX Corporation,,,from_v4_outputs
+IFF,,International Flavors & Fragrances,,,from_v4_outputs
+INCY,,Incyte,,,from_v4_outputs
+INTC,,Intel,,,from_v4_outputs
+INTU,,Intuit,,,from_v4_outputs
+INVH,,Invitation Homes,,,from_v4_outputs
+IP,,International Paper,,,from_v4_outputs
+IQV,,IQVIA,,,from_v4_outputs
+IR,,Ingersoll Rand,,,from_v4_outputs
+IRM,,Iron Mountain,,,from_v4_outputs
+ISRG,,Intuitive Surgical,,,from_v4_outputs
+IT,,Gartner,,,from_v4_outputs
+ITW,,Illinois Tool Works,,,from_v4_outputs
+IVZ,,Invesco,,,from_v4_outputs
+J,,Jacobs Solutions,,,from_v4_outputs
+JBHT,,J.B. Hunt,,,from_v4_outputs
+JBL,,Jabil,,,from_v4_outputs
+JCI,,Johnson Controls,,,from_v4_outputs
+JKHY,,Jack Henry & Associates,,,from_v4_outputs
+JNJ,,Johnson & Johnson,,,from_v4_outputs
+JPM,,JPMorgan,,,from_v4_outputs
+KDP,,Keurig Dr Pepper,,,from_v4_outputs
+KEY,,KeyCorp,,,from_v4_outputs
+KEYS,,Keysight Technologies,,,from_v4_outputs
+KHC,,Kraft Heinz,,,from_v4_outputs
+KIM,,Kimco Realty,,,from_v4_outputs
+KKR,,KKR & Co.,,,from_v4_outputs
+KLAC,,KLA Corporation,,,from_v4_outputs
+KMB,,Kimberly-Clark,,,from_v4_outputs
+KMI,,Kinder Morgan,,,from_v4_outputs
+KMX,,CarMax,,,from_v4_outputs
+KO,,Coca-Cola Company (The),,,from_v4_outputs
+KR,,Kroger,,,from_v4_outputs
+KVUE,,Kenvue,,,from_v4_outputs
+L,,Loews Corporation,,,from_v4_outputs
+LDOS,,Leidos,,,from_v4_outputs
+LEN,,Lennar,,,from_v4_outputs
+LH,,Labcorp,,,from_v4_outputs
+LHX,,L3Harris,,,from_v4_outputs
+LII,,Lennox International,,,from_v4_outputs
+LIN,,Linde plc,,,from_v4_outputs
+LKQ,,LKQ Corporation,,,from_v4_outputs
+LLY,,Lilly (Eli),,,from_v4_outputs
+LMT,,Lockheed Martin,,,from_v4_outputs
+LNT,,Alliant Energy,,,from_v4_outputs
+LOW,,Lowe's,,,from_v4_outputs
+LRCX,,Lam Research,,,from_v4_outputs
+LVS,,Las Vegas Sands,,,from_v4_outputs
+LW,,Lamb Weston,,,from_v4_outputs
+LYV,,Live Nation Entertainment,,,from_v4_outputs
+META,,Meta Platforms,,,from_v4_outputs
+MMM,,3M,,,from_v4_outputs
+MO,,Altria,,,from_v4_outputs
+MSFT,,Microsoft,,,from_v4_outputs
+NVDA,,NVIDIA,,,from_v4_outputs
+PODD,,Insulet Corporation,,,from_v4_outputs
+SCHW,,Charles Schwab Corporation,,,from_v4_outputs
+STZ,,Constellation Brands,,,from_v4_outputs
+T,,AT&T,,,from_v4_outputs
+TECH,,Bio-Techne,,,from_v4_outputs
+TSLA,,Tesla,,,from_v4_outputs
+UNH,,UnitedHealth,,,from_v4_outputs
+V,,Visa,,,from_v4_outputs
+XOM,,Exxon Mobil,,,from_v4_outputs
+XYZ,,"Block, Inc.",,,from_v4_outputs

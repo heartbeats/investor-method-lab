@@ -1,5 +1,24 @@
 (function () {
-  const DATA_PATH = "../data/stock_profiles.json";
+  const FILES = {
+    stockProfiles: "../data/stock_profiles.json",
+    opportunities: {
+      sample: "../data/opportunities.sample.csv",
+      real: "../data/opportunities.real.csv",
+      real3: "../data/opportunities.real_3markets.csv",
+    },
+    traces: {
+      sample: "../output/method_decision_trace.json",
+      real: "../output/method_decision_trace_real.json",
+      real3: "../output/method_decision_trace_real_3markets.json",
+    },
+  };
+
+  const TIER_LABELS = {
+    core: "核心池",
+    watch: "观察池",
+    tactical: "战术池",
+    rejected: "淘汰",
+  };
 
   function qs(selector) {
     return document.querySelector(selector);
@@ -14,9 +33,12 @@
       .replace(/'/g, "&#39;");
   }
 
-  function getTicker() {
+  function getParams() {
     const params = new URLSearchParams(window.location.search);
-    return (params.get("ticker") || "").trim().toUpperCase();
+    return {
+      ticker: (params.get("ticker") || "").trim().toUpperCase(),
+      pack: (params.get("pack") || "real3").trim(),
+    };
   }
 
   function formatNum(value, digits = 2) {
@@ -32,10 +54,39 @@
     return `${sign}${n.toFixed(digits)}%`;
   }
 
-  async function loadData() {
-    const res = await fetch(DATA_PATH);
-    if (!res.ok) throw new Error(`failed to load ${DATA_PATH}`);
-    return res.json();
+  function toNumber(value) {
+    const n = Number(value);
+    return Number.isFinite(n) ? n : null;
+  }
+
+  function canonicalTicker(raw) {
+    const ticker = String(raw || "").trim().toUpperCase();
+    if (!ticker) return "";
+    const hkMatch = ticker.match(/^(\d{1,5})\.HK$/);
+    if (hkMatch) {
+      return `${hkMatch[1].padStart(5, "0")}.HK`;
+    }
+    return ticker;
+  }
+
+  async function fetchJson(path) {
+    try {
+      const res = await fetch(path);
+      if (!res.ok) return null;
+      return await res.json();
+    } catch (_err) {
+      return null;
+    }
+  }
+
+  async function fetchText(path) {
+    try {
+      const res = await fetch(path);
+      if (!res.ok) return null;
+      return await res.text();
+    } catch (_err) {
+      return null;
+    }
   }
 
   function renderNotFound(ticker) {
@@ -50,12 +101,301 @@
     `;
   }
 
+  function parseCsv(text) {
+    if (!text) return [];
+    const rows = [];
+    let row = [];
+    let value = "";
+    let inQuotes = false;
+
+    for (let i = 0; i < text.length; i += 1) {
+      const ch = text[i];
+      const next = text[i + 1];
+      if (ch === '"') {
+        if (inQuotes && next === '"') {
+          value += '"';
+          i += 1;
+        } else {
+          inQuotes = !inQuotes;
+        }
+      } else if (ch === "," && !inQuotes) {
+        row.push(value);
+        value = "";
+      } else if ((ch === "\n" || ch === "\r") && !inQuotes) {
+        if (ch === "\r" && next === "\n") i += 1;
+        row.push(value);
+        value = "";
+        if (row.some((item) => item !== "")) rows.push(row);
+        row = [];
+      } else {
+        value += ch;
+      }
+    }
+    if (value.length > 0 || row.length > 0) {
+      row.push(value);
+      if (row.some((item) => item !== "")) rows.push(row);
+    }
+    if (!rows.length) return [];
+    const header = rows[0];
+    return rows.slice(1).map((line) => {
+      const obj = {};
+      header.forEach((key, idx) => {
+        obj[key] = line[idx] ?? "";
+      });
+      return obj;
+    });
+  }
+
+  function parseNoteFields(note) {
+    const text = String(note || "");
+    const closeMatch = text.match(/close=([0-9]+(?:\.[0-9]+)?)/i);
+    const targetMatch = text.match(/target=([0-9]+(?:\.[0-9]+)?)/i);
+    const dateMatch = text.match(/real-data@(\d{4}-\d{2}-\d{2})/i);
+    const fvSourceMatch = text.match(/fv_source=([^|]+)/i);
+    const upsideMatch = text.match(/upside=([-+]?[0-9]+(?:\.[0-9]+)?)%/i);
+    return {
+      close: toNumber(closeMatch?.[1]),
+      target: toNumber(targetMatch?.[1]),
+      priceDate: dateMatch?.[1] || null,
+      fairValueSource: fvSourceMatch?.[1]?.trim() || null,
+      upsidePct: toNumber(upsideMatch?.[1]),
+    };
+  }
+
+  function inferMarketFromTicker(ticker) {
+    const value = canonicalTicker(ticker);
+    if (value.endsWith(".SS") || value.endsWith(".SZ")) return "A";
+    if (value.endsWith(".HK")) return "HK";
+    return "US";
+  }
+
+  function buildOpportunityValuation(opportunityRow) {
+    if (!opportunityRow) return null;
+    const p2fv = toNumber(opportunityRow.price_to_fair_value);
+    const fairValue = toNumber(opportunityRow.fair_value);
+    const targetMeanPrice = toNumber(opportunityRow.target_mean_price);
+    const qualityScore = toNumber(opportunityRow.quality_score);
+    const growthScore = toNumber(opportunityRow.growth_score);
+    const momentumScore = toNumber(opportunityRow.momentum_score);
+    const catalystScore = toNumber(opportunityRow.catalyst_score);
+    const riskScore = toNumber(opportunityRow.risk_score);
+    const certaintyScore = toNumber(opportunityRow.certainty_score);
+
+    return {
+      price_to_fair_value: p2fv,
+      fair_value: fairValue,
+      target_mean_price: targetMeanPrice,
+      margin_of_safety_fv_pct: p2fv === null ? null : (1 - p2fv) * 100,
+      quality_score: qualityScore,
+      growth_score: growthScore,
+      momentum_score: momentumScore,
+      catalyst_score: catalystScore,
+      risk_score: riskScore,
+      certainty_score: certaintyScore,
+      note: opportunityRow.note || "",
+    };
+  }
+
+  function buildFallbackProfile(ticker, opportunityRow) {
+    if (!opportunityRow) return null;
+    const noteFields = parseNoteFields(opportunityRow.note);
+    const valuation = buildOpportunityValuation(opportunityRow);
+    const market = opportunityRow.market || inferMarketFromTicker(ticker);
+    const displayName = opportunityRow.name || ticker;
+    const currencyByMarket = {
+      A: "CNY",
+      HK: "HKD",
+      US: "USD",
+    };
+
+    return {
+      ticker,
+      name: displayName,
+      name_cn: displayName,
+      market,
+      sector: opportunityRow.sector || "-",
+      industry: opportunityRow.industry || "-",
+      website: null,
+      business_intro: "当前数据源未提供结构化公司业务介绍，已展示可核验的行情与估值字段。",
+      products_intro: "当前数据源未提供结构化产品介绍。",
+      current_price: noteFields.close,
+      currency: currencyByMarket[market] || "-",
+      price_as_of: noteFields.priceDate,
+      target_mean_price: toNumber(opportunityRow.target_mean_price) ?? noteFields.target,
+      trailing_pe: null,
+      forward_pe: null,
+      price_to_book: null,
+      enterprise_to_ebitda: null,
+      market_cap: null,
+      source: "opportunities.real_3markets.csv fallback",
+      valuation_real3: valuation,
+      valuation_real: valuation,
+      note: opportunityRow.note || "",
+    };
+  }
+
+  function enrichProfile(baseProfile, ticker, opportunityRow) {
+    if (!baseProfile) return buildFallbackProfile(ticker, opportunityRow);
+    const profile = { ...baseProfile };
+    profile.ticker = ticker;
+    profile.market = profile.market || opportunityRow?.market || inferMarketFromTicker(ticker);
+    if ((!profile.name || profile.name === ticker) && opportunityRow?.name) {
+      profile.name = opportunityRow.name;
+    }
+    if (!profile.name_cn && opportunityRow?.name) {
+      profile.name_cn = opportunityRow.name;
+    }
+    if (!profile.sector && opportunityRow?.sector) {
+      profile.sector = opportunityRow.sector;
+    }
+    if (!profile.industry && opportunityRow?.industry) {
+      profile.industry = opportunityRow.industry;
+    }
+
+    const noteFields = parseNoteFields(opportunityRow?.note);
+    if (!Number.isFinite(Number(profile.current_price))) {
+      profile.current_price = noteFields.close;
+    }
+    if (!profile.price_as_of) {
+      profile.price_as_of = noteFields.priceDate;
+    }
+    if (!Number.isFinite(Number(profile.target_mean_price))) {
+      const target = toNumber(opportunityRow?.target_mean_price);
+      profile.target_mean_price = target ?? noteFields.target;
+    }
+    if (!profile.business_intro) {
+      profile.business_intro = "当前数据源未提供结构化公司业务介绍，已展示可核验的行情与估值字段。";
+    }
+    if (!profile.products_intro) {
+      profile.products_intro = "当前数据源未提供结构化产品介绍。";
+    }
+    if (!profile.source) {
+      profile.source = "stock_profiles + opportunities fallback";
+    }
+
+    const oppValuation = buildOpportunityValuation(opportunityRow);
+    if (!profile.valuation_real3 && oppValuation) {
+      profile.valuation_real3 = oppValuation;
+    }
+    if (!profile.valuation_real && oppValuation) {
+      profile.valuation_real = oppValuation;
+    }
+    return profile;
+  }
+
+  function renderTrace(traceRow) {
+    const panel = qs("#stock-trace-panel");
+    if (!panel) return;
+    if (!traceRow) {
+      panel.innerHTML = `
+        <div class="panel-head">
+          <h2>方法论决策轨迹</h2>
+          <p>当前口径未找到该股票的分组轨迹数据。</p>
+        </div>
+      `;
+      return;
+    }
+
+    const metrics = traceRow.metrics_market_norm || {};
+    const groups = Array.isArray(traceRow.groups) ? traceRow.groups : [];
+    groups.sort((a, b) => Number(b.weighted_contribution || 0) - Number(a.weighted_contribution || 0));
+
+    const body = groups
+      .map((item, idx) => {
+        const hardPass = item.hard_pass ? "通过" : "未通过";
+        const softRules = (item.soft_penalties || [])
+          .filter((row) => row && row.triggered)
+          .map((row) => row.rule)
+          .join(" / ");
+        return `
+          <tr>
+            <td>${idx + 1}</td>
+            <td><a class="detail-link" href="./method.html?group_id=${encodeURIComponent(item.group_id || "")}" target="_blank" rel="noreferrer">${escapeHtml(item.group_name || item.group_id || "-")}</a></td>
+            <td>${escapeHtml(TIER_LABELS[item.tier] || item.tier || "-")}</td>
+            <td>${escapeHtml(hardPass)}</td>
+            <td>${escapeHtml(formatNum(item.base_score, 2))}</td>
+            <td>${escapeHtml(formatNum(item.adjusted_score, 2))}</td>
+            <td>${escapeHtml(formatNum(item.weighted_contribution, 2))}</td>
+            <td>${escapeHtml((item.hard_fail_reasons || []).join(" / ") || "-")}</td>
+            <td>${escapeHtml(softRules || "-")}</td>
+          </tr>
+        `;
+      })
+      .join("");
+
+    panel.innerHTML = `
+      <div class="panel-head">
+        <h2>方法论决策轨迹</h2>
+        <p>展示该股票在全部方法论分组中的通过/淘汰原因与最终层级。</p>
+      </div>
+      <div class="detail-grid">
+        <article class="detail-item">
+          <h4>综合分</h4>
+          <p>${escapeHtml(formatNum(traceRow.composite_score, 2))}</p>
+        </article>
+        <article class="detail-item">
+          <h4>市场</h4>
+          <p>${escapeHtml(traceRow.market || "-")}</p>
+        </article>
+        <article class="detail-item">
+          <h4>市场内分位（MOS/质量/成长）</h4>
+          <p>${escapeHtml(
+            `${formatNum((Number(metrics.margin_of_safety) || 0) * 100, 1)} / ${formatNum(
+              (Number(metrics.quality) || 0) * 100,
+              1
+            )} / ${formatNum((Number(metrics.growth) || 0) * 100, 1)}`
+          )}</p>
+        </article>
+        <article class="detail-item">
+          <h4>市场内分位（趋势/催化/风控）</h4>
+          <p>${escapeHtml(
+            `${formatNum((Number(metrics.momentum) || 0) * 100, 1)} / ${formatNum(
+              (Number(metrics.catalyst) || 0) * 100,
+              1
+            )} / ${formatNum((Number(metrics.risk_control) || 0) * 100, 1)}`
+          )}</p>
+        </article>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>方法论分组</th>
+              <th>层级</th>
+              <th>硬筛</th>
+              <th>基础分</th>
+              <th>调整后分</th>
+              <th>加权贡献</th>
+              <th>硬筛失败原因</th>
+              <th>软惩罚命中</th>
+            </tr>
+          </thead>
+          <tbody>${body || `<tr><td colspan="9">暂无轨迹数据</td></tr>`}</tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  function renderTraceLoading() {
+    const panel = qs("#stock-trace-panel");
+    if (!panel) return;
+    panel.innerHTML = `
+      <div class="panel-head">
+        <h2>方法论决策轨迹</h2>
+        <p>轨迹数据加载中...</p>
+      </div>
+    `;
+  }
+
   function renderStock(profile, meta) {
     const displayName = profile.name_cn && profile.name_cn !== profile.name
       ? `${profile.name_cn} / ${profile.name}`
       : profile.name;
     qs("#stock-title").textContent = `${displayName} (${profile.ticker})`;
-    qs("#stock-subtitle").textContent = `${profile.sector || "-"} | ${profile.industry || "-"} | 数据源：${
+    qs("#stock-subtitle").textContent = `${profile.market || inferMarketFromTicker(profile.ticker)} | ${
+      profile.sector || "-"
+    } | ${profile.industry || "-"} | 数据源：${
       profile.source || "-"
     }`;
 
@@ -79,7 +419,13 @@
         </article>
         <article class="detail-item">
           <h4>官网</h4>
-          <p>${profile.website ? `<a href="${escapeHtml(profile.website)}" target="_blank" rel="noreferrer">${escapeHtml(profile.website)}</a>` : "-"}</p>
+          <p>${
+            profile.website
+              ? `<a href="${escapeHtml(profile.website)}" target="_blank" rel="noreferrer">${escapeHtml(
+                  profile.website
+                )}</a>`
+              : "-"
+          }</p>
         </article>
       </div>
     `;
@@ -147,27 +493,55 @@
   }
 
   async function bootstrap() {
-    const ticker = getTicker();
+    const params = getParams();
+    const ticker = params.ticker;
     if (!ticker) {
       renderNotFound("");
       return;
     }
 
-    try {
-      const data = await loadData();
-      const profile = data.profiles?.[ticker];
-      if (!profile) {
-        renderNotFound(ticker);
-        return;
-      }
-      renderStock(profile, data);
-    } catch (error) {
+    const pack = ["sample", "real", "real3"].includes(params.pack) ? params.pack : "real3";
+
+    const [stockData, primaryOpportunityText] = await Promise.all([
+      fetchJson(FILES.stockProfiles),
+      fetchText(FILES.opportunities[pack]),
+    ]);
+    const opportunityText = primaryOpportunityText || (await fetchText(FILES.opportunities.real3));
+    const opportunityRows = parseCsv(opportunityText);
+    const opportunityMap = {};
+    opportunityRows.forEach((row) => {
+      const key = canonicalTicker(row.ticker);
+      if (key) opportunityMap[key] = row;
+    });
+
+    const profilesRaw = stockData?.profiles || {};
+    const profileMap = {};
+    Object.entries(profilesRaw).forEach(([key, value]) => {
+      const canonical = canonicalTicker(key || value?.ticker);
+      if (!canonical) return;
+      profileMap[canonical] = value;
+    });
+
+    const canonical = canonicalTicker(ticker);
+    const opportunityRow = opportunityMap[canonical] || null;
+    const baseProfile = profileMap[canonical] || null;
+    const profile = enrichProfile(baseProfile, ticker, opportunityRow);
+    if (!profile) {
       renderNotFound(ticker);
-      // eslint-disable-next-line no-console
-      console.error(error);
+      return;
     }
+    renderStock(profile, stockData || {});
+    renderTraceLoading();
+
+    const primaryTraceData = await fetchJson(FILES.traces[pack]);
+    const traceData = primaryTraceData || (await fetchJson(FILES.traces.real3));
+    const traceRows = Array.isArray(traceData?.rows) ? traceData.rows : [];
+    const traceRow =
+      traceRows.find((item) => canonicalTicker(item?.ticker) === canonical) ||
+      traceRows.find((item) => canonicalTicker(item?.ticker) === canonicalTicker(ticker)) ||
+      null;
+    renderTrace(traceRow);
   }
 
   bootstrap();
 })();
-

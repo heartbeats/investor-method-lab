@@ -345,6 +345,72 @@ class Top20PackTest(unittest.TestCase):
             tickers = [row["ticker"] for row in rows]
             self.assertEqual(tickers, ["PASS"])
 
+    def test_trend_following_guardrails_filter_low_momentum(self) -> None:
+        profiles = build_group_profiles(
+            investors=[
+                {
+                    "id": "trend_investor",
+                    "name_cn": "趋势交易员",
+                    "methodology_bucket": "趋势交易",
+                }
+            ],
+            framework={
+                "groups": [
+                    {
+                        "id": "trend_following",
+                        "name": "趋势跟随",
+                        "base_strategy_id": "trend_following",
+                        "core_question": "测试",
+                        "bucket_matches": ["趋势交易"],
+                    }
+                ]
+            },
+            strategies=[
+                {
+                    "id": "trend_following",
+                    "weights": {
+                        "margin_of_safety": 0.05,
+                        "quality": 0.08,
+                        "growth": 0.13,
+                        "momentum": 0.41,
+                        "catalyst": 0.23,
+                        "risk_control": 0.10,
+                    },
+                }
+            ],
+        )
+        opportunities = [
+            {
+                "ticker": "PASS_TREND",
+                "name": "PASS_TREND",
+                "sector": "Tech",
+                "price_to_fair_value": "1.05",
+                "quality_score": "55",
+                "growth_score": "70",
+                "momentum_score": "82",
+                "catalyst_score": "72",
+                "risk_score": "35",
+                "note": "",
+            },
+            {
+                "ticker": "LOW_MOMENTUM",
+                "name": "LOW_MOMENTUM",
+                "sector": "Tech",
+                "price_to_fair_value": "0.95",
+                "quality_score": "70",
+                "growth_score": "75",
+                "momentum_score": "58",
+                "catalyst_score": "70",
+                "risk_score": "30",
+                "note": "",
+            },
+        ]
+        grouped = rank_opportunities_for_each_group(opportunities, profiles, top_n_per_group=5)
+        self.assertEqual(len(grouped), 1)
+        _, rows = grouped[0]
+        tickers = [row["ticker"] for row in rows]
+        self.assertEqual(tickers, ["PASS_TREND"])
+
 
 if __name__ == "__main__":
     unittest.main()

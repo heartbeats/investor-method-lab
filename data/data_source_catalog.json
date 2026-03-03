@@ -1,8 +1,14 @@
 {
-  "as_of_utc": "2026-03-02T13:26:27.862436+00:00",
-  "source_count": 11,
+  "as_of_utc": "2026-03-03T16:04:38.427594+00:00",
+  "stock_provider_probe": {
+    "script": "/home/afu/.codex/skills/stock-data-fetch/scripts/probe_stock_sources.py",
+    "output_file": "/home/afu/projects/investor-method-lab/data/stock_provider_probe.json",
+    "generated_at": "2026-03-03T16:03:31.806048+00:00"
+  },
+  "source_count": 15,
   "status_counts": {
-    "ok": 10,
+    "ok": 12,
+    "partial": 2,
     "blocked": 1
   },
   "sources": [
@@ -19,7 +25,7 @@
       "notes": "13F/10K/10Q 等官方披露主源",
       "status": "ok",
       "detail": "http 200; json key `filings` 命中",
-      "latency_ms": 1663
+      "latency_ms": 1412
     },
     {
       "id": "13f_info_mirror",
@@ -34,7 +40,7 @@
       "notes": "SEC 13F 镜像，用于官方接口异常时回退",
       "status": "ok",
       "detail": "http 200",
-      "latency_ms": 1257
+      "latency_ms": 1578
     },
     {
       "id": "yahoo_yfinance",
@@ -50,8 +56,69 @@
       "auth": "none",
       "notes": "当前网页默认价格源之一",
       "status": "ok",
-      "detail": "AAPL 行情可获取",
-      "latency_ms": 2591
+      "detail": "probe: US 6/6; p50=1.132s; p95=1.229s",
+      "latency_ms": 1132
+    },
+    {
+      "id": "akshare_daily",
+      "name": "AkShare Daily",
+      "category": "quotes",
+      "markets": [
+        "CN"
+      ],
+      "url": "https://akshare.akfamily.xyz/",
+      "update_frequency": "daily_or_intraday_pull",
+      "auth": "none",
+      "notes": "A股历史/日线补源，适合作为非实时回退。",
+      "status": "ok",
+      "detail": "probe: CN 6/6; p50=1.354s; p95=1.509s",
+      "latency_ms": 1354
+    },
+    {
+      "id": "alpha_vantage",
+      "name": "Alpha Vantage",
+      "category": "quotes_fundamentals_external_reference",
+      "markets": [
+        "US"
+      ],
+      "url": "https://www.alphavantage.co/",
+      "update_frequency": "api_rate_limited",
+      "auth": "api_key",
+      "notes": "免费额度严格，适合作为低频补源。",
+      "status": "ok",
+      "detail": "global_quote_ok=True; analyst_target_ok=False; target_has_information=True",
+      "latency_ms": 1781
+    },
+    {
+      "id": "fmp_quote",
+      "name": "Financial Modeling Prep",
+      "category": "quotes_fundamentals_external_reference",
+      "markets": [
+        "US",
+        "global_partial"
+      ],
+      "url": "https://site.financialmodelingprep.com/",
+      "update_frequency": "api_rate_limited",
+      "auth": "api_key",
+      "notes": "可用于行情与目标价汇总；免费额度按天计数。",
+      "status": "ok",
+      "detail": "quote_ok=True; target_summary_ok=True",
+      "latency_ms": 1693
+    },
+    {
+      "id": "tushare_pro",
+      "name": "Tushare Pro",
+      "category": "quotes_fundamentals",
+      "markets": [
+        "CN"
+      ],
+      "url": "https://tushare.pro/",
+      "update_frequency": "api_rate_limited",
+      "auth": "token+points",
+      "notes": "A股基础/财务重要补源；权限与频次受积分等级约束。",
+      "status": "partial",
+      "detail": "probe_error=tushare_python_not_found",
+      "latency_ms": null
     },
     {
       "id": "futu_opend",
@@ -66,8 +133,8 @@
       "update_frequency": "realtime_with_permission",
       "auth": "broker_login+market_permission",
       "notes": "可用于实时报价、持仓、交易流水（需权限）",
-      "status": "ok",
-      "detail": "OpenD 可用，已完成行情权限探测。 | US=no_permission, HK=ok, CN=ok",
+      "status": "partial",
+      "detail": "OpenD 连接失败（ECONNREFUSED），当前无法自动对照富途持仓页。 | US=unreachable, HK=unreachable, CN=unreachable",
       "latency_ms": null
     },
     {
@@ -83,7 +150,7 @@
       "notes": "木头姐相关 ETF 日度持仓（当前环境可能被反爬阻断）",
       "status": "blocked",
       "detail": "http 403",
-      "latency_ms": 2292
+      "latency_ms": 2645
     },
     {
       "id": "hkex_di",
@@ -98,7 +165,7 @@
       "notes": "港股董监高/大股东权益披露",
       "status": "ok",
       "detail": "http 200",
-      "latency_ms": 1305
+      "latency_ms": 1455
     },
     {
       "id": "eastmoney_quote_api",
@@ -113,7 +180,7 @@
       "notes": "A 股行情补源（公开接口，稳定性需监控）",
       "status": "ok",
       "detail": "http 200; json key `data` 命中",
-      "latency_ms": 86
+      "latency_ms": 133
     },
     {
       "id": "openinsider",
@@ -128,7 +195,7 @@
       "notes": "SEC Form 4 聚合检索，可补高管交易信号",
       "status": "ok",
       "detail": "http 200",
-      "latency_ms": 3009
+      "latency_ms": 850
     },
     {
       "id": "us_house_disclosure",
@@ -143,7 +210,7 @@
       "notes": "美国众议院官方财务披露/PTR 入口",
       "status": "ok",
       "detail": "http 200",
-      "latency_ms": 3196
+      "latency_ms": 1715
     },
     {
       "id": "us_senate_disclosure",
@@ -158,7 +225,7 @@
       "notes": "美国参议院官方 eFD 披露检索入口",
       "status": "ok",
       "detail": "http 200",
-      "latency_ms": 6566
+      "latency_ms": 7249
     },
     {
       "id": "capitol_trades",
@@ -173,7 +240,7 @@
       "notes": "议员交易聚合页（辅助交叉核对）",
       "status": "ok",
       "detail": "http 200",
-      "latency_ms": 1338
+      "latency_ms": 1022
     }
   ],
   "recommendation": [

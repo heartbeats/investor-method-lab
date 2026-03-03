@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import socket
 import time
@@ -11,6 +12,7 @@ from html import unescape
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
+import requests
 import yfinance as yf
 import urllib.request
 import urllib.parse
@@ -370,7 +372,7 @@ def _save_cached_quote(cache_file: Path, quote: Dict[str, Any]) -> None:
     cache_file.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
-def fetch_quote(ticker: str) -> Dict[str, Any] | None:
+def _fetch_quote_from_yfinance(ticker: str) -> Dict[str, Any] | None:
     yf_ticker = QUOTE_TICKER_MAP.get(ticker, ticker)
     ticker_obj = yf.Ticker(yf_ticker)
     history = ticker_obj.history(period="5d", interval="1d", auto_adjust=False)
@@ -391,6 +393,164 @@ def fetch_quote(ticker: str) -> Dict[str, Any] | None:
         "currency": currency or "USD",
         "source": "Yahoo Finance via yfinance",
     }
+
+
+def _stock_data_hub_url() -> str | None:
+    raw = (os.getenv("IML_STOCK_DATA_HUB_URL") or "").strip().rstrip("/")
+    return raw or None
+
+
+def _fetch_quote_from_stock_data_hub(ticker: str) -> Dict[str, Any] | None:
+    base_url = _stock_data_hub_url()
+    symbol = str(ticker or "").strip()
+    if not base_url or not symbol:
+        return None
+    query = urllib.parse.urlencode(
+        {
+            "symbol": symbol,
+            "mode": "non_realtime",
+            "refresh": "false",
+        }
+    )
+    req = urllib.request.Request(f"{base_url}/v1/quote?{query}", method="GET")
+    try:
+        with urllib.request.urlopen(req, timeout=8.0) as resp:
+            payload = json.loads(resp.read().decode("utf-8"))
+    except Exception:  # noqa: BLE001
+        return None
+
+    try:
+        price = float(payload.get("price"))
+    except (TypeError, ValueError):
+        return None
+    if price <= 0:
+        return None
+
+    as_of_raw = str(payload.get("as_of") or "").strip()
+    as_of_date = as_of_raw[:10] if len(as_of_raw) >= 10 else datetime.now(timezone.utc).date().isoformat()
+    provider = str(payload.get("provider") or "stock_data_hub")
+    currency = str(payload.get("currency") or "").strip() or None
+    if not currency:
+        market = _ticker_market(ticker)
+        currency = "CNY" if market == "CN" else ("HKD" if market == "HK" else "USD")
+
+    return {
+        "ticker": ticker,
+        "price": price,
+        "price_as_of": as_of_date,
+        "currency": currency,
+        "source": f"stock-data-hub ({provider})",
+    }
+
+
+def _fetch_quote_from_fmp(ticker: str) -> Dict[str, Any] | None:
+    api_key = (os.getenv("DCF_FMP_API_KEY") or os.getenv("FMP_API_KEY") or "").strip()
+    if not api_key:
+        return None
+    symbol = str(ticker or "").strip().upper()
+    if not symbol or "." in symbol:
+        return None
+    url = "https://financialmodelingprep.com/stable/quote"
+    try:
+        response = requests.get(
+            url,
+            params={"symbol": symbol, "apikey": api_key},
+            timeout=10,
+            headers={"User-Agent": "Mozilla/5.0"},
+        )
+        payload = response.json()
+    except Exception:  # noqa: BLE001
+        return None
+    if response.status_code != 200 or not isinstance(payload, list) or not payload:
+        return None
+    row = payload[0] if isinstance(payload[0], dict) else {}
+    price = row.get("price")
+    try:
+        parsed_price = float(price)
+    except (TypeError, ValueError):
+        return None
+    if parsed_price <= 0:
+        return None
+    return {
+        "ticker": ticker,
+        "price": parsed_price,
+        "price_as_of": datetime.now(timezone.utc).date().isoformat(),
+        "currency": "USD",
+        "source": "FMP Stable Quote",
+    }
+
+
+def _fetch_quote_from_alpha_vantage(ticker: str) -> Dict[str, Any] | None:
+    api_key = (os.getenv("DCF_ALPHA_VANTAGE_API_KEY") or os.getenv("ALPHA_VANTAGE_KEY") or "").strip()
+    if not api_key:
+        return None
+    symbol = str(ticker or "").strip().upper()
+    if not symbol or "." in symbol:
+        return None
+    url = "https://www.alphavantage.co/query"
+    try:
+        response = requests.get(
+            url,
+            params={"function": "GLOBAL_QUOTE", "symbol": symbol, "apikey": api_key},
+            timeout=10,
+            headers={"User-Agent": "Mozilla/5.0"},
+        )
+        payload = response.json()
+    except Exception:  # noqa: BLE001
+        return None
+    if response.status_code != 200 or not isinstance(payload, dict):
+        return None
+    if payload.get("Note") or payload.get("Error Message") or payload.get("Information"):
+        return None
+    quote = payload.get("Global Quote")
+    if not isinstance(quote, dict):
+        return None
+    try:
+        parsed_price = float(quote.get("05. price"))
+    except (TypeError, ValueError):
+        return None
+    if parsed_price <= 0:
+        return None
+    return {
+        "ticker": ticker,
+        "price": parsed_price,
+        "price_as_of": datetime.now(timezone.utc).date().isoformat(),
+        "currency": "USD",
+        "source": "Alpha Vantage GLOBAL_QUOTE",
+    }
+
+
+def _load_us_quote_provider_order() -> List[str]:
+    raw = (os.getenv("IML_US_QUOTE_PROVIDERS") or "").strip()
+    if not raw:
+        return ["yfinance", "fmp", "alpha_vantage"]
+    valid = [item.strip().lower() for item in raw.split(",") if item.strip()]
+    allowed = {"yfinance", "fmp", "alpha_vantage"}
+    ordered = [item for item in valid if item in allowed]
+    return ordered or ["yfinance", "fmp", "alpha_vantage"]
+
+
+def fetch_quote(ticker: str) -> Dict[str, Any] | None:
+    hub_quote = _fetch_quote_from_stock_data_hub(ticker)
+    if hub_quote is not None:
+        return hub_quote
+
+    market = _ticker_market(ticker)
+    if market != "US":
+        return _fetch_quote_from_yfinance(ticker)
+
+    provider_order = _load_us_quote_provider_order()
+    for provider in provider_order:
+        quote: Dict[str, Any] | None = None
+        if provider == "yfinance":
+            quote = _fetch_quote_from_yfinance(ticker)
+        elif provider == "fmp":
+            quote = _fetch_quote_from_fmp(ticker)
+        elif provider == "alpha_vantage":
+            quote = _fetch_quote_from_alpha_vantage(ticker)
+        if quote is not None:
+            return quote
+    return None
 
 
 def _ticker_market(ticker: str) -> str:
@@ -1767,7 +1927,16 @@ def main() -> None:
             "持仓字段包含：股票价格、持仓占比、持仓更新时间、持仓变动比例。"
             "若披露口径不支持，则明确标注“未披露/不适用”。"
         ),
-        "price_data_source": "多源行情（Futu OpenD + Yahoo Finance via yfinance，按权限与可用性自动路由）",
+        "price_data_source": (
+            "多源行情（Futu OpenD + Yahoo Finance + FMP + Alpha Vantage，"
+            "按市场权限与可用性自动路由）"
+        ),
+        "quote_provider_policy": {
+            "non_realtime_default_cache_ttl_hours": args.cache_ttl_hours,
+            "a_hk_quote_chain": "Futu OpenD -> Yahoo Finance",
+            "us_quote_chain": "Futu OpenD(if permission) -> yfinance -> FMP -> Alpha Vantage",
+            "us_quote_providers_effective": _load_us_quote_provider_order(),
+        },
         "futu_alignment_runtime": {
             "status": futu_runtime.get("status"),
             "endpoint": futu_runtime.get("endpoint"),

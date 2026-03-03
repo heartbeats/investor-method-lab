@@ -9,17 +9,23 @@
     metaReal: "../docs/opportunities_real_data_meta.json",
     packs: {
       sample: {
-        group: "../output/top20_methodology_top5_by_group.csv",
+        groupLegacy: "../output/top20_methodology_top5_by_group.csv",
+        groupTiered: "../output/top20_methodology_top10_by_group_tiered.csv",
+        trace: "../output/method_decision_trace.json",
         label: "样本口径（非真实数据）",
         dataKind: "sample",
       },
       real: {
-        group: "../output/top20_methodology_top5_by_group_real.csv",
+        groupLegacy: "../output/top20_methodology_top5_by_group_real.csv",
+        groupTiered: "../output/top20_methodology_top10_by_group_tiered_real.csv",
+        trace: "../output/method_decision_trace_real.json",
         label: "实时口径（US）",
         dataKind: "real",
       },
       real3: {
-        group: "../output/top20_methodology_top5_by_group_real_3markets.csv",
+        groupLegacy: "../output/top20_methodology_top5_by_group_real_3markets.csv",
+        groupTiered: "../output/top20_methodology_top10_by_group_tiered_real_3markets.csv",
+        trace: "../output/method_decision_trace_real_3markets.json",
         label: "实时口径（A/HK/US）",
         dataKind: "real",
       },
@@ -50,12 +56,25 @@
     observation_only: "仅观察",
   };
 
+  const TIER_LABELS = {
+    core: "核心池",
+    watch: "观察池",
+    tactical: "战术池",
+  };
+
   const state = {
     selectedPack: "real3",
+    selectedTier: "core",
+    selectedMarket: "ALL",
     packRows: {
       sample: [],
       real: [],
       real3: [],
+    },
+    traceMap: {
+      sample: {},
+      real: {},
+      real3: {},
     },
     stockProfiles: {},
     methodContext: null,
@@ -140,6 +159,13 @@
       });
       return obj;
     });
+  }
+
+  function inferMarketFromTicker(ticker) {
+    const value = String(ticker || "").trim().toUpperCase();
+    if (value.endsWith(".SS") || value.endsWith(".SZ")) return "A";
+    if (value.endsWith(".HK")) return "HK";
+    return "US";
   }
 
   function getQueryParams() {
@@ -266,22 +292,28 @@
     const tableBody = rows
       .map((row, idx) => {
         const ticker = row.ticker || "-";
-        const stockHref = row.ticker ? `./stock.html?ticker=${encodeURIComponent(row.ticker)}` : "#";
+        const stockHref = row.ticker
+          ? `./stock.html?ticker=${encodeURIComponent(row.ticker)}&pack=${encodeURIComponent(state.selectedPack)}`
+          : "#";
         const stock = state.stockProfiles[ticker] || null;
         const nameCn = stock?.name_cn;
         const displayName = nameCn && nameCn !== row.name ? `${nameCn} / ${row.name || "-"}` : row.name || "-";
+        const tier = row.tier || "core";
+        const hardPassLabel = String(row.hard_pass).toLowerCase() === "true" ? "通过" : "未通过";
         return `
           <tr>
             <td>${idx + 1}</td>
             <td>${escapeHtml(row.group_name || "-")}</td>
+            <td>${escapeHtml(TIER_LABELS[tier] || tier)}</td>
             <td>${escapeHtml(row.group_rank || "-")}</td>
             <td>${row.ticker ? `<a class="detail-link" href="${stockHref}" target="_blank" rel="noreferrer">${escapeHtml(ticker)}</a>` : "-"}</td>
             <td>${row.ticker ? `<a class="detail-link" href="${stockHref}" target="_blank" rel="noreferrer">${escapeHtml(displayName)}</a>` : escapeHtml(displayName)}</td>
+            <td>${escapeHtml(row.market || inferMarketFromTicker(row.ticker || ""))}</td>
             <td>${escapeHtml(row.sector || "-")}</td>
             <td>${escapeHtml(row.group_score || "-")}</td>
-            <td>${escapeHtml(row.margin_of_safety || "-")}</td>
-            <td>${escapeHtml(row.risk_control || "-")}</td>
-            <td>${escapeHtml(row.reason || "-")}</td>
+            <td>${escapeHtml(row.penalty_multiplier || "-")}</td>
+            <td>${escapeHtml(hardPassLabel)}</td>
+            <td>${escapeHtml(row.reason || row.hard_fail_reasons || "-")}</td>
           </tr>
         `;
       })
@@ -294,27 +326,86 @@
             <tr>
               <th>#</th>
               <th>机会组</th>
+              <th>层级</th>
               <th>组内排名</th>
               <th>代码</th>
               <th>公司</th>
+              <th>市场</th>
               <th>行业</th>
               <th>组内分</th>
-              <th>安全边际</th>
-              <th>风控</th>
-              <th>理由</th>
+              <th>惩罚乘数</th>
+              <th>硬筛</th>
+              <th>解释</th>
             </tr>
           </thead>
-          <tbody>${tableBody || `<tr><td colspan="10">暂无映射机会</td></tr>`}</tbody>
+          <tbody>${tableBody || `<tr><td colspan="12">暂无映射机会</td></tr>`}</tbody>
         </table>
       </div>
     `;
   }
 
-  function renderOpportunities() {
-    const meta = getMetaByPack();
+  function renderTraceSummary(rows, groupIds) {
+    const panel = qs("#method-trace-summary");
+    if (!panel) return;
+    const totals = {
+      core: 0,
+      watch: 0,
+      tactical: 0,
+    };
+    rows.forEach((row) => {
+      const tier = row.tier || "core";
+      if (totals[tier] !== undefined) totals[tier] += 1;
+    });
+    const groupText = groupIds.length ? groupIds.join(" / ") : "无";
+    panel.innerHTML = `
+      <div class="detail-grid">
+        <article class="detail-item">
+          <h4>映射分组</h4>
+          <p>${escapeHtml(groupText)}</p>
+        </article>
+        <article class="detail-item">
+          <h4>核心池命中</h4>
+          <p>${totals.core}</p>
+        </article>
+        <article class="detail-item">
+          <h4>观察池命中</h4>
+          <p>${totals.watch}</p>
+        </article>
+        <article class="detail-item">
+          <h4>战术池命中</h4>
+          <p>${totals.tactical}</p>
+        </article>
+      </div>
+    `;
+  }
+
+  function getFilteredRowsForMethod() {
     const allRows = state.packRows[state.selectedPack] || [];
     const groupIds = state.methodContext?.groupIds || [];
-    const rows = allRows.filter((row) => groupIds.includes(row.group_id));
+    let rows = allRows.filter((row) => groupIds.includes(row.group_id));
+
+    if (state.selectedTier !== "ALL") {
+      rows = rows.filter((row) => (row.tier || "core") === state.selectedTier);
+    }
+    if (state.selectedMarket !== "ALL") {
+      rows = rows.filter((row) => (row.market || inferMarketFromTicker(row.ticker || "")) === state.selectedMarket);
+    }
+    rows.sort((a, b) => {
+      const scoreA = Number(a.group_score || 0);
+      const scoreB = Number(b.group_score || 0);
+      return scoreB - scoreA;
+    });
+    return rows;
+  }
+
+  function renderOpportunities() {
+    const meta = getMetaByPack();
+    const groupIds = state.methodContext?.groupIds || [];
+    const rows = getFilteredRowsForMethod();
+    const allRowsForSummary = (state.packRows[state.selectedPack] || []).filter((row) =>
+      groupIds.includes(row.group_id)
+    );
+
     const metaText = meta
       ? `${FILES.packs[state.selectedPack].label}；来源：${meta.source || "-"}；行情日期：${
           Array.isArray(meta.as_of_dates) ? meta.as_of_dates.join(", ") : "-"
@@ -322,6 +413,7 @@
       : `${FILES.packs[state.selectedPack].label}；样本口径仅用于流程演示`;
 
     qs("#method-opportunity-meta").textContent = metaText;
+    renderTraceSummary(allRowsForSummary, groupIds);
     if (!groupIds.length) {
       qs("#method-opportunity-content").innerHTML = `<article class="detail-card"><p class="muted">该方法属于“观察类”或当前未配置机会组映射，暂无直接机会池结果。</p></article>`;
       return;
@@ -330,19 +422,51 @@
   }
 
   function bindEvents() {
-    const select = qs("#method-pack-select");
-    if (!select) return;
-    select.addEventListener("change", (event) => {
-      state.selectedPack = event.target.value || "real3";
-      renderOpportunities();
-    });
+    const packSelect = qs("#method-pack-select");
+    const tierSelect = qs("#method-tier-select");
+    const marketSelect = qs("#method-market-select");
+    if (packSelect) {
+      packSelect.addEventListener("change", (event) => {
+        state.selectedPack = event.target.value || "real3";
+        renderOpportunities();
+      });
+    }
+    if (tierSelect) {
+      tierSelect.addEventListener("change", (event) => {
+        state.selectedTier = event.target.value || "core";
+        renderOpportunities();
+      });
+    }
+    if (marketSelect) {
+      marketSelect.addEventListener("change", (event) => {
+        state.selectedMarket = event.target.value || "ALL";
+        renderOpportunities();
+      });
+    }
   }
 
   async function loadPackRows() {
     const modes = Object.keys(FILES.packs);
     for (const mode of modes) {
-      const text = await fetchText(FILES.packs[mode].group);
-      state.packRows[mode] = parseCsv(text);
+      const tieredText = await fetchText(FILES.packs[mode].groupTiered);
+      const legacyText = await fetchText(FILES.packs[mode].groupLegacy);
+      const rows = parseCsv(tieredText || legacyText || "");
+      state.packRows[mode] = rows.map((row) => {
+        const item = { ...row };
+        item.tier = item.tier || "core";
+        item.market = item.market || inferMarketFromTicker(item.ticker || "");
+        return item;
+      });
+
+      const tracePayload = await fetchJson(FILES.packs[mode].trace);
+      const map = {};
+      const traceRows = Array.isArray(tracePayload?.rows) ? tracePayload.rows : [];
+      traceRows.forEach((item) => {
+        const ticker = String(item?.ticker || "").toUpperCase();
+        if (!ticker) return;
+        map[ticker] = item;
+      });
+      state.traceMap[mode] = map;
     }
   }
 

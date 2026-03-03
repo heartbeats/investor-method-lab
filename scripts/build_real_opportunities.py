@@ -2,14 +2,19 @@
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor, TimeoutError as FutureTimeoutError
 import csv
 import json
 import math
+import os
 import subprocess
 from dataclasses import asdict, dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List
+from urllib import parse as urllib_parse
+from urllib import request as urllib_request
+from urllib.parse import urlparse
 
 import pandas as pd
 import yfinance as yf
@@ -25,10 +30,221 @@ YF_TICKER_MAP = {
 }
 
 
+def normalize_yf_ticker(ticker: str) -> str:
+    raw = str(ticker or "").strip().upper()
+    if raw.endswith(".HK"):
+        code = raw[:-3]
+        if code.isdigit():
+            # Yahoo HK ticker usually uses 4-digit code (e.g. 0700.HK, 0005.HK, 9988.HK).
+            return f"{int(code):04d}.HK"
+    return raw
+
+
+def _stock_data_hub_url() -> str | None:
+    raw = (os.getenv("IML_STOCK_DATA_HUB_URL") or "").strip().rstrip("/")
+    return raw or None
+
+
+def _hub_get_json(path: str, query: Dict[str, str], timeout_sec: float) -> Dict[str, Any] | None:
+    base_url = _stock_data_hub_url()
+    if not base_url:
+        return None
+    qs = urllib_parse.urlencode(query)
+    req = urllib_request.Request(f"{base_url}/{path}?{qs}", method="GET")
+    try:
+        with urllib_request.urlopen(req, timeout=max(1.0, float(timeout_sec))) as resp:
+            payload = json.loads(resp.read().decode("utf-8"))
+        return payload if isinstance(payload, dict) else None
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def fetch_quote_from_stock_data_hub(ticker: str, timeout_sec: float = 6.0) -> Dict[str, Any] | None:
+    symbol = str(ticker or "").strip()
+    if not symbol:
+        return None
+
+    payload = _hub_get_json(
+        path="v1/quote",
+        query={
+            "symbol": symbol,
+            "mode": "non_realtime",
+            "refresh": "false",
+        },
+        timeout_sec=timeout_sec,
+    )
+    if not payload:
+        return None
+
+    price = _safe_float(payload.get("price"))
+    if price is None or price <= 0:
+        return None
+
+    as_of_raw = str(payload.get("as_of") or "").strip()
+    as_of_date = as_of_raw[:10] if len(as_of_raw) >= 10 else datetime.now(timezone.utc).date().isoformat()
+    return {
+        "price": float(price),
+        "as_of_date": as_of_date,
+        "provider": str(payload.get("provider") or "stock_data_hub"),
+        "quality_flag": str(payload.get("quality_flag") or ""),
+    }
+
+
+def fetch_external_valuation_from_stock_data_hub(
+    ticker: str,
+    timeout_sec: float = 6.0,
+) -> Dict[str, Any] | None:
+    symbol = str(ticker or "").strip()
+    if not symbol:
+        return None
+    payload = _hub_get_json(
+        path="v1/external-valuation",
+        query={
+            "symbol": symbol,
+            "mode": "non_realtime",
+            "refresh": "false",
+        },
+        timeout_sec=timeout_sec,
+    )
+    if not payload:
+        return None
+    mean = _safe_float(payload.get("target_mean_price"))
+    median = _safe_float(payload.get("target_median_price"))
+    high = _safe_float(payload.get("target_high_price"))
+    low = _safe_float(payload.get("target_low_price"))
+    if mean is None and median is None and high is None and low is None:
+        return None
+    return {
+        "provider": str(payload.get("provider") or "stock_data_hub"),
+        "target_mean_price": mean,
+        "target_median_price": median,
+        "target_high_price": high,
+        "target_low_price": low,
+        "analyst_count": _safe_float(payload.get("analyst_count")),
+    }
+
+
+def fetch_fundamental_from_stock_data_hub(
+    ticker: str,
+    timeout_sec: float = 6.0,
+) -> Dict[str, Any] | None:
+    symbol = str(ticker or "").strip()
+    if not symbol:
+        return None
+    payload = _hub_get_json(
+        path="v1/fundamental",
+        query={
+            "symbol": symbol,
+            "mode": "non_realtime",
+            "refresh": "false",
+        },
+        timeout_sec=timeout_sec,
+    )
+    if not payload:
+        return None
+    values = {
+        "provider": str(payload.get("provider") or "stock_data_hub"),
+        "return_on_equity": _safe_float(payload.get("return_on_equity")),
+        "gross_margins": _safe_float(payload.get("gross_margin")),
+        "operating_margins": _safe_float(payload.get("operating_margin")),
+        "revenue_growth": _safe_float(payload.get("revenue_growth")),
+        "earnings_growth": _safe_float(payload.get("earnings_growth")),
+        "debt_to_equity": _safe_float(payload.get("debt_to_equity")),
+        "analyst_count": _safe_float(payload.get("analyst_count")),
+    }
+    if all(values.get(k) is None for k in values if k != "provider"):
+        return None
+    return values
+
+
+def _first_valid(*candidates: Any) -> float | None:
+    for value in candidates:
+        parsed = _safe_float(value)
+        if parsed is not None:
+            return parsed
+    return None
+
+
+def _normalize_analyst_count(value: float | None) -> float | None:
+    if value is None:
+        return None
+    if value < 0:
+        return None
+    return value
+
+
+def _target_from_sources(
+    yf_target: float | None,
+    hub_external: Dict[str, Any] | None,
+) -> tuple[float | None, str]:
+    if yf_target is not None and yf_target > 0:
+        return yf_target, "target_mean_price"
+    if hub_external:
+        mean = _safe_float(hub_external.get("target_mean_price"))
+        if mean is not None and mean > 0:
+            return mean, "target_mean_price"
+    return None, "close_fallback"
+
+
+def _target_detail(yf_target: float | None, hub_external: Dict[str, Any] | None) -> str:
+    if yf_target is not None and yf_target > 0:
+        return "yahoo_target_mean_price"
+    if hub_external and _safe_float(hub_external.get("target_mean_price")) is not None:
+        provider = str(hub_external.get("provider") or "stock_data_hub")
+        return f"target_mean_price(stock_data_hub:{provider})"
+    return "close_fallback"
+
+
+def _build_row_name(item: Dict[str, str], info: Dict[str, Any], ticker: str) -> str:
+    return (item.get("name") or info.get("longName") or ticker).strip()
+
+
+def _build_row_sector(item: Dict[str, str], info: Dict[str, Any]) -> str:
+    return (info.get("sector") or item.get("sector") or "Unknown").strip()
+
+
+def _calc_quality_fields(
+    info: Dict[str, Any],
+    hub_fundamental: Dict[str, Any] | None,
+) -> Dict[str, float | None]:
+    return {
+        "return_on_equity": _first_valid(info.get("returnOnEquity"), (hub_fundamental or {}).get("return_on_equity")),
+        "gross_margins": _first_valid(info.get("grossMargins"), (hub_fundamental or {}).get("gross_margins")),
+        "operating_margins": _first_valid(
+            info.get("operatingMargins"),
+            (hub_fundamental or {}).get("operating_margins"),
+        ),
+        "revenue_growth": _first_valid(info.get("revenueGrowth"), (hub_fundamental or {}).get("revenue_growth")),
+        "earnings_growth": _first_valid(info.get("earningsGrowth"), (hub_fundamental or {}).get("earnings_growth")),
+        "earnings_quarterly_growth": _safe_float(info.get("earningsQuarterlyGrowth")),
+        "debt_to_equity": _first_valid(info.get("debtToEquity"), (hub_fundamental or {}).get("debt_to_equity")),
+        "beta": _safe_float(info.get("beta")),
+        "analyst_count": _normalize_analyst_count(
+            _first_valid(info.get("numberOfAnalystOpinions"), (hub_fundamental or {}).get("analyst_count"))
+        ),
+        "recommendation_mean": _safe_float(info.get("recommendationMean")),
+    }
+
+
+def _build_valuation_detail(
+    valuation_source: str,
+    yf_target: float | None,
+    hub_external: Dict[str, Any] | None,
+    hub_quote: Dict[str, Any] | None,
+) -> str:
+    if valuation_source == "target_mean_price":
+        return _target_detail(yf_target, hub_external)
+    if hub_quote is not None:
+        provider = str(hub_quote.get("provider") or "stock_data_hub")
+        return f"close_fallback(stock_data_hub:{provider})"
+    return "close_fallback"
+
+
 @dataclass
 class DCFValuation:
     symbol: str
-    iv_base: float
+    iv_base: float | None
+    consensus_fair_value: float | None
     price: float | None
     mos_base: float | None
     status: str | None
@@ -78,8 +294,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--universe-file",
         type=Path,
-        default=PROJECT_ROOT / "data" / "opportunities.universe_3markets.csv",
-        help="股票池输入文件（至少需要 ticker/name/note）",
+        default=PROJECT_ROOT / "data" / "opportunities.universe_core_3markets.csv",
+        help="股票池输入文件（至少需要 ticker；推荐 opportunities.universe_core_3markets.csv）",
     )
     parser.add_argument(
         "--output-file",
@@ -147,6 +363,17 @@ def parse_args() -> argparse.Namespace:
         "--dcf-strict",
         action="store_true",
         help="DCF 拉取失败时直接报错（默认自动回退）",
+    )
+    parser.add_argument(
+        "--per-ticker-timeout-seconds",
+        type=float,
+        default=25.0,
+        help="单只股票拉取超时（秒，默认 25）",
+    )
+    parser.add_argument(
+        "--allow-partial",
+        action="store_true",
+        help="允许部分成功：失败 ticker 跳过并继续产出（默认关闭）",
     )
     return parser.parse_args()
 
@@ -216,6 +443,8 @@ def dcf_symbol_candidates(ticker: str) -> List[str]:
         if code.isdigit():
             candidates.append(f"SZ.{code}")
     else:
+        if "." in raw:
+            candidates.append(f"US.{raw.replace('.', '-')}")
         candidates.append(f"US.{raw}")
 
     dedup: List[str] = []
@@ -258,12 +487,48 @@ def _load_dcf_available_symbols(path: Path) -> set[str] | None:
         return None
 
 
-def _run_dcf_link(args: List[str]) -> Dict[str, Any]:
+def _is_loopback_base_url(base_url: str) -> bool:
+    host = (urlparse(base_url).hostname or "").strip().lower()
+    return host in {"localhost", "::1"} or host.startswith("127.")
+
+
+def _build_dcf_subprocess_env(dcf_base_url: str) -> Dict[str, str] | None:
+    if not _is_loopback_base_url(dcf_base_url):
+        return None
+
+    env = os.environ.copy()
+    for key in (
+        "HTTP_PROXY",
+        "HTTPS_PROXY",
+        "ALL_PROXY",
+        "http_proxy",
+        "https_proxy",
+        "all_proxy",
+    ):
+        env.pop(key, None)
+
+    direct_hosts = ["127.0.0.1", "localhost", "::1"]
+    existing_no_proxy = env.get("NO_PROXY", "")
+    existing_no_proxy_lower = env.get("no_proxy", "")
+    merged_hosts = [item for item in existing_no_proxy.split(",") if item.strip()]
+    merged_hosts += [item for item in existing_no_proxy_lower.split(",") if item.strip()]
+    for host in direct_hosts:
+        if host not in merged_hosts:
+            merged_hosts.append(host)
+    merged_value = ",".join(merged_hosts)
+    env["NO_PROXY"] = merged_value
+    env["no_proxy"] = merged_value
+    return env
+
+
+def _run_dcf_link_with_env(args: List[str], dcf_base_url: str) -> Dict[str, Any]:
+    env = _build_dcf_subprocess_env(dcf_base_url)
     completed = subprocess.run(
         args,
         check=False,
         capture_output=True,
         text=True,
+        env=env,
     )
     if completed.returncode != 0:
         stderr = (completed.stderr or "").strip()
@@ -279,14 +544,24 @@ def _run_dcf_link(args: List[str]) -> Dict[str, Any]:
 def _parse_dcf_company_payload(payload: Dict[str, Any]) -> DCFValuation | None:
     symbol = str(payload.get("symbol", "")).strip().upper()
     valuation = payload.get("valuation") if isinstance(payload, dict) else {}
+    external_validation = (
+        payload.get("external_validation") if isinstance(payload, dict) else {}
+    )
+    consensus = (
+        external_validation.get("consensus")
+        if isinstance(external_validation, dict)
+        else {}
+    )
     if not symbol or not isinstance(valuation, dict):
         return None
     iv_base = _safe_float(valuation.get("iv_base"))
-    if iv_base is None or iv_base <= 0:
-        return None
+    consensus_fair_value = (
+        _safe_float(consensus.get("fair_value_median")) if isinstance(consensus, dict) else None
+    )
     return DCFValuation(
         symbol=symbol,
         iv_base=iv_base,
+        consensus_fair_value=consensus_fair_value,
         price=_safe_float(valuation.get("price")),
         mos_base=_safe_float(valuation.get("mos_base")),
         status=str(valuation.get("status", "")).strip() or None,
@@ -316,7 +591,7 @@ def _pull_dcf_portfolio(
         "--timeout",
         str(dcf_timeout),
     ]
-    payload = _run_dcf_link(cmd)
+    payload = _run_dcf_link_with_env(cmd, dcf_base_url=dcf_base_url)
     result: Dict[str, DCFValuation] = {}
     for company in payload.get("companies", []):
         if not isinstance(company, dict):
@@ -352,13 +627,13 @@ def _pull_dcf_companies_individually(
             str(dcf_timeout),
         ]
         try:
-            payload = _run_dcf_link(cmd)
+            payload = _run_dcf_link_with_env(cmd, dcf_base_url=dcf_base_url)
         except Exception as exc:  # noqa: BLE001
             failures.append(f"{symbol}: {exc}")
             continue
         parsed = _parse_dcf_company_payload(payload)
         if parsed is None:
-            failures.append(f"{symbol}: missing/invalid iv_base")
+            failures.append(f"{symbol}: missing valuation payload")
             continue
         result[symbol] = parsed
     return result, failures
@@ -394,6 +669,8 @@ def apply_dcf_overlay(
     dcf_errors: List[str] = []
     unresolved_tickers: List[str] = []
     covered_tickers: List[str] = []
+    covered_iv_tickers: List[str] = []
+    covered_consensus_tickers: List[str] = []
     pulled_valuations: Dict[str, DCFValuation] = {}
 
     available_symbols = _load_dcf_available_symbols(dcf_companies_file)
@@ -436,7 +713,7 @@ def apply_dcf_overlay(
     for row in raw_rows:
         row.dcf_symbol = ticker_to_symbol.get(row.ticker)
         valuation = pulled_valuations.get(row.dcf_symbol or "")
-        if enable_dcf and valuation is not None:
+        if enable_dcf and valuation is not None and valuation.iv_base is not None and valuation.iv_base > 0:
             row.fair_value = valuation.iv_base
             row.valuation_source = "dcf_iv_base"
             row.valuation_source_detail = f"{valuation.symbol}:iv_base"
@@ -446,6 +723,23 @@ def apply_dcf_overlay(
             row.dcf_status = valuation.status
             row.dcf_pulled_at = valuation.pulled_at
             covered_tickers.append(row.ticker)
+            covered_iv_tickers.append(row.ticker)
+        elif (
+            enable_dcf
+            and valuation is not None
+            and valuation.consensus_fair_value is not None
+            and valuation.consensus_fair_value > 0
+        ):
+            row.fair_value = valuation.consensus_fair_value
+            row.valuation_source = "dcf_external_consensus"
+            row.valuation_source_detail = f"{valuation.symbol}:consensus_median"
+            row.dcf_iv_base = valuation.iv_base
+            row.dcf_mos_base = valuation.mos_base
+            row.dcf_price = valuation.price
+            row.dcf_status = valuation.status
+            row.dcf_pulled_at = valuation.pulled_at
+            covered_tickers.append(row.ticker)
+            covered_consensus_tickers.append(row.ticker)
         else:
             reason = "dcf_disabled"
             if enable_dcf:
@@ -476,10 +770,13 @@ def apply_dcf_overlay(
         "requested_symbols": sorted(set(ticker_to_symbol.values())),
         "pulled_symbols": sorted(pulled_valuations.keys()),
         "covered_tickers": sorted(covered_tickers),
+        "covered_iv_tickers": sorted(covered_iv_tickers),
+        "covered_consensus_tickers": sorted(covered_consensus_tickers),
         "unresolved_tickers": sorted(unresolved_tickers),
         "errors": dcf_errors,
         "valuation_source_counts": source_counts,
         "coverage_ratio": (len(covered_tickers) / len(raw_rows)) if raw_rows else 0.0,
+        "iv_coverage_ratio": (len(covered_iv_tickers) / len(raw_rows)) if raw_rows else 0.0,
     }
 
 
@@ -559,32 +856,69 @@ def fetch_raw_market_row(item: Dict[str, str], history_period: str) -> RawMarket
     ticker = (item.get("ticker") or "").strip()
     if not ticker:
         raise ValueError("Universe row missing ticker")
-    yf_ticker = YF_TICKER_MAP.get(ticker, ticker)
+    yf_ticker = YF_TICKER_MAP.get(ticker, normalize_yf_ticker(ticker))
 
     ticker_obj = yf.Ticker(yf_ticker)
-    info = ticker_obj.info
-    history = ticker_obj.history(period=history_period, interval="1d", auto_adjust=True)
+    try:
+        info = ticker_obj.info or {}
+    except Exception:  # noqa: BLE001
+        info = {}
+
+    try:
+        history = ticker_obj.history(period=history_period, interval="1d", auto_adjust=True)
+    except Exception:  # noqa: BLE001
+        history = pd.DataFrame()
     closes = history.get("Close", pd.Series(dtype=float)).dropna()
+
+    hub_quote = None
     if closes.empty:
-        raise ValueError(f"{ticker}: missing close history from Yahoo Finance")
+        hub_quote = fetch_quote_from_stock_data_hub(ticker=ticker, timeout_sec=8.0)
+        if hub_quote is None:
+            raise ValueError(f"{ticker}: missing close history from Yahoo Finance")
+        as_of_date = hub_quote["as_of_date"]
+        close = float(hub_quote["price"])
+    else:
+        as_of_date = closes.index[-1].date().isoformat()
+        close = float(closes.iloc[-1])
 
-    as_of_date = closes.index[-1].date().isoformat()
-    close = float(closes.iloc[-1])
-
-    target_mean = _safe_float(info.get("targetMeanPrice"))
+    yf_target_mean = _safe_float(info.get("targetMeanPrice"))
+    hub_external = None
+    if yf_target_mean is None or yf_target_mean <= 0:
+        hub_external = fetch_external_valuation_from_stock_data_hub(ticker=ticker, timeout_sec=8.0)
+    target_mean, valuation_source = _target_from_sources(yf_target=yf_target_mean, hub_external=hub_external)
     fair_value = target_mean if target_mean and target_mean > 0 else close
-    valuation_source = "target_mean_price" if target_mean and target_mean > 0 else "close_fallback"
 
-    ret_3m = _calc_return(closes, 63)
-    ret_6m = _calc_return(closes, 126)
-    ret_12m = _calc_return(closes, 252)
+    hub_fundamental = None
+    if not info or (
+        _safe_float(info.get("returnOnEquity")) is None
+        and _safe_float(info.get("grossMargins")) is None
+        and _safe_float(info.get("operatingMargins")) is None
+        and _safe_float(info.get("revenueGrowth")) is None
+        and _safe_float(info.get("earningsGrowth")) is None
+    ):
+        hub_fundamental = fetch_fundamental_from_stock_data_hub(ticker=ticker, timeout_sec=8.0)
+    quality_fields = _calc_quality_fields(info=info, hub_fundamental=hub_fundamental)
+    if quality_fields.get("analyst_count") is None and hub_external is not None:
+        quality_fields["analyst_count"] = _normalize_analyst_count(_safe_float(hub_external.get("analyst_count")))
 
-    sma200 = float(closes.tail(200).mean()) if len(closes) >= 30 else float(closes.mean())
-    dist_to_sma200 = (close / sma200 - 1.0) if sma200 else None
+    if closes.empty:
+        ret_3m = None
+        ret_6m = None
+        ret_12m = None
+        dist_to_sma200 = None
+        vol_1y = None
+        max_drawdown_1y = None
+    else:
+        ret_3m = _calc_return(closes, 63)
+        ret_6m = _calc_return(closes, 126)
+        ret_12m = _calc_return(closes, 252)
 
-    returns = closes.pct_change().dropna().tail(252)
-    vol_1y = float(returns.std() * math.sqrt(252)) if not returns.empty else None
-    max_drawdown_1y = _calc_max_drawdown(closes.tail(252))
+        sma200 = float(closes.tail(200).mean()) if len(closes) >= 30 else float(closes.mean())
+        dist_to_sma200 = (close / sma200 - 1.0) if sma200 else None
+
+        returns = closes.pct_change().dropna().tail(252)
+        vol_1y = float(returns.std() * math.sqrt(252)) if not returns.empty else None
+        max_drawdown_1y = _calc_max_drawdown(closes.tail(252))
 
     note = _build_note(
         base_note=item.get("note", ""),
@@ -600,22 +934,22 @@ def fetch_raw_market_row(item: Dict[str, str], history_period: str) -> RawMarket
     return RawMarketRow(
         ticker=ticker,
         yf_ticker=yf_ticker,
-        name=(item.get("name") or info.get("longName") or ticker).strip(),
-        sector=(info.get("sector") or item.get("sector") or "Unknown").strip(),
+        name=_build_row_name(item=item, info=info, ticker=ticker),
+        sector=_build_row_sector(item=item, info=info),
         as_of_date=as_of_date,
         close=close,
         fair_value=fair_value,
         target_mean_price=target_mean,
-        return_on_equity=_safe_float(info.get("returnOnEquity")),
-        gross_margins=_safe_float(info.get("grossMargins")),
-        operating_margins=_safe_float(info.get("operatingMargins")),
-        revenue_growth=_safe_float(info.get("revenueGrowth")),
-        earnings_growth=_safe_float(info.get("earningsGrowth")),
-        earnings_quarterly_growth=_safe_float(info.get("earningsQuarterlyGrowth")),
-        debt_to_equity=_safe_float(info.get("debtToEquity")),
-        beta=_safe_float(info.get("beta")),
-        analyst_count=_safe_float(info.get("numberOfAnalystOpinions")),
-        recommendation_mean=_safe_float(info.get("recommendationMean")),
+        return_on_equity=quality_fields.get("return_on_equity"),
+        gross_margins=quality_fields.get("gross_margins"),
+        operating_margins=quality_fields.get("operating_margins"),
+        revenue_growth=quality_fields.get("revenue_growth"),
+        earnings_growth=quality_fields.get("earnings_growth"),
+        earnings_quarterly_growth=quality_fields.get("earnings_quarterly_growth"),
+        debt_to_equity=quality_fields.get("debt_to_equity"),
+        beta=quality_fields.get("beta"),
+        analyst_count=quality_fields.get("analyst_count"),
+        recommendation_mean=quality_fields.get("recommendation_mean"),
         ret_3m=ret_3m,
         ret_6m=ret_6m,
         ret_12m=ret_12m,
@@ -624,11 +958,30 @@ def fetch_raw_market_row(item: Dict[str, str], history_period: str) -> RawMarket
         max_drawdown_1y=max_drawdown_1y,
         note=note,
         valuation_source=valuation_source,
-        valuation_source_detail=(
-            "yahoo_target_mean_price" if valuation_source == "target_mean_price" else "close_fallback"
+        valuation_source_detail=_build_valuation_detail(
+            valuation_source=valuation_source,
+            yf_target=yf_target_mean,
+            hub_external=hub_external,
+            hub_quote=hub_quote,
         ),
         base_note=item.get("note", ""),
     )
+
+
+def fetch_raw_market_row_with_timeout(
+    item: Dict[str, str],
+    history_period: str,
+    timeout_seconds: float,
+) -> RawMarketRow:
+    if timeout_seconds <= 0:
+        return fetch_raw_market_row(item, history_period=history_period)
+    with ThreadPoolExecutor(max_workers=1) as pool:
+        future = pool.submit(fetch_raw_market_row, item, history_period)
+        try:
+            return future.result(timeout=timeout_seconds)
+        except FutureTimeoutError as exc:
+            ticker = (item.get("ticker") or "").strip() or "UNKNOWN"
+            raise TimeoutError(f"{ticker}: fetch timeout>{timeout_seconds:.1f}s") from exc
 
 
 def percentile_score(series: pd.Series, higher_better: bool = True) -> pd.Series:
@@ -781,6 +1134,8 @@ def write_real_opportunities(path: Path, df: pd.DataFrame, ordered_tickers: List
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
         for ticker in ordered_tickers:
+            if ticker not in row_map:
+                continue
             row = row_map[ticker]
             writer.writerow(
                 {
@@ -815,6 +1170,8 @@ def write_meta(
     cache_enabled: bool,
     cache_ttl_hours: int,
     dcf_meta: Dict[str, Any],
+    requested_universe_size: int,
+    failed_tickers: List[str],
 ) -> None:
     as_of_dates = sorted({str(value) for value in df["as_of_date"].dropna().tolist()})
     missing_target = [row["ticker"] for _, row in df[df["target_mean_price"].isna()].iterrows()]
@@ -822,9 +1179,16 @@ def write_meta(
         str(k): int(v)
         for k, v in df["valuation_source"].value_counts(dropna=False).to_dict().items()
     }
+    source_text = "Yahoo Finance via yfinance + local DCF valuation link (partial coverage)"
+    if _stock_data_hub_url():
+        source_text = (
+            "Yahoo Finance via yfinance + stock-data-hub(optional quote fallback) "
+            "+ local DCF valuation link (partial coverage)"
+        )
+
     meta = {
         "generated_at_utc": generated_at,
-        "source": "Yahoo Finance via yfinance + local DCF valuation link (partial coverage)",
+        "source": source_text,
         "cache_policy": (
             "disabled"
             if not cache_enabled
@@ -832,10 +1196,16 @@ def write_meta(
         ),
         "as_of_dates": as_of_dates,
         "universe_size": int(len(df)),
+        "requested_universe_size": int(requested_universe_size),
+        "coverage_of_requested_universe": (
+            float(len(df) / requested_universe_size) if requested_universe_size > 0 else 0.0
+        ),
+        "failed_ticker_count": int(len(failed_tickers)),
+        "failed_tickers": failed_tickers,
         "valuation_source_breakdown": valuation_source_breakdown,
         "dcf_integration": dcf_meta,
         "calculation": {
-            "fair_value_priority": "dcf_iv_base > targetMeanPrice > close",
+            "fair_value_priority": "dcf_iv_base > dcf_external_consensus > targetMeanPrice > close",
             "price_to_fair_value": "close / fair_value; fair_value uses priority above",
             "margin_of_safety": "1 - price_to_fair_value (signed; can be negative when price > fair_value)",
             "upside_to_price": "(fair_value - close) / close = fair_value/close - 1 (common target-price style)",
@@ -891,7 +1261,8 @@ def main() -> None:
     failures: List[str] = []
     cache_hits = 0
     api_fetches = 0
-    for item in universe:
+    total = len(universe)
+    for idx, item in enumerate(universe, start=1):
         ticker = (item.get("ticker") or "").strip()
         if not ticker:
             continue
@@ -908,7 +1279,11 @@ def main() -> None:
                 cache_hits += 1
                 continue
         try:
-            fetched = fetch_raw_market_row(item, history_period=args.history_period)
+            fetched = fetch_raw_market_row_with_timeout(
+                item,
+                history_period=args.history_period,
+                timeout_seconds=args.per_ticker_timeout_seconds,
+            )
             raw_rows.append(fetched)
             api_fetches += 1
             if not args.no_cache:
@@ -920,8 +1295,17 @@ def main() -> None:
         except Exception as exc:  # noqa: BLE001
             failures.append(f"{ticker}: {exc}")
 
-    if failures:
+        if idx % 25 == 0 or idx == total:
+            print(
+                f"[progress] {idx}/{total} "
+                f"cache_hits={cache_hits} api_fetches={api_fetches} failures={len(failures)}",
+                flush=True,
+            )
+
+    if failures and not args.allow_partial:
         raise RuntimeError("Failed to fetch market data:\n" + "\n".join(failures))
+    if not raw_rows:
+        raise RuntimeError("No valid market rows fetched.")
 
     dcf_meta = apply_dcf_overlay(
         raw_rows,
@@ -943,6 +1327,8 @@ def main() -> None:
         cache_enabled=not args.no_cache,
         cache_ttl_hours=args.cache_ttl_hours,
         dcf_meta=dcf_meta,
+        requested_universe_size=len(universe),
+        failed_tickers=failures,
     )
 
     min_date = min(scored["as_of_date"])
@@ -957,10 +1343,23 @@ def main() -> None:
         print(
             f"缓存: enabled (ttl={args.cache_ttl_hours}h, cache_hits={cache_hits}, api_fetches={api_fetches})"
         )
+    if failures:
+        print(f"拉取失败: {len(failures)}")
+        if args.allow_partial:
+            print("部分成功模式: enabled（失败 ticker 已跳过）")
+        for line in failures[:20]:
+            print(f"- {line}")
+        if len(failures) > 20:
+            print(f"... 其余 {len(failures) - 20} 条已写入 meta.failed_tickers")
     print(
         "DCF覆盖: "
         f"{len(dcf_meta.get('covered_tickers', []))}/{len(scored)} "
         f"(coverage={dcf_meta.get('coverage_ratio', 0.0) * 100:.1f}%)"
+    )
+    print(
+        "DCF内生估值覆盖(iv_base): "
+        f"{len(dcf_meta.get('covered_iv_tickers', []))}/{len(scored)} "
+        f"(coverage={dcf_meta.get('iv_coverage_ratio', 0.0) * 100:.1f}%)"
     )
     source_counts = dcf_meta.get("valuation_source_counts", {})
     print(f"估值来源分布: {source_counts}")

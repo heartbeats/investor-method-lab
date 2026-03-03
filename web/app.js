@@ -659,7 +659,7 @@
 
   function renderOpportunityTable(rows, columns) {
     function buildStockDetailHref(ticker) {
-      return `./stock.html?ticker=${encodeURIComponent(ticker)}`;
+      return `./stock.html?ticker=${encodeURIComponent(ticker)}&pack=${encodeURIComponent(state.selectedPack)}`;
     }
 
     const header = columns.map((c) => `<th>${escapeHtml(c.label)}</th>`).join("");
