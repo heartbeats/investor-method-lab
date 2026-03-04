@@ -1,0 +1,2 @@
+ticker,name,sector,price_to_fair_value,fair_value,target_mean_price,valuation_source,valuation_source_detail,dcf_symbol,dcf_iv_base,dcf_mos_base,dcf_price,dcf_status,quality_score,growth_score,momentum_score,catalyst_score,risk_score,certainty_score,note
+CPB,Campbell's Company (The),Consumer Defensive,0.8387,31.0556,31.0556,target_mean_price,yahoo_target_mean_price(dcf_symbol_unavailable),,,,,,55.2,74.0,89.0,57.6,47.8,50.5,US core | S&P500 constituent | real-data@2026-03-03 | close=26.05 | target=31.06 | fv_source=target_mean_price | upside=19.2%

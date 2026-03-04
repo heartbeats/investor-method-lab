@@ -1266,6 +1266,10 @@ def main() -> None:
         ticker = (item.get("ticker") or "").strip()
         if not ticker:
             continue
+        # Skip known delisted/unavailable tickers
+        if ticker in ("BF.B", "FI", "IPG", "K"):
+            print(f"[skip] {ticker}: known delisted/unavailable", flush=True)
+            continue
         cache_file = _cache_path(args.cache_dir, ticker, args.history_period)
         if not args.no_cache:
             cached = _load_cached_row(

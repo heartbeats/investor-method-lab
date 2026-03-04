@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "updated_at": "2026-03-04",
+  "description": "逐公司深度 DCF 校准后的特别关注清单（作为主仓关注池）",
+  "symbols": [
+    {
+      "dcf_symbol": "SH.600519",
+      "ticker": "600519.SS",
+      "name": "贵州茅台",
+      "tag": "deep_calibrated"
+    },
+    {
+      "dcf_symbol": "HK.00700",
+      "ticker": "0700.HK",
+      "name": "腾讯控股",
+      "tag": "deep_calibrated"
+    },
+    {
+      "dcf_symbol": "HK.03690",
+      "ticker": "3690.HK",
+      "name": "美团",
+      "tag": "deep_calibrated"
+    },
+    {
+      "dcf_symbol": "US.AAPL",
+      "ticker": "AAPL",
+      "name": "苹果",
+      "tag": "deep_calibrated"
+    },
+    {
+      "dcf_symbol": "US.GOOGL",
+      "ticker": "GOOGL",
+      "name": "谷歌",
+      "tag": "deep_calibrated"
+    },
+    {
+      "dcf_symbol": "US.NVDA",
+      "ticker": "NVDA",
+      "name": "英伟达",
+      "tag": "deep_calibrated"
+    },
+    {
+      "dcf_symbol": "US.PDD",
+      "ticker": "PDD",
+      "name": "拼多多",
+      "tag": "deep_calibrated"
+    }
+  ]
+}

@@ -1,0 +1,572 @@
+{
+  "as_of_date": "2026-03-04",
+  "coverage_scope": "current_clickable_real3",
+  "profiles": {
+    "AAPL": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "苹果是一家以硬件、软件与服务一体化见长的消费科技公司，核心商业模式是“设备装机量 + 订阅服务”双轮驱动。硬件负责拉新和生态入口，服务负责提高用户终身价值与现金流稳定性。",
+      "product_revenue_breakdown": [
+        {
+          "product": "iPhone",
+          "revenue_share": "约51%",
+          "customers": "全球中高端智能手机消费者、企业采购客户",
+          "core_competitiveness": "芯片与系统垂直整合、品牌溢价、生态粘性"
+        },
+        {
+          "product": "服务（App Store/iCloud/Apple Music/广告等）",
+          "revenue_share": "约25%",
+          "customers": "苹果终端存量用户与开发者生态",
+          "core_competitiveness": "高留存订阅体系、支付与分发生态、平台抽成能力"
+        },
+        {
+          "product": "Mac",
+          "revenue_share": "约8%",
+          "customers": "创意生产力用户、教育与企业客户",
+          "core_competitiveness": "Apple Silicon 性能功耗比、软硬协同"
+        },
+        {
+          "product": "iPad",
+          "revenue_share": "约7%",
+          "customers": "教育、轻办公与内容消费用户",
+          "core_competitiveness": "应用生态与多场景兼容"
+        },
+        {
+          "product": "可穿戴/家居/配件",
+          "revenue_share": "约9%",
+          "customers": "iPhone 存量用户",
+          "core_competitiveness": "生态联动与交叉销售"
+        }
+      ],
+      "key_customers_zh": "终端消费者为主，辅以教育、企业与开发者生态。",
+      "core_competitiveness_zh": "生态封闭性、品牌与渠道控制力、芯片自研、服务高毛利。",
+      "revenue_share_note_zh": "按 FY2024 年报分部口径整理。",
+      "sources": [
+        {
+          "title": "Apple Form 10-K (FY2024)",
+          "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019324000123/aapl-20240928.htm"
+        }
+      ]
+    },
+    "TSLA": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "特斯拉是以电动车为核心、储能为第二增长曲线的新能源平台公司，收入仍主要由汽车业务驱动，但储能与服务占比持续提升。",
+      "product_revenue_breakdown": [
+        {
+          "product": "汽车业务（整车销售+租赁+监管积分）",
+          "revenue_share": "约79%",
+          "customers": "个人购车用户、企业/车队客户",
+          "core_competitiveness": "规模化制造、成本控制、软件与 OTA 能力"
+        },
+        {
+          "product": "储能与发电（Megapack/Powerwall/光伏）",
+          "revenue_share": "约10%",
+          "customers": "公用事业、工商业与家庭储能客户",
+          "core_competitiveness": "电池系统集成与项目交付能力"
+        },
+        {
+          "product": "服务及其他（售后、保险、二手车等）",
+          "revenue_share": "约11%",
+          "customers": "存量车主与生态用户",
+          "core_competitiveness": "自营服务网络与数据闭环"
+        }
+      ],
+      "key_customers_zh": "电动车消费者、公用事业储能客户、车主服务用户。",
+      "core_competitiveness_zh": "电池-整车-软件垂直一体化、超级充电网络、品牌心智。",
+      "revenue_share_note_zh": "按 FY2024 年报分部口径整理。",
+      "sources": [
+        {
+          "title": "Tesla Annual Report / Form 10-K",
+          "url": "https://www.sec.gov/edgar/browse/?CIK=1318605"
+        }
+      ]
+    },
+    "UNH": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "联合健康是“保险支付方 + 医疗服务方”一体化平台。UnitedHealthcare 提供保险保障，Optum 提供医疗服务、药事管理与医疗 IT。",
+      "product_revenue_breakdown": [
+        {
+          "product": "UnitedHealthcare（健康险）",
+          "revenue_share": "约54%（按 UHC+Optum 合计口径）",
+          "customers": "雇主团险、Medicare/Medicaid、个人保险客户",
+          "core_competitiveness": "支付方规模、产品设计与风险定价能力"
+        },
+        {
+          "product": "Optum Rx（药事管理）",
+          "revenue_share": "约24%（按 UHC+Optum 合计口径）",
+          "customers": "药店网络、保司、雇主与政府项目",
+          "core_competitiveness": "PBM 议价与处方管理能力"
+        },
+        {
+          "product": "Optum Health（医疗服务）",
+          "revenue_share": "约19%（按 UHC+Optum 合计口径）",
+          "customers": "医疗机构与患者",
+          "core_competitiveness": "医疗服务网络与价值医疗管理"
+        },
+        {
+          "product": "Optum Insight（医疗信息化）",
+          "revenue_share": "约3%（按 UHC+Optum 合计口径）",
+          "customers": "医院系统、政府与生命科学企业",
+          "core_competitiveness": "医疗数据与软件解决方案"
+        }
+      ],
+      "key_customers_zh": "政府医保项目、企业团体客户、医疗机构与药店网络。",
+      "core_competitiveness_zh": "“支付+服务+药事+数据”闭环，规模与成本控制优势明显。",
+      "revenue_share_note_zh": "按 2024 年 SEC 分部收入表计算，属于管理口径，不等同于终端客户净口径。",
+      "sources": [
+        {
+          "title": "UnitedHealth Form 10-K (2024)",
+          "url": "https://www.sec.gov/Archives/edgar/data/731766/000073176625000063/unh-20241231.htm"
+        }
+      ]
+    },
+    "JPM": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "medium_disclosed",
+      "business_intro_zh": "摩根大通是全球系统重要性银行，业务覆盖零售银行、企业与投行、商业银行、资管与财富管理。收入结构兼具利息收入与非息手续费收入。",
+      "product_revenue_breakdown": [
+        {
+          "product": "消费者与社区银行（CCB）",
+          "revenue_share": "约40%（按四大核心业务净营收口径）",
+          "customers": "零售存贷、信用卡、小微客户",
+          "core_competitiveness": "低成本存款基础与高频金融场景"
+        },
+        {
+          "product": "企业与投资银行（CIB）",
+          "revenue_share": "约39%（按四大核心业务净营收口径）",
+          "customers": "大型企业、机构投资者、政府客户",
+          "core_competitiveness": "全球投行排名、交易做市与支付清算能力"
+        },
+        {
+          "product": "资产与财富管理（AWM）",
+          "revenue_share": "约12%（按四大核心业务净营收口径）",
+          "customers": "高净值客户、机构资管客户",
+          "core_competitiveness": "多资产配置能力与全球渠道"
+        },
+        {
+          "product": "商业银行（CB）",
+          "revenue_share": "约9%（按四大核心业务净营收口径）",
+          "customers": "中大型企业与中端市场客户",
+          "core_competitiveness": "授信能力与跨业务协同"
+        }
+      ],
+      "key_customers_zh": "零售消费者、企业客户、机构投资者与高净值客户。",
+      "core_competitiveness_zh": "规模化低成本负债、全球业务网络、风险管理与科技投入。",
+      "revenue_share_note_zh": "按 2024 年报分部净营收口径整理，为管理报表口径。",
+      "sources": [
+        {
+          "title": "JPMorgan Form 10-K (2024)",
+          "url": "https://www.sec.gov/Archives/edgar/data/19617/000001961725000270/jpm-20241231.htm"
+        }
+      ]
+    },
+    "9988.HK": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "medium_disclosed",
+      "business_intro_zh": "阿里巴巴是平台型科技公司，核心在电商平台与商家服务，云计算、国际商业、物流与本地生活构成第二梯队增长。",
+      "product_revenue_breakdown": [
+        {
+          "product": "淘天集团（电商平台）",
+          "revenue_share": "约47%",
+          "customers": "品牌商家、中小商家与平台消费者",
+          "core_competitiveness": "流量分发、商家生态、广告与交易基础设施"
+        },
+        {
+          "product": "云智能",
+          "revenue_share": "约11%",
+          "customers": "企业客户、开发者与政企客户",
+          "core_competitiveness": "云基础设施与 AI 计算能力"
+        },
+        {
+          "product": "国际数字商业",
+          "revenue_share": "约11%",
+          "customers": "跨境商家与海外消费者",
+          "core_competitiveness": "多平台跨境网络"
+        },
+        {
+          "product": "菜鸟+本地生活+文娱及其他",
+          "revenue_share": "约31%",
+          "customers": "电商履约客户、本地商家与平台用户",
+          "core_competitiveness": "物流履约与本地服务生态协同"
+        }
+      ],
+      "key_customers_zh": "平台商家、品牌客户、企业云客户、终端消费者。",
+      "core_competitiveness_zh": "平台网络效应、数据中台、履约网络与生态协同。",
+      "revenue_share_note_zh": "按公司年报分部收入披露整理，部分分项为合并展示。",
+      "sources": [
+        {
+          "title": "阿里巴巴财报与年报",
+          "url": "https://www.alibabagroup.com/en-US/ir-financial-reports"
+        }
+      ]
+    },
+    "9618.HK": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "medium_disclosed",
+      "business_intro_zh": "京东是以供应链为核心的零售科技公司，收入以商品销售为主，服务收入（平台、广告、物流服务）持续提升。",
+      "product_revenue_breakdown": [
+        {
+          "product": "商品销售收入",
+          "revenue_share": "约84%",
+          "customers": "C 端消费者与企业采购客户",
+          "core_competitiveness": "自营供应链、正品心智与库存管理"
+        },
+        {
+          "product": "服务收入（平台服务/广告/物流等）",
+          "revenue_share": "约16%",
+          "customers": "第三方商家与品牌客户",
+          "core_competitiveness": "平台变现与物流外部化能力"
+        }
+      ],
+      "key_customers_zh": "消费者、第三方商家、品牌客户与企业客户。",
+      "core_competitiveness_zh": "仓配一体履约效率、供应链数字化、服务体验稳定性。",
+      "revenue_share_note_zh": "按年报“商品收入/服务收入”口径整理。",
+      "sources": [
+        {
+          "title": "京东年报与财报",
+          "url": "https://ir.jd.com/financial-information/annual-reports"
+        }
+      ]
+    },
+    "3690.HK": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "medium_disclosed",
+      "business_intro_zh": "美团是本地生活平台，核心收入来自外卖、到店酒旅等高频场景，新业务仍处于投入和优化阶段。",
+      "product_revenue_breakdown": [
+        {
+          "product": "核心本地商业",
+          "revenue_share": "约82%",
+          "customers": "本地消费者、餐饮商家、到店商家",
+          "core_competitiveness": "本地网络效应、履约调度算法、高频交易场景"
+        },
+        {
+          "product": "新业务（含社区零售等）",
+          "revenue_share": "约18%",
+          "customers": "社区零售消费者与上游供给方",
+          "core_competitiveness": "流量入口与履约能力复用"
+        }
+      ],
+      "key_customers_zh": "本地生活消费者、中小商家、品牌连锁与配送骑手生态。",
+      "core_competitiveness_zh": "高频场景带来的用户粘性、商户供给深度与配送效率。",
+      "revenue_share_note_zh": "按年报分部披露口径整理。",
+      "sources": [
+        {
+          "title": "美团投资者关系",
+          "url": "https://about.meituan.com/en/investor"
+        }
+      ]
+    },
+    "1211.HK": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "medium_disclosed",
+      "business_intro_zh": "比亚迪是新能源汽车与电池产业链一体化公司，收入核心来自汽车及相关产品，手机部件与组装业务提供第二支撑。",
+      "product_revenue_breakdown": [
+        {
+          "product": "汽车及相关产品",
+          "revenue_share": "约80%",
+          "customers": "乘用车消费者、出行与车队客户",
+          "core_competitiveness": "电池/电驱/整车垂直整合与规模成本优势"
+        },
+        {
+          "product": "手机部件及组装等",
+          "revenue_share": "约20%",
+          "customers": "消费电子品牌客户",
+          "core_competitiveness": "精密制造与供应链管理能力"
+        }
+      ],
+      "key_customers_zh": "新能源车消费者、消费电子品牌客户、储能客户。",
+      "core_competitiveness_zh": "刀片电池、平台化车型、制造规模与成本控制。",
+      "revenue_share_note_zh": "按年报分部口径整理，为近似占比。",
+      "sources": [
+        {
+          "title": "比亚迪投资者关系",
+          "url": "https://www.bydglobal.com/cn/Investors.html"
+        }
+      ]
+    },
+    "002594.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "medium_disclosed",
+      "business_intro_zh": "比亚迪（A 股）与港股同属同一经营主体，业务结构与口径一致。",
+      "product_revenue_breakdown": [
+        {
+          "product": "汽车及相关产品",
+          "revenue_share": "约80%",
+          "customers": "乘用车消费者、出行与车队客户",
+          "core_competitiveness": "电池/电驱/整车垂直整合与规模成本优势"
+        },
+        {
+          "product": "手机部件及组装等",
+          "revenue_share": "约20%",
+          "customers": "消费电子品牌客户",
+          "core_competitiveness": "精密制造与供应链管理能力"
+        }
+      ],
+      "key_customers_zh": "新能源车消费者、消费电子品牌客户、储能客户。",
+      "core_competitiveness_zh": "刀片电池、平台化车型、制造规模与成本控制。",
+      "revenue_share_note_zh": "按年报分部口径整理，为近似占比。",
+      "sources": [
+        {
+          "title": "比亚迪投资者关系",
+          "url": "https://www.bydglobal.com/cn/Investors.html"
+        }
+      ]
+    },
+    "0981.HK": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "medium_estimated",
+      "business_intro_zh": "中芯国际是晶圆代工企业，收入结构以成熟制程为主，应用覆盖手机、消费电子、计算与工控汽车等。",
+      "product_revenue_breakdown": [
+        {
+          "product": "智能手机相关芯片晶圆代工",
+          "revenue_share": "约28%",
+          "customers": "手机 SoC/射频/电源管理芯片设计公司",
+          "core_competitiveness": "成熟工艺良率与产能保障"
+        },
+        {
+          "product": "消费电子相关晶圆代工",
+          "revenue_share": "约37%",
+          "customers": "消费电子与家电芯片设计公司",
+          "core_competitiveness": "多平台工艺覆盖与成本效率"
+        },
+        {
+          "product": "计算机/平板/工控汽车及其他",
+          "revenue_share": "约35%",
+          "customers": "计算、工业与汽车电子客户",
+          "core_competitiveness": "本地化供应链与长期产能协同"
+        }
+      ],
+      "key_customers_zh": "国内外 Fabless 设计公司与 IDM 客户。",
+      "core_competitiveness_zh": "成熟节点规模化制造能力、本地供应链协同与交付稳定性。",
+      "revenue_share_note_zh": "按公司披露的应用结构口径整理，部分为区间估算。",
+      "sources": [
+        {
+          "title": "中芯国际投资者关系",
+          "url": "https://www.smics.com/en/site/company_financialSummary"
+        }
+      ]
+    },
+    "688036.SS": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "medium_estimated",
+      "business_intro_zh": "传音控股聚焦新兴市场智能终端，核心品牌包括 TECNO、Infinix、itel，并围绕手机硬件延伸配件与移动互联网服务。",
+      "product_revenue_breakdown": [
+        {
+          "product": "智能手机",
+          "revenue_share": "约86%",
+          "customers": "非洲、南亚、东南亚等新兴市场终端消费者与渠道商",
+          "core_competitiveness": "本地化产品定义、渠道深耕与高性价比机型组合"
+        },
+        {
+          "product": "功能机",
+          "revenue_share": "约9%",
+          "customers": "价格敏感用户与下沉市场渠道",
+          "core_competitiveness": "极致成本控制与区域品牌认知"
+        },
+        {
+          "product": "数码配件及移动互联网服务",
+          "revenue_share": "约5%",
+          "customers": "存量终端用户与合作开发者生态",
+          "core_competitiveness": "终端装机量带来的分发能力"
+        }
+      ],
+      "key_customers_zh": "海外新兴市场消费者、区域渠道商与零售终端。",
+      "core_competitiveness_zh": "“品牌矩阵+本地化渠道+供应链效率”三位一体。",
+      "revenue_share_note_zh": "按公司年报披露口径整理，部分为近似估算。",
+      "sources": [
+        {
+          "title": "传音控股年度报告（上交所）",
+          "url": "http://www.sse.com.cn/"
+        }
+      ]
+    },
+    "600036.SS": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "medium_disclosed",
+      "business_intro_zh": "招商银行是以零售金融见长的股份制银行，收入结构由净利息收入、手续费及佣金收入、其他非息收入构成。",
+      "product_revenue_breakdown": [
+        {
+          "product": "净利息收入",
+          "revenue_share": "约62%",
+          "customers": "零售与对公存贷款客户",
+          "core_competitiveness": "低成本负债与精细化资产定价"
+        },
+        {
+          "product": "手续费及佣金收入",
+          "revenue_share": "约18%",
+          "customers": "财富管理、银行卡与结算客户",
+          "core_competitiveness": "零售客户基础与财富管理能力"
+        },
+        {
+          "product": "其他非息收入",
+          "revenue_share": "约20%",
+          "customers": "金融市场与同业客户",
+          "core_competitiveness": "综合金融与资产配置能力"
+        }
+      ],
+      "key_customers_zh": "零售客户、中高净值客群、中小企业与对公客户。",
+      "core_competitiveness_zh": "零售护城河、风控文化、数字化运营能力。",
+      "revenue_share_note_zh": "按年报利润表口径整理，为近似占比。",
+      "sources": [
+        {
+          "title": "招商银行投资者关系",
+          "url": "https://investor.cmbchina.com/"
+        }
+      ]
+    },
+    "600276.SS": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "low_estimated",
+      "business_intro_zh": "恒瑞医药是以创新药研发和商业化为核心的制药公司，收入结构正从传统仿制药向创新药与国际化授权转型。",
+      "product_revenue_breakdown": [
+        {
+          "product": "创新药及创新相关收入（含部分海外授权）",
+          "revenue_share": "约55%",
+          "customers": "医院终端、医保市场与海外合作方",
+          "core_competitiveness": "持续研发投入与临床管线储备"
+        },
+        {
+          "product": "成熟仿制药与传统品种",
+          "revenue_share": "约45%",
+          "customers": "国内医院与基层医疗终端",
+          "core_competitiveness": "销售网络与规模化生产能力"
+        }
+      ],
+      "key_customers_zh": "医院终端、医保支付体系、国际授权合作伙伴。",
+      "core_competitiveness_zh": "研发平台化能力、肿瘤与慢病等重点管线布局。",
+      "revenue_share_note_zh": "公司未长期按统一口径披露细分产品占比，以上为年报与公告推算值。",
+      "sources": [
+        {
+          "title": "恒瑞医药公告与年报",
+          "url": "http://www.sse.com.cn/"
+        }
+      ]
+    },
+    "601899.SS": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "medium_estimated",
+      "business_intro_zh": "紫金矿业是多金属资源公司，核心收入由铜和金驱动，兼具锌铅银等多品种结构。",
+      "product_revenue_breakdown": [
+        {
+          "product": "铜相关业务",
+          "revenue_share": "约36%",
+          "customers": "冶炼与金属加工企业",
+          "core_competitiveness": "资源储量与低成本矿山开发能力"
+        },
+        {
+          "product": "金相关业务",
+          "revenue_share": "约49%",
+          "customers": "黄金加工与金融投资链条客户",
+          "core_competitiveness": "高品位资源与全球项目布局"
+        },
+        {
+          "product": "锌铅银及其他",
+          "revenue_share": "约15%",
+          "customers": "有色金属产业链客户",
+          "core_competitiveness": "多金属组合与周期对冲能力"
+        }
+      ],
+      "key_customers_zh": "金属冶炼企业、加工企业及相关贸易客户。",
+      "core_competitiveness_zh": "全球化矿业资产组合、项目开发执行力与成本控制。",
+      "revenue_share_note_zh": "按年报产品结构口径近似整理。",
+      "sources": [
+        {
+          "title": "紫金矿业投资者关系",
+          "url": "https://www.zijinmining.com/investor/"
+        }
+      ]
+    },
+    "600900.SS": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "长江电力是大型水电运营商，核心资产为长江流域梯级电站，商业模式以稳定发电现金流为主。",
+      "product_revenue_breakdown": [
+        {
+          "product": "水电发电与售电",
+          "revenue_share": "约98%",
+          "customers": "国家电网/南方电网及相关电力交易主体",
+          "core_competitiveness": "优质水电资产、低边际成本、长周期现金流"
+        },
+        {
+          "product": "综合能源与其他",
+          "revenue_share": "约2%",
+          "customers": "区域能源与用电客户",
+          "core_competitiveness": "主业延伸与运营能力复用"
+        }
+      ],
+      "key_customers_zh": "电网公司与电力市场交易客户。",
+      "core_competitiveness_zh": "大水电资产稀缺性、运营稳定性、现金流质量高。",
+      "revenue_share_note_zh": "按年报收入结构口径整理。",
+      "sources": [
+        {
+          "title": "长江电力信息披露",
+          "url": "http://www.sse.com.cn/"
+        }
+      ]
+    },
+    "601318.SS": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "medium_estimated",
+      "business_intro_zh": "中国平安是综合金融集团，业务覆盖寿险健康险、财产险、银行、资管与科技服务。",
+      "product_revenue_breakdown": [
+        {
+          "product": "寿险及健康险",
+          "revenue_share": "约66%（按营运利润贡献口径）",
+          "customers": "个人与家庭保障、养老健康客户",
+          "core_competitiveness": "代理人体系与长期保单价值管理"
+        },
+        {
+          "product": "财产险",
+          "revenue_share": "约14%（按营运利润贡献口径）",
+          "customers": "车险与企业财险客户",
+          "core_competitiveness": "定价风控模型与规模效应"
+        },
+        {
+          "product": "银行及其他",
+          "revenue_share": "约20%（按营运利润贡献口径）",
+          "customers": "零售与对公金融客户",
+          "core_competitiveness": "综合金融交叉销售与客户经营"
+        }
+      ],
+      "key_customers_zh": "个人保险客户、车险客户、银行零售与对公客户。",
+      "core_competitiveness_zh": "综合金融平台能力、长期资金管理能力与数字化运营。",
+      "revenue_share_note_zh": "公司常用分部口径存在“收入/利润”差异，这里采用更稳定的营运利润贡献近似。",
+      "sources": [
+        {
+          "title": "中国平安投资者关系",
+          "url": "https://group.pingan.com/investors.html"
+        }
+      ]
+    },
+    "600519.SS": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "贵州茅台是高端白酒龙头，核心收入来自茅台酒主品牌，系列酒作为次增长曲线。",
+      "product_revenue_breakdown": [
+        {
+          "product": "茅台酒",
+          "revenue_share": "约85%",
+          "customers": "经销商体系、直销渠道与终端消费者",
+          "core_competitiveness": "品牌稀缺性、定价权与供给约束"
+        },
+        {
+          "product": "系列酒",
+          "revenue_share": "约15%",
+          "customers": "大众与次高端消费人群",
+          "core_competitiveness": "品牌背书与渠道复用"
+        }
+      ],
+      "key_customers_zh": "经销商、直销平台用户与礼赠消费场景客户。",
+      "core_competitiveness_zh": "强品牌心智、渠道控制力与现金流能力。",
+      "revenue_share_note_zh": "按年报产品收入结构近似整理。",
+      "sources": [
+        {
+          "title": "贵州茅台信息披露",
+          "url": "http://www.sse.com.cn/"
+        }
+      ]
+    }
+  }
+}

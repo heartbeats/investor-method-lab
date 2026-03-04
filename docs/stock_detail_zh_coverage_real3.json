@@ -1,0 +1,131 @@
+{
+  "generated_at_utc": "2026-03-04T02:38:27.742972+00:00",
+  "scope": "real3_clickable_tickers",
+  "total_tickers": 16,
+  "summary": {
+    "fully_structured": 16,
+    "disclosed_confidence": 12,
+    "estimated_confidence": 4
+  },
+  "confidence_distribution": {
+    "medium_disclosed": 7,
+    "medium_estimated": 3,
+    "low_estimated": 1,
+    "high_disclosed": 5
+  },
+  "fully_structured_ratio": 1.0,
+  "tickers": [
+    {
+      "ticker": "002594.SZ",
+      "status": "ok",
+      "confidence": "medium_disclosed",
+      "missing_fields": [],
+      "breakdown_items": 2
+    },
+    {
+      "ticker": "00981.HK",
+      "status": "ok",
+      "confidence": "medium_estimated",
+      "missing_fields": [],
+      "breakdown_items": 3
+    },
+    {
+      "ticker": "01211.HK",
+      "status": "ok",
+      "confidence": "medium_disclosed",
+      "missing_fields": [],
+      "breakdown_items": 2
+    },
+    {
+      "ticker": "03690.HK",
+      "status": "ok",
+      "confidence": "medium_disclosed",
+      "missing_fields": [],
+      "breakdown_items": 2
+    },
+    {
+      "ticker": "09618.HK",
+      "status": "ok",
+      "confidence": "medium_disclosed",
+      "missing_fields": [],
+      "breakdown_items": 2
+    },
+    {
+      "ticker": "09988.HK",
+      "status": "ok",
+      "confidence": "medium_disclosed",
+      "missing_fields": [],
+      "breakdown_items": 4
+    },
+    {
+      "ticker": "600036.SS",
+      "status": "ok",
+      "confidence": "medium_disclosed",
+      "missing_fields": [],
+      "breakdown_items": 3
+    },
+    {
+      "ticker": "600276.SS",
+      "status": "ok",
+      "confidence": "low_estimated",
+      "missing_fields": [],
+      "breakdown_items": 2
+    },
+    {
+      "ticker": "600519.SS",
+      "status": "ok",
+      "confidence": "high_disclosed",
+      "missing_fields": [],
+      "breakdown_items": 2
+    },
+    {
+      "ticker": "600900.SS",
+      "status": "ok",
+      "confidence": "high_disclosed",
+      "missing_fields": [],
+      "breakdown_items": 2
+    },
+    {
+      "ticker": "601318.SS",
+      "status": "ok",
+      "confidence": "medium_estimated",
+      "missing_fields": [],
+      "breakdown_items": 3
+    },
+    {
+      "ticker": "601899.SS",
+      "status": "ok",
+      "confidence": "medium_estimated",
+      "missing_fields": [],
+      "breakdown_items": 3
+    },
+    {
+      "ticker": "AAPL",
+      "status": "ok",
+      "confidence": "high_disclosed",
+      "missing_fields": [],
+      "breakdown_items": 5
+    },
+    {
+      "ticker": "JPM",
+      "status": "ok",
+      "confidence": "medium_disclosed",
+      "missing_fields": [],
+      "breakdown_items": 4
+    },
+    {
+      "ticker": "TSLA",
+      "status": "ok",
+      "confidence": "high_disclosed",
+      "missing_fields": [],
+      "breakdown_items": 3
+    },
+    {
+      "ticker": "UNH",
+      "status": "ok",
+      "confidence": "high_disclosed",
+      "missing_fields": [],
+      "breakdown_items": 4
+    }
+  ]
+}

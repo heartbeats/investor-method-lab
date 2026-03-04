@@ -30,11 +30,13 @@ python3 scripts/build_verified_investors.py --min-confidence B
 python3 scripts/build_real_opportunities.py
 python3 scripts/generate_top20_opportunity_pack.py --top 10 --per-group-top 5 --max-per-sector 2
 bash scripts/run_real_pack_3markets.sh
+bash scripts/run_real_pack_3markets_with_hub.sh
 python3 -m unittest discover -s tests
 ```
 
 `build_real_opportunities.py` 默认开启 24 小时缓存（`data/cache/yfinance`），用于非实时场景降低 API 限流风险；如需强制实时拉取可加 `--no-cache`。
 可选接入 `stock-data-hub`：设置 `IML_STOCK_DATA_HUB_URL=http://127.0.0.1:18123` 后，脚本会按需从 hub 兜底 `quote/external_valuation/fundamental`（仅在 Yahoo 缺失时触发）。
+可直接使用一键脚本自动拉起 hub 并运行：`bash scripts/run_real_pack_3markets_with_hub.sh`。
 
 `build_investor_profiles.py` 默认开启 24 小时缓存（`data/cache/holding_prices`），并按市场自动路由：
 - A/HK：`Futu OpenD -> Yahoo Finance`
@@ -153,6 +155,17 @@ bash scripts/run_dashboard.sh 8091
   - `output/top20_first_batch_opportunities_real_3markets.csv`
   - `output/top20_methodology_top5_by_group_real_3markets.csv`
   - `output/top20_diversified_opportunities_real_3markets.csv`
+  - `docs/dcf_special_focus_daily.md`（特别关注：逐公司深度 DCF 校准清单）
+  - `docs/opportunity_mining_daily.md`（机会挖掘：剔除特别关注后的新增机会）
+  - `docs/daily_dual_modules.json`（推送用结构化输出）
+
+#### 特别关注清单（可维护）
+
+- 清单文件：`data/dcf_special_focus_list.json`
+- 口径：该清单用于“特别关注池”（主仓跟踪）；默认由手工深度校准标的组成。
+- 运行时行为：
+  - 特别关注模块：按清单逐条输出估值跟踪。
+  - 机会挖掘模块：按机会池排序后自动排除清单标的。
 
 ## 7. 数据校准
 
@@ -209,3 +222,10 @@ bash scripts/install_pai_loop_cron.sh apply
 - 闭环报告输出：`output/pai_loop/latest_report.md`
 - 历史运行记录：`output/pai_loop/runs.jsonl`
 - 告警日志：`output/pai_loop/alert.log`
+- 成功推送（`real` 模式）会拆为两条：
+  - `【特别关注｜深度DCF校准】`
+  - `【机会挖掘｜新增候选】`
+- 推送前会自动生成：
+  - `output/pai_loop/latest_focus_daily.md`
+  - `output/pai_loop/latest_opportunity_daily.md`
+  - `output/pai_loop/latest_dual_daily_modules.json`

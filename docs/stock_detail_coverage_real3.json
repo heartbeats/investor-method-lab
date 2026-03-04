@@ -1,11 +1,11 @@
 {
   "as_of": "2026-03-04",
-  "clickable_ticker_count": 115,
-  "with_stock_profile_count": 81,
-  "with_opportunity_fallback_count": 115,
-  "with_trace_count": 115,
-  "fully_renderable_count": 115,
+  "clickable_ticker_count": 16,
+  "with_stock_profile_count": 16,
+  "with_opportunity_fallback_count": 16,
+  "with_trace_count": 16,
+  "fully_renderable_count": 16,
   "fully_renderable_ratio": 1.0,
-  "broken_count": 0,
-  "broken_tickers": []
+  "broken_tickers": [],
+  "broken_count": 0
 }

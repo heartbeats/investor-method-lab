@@ -30,20 +30,34 @@
 | 事件驱动激进 | 13.0% | 16.0% | 8.0% | 11.0% | 34.0% | 18.0% |
 | 信用周期 | 22.0% | 12.0% | 8.0% | 19.0% | 20.0% | 19.0% |
 
+### 执行规则（统一口径）
+
+| 分组 | 硬筛条件 | 软惩罚 |
+|---|---|---|
+| 价值质量复利 | MOS>=15%，质量>=65；若有确定性分则>=65。 | MOS<30% 折扣0.88；确定性<75 折扣0.92。 |
+| 行业复利 | MOS>=5%，质量>=70，风控>=45%。 | 成长<55 折扣0.93；催化<50 折扣0.95。 |
+| GARP 成长 | 成长>=55，质量>=60，P/FV<=1.25，风控>=35%。 | P/FV>1.05 折扣0.90；趋势<55 折扣0.93。 |
+| 深度价值修复 | MOS>=20%，催化>=50，风控>=30%。 | 质量<45 折扣0.90；趋势<40 折扣0.92。 |
+| 宏观周期 | 趋势>=55，催化>=55，风控>=30%。 | 成长<45 折扣0.95；MOS<0 折扣0.95。 |
+| 趋势跟随 | 趋势>=70，催化>=60，风控>=30%。 | P/FV>1.20 折扣0.90；质量<45 折扣0.93。 |
+| 系统化量化 | 质量/成长/趋势/催化均>=45，风控>=35%。 | MOS<0 折扣0.93。 |
+| 事件驱动激进 | 催化>=55，趋势>=40，风控>=30%，且P/FV<=1.80。 | MOS<5% 折扣0.95；质量<50 折扣0.95。 |
+| 信用周期 | MOS>=5%，催化>=50，风控>=45%。 | 趋势<50 折扣0.95；质量<45 折扣0.95。 |
+
 ## 3) 首批机会池 TOP10（组合评分）
 
 | 排名 | 代码 | 公司 | 行业 | 组合分 | 最匹配方法论 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|---|
-| 1 | 9618.HK | JD.com HK | Consumer Cyclical | 68.60 | 宏观周期 | 趋势:20.0 \| 催化:12.5 | HK ecommerce \| real-data@2026-03-02 \| close=101.30 \| target=150.73 \| fv_source=dcf_iv_base \| dcf_symbol=HK.09618 \| dcf_iv=390.50 \| upside=285.5% |
-| 2 | UNH | UnitedHealth | Healthcare | 65.90 | 宏观周期 | 趋势:16.3 \| 催化:15.5 | US healthcare \| real-data@2026-03-02 \| close=292.65 \| target=364.62 \| fv_source=dcf_iv_base \| dcf_symbol=US.UNH \| dcf_iv=463.98 \| upside=58.5% |
-| 3 | 3690.HK | Meituan | Consumer Cyclical | 64.38 | 宏观周期 | 趋势:23.6 \| 风控:11.8 | HK internet \| real-data@2026-03-02 \| close=77.40 \| target=119.03 \| fv_source=dcf_iv_base \| dcf_symbol=HK.3690 \| dcf_iv=189.70 \| upside=145.1% |
-| 4 | 1211.HK | BYD Company HK | Consumer Cyclical | 63.36 | 宏观周期 | 趋势:14.9 \| 催化:12.2 | HK auto \| real-data@2026-03-02 \| close=99.10 \| target=125.34 \| fv_source=dcf_iv_base \| dcf_symbol=HK.01211 \| dcf_iv=284.53 \| upside=187.1% |
-| 5 | 002594.SZ | 比亚迪A | Consumer Cyclical | 58.24 | 宏观周期 | 催化:13.4 \| 趋势:13.4 | A auto \| real-data@2026-03-02 \| close=96.79 \| target=122.03 \| fv_source=dcf_iv_base \| dcf_symbol=SZ.002594 \| dcf_iv=193.59 \| upside=100.0% |
-| 6 | 000858.SZ | 五粮液 | Consumer Defensive | 50.43 | 宏观周期 | 趋势:18.4 \| 催化:15.6 | A core \| real-data@2026-03-02 \| close=103.22 \| target=135.03 \| fv_source=dcf_iv_base \| dcf_symbol=SZ.000858 \| dcf_iv=208.89 \| upside=102.4% |
-| 7 | ADBE | Adobe | Technology | 49.43 | 宏观周期 | 趋势:22.6 \| 风控:13.5 | US software \| real-data@2026-03-02 \| close=259.35 \| target=408.47 \| fv_source=dcf_iv_base \| dcf_symbol=US.ADBE \| dcf_iv=383.45 \| upside=47.9% |
-| 8 | 9988.HK | Alibaba Group HK | Consumer Cyclical | 47.09 | 宏观周期 | 催化:12.1 \| 风控:11.3 | HK internet \| real-data@2026-03-02 \| close=136.40 \| target=195.51 \| fv_source=dcf_iv_base \| dcf_symbol=HK.09988 \| dcf_iv=179.44 \| upside=31.6% |
-| 9 | 9999.HK | NetEase HK | Communication Services | 45.83 | 宏观周期 | 趋势:17.7 \| 催化:12.5 | HK game \| real-data@2026-03-02 \| close=177.30 \| target=253.24 \| fv_source=dcf_iv_base \| dcf_symbol=HK.09999 \| dcf_iv=254.44 \| upside=43.5% |
-| 10 | 1810.HK | Xiaomi | Technology | 42.32 | 宏观周期 | 趋势:22.4 \| 风控:12.8 | HK hardware \| real-data@2026-03-02 \| close=33.14 \| target=52.36 \| fv_source=dcf_iv_base \| dcf_symbol=HK.01810 \| dcf_iv=35.56 \| upside=7.3% |
+| 1 | HPE | Hewlett Packard Enterprise | Technology | 70.77 | 宏观周期 | 催化:19.0 \| 风控:16.0 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=21.40 \| target=26.01 \| fv_source=target_mean_price \| upside=21.5% |
+| 2 | 000002.SZ | 万科A | Real Estate | 62.80 | 宏观周期 | 趋势:23.8 \| 催化:16.7 | A core \| CSI300 constituent \| weight=0.128% \| real-data@2026-03-03 \| close=4.67 \| target=5.30 \| fv_source=target_mean_price \| upside=13.4% |
+| 3 | CARR | Carrier Global | Industrials | 62.68 | 宏观周期 | 催化:17.8 \| 风控:14.8 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=61.38 \| target=71.80 \| fv_source=target_mean_price \| upside=17.0% |
+| 4 | HPQ | HP Inc. | Technology | 58.91 | 宏观周期 | 趋势:23.4 \| 催化:22.7 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=18.73 \| target=19.99 \| fv_source=target_mean_price \| upside=6.8% |
+| 5 | BBY | Best Buy | Consumer Cyclical | 57.32 | 宏观周期 | 趋势:20.8 \| 催化:20.4 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=65.20 \| target=77.37 \| fv_source=target_mean_price \| upside=18.7% |
+| 6 | 688036.SS | 传音控股 | Technology | 56.05 | 宏观周期 | 催化:25.1 \| 趋势:23.7 | A core \| CSI300 constituent \| weight=0.129% \| real-data@2026-03-03 \| close=54.08 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
+| 7 | 603260.SS | 合盛硅业 | Basic Materials | 54.46 | 宏观周期 | 催化:25.2 \| 趋势:18.8 | A core \| CSI300 constituent \| weight=0.071% \| real-data@2026-03-03 \| close=48.97 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
+| 8 | LEN | Lennar | Consumer Cyclical | 53.86 | 宏观周期 | 催化:25.3 \| 趋势:20.9 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=107.47 \| target=108.62 \| fv_source=target_mean_price \| upside=1.1% |
+| 9 | KMX | CarMax | Consumer Cyclical | 52.53 | 宏观周期 | 催化:25.9 \| 趋势:20.5 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=41.02 \| target=39.23 \| fv_source=target_mean_price \| upside=-4.4% |
+| 10 | IT | Gartner | Technology | 51.27 | 宏观周期 | 趋势:24.0 \| 催化:22.4 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=159.38 \| target=190.46 \| fv_source=target_mean_price \| upside=19.5% |
 
 ## 4) 各方法论 Top5 机会池
 
@@ -51,106 +65,106 @@
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | 9618.HK | JD.com HK | Consumer Cyclical | 71.18 | 质量:23.2 \| 安全边际:22.2 | HK ecommerce \| real-data@2026-03-02 \| close=101.30 \| target=150.73 \| fv_source=dcf_iv_base \| dcf_symbol=HK.09618 \| dcf_iv=390.50 \| upside=285.5% |
-| 2 | UNH | UnitedHealth | Healthcare | 64.22 | 质量:23.0 \| 风控:12.4 | US healthcare \| real-data@2026-03-02 \| close=292.65 \| target=364.62 \| fv_source=dcf_iv_base \| dcf_symbol=US.UNH \| dcf_iv=463.98 \| upside=58.5% |
-| 3 | 1211.HK | BYD Company HK | Consumer Cyclical | 60.67 | 质量:20.0 \| 安全边际:19.6 | HK auto \| real-data@2026-03-02 \| close=99.10 \| target=125.34 \| fv_source=dcf_iv_base \| dcf_symbol=HK.01211 \| dcf_iv=284.53 \| upside=187.1% |
-| 4 | 3690.HK | Meituan | Consumer Cyclical | 59.32 | 质量:21.8 \| 安全边际:17.8 | HK internet \| real-data@2026-03-02 \| close=77.40 \| target=119.03 \| fv_source=dcf_iv_base \| dcf_symbol=HK.3690 \| dcf_iv=189.70 \| upside=145.1% |
-| 5 | 002594.SZ | 比亚迪A | Consumer Cyclical | 54.77 | 质量:20.0 \| 安全边际:15.0 | A auto \| real-data@2026-03-02 \| close=96.79 \| target=122.03 \| fv_source=dcf_iv_base \| dcf_symbol=SZ.002594 \| dcf_iv=193.59 \| upside=100.0% |
+| 1 | 00881.HK | ZHONGSHENG HLDG | Consumer Cyclical | 83.55 | 安全边际:28.9 \| 质量:24.9 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-03 \| close=9.89 \| target=18.24 \| fv_source=target_mean_price \| upside=84.4% |
+| 2 | APTV | Aptiv | Consumer Cyclical | 82.34 | 安全边际:28.7 \| 质量:26.2 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=70.56 \| target=101.25 \| fv_source=target_mean_price \| upside=43.5% |
+| 3 | 00763.HK | ZTE | Technology | 81.19 | 安全边际:25.4 \| 质量:21.2 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-03 \| close=25.44 \| target=38.02 \| fv_source=target_mean_price \| upside=49.5% |
+| 4 | 300122.SZ | 智飞生物 | Healthcare | 80.83 | 安全边际:29.8 \| 质量:25.4 | A core \| CSI300 constituent \| weight=0.080% \| real-data@2026-03-03 \| close=15.98 \| target=24.78 \| fv_source=target_mean_price \| upside=55.1% |
+| 5 | 00656.HK | FOSUN INTL | Industrials | 80.29 | 质量:26.0 \| 安全边际:24.5 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-03 \| close=3.76 \| target=5.44 \| fv_source=target_mean_price \| upside=44.7% |
 
 ### 行业复利
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | 9618.HK | JD.com HK | Consumer Cyclical | 71.62 | 质量:21.6 \| 安全边际:14.8 | HK ecommerce \| real-data@2026-03-02 \| close=101.30 \| target=150.73 \| fv_source=dcf_iv_base \| dcf_symbol=HK.09618 \| dcf_iv=390.50 \| upside=285.5% |
-| 2 | UNH | UnitedHealth | Healthcare | 68.90 | 质量:21.4 \| 成长:16.7 | US healthcare \| real-data@2026-03-02 \| close=292.65 \| target=364.62 \| fv_source=dcf_iv_base \| dcf_symbol=US.UNH \| dcf_iv=463.98 \| upside=58.5% |
-| 3 | 1211.HK | BYD Company HK | Consumer Cyclical | 68.47 | 质量:18.6 \| 成长:17.1 | HK auto \| real-data@2026-03-02 \| close=99.10 \| target=125.34 \| fv_source=dcf_iv_base \| dcf_symbol=HK.01211 \| dcf_iv=284.53 \| upside=187.1% |
-| 4 | 3690.HK | Meituan | Consumer Cyclical | 65.92 | 质量:20.2 \| 成长:11.9 | HK internet \| real-data@2026-03-02 \| close=77.40 \| target=119.03 \| fv_source=dcf_iv_base \| dcf_symbol=HK.3690 \| dcf_iv=189.70 \| upside=145.1% |
-| 5 | 002594.SZ | 比亚迪A | Consumer Cyclical | 63.50 | 质量:18.6 \| 成长:17.1 | A auto \| real-data@2026-03-02 \| close=96.79 \| target=122.03 \| fv_source=dcf_iv_base \| dcf_symbol=SZ.002594 \| dcf_iv=193.59 \| upside=100.0% |
+| 1 | 000002.SZ | 万科A | Real Estate | 83.58 | 质量:25.8 \| 安全边际:15.6 | A core \| CSI300 constituent \| weight=0.128% \| real-data@2026-03-03 \| close=4.67 \| target=5.30 \| fv_source=target_mean_price \| upside=13.4% |
+| 2 | 00763.HK | ZTE | Technology | 82.89 | 质量:19.7 \| 成长:18.6 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-03 \| close=25.44 \| target=38.02 \| fv_source=target_mean_price \| upside=49.5% |
+| 3 | HPE | Hewlett Packard Enterprise | Technology | 82.60 | 质量:25.0 \| 成长:16.8 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=21.40 \| target=26.01 \| fv_source=target_mean_price \| upside=21.5% |
+| 4 | 00656.HK | FOSUN INTL | Industrials | 81.27 | 质量:24.2 \| 成长:16.4 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-03 \| close=3.76 \| target=5.44 \| fv_source=target_mean_price \| upside=44.7% |
+| 5 | 00341.HK | CAFE DE CORAL H | Consumer Cyclical | 80.78 | 质量:22.8 \| 成长:19.6 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-03 \| close=4.73 \| target=7.99 \| fv_source=target_mean_price \| upside=68.9% |
 
 ### GARP 成长
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | 9618.HK | JD.com HK | Consumer Cyclical | 70.92 | 成长:22.4 \| 质量:16.6 | HK ecommerce \| real-data@2026-03-02 \| close=101.30 \| target=150.73 \| fv_source=dcf_iv_base \| dcf_symbol=HK.09618 \| dcf_iv=390.50 \| upside=285.5% |
-| 2 | UNH | UnitedHealth | Healthcare | 70.43 | 成长:26.8 \| 质量:16.4 | US healthcare \| real-data@2026-03-02 \| close=292.65 \| target=364.62 \| fv_source=dcf_iv_base \| dcf_symbol=US.UNH \| dcf_iv=463.98 \| upside=58.5% |
-| 3 | 1211.HK | BYD Company HK | Consumer Cyclical | 70.07 | 成长:27.3 \| 质量:14.3 | HK auto \| real-data@2026-03-02 \| close=99.10 \| target=125.34 \| fv_source=dcf_iv_base \| dcf_symbol=HK.01211 \| dcf_iv=284.53 \| upside=187.1% |
-| 4 | 002594.SZ | 比亚迪A | Consumer Cyclical | 66.51 | 成长:27.3 \| 质量:14.3 | A auto \| real-data@2026-03-02 \| close=96.79 \| target=122.03 \| fv_source=dcf_iv_base \| dcf_symbol=SZ.002594 \| dcf_iv=193.59 \| upside=100.0% |
-| 5 | 3690.HK | Meituan | Consumer Cyclical | 64.88 | 成长:19.0 \| 质量:15.5 | HK internet \| real-data@2026-03-02 \| close=77.40 \| target=119.03 \| fv_source=dcf_iv_base \| dcf_symbol=HK.3690 \| dcf_iv=189.70 \| upside=145.1% |
+| 1 | BLDR | Builders FirstSource | Industrials | 89.66 | 成长:31.9 \| 质量:18.1 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=97.87 \| target=127.29 \| fv_source=target_mean_price \| upside=30.1% |
+| 2 | 00341.HK | CAFE DE CORAL H | Consumer Cyclical | 83.94 | 成长:31.3 \| 质量:17.5 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-03 \| close=4.73 \| target=7.99 \| fv_source=target_mean_price \| upside=68.9% |
+| 3 | 00881.HK | ZHONGSHENG HLDG | Consumer Cyclical | 83.75 | 成长:30.3 \| 质量:17.7 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-03 \| close=9.89 \| target=18.24 \| fv_source=target_mean_price \| upside=84.4% |
+| 4 | 00763.HK | ZTE | Technology | 83.70 | 成长:29.7 \| 质量:15.1 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-03 \| close=25.44 \| target=38.02 \| fv_source=target_mean_price \| upside=49.5% |
+| 5 | 603260.SS | 合盛硅业 | Basic Materials | 83.61 | 成长:31.8 \| 质量:18.6 | A core \| CSI300 constituent \| weight=0.071% \| real-data@2026-03-03 \| close=48.97 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
 
 ### 深度价值修复
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | 9618.HK | JD.com HK | Consumer Cyclical | 67.39 | 安全边际:26.7 \| 风控:13.2 | HK ecommerce \| real-data@2026-03-02 \| close=101.30 \| target=150.73 \| fv_source=dcf_iv_base \| dcf_symbol=HK.09618 \| dcf_iv=390.50 \| upside=285.5% |
-| 2 | 1211.HK | BYD Company HK | Consumer Cyclical | 62.69 | 安全边际:23.5 \| 风控:13.8 | HK auto \| real-data@2026-03-02 \| close=99.10 \| target=125.34 \| fv_source=dcf_iv_base \| dcf_symbol=HK.01211 \| dcf_iv=284.53 \| upside=187.1% |
-| 3 | 3690.HK | Meituan | Consumer Cyclical | 60.80 | 安全边际:21.3 \| 风控:13.7 | HK internet \| real-data@2026-03-02 \| close=77.40 \| target=119.03 \| fv_source=dcf_iv_base \| dcf_symbol=HK.3690 \| dcf_iv=189.70 \| upside=145.1% |
-| 4 | UNH | UnitedHealth | Healthcare | 59.24 | 风控:16.3 \| 安全边际:13.3 | US healthcare \| real-data@2026-03-02 \| close=292.65 \| target=364.62 \| fv_source=dcf_iv_base \| dcf_symbol=US.UNH \| dcf_iv=463.98 \| upside=58.5% |
-| 5 | 002594.SZ | 比亚迪A | Consumer Cyclical | 54.96 | 安全边际:18.0 \| 催化:11.4 | A auto \| real-data@2026-03-02 \| close=96.79 \| target=122.03 \| fv_source=dcf_iv_base \| dcf_symbol=SZ.002594 \| dcf_iv=193.59 \| upside=100.0% |
+| 1 | BLDR | Builders FirstSource | Industrials | 84.21 | 安全边际:30.5 \| 风控:20.0 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=97.87 \| target=127.29 \| fv_source=target_mean_price \| upside=30.1% |
+| 2 | 00763.HK | ZTE | Technology | 81.00 | 安全边际:30.5 \| 风控:19.2 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-03 \| close=25.44 \| target=38.02 \| fv_source=target_mean_price \| upside=49.5% |
+| 3 | LKQ | LKQ Corporation | Consumer Cyclical | 75.91 | 安全边际:30.0 \| 风控:15.6 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=31.78 \| target=40.94 \| fv_source=target_mean_price \| upside=28.8% |
+| 4 | GPN | Global Payments | Industrials | 74.71 | 安全边际:30.7 \| 风控:17.0 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=77.68 \| target=101.85 \| fv_source=target_mean_price \| upside=31.1% |
+| 5 | AJG | Arthur J. Gallagher & Co. | Financial Services | 71.04 | 安全边际:28.5 \| 催化:13.6 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=225.28 \| target=281.94 \| fv_source=target_mean_price \| upside=25.2% |
 
 ### 宏观周期
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | UNH | UnitedHealth | Healthcare | 68.54 | 趋势:16.3 \| 催化:15.5 | US healthcare \| real-data@2026-03-02 \| close=292.65 \| target=364.62 \| fv_source=dcf_iv_base \| dcf_symbol=US.UNH \| dcf_iv=463.98 \| upside=58.5% |
-| 2 | 9618.HK | JD.com HK | Consumer Cyclical | 68.15 | 趋势:20.0 \| 催化:12.5 | HK ecommerce \| real-data@2026-03-02 \| close=101.30 \| target=150.73 \| fv_source=dcf_iv_base \| dcf_symbol=HK.09618 \| dcf_iv=390.50 \| upside=285.5% |
-| 3 | 3690.HK | Meituan | Consumer Cyclical | 67.38 | 趋势:23.6 \| 风控:11.8 | HK internet \| real-data@2026-03-02 \| close=77.40 \| target=119.03 \| fv_source=dcf_iv_base \| dcf_symbol=HK.3690 \| dcf_iv=189.70 \| upside=145.1% |
-| 4 | 1211.HK | BYD Company HK | Consumer Cyclical | 63.00 | 趋势:14.9 \| 催化:12.2 | HK auto \| real-data@2026-03-02 \| close=99.10 \| target=125.34 \| fv_source=dcf_iv_base \| dcf_symbol=HK.01211 \| dcf_iv=284.53 \| upside=187.1% |
-| 5 | ADBE | Adobe | Technology | 61.22 | 趋势:22.6 \| 风控:13.5 | US software \| real-data@2026-03-02 \| close=259.35 \| target=408.47 \| fv_source=dcf_iv_base \| dcf_symbol=US.ADBE \| dcf_iv=383.45 \| upside=47.9% |
+| 1 | 688036.SS | 传音控股 | Technology | 87.62 | 催化:25.1 \| 趋势:23.7 | A core \| CSI300 constituent \| weight=0.129% \| real-data@2026-03-03 \| close=54.08 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
+| 2 | BBY | Best Buy | Consumer Cyclical | 83.94 | 趋势:20.8 \| 催化:20.4 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=65.20 \| target=77.37 \| fv_source=target_mean_price \| upside=18.7% |
+| 3 | KMX | CarMax | Consumer Cyclical | 83.69 | 催化:25.9 \| 趋势:20.5 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=41.02 \| target=39.23 \| fv_source=target_mean_price \| upside=-4.4% |
+| 4 | IT | Gartner | Technology | 83.59 | 趋势:24.0 \| 催化:22.4 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=159.38 \| target=190.46 \| fv_source=target_mean_price \| upside=19.5% |
+| 5 | 000002.SZ | 万科A | Real Estate | 82.67 | 趋势:23.8 \| 催化:16.7 | A core \| CSI300 constituent \| weight=0.128% \| real-data@2026-03-03 \| close=4.67 \| target=5.30 \| fv_source=target_mean_price \| upside=13.4% |
 
 ### 趋势跟随
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | 3690.HK | Meituan | Consumer Cyclical | 73.36 | 趋势:40.4 \| 催化:9.5 | HK internet \| real-data@2026-03-02 \| close=77.40 \| target=119.03 \| fv_source=dcf_iv_base \| dcf_symbol=HK.3690 \| dcf_iv=189.70 \| upside=145.1% |
-| 2 | 9618.HK | JD.com HK | Consumer Cyclical | 71.02 | 趋势:34.2 \| 催化:11.1 | HK ecommerce \| real-data@2026-03-02 \| close=101.30 \| target=150.73 \| fv_source=dcf_iv_base \| dcf_symbol=HK.09618 \| dcf_iv=390.50 \| upside=285.5% |
-| 3 | UNH | UnitedHealth | Healthcare | 68.53 | 趋势:27.8 \| 催化:13.7 | US healthcare \| real-data@2026-03-02 \| close=292.65 \| target=364.62 \| fv_source=dcf_iv_base \| dcf_symbol=US.UNH \| dcf_iv=463.98 \| upside=58.5% |
-| 4 | ADBE | Adobe | Technology | 68.14 | 趋势:38.7 \| 催化:11.6 | US software \| real-data@2026-03-02 \| close=259.35 \| target=408.47 \| fv_source=dcf_iv_base \| dcf_symbol=US.ADBE \| dcf_iv=383.45 \| upside=47.9% |
-| 5 | 000858.SZ | 五粮液 | Consumer Defensive | 66.37 | 趋势:31.4 \| 催化:13.8 | A core \| real-data@2026-03-02 \| close=103.22 \| target=135.03 \| fv_source=dcf_iv_base \| dcf_symbol=SZ.000858 \| dcf_iv=208.89 \| upside=102.4% |
+| 1 | 688036.SS | 传音控股 | Technology | 91.47 | 趋势:40.5 \| 催化:22.2 | A core \| CSI300 constituent \| weight=0.129% \| real-data@2026-03-03 \| close=54.08 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
+| 2 | KMX | CarMax | Consumer Cyclical | 88.64 | 趋势:35.0 \| 催化:22.9 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=41.02 \| target=39.23 \| fv_source=target_mean_price \| upside=-4.4% |
+| 3 | LEN | Lennar | Consumer Cyclical | 85.09 | 趋势:35.7 \| 催化:22.3 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=107.47 \| target=108.62 \| fv_source=target_mean_price \| upside=1.1% |
+| 4 | HPQ | HP Inc. | Technology | 84.92 | 趋势:40.0 \| 催化:20.1 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=18.73 \| target=19.99 \| fv_source=target_mean_price \| upside=6.8% |
+| 5 | 603260.SS | 合盛硅业 | Basic Materials | 83.53 | 趋势:32.0 \| 催化:22.3 | A core \| CSI300 constituent \| weight=0.071% \| real-data@2026-03-03 \| close=48.97 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
 
 ### 系统化量化
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | 9618.HK | JD.com HK | Consumer Cyclical | 71.22 | 质量:19.9 \| 安全边际:18.5 | HK ecommerce \| real-data@2026-03-02 \| close=101.30 \| target=150.73 \| fv_source=dcf_iv_base \| dcf_symbol=HK.09618 \| dcf_iv=390.50 \| upside=285.5% |
-| 2 | 3690.HK | Meituan | Consumer Cyclical | 66.36 | 质量:18.6 \| 安全边际:14.8 | HK internet \| real-data@2026-03-02 \| close=77.40 \| target=119.03 \| fv_source=dcf_iv_base \| dcf_symbol=HK.3690 \| dcf_iv=189.70 \| upside=145.1% |
-| 3 | 1211.HK | BYD Company HK | Consumer Cyclical | 66.13 | 质量:17.1 \| 安全边际:16.3 | HK auto \| real-data@2026-03-02 \| close=99.10 \| target=125.34 \| fv_source=dcf_iv_base \| dcf_symbol=HK.01211 \| dcf_iv=284.53 \| upside=187.1% |
-| 4 | UNH | UnitedHealth | Healthcare | 65.99 | 质量:19.7 \| 风控:16.3 | US healthcare \| real-data@2026-03-02 \| close=292.65 \| target=364.62 \| fv_source=dcf_iv_base \| dcf_symbol=US.UNH \| dcf_iv=463.98 \| upside=58.5% |
-| 5 | 002594.SZ | 比亚迪A | Consumer Cyclical | 59.36 | 质量:17.1 \| 安全边际:12.5 | A auto \| real-data@2026-03-02 \| close=96.79 \| target=122.03 \| fv_source=dcf_iv_base \| dcf_symbol=SZ.002594 \| dcf_iv=193.59 \| upside=100.0% |
+| 1 | BLDR | Builders FirstSource | Industrials | 88.12 | 质量:21.8 \| 安全边际:21.2 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=97.87 \| target=127.29 \| fv_source=target_mean_price \| upside=30.1% |
+| 2 | 000002.SZ | 万科A | Real Estate | 84.33 | 质量:23.8 \| 安全边际:19.5 | A core \| CSI300 constituent \| weight=0.128% \| real-data@2026-03-03 \| close=4.67 \| target=5.30 \| fv_source=target_mean_price \| upside=13.4% |
+| 3 | 00763.HK | ZTE | Technology | 82.71 | 安全边际:21.2 \| 风控:19.2 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-03 \| close=25.44 \| target=38.02 \| fv_source=target_mean_price \| upside=49.5% |
+| 4 | HPE | Hewlett Packard Enterprise | Technology | 81.96 | 质量:23.1 \| 风控:18.7 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=21.40 \| target=26.01 \| fv_source=target_mean_price \| upside=21.5% |
+| 5 | BBY | Best Buy | Consumer Cyclical | 81.27 | 质量:19.6 \| 风控:19.5 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=65.20 \| target=77.37 \| fv_source=target_mean_price \| upside=18.7% |
 
 ### 事件驱动激进
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | UNH | UnitedHealth | Healthcare | 66.27 | 催化:20.2 \| 风控:13.9 | US healthcare \| real-data@2026-03-02 \| close=292.65 \| target=364.62 \| fv_source=dcf_iv_base \| dcf_symbol=US.UNH \| dcf_iv=463.98 \| upside=58.5% |
-| 2 | 9618.HK | JD.com HK | Consumer Cyclical | 65.36 | 催化:16.4 \| 质量:13.3 | HK ecommerce \| real-data@2026-03-02 \| close=101.30 \| target=150.73 \| fv_source=dcf_iv_base \| dcf_symbol=HK.09618 \| dcf_iv=390.50 \| upside=285.5% |
-| 3 | 3690.HK | Meituan | Consumer Cyclical | 61.59 | 催化:14.1 \| 质量:12.4 | HK internet \| real-data@2026-03-02 \| close=77.40 \| target=119.03 \| fv_source=dcf_iv_base \| dcf_symbol=HK.3690 \| dcf_iv=189.70 \| upside=145.1% |
-| 4 | 1211.HK | BYD Company HK | Consumer Cyclical | 61.38 | 催化:16.0 \| 风控:11.8 | HK auto \| real-data@2026-03-02 \| close=99.10 \| target=125.34 \| fv_source=dcf_iv_base \| dcf_symbol=HK.01211 \| dcf_iv=284.53 \| upside=187.1% |
-| 5 | 002594.SZ | 比亚迪A | Consumer Cyclical | 57.72 | 催化:17.5 \| 质量:11.4 | A auto \| real-data@2026-03-02 \| close=96.79 \| target=122.03 \| fv_source=dcf_iv_base \| dcf_symbol=SZ.002594 \| dcf_iv=193.59 \| upside=100.0% |
+| 1 | BBY | Best Buy | Consumer Cyclical | 81.95 | 催化:26.6 \| 风控:16.7 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=65.20 \| target=77.37 \| fv_source=target_mean_price \| upside=18.7% |
+| 2 | KMX | CarMax | Consumer Cyclical | 80.96 | 催化:33.9 \| 风控:17.8 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=41.02 \| target=39.23 \| fv_source=target_mean_price \| upside=-4.4% |
+| 3 | 000002.SZ | 万科A | Real Estate | 79.84 | 催化:21.8 \| 质量:15.9 | A core \| CSI300 constituent \| weight=0.128% \| real-data@2026-03-03 \| close=4.67 \| target=5.30 \| fv_source=target_mean_price \| upside=13.4% |
+| 4 | HPE | Hewlett Packard Enterprise | Technology | 79.39 | 催化:24.9 \| 风控:16.0 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=21.40 \| target=26.01 \| fv_source=target_mean_price \| upside=21.5% |
+| 5 | 688036.SS | 传音控股 | Technology | 79.02 | 催化:32.8 \| 风控:16.4 | A core \| CSI300 constituent \| weight=0.129% \| real-data@2026-03-03 \| close=54.08 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
 
 ### 信用周期
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | 9618.HK | JD.com HK | Consumer Cyclical | 69.29 | 安全边际:16.3 \| 趋势:15.9 | HK ecommerce \| real-data@2026-03-02 \| close=101.30 \| target=150.73 \| fv_source=dcf_iv_base \| dcf_symbol=HK.09618 \| dcf_iv=390.50 \| upside=285.5% |
-| 2 | 3690.HK | Meituan | Consumer Cyclical | 66.53 | 趋势:18.7 \| 安全边际:13.0 | HK internet \| real-data@2026-03-02 \| close=77.40 \| target=119.03 \| fv_source=dcf_iv_base \| dcf_symbol=HK.3690 \| dcf_iv=189.70 \| upside=145.1% |
-| 3 | UNH | UnitedHealth | Healthcare | 64.17 | 风控:14.7 \| 趋势:12.9 | US healthcare \| real-data@2026-03-02 \| close=292.65 \| target=364.62 \| fv_source=dcf_iv_base \| dcf_symbol=US.UNH \| dcf_iv=463.98 \| upside=58.5% |
-| 4 | 1211.HK | BYD Company HK | Consumer Cyclical | 63.43 | 安全边际:14.3 \| 风控:12.5 | HK auto \| real-data@2026-03-02 \| close=99.10 \| target=125.34 \| fv_source=dcf_iv_base \| dcf_symbol=HK.01211 \| dcf_iv=284.53 \| upside=187.1% |
-| 5 | 002594.SZ | 比亚迪A | Consumer Cyclical | 57.12 | 安全边际:11.0 \| 趋势:10.6 | A auto \| real-data@2026-03-02 \| close=96.79 \| target=122.03 \| fv_source=dcf_iv_base \| dcf_symbol=SZ.002594 \| dcf_iv=193.59 \| upside=100.0% |
+| 1 | BLDR | Builders FirstSource | Industrials | 86.34 | 安全边际:18.6 \| 风控:18.1 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=97.87 \| target=127.29 \| fv_source=target_mean_price \| upside=30.1% |
+| 2 | 000002.SZ | 万科A | Real Estate | 82.71 | 趋势:18.8 \| 安全边际:17.2 | A core \| CSI300 constituent \| weight=0.128% \| real-data@2026-03-03 \| close=4.67 \| target=5.30 \| fv_source=target_mean_price \| upside=13.4% |
+| 3 | 00763.HK | ZTE | Technology | 82.53 | 安全边际:18.6 \| 趋势:17.3 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-03 \| close=25.44 \| target=38.02 \| fv_source=target_mean_price \| upside=49.5% |
+| 4 | BBY | Best Buy | Consumer Cyclical | 81.64 | 风控:17.6 \| 趋势:16.5 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=65.20 \| target=77.37 \| fv_source=target_mean_price \| upside=18.7% |
+| 5 | HPE | Hewlett Packard Enterprise | Technology | 77.83 | 风控:16.9 \| 安全边际:16.0 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=21.40 \| target=26.01 \| fv_source=target_mean_price \| upside=21.5% |
 
 ## 5) 行业分散约束版 TOP10（单行业最多 2 个）
 
 | 排名 | 代码 | 公司 | 行业 | 组合分 | 最匹配方法论 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|---|
-| 1 | 9618.HK | JD.com HK | Consumer Cyclical | 68.60 | 宏观周期 | 趋势:20.0 \| 催化:12.5 | HK ecommerce \| real-data@2026-03-02 \| close=101.30 \| target=150.73 \| fv_source=dcf_iv_base \| dcf_symbol=HK.09618 \| dcf_iv=390.50 \| upside=285.5% |
-| 2 | UNH | UnitedHealth | Healthcare | 65.90 | 宏观周期 | 趋势:16.3 \| 催化:15.5 | US healthcare \| real-data@2026-03-02 \| close=292.65 \| target=364.62 \| fv_source=dcf_iv_base \| dcf_symbol=US.UNH \| dcf_iv=463.98 \| upside=58.5% |
-| 3 | 3690.HK | Meituan | Consumer Cyclical | 64.38 | 宏观周期 | 趋势:23.6 \| 风控:11.8 | HK internet \| real-data@2026-03-02 \| close=77.40 \| target=119.03 \| fv_source=dcf_iv_base \| dcf_symbol=HK.3690 \| dcf_iv=189.70 \| upside=145.1% |
-| 4 | 000858.SZ | 五粮液 | Consumer Defensive | 50.43 | 宏观周期 | 趋势:18.4 \| 催化:15.6 | A core \| real-data@2026-03-02 \| close=103.22 \| target=135.03 \| fv_source=dcf_iv_base \| dcf_symbol=SZ.000858 \| dcf_iv=208.89 \| upside=102.4% |
-| 5 | ADBE | Adobe | Technology | 49.43 | 宏观周期 | 趋势:22.6 \| 风控:13.5 | US software \| real-data@2026-03-02 \| close=259.35 \| target=408.47 \| fv_source=dcf_iv_base \| dcf_symbol=US.ADBE \| dcf_iv=383.45 \| upside=47.9% |
-| 6 | 9999.HK | NetEase HK | Communication Services | 45.83 | 宏观周期 | 趋势:17.7 \| 催化:12.5 | HK game \| real-data@2026-03-02 \| close=177.30 \| target=253.24 \| fv_source=dcf_iv_base \| dcf_symbol=HK.09999 \| dcf_iv=254.44 \| upside=43.5% |
-| 7 | 1810.HK | Xiaomi | Technology | 42.32 | 宏观周期 | 趋势:22.4 \| 风控:12.8 | HK hardware \| real-data@2026-03-02 \| close=33.14 \| target=52.36 \| fv_source=dcf_iv_base \| dcf_symbol=HK.01810 \| dcf_iv=35.56 \| upside=7.3% |
-| 8 | JPM | JPMorgan | Financial Services | 41.54 | 宏观周期 | 催化:16.9 \| 成长:8.5 | US quality \| real-data@2026-03-02 \| close=298.48 \| target=344.35 \| fv_source=target_mean_price \| dcf_symbol=US.JPM \| upside=15.4% |
-| 9 | BRK.B | Berkshire Hathaway | Financial Services | 39.73 | 宏观周期 | 催化:19.4 \| 趋势:13.0 | US quality \| real-data@2026-03-02 \| close=483.75 \| target=526.00 \| fv_source=dcf_iv_base \| dcf_symbol=US.BRK-B \| dcf_iv=471.41 \| upside=-2.6% |
-| 10 | 0700.HK | Tencent Holdings | Communication Services | 35.72 | 宏观周期 | 趋势:17.0 \| 催化:10.2 | HK core \| real-data@2026-03-02 \| close=514.00 \| target=755.60 \| fv_source=dcf_iv_base \| dcf_symbol=HK.00700 \| dcf_iv=573.16 \| upside=11.5% |
+| 1 | HPE | Hewlett Packard Enterprise | Technology | 70.77 | 宏观周期 | 催化:19.0 \| 风控:16.0 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=21.40 \| target=26.01 \| fv_source=target_mean_price \| upside=21.5% |
+| 2 | 000002.SZ | 万科A | Real Estate | 62.80 | 宏观周期 | 趋势:23.8 \| 催化:16.7 | A core \| CSI300 constituent \| weight=0.128% \| real-data@2026-03-03 \| close=4.67 \| target=5.30 \| fv_source=target_mean_price \| upside=13.4% |
+| 3 | CARR | Carrier Global | Industrials | 62.68 | 宏观周期 | 催化:17.8 \| 风控:14.8 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=61.38 \| target=71.80 \| fv_source=target_mean_price \| upside=17.0% |
+| 4 | HPQ | HP Inc. | Technology | 58.91 | 宏观周期 | 趋势:23.4 \| 催化:22.7 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=18.73 \| target=19.99 \| fv_source=target_mean_price \| upside=6.8% |
+| 5 | BBY | Best Buy | Consumer Cyclical | 57.32 | 宏观周期 | 趋势:20.8 \| 催化:20.4 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=65.20 \| target=77.37 \| fv_source=target_mean_price \| upside=18.7% |
+| 6 | 603260.SS | 合盛硅业 | Basic Materials | 54.46 | 宏观周期 | 催化:25.2 \| 趋势:18.8 | A core \| CSI300 constituent \| weight=0.071% \| real-data@2026-03-03 \| close=48.97 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
+| 7 | LEN | Lennar | Consumer Cyclical | 53.86 | 宏观周期 | 催化:25.3 \| 趋势:20.9 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=107.47 \| target=108.62 \| fv_source=target_mean_price \| upside=1.1% |
+| 8 | CPB | Campbell's Company (The) | Consumer Defensive | 49.68 | 宏观周期 | 趋势:21.7 \| 催化:19.5 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=26.05 \| target=31.06 \| fv_source=target_mean_price \| upside=19.2% |
+| 9 | KHC | Kraft Heinz | Consumer Defensive | 49.08 | 宏观周期 | 催化:24.6 \| 趋势:19.6 | US core \| S&P500 constituent \| real-data@2026-03-03 \| close=24.16 \| target=25.13 \| fv_source=target_mean_price \| upside=4.0% |
+| 10 | 601618.SS | 中国中冶 | Industrials | 48.89 | 宏观周期 | 催化:25.0 \| 趋势:14.5 | A core \| CSI300 constituent \| weight=0.089% \| real-data@2026-03-03 \| close=3.12 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
 
 ## 6) 安全边际口径参照
 

@@ -118,6 +118,67 @@ PY
   return 0
 }
 
+build_dual_module_message() {
+  local json_file="$1"
+  local module_key="$2"
+  "$PYTHON_BIN" - "$json_file" "$module_key" <<'PY'
+import json
+import sys
+
+payload = json.loads(open(sys.argv[1], "r", encoding="utf-8").read())
+module = payload.get(sys.argv[2]) or {}
+title = str(module.get("title") or "").strip()
+lines = module.get("message_lines") or []
+out = [title] if title else []
+for line in lines:
+    text = str(line).strip()
+    if text:
+        out.append(text)
+print("\n".join(out))
+PY
+}
+
+send_split_daily_modules() {
+  local modules_json="$LOG_DIR/latest_dual_daily_modules.json"
+  local focus_md="$LOG_DIR/latest_focus_daily.md"
+  local opportunity_md="$LOG_DIR/latest_opportunity_daily.md"
+  local build_log="/tmp/pai_dual_daily_modules.log"
+
+  set +e
+  "$PYTHON_BIN" "$ROOT_DIR/scripts/build_dual_daily_modules.py" \
+    --top-file "$ROOT_DIR/output/top20_first_batch_opportunities_real.csv" \
+    --real-file "$ROOT_DIR/data/opportunities.real.csv" \
+    --meta-file "$ROOT_DIR/docs/opportunities_real_data_meta.json" \
+    --output-focus-md "$focus_md" \
+    --output-opportunity-md "$opportunity_md" \
+    --output-json "$modules_json" \
+    --opportunity-top "${PAI_OPPORTUNITY_TOP:-10}" \
+    --message-top "${PAI_MESSAGE_TOP:-8}" >"$build_log" 2>&1
+  local build_rc=$?
+  set -e
+  if [ "$build_rc" -ne 0 ] || [ ! -f "$modules_json" ]; then
+    local detail
+    detail="$(tail -n 1 "$build_log" 2>/dev/null || true)"
+    log_alert "[dual-modules-build-failed] rc=$build_rc detail=${detail}"
+    return 1
+  fi
+
+  local focus_msg
+  local opportunity_msg
+  focus_msg="$(build_dual_module_message "$modules_json" "focus_module")"
+  opportunity_msg="$(build_dual_module_message "$modules_json" "opportunity_module")"
+
+  if [ -z "$focus_msg" ] || [ -z "$opportunity_msg" ]; then
+    log_alert "[dual-modules-message-empty] json=$modules_json"
+    return 1
+  fi
+
+  send_feishu_text "$focus_msg"
+  send_feishu_text "$opportunity_msg"
+  log_alert "[dual-modules-sent] json=$modules_json"
+  return 0
+}
+
 cd "$ROOT_DIR"
 echo "[pai-loop-guard] mode=$RUN_LABEL started_at=$(timestamp)"
 
@@ -152,12 +213,16 @@ if [ "$rc" -ne 0 ]; then
 fi
 
 if [ "${PAI_NOTIFY_ON_SUCCESS:-0}" = "1" ]; then
-  success_text=$'【PAI闭环成功】\n'
-  success_text+=$"模式: ${RUN_LABEL}\n"
-  success_text+=$"主机: ${host_name}\n"
-  success_text+=$"时间: $(timestamp)\n"
-  success_text+=$"报告: ${report_path}"
-  send_feishu_text "$success_text"
+  if [ "$RUN_LABEL" = "real" ] && send_split_daily_modules; then
+    :
+  else
+    success_text=$'【PAI闭环成功】\n'
+    success_text+=$"模式: ${RUN_LABEL}\n"
+    success_text+=$"主机: ${host_name}\n"
+    success_text+=$"时间: $(timestamp)\n"
+    success_text+=$"报告: ${report_path}"
+    send_feishu_text "$success_text"
+  fi
 fi
 
 echo "[pai-loop-guard] completed mode=$RUN_LABEL rc=0"

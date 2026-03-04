@@ -4,6 +4,8 @@ from __future__ import annotations
 import argparse
 import csv
 import json
+import math
+import signal
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, List
@@ -95,6 +97,23 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="禁用缓存",
     )
+    parser.add_argument(
+        "--per-ticker-timeout-seconds",
+        type=int,
+        default=12,
+        help="单只股票抓取超时秒数（<=0 表示不超时）",
+    )
+    parser.add_argument(
+        "--zh-overrides-file",
+        type=Path,
+        default=PROJECT_ROOT / "data" / "stock_detail_zh_overrides.json",
+        help="中文公司与产品结构化覆盖文件",
+    )
+    parser.add_argument(
+        "--disable-zh-overrides",
+        action="store_true",
+        help="禁用中文覆盖合并",
+    )
     return parser.parse_args()
 
 
@@ -107,7 +126,10 @@ def safe_float(value: Any) -> float | None:
     try:
         if value is None or value == "":
             return None
-        return float(value)
+        parsed = float(value)
+        if math.isnan(parsed) or math.isinf(parsed):
+            return None
+        return parsed
     except (TypeError, ValueError):
         return None
 
@@ -182,6 +204,123 @@ def summarize_products(summary: str) -> str:
     return "；".join(parts[:2])
 
 
+def ticker_variants(value: str) -> List[str]:
+    ticker = (value or "").strip().upper()
+    if not ticker:
+        return []
+    variants = [ticker]
+    if ticker.endswith(".HK"):
+        code = ticker[:-3]
+        if code.isdigit():
+            variants.append(f"{code.zfill(5)}.HK")
+            variants.append(f"{int(code)}.HK")
+    dedup: List[str] = []
+    seen = set()
+    for item in variants:
+        if item not in seen:
+            dedup.append(item)
+            seen.add(item)
+    return dedup
+
+
+def build_products_intro_text(
+    fiscal_period: str,
+    revenue_share_note: str,
+    products: List[Dict[str, Any]],
+    key_customers: str,
+    competitiveness: str,
+) -> str:
+    lines = [f"披露期：{fiscal_period}", "产品与收入结构："]
+    for idx, item in enumerate(products, start=1):
+        product = item.get("product", "未披露产品")
+        share = item.get("revenue_share", "未披露")
+        customers = item.get("customers", "未披露")
+        moat = item.get("core_competitiveness", "未披露")
+        lines.append(f"{idx}. {product}｜收入占比：{share}｜客户：{customers}｜竞争力：{moat}")
+    if key_customers:
+        lines.append(f"公司主要客户：{key_customers}")
+    if competitiveness:
+        lines.append(f"公司核心竞争力：{competitiveness}")
+    if revenue_share_note:
+        lines.append(f"口径说明：{revenue_share_note}")
+    return "\n".join(lines)
+
+
+def sanitize_json_value(value: Any) -> Any:
+    if isinstance(value, dict):
+        return {key: sanitize_json_value(val) for key, val in value.items()}
+    if isinstance(value, list):
+        return [sanitize_json_value(item) for item in value]
+    if isinstance(value, float):
+        if math.isnan(value) or math.isinf(value):
+            return None
+    return value
+
+
+def apply_zh_overrides(
+    profiles: Dict[str, Dict[str, Any]],
+    overrides_file: Path,
+) -> Dict[str, Any]:
+    if not overrides_file.exists():
+        return {
+            "applied": 0,
+            "override_count": 0,
+            "missing_tickers": [],
+            "override_file": str(overrides_file),
+        }
+
+    payload = json.loads(overrides_file.read_text(encoding="utf-8"))
+    overrides = payload.get("profiles", {})
+    applied = 0
+    missing: List[str] = []
+    for raw_ticker, item in overrides.items():
+        matched_key = None
+        for key in ticker_variants(raw_ticker):
+            if key in profiles:
+                matched_key = key
+                break
+        profile = profiles.get(matched_key) if matched_key else None
+        if not profile:
+            missing.append((raw_ticker or "").strip().upper())
+            continue
+
+        fiscal_period = str(item.get("fiscal_period") or "未披露")
+        data_confidence = str(item.get("data_confidence") or "unknown")
+        business_intro_zh = str(item.get("business_intro_zh") or "").strip()
+        products = item.get("product_revenue_breakdown") or []
+        key_customers = str(item.get("key_customers_zh") or "").strip()
+        competitiveness = str(item.get("core_competitiveness_zh") or "").strip()
+        revenue_share_note = str(item.get("revenue_share_note_zh") or "").strip()
+        sources = item.get("sources") or []
+
+        profile["business_intro_zh"] = business_intro_zh
+        if business_intro_zh:
+            profile["business_intro"] = business_intro_zh
+        profile["product_revenue_breakdown"] = products
+        profile["key_customers_zh"] = key_customers
+        profile["core_competitiveness_zh"] = competitiveness
+        profile["revenue_share_note_zh"] = revenue_share_note
+        profile["intro_fiscal_period"] = fiscal_period
+        profile["intro_data_confidence"] = data_confidence
+        profile["intro_sources"] = sources
+        profile["products_intro_zh"] = build_products_intro_text(
+            fiscal_period=fiscal_period,
+            revenue_share_note=revenue_share_note,
+            products=products,
+            key_customers=key_customers,
+            competitiveness=competitiveness,
+        )
+        profile["products_intro"] = profile["products_intro_zh"]
+        applied += 1
+
+    return {
+        "applied": applied,
+        "override_count": len(overrides),
+        "missing_tickers": missing,
+        "override_file": str(overrides_file),
+    }
+
+
 def to_yf_ticker(ticker: str) -> str:
     base = (ticker or "").strip().upper()
     if not base:
@@ -234,6 +373,38 @@ def fetch_stock_profile(ticker: str) -> Dict[str, Any] | None:
     }
 
 
+class StockFetchTimeout(Exception):
+    pass
+
+
+def _timeout_handler(_signum: int, _frame: Any) -> None:
+    raise StockFetchTimeout
+
+
+def fetch_stock_profile_with_timeout(ticker: str, timeout_seconds: int) -> Dict[str, Any] | None:
+    if timeout_seconds <= 0:
+        try:
+            return fetch_stock_profile(ticker)
+        except Exception as exc:  # noqa: BLE001
+            print(f"[WARN] 抓取失败 {ticker}: {exc}")
+            return None
+
+    old_handler = signal.getsignal(signal.SIGALRM)
+    try:
+        signal.signal(signal.SIGALRM, _timeout_handler)
+        signal.alarm(timeout_seconds)
+        return fetch_stock_profile(ticker)
+    except StockFetchTimeout:
+        print(f"[WARN] 超时跳过 {ticker}: {timeout_seconds}s")
+        return None
+    except Exception as exc:  # noqa: BLE001
+        print(f"[WARN] 抓取失败 {ticker}: {exc}")
+        return None
+    finally:
+        signal.alarm(0)
+        signal.signal(signal.SIGALRM, old_handler)
+
+
 def main() -> None:
     args = parse_args()
 
@@ -251,6 +422,7 @@ def main() -> None:
         if ticker:
             tickers.append(ticker)
     tickers = sorted(set(tickers))
+    universe_name_map = {row.get("ticker", ""): row.get("name", "") for row in universe_rows if row.get("ticker")}
 
     valuation_real3 = build_valuation_map(real3_rows)
     valuation_real = build_valuation_map(real_rows)
@@ -258,6 +430,7 @@ def main() -> None:
     profiles: Dict[str, Dict[str, Any]] = {}
     cache_hits = 0
     api_fetches = 0
+    failed_tickers: List[str] = []
     for ticker in tickers:
         cpath = cache_path(args.cache_dir, ticker)
         profile = None
@@ -267,8 +440,9 @@ def main() -> None:
                 cache_hits += 1
 
         if profile is None:
-            profile = fetch_stock_profile(ticker)
+            profile = fetch_stock_profile_with_timeout(ticker, args.per_ticker_timeout_seconds)
             if profile is None:
+                failed_tickers.append(ticker)
                 continue
             api_fetches += 1
             if not args.no_cache:
@@ -278,10 +452,17 @@ def main() -> None:
         profile["valuation_real"] = valuation_real.get(ticker)
         if not profile.get("name_cn"):
             # 兼容使用 universe 中名称（含中文）
-            from_universe = next((x.get("name") for x in universe_rows if x.get("ticker") == ticker), None)
+            from_universe = universe_name_map.get(ticker)
             if from_universe:
                 profile["name_cn"] = from_universe
-        profiles[ticker] = profile
+        profiles[ticker] = sanitize_json_value(profile)
+
+    zh_meta: Dict[str, Any] | None = None
+    if not args.disable_zh_overrides:
+        zh_meta = apply_zh_overrides(
+            profiles=profiles,
+            overrides_file=args.zh_overrides_file,
+        )
 
     payload = {
         "as_of_date": datetime.now(timezone.utc).date().isoformat(),
@@ -295,9 +476,16 @@ def main() -> None:
             else f"enabled; ttl_hours={args.cache_ttl_hours}; cache_hits={cache_hits}; api_fetches={api_fetches}"
         ),
     }
+    if zh_meta is not None:
+        payload["zh_detail_overrides_meta"] = zh_meta
+
+    payload = sanitize_json_value(payload)
 
     args.output_file.parent.mkdir(parents=True, exist_ok=True)
-    args.output_file.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    args.output_file.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2, allow_nan=False),
+        encoding="utf-8",
+    )
 
     print(f"股票资料库已生成: {args.output_file}")
     print(f"股票数: {len(profiles)}")
@@ -305,6 +493,14 @@ def main() -> None:
         print("缓存: disabled")
     else:
         print(f"缓存: enabled (ttl={args.cache_ttl_hours}h, cache_hits={cache_hits}, api_fetches={api_fetches})")
+    print(f"失败数: {len(failed_tickers)}")
+    if failed_tickers:
+        print(f"失败ticker: {', '.join(failed_tickers[:30])}{' ...' if len(failed_tickers) > 30 else ''}")
+    if zh_meta is not None:
+        print(
+            f"中文覆盖: {zh_meta.get('applied', 0)}/{zh_meta.get('override_count', 0)} "
+            f"(missing={len(zh_meta.get('missing_tickers', []))})"
+        )
 
 
 if __name__ == "__main__":

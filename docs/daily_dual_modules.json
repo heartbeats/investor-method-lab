@@ -1,0 +1,222 @@
+{
+  "generated_at": "2026-03-04T09:36:55",
+  "as_of_date": "2026-03-03",
+  "inputs": {
+    "focus_file": "/home/afu/projects/investor-method-lab/data/dcf_special_focus_list.json",
+    "top_file": "/home/afu/projects/investor-method-lab/output/top20_first_batch_opportunities_real_3markets.csv",
+    "real_file": "/home/afu/projects/investor-method-lab/data/opportunities.real_3markets.csv",
+    "meta_file": "/home/afu/projects/investor-method-lab/docs/opportunities_real_data_meta_3markets.json"
+  },
+  "outputs": {
+    "focus_markdown": "/home/afu/projects/investor-method-lab/docs/dcf_special_focus_daily.md",
+    "opportunity_markdown": "/home/afu/projects/investor-method-lab/docs/opportunity_mining_daily.md"
+  },
+  "focus_module": {
+    "title": "【特别关注｜深度DCF校准】2026-03-03",
+    "summary": {
+      "focus_total": 7,
+      "covered": 6,
+      "missing": 1
+    },
+    "rows": [
+      {
+        "name": "Meituan",
+        "ticker": "3690.HK",
+        "dcf_symbol": "HK.03690",
+        "tag": "deep_calibrated",
+        "close": 75.65,
+        "iv": 118.4122,
+        "mos": 0.3611300186973977,
+        "status": ""
+      },
+      {
+        "name": "NVIDIA",
+        "ticker": "NVDA",
+        "dcf_symbol": "US.NVDA",
+        "tag": "deep_calibrated",
+        "close": 179.4,
+        "iv": 264.2488,
+        "mos": 0.32109436258556334,
+        "status": ""
+      },
+      {
+        "name": "Tencent Holdings",
+        "ticker": "0700.HK",
+        "dcf_symbol": "HK.00700",
+        "tag": "deep_calibrated",
+        "close": 510.5,
+        "iv": 751.7248,
+        "mos": 0.3208950935235873,
+        "status": ""
+      },
+      {
+        "name": "Alphabet",
+        "ticker": "GOOGL",
+        "dcf_symbol": "US.GOOGL",
+        "tag": "deep_calibrated",
+        "close": 301.08,
+        "iv": 376.86,
+        "mos": 0.2010826301544341,
+        "status": ""
+      },
+      {
+        "name": "Apple",
+        "ticker": "AAPL",
+        "dcf_symbol": "US.AAPL",
+        "tag": "deep_calibrated",
+        "close": 262.43,
+        "iv": 293.0695,
+        "mos": 0.10454687369378253,
+        "status": ""
+      },
+      {
+        "name": "贵州茅台",
+        "ticker": "600519.SS",
+        "dcf_symbol": "SH.600519",
+        "tag": "deep_calibrated",
+        "close": 1426.19,
+        "iv": 1426.1899,
+        "mos": -7.011688974581712e-08,
+        "status": ""
+      }
+    ],
+    "missing_rows": [
+      {
+        "dcf_symbol": "US.PDD",
+        "ticker": "PDD",
+        "name": "拼多多",
+        "tag": "deep_calibrated"
+      }
+    ],
+    "message_lines": [
+      "口径：逐公司校准清单（7只）",
+      "命中行情覆盖：6/7",
+      "1. Meituan(HK.03690) MOS 36.11% | 现价 75.65 | 中性 118.41",
+      "2. NVIDIA(US.NVDA) MOS 32.11% | 现价 179.40 | 中性 264.25",
+      "3. Tencent Holdings(HK.00700) MOS 32.09% | 现价 510.50 | 中性 751.72",
+      "4. Alphabet(US.GOOGL) MOS 20.11% | 现价 301.08 | 中性 376.86",
+      "5. Apple(US.AAPL) MOS 10.45% | 现价 262.43 | 中性 293.07",
+      "6. 贵州茅台(SH.600519) MOS -0.00% | 现价 1426.19 | 中性 1426.19",
+      "待补数据：US.PDD"
+    ]
+  },
+  "opportunity_module": {
+    "title": "【机会挖掘｜新增候选】2026-03-03",
+    "summary": {
+      "count": 9,
+      "excluded_focus_tickers": [
+        "0700.HK",
+        "3690.HK",
+        "600519.SS",
+        "AAPL",
+        "GOOGL",
+        "NVDA",
+        "PDD"
+      ]
+    },
+    "rows": [
+      {
+        "ticker": "UNH",
+        "name": "UnitedHealth",
+        "market": "US",
+        "score": 78.23,
+        "mos_pct": 21.0,
+        "best_group": "宏观周期",
+        "close": 288.12,
+        "target": 364.62
+      },
+      {
+        "ticker": "1211.HK",
+        "name": "BYD Company HK",
+        "market": "HK",
+        "score": 48.7,
+        "mos_pct": 22.9,
+        "best_group": "宏观周期",
+        "close": 96.2,
+        "target": 124.69
+      },
+      {
+        "ticker": "002594.SZ",
+        "name": "比亚迪A",
+        "market": "A",
+        "score": 43.68,
+        "mos_pct": 22.0,
+        "best_group": "事件驱动激进",
+        "close": 95.21,
+        "target": 122.03
+      },
+      {
+        "ticker": "9618.HK",
+        "name": "JD.com HK",
+        "market": "HK",
+        "score": 19.37,
+        "mos_pct": 33.4,
+        "best_group": "系统化量化",
+        "close": 100.4,
+        "target": 150.73
+      },
+      {
+        "ticker": "TSLA",
+        "name": "Tesla",
+        "market": "US",
+        "score": 12.6,
+        "mos_pct": 6.7,
+        "best_group": "价值质量复利",
+        "close": 392.71,
+        "target": 420.9
+      },
+      {
+        "ticker": "600276.SS",
+        "name": "恒瑞医药",
+        "market": "A",
+        "score": 10.16,
+        "mos_pct": 0.0,
+        "best_group": "事件驱动激进",
+        "close": 53.61,
+        "target": null
+      },
+      {
+        "ticker": "9988.HK",
+        "name": "Alibaba Group HK",
+        "market": "HK",
+        "score": 6.05,
+        "mos_pct": 30.7,
+        "best_group": "价值质量复利",
+        "close": 134.8,
+        "target": 194.46
+      },
+      {
+        "ticker": "0981.HK",
+        "name": "SMIC",
+        "market": "HK",
+        "score": 5.43,
+        "mos_pct": 17.3,
+        "best_group": "价值质量复利",
+        "close": 62.55,
+        "target": 75.68
+      },
+      {
+        "ticker": "JPM",
+        "name": "JPMorgan",
+        "market": "US",
+        "score": 4.8,
+        "mos_pct": 14.0,
+        "best_group": "深度价值修复",
+        "close": 296.12,
+        "target": 344.35
+      }
+    ],
+    "message_lines": [
+      "口径：机会池剔除特别关注标的后按综合分排序",
+      "本次展示：8只",
+      "1. UnitedHealth(UNH) 分数 78.2 | MOS 21.0% | 现价/目标 288.12/364.62",
+      "2. BYD Company HK(1211.HK) 分数 48.7 | MOS 22.9% | 现价/目标 96.20/124.69",
+      "3. 比亚迪A(002594.SZ) 分数 43.7 | MOS 22.0% | 现价/目标 95.21/122.03",
+      "4. JD.com HK(9618.HK) 分数 19.4 | MOS 33.4% | 现价/目标 100.40/150.73",
+      "5. Tesla(TSLA) 分数 12.6 | MOS 6.7% | 现价/目标 392.71/420.90",
+      "6. 恒瑞医药(600276.SS) 分数 10.2 | MOS 0.0% | 现价/目标 53.61/-",
+      "7. Alibaba Group HK(9988.HK) 分数 6.0 | MOS 30.7% | 现价/目标 134.80/194.46",
+      "8. SMIC(0981.HK) 分数 5.4 | MOS 17.3% | 现价/目标 62.55/75.68"
+    ]
+  }
+}

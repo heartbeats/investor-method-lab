@@ -20,6 +20,14 @@
     rejected: "淘汰",
   };
 
+  const CONFIDENCE_LABELS = {
+    high_disclosed: "高（年报/10-K披露）",
+    medium_disclosed: "中（财报/分部披露）",
+    medium_estimated: "中（披露+估算）",
+    low_estimated: "低（估算口径）",
+    unknown: "未知",
+  };
+
   function qs(selector) {
     return document.querySelector(selector);
   }
@@ -388,6 +396,69 @@
     `;
   }
 
+  function renderSourcesHtml(sources) {
+    if (!Array.isArray(sources) || !sources.length) return "<p class=\"muted\">暂无来源链接。</p>";
+    const items = sources
+      .map((item) => {
+        const title = escapeHtml(item?.title || "未命名来源");
+        const url = String(item?.url || "").trim();
+        if (!url) return `<li>${title}</li>`;
+        return `<li><a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${title}</a></li>`;
+      })
+      .join("");
+    return `<ul>${items}</ul>`;
+  }
+
+  function renderProductBreakdown(profile) {
+    const rows = Array.isArray(profile.product_revenue_breakdown) ? profile.product_revenue_breakdown : [];
+    if (!rows.length) {
+      return `<p class="muted">当前未拿到结构化产品占比披露，已展示已有文字说明。</p>`;
+    }
+    const body = rows
+      .map((item, idx) => {
+        const product = escapeHtml(item?.product || "-");
+        const share = escapeHtml(item?.revenue_share || "-");
+        const customers = escapeHtml(item?.customers || "-");
+        const moat = escapeHtml(item?.core_competitiveness || "-");
+        return `
+          <tr>
+            <td>${idx + 1}</td>
+            <td>${product}</td>
+            <td>${share}</td>
+            <td>${customers}</td>
+            <td>${moat}</td>
+          </tr>
+        `;
+      })
+      .join("");
+    return `
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>产品/业务</th>
+              <th>收入占比</th>
+              <th>主要客户</th>
+              <th>核心竞争力</th>
+            </tr>
+          </thead>
+          <tbody>${body}</tbody>
+        </table>
+      </div>
+    `;
+  }
+
+  function explainConfidence(rawValue) {
+    const key = String(rawValue || "unknown").trim();
+    const label = CONFIDENCE_LABELS[key] || key || CONFIDENCE_LABELS.unknown;
+    const estimated = key.includes("estimated");
+    const note = estimated
+      ? "当前包含估算成分，优先用于研究与跟踪，不建议直接作为交易定量输入。"
+      : "当前以公司披露口径为主，适合做方法论验证与对比。";
+    return { key, label, estimated, note };
+  }
+
   function renderStock(profile, meta) {
     const displayName = profile.name_cn && profile.name_cn !== profile.name
       ? `${profile.name_cn} / ${profile.name}`
@@ -430,20 +501,61 @@
       </div>
     `;
 
+    const businessIntro =
+      profile.business_intro_zh ||
+      "当前未接入该股票的中文公司介绍模板（已保留价格、估值与方法论轨迹数据）。";
+    const productsIntro =
+      profile.products_intro_zh ||
+      "当前未接入该股票的中文产品结构模板，建议优先补齐年报分部收入、客户结构和竞争力要点。";
+    const introFiscalPeriod = profile.intro_fiscal_period || "待补齐";
+    const confidence = explainConfidence(profile.intro_data_confidence || "unknown");
+    const keyCustomers = profile.key_customers_zh || "待补齐";
+    const coreCompetitiveness = profile.core_competitiveness_zh || "待补齐";
+    const revenueShareNote = profile.revenue_share_note_zh || "待补齐";
+    const introSources = renderSourcesHtml(profile.intro_sources);
+
     qs("#stock-business-panel").innerHTML = `
       <div class="panel-head">
         <h2>公司与产品介绍</h2>
-        <p>由公开业务描述自动归纳，供快速理解公司做什么。</p>
+        <p>以下为中文口径：公司做什么、卖什么、收入来自哪里、客户是谁、竞争力在哪。</p>
       </div>
       <div class="detail-grid">
         <article class="detail-item">
-          <h4>业务介绍</h4>
-          <p>${escapeHtml(profile.business_intro || "-")}</p>
+          <h4>公司介绍（中文）</h4>
+          <p>${escapeHtml(businessIntro)}</p>
         </article>
         <article class="detail-item">
-          <h4>产品介绍</h4>
-          <p>${escapeHtml(profile.products_intro || "-")}</p>
+          <h4>披露期与置信度</h4>
+          <p>${escapeHtml(`披露期：${introFiscalPeriod}｜置信度：${confidence.label}`)}</p>
         </article>
+        <article class="detail-item">
+          <h4>公司主要客户</h4>
+          <p>${escapeHtml(keyCustomers)}</p>
+        </article>
+        <article class="detail-item">
+          <h4>公司核心竞争力</h4>
+          <p>${escapeHtml(coreCompetitiveness)}</p>
+        </article>
+        <article class="detail-item">
+          <h4>收入占比口径说明</h4>
+          <p>${escapeHtml(revenueShareNote)}</p>
+        </article>
+        <article class="detail-item">
+          <h4>补充文字说明</h4>
+          <p>${escapeHtml(productsIntro)}</p>
+        </article>
+      </div>
+      <div class="opportunity-detail">
+        <h3>产品结构明细（中文）</h3>
+        ${renderProductBreakdown(profile)}
+      </div>
+      <div class="opportunity-detail">
+        <h3>口径风险提示</h3>
+        <p class="muted">${escapeHtml(confidence.note)}</p>
+      </div>
+      <div class="opportunity-detail detail-ref">
+        <h3>数据来源</h3>
+        ${introSources}
       </div>
     `;
 

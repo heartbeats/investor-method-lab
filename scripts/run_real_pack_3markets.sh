@@ -15,6 +15,10 @@ TRACE_FILE="$ROOT_DIR/output/method_decision_trace_real_3markets.json"
 PLAYBOOK_FILE="$ROOT_DIR/docs/methodology_playbook_v4.md"
 RULEBOOK_FILE="$ROOT_DIR/data/methodology_rulebook_v4.json"
 DCF_BASE_URL="${DCF_BASE_URL:-http://127.0.0.1:8000}"
+FOCUS_FILE="$ROOT_DIR/data/dcf_special_focus_list.json"
+FOCUS_REPORT_FILE="$ROOT_DIR/docs/dcf_special_focus_daily.md"
+OPPORTUNITY_REPORT_FILE="$ROOT_DIR/docs/opportunity_mining_daily.md"
+DUAL_MODULES_JSON="$ROOT_DIR/docs/daily_dual_modules.json"
 
 if [[ $# -eq 0 ]]; then
   python3 "$ROOT_DIR/scripts/build_universe_core_3markets.py" \
@@ -59,6 +63,16 @@ python3 "$ROOT_DIR/scripts/generate_top20_opportunity_pack.py" \
   --per-tier-top 10 \
   --max-per-sector 2
 
+python3 "$ROOT_DIR/scripts/build_dual_daily_modules.py" \
+  --focus-file "$FOCUS_FILE" \
+  --top-file "$TOP_FILE" \
+  --real-file "$REAL_FILE" \
+  --meta-file "$META_FILE" \
+  --output-focus-md "$FOCUS_REPORT_FILE" \
+  --output-opportunity-md "$OPPORTUNITY_REPORT_FILE" \
+  --output-json "$DUAL_MODULES_JSON" \
+  --opportunity-top 10
+
 echo "三市场实时机会包已生成:"
 echo "- $REPORT_FILE"
 echo "- $TOP_FILE"
@@ -69,3 +83,6 @@ echo "- $TRACE_FILE"
 echo "- $PLAYBOOK_FILE"
 echo "- $REAL_FILE"
 echo "- $META_FILE"
+echo "- $FOCUS_REPORT_FILE"
+echo "- $OPPORTUNITY_REPORT_FILE"
+echo "- $DUAL_MODULES_JSON"
