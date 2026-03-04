@@ -1,24 +1,41 @@
 {
-  "generated_at_utc": "2026-03-04T01:36:54.483060+00:00",
-  "source": "Yahoo Finance via yfinance + stock-data-hub(optional quote fallback) + local DCF valuation link (partial coverage)",
+  "generated_at_utc": "2026-03-04T17:08:32.003687+00:00",
+  "source": "Yahoo Finance via yfinance + local DCF valuation link (partial coverage)",
   "cache_policy": "enabled; ttl_hours=24; use cached result for non-real-time API calls",
   "as_of_dates": [
-    "2026-03-03"
+    "2026-03-04"
   ],
-  "universe_size": 30,
+  "universe_size": 29,
   "requested_universe_size": 30,
-  "coverage_of_requested_universe": 1.0,
-  "failed_ticker_count": 0,
-  "failed_tickers": [],
+  "coverage_of_requested_universe": 0.9666666666666667,
+  "failed_ticker_count": 1,
+  "failed_tickers": [
+    "600276.SS: 600276.SS: fetch timeout>4.0s"
+  ],
   "valuation_source_breakdown": {
-    "target_mean_price": 24,
-    "close_fallback": 6
+    "dcf_iv_base": 27,
+    "dcf_external_consensus": 1,
+    "target_mean_price": 1
   },
   "dcf_integration": {
     "enabled": true,
     "dcf_link_script": "/home/afu/.codex/skills/dcf-valuation-link/scripts/dcf_valuation_link.py",
     "dcf_companies_file": "/home/afu/codex-project/data/companies.json",
     "dcf_base_url": "http://127.0.0.1:8000",
+    "dcf_base_url_requested": "http://127.0.0.1:8000",
+    "dcf_base_url_effective": "http://127.0.0.1:18000",
+    "dcf_base_url_probe": [
+      {
+        "base_url": "http://127.0.0.1:8000",
+        "ok": false,
+        "reason": "http_404"
+      },
+      {
+        "base_url": "http://127.0.0.1:18000",
+        "ok": true,
+        "reason": "ok"
+      }
+    ],
     "available_symbols_count": 31,
     "requested_symbols": [
       "HK.00700",
@@ -30,7 +47,6 @@
       "HK.09999",
       "HK.3690",
       "SH.600036",
-      "SH.600276",
       "SH.600519",
       "SH.600900",
       "SH.601318",
@@ -52,20 +68,110 @@
       "US.V",
       "US.XOM"
     ],
-    "pulled_symbols": [],
-    "covered_tickers": [],
-    "covered_iv_tickers": [],
-    "covered_consensus_tickers": [],
-    "unresolved_tickers": [],
-    "errors": [
-      "Traceback (most recent call last):\n  File \"/home/afu/.codex/skills/dcf-valuation-link/scripts/dcf_valuation_link.py\", line 66, in request_json\n    with request.urlopen(req, timeout=timeout) as resp:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/urllib/request.py\", line 215, in urlopen\n    return opener.open(url, data, timeout)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/urllib/request.py\", line 521, in open\n    response = meth(req, response)\n               ^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/urllib/request.py\", line 630, in http_response\n    response = self.parent.error(\n               ^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/urllib/request.py\", line 559, in error\n    return self._call_chain(*args)\n           ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/urllib/request.py\", line 492, in _call_chain\n    result = func(*args)\n             ^^^^^^^^^^^\n  File \"/usr/lib/python3.12/urllib/request.py\", line 639, in http_error_default\n    raise HTTPError(req.full_url, code, msg, hdrs, fp)\nurllib.error.HTTPError: HTTP Error 404: File not found\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/afu/.codex/skills/dcf-valuation-link/scripts/dcf_valuation_link.py\", line 421, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/home/afu/.codex/skills/dcf-valuation-link/scripts/dcf_valuation_link.py\", line 412, in main\n    payload = run_portfolio_mode(args)\n              ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/afu/.codex/skills/dcf-valuation-link/scripts/dcf_valuation_link.py\", line 296, in run_portfolio_mode\n    overview = request_json(\"GET\", url, payload=None, timeout=args.timeout)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/afu/.codex/skills/dcf-valuation-link/scripts/dcf_valuation_link.py\", line 78, in request_json\n    raise RuntimeError(f\"{method} {url} failed: {message}\") from exc\nRuntimeError: GET http://127.0.0.1:8000/v1/company/HK.00700?refresh_valuation=false failed: <!DOCTYPE HTML>\n<html lang=\"en\">\n    <head>\n        <meta charset=\"utf-8\">\n        <title>Error response</title>\n    </head>\n    <body>\n        <h1>Error response</h1>\n        <p>Error code: 404</p>\n        <p>Message: File not found.</p>\n        <p>Error code explanation: 404 - Nothing matches the given URI.</p>\n    </body>\n</html>"
+    "pulled_symbols": [
+      "HK.00700",
+      "HK.00981",
+      "HK.01211",
+      "HK.01810",
+      "HK.09618",
+      "HK.09988",
+      "HK.09999",
+      "HK.3690",
+      "SH.600036",
+      "SH.600519",
+      "SH.600900",
+      "SH.601318",
+      "SH.601899",
+      "SZ.000858",
+      "SZ.002594",
+      "SZ.300750",
+      "US.AAPL",
+      "US.ADBE",
+      "US.AMZN",
+      "US.BRK-B",
+      "US.GOOGL",
+      "US.JPM",
+      "US.META",
+      "US.MSFT",
+      "US.NVDA",
+      "US.TSLA",
+      "US.UNH",
+      "US.V",
+      "US.XOM"
     ],
+    "covered_tickers": [
+      "000858.SZ",
+      "002594.SZ",
+      "0700.HK",
+      "1211.HK",
+      "1810.HK",
+      "300750.SZ",
+      "3690.HK",
+      "600036.SS",
+      "600519.SS",
+      "600900.SS",
+      "601318.SS",
+      "601899.SS",
+      "9618.HK",
+      "9988.HK",
+      "9999.HK",
+      "AAPL",
+      "ADBE",
+      "AMZN",
+      "BRK.B",
+      "GOOGL",
+      "JPM",
+      "META",
+      "MSFT",
+      "NVDA",
+      "TSLA",
+      "UNH",
+      "V",
+      "XOM"
+    ],
+    "covered_iv_tickers": [
+      "000858.SZ",
+      "002594.SZ",
+      "0700.HK",
+      "1211.HK",
+      "1810.HK",
+      "300750.SZ",
+      "3690.HK",
+      "600036.SS",
+      "600519.SS",
+      "600900.SS",
+      "601318.SS",
+      "601899.SS",
+      "9618.HK",
+      "9988.HK",
+      "9999.HK",
+      "AAPL",
+      "ADBE",
+      "AMZN",
+      "BRK.B",
+      "GOOGL",
+      "META",
+      "MSFT",
+      "NVDA",
+      "TSLA",
+      "UNH",
+      "V",
+      "XOM"
+    ],
+    "covered_consensus_tickers": [
+      "JPM"
+    ],
+    "unresolved_tickers": [],
+    "errors": [],
     "valuation_source_counts": {
-      "target_mean_price": 24,
-      "close_fallback": 6
+      "dcf_iv_base": 27,
+      "dcf_external_consensus": 1,
+      "target_mean_price": 1
     },
-    "coverage_ratio": 0.0,
-    "iv_coverage_ratio": 0.0
+    "quality_gate_status_counts": {},
+    "comps_crosscheck_status_counts": {},
+    "coverage_ratio": 0.9655172413793104,
+    "iv_coverage_ratio": 0.9310344827586207
   },
   "calculation": {
     "fair_value_priority": "dcf_iv_base > dcf_external_consensus > targetMeanPrice > close",
@@ -79,7 +185,8 @@
     "catalyst_score": "percentile(analyst upside, recommendationMean inverse, earningsQuarterlyGrowth, analystCount) weighted 35/25/25/15",
     "risk_score": "percentile(1y volatility, 1y max drawdown, beta, debtToEquity) weighted 35/35/20/10",
     "certainty_score": "weighted(quality_score 45%, risk_control_proxy 35%, analyst_count_percentile 20%)",
-    "value_quality_compound_guardrails": "margin_of_safety>=15% and certainty_score>=65 hard gate; margin<30% / certainty<75 soft penalty"
+    "value_quality_compound_guardrails": "margin_of_safety>=15% and certainty_score>=65 hard gate; margin<30% / certainty<75 soft penalty",
+    "dcf_quality_penalty_multiplier": "default 1.0; quality_gate(review=0.88,caution=0.94) × comps_crosscheck(warn=0.95)"
   },
   "external_mos_references": [
     {
@@ -113,7 +220,6 @@
     "600036.SS",
     "601318.SS",
     "600900.SS",
-    "600276.SS",
     "601899.SS"
   ],
   "non_realtime_disclaimer": "Yahoo Finance and DCF API may have short delays; this file is market-data-backed but not exchange-tick-level real-time."

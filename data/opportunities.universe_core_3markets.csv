@@ -548,9 +548,11 @@ AON,US,Aon plc,Financials,sp500_core,S&P500 constituent,US core | S&P500 constit
 APA,US,APA Corporation,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
 APO,US,Apollo Global Management,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 AMAT,US,Applied Materials,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+APP,US,AppLovin,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
 APTV,US,Aptiv,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
 ACGL,US,Arch Capital Group,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 ADM,US,Archer Daniels Midland,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+ARES,US,Ares Management,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 ANET,US,Arista Networks,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
 AJG,US,Arthur J. Gallagher & Co.,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 AIZ,US,Assurant,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
@@ -587,14 +589,13 @@ BG,US,Bunge Global,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P5
 BXP,US,"BXP, Inc.",Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CHRW,US,C.H. Robinson,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CDNS,US,Cadence Design Systems,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
-CZR,US,Caesars Entertainment,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CPT,US,Camden Property Trust,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CPB,US,Campbell's Company (The),Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
 COF,US,Capital One,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CAH,US,Cardinal Health,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
-KMX,US,CarMax,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CCL,US,Carnival,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CARR,US,Carrier Global,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CVNA,US,Carvana,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CAT,US,Caterpillar Inc.,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CBOE,US,Cboe Global Markets,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CBRE,US,CBRE Group,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
@@ -610,6 +611,7 @@ CVX,US,Chevron Corporation,Energy,sp500_core,S&P500 constituent,US core | S&P500
 CMG,US,Chipotle Mexican Grill,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CB,US,Chubb Limited,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CHD,US,Church & Dwight,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CIEN,US,Ciena,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CI,US,Cigna,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CINF,US,Cincinnati Financial,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CTAS,US,Cintas,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
@@ -624,6 +626,7 @@ CTSH,US,Cognizant,Information Technology,sp500_core,S&P500 constituent,US core |
 COIN,US,Coinbase,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CL,US,Colgate-Palmolive,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CMCSA,US,Comcast,Communication Services,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FIX,US,Comfort Systems USA,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CAG,US,Conagra Brands,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
 COP,US,ConocoPhillips,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
 ED,US,Consolidated Edison,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
@@ -637,6 +640,7 @@ CTVA,US,Corteva,Materials,sp500_core,S&P500 constituent,US core | S&P500 constit
 CSGP,US,CoStar Group,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
 COST,US,Costco,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CTRA,US,Coterra,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
+CRH,US,CRH plc,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CRWD,US,CrowdStrike,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CCI,US,Crown Castle,Real Estate,sp500_core,S&P500 constituent,US core | S&P500 constituent
 CSX,US,CSX Corporation,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
@@ -646,7 +650,6 @@ DHR,US,Danaher Corporation,Health Care,sp500_core,S&P500 constituent,US core | S
 DRI,US,Darden Restaurants,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
 DDOG,US,Datadog,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
 DVA,US,DaVita,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
-DAY,US,Dayforce,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 DECK,US,Deckers Brands,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
 DE,US,Deere & Company,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 DELL,US,Dell Technologies,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
@@ -666,7 +669,6 @@ DHI,US,D. R. Horton,Consumer Discretionary,sp500_core,S&P500 constituent,US core
 DTE,US,DTE Energy,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
 DUK,US,Duke Energy,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
 DD,US,DuPont,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
-EMN,US,Eastman Chemical Company,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 ETN,US,Eaton Corporation,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 EBAY,US,eBay Inc.,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
 ECL,US,Ecolab,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
@@ -674,8 +676,8 @@ EIX,US,Edison International,Utilities,sp500_core,S&P500 constituent,US core | S&
 EW,US,Edwards Lifesciences,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
 EA,US,Electronic Arts,Communication Services,sp500_core,S&P500 constituent,US core | S&P500 constituent
 ELV,US,Elevance Health,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
+EME,US,Emcor,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 EMR,US,Emerson Electric,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
-ENPH,US,Enphase Energy,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
 ETR,US,Entergy,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
 EOG,US,EOG Resources,Energy,sp500_core,S&P500 constituent,US core | S&P500 constituent
 EPAM,US,EPAM Systems,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
@@ -704,7 +706,7 @@ FIS,US,Fidelity National Information Services,Financials,sp500_core,S&P500 const
 FITB,US,Fifth Third Bancorp,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 FSLR,US,First Solar,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
 FE,US,FirstEnergy,Utilities,sp500_core,S&P500 constituent,US core | S&P500 constituent
-FI,US,Fiserv,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
+FISV,US,Fiserv,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 F,US,Ford Motor Company,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
 FTNT,US,Fortinet,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
 FTV,US,Fortive,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
@@ -756,10 +758,10 @@ INCY,US,Incyte,Health Care,sp500_core,S&P500 constituent,US core | S&P500 consti
 IR,US,Ingersoll Rand,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 PODD,US,Insulet Corporation,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
 INTC,US,Intel,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
+IBKR,US,Interactive Brokers,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 ICE,US,Intercontinental Exchange,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 IFF,US,International Flavors & Fragrances,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 IP,US,International Paper,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
-IPG,US,Interpublic Group of Companies (The),Communication Services,sp500_core,S&P500 constituent,US core | S&P500 constituent
 INTU,US,Intuit,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
 ISRG,US,Intuitive Surgical,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
 IVZ,US,Invesco,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
@@ -772,7 +774,6 @@ JKHY,US,Jack Henry & Associates,Financials,sp500_core,S&P500 constituent,US core
 J,US,Jacobs Solutions,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 JNJ,US,Johnson & Johnson,Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
 JCI,US,Johnson Controls,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
-K,US,Kellanova,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
 KVUE,US,Kenvue,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
 KDP,US,Keurig Dr Pepper,Consumer Staples,sp500_core,S&P500 constituent,US core | S&P500 constituent
 KEY,US,KeyCorp,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
@@ -795,7 +796,6 @@ LII,US,Lennox International,Industrials,sp500_core,S&P500 constituent,US core | 
 LLY,US,Lilly (Eli),Health Care,sp500_core,S&P500 constituent,US core | S&P500 constituent
 LIN,US,Linde plc,Materials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 LYV,US,Live Nation Entertainment,Communication Services,sp500_core,S&P500 constituent,US core | S&P500 constituent
-LKQ,US,LKQ Corporation,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
 LMT,US,Lockheed Martin,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 L,US,Loews Corporation,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 LOW,US,Lowe's,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent

@@ -157,6 +157,86 @@ class BuildRealOpportunitiesDCFTest(unittest.TestCase):
         env = mod._build_dcf_subprocess_env("https://example.com")
         self.assertIsNone(env)
 
+    def test_apply_hub_comps_overlay_fills_missing_crosscheck(self) -> None:
+        row = _sample_row("AAPL", close=100.0, target_mean=120.0)
+        peer1 = _sample_row("MSFT", close=90.0, target_mean=110.0)
+        peer2 = _sample_row("GOOGL", close=80.0, target_mean=100.0)
+
+        row.dcf_symbol = "US.AAPL"
+        row.valuation_source = "dcf_iv_base"
+        row.dcf_quality_gate_status = "review"
+        peer1.dcf_symbol = "US.MSFT"
+        peer2.dcf_symbol = "US.GOOGL"
+
+        with mock.patch.object(mod, "_stock_data_hub_url", return_value="http://127.0.0.1:18000"), mock.patch.object(
+            mod,
+            "_hub_post_json",
+            return_value={
+                "items": [
+                    {
+                        "symbol": "US.AAPL",
+                        "status": "warn",
+                        "metrics": {"trailing_pe": {"deviation_pct": 0.42}},
+                    }
+                ],
+                "failed": {},
+            },
+        ):
+            meta = mod.apply_hub_comps_overlay([row, peer1, peer2])
+
+        self.assertTrue(meta["enabled"])
+        self.assertEqual(row.dcf_comps_crosscheck_status, "warn")
+        self.assertAlmostEqual(row.dcf_comps_deviation_vs_median or 0.0, 0.42, places=4)
+        self.assertEqual(row.dcf_comps_source, "stock_data_hub_comps_baseline")
+        self.assertAlmostEqual(row.dcf_quality_penalty_multiplier, 0.836, places=3)
+
+    def test_apply_hub_comps_overlay_keeps_existing_crosscheck(self) -> None:
+        row = _sample_row("AAPL", close=100.0, target_mean=120.0)
+        peer1 = _sample_row("MSFT", close=90.0, target_mean=110.0)
+        peer2 = _sample_row("GOOGL", close=80.0, target_mean=100.0)
+        row.dcf_symbol = "US.AAPL"
+        row.dcf_comps_crosscheck_status = "ok"
+        row.dcf_comps_source = "dcf_internal"
+        peer1.dcf_symbol = "US.MSFT"
+        peer2.dcf_symbol = "US.GOOGL"
+
+        with mock.patch.object(mod, "_stock_data_hub_url", return_value="http://127.0.0.1:18000"), mock.patch.object(
+            mod,
+            "_hub_post_json",
+            return_value={"items": [], "failed": {}},
+        ):
+            meta = mod.apply_hub_comps_overlay([row, peer1, peer2])
+
+        self.assertTrue(meta["enabled"])
+        self.assertGreaterEqual(meta["skipped_existing_count"], 1)
+        self.assertEqual(row.dcf_comps_crosscheck_status, "ok")
+        self.assertEqual(row.dcf_comps_source, "dcf_internal")
+
+    def test_apply_hub_comps_overlay_accepts_normalized_symbol_from_hub(self) -> None:
+        row = _sample_row("AAPL", close=100.0, target_mean=120.0)
+        peer1 = _sample_row("MSFT", close=90.0, target_mean=110.0)
+        peer2 = _sample_row("AMZN", close=80.0, target_mean=100.0)
+
+        with mock.patch.object(mod, "_stock_data_hub_url", return_value="http://127.0.0.1:18000"), mock.patch.object(
+            mod,
+            "_hub_post_json",
+            return_value={
+                "items": [
+                    {
+                        "symbol": "US.AAPL",
+                        "status": "ok",
+                        "metrics": {"trailing_pe": {"deviation_pct": 0.08}},
+                    }
+                ],
+                "failed": {},
+            },
+        ):
+            meta = mod.apply_hub_comps_overlay([row, peer1, peer2])
+
+        self.assertTrue(meta["enabled"])
+        self.assertEqual(row.dcf_comps_crosscheck_status, "ok")
+        self.assertAlmostEqual(row.dcf_comps_deviation_vs_median or 0.0, 0.08, places=4)
+
 
 if __name__ == "__main__":
     unittest.main()

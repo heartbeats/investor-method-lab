@@ -73,6 +73,10 @@ def write_csv(path: Path, rows: List[Dict[str, Any]]) -> None:
         "market_norm_momentum",
         "market_norm_catalyst",
         "market_norm_risk_control",
+        "dcf_quality_gate_status",
+        "dcf_quality_gate_score",
+        "dcf_comps_crosscheck_status",
+        "dcf_quality_penalty_multiplier",
         "explain_best_group_id",
         "explain_best_group_weighted_contribution",
         "explain_passed_group_count",
@@ -118,6 +122,10 @@ def write_group_csv(path: Path, rows_by_group: List[Tuple[Any, List[Dict[str, An
         "market_norm_momentum",
         "market_norm_catalyst",
         "market_norm_risk_control",
+        "dcf_quality_gate_status",
+        "dcf_quality_gate_score",
+        "dcf_comps_crosscheck_status",
+        "dcf_quality_penalty_multiplier",
         "trace_id",
     ]
     fieldnames = base_fields + _resolve_extra_fieldnames(candidate_rows, base_fields, preferred_extras)
@@ -172,6 +180,10 @@ def write_tiered_group_csv(path: Path, rows: List[Dict[str, Any]]) -> None:
         "market_norm_momentum",
         "market_norm_catalyst",
         "market_norm_risk_control",
+        "dcf_quality_gate_status",
+        "dcf_quality_gate_score",
+        "dcf_comps_crosscheck_status",
+        "dcf_quality_penalty_multiplier",
         "note",
         "trace_id",
     ]

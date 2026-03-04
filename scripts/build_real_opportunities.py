@@ -59,6 +59,28 @@ def _hub_get_json(path: str, query: Dict[str, str], timeout_sec: float) -> Dict[
         return None
 
 
+def _hub_post_json(path: str, payload: Dict[str, Any], timeout_sec: float) -> Dict[str, Any] | None:
+    base_url = _stock_data_hub_url()
+    if not base_url:
+        return None
+    body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
+    req = urllib_request.Request(
+        f"{base_url}/{path}",
+        data=body,
+        method="POST",
+        headers={
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+        },
+    )
+    try:
+        with urllib_request.urlopen(req, timeout=max(1.0, float(timeout_sec))) as resp:
+            parsed = json.loads(resp.read().decode("utf-8"))
+        return parsed if isinstance(parsed, dict) else None
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def fetch_quote_from_stock_data_hub(ticker: str, timeout_sec: float = 6.0) -> Dict[str, Any] | None:
     symbol = str(ticker or "").strip()
     if not symbol:
@@ -249,6 +271,12 @@ class DCFValuation:
     mos_base: float | None
     status: str | None
     pulled_at: str | None
+    quality_gate_status: str | None = None
+    quality_gate_score: float | None = None
+    quality_gate_issues: list[str] | None = None
+    comps_crosscheck_status: str | None = None
+    comps_crosscheck_deviation: float | None = None
+    comps_crosscheck_source: str | None = None
 
 
 @dataclass
@@ -286,6 +314,13 @@ class RawMarketRow:
     dcf_price: float | None = None
     dcf_status: str | None = None
     dcf_pulled_at: str | None = None
+    dcf_quality_gate_status: str | None = None
+    dcf_quality_gate_score: float | None = None
+    dcf_quality_gate_issues: str = ""
+    dcf_comps_crosscheck_status: str | None = None
+    dcf_comps_deviation_vs_median: float | None = None
+    dcf_comps_source: str | None = None
+    dcf_quality_penalty_multiplier: float = 1.0
     base_note: str = ""
 
 
@@ -558,6 +593,18 @@ def _parse_dcf_company_payload(payload: Dict[str, Any]) -> DCFValuation | None:
     consensus_fair_value = (
         _safe_float(consensus.get("fair_value_median")) if isinstance(consensus, dict) else None
     )
+    quality_gate = valuation.get("valuation_quality_gate")
+    if not isinstance(quality_gate, dict):
+        quality_gate = {}
+    comps_crosscheck = valuation.get("comps_crosscheck")
+    if not isinstance(comps_crosscheck, dict):
+        comps_crosscheck = {}
+
+    quality_gate_issues_raw = quality_gate.get("issues")
+    quality_gate_issues: list[str] = []
+    if isinstance(quality_gate_issues_raw, list):
+        quality_gate_issues = [str(item).strip() for item in quality_gate_issues_raw if str(item).strip()]
+
     return DCFValuation(
         symbol=symbol,
         iv_base=iv_base,
@@ -566,6 +613,54 @@ def _parse_dcf_company_payload(payload: Dict[str, Any]) -> DCFValuation | None:
         mos_base=_safe_float(valuation.get("mos_base")),
         status=str(valuation.get("status", "")).strip() or None,
         pulled_at=str(payload.get("pulled_at", "")).strip() or None,
+        quality_gate_status=str(quality_gate.get("status", "")).strip() or None,
+        quality_gate_score=_safe_float(quality_gate.get("score")),
+        quality_gate_issues=quality_gate_issues,
+        comps_crosscheck_status=str(comps_crosscheck.get("status", "")).strip() or None,
+        comps_crosscheck_deviation=_safe_float(comps_crosscheck.get("deviation_vs_median")),
+        comps_crosscheck_source=str(comps_crosscheck.get("source", "")).strip() or None,
+    )
+
+
+def _dcf_quality_penalty_multiplier(
+    *,
+    quality_gate_status: str | None,
+    comps_crosscheck_status: str | None,
+) -> float:
+    def _factor(name: str, default: float, min_value: float = 0.5, max_value: float = 1.0) -> float:
+        raw = str(os.getenv(name, str(default))).strip()
+        try:
+            parsed = float(raw)
+        except ValueError:
+            parsed = default
+        return max(min_value, min(parsed, max_value))
+
+    review_factor = _factor("IML_DCF_PENALTY_REVIEW", 0.88)
+    caution_factor = _factor("IML_DCF_PENALTY_CAUTION", 0.94)
+    cross_warn_factor = _factor("IML_DCF_PENALTY_CROSSCHECK_WARN", 0.95)
+    min_floor = _factor("IML_DCF_PENALTY_MIN_FLOOR", 0.75, min_value=0.5, max_value=1.0)
+
+    multiplier = 1.0
+    status = (quality_gate_status or "").strip().lower()
+    cross = (comps_crosscheck_status or "").strip().lower()
+    if status == "review":
+        multiplier *= review_factor
+    elif status == "caution":
+        multiplier *= caution_factor
+    if cross == "warn":
+        multiplier *= cross_warn_factor
+    return max(min_floor, min(multiplier, 1.0))
+
+
+def _dcf_quality_penalty_rule_text() -> str:
+    review_factor = str(os.getenv("IML_DCF_PENALTY_REVIEW", "0.88")).strip() or "0.88"
+    caution_factor = str(os.getenv("IML_DCF_PENALTY_CAUTION", "0.94")).strip() or "0.94"
+    cross_warn_factor = str(os.getenv("IML_DCF_PENALTY_CROSSCHECK_WARN", "0.95")).strip() or "0.95"
+    min_floor = str(os.getenv("IML_DCF_PENALTY_MIN_FLOOR", "0.75")).strip() or "0.75"
+    return (
+        "default 1.0; "
+        f"quality_gate(review={review_factor},caution={caution_factor}) "
+        f"× comps_crosscheck(warn={cross_warn_factor}); floor={min_floor}"
     )
 
 
@@ -574,6 +669,7 @@ def _pull_dcf_portfolio(
     dcf_base_url: str,
     dcf_timeout: float,
     symbols: List[str],
+    transport_meta: Dict[str, Any] | None = None,
 ) -> Dict[str, DCFValuation]:
     if not symbols:
         return {}
@@ -592,6 +688,13 @@ def _pull_dcf_portfolio(
         str(dcf_timeout),
     ]
     payload = _run_dcf_link_with_env(cmd, dcf_base_url=dcf_base_url)
+    if transport_meta is not None:
+        requested = str(payload.get("base_url_requested") or dcf_base_url).strip() or dcf_base_url
+        effective = str(payload.get("base_url") or requested).strip() or requested
+        probes = payload.get("base_url_probe")
+        transport_meta["base_url_requested"] = requested
+        transport_meta["base_url_effective"] = effective
+        transport_meta["base_url_probe"] = probes if isinstance(probes, list) else []
     result: Dict[str, DCFValuation] = {}
     for company in payload.get("companies", []):
         if not isinstance(company, dict):
@@ -608,6 +711,7 @@ def _pull_dcf_companies_individually(
     dcf_base_url: str,
     dcf_timeout: float,
     symbols: List[str],
+    transport_meta: Dict[str, Any] | None = None,
 ) -> tuple[Dict[str, DCFValuation], List[str]]:
     result: Dict[str, DCFValuation] = {}
     failures: List[str] = []
@@ -631,6 +735,13 @@ def _pull_dcf_companies_individually(
         except Exception as exc:  # noqa: BLE001
             failures.append(f"{symbol}: {exc}")
             continue
+        if transport_meta is not None:
+            requested = str(payload.get("base_url_requested") or dcf_base_url).strip() or dcf_base_url
+            effective = str(payload.get("base_url") or requested).strip() or requested
+            probes = payload.get("base_url_probe")
+            transport_meta["base_url_requested"] = requested
+            transport_meta["base_url_effective"] = effective
+            transport_meta["base_url_probe"] = probes if isinstance(probes, list) else []
         parsed = _parse_dcf_company_payload(payload)
         if parsed is None:
             failures.append(f"{symbol}: missing valuation payload")
@@ -653,6 +764,13 @@ def _apply_non_dcf_valuation(row: RawMarketRow, reason: str) -> None:
     row.dcf_price = None
     row.dcf_status = None
     row.dcf_pulled_at = None
+    row.dcf_quality_gate_status = None
+    row.dcf_quality_gate_score = None
+    row.dcf_quality_gate_issues = ""
+    row.dcf_comps_crosscheck_status = None
+    row.dcf_comps_deviation_vs_median = None
+    row.dcf_comps_source = None
+    row.dcf_quality_penalty_multiplier = 1.0
 
 
 def apply_dcf_overlay(
@@ -671,7 +789,14 @@ def apply_dcf_overlay(
     covered_tickers: List[str] = []
     covered_iv_tickers: List[str] = []
     covered_consensus_tickers: List[str] = []
+    quality_gate_status_counts: Dict[str, int] = {}
+    comps_crosscheck_status_counts: Dict[str, int] = {}
     pulled_valuations: Dict[str, DCFValuation] = {}
+    dcf_transport_meta: Dict[str, Any] = {
+        "base_url_requested": dcf_base_url,
+        "base_url_effective": dcf_base_url,
+        "base_url_probe": [],
+    }
 
     available_symbols = _load_dcf_available_symbols(dcf_companies_file)
     if enable_dcf:
@@ -697,6 +822,7 @@ def apply_dcf_overlay(
                         dcf_base_url=dcf_base_url,
                         dcf_timeout=dcf_timeout,
                         symbols=target_symbols,
+                        transport_meta=dcf_transport_meta,
                     )
                 else:
                     pulled_valuations, dcf_errors = _pull_dcf_companies_individually(
@@ -704,6 +830,7 @@ def apply_dcf_overlay(
                         dcf_base_url=dcf_base_url,
                         dcf_timeout=dcf_timeout,
                         symbols=target_symbols,
+                        transport_meta=dcf_transport_meta,
                     )
             except Exception as exc:  # noqa: BLE001
                 dcf_errors.append(str(exc))
@@ -722,6 +849,16 @@ def apply_dcf_overlay(
             row.dcf_price = valuation.price
             row.dcf_status = valuation.status
             row.dcf_pulled_at = valuation.pulled_at
+            row.dcf_quality_gate_status = valuation.quality_gate_status
+            row.dcf_quality_gate_score = valuation.quality_gate_score
+            row.dcf_quality_gate_issues = ";".join(valuation.quality_gate_issues or [])
+            row.dcf_comps_crosscheck_status = valuation.comps_crosscheck_status
+            row.dcf_comps_deviation_vs_median = valuation.comps_crosscheck_deviation
+            row.dcf_comps_source = valuation.comps_crosscheck_source
+            row.dcf_quality_penalty_multiplier = _dcf_quality_penalty_multiplier(
+                quality_gate_status=valuation.quality_gate_status,
+                comps_crosscheck_status=valuation.comps_crosscheck_status,
+            )
             covered_tickers.append(row.ticker)
             covered_iv_tickers.append(row.ticker)
         elif (
@@ -738,6 +875,16 @@ def apply_dcf_overlay(
             row.dcf_price = valuation.price
             row.dcf_status = valuation.status
             row.dcf_pulled_at = valuation.pulled_at
+            row.dcf_quality_gate_status = valuation.quality_gate_status
+            row.dcf_quality_gate_score = valuation.quality_gate_score
+            row.dcf_quality_gate_issues = ";".join(valuation.quality_gate_issues or [])
+            row.dcf_comps_crosscheck_status = valuation.comps_crosscheck_status
+            row.dcf_comps_deviation_vs_median = valuation.comps_crosscheck_deviation
+            row.dcf_comps_source = valuation.comps_crosscheck_source
+            row.dcf_quality_penalty_multiplier = _dcf_quality_penalty_multiplier(
+                quality_gate_status=valuation.quality_gate_status,
+                comps_crosscheck_status=valuation.comps_crosscheck_status,
+            )
             covered_tickers.append(row.ticker)
             covered_consensus_tickers.append(row.ticker)
         else:
@@ -756,6 +903,12 @@ def apply_dcf_overlay(
             dcf_symbol=row.dcf_symbol,
             dcf_iv_base=row.dcf_iv_base,
         )
+        if row.dcf_quality_gate_status:
+            key = str(row.dcf_quality_gate_status).lower()
+            quality_gate_status_counts[key] = quality_gate_status_counts.get(key, 0) + 1
+        if row.dcf_comps_crosscheck_status:
+            key = str(row.dcf_comps_crosscheck_status).lower()
+            comps_crosscheck_status_counts[key] = comps_crosscheck_status_counts.get(key, 0) + 1
 
     source_counts: Dict[str, int] = {}
     for row in raw_rows:
@@ -766,6 +919,9 @@ def apply_dcf_overlay(
         "dcf_link_script": str(dcf_link_script),
         "dcf_companies_file": str(dcf_companies_file),
         "dcf_base_url": dcf_base_url,
+        "dcf_base_url_requested": dcf_transport_meta.get("base_url_requested", dcf_base_url),
+        "dcf_base_url_effective": dcf_transport_meta.get("base_url_effective", dcf_base_url),
+        "dcf_base_url_probe": dcf_transport_meta.get("base_url_probe", []),
         "available_symbols_count": len(available_symbols or []),
         "requested_symbols": sorted(set(ticker_to_symbol.values())),
         "pulled_symbols": sorted(pulled_valuations.keys()),
@@ -775,6 +931,8 @@ def apply_dcf_overlay(
         "unresolved_tickers": sorted(unresolved_tickers),
         "errors": dcf_errors,
         "valuation_source_counts": source_counts,
+        "quality_gate_status_counts": quality_gate_status_counts,
+        "comps_crosscheck_status_counts": comps_crosscheck_status_counts,
         "coverage_ratio": (len(covered_tickers) / len(raw_rows)) if raw_rows else 0.0,
         "iv_coverage_ratio": (len(covered_iv_tickers) / len(raw_rows)) if raw_rows else 0.0,
     }
@@ -1087,6 +1245,204 @@ def build_scored_frame(raw_rows: List[RawMarketRow]) -> pd.DataFrame:
     return df
 
 
+def _env_int(name: str, default: int, min_value: int, max_value: int) -> int:
+    raw = str(os.getenv(name, str(default))).strip()
+    try:
+        parsed = int(raw)
+    except ValueError:
+        parsed = default
+    return max(min_value, min(parsed, max_value))
+
+
+def _hub_symbol_for_row(row: RawMarketRow) -> str:
+    if row.dcf_symbol:
+        return str(row.dcf_symbol).strip().upper()
+    return str(row.ticker).strip().upper()
+
+
+def _market_from_symbol(symbol: str) -> str:
+    raw = str(symbol or "").strip().upper()
+    if raw.startswith(("SH.", "SZ.")) or raw.endswith((".SS", ".SZ")):
+        return "A"
+    if raw.startswith("HK.") or raw.endswith(".HK"):
+        return "HK"
+    return "US"
+
+
+def _pick_primary_comps_deviation(metrics: Any) -> float | None:
+    if not isinstance(metrics, dict):
+        return None
+    for key in (
+        "trailing_pe",
+        "forward_pe",
+        "price_to_book",
+        "ev_to_fcf",
+        "ev_to_ocf",
+        "ev_to_market_cap",
+    ):
+        item = metrics.get(key)
+        if not isinstance(item, dict):
+            continue
+        deviation = _safe_float(item.get("deviation_pct"))
+        if deviation is not None:
+            return deviation
+    return None
+
+
+def _build_hub_comps_batch_items(
+    raw_rows: List[RawMarketRow],
+    *,
+    max_peers: int,
+    min_peers: int,
+) -> tuple[list[dict[str, object]], dict[str, RawMarketRow], int]:
+    entries: list[dict[str, object]] = []
+    symbol_seen: set[str] = set()
+    for row in raw_rows:
+        symbol = _hub_symbol_for_row(row)
+        if not symbol or symbol in symbol_seen:
+            continue
+        symbol_seen.add(symbol)
+        entries.append(
+            {
+                "row": row,
+                "symbol": symbol,
+                "market": _market_from_symbol(symbol),
+                "sector_key": str(row.sector or "Unknown").strip().lower() or "unknown",
+            }
+        )
+
+    items: list[dict[str, object]] = []
+    symbol_to_row: dict[str, RawMarketRow] = {}
+    skipped_existing = 0
+    for entry in entries:
+        row = entry["row"]
+        if not isinstance(row, RawMarketRow):
+            continue
+        if str(row.dcf_comps_crosscheck_status or "").strip():
+            skipped_existing += 1
+            continue
+
+        symbol = str(entry["symbol"])
+        market = str(entry["market"])
+        sector_key = str(entry["sector_key"])
+        same_market_sector = [
+            str(other["symbol"])
+            for other in entries
+            if other["symbol"] != symbol and other["market"] == market and other["sector_key"] == sector_key
+        ]
+        same_market = [
+            str(other["symbol"])
+            for other in entries
+            if other["symbol"] != symbol and other["market"] == market and str(other["symbol"]) not in same_market_sector
+        ]
+        peers = (same_market_sector + same_market)[:max_peers]
+        if len(peers) < min_peers:
+            continue
+        items.append({"symbol": symbol, "peers": peers})
+        aliases = {symbol}
+        for alias in dcf_symbol_candidates(symbol):
+            aliases.add(str(alias).strip().upper())
+        if symbol.startswith("US.") and "." in symbol:
+            aliases.add(symbol.split(".", 1)[1].strip().upper())
+        for alias in aliases:
+            if alias:
+                symbol_to_row[alias] = row
+    return items, symbol_to_row, skipped_existing
+
+
+def apply_hub_comps_overlay(raw_rows: List[RawMarketRow]) -> Dict[str, Any]:
+    base_url = _stock_data_hub_url()
+    if not base_url:
+        return {
+            "enabled": False,
+            "reason": "stock_data_hub_url_missing",
+        }
+    if str(os.getenv("IML_DISABLE_HUB_COMPS_OVERLAY", "")).strip() in {"1", "true", "TRUE", "yes", "YES"}:
+        return {
+            "enabled": False,
+            "reason": "disabled_by_env",
+            "base_url": base_url,
+        }
+
+    max_peers = _env_int("IML_HUB_COMPS_PEER_MAX", 6, min_value=2, max_value=12)
+    min_peers = _env_int("IML_HUB_COMPS_PEER_MIN", 2, min_value=1, max_value=max_peers)
+    timeout_sec = _safe_float(os.getenv("IML_HUB_COMPS_TIMEOUT", "15")) or 15.0
+
+    items, symbol_to_row, skipped_existing = _build_hub_comps_batch_items(
+        raw_rows,
+        max_peers=max_peers,
+        min_peers=min_peers,
+    )
+    meta: Dict[str, Any] = {
+        "enabled": True,
+        "base_url": base_url,
+        "request_count": len(items),
+        "skipped_existing_count": skipped_existing,
+        "max_peers": max_peers,
+        "min_peers": min_peers,
+        "applied_count": 0,
+        "failed_count": 0,
+        "status_counts": {},
+    }
+    if not items:
+        meta["reason"] = "no_eligible_items"
+        return meta
+
+    payload = _hub_post_json(
+        path="v1/comps-baselines",
+        payload={
+            "items": items,
+            "mode": "non_realtime",
+            "refresh": False,
+        },
+        timeout_sec=timeout_sec,
+    )
+    if not isinstance(payload, dict):
+        meta["reason"] = "request_failed"
+        return meta
+
+    records = payload.get("items")
+    failed = payload.get("failed")
+    if not isinstance(records, list):
+        records = []
+    if not isinstance(failed, dict):
+        failed = {}
+
+    status_counts: Dict[str, int] = {}
+    applied = 0
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        symbol = str(record.get("symbol") or "").strip().upper()
+        if not symbol:
+            continue
+        row = symbol_to_row.get(symbol)
+        if row is None:
+            continue
+        status_raw = str(record.get("status") or "").strip().lower()
+        if not status_raw:
+            continue
+        if str(row.dcf_comps_crosscheck_status or "").strip():
+            continue
+
+        row.dcf_comps_crosscheck_status = status_raw
+        row.dcf_comps_deviation_vs_median = _pick_primary_comps_deviation(record.get("metrics"))
+        row.dcf_comps_source = "stock_data_hub_comps_baseline"
+        if row.valuation_source in {"dcf_iv_base", "dcf_external_consensus"}:
+            row.dcf_quality_penalty_multiplier = _dcf_quality_penalty_multiplier(
+                quality_gate_status=row.dcf_quality_gate_status,
+                comps_crosscheck_status=row.dcf_comps_crosscheck_status,
+            )
+        status_counts[status_raw] = status_counts.get(status_raw, 0) + 1
+        applied += 1
+
+    meta["applied_count"] = applied
+    meta["failed_count"] = len(failed)
+    meta["failed"] = failed
+    meta["status_counts"] = status_counts
+    return meta
+
+
 def _format_float(value: Any, digits: int = 4) -> str:
     parsed = _safe_float(value)
     if parsed is None:
@@ -1120,6 +1476,13 @@ def write_real_opportunities(path: Path, df: pd.DataFrame, ordered_tickers: List
         "dcf_mos_base",
         "dcf_price",
         "dcf_status",
+        "dcf_quality_gate_status",
+        "dcf_quality_gate_score",
+        "dcf_quality_gate_issues",
+        "dcf_comps_crosscheck_status",
+        "dcf_comps_deviation_vs_median",
+        "dcf_comps_source",
+        "dcf_quality_penalty_multiplier",
         "quality_score",
         "growth_score",
         "momentum_score",
@@ -1152,6 +1515,17 @@ def write_real_opportunities(path: Path, df: pd.DataFrame, ordered_tickers: List
                     "dcf_mos_base": _format_float(row.get("dcf_mos_base"), digits=4),
                     "dcf_price": _format_float(row.get("dcf_price"), digits=4),
                     "dcf_status": _format_text(row.get("dcf_status")),
+                    "dcf_quality_gate_status": _format_text(row.get("dcf_quality_gate_status")),
+                    "dcf_quality_gate_score": _format_float(row.get("dcf_quality_gate_score"), digits=2),
+                    "dcf_quality_gate_issues": _format_text(row.get("dcf_quality_gate_issues")),
+                    "dcf_comps_crosscheck_status": _format_text(row.get("dcf_comps_crosscheck_status")),
+                    "dcf_comps_deviation_vs_median": _format_float(
+                        row.get("dcf_comps_deviation_vs_median"), digits=4
+                    ),
+                    "dcf_comps_source": _format_text(row.get("dcf_comps_source")),
+                    "dcf_quality_penalty_multiplier": _format_float(
+                        row.get("dcf_quality_penalty_multiplier"), digits=4
+                    ),
                     "quality_score": f"{float(row['quality_score']):.1f}",
                     "growth_score": f"{float(row['growth_score']):.1f}",
                     "momentum_score": f"{float(row['momentum_score']):.1f}",
@@ -1170,6 +1544,7 @@ def write_meta(
     cache_enabled: bool,
     cache_ttl_hours: int,
     dcf_meta: Dict[str, Any],
+    hub_comps_meta: Dict[str, Any],
     requested_universe_size: int,
     failed_tickers: List[str],
 ) -> None:
@@ -1183,7 +1558,7 @@ def write_meta(
     if _stock_data_hub_url():
         source_text = (
             "Yahoo Finance via yfinance + stock-data-hub(optional quote fallback) "
-            "+ local DCF valuation link (partial coverage)"
+            "+ local DCF valuation link (partial coverage; comps baseline cross-check optional)"
         )
 
     meta = {
@@ -1204,6 +1579,7 @@ def write_meta(
         "failed_tickers": failed_tickers,
         "valuation_source_breakdown": valuation_source_breakdown,
         "dcf_integration": dcf_meta,
+        "hub_comps_overlay": hub_comps_meta,
         "calculation": {
             "fair_value_priority": "dcf_iv_base > dcf_external_consensus > targetMeanPrice > close",
             "price_to_fair_value": "close / fair_value; fair_value uses priority above",
@@ -1217,6 +1593,7 @@ def write_meta(
             "risk_score": "percentile(1y volatility, 1y max drawdown, beta, debtToEquity) weighted 35/35/20/10",
             "certainty_score": "weighted(quality_score 45%, risk_control_proxy 35%, analyst_count_percentile 20%)",
             "value_quality_compound_guardrails": "margin_of_safety>=15% and certainty_score>=65 hard gate; margin<30% / certainty<75 soft penalty",
+            "dcf_quality_penalty_multiplier": _dcf_quality_penalty_rule_text(),
         },
         "external_mos_references": [
             {
@@ -1320,6 +1697,7 @@ def main() -> None:
         dcf_timeout=args.dcf_timeout,
         dcf_strict=args.dcf_strict,
     )
+    hub_comps_meta = apply_hub_comps_overlay(raw_rows)
 
     scored = build_scored_frame(raw_rows)
     write_real_opportunities(args.output_file, scored, ordered_tickers=ordered_tickers)
@@ -1331,6 +1709,7 @@ def main() -> None:
         cache_enabled=not args.no_cache,
         cache_ttl_hours=args.cache_ttl_hours,
         dcf_meta=dcf_meta,
+        hub_comps_meta=hub_comps_meta,
         requested_universe_size=len(universe),
         failed_tickers=failures,
     )
@@ -1367,6 +1746,14 @@ def main() -> None:
     )
     source_counts = dcf_meta.get("valuation_source_counts", {})
     print(f"估值来源分布: {source_counts}")
+    if hub_comps_meta.get("enabled"):
+        print(
+            "Hub Comps补充: "
+            f"requested={hub_comps_meta.get('request_count', 0)} "
+            f"applied={hub_comps_meta.get('applied_count', 0)} "
+            f"failed={hub_comps_meta.get('failed_count', 0)} "
+            f"status={hub_comps_meta.get('status_counts', {})}"
+        )
     if dcf_meta.get("errors"):
         print(f"DCF告警(已自动回退): {dcf_meta.get('errors')}")
 

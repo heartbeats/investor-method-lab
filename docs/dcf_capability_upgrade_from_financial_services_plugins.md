@@ -1,6 +1,6 @@
 # DCF 能力强化学习笔记（anthropics/financial-services-plugins）
 
-更新时间：2026-03-04  
+更新时间：2026-03-05  
 学习源：`https://github.com/anthropics/financial-services-plugins`
 
 ## 1) 结论先行
@@ -57,6 +57,16 @@
 2. 在日报推送前增加 `valuation_quality_gate`（终值占比、隐含倍数偏离、敏感性完整性）。  
 3. 将“特别关注 / 机会挖掘”两模块都绑定输入来源元数据（文件、as-of、口径）。  
 4. 后续若接入机构数据，统一走 `stock-data-hub` 扩展层，不把供应商耦合进业务脚本。
+
+## 4.1 当前落地进度（2026-03-05）
+
+- 已完成：`dcf-suite` 输出 `valuation_quality_gate` 与 `comps_crosscheck` 结构化字段，并接入 dashboard 展示。
+- 已完成：日报拆分为 `特别关注` / `机会挖掘` 双模块，且输出来源元信息。
+- 已完成：`stock-data-hub` 新增 `POST /v1/comps-baselines`，并在 `build_real_opportunities.py` 接入“仅补充型 fallback overlay”。
+  - 规则：仅当 `dcf_comps_crosscheck_status` 缺失时补齐；
+  - 不覆盖已有 DCF cross-check；
+  - 回写 `dcf_comps_source=stock_data_hub_comps_baseline`，便于前端区分来源。
+- 待推进：更精细行业分层 peers（当前以“同市场+同板块优先”自动构建 peers，已可用但仍可继续精细化）。
 
 ## 5) 与当前系统的关系
 

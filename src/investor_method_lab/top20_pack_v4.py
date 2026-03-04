@@ -266,6 +266,29 @@ def _evaluate_group_trace(
         if triggered:
             penalty_multiplier *= multiplier
 
+    dcf_penalty = parse_float(row.get("dcf_quality_penalty_multiplier"), 1.0)
+    dcf_penalty = max(0.7, min(dcf_penalty, 1.0))
+    dcf_quality_status = str(row.get("dcf_quality_gate_status") or "").strip()
+    dcf_crosscheck_status = str(row.get("dcf_comps_crosscheck_status") or "").strip()
+    dcf_penalty_triggered = dcf_penalty < 0.999
+    soft_penalties.append(
+        {
+            "rule": "DCF质量闸门加权",
+            "field": "dcf_quality_penalty_multiplier",
+            "op": "<",
+            "threshold": 1.0,
+            "value": dcf_penalty,
+            "multiplier": dcf_penalty,
+            "triggered": dcf_penalty_triggered,
+            "meta": {
+                "quality_gate_status": dcf_quality_status,
+                "comps_crosscheck_status": dcf_crosscheck_status,
+            },
+        }
+    )
+    if dcf_penalty_triggered:
+        penalty_multiplier *= dcf_penalty
+
     core_min = parse_float(tiering.get("core_min_score"), 70.0)
     tactical_min = parse_float(tiering.get("tactical_min_score"), 55.0)
     watch_multiplier = parse_float(tiering.get("watch_multiplier"), 0.80)
@@ -475,6 +498,12 @@ def build_v4_analysis(
         composite_row["explain_passed_group_count"] = pass_count
         composite_row["explain_failed_group_count"] = fail_count
         composite_row["explain_market"] = str(row.get("market") or "")
+        composite_row["dcf_quality_gate_status"] = str(row.get("dcf_quality_gate_status") or "")
+        composite_row["dcf_quality_gate_score"] = parse_float(row.get("dcf_quality_gate_score"), 0.0)
+        composite_row["dcf_comps_crosscheck_status"] = str(row.get("dcf_comps_crosscheck_status") or "")
+        composite_row["dcf_quality_penalty_multiplier"] = parse_float(
+            row.get("dcf_quality_penalty_multiplier"), 1.0
+        )
         composite_row["explain_group_trace_json"] = _safe_json(traces)
         composite_rows.append(composite_row)
 

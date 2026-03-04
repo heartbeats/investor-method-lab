@@ -1,7 +1,7 @@
 # 【机会挖掘｜新增候选】2026-03-03
 
 - 日期：2026-03-03
-- 来源：`/home/afu/projects/investor-method-lab/output/top20_first_batch_opportunities_real_3markets.csv`
+- 来源：`output/top20_first_batch_opportunities_real_3markets.csv`
 - 数量：9
 
 | # | 标的 | 综合分 | MOS | 最优方法论 | 现价 | 目标价 |

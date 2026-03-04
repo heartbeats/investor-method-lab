@@ -116,6 +116,42 @@
     return `${sign}${(decimalValue * 100).toFixed(2)}%`;
   }
 
+  function buildHoverBadge(titleText, label = "查看说明") {
+    const text = String(titleText || "").trim();
+    if (!text) return "";
+    return `<span class="hint-badge" title="${escapeHtml(text)}" aria-label="${escapeHtml(label)}">i</span>`;
+  }
+
+  function buildDataBasisHover(meta, asOfDates) {
+    const dcfMeta = meta?.dcf_integration || {};
+    const requested = dcfMeta?.dcf_base_url_requested || dcfMeta?.dcf_base_url || "-";
+    const effective = dcfMeta?.dcf_base_url_effective || requested;
+    const probeRows = Array.isArray(dcfMeta?.dcf_base_url_probe) ? dcfMeta.dcf_base_url_probe : [];
+    const probeText = probeRows.length
+      ? probeRows
+          .map((item) => {
+            const base = String(item?.base_url || "-");
+            const status = item?.ok ? "ok" : String(item?.reason || "fail");
+            return `${base}:${status}`;
+          })
+          .join(" | ")
+      : "无";
+    const coverage = toNumber(dcfMeta?.coverage_ratio);
+    const coverageText = Number.isFinite(coverage) ? `${(coverage * 100).toFixed(1)}%` : "-";
+    const cachePolicy = String(meta?.cache_policy || "-");
+    const source = String(meta?.source || "项目数据");
+
+    return [
+      `来源=${source}`,
+      `行情日期=${asOfDates || "-"}`,
+      `DCF请求地址=${requested}`,
+      `DCF实际地址=${effective}`,
+      `DCF探测=${probeText}`,
+      `DCF覆盖=${coverageText}`,
+      `缓存策略=${cachePolicy}`,
+    ].join("；");
+  }
+
   function parseNoteMetrics(noteText) {
     const text = String(noteText || "");
     const closeMatch = text.match(/close=([0-9]+(?:\.[0-9]+)?)/i);
@@ -805,6 +841,39 @@
 
     const sourceText = escapeHtml(meta?.source || "项目数据");
     const asOfDates = Array.isArray(meta?.as_of_dates) ? meta.as_of_dates.join(", ") : "-";
+    const dataBasisHover = buildDataBasisHover(meta, asOfDates);
+    const dataBasisBadge = buildHoverBadge(dataBasisHover, "数据依据说明");
+    const dcfMeta = meta?.dcf_integration || {};
+    const dcfRequested = dcfMeta?.dcf_base_url_requested || dcfMeta?.dcf_base_url || "-";
+    const dcfEffective = dcfMeta?.dcf_base_url_effective || dcfRequested || "-";
+    const dcfRouteText = dcfEffective !== dcfRequested ? `${dcfRequested} → ${dcfEffective}` : dcfEffective;
+    const qualityRaw = String(inputRow?.dcf_quality_gate_status || "").trim().toLowerCase();
+    const qualityScore = toNumber(inputRow?.dcf_quality_gate_score);
+    const qualityIssues = String(inputRow?.dcf_quality_gate_issues || "").trim();
+    const crossRaw = String(inputRow?.dcf_comps_crosscheck_status || "").trim().toLowerCase();
+    const crossDeviation = toNumber(inputRow?.dcf_comps_deviation_vs_median);
+    const crossSource = String(inputRow?.dcf_comps_source || "").trim();
+    const qualityPenalty = toNumber(inputRow?.dcf_quality_penalty_multiplier);
+    const qualityTag =
+      qualityRaw === "ok" ? "通过" : qualityRaw === "caution" ? "关注" : qualityRaw === "review" ? "复核" : "未提供";
+    const crossTag =
+      crossRaw === "ok" ? "通过" : crossRaw === "warn" ? "偏离" : crossRaw === "unavailable" ? "缺失" : "未提供";
+    const qualityClass =
+      qualityRaw === "ok" ? "ok" : qualityRaw === "caution" ? "warn" : qualityRaw === "review" ? "review" : "na";
+    const crossClass = crossRaw === "ok" ? "ok" : crossRaw === "warn" ? "warn" : "na";
+    const qualityTip = [
+      "口径：终值占比、隐含增长偏差、敏感性完整性三项检查。",
+      `评分=${Number.isFinite(qualityScore) ? qualityScore.toFixed(1) : "-"}`,
+      `问题=${qualityIssues || "无"}`,
+      "状态含义：ok=通过，caution=关注，review=需复核。",
+    ].join(" ");
+    const crossTip = [
+      "口径：DCF中性估值与外部中位/区间的偏离对照。",
+      `偏离=${Number.isFinite(crossDeviation) ? formatSignedPct(crossDeviation) : "-"}`,
+      `来源=${crossSource || "-"}`,
+      "状态含义：ok=通过，warn=偏离超阈值。",
+    ].join(" ");
+    const qualityPenaltyText = Number.isFinite(qualityPenalty) ? qualityPenalty.toFixed(4) : "-";
 
     container.innerHTML = `
       <h3>${escapeHtml(selectedRow.ticker || "-")} · ${escapeHtml(selectedRow.name || "-")} · 安全边际详情</h3>
@@ -838,6 +907,15 @@
           <p>FV(target)：${Number.isFinite(noteMetrics.target) ? noteMetrics.target.toFixed(2) : "-"}</p>
           <p>P/FV：${Number.isFinite(priceToFairValue) ? Number(priceToFairValue).toFixed(4) : "-"}</p>
           <p>note 日期：${escapeHtml(noteMetrics.asOfDate || "-")}</p>
+          <p>数据状态：最新 ${dataBasisBadge}</p>
+          <p>DCF链路：${escapeHtml(dcfRouteText)}</p>
+          <p class="weak-line">质量闸门：<span class="flag-pill ${qualityClass}" title="${escapeHtml(
+      qualityTip
+    )}">${escapeHtml(qualityTag)}</span></p>
+          <p class="weak-line">同业校验：<span class="flag-pill ${crossClass}" title="${escapeHtml(
+      crossTip
+    )}">${escapeHtml(crossTag)}</span></p>
+          <p class="weak-line">惩罚系数：${escapeHtml(qualityPenaltyText)}</p>
         </article>
       </div>
 

@@ -1,6 +1,11 @@
 {
   "version": 1,
   "updated_at": "2026-03-04",
+  "confirmed": {
+    "status": "confirmed",
+    "date": "2026-03-04",
+    "note": "用户已确认该7只为特别关注池"
+  },
   "description": "逐公司深度 DCF 校准后的特别关注清单（作为主仓关注池）",
   "symbols": [
     {

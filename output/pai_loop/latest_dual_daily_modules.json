@@ -3,13 +3,13 @@
   "as_of_date": "2026-03-03",
   "inputs": {
     "focus_file": "/home/afu/projects/investor-method-lab/data/dcf_special_focus_list.json",
-    "top_file": "output/top20_first_batch_opportunities_real_3markets.csv",
-    "real_file": "data/opportunities.real_3markets.csv",
-    "meta_file": "docs/opportunities_real_data_meta_3markets.json"
+    "top_file": "output/top20_first_batch_opportunities_real.csv",
+    "real_file": "data/opportunities.real.csv",
+    "meta_file": "docs/opportunities_real_data_meta.json"
   },
   "outputs": {
-    "focus_markdown": "docs/dcf_special_focus_daily.md",
-    "opportunity_markdown": "docs/opportunity_mining_daily.md"
+    "focus_markdown": "output/pai_loop/latest_focus_daily.md",
+    "opportunity_markdown": "output/pai_loop/latest_opportunity_daily.md"
   },
   "focus_module": {
     "title": "【特别关注｜深度DCF校准】2026-03-03",
@@ -103,7 +103,7 @@
   "opportunity_module": {
     "title": "【机会挖掘｜新增候选】2026-03-03",
     "summary": {
-      "count": 9,
+      "count": 10,
       "excluded_focus_tickers": [
         "0700.HK",
         "3690.HK",
@@ -116,107 +116,117 @@
     },
     "rows": [
       {
-        "ticker": "UNH",
-        "name": "UnitedHealth",
+        "ticker": "HPE",
+        "name": "Hewlett Packard Enterprise",
         "market": "US",
-        "score": 78.23,
-        "mos_pct": 21.0,
+        "score": 70.77,
+        "mos_pct": 17.7,
         "best_group": "宏观周期",
-        "close": 288.12,
-        "target": 364.62
+        "close": 21.4,
+        "target": 26.01
       },
       {
-        "ticker": "1211.HK",
-        "name": "BYD Company HK",
-        "market": "HK",
-        "score": 48.7,
-        "mos_pct": 22.9,
-        "best_group": "宏观周期",
-        "close": 96.2,
-        "target": 124.69
-      },
-      {
-        "ticker": "002594.SZ",
-        "name": "比亚迪A",
+        "ticker": "000002.SZ",
+        "name": "万科A",
         "market": "A",
-        "score": 43.68,
-        "mos_pct": 22.0,
-        "best_group": "事件驱动激进",
-        "close": 95.21,
-        "target": 122.03
+        "score": 62.8,
+        "mos_pct": 11.9,
+        "best_group": "宏观周期",
+        "close": 4.67,
+        "target": 5.3
       },
       {
-        "ticker": "9618.HK",
-        "name": "JD.com HK",
-        "market": "HK",
-        "score": 19.37,
-        "mos_pct": 33.4,
-        "best_group": "系统化量化",
-        "close": 100.4,
-        "target": 150.73
-      },
-      {
-        "ticker": "TSLA",
-        "name": "Tesla",
+        "ticker": "CARR",
+        "name": "Carrier Global",
         "market": "US",
-        "score": 12.6,
-        "mos_pct": 6.7,
-        "best_group": "价值质量复利",
-        "close": 392.71,
-        "target": 420.9
+        "score": 62.68,
+        "mos_pct": 14.5,
+        "best_group": "宏观周期",
+        "close": 61.38,
+        "target": 71.8
       },
       {
-        "ticker": "600276.SS",
-        "name": "恒瑞医药",
+        "ticker": "HPQ",
+        "name": "HP Inc.",
+        "market": "US",
+        "score": 58.91,
+        "mos_pct": 6.3,
+        "best_group": "宏观周期",
+        "close": 18.73,
+        "target": 19.99
+      },
+      {
+        "ticker": "BBY",
+        "name": "Best Buy",
+        "market": "US",
+        "score": 57.32,
+        "mos_pct": 15.7,
+        "best_group": "宏观周期",
+        "close": 65.2,
+        "target": 77.37
+      },
+      {
+        "ticker": "688036.SS",
+        "name": "传音控股",
         "market": "A",
-        "score": 10.16,
+        "score": 56.05,
         "mos_pct": 0.0,
-        "best_group": "事件驱动激进",
-        "close": 53.61,
+        "best_group": "宏观周期",
+        "close": 54.08,
         "target": null
       },
       {
-        "ticker": "9988.HK",
-        "name": "Alibaba Group HK",
-        "market": "HK",
-        "score": 6.05,
-        "mos_pct": 30.7,
-        "best_group": "价值质量复利",
-        "close": 134.8,
-        "target": 194.46
+        "ticker": "603260.SS",
+        "name": "合盛硅业",
+        "market": "A",
+        "score": 54.46,
+        "mos_pct": 0.0,
+        "best_group": "宏观周期",
+        "close": 48.97,
+        "target": null
       },
       {
-        "ticker": "0981.HK",
-        "name": "SMIC",
-        "market": "HK",
-        "score": 5.43,
-        "mos_pct": 17.3,
-        "best_group": "价值质量复利",
-        "close": 62.55,
-        "target": 75.68
-      },
-      {
-        "ticker": "JPM",
-        "name": "JPMorgan",
+        "ticker": "LEN",
+        "name": "Lennar",
         "market": "US",
-        "score": 4.8,
-        "mos_pct": 14.0,
-        "best_group": "深度价值修复",
-        "close": 296.12,
-        "target": 344.35
+        "score": 53.86,
+        "mos_pct": 1.0,
+        "best_group": "宏观周期",
+        "close": 107.47,
+        "target": 108.62
+      },
+      {
+        "ticker": "KMX",
+        "name": "CarMax",
+        "market": "US",
+        "score": 52.53,
+        "mos_pct": -4.6,
+        "best_group": "宏观周期",
+        "close": 41.02,
+        "target": 39.23
+      },
+      {
+        "ticker": "IT",
+        "name": "Gartner",
+        "market": "US",
+        "score": 51.27,
+        "mos_pct": 16.3,
+        "best_group": "宏观周期",
+        "close": 159.38,
+        "target": 190.46
       }
     ],
     "message_lines": [
       "口径：机会池剔除特别关注标的后按综合分排序",
       "本次展示：8只",
-      "1. UnitedHealth(UNH) 分数 78.2 | MOS 21.0% | 现价/目标 288.12/364.62",
-      "2. BYD Company HK(1211.HK) 分数 48.7 | MOS 22.9% | 现价/目标 96.20/124.69",
-      "3. 比亚迪A(002594.SZ) 分数 43.7 | MOS 22.0% | 现价/目标 95.21/122.03",
-      "4. JD.com HK(9618.HK) 分数 19.4 | MOS 33.4% | 现价/目标 100.40/150.73",
-      "5. Tesla(TSLA) 分数 12.6 | MOS 6.7% | 现价/目标 392.71/420.90",
-      "6. 恒瑞医药(600276.SS) 分数 10.2 | MOS 0.0% | 现价/目标 53.61/-",
-      "7. Alibaba Group HK(9988.HK) 分数 6.0 | MOS 30.7% | 现价/目标 134.80/194.46",
-      "8. SMIC(0981.HK) 分数 5.4 | MOS 17.3% | 现价/目标 62.55/75.68"
+      "1. Hewlett Packard Enterprise(HPE) 分数 70.8 | MOS 17.7% | 现价/目标 21.40/26.01",
+      "2. 万科A(000002.SZ) 分数 62.8 | MOS 11.9% | 现价/目标 4.67/5.30",
+      "3. Carrier Global(CARR) 分数 62.7 | MOS 14.5% | 现价/目标 61.38/71.80",
+      "4. HP Inc.(HPQ) 分数 58.9 | MOS 6.3% | 现价/目标 18.73/19.99",
+      "5. Best Buy(BBY) 分数 57.3 | MOS 15.7% | 现价/目标 65.20/77.37",
+      "6. 传音控股(688036.SS) 分数 56.0 | MOS 0.0% | 现价/目标 54.08/-",
+      "7. 合盛硅业(603260.SS) 分数 54.5 | MOS 0.0% | 现价/目标 48.97/-",
+      "8. Lennar(LEN) 分数 53.9 | MOS 1.0% | 现价/目标 107.47/108.62"
     ]
   }
 }

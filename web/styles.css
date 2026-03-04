@@ -415,6 +415,60 @@ tbody tr.selected {
   font-weight: 700;
 }
 
+.hint-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  margin-left: 6px;
+  border-radius: 999px;
+  border: 1px solid #d4c8b3;
+  background: #f7f2e6;
+  color: #6b5a3e;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: help;
+  user-select: none;
+}
+
+.weak-line {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.flag-pill {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  border: 1px solid #d8d0bf;
+  background: #f6f2e8;
+  color: #5f6f77;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: help;
+}
+
+.flag-pill.ok {
+  border-color: #8bcdbf;
+  color: #0f5f58;
+  background: #edf9f6;
+}
+
+.flag-pill.warn {
+  border-color: #e9c27a;
+  color: #8c5d00;
+  background: #fff7e8;
+}
+
+.flag-pill.review {
+  border-color: #efb6af;
+  color: #9d2520;
+  background: #fff0ef;
+}
+
 .detail-ref {
   margin-top: 10px;
 }
