@@ -1,0 +1,835 @@
+{
+  "generated_at_utc": "2026-03-05T02:12:44.274965+00:00",
+  "inputs": {
+    "rulebook_file": "/home/afu/projects/investor-method-lab/data/methodology_rulebook_v4.json",
+    "opportunities_file": "/home/afu/projects/investor-method-lab/data/opportunities.real_3markets.csv",
+    "meta_file": "/home/afu/projects/investor-method-lab/docs/opportunities_real_data_meta_3markets.json",
+    "cache_dir": "/home/afu/projects/investor-method-lab/data/cache/yfinance",
+    "universe_size": 800,
+    "cache_rows_matched": 800
+  },
+  "methodology_required_fields": {
+    "rulebook_fields": [
+      "catalyst_score_raw",
+      "certainty_score_raw",
+      "growth_score_raw",
+      "margin_of_safety_raw",
+      "market_norm_quality",
+      "momentum_score_raw",
+      "price_to_fair_value_raw",
+      "quality_score_raw",
+      "risk_control_raw"
+    ],
+    "field_mapping": {
+      "price_to_fair_value_raw": {
+        "source_column": "price_to_fair_value",
+        "kind": "direct"
+      },
+      "margin_of_safety_raw": {
+        "source_column": "price_to_fair_value",
+        "kind": "derived:1-price_to_fair_value"
+      },
+      "quality_score_raw": {
+        "source_column": "quality_score",
+        "kind": "direct"
+      },
+      "growth_score_raw": {
+        "source_column": "growth_score",
+        "kind": "direct"
+      },
+      "momentum_score_raw": {
+        "source_column": "momentum_score",
+        "kind": "direct"
+      },
+      "catalyst_score_raw": {
+        "source_column": "catalyst_score",
+        "kind": "direct"
+      },
+      "risk_control_raw": {
+        "source_column": "risk_score",
+        "kind": "derived:100-risk_score"
+      },
+      "certainty_score_raw": {
+        "source_column": "certainty_score",
+        "kind": "direct"
+      },
+      "market_norm_margin_of_safety": {
+        "source_column": null,
+        "kind": "runtime_market_normalization"
+      },
+      "market_norm_quality": {
+        "source_column": null,
+        "kind": "runtime_market_normalization"
+      },
+      "market_norm_growth": {
+        "source_column": null,
+        "kind": "runtime_market_normalization"
+      },
+      "market_norm_momentum": {
+        "source_column": null,
+        "kind": "runtime_market_normalization"
+      },
+      "market_norm_catalyst": {
+        "source_column": null,
+        "kind": "runtime_market_normalization"
+      },
+      "market_norm_risk_control": {
+        "source_column": null,
+        "kind": "runtime_market_normalization"
+      },
+      "dcf_quality_penalty_multiplier": {
+        "source_column": "dcf_quality_penalty_multiplier",
+        "kind": "direct"
+      }
+    },
+    "mapped_source_columns": [
+      "catalyst_score",
+      "certainty_score",
+      "dcf_quality_penalty_multiplier",
+      "growth_score",
+      "momentum_score",
+      "price_to_fair_value",
+      "quality_score",
+      "risk_score"
+    ],
+    "monitored_source_columns": [
+      "catalyst_score",
+      "certainty_score",
+      "dcf_comps_crosscheck_status",
+      "dcf_quality_gate_status",
+      "dcf_quality_penalty_multiplier",
+      "growth_score",
+      "momentum_score",
+      "price_to_fair_value",
+      "quality_score",
+      "risk_score",
+      "target_mean_price",
+      "valuation_source"
+    ]
+  },
+  "source_column_coverage": {
+    "catalyst_score": {
+      "field": "catalyst_score",
+      "present": 800,
+      "total": 800,
+      "coverage_ratio": 1.0,
+      "by_market": {
+        "A": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        },
+        "HK": {
+          "present": 200,
+          "total": 200,
+          "coverage_ratio": 1.0
+        },
+        "US": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        }
+      }
+    },
+    "certainty_score": {
+      "field": "certainty_score",
+      "present": 800,
+      "total": 800,
+      "coverage_ratio": 1.0,
+      "by_market": {
+        "A": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        },
+        "HK": {
+          "present": 200,
+          "total": 200,
+          "coverage_ratio": 1.0
+        },
+        "US": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        }
+      }
+    },
+    "dcf_comps_crosscheck_status": {
+      "field": "dcf_comps_crosscheck_status",
+      "present": 30,
+      "total": 800,
+      "coverage_ratio": 0.0375,
+      "by_market": {
+        "A": {
+          "present": 9,
+          "total": 300,
+          "coverage_ratio": 0.03
+        },
+        "HK": {
+          "present": 8,
+          "total": 200,
+          "coverage_ratio": 0.04
+        },
+        "US": {
+          "present": 13,
+          "total": 300,
+          "coverage_ratio": 0.043333333333333335
+        }
+      }
+    },
+    "dcf_quality_gate_status": {
+      "field": "dcf_quality_gate_status",
+      "present": 30,
+      "total": 800,
+      "coverage_ratio": 0.0375,
+      "by_market": {
+        "A": {
+          "present": 9,
+          "total": 300,
+          "coverage_ratio": 0.03
+        },
+        "HK": {
+          "present": 8,
+          "total": 200,
+          "coverage_ratio": 0.04
+        },
+        "US": {
+          "present": 13,
+          "total": 300,
+          "coverage_ratio": 0.043333333333333335
+        }
+      }
+    },
+    "dcf_quality_penalty_multiplier": {
+      "field": "dcf_quality_penalty_multiplier",
+      "present": 800,
+      "total": 800,
+      "coverage_ratio": 1.0,
+      "by_market": {
+        "A": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        },
+        "HK": {
+          "present": 200,
+          "total": 200,
+          "coverage_ratio": 1.0
+        },
+        "US": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        }
+      }
+    },
+    "growth_score": {
+      "field": "growth_score",
+      "present": 800,
+      "total": 800,
+      "coverage_ratio": 1.0,
+      "by_market": {
+        "A": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        },
+        "HK": {
+          "present": 200,
+          "total": 200,
+          "coverage_ratio": 1.0
+        },
+        "US": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        }
+      }
+    },
+    "momentum_score": {
+      "field": "momentum_score",
+      "present": 800,
+      "total": 800,
+      "coverage_ratio": 1.0,
+      "by_market": {
+        "A": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        },
+        "HK": {
+          "present": 200,
+          "total": 200,
+          "coverage_ratio": 1.0
+        },
+        "US": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        }
+      }
+    },
+    "price_to_fair_value": {
+      "field": "price_to_fair_value",
+      "present": 800,
+      "total": 800,
+      "coverage_ratio": 1.0,
+      "by_market": {
+        "A": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        },
+        "HK": {
+          "present": 200,
+          "total": 200,
+          "coverage_ratio": 1.0
+        },
+        "US": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        }
+      }
+    },
+    "quality_score": {
+      "field": "quality_score",
+      "present": 800,
+      "total": 800,
+      "coverage_ratio": 1.0,
+      "by_market": {
+        "A": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        },
+        "HK": {
+          "present": 200,
+          "total": 200,
+          "coverage_ratio": 1.0
+        },
+        "US": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        }
+      }
+    },
+    "risk_score": {
+      "field": "risk_score",
+      "present": 800,
+      "total": 800,
+      "coverage_ratio": 1.0,
+      "by_market": {
+        "A": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        },
+        "HK": {
+          "present": 200,
+          "total": 200,
+          "coverage_ratio": 1.0
+        },
+        "US": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        }
+      }
+    },
+    "target_mean_price": {
+      "field": "target_mean_price",
+      "present": 560,
+      "total": 800,
+      "coverage_ratio": 0.7,
+      "by_market": {
+        "A": {
+          "present": 103,
+          "total": 300,
+          "coverage_ratio": 0.3433333333333333
+        },
+        "HK": {
+          "present": 160,
+          "total": 200,
+          "coverage_ratio": 0.8
+        },
+        "US": {
+          "present": 297,
+          "total": 300,
+          "coverage_ratio": 0.99
+        }
+      }
+    },
+    "valuation_source": {
+      "field": "valuation_source",
+      "present": 800,
+      "total": 800,
+      "coverage_ratio": 1.0,
+      "by_market": {
+        "A": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        },
+        "HK": {
+          "present": 200,
+          "total": 200,
+          "coverage_ratio": 1.0
+        },
+        "US": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        }
+      }
+    }
+  },
+  "raw_evidence_coverage": {
+    "return_on_equity": {
+      "field": "return_on_equity",
+      "present": 775,
+      "total": 800,
+      "coverage_ratio": 0.96875,
+      "by_market": {
+        "A": {
+          "present": 298,
+          "total": 300,
+          "coverage_ratio": 0.9933333333333333
+        },
+        "HK": {
+          "present": 191,
+          "total": 200,
+          "coverage_ratio": 0.955
+        },
+        "US": {
+          "present": 286,
+          "total": 300,
+          "coverage_ratio": 0.9533333333333334
+        }
+      }
+    },
+    "gross_margins": {
+      "field": "gross_margins",
+      "present": 799,
+      "total": 800,
+      "coverage_ratio": 0.99875,
+      "by_market": {
+        "A": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        },
+        "HK": {
+          "present": 200,
+          "total": 200,
+          "coverage_ratio": 1.0
+        },
+        "US": {
+          "present": 299,
+          "total": 300,
+          "coverage_ratio": 0.9966666666666667
+        }
+      }
+    },
+    "operating_margins": {
+      "field": "operating_margins",
+      "present": 799,
+      "total": 800,
+      "coverage_ratio": 0.99875,
+      "by_market": {
+        "A": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        },
+        "HK": {
+          "present": 200,
+          "total": 200,
+          "coverage_ratio": 1.0
+        },
+        "US": {
+          "present": 299,
+          "total": 300,
+          "coverage_ratio": 0.9966666666666667
+        }
+      }
+    },
+    "revenue_growth": {
+      "field": "revenue_growth",
+      "present": 791,
+      "total": 800,
+      "coverage_ratio": 0.98875,
+      "by_market": {
+        "A": {
+          "present": 298,
+          "total": 300,
+          "coverage_ratio": 0.9933333333333333
+        },
+        "HK": {
+          "present": 195,
+          "total": 200,
+          "coverage_ratio": 0.975
+        },
+        "US": {
+          "present": 298,
+          "total": 300,
+          "coverage_ratio": 0.9933333333333333
+        }
+      }
+    },
+    "earnings_growth": {
+      "field": "earnings_growth",
+      "present": 682,
+      "total": 800,
+      "coverage_ratio": 0.8525,
+      "by_market": {
+        "A": {
+          "present": 275,
+          "total": 300,
+          "coverage_ratio": 0.9166666666666666
+        },
+        "HK": {
+          "present": 149,
+          "total": 200,
+          "coverage_ratio": 0.745
+        },
+        "US": {
+          "present": 258,
+          "total": 300,
+          "coverage_ratio": 0.86
+        }
+      }
+    },
+    "earnings_quarterly_growth": {
+      "field": "earnings_quarterly_growth",
+      "present": 689,
+      "total": 800,
+      "coverage_ratio": 0.86125,
+      "by_market": {
+        "A": {
+          "present": 276,
+          "total": 300,
+          "coverage_ratio": 0.92
+        },
+        "HK": {
+          "present": 155,
+          "total": 200,
+          "coverage_ratio": 0.775
+        },
+        "US": {
+          "present": 258,
+          "total": 300,
+          "coverage_ratio": 0.86
+        }
+      }
+    },
+    "debt_to_equity": {
+      "field": "debt_to_equity",
+      "present": 742,
+      "total": 800,
+      "coverage_ratio": 0.9275,
+      "by_market": {
+        "A": {
+          "present": 274,
+          "total": 300,
+          "coverage_ratio": 0.9133333333333333
+        },
+        "HK": {
+          "present": 194,
+          "total": 200,
+          "coverage_ratio": 0.97
+        },
+        "US": {
+          "present": 274,
+          "total": 300,
+          "coverage_ratio": 0.9133333333333333
+        }
+      }
+    },
+    "analyst_count": {
+      "field": "analyst_count",
+      "present": 560,
+      "total": 800,
+      "coverage_ratio": 0.7,
+      "by_market": {
+        "A": {
+          "present": 103,
+          "total": 300,
+          "coverage_ratio": 0.3433333333333333
+        },
+        "HK": {
+          "present": 160,
+          "total": 200,
+          "coverage_ratio": 0.8
+        },
+        "US": {
+          "present": 297,
+          "total": 300,
+          "coverage_ratio": 0.99
+        }
+      }
+    },
+    "recommendation_mean": {
+      "field": "recommendation_mean",
+      "present": 454,
+      "total": 800,
+      "coverage_ratio": 0.5675,
+      "by_market": {
+        "A": {
+          "present": 85,
+          "total": 300,
+          "coverage_ratio": 0.2833333333333333
+        },
+        "HK": {
+          "present": 85,
+          "total": 200,
+          "coverage_ratio": 0.425
+        },
+        "US": {
+          "present": 284,
+          "total": 300,
+          "coverage_ratio": 0.9466666666666667
+        }
+      }
+    },
+    "ret_3m": {
+      "field": "ret_3m",
+      "present": 799,
+      "total": 800,
+      "coverage_ratio": 0.99875,
+      "by_market": {
+        "A": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        },
+        "HK": {
+          "present": 199,
+          "total": 200,
+          "coverage_ratio": 0.995
+        },
+        "US": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        }
+      }
+    },
+    "ret_6m": {
+      "field": "ret_6m",
+      "present": 798,
+      "total": 800,
+      "coverage_ratio": 0.9975,
+      "by_market": {
+        "A": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        },
+        "HK": {
+          "present": 198,
+          "total": 200,
+          "coverage_ratio": 0.99
+        },
+        "US": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        }
+      }
+    },
+    "ret_12m": {
+      "field": "ret_12m",
+      "present": 797,
+      "total": 800,
+      "coverage_ratio": 0.99625,
+      "by_market": {
+        "A": {
+          "present": 299,
+          "total": 300,
+          "coverage_ratio": 0.9966666666666667
+        },
+        "HK": {
+          "present": 198,
+          "total": 200,
+          "coverage_ratio": 0.99
+        },
+        "US": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        }
+      }
+    },
+    "dist_to_sma200": {
+      "field": "dist_to_sma200",
+      "present": 800,
+      "total": 800,
+      "coverage_ratio": 1.0,
+      "by_market": {
+        "A": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        },
+        "HK": {
+          "present": 200,
+          "total": 200,
+          "coverage_ratio": 1.0
+        },
+        "US": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        }
+      }
+    },
+    "vol_1y": {
+      "field": "vol_1y",
+      "present": 799,
+      "total": 800,
+      "coverage_ratio": 0.99875,
+      "by_market": {
+        "A": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        },
+        "HK": {
+          "present": 199,
+          "total": 200,
+          "coverage_ratio": 0.995
+        },
+        "US": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        }
+      }
+    },
+    "max_drawdown_1y": {
+      "field": "max_drawdown_1y",
+      "present": 800,
+      "total": 800,
+      "coverage_ratio": 1.0,
+      "by_market": {
+        "A": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        },
+        "HK": {
+          "present": 200,
+          "total": 200,
+          "coverage_ratio": 1.0
+        },
+        "US": {
+          "present": 300,
+          "total": 300,
+          "coverage_ratio": 1.0
+        }
+      }
+    }
+  },
+  "valuation_source_counts": {
+    "dcf_iv_base": 29,
+    "target_mean_price": 536,
+    "close_fallback": 234,
+    "dcf_external_consensus": 1
+  },
+  "meta_extract": {
+    "requested_universe_size": 800,
+    "universe_size": 800,
+    "coverage_of_requested_universe": 1.0,
+    "failed_ticker_count": 0,
+    "failed_tickers": [],
+    "dcf_coverage_ratio": 0.0375,
+    "dcf_iv_coverage_ratio": 0.03625,
+    "dcf_valuation_source_counts": {
+      "dcf_iv_base": 29,
+      "target_mean_price": 536,
+      "close_fallback": 234,
+      "dcf_external_consensus": 1
+    }
+  },
+  "gaps": [
+    {
+      "id": "dcf_coverage_low",
+      "severity": "high",
+      "description": "DCF 覆盖率偏低，会削弱安全边际与质量闸门可信度。",
+      "current": {
+        "dcf_coverage_ratio": 0.0375
+      },
+      "free_first_actions": [
+        "优先扩充 DCF 可覆盖股票清单到核心池高权重标的",
+        "未覆盖标的使用可比估值 baseline 作为中间校验层"
+      ],
+      "paid_options": [
+        "启用低成本 fundamentals/consensus 付费源提高 fair value 参照密度（待决策）"
+      ]
+    },
+    {
+      "id": "a_market_target_price_sparse",
+      "severity": "high",
+      "description": "A 股分析师目标价覆盖偏低，影响催化分与估值参照稳定性。",
+      "current": {
+        "A_target_mean_price_coverage": 0.3433333333333333,
+        "HK_target_mean_price_coverage": 0.8,
+        "US_target_mean_price_coverage": 0.99
+      },
+      "free_first_actions": [
+        "补充 Eastmoney/akshare 研报聚合数据并转化为目标价统计",
+        "对目标价缺失标的，使用同业估值中位数回填并加风险标签"
+      ],
+      "paid_options": [
+        "Tushare Pro 研报/一致预期字段（低成本）",
+        "Wind/Choice 一致预期接口（中高成本）"
+      ]
+    },
+    {
+      "id": "a_market_analyst_signal_sparse",
+      "severity": "medium",
+      "description": "A 股分析师维度覆盖不足，导致 catalyst/certainty 更依赖默认值。",
+      "current": {
+        "A_analyst_count_coverage": 0.3433333333333333,
+        "A_recommendation_mean_coverage": 0.2833333333333333
+      },
+      "free_first_actions": [
+        "先用研报数量、最新评级方向构建替代分析师因子",
+        "将缺失标的默认权重下调，避免与 US 高覆盖标的同权比较"
+      ],
+      "paid_options": [
+        "低成本接入 A 股卖方一致预期接口（待决策）"
+      ]
+    }
+  ],
+  "source_expansion_plan": {
+    "free_first": [
+      "A/HK 基本面优先走 akshare，再回退 yfinance（已接入 stock-data-hub）",
+      "每日收盘后批量生成本地快照，业务层优先读快照，缺失再回源",
+      "A 股补研报聚合（Eastmoney/akshare），补足 analyst_count 与 recommendation 替代信号"
+    ],
+    "low_cost_paid_candidates_waiting_decision": [
+      {
+        "source": "Tushare Pro",
+        "use_case": "A 股财务与一致预期补全",
+        "cost_level": "low_to_medium"
+      },
+      {
+        "source": "FMP Pro",
+        "use_case": "US/HK 基本面与目标价稳定补源",
+        "cost_level": "low_to_medium"
+      },
+      {
+        "source": "Polygon/Intrinio",
+        "use_case": "US 行情/财务高稳定性",
+        "cost_level": "medium"
+      }
+    ]
+  },
+  "architecture_links": {
+    "stock_data_hub_blueprint": "/home/afu/projects/stock-data-hub/docs/final_architecture_blueprint.md",
+    "stock_data_hub_data_lake_v2": "/home/afu/projects/stock-data-hub/docs/data_lake_architecture_v2.md"
+  }
+}

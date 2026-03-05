@@ -19,6 +19,10 @@ FOCUS_FILE="$ROOT_DIR/data/dcf_special_focus_list.json"
 FOCUS_REPORT_FILE="$ROOT_DIR/docs/dcf_special_focus_daily.md"
 OPPORTUNITY_REPORT_FILE="$ROOT_DIR/docs/opportunity_mining_daily.md"
 DUAL_MODULES_JSON="$ROOT_DIR/docs/daily_dual_modules.json"
+PER_TICKER_TIMEOUT_SECONDS="${IML_PER_TICKER_TIMEOUT_SECONDS:-8}"
+PER_TICKER_RETRIES="${IML_PER_TICKER_RETRIES:-2}"
+PER_TICKER_RETRY_TIMEOUT_MULTIPLIER="${IML_PER_TICKER_RETRY_TIMEOUT_MULTIPLIER:-1.6}"
+PER_TICKER_RETRY_BACKOFF_SECONDS="${IML_PER_TICKER_RETRY_BACKOFF_SECONDS:-0.25}"
 
 if [[ $# -eq 0 ]]; then
   python3 "$ROOT_DIR/scripts/build_universe_core_3markets.py" \
@@ -31,7 +35,10 @@ python3 "$ROOT_DIR/scripts/build_real_opportunities.py" \
   --output-file "$REAL_FILE" \
   --meta-file "$META_FILE" \
   --allow-partial \
-  --per-ticker-timeout-seconds 6 \
+  --per-ticker-timeout-seconds "$PER_TICKER_TIMEOUT_SECONDS" \
+  --per-ticker-retries "$PER_TICKER_RETRIES" \
+  --per-ticker-retry-timeout-multiplier "$PER_TICKER_RETRY_TIMEOUT_MULTIPLIER" \
+  --per-ticker-retry-backoff-seconds "$PER_TICKER_RETRY_BACKOFF_SECONDS" \
   --dcf-base-url "$DCF_BASE_URL"
 
 AS_OF_DATE="$(ROOT_DIR="$ROOT_DIR" python3 - << 'PY'

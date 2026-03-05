@@ -124,6 +124,7 @@
 
   function buildDataBasisHover(meta, asOfDates) {
     const dcfMeta = meta?.dcf_integration || {};
+    const hubComps = meta?.hub_comps_overlay || {};
     const requested = dcfMeta?.dcf_base_url_requested || dcfMeta?.dcf_base_url || "-";
     const effective = dcfMeta?.dcf_base_url_effective || requested;
     const probeRows = Array.isArray(dcfMeta?.dcf_base_url_probe) ? dcfMeta.dcf_base_url_probe : [];
@@ -138,6 +139,19 @@
       : "无";
     const coverage = toNumber(dcfMeta?.coverage_ratio);
     const coverageText = Number.isFinite(coverage) ? `${(coverage * 100).toFixed(1)}%` : "-";
+    const hubEnabled = !!hubComps?.enabled;
+    const hubStrategy = String(hubComps?.peer_strategy || "sector_market");
+    const hubReq = toNumber(hubComps?.request_count);
+    const hubApplied = toNumber(hubComps?.applied_count);
+    const hubFailed = toNumber(hubComps?.failed_count);
+    const hubCapCoverage = toNumber(hubComps?.market_cap_coverage_ratio);
+    const hubCapCoverageText = Number.isFinite(hubCapCoverage)
+      ? `${(hubCapCoverage * 100).toFixed(1)}%`
+      : "-";
+    const hubResultText = Number.isFinite(hubReq)
+      ? `${Number.isFinite(hubApplied) ? hubApplied : "-"} / ${hubReq}${Number.isFinite(hubFailed) ? ` (failed=${hubFailed})` : ""}`
+      : "-";
+    const hubReason = String(hubComps?.reason || "").trim();
     const cachePolicy = String(meta?.cache_policy || "-");
     const source = String(meta?.source || "项目数据");
 
@@ -148,6 +162,11 @@
       `DCF实际地址=${effective}`,
       `DCF探测=${probeText}`,
       `DCF覆盖=${coverageText}`,
+      `HubComps=${hubEnabled ? "on" : "off"}`,
+      `HubComps策略=${hubEnabled ? hubStrategy : "-"}`,
+      `HubComps应用=${hubEnabled ? hubResultText : "-"}`,
+      `HubComps市值覆盖=${hubEnabled ? hubCapCoverageText : "-"}`,
+      `${hubReason ? `HubComps备注=${hubReason}` : "HubComps备注=-"}`,
       `缓存策略=${cachePolicy}`,
     ].join("；");
   }

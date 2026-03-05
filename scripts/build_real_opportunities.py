@@ -8,6 +8,7 @@ import json
 import math
 import os
 import subprocess
+import time
 from dataclasses import asdict, dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -27,6 +28,7 @@ DEFAULT_DCF_COMPANIES_FILE = Path("/home/afu/codex-project/data/companies.json")
 
 YF_TICKER_MAP = {
     "BRK.B": "BRK-B",
+    "BF.B": "BF-B",
 }
 
 
@@ -404,6 +406,24 @@ def parse_args() -> argparse.Namespace:
         type=float,
         default=25.0,
         help="单只股票拉取超时（秒，默认 25）",
+    )
+    parser.add_argument(
+        "--per-ticker-retries",
+        type=int,
+        default=1,
+        help="单只股票拉取失败重试次数（默认 1）",
+    )
+    parser.add_argument(
+        "--per-ticker-retry-timeout-multiplier",
+        type=float,
+        default=1.5,
+        help="每次重试的超时放大倍数（默认 1.5）",
+    )
+    parser.add_argument(
+        "--per-ticker-retry-backoff-seconds",
+        type=float,
+        default=0.25,
+        help="重试退避基准秒数（默认 0.25）",
     )
     parser.add_argument(
         "--allow-partial",
@@ -1142,6 +1162,40 @@ def fetch_raw_market_row_with_timeout(
             raise TimeoutError(f"{ticker}: fetch timeout>{timeout_seconds:.1f}s") from exc
 
 
+def fetch_raw_market_row_with_retries(
+    item: Dict[str, str],
+    history_period: str,
+    timeout_seconds: float,
+    retries: int,
+    timeout_multiplier: float,
+    retry_backoff_seconds: float,
+) -> RawMarketRow:
+    attempts = max(1, int(retries) + 1)
+    current_timeout = max(0.1, float(timeout_seconds))
+    grow = max(1.0, float(timeout_multiplier))
+    backoff = max(0.0, float(retry_backoff_seconds))
+    last_exc: Exception | None = None
+
+    for attempt in range(attempts):
+        try:
+            return fetch_raw_market_row_with_timeout(
+                item,
+                history_period=history_period,
+                timeout_seconds=current_timeout,
+            )
+        except Exception as exc:  # noqa: BLE001
+            last_exc = exc
+            if attempt >= attempts - 1:
+                break
+            if backoff > 0:
+                time.sleep(backoff * (attempt + 1))
+            current_timeout = max(current_timeout, current_timeout * grow)
+
+    if last_exc is not None:
+        raise last_exc
+    raise RuntimeError("unknown fetch failure")
+
+
 def percentile_score(series: pd.Series, higher_better: bool = True) -> pd.Series:
     values = pd.to_numeric(series, errors="coerce")
     if values.notna().sum() == 0:
@@ -1254,6 +1308,11 @@ def _env_int(name: str, default: int, min_value: int, max_value: int) -> int:
     return max(min_value, min(parsed, max_value))
 
 
+def _env_text(name: str, default: str) -> str:
+    raw = str(os.getenv(name, default)).strip()
+    return raw or default
+
+
 def _hub_symbol_for_row(row: RawMarketRow) -> str:
     if row.dcf_symbol:
         return str(row.dcf_symbol).strip().upper()
@@ -1289,11 +1348,60 @@ def _pick_primary_comps_deviation(metrics: Any) -> float | None:
     return None
 
 
+def _symbol_aliases(symbol: str) -> set[str]:
+    normalized = str(symbol or "").strip().upper()
+    if not normalized:
+        return set()
+    aliases = {normalized}
+    for alias in dcf_symbol_candidates(normalized):
+        aliases.add(str(alias).strip().upper())
+    if normalized.startswith("US.") and "." in normalized:
+        aliases.add(normalized.split(".", 1)[1].strip().upper())
+    return {item for item in aliases if item}
+
+
+def _fetch_hub_market_caps(symbols: list[str], timeout_sec: float) -> dict[str, float]:
+    payload = _hub_post_json(
+        path="v1/fundamentals",
+        payload={
+            "symbols": symbols,
+            "mode": "non_realtime",
+            "refresh": False,
+        },
+        timeout_sec=timeout_sec,
+    )
+    if not isinstance(payload, dict):
+        return {}
+    records = payload.get("items")
+    if not isinstance(records, list):
+        return {}
+
+    caps: dict[str, float] = {}
+    for item in records:
+        if not isinstance(item, dict):
+            continue
+        symbol = str(item.get("symbol") or "").strip().upper()
+        market_cap = _safe_float(item.get("market_cap"))
+        if not symbol or market_cap is None or market_cap <= 0:
+            continue
+        for alias in _symbol_aliases(symbol):
+            caps[alias] = market_cap
+    return caps
+
+
+def _size_distance(lhs: float | None, rhs: float | None) -> float:
+    if lhs is None or rhs is None or lhs <= 0 or rhs <= 0:
+        return 99.0
+    return abs(math.log(lhs) - math.log(rhs))
+
+
 def _build_hub_comps_batch_items(
     raw_rows: List[RawMarketRow],
     *,
     max_peers: int,
     min_peers: int,
+    peer_strategy: str = "sector_market",
+    market_caps: dict[str, float] | None = None,
 ) -> tuple[list[dict[str, object]], dict[str, RawMarketRow], int]:
     entries: list[dict[str, object]] = []
     symbol_seen: set[str] = set()
@@ -1308,6 +1416,7 @@ def _build_hub_comps_batch_items(
                 "symbol": symbol,
                 "market": _market_from_symbol(symbol),
                 "sector_key": str(row.sector or "Unknown").strip().lower() or "unknown",
+                "market_cap": _safe_float((market_caps or {}).get(symbol)),
             }
         )
 
@@ -1325,26 +1434,38 @@ def _build_hub_comps_batch_items(
         symbol = str(entry["symbol"])
         market = str(entry["market"])
         sector_key = str(entry["sector_key"])
-        same_market_sector = [
-            str(other["symbol"])
+        target_cap = _safe_float(entry.get("market_cap"))
+        candidates = [
+            other
             for other in entries
-            if other["symbol"] != symbol and other["market"] == market and other["sector_key"] == sector_key
+            if other["symbol"] != symbol and other["market"] == market
         ]
-        same_market = [
-            str(other["symbol"])
-            for other in entries
-            if other["symbol"] != symbol and other["market"] == market and str(other["symbol"]) not in same_market_sector
-        ]
-        peers = (same_market_sector + same_market)[:max_peers]
+        if peer_strategy == "sector_size":
+            sorted_candidates = sorted(
+                candidates,
+                key=lambda other: (
+                    0 if other.get("sector_key") == sector_key else 1,
+                    _size_distance(target_cap, _safe_float(other.get("market_cap"))),
+                    str(other.get("symbol") or ""),
+                ),
+            )
+            peers = [str(other["symbol"]) for other in sorted_candidates[:max_peers]]
+        else:
+            same_market_sector = [
+                str(other["symbol"])
+                for other in entries
+                if other["symbol"] != symbol and other["market"] == market and other["sector_key"] == sector_key
+            ]
+            same_market = [
+                str(other["symbol"])
+                for other in entries
+                if other["symbol"] != symbol and other["market"] == market and str(other["symbol"]) not in same_market_sector
+            ]
+            peers = (same_market_sector + same_market)[:max_peers]
         if len(peers) < min_peers:
             continue
         items.append({"symbol": symbol, "peers": peers})
-        aliases = {symbol}
-        for alias in dcf_symbol_candidates(symbol):
-            aliases.add(str(alias).strip().upper())
-        if symbol.startswith("US.") and "." in symbol:
-            aliases.add(symbol.split(".", 1)[1].strip().upper())
-        for alias in aliases:
+        for alias in _symbol_aliases(symbol):
             if alias:
                 symbol_to_row[alias] = row
     return items, symbol_to_row, skipped_existing
@@ -1367,12 +1488,28 @@ def apply_hub_comps_overlay(raw_rows: List[RawMarketRow]) -> Dict[str, Any]:
     max_peers = _env_int("IML_HUB_COMPS_PEER_MAX", 6, min_value=2, max_value=12)
     min_peers = _env_int("IML_HUB_COMPS_PEER_MIN", 2, min_value=1, max_value=max_peers)
     timeout_sec = _safe_float(os.getenv("IML_HUB_COMPS_TIMEOUT", "15")) or 15.0
+    peer_strategy = _env_text("IML_HUB_COMPS_PEER_STRATEGY", "sector_market").lower()
+    if peer_strategy not in {"sector_market", "sector_size"}:
+        peer_strategy = "sector_market"
+
+    market_caps: dict[str, float] = {}
+    if peer_strategy == "sector_size":
+        symbol_candidates = sorted({_hub_symbol_for_row(row) for row in raw_rows if _hub_symbol_for_row(row)})
+        market_caps = _fetch_hub_market_caps(symbol_candidates, timeout_sec=timeout_sec)
 
     items, symbol_to_row, skipped_existing = _build_hub_comps_batch_items(
         raw_rows,
         max_peers=max_peers,
         min_peers=min_peers,
+        peer_strategy=peer_strategy,
+        market_caps=market_caps,
     )
+    cap_covered = 0
+    if peer_strategy == "sector_size":
+        for row in raw_rows:
+            symbol = _hub_symbol_for_row(row)
+            if any(alias in market_caps for alias in _symbol_aliases(symbol)):
+                cap_covered += 1
     meta: Dict[str, Any] = {
         "enabled": True,
         "base_url": base_url,
@@ -1380,6 +1517,9 @@ def apply_hub_comps_overlay(raw_rows: List[RawMarketRow]) -> Dict[str, Any]:
         "skipped_existing_count": skipped_existing,
         "max_peers": max_peers,
         "min_peers": min_peers,
+        "peer_strategy": peer_strategy,
+        "market_cap_covered_count": cap_covered,
+        "market_cap_coverage_ratio": (cap_covered / len(raw_rows)) if raw_rows else 0.0,
         "applied_count": 0,
         "failed_count": 0,
         "status_counts": {},
@@ -1643,10 +1783,6 @@ def main() -> None:
         ticker = (item.get("ticker") or "").strip()
         if not ticker:
             continue
-        # Skip known delisted/unavailable tickers
-        if ticker in ("BF.B", "FI", "IPG", "K"):
-            print(f"[skip] {ticker}: known delisted/unavailable", flush=True)
-            continue
         cache_file = _cache_path(args.cache_dir, ticker, args.history_period)
         if not args.no_cache:
             cached = _load_cached_row(
@@ -1660,10 +1796,13 @@ def main() -> None:
                 cache_hits += 1
                 continue
         try:
-            fetched = fetch_raw_market_row_with_timeout(
+            fetched = fetch_raw_market_row_with_retries(
                 item,
                 history_period=args.history_period,
                 timeout_seconds=args.per_ticker_timeout_seconds,
+                retries=args.per_ticker_retries,
+                timeout_multiplier=args.per_ticker_retry_timeout_multiplier,
+                retry_backoff_seconds=args.per_ticker_retry_backoff_seconds,
             )
             raw_rows.append(fetched)
             api_fetches += 1

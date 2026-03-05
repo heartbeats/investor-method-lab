@@ -1,0 +1,54 @@
+{
+  "as_of_utc": "2026-03-05T02:13:00Z",
+  "decision_status": "pending_user_decision",
+  "principle": "free_first_then_low_cost_paid",
+  "free_first_actions": [
+    {
+      "id": "free_akshare_fundamental_ahk",
+      "description": "A/HK 基本面优先走 akshare，再回退 yfinance（已落地 stock-data-hub）",
+      "status": "implemented",
+      "owner_project": "stock-data-hub"
+    },
+    {
+      "id": "free_daily_snapshot_local_lake",
+      "description": "每日收盘后将 quote/fundamental/external valuation 批量落盘本地 data_lake（已落地脚本）",
+      "status": "implemented",
+      "owner_project": "stock-data-hub"
+    },
+    {
+      "id": "free_a_share_research_aggregation",
+      "description": "接入 Eastmoney/akshare 研报聚合，提高 A 股分析师覆盖",
+      "status": "planned",
+      "owner_project": "stock-data-hub"
+    }
+  ],
+  "low_cost_paid_candidates": [
+    {
+      "id": "paid_tushare_pro",
+      "name": "Tushare Pro",
+      "markets": ["A"],
+      "use_case": "A 股财务与一致预期补全",
+      "cost_level": "low_to_medium",
+      "priority": "high",
+      "decision": "pending"
+    },
+    {
+      "id": "paid_fmp_pro",
+      "name": "Financial Modeling Prep Pro",
+      "markets": ["US", "HK"],
+      "use_case": "US/HK 基本面与目标价稳定补源",
+      "cost_level": "low_to_medium",
+      "priority": "medium",
+      "decision": "pending"
+    },
+    {
+      "id": "paid_polygon_intrinio",
+      "name": "Polygon or Intrinio",
+      "markets": ["US"],
+      "use_case": "US 行情/财务高稳定与更高频刷新",
+      "cost_level": "medium",
+      "priority": "medium",
+      "decision": "pending"
+    }
+  ]
+}

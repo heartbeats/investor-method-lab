@@ -1,7 +1,7 @@
 # PAI 迭代闭环报告
 
-- run_id: `20260305_040002`
-- started_at: `2026-03-05 04:00:02`
+- run_id: `20260305_180002`
+- started_at: `2026-03-05 18:00:02`
 - with_real_data: `True`
 - skip_tests: `False`
 
@@ -23,9 +23,9 @@
 | `docs/top20_global_investors_verified_ab.md` | True | 6634 | 26 | no |
 | `docs/top20_verification_backlog.md` | True | 145 | 4 | no |
 | `docs/top20_opportunity_pack.md` | True | 11969 | 176 | no |
-| `output/top20_first_batch_opportunities.csv` | True | 176778 | 11 | no |
+| `output/top20_first_batch_opportunities.csv` | True | 198494 | 11 | no |
 | `output/top20_methodology_top5_by_group.csv` | True | 13555 | 46 | no |
-| `output/top20_diversified_opportunities.csv` | True | 176840 | 11 | no |
+| `output/top20_diversified_opportunities.csv` | True | 198556 | 11 | no |
 
 ## 3) 漂移与告警
 

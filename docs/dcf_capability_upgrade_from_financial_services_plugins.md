@@ -66,6 +66,7 @@
   - 规则：仅当 `dcf_comps_crosscheck_status` 缺失时补齐；
   - 不覆盖已有 DCF cross-check；
   - 回写 `dcf_comps_source=stock_data_hub_comps_baseline`，便于前端区分来源。
+- 已完成：新增可选 peers 策略 `sector_size`（同市场内“同板块优先 + 市值接近排序”），通过 `POST /v1/fundamentals` 批量市值做约束；默认策略保持 `sector_market` 以确保兼容。
 - 待推进：更精细行业分层 peers（当前以“同市场+同板块优先”自动构建 peers，已可用但仍可继续精细化）。
 
 ## 5) 与当前系统的关系

@@ -25,9 +25,9 @@
   },
   "output/top20_first_batch_opportunities.csv": {
     "exists": true,
-    "size": 176778,
+    "size": 198494,
     "lines": 11,
-    "sha256": "cb43f86274d70601a95fe35823c7e6e2f7117cf00e97d8b49dfb259b52c4378b"
+    "sha256": "2df79073877c00272b0669cc947d6d328c7cd28c7c3c3751d808798ee3a0e131"
   },
   "output/top20_methodology_top5_by_group.csv": {
     "exists": true,
@@ -37,8 +37,8 @@
   },
   "output/top20_diversified_opportunities.csv": {
     "exists": true,
-    "size": 176840,
+    "size": 198556,
     "lines": 11,
-    "sha256": "f0233b88b22971b7594d71df8f25e4696320e9f6eb667003105e8673c0bb85c9"
+    "sha256": "a004b68ee1de755c9ea72f4002b238e9234aed4265703c69216440436be15220"
   }
 }

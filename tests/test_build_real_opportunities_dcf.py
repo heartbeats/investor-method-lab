@@ -237,6 +237,75 @@ class BuildRealOpportunitiesDCFTest(unittest.TestCase):
         self.assertEqual(row.dcf_comps_crosscheck_status, "ok")
         self.assertAlmostEqual(row.dcf_comps_deviation_vs_median or 0.0, 0.08, places=4)
 
+    def test_build_hub_comps_batch_items_sector_size_prefers_sector_then_size(self) -> None:
+        aapl = _sample_row("AAPL")
+        msft = _sample_row("MSFT")
+        tsla = _sample_row("TSLA")
+        xom = _sample_row("XOM")
+        aapl.dcf_symbol = "US.AAPL"
+        msft.dcf_symbol = "US.MSFT"
+        tsla.dcf_symbol = "US.TSLA"
+        xom.dcf_symbol = "US.XOM"
+        aapl.sector = "Technology"
+        msft.sector = "Technology"
+        tsla.sector = "Automotive"
+        xom.sector = "Energy"
+
+        items, _symbol_to_row, _skipped = mod._build_hub_comps_batch_items(
+            [aapl, msft, tsla, xom],
+            max_peers=2,
+            min_peers=1,
+            peer_strategy="sector_size",
+            market_caps={
+                "US.AAPL": 100.0,
+                "US.MSFT": 110.0,
+                "US.TSLA": 95.0,
+                "US.XOM": 1000.0,
+            },
+        )
+        item_by_symbol = {str(item["symbol"]): item for item in items}
+        self.assertIn("US.AAPL", item_by_symbol)
+        peers = item_by_symbol["US.AAPL"]["peers"]
+        self.assertEqual(peers[0], "US.MSFT")
+        self.assertEqual(peers[1], "US.TSLA")
+
+    def test_apply_hub_comps_overlay_sector_size_sets_meta(self) -> None:
+        row = _sample_row("AAPL")
+        peer1 = _sample_row("MSFT")
+        peer2 = _sample_row("AMZN")
+
+        with mock.patch.object(mod, "_stock_data_hub_url", return_value="http://127.0.0.1:18000"), mock.patch.dict(
+            mod.os.environ,
+            {"IML_HUB_COMPS_PEER_STRATEGY": "sector_size", "IML_HUB_COMPS_PEER_MIN": "1"},
+            clear=False,
+        ), mock.patch.object(
+            mod,
+            "_hub_post_json",
+            side_effect=[
+                {
+                    "items": [
+                        {"symbol": "US.AAPL", "market_cap": 100.0},
+                        {"symbol": "US.MSFT", "market_cap": 120.0},
+                        {"symbol": "US.AMZN", "market_cap": 90.0},
+                    ],
+                    "failed": {},
+                },
+                {
+                    "items": [
+                        {"symbol": "US.AAPL", "status": "ok", "metrics": {"trailing_pe": {"deviation_pct": 0.02}}}
+                    ],
+                    "failed": {},
+                },
+            ],
+        ) as mocked_post:
+            meta = mod.apply_hub_comps_overlay([row, peer1, peer2])
+
+        self.assertEqual(mocked_post.call_count, 2)
+        self.assertEqual(meta["peer_strategy"], "sector_size")
+        self.assertGreater(meta["market_cap_covered_count"], 0)
+        self.assertGreater(meta["market_cap_coverage_ratio"], 0.0)
+        self.assertEqual(row.dcf_comps_crosscheck_status, "ok")
+
 
 if __name__ == "__main__":
     unittest.main()

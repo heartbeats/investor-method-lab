@@ -25,6 +25,13 @@ SSE_STOCK_LIST_URL = (
     "&pageHelp.beginPage=1&pageHelp.endPage=1&sqlId=COMMON_SSE_ZQPZ_GPLB_CP_GPLB_L"
 )
 
+US_EXCLUDED_TICKERS = {
+    # Yahoo/常见免费源在当前环境中长期不可用，剔除后由后续成分补位，保持 US 样本总量不变。
+    "FI",
+    "IPG",
+    "K",
+}
+
 
 @dataclass
 class UniverseRow:
@@ -99,6 +106,8 @@ def build_us_pool(limit: int) -> List[UniverseRow]:
     for _, item in df.iterrows():
         symbol = str(item.get("Symbol") or "").strip().upper()
         if not symbol:
+            continue
+        if symbol in US_EXCLUDED_TICKERS:
             continue
         name = str(item.get("Security") or symbol).strip()
         sector = str(item.get("GICS Sector") or "Unknown").strip()
