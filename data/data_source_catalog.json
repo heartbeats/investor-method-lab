@@ -1,8 +1,8 @@
 {
   "as_of_utc": "2026-03-03T16:04:38.427594+00:00",
   "stock_provider_probe": {
-    "script": "/home/afu/.codex/skills/stock-data-fetch/scripts/probe_stock_sources.py",
-    "output_file": "/home/afu/projects/investor-method-lab/data/stock_provider_probe.json",
+    "script": "/Users/lucas/.codex/skills/stock-data-fetch/scripts/probe_stock_sources.py",
+    "output_file": "/Users/lucas/projects/investor-method-lab/data/stock_provider_probe.json",
     "generated_at": "2026-03-03T16:03:31.806048+00:00"
   },
   "source_count": 15,

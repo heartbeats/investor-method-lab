@@ -2,8 +2,9 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+HOME_DIR="${HOME:-/Users/$(id -un 2>/dev/null || echo lucas)}"
 
-HUB_ROOT="${IML_STOCK_DATA_HUB_ROOT:-/home/afu/projects/stock-data-hub}"
+HUB_ROOT="${IML_STOCK_DATA_HUB_ROOT:-${HOME_DIR}/projects/stock-data-hub}"
 HUB_HOST="${IML_STOCK_DATA_HUB_HOST:-127.0.0.1}"
 HUB_PORT="${IML_STOCK_DATA_HUB_PORT:-18123}"
 HUB_URL="${IML_STOCK_DATA_HUB_URL:-http://${HUB_HOST}:${HUB_PORT}}"

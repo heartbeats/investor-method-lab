@@ -12,7 +12,7 @@ from typing import Any, Dict, List
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_UNIVERSE = PROJECT_ROOT / "data" / "opportunities.universe_3markets.csv"
 DEFAULT_REPORT = PROJECT_ROOT / "data" / "dcf_coverage_seed_report.json"
-DEFAULT_DCF_ROOT = Path("/home/afu/codex-project")
+DEFAULT_DCF_ROOT = Path.home() / "codex-project"
 DEFAULT_DCF_DATA_DIR = DEFAULT_DCF_ROOT / "data"
 
 if str(DEFAULT_DCF_ROOT) not in sys.path:

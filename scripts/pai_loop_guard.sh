@@ -7,7 +7,7 @@ ALERT_LOG="$LOG_DIR/alert.log"
 PYTHON_BIN="${PYTHON_BIN:-python3}"
 ENV_FILE="${PAI_ENV_FILE:-$ROOT_DIR/.env.pai}"
 NOTIFY_ENV_FILE="${PAI_NOTIFY_ENV_FILE:-$HOME/.config/dcf_notify.env}"
-FEISHU_SEND_SCRIPT="${PAI_FEISHU_SEND_SCRIPT:-/home/afu/codex-project/scripts/send_feishu_text_message.py}"
+FEISHU_SEND_SCRIPT="${PAI_FEISHU_SEND_SCRIPT:-$HOME/codex-project/scripts/send_feishu_text_message.py}"
 
 mkdir -p "$LOG_DIR"
 

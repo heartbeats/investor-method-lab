@@ -20,10 +20,11 @@ from urllib.parse import urlparse
 import pandas as pd
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+HOME_DIR = Path.home()
 DEFAULT_DCF_LINK_SCRIPT = Path(
-    "/home/afu/.codex/skills/dcf-valuation-link/scripts/dcf_valuation_link.py"
+    HOME_DIR / ".codex" / "skills" / "dcf-valuation-link" / "scripts" / "dcf_valuation_link.py"
 )
-DEFAULT_DCF_COMPANIES_FILE = Path("/home/afu/codex-project/data/companies.json")
+DEFAULT_DCF_COMPANIES_FILE = HOME_DIR / "codex-project" / "data" / "companies.json"
 
 YF_TICKER_MAP = {
     "BRK.B": "BRK-B",
@@ -795,7 +796,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--snapshot-root",
         type=Path,
-        default=Path("/home/afu/projects/stock-data-hub/data_lake/snapshots"),
+        default=HOME_DIR / "projects" / "stock-data-hub" / "data_lake" / "snapshots",
         help="本地股票快照目录根路径（dt=YYYY-MM-DD 子目录）",
     )
     parser.add_argument(

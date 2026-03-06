@@ -2,6 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+HOME_DIR="${HOME:-/Users/$(id -un 2>/dev/null || echo lucas)}"
 
 UNIVERSE_FILE="${1:-$ROOT_DIR/data/opportunities.universe_core_3markets.csv}"
 REAL_FILE="$ROOT_DIR/data/opportunities.real_3markets.csv"
@@ -16,7 +17,7 @@ PLAYBOOK_FILE="$ROOT_DIR/docs/methodology_playbook_v4.md"
 RULEBOOK_FILE="$ROOT_DIR/data/methodology_rulebook_v4.json"
 DCF_BASE_URL="${DCF_BASE_URL:-http://127.0.0.1:8000}"
 IML_STOCK_DATA_HUB_URL="${IML_STOCK_DATA_HUB_URL:-http://127.0.0.1:18123}"
-SNAPSHOT_ROOT="${STOCK_DATA_SNAPSHOT_ROOT:-/home/afu/projects/stock-data-hub/data_lake/snapshots}"
+SNAPSHOT_ROOT="${STOCK_DATA_SNAPSHOT_ROOT:-${HOME_DIR}/projects/stock-data-hub/data_lake/snapshots}"
 SNAPSHOT_DATE="${STOCK_DATA_SNAPSHOT_DATE:-}"
 PREFETCH_SCRIPT="$ROOT_DIR/scripts/prefetch_stock_snapshots_from_hub.sh"
 WATCHLIST_SYNC_SCRIPT="$ROOT_DIR/scripts/sync_watchlist_to_hub.py"

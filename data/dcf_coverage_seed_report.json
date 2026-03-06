@@ -1,6 +1,6 @@
 {
   "universe_file": "data/opportunities.universe_3markets.csv",
-  "dcf_data_dir": "/home/afu/codex-project/data",
+  "dcf_data_dir": "/Users/lucas/codex-project/data",
   "source_adapter": "multi_source",
   "operator": "investor-method-lab:auto-seed",
   "summary": {

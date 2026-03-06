@@ -5,7 +5,7 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 LOG_DIR="$ROOT_DIR/output/pai_loop"
 PYTHON_BIN="${PYTHON_BIN:-python3}"
 PAI_REAL_CRON="${PAI_REAL_CRON:-10 9 * * *}"
-TASK_REPORT_SCRIPT="${TASK_REPORT_SCRIPT:-/home/afu/codex-project/scripts/run_task_with_report.sh}"
+TASK_REPORT_SCRIPT="${TASK_REPORT_SCRIPT:-${HOME}/codex-project/scripts/run_task_with_report.sh}"
 
 CRON_BEGIN="# BEGIN pai-loop"
 CRON_END="# END pai-loop"

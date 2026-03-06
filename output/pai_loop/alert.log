@@ -8,3 +8,5 @@
 [2026-03-05 09:50:44] [notify-ok] sent via feishu app script
 [2026-03-06 09:13:12] [run-failed] mode=real rc=2 reason=步骤失败或漂移告警 report=/home/afu/projects/investor-method-lab/output/pai_loop/latest_report.md
 [2026-03-06 09:13:14] [notify-ok] sent via feishu app script
+[2026-03-07 00:45:18] [run-failed] mode=real rc=2 reason=步骤失败或漂移告警 report=/Users/lucas/projects/investor-method-lab/output/pai_loop/latest_report.md
+[2026-03-07 00:45:19] [notify-ok] sent via feishu app script

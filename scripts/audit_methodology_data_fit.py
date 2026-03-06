@@ -310,6 +310,7 @@ def main() -> None:
         raw_coverage=raw_coverage,
         meta=meta,
     )
+    stock_data_hub_docs = PROJECT_ROOT.parent / "stock-data-hub" / "docs"
 
     report = {
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -367,8 +368,8 @@ def main() -> None:
             ],
         },
         "architecture_links": {
-            "stock_data_hub_blueprint": "/home/afu/projects/stock-data-hub/docs/final_architecture_blueprint.md",
-            "stock_data_hub_data_lake_v2": "/home/afu/projects/stock-data-hub/docs/data_lake_architecture_v2.md",
+            "stock_data_hub_blueprint": str(stock_data_hub_docs / "final_architecture_blueprint.md"),
+            "stock_data_hub_data_lake_v2": str(stock_data_hub_docs / "data_lake_architecture_v2.md"),
         },
     }
 

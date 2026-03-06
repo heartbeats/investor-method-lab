@@ -15,7 +15,7 @@ import yfinance as yf
 from build_investor_profiles import detect_futu_opend_status
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-STOCK_PROBE_SCRIPT = Path("/home/afu/.codex/skills/stock-data-fetch/scripts/probe_stock_sources.py")
+STOCK_PROBE_SCRIPT = Path.home() / ".codex" / "skills" / "stock-data-fetch" / "scripts" / "probe_stock_sources.py"
 STOCK_PROBE_OUTPUT = PROJECT_ROOT / "data" / "stock_provider_probe.json"
 
 
