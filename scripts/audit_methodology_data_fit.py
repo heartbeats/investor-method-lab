@@ -336,6 +336,7 @@ def main() -> None:
             "coverage_of_requested_universe": meta.get("coverage_of_requested_universe"),
             "failed_ticker_count": meta.get("failed_ticker_count"),
             "failed_tickers": meta.get("failed_tickers"),
+            "local_snapshot": meta.get("local_snapshot"),
             "dcf_coverage_ratio": (meta.get("dcf_integration") or {}).get("coverage_ratio"),
             "dcf_iv_coverage_ratio": (meta.get("dcf_integration") or {}).get("iv_coverage_ratio"),
             "dcf_valuation_source_counts": (meta.get("dcf_integration") or {}).get("valuation_source_counts"),

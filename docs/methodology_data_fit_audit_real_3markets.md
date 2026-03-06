@@ -1,6 +1,6 @@
 # 方法论数据适配审计（real_3markets）
 
-- 生成时间(UTC)：2026-03-05T02:12:44.274965+00:00
+- 生成时间(UTC)：2026-03-05T22:23:48.790867+00:00
 - 样本数：800
 - 缓存命中行：800
 
@@ -18,7 +18,7 @@
 - catalyst_score: 800/800 (100.00%)
 - risk_score: 800/800 (100.00%)
 - certainty_score: 800/800 (100.00%)
-- target_mean_price: 560/800 (70.00%)
+- target_mean_price: 751/800 (93.88%)
 
 ## 原始证据覆盖（缓存层）
 
@@ -26,13 +26,12 @@
 - gross_margins: 799/800 (99.88%)
 - revenue_growth: 791/800 (98.88%)
 - earnings_growth: 682/800 (85.25%)
-- analyst_count: 560/800 (70.00%)
+- analyst_count: 591/800 (73.88%)
 - recommendation_mean: 454/800 (56.75%)
 
 ## 缺口
 
 - [high] dcf_coverage_low: DCF 覆盖率偏低，会削弱安全边际与质量闸门可信度。
-- [high] a_market_target_price_sparse: A 股分析师目标价覆盖偏低，影响催化分与估值参照稳定性。
 - [medium] a_market_analyst_signal_sparse: A 股分析师维度覆盖不足，导致 catalyst/certainty 更依赖默认值。
 
 ## 免费优先动作

@@ -18,7 +18,6 @@ from urllib import request as urllib_request
 from urllib.parse import urlparse
 
 import pandas as pd
-import yfinance as yf
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DCF_LINK_SCRIPT = Path(
@@ -31,6 +30,17 @@ YF_TICKER_MAP = {
     "BF.B": "BF-B",
 }
 
+LOCAL_SNAPSHOT_CONTEXT: Dict[str, Any] = {
+    "enabled": False,
+    "snapshot_date": "",
+    "snapshot_dir": "",
+    "quotes": {},
+    "fundamentals": {},
+    "external_valuations": {},
+    "price_history": {},
+    "financial_statements": {},
+}
+
 
 def normalize_yf_ticker(ticker: str) -> str:
     raw = str(ticker or "").strip().upper()
@@ -40,6 +50,160 @@ def normalize_yf_ticker(ticker: str) -> str:
             # Yahoo HK ticker usually uses 4-digit code (e.g. 0700.HK, 0005.HK, 9988.HK).
             return f"{int(code):04d}.HK"
     return raw
+
+
+def normalize_internal_symbol_for_ticker(ticker: str) -> str:
+    raw = str(ticker or "").strip().upper()
+    if not raw:
+        return ""
+    if raw.startswith(("SH.", "SZ.", "HK.", "US.")):
+        return raw
+    if raw.endswith(".SS") and raw[:-3].isdigit():
+        return f"SH.{raw[:-3]}"
+    if raw.endswith(".SZ") and raw[:-3].isdigit():
+        return f"SZ.{raw[:-3]}"
+    if raw.endswith(".HK"):
+        code = raw[:-3]
+        if code.isdigit():
+            return f"HK.{int(code):05d}"
+    us_tail = raw.replace(".", "-")
+    return f"US.{us_tail}"
+
+
+def snapshot_symbol_aliases(ticker: str) -> List[str]:
+    aliases: List[str] = []
+    internal = normalize_internal_symbol_for_ticker(ticker)
+    if internal:
+        aliases.append(internal)
+    raw = str(ticker or "").strip().upper()
+    if raw:
+        aliases.append(raw)
+    if internal.startswith("US."):
+        aliases.append(internal.split(".", 1)[1])
+    dedup: List[str] = []
+    seen = set()
+    for item in aliases:
+        normalized = str(item or "").strip().upper()
+        if normalized and normalized not in seen:
+            dedup.append(normalized)
+            seen.add(normalized)
+    return dedup
+
+
+def _load_jsonl_by_symbol(path: Path) -> Dict[str, Dict[str, Any]]:
+    records: Dict[str, Dict[str, Any]] = {}
+    if not path.exists():
+        return records
+    with path.open("r", encoding="utf-8") as file:
+        for line in file:
+            text = line.strip()
+            if not text:
+                continue
+            try:
+                payload = json.loads(text)
+            except Exception:
+                continue
+            if not isinstance(payload, dict):
+                continue
+            symbol = str(payload.get("symbol") or "").strip().upper()
+            if not symbol:
+                continue
+            records[symbol] = payload
+    return records
+
+
+def _resolve_snapshot_dir(snapshot_root: Path, snapshot_date: str | None) -> Path | None:
+    if not snapshot_root.exists():
+        return None
+    if snapshot_date:
+        direct = snapshot_root / f"dt={snapshot_date}"
+        if direct.exists():
+            return direct
+    dirs = sorted([p for p in snapshot_root.glob("dt=*") if p.is_dir()])
+    if not dirs:
+        return None
+    return dirs[-1]
+
+
+def _snapshot_meta_summary(context: Dict[str, Any]) -> Dict[str, Any]:
+    quotes = context.get("quotes")
+    fundamentals = context.get("fundamentals")
+    external = context.get("external_valuations")
+    price_history = context.get("price_history")
+    financial_statements = context.get("financial_statements")
+    return {
+        "enabled": bool(context.get("enabled")),
+        "snapshot_date": str(context.get("snapshot_date") or ""),
+        "snapshot_dir": str(context.get("snapshot_dir") or ""),
+        "quotes_count": len(quotes) if isinstance(quotes, dict) else 0,
+        "fundamentals_count": len(fundamentals) if isinstance(fundamentals, dict) else 0,
+        "external_valuations_count": len(external) if isinstance(external, dict) else 0,
+        "price_history_count": len(price_history) if isinstance(price_history, dict) else 0,
+        "financial_statements_count": len(financial_statements) if isinstance(financial_statements, dict) else 0,
+        "reason": str(context.get("reason") or ""),
+    }
+
+
+def configure_local_snapshot_context(*, snapshot_root: Path, snapshot_date: str | None, enabled: bool) -> Dict[str, Any]:
+    global LOCAL_SNAPSHOT_CONTEXT
+    if not enabled:
+        LOCAL_SNAPSHOT_CONTEXT = {
+            "enabled": False,
+            "snapshot_date": "",
+            "snapshot_dir": "",
+            "quotes": {},
+            "fundamentals": {},
+            "external_valuations": {},
+            "price_history": {},
+            "financial_statements": {},
+        }
+        return _snapshot_meta_summary(LOCAL_SNAPSHOT_CONTEXT)
+
+    snapshot_dir = _resolve_snapshot_dir(snapshot_root, snapshot_date)
+    if snapshot_dir is None:
+        LOCAL_SNAPSHOT_CONTEXT = {
+            "enabled": False,
+            "snapshot_date": "",
+            "snapshot_dir": str(snapshot_root),
+            "quotes": {},
+            "fundamentals": {},
+            "external_valuations": {},
+            "price_history": {},
+            "financial_statements": {},
+            "reason": "snapshot_dir_not_found",
+        }
+        return _snapshot_meta_summary(LOCAL_SNAPSHOT_CONTEXT)
+
+    quotes = _load_jsonl_by_symbol(snapshot_dir / "quotes.jsonl")
+    fundamentals = _load_jsonl_by_symbol(snapshot_dir / "fundamentals.jsonl")
+    external_valuations = _load_jsonl_by_symbol(snapshot_dir / "external_valuations.jsonl")
+    price_history = _load_jsonl_by_symbol(snapshot_dir / "price_history.jsonl")
+    financial_statements = _load_jsonl_by_symbol(snapshot_dir / "financial_statements.jsonl")
+    snapshot_dt = snapshot_dir.name.replace("dt=", "")
+    LOCAL_SNAPSHOT_CONTEXT = {
+        "enabled": True,
+        "snapshot_date": snapshot_dt,
+        "snapshot_dir": str(snapshot_dir),
+        "quotes": quotes,
+        "fundamentals": fundamentals,
+        "external_valuations": external_valuations,
+        "price_history": price_history,
+        "financial_statements": financial_statements,
+    }
+    return _snapshot_meta_summary(LOCAL_SNAPSHOT_CONTEXT)
+
+
+def get_snapshot_record(domain: str, ticker: str) -> Dict[str, Any] | None:
+    if not LOCAL_SNAPSHOT_CONTEXT.get("enabled"):
+        return None
+    records = LOCAL_SNAPSHOT_CONTEXT.get(domain)
+    if not isinstance(records, dict) or not records:
+        return None
+    for alias in snapshot_symbol_aliases(ticker):
+        payload = records.get(alias)
+        if isinstance(payload, dict):
+            return payload
+    return None
 
 
 def _stock_data_hub_url() -> str | None:
@@ -83,7 +247,13 @@ def _hub_post_json(path: str, payload: Dict[str, Any], timeout_sec: float) -> Di
         return None
 
 
+def _skip_hub_online() -> bool:
+    return str(os.getenv("IML_SKIP_HUB_ONLINE", "0")).strip().lower() in {"1", "true", "yes", "on"}
+
+
 def fetch_quote_from_stock_data_hub(ticker: str, timeout_sec: float = 6.0) -> Dict[str, Any] | None:
+    if _skip_hub_online():
+        return None
     symbol = str(ticker or "").strip()
     if not symbol:
         return None
@@ -118,6 +288,8 @@ def fetch_external_valuation_from_stock_data_hub(
     ticker: str,
     timeout_sec: float = 6.0,
 ) -> Dict[str, Any] | None:
+    if _skip_hub_online():
+        return None
     symbol = str(ticker or "").strip()
     if not symbol:
         return None
@@ -145,6 +317,10 @@ def fetch_external_valuation_from_stock_data_hub(
         "target_high_price": high,
         "target_low_price": low,
         "analyst_count": _safe_float(payload.get("analyst_count")),
+        "recommendation_mean": _first_valid(
+            payload.get("recommendation_mean"),
+            payload.get("target_rating_mean"),
+        ),
     }
 
 
@@ -152,6 +328,8 @@ def fetch_fundamental_from_stock_data_hub(
     ticker: str,
     timeout_sec: float = 6.0,
 ) -> Dict[str, Any] | None:
+    if _skip_hub_online():
+        return None
     symbol = str(ticker or "").strip()
     if not symbol:
         return None
@@ -179,6 +357,79 @@ def fetch_fundamental_from_stock_data_hub(
     if all(values.get(k) is None for k in values if k != "provider"):
         return None
     return values
+
+
+def fetch_price_history_from_stock_data_hub(
+    ticker: str,
+    period: str,
+    interval: str = "1d",
+    timeout_sec: float = 8.0,
+) -> pd.Series:
+    symbol = str(ticker or "").strip()
+    if not symbol:
+        return pd.Series(dtype=float)
+    snapshot_history = get_snapshot_record("price_history", symbol)
+    if isinstance(snapshot_history, dict):
+        candles = snapshot_history.get("candles")
+        if isinstance(candles, list) and candles:
+            pairs: list[tuple[str, float]] = []
+            for item in candles:
+                if not isinstance(item, dict):
+                    continue
+                ts = str(item.get("ts") or "").strip()
+                close = _safe_float(item.get("close"))
+                if not ts or close is None:
+                    continue
+                pairs.append((ts, float(close)))
+            if pairs:
+                pairs.sort(key=lambda x: x[0])
+                idx = pd.to_datetime([item[0] for item in pairs], errors="coerce", utc=True)
+                vals = [item[1] for item in pairs]
+                series = pd.Series(vals, index=idx, dtype=float).dropna()
+                if not series.empty:
+                    return series
+    skip_hub_history = str(os.getenv("IML_SKIP_HUB_PRICE_HISTORY", "0")).strip().lower() in {
+        "1",
+        "true",
+        "yes",
+        "on",
+    }
+    if skip_hub_history or _skip_hub_online():
+        return pd.Series(dtype=float)
+    payload = _hub_get_json(
+        path="v1/price-history",
+        query={
+            "symbol": symbol,
+            "period": period,
+            "interval": interval,
+            "mode": "non_realtime",
+            "refresh": "false",
+        },
+        timeout_sec=timeout_sec,
+    )
+    if not payload:
+        return pd.Series(dtype=float)
+    candles = payload.get("candles")
+    if not isinstance(candles, list) or not candles:
+        return pd.Series(dtype=float)
+    pairs: list[tuple[str, float]] = []
+    for item in candles:
+        if not isinstance(item, dict):
+            continue
+        ts = str(item.get("ts") or "").strip()
+        close = _safe_float(item.get("close"))
+        if not ts or close is None:
+            continue
+        pairs.append((ts, float(close)))
+    if not pairs:
+        return pd.Series(dtype=float)
+    pairs.sort(key=lambda x: x[0])
+    idx = pd.to_datetime([item[0] for item in pairs], errors="coerce", utc=True)
+    vals = [item[1] for item in pairs]
+    series = pd.Series(vals, index=idx, dtype=float).dropna()
+    if series.empty:
+        return pd.Series(dtype=float)
+    return series
 
 
 def _first_valid(*candidates: Any) -> float | None:
@@ -230,6 +481,7 @@ def _build_row_sector(item: Dict[str, str], info: Dict[str, Any]) -> str:
 def _calc_quality_fields(
     info: Dict[str, Any],
     hub_fundamental: Dict[str, Any] | None,
+    hub_external: Dict[str, Any] | None,
 ) -> Dict[str, float | None]:
     return {
         "return_on_equity": _first_valid(info.get("returnOnEquity"), (hub_fundamental or {}).get("return_on_equity")),
@@ -244,9 +496,16 @@ def _calc_quality_fields(
         "debt_to_equity": _first_valid(info.get("debtToEquity"), (hub_fundamental or {}).get("debt_to_equity")),
         "beta": _safe_float(info.get("beta")),
         "analyst_count": _normalize_analyst_count(
-            _first_valid(info.get("numberOfAnalystOpinions"), (hub_fundamental or {}).get("analyst_count"))
+            _first_valid(
+                info.get("numberOfAnalystOpinions"),
+                (hub_fundamental or {}).get("analyst_count"),
+                (hub_external or {}).get("analyst_count"),
+            )
         ),
-        "recommendation_mean": _safe_float(info.get("recommendationMean")),
+        "recommendation_mean": _first_valid(
+            info.get("recommendationMean"),
+            (hub_external or {}).get("recommendation_mean"),
+        ),
     }
 
 
@@ -324,10 +583,107 @@ class RawMarketRow:
     dcf_comps_source: str | None = None
     dcf_quality_penalty_multiplier: float = 1.0
     base_note: str = ""
+    data_lineage: str = ""
+
+
+def _to_hub_external_payload(snapshot_external: Dict[str, Any]) -> Dict[str, Any]:
+    return {
+        "provider": str(snapshot_external.get("provider") or "stock_data_hub_snapshot"),
+        "target_mean_price": _safe_float(snapshot_external.get("target_mean_price")),
+        "target_median_price": _safe_float(snapshot_external.get("target_median_price")),
+        "target_high_price": _safe_float(snapshot_external.get("target_high_price")),
+        "target_low_price": _safe_float(snapshot_external.get("target_low_price")),
+        "analyst_count": _safe_float(snapshot_external.get("analyst_count")),
+        "recommendation_mean": _first_valid(
+            snapshot_external.get("recommendation_mean"),
+            snapshot_external.get("target_rating_mean"),
+        ),
+    }
+
+
+def _to_hub_fundamental_payload(snapshot_fundamental: Dict[str, Any]) -> Dict[str, Any]:
+    return {
+        "provider": str(snapshot_fundamental.get("provider") or "stock_data_hub_snapshot"),
+        "return_on_equity": _safe_float(snapshot_fundamental.get("return_on_equity")),
+        "gross_margins": _safe_float(snapshot_fundamental.get("gross_margin")),
+        "operating_margins": _safe_float(snapshot_fundamental.get("operating_margin")),
+        "revenue_growth": _safe_float(snapshot_fundamental.get("revenue_growth")),
+        "earnings_growth": _safe_float(snapshot_fundamental.get("earnings_growth")),
+        "debt_to_equity": _safe_float(snapshot_fundamental.get("debt_to_equity")),
+        "analyst_count": _safe_float(snapshot_fundamental.get("analyst_count")),
+    }
+
+
+def enrich_cached_row_with_backfill(row: RawMarketRow) -> None:
+    snapshot_external = get_snapshot_record("external_valuations", row.ticker)
+    snapshot_fundamental = get_snapshot_record("fundamentals", row.ticker)
+
+    need_external = (
+        row.target_mean_price is None
+        or row.target_mean_price <= 0
+        or row.analyst_count is None
+        or row.recommendation_mean is None
+    )
+    hub_external: Dict[str, Any] | None = None
+    if need_external:
+        if isinstance(snapshot_external, dict):
+            hub_external = _to_hub_external_payload(snapshot_external)
+        if hub_external is None:
+            hub_external = fetch_external_valuation_from_stock_data_hub(ticker=row.ticker, timeout_sec=6.0)
+        if isinstance(hub_external, dict):
+            target_mean = _safe_float(hub_external.get("target_mean_price"))
+            if (row.target_mean_price is None or row.target_mean_price <= 0) and target_mean is not None and target_mean > 0:
+                row.target_mean_price = target_mean
+                if row.valuation_source == "close_fallback":
+                    row.fair_value = target_mean
+                    row.valuation_source = "target_mean_price"
+                    provider = str(hub_external.get("provider") or "stock_data_hub")
+                    row.valuation_source_detail = f"target_mean_price(stock_data_hub:{provider})"
+            if row.analyst_count is None:
+                analyst_count = _normalize_analyst_count(_safe_float(hub_external.get("analyst_count")))
+                if analyst_count is not None:
+                    row.analyst_count = analyst_count
+            if row.recommendation_mean is None:
+                recommendation_mean = _safe_float(hub_external.get("recommendation_mean"))
+                if recommendation_mean is not None:
+                    row.recommendation_mean = recommendation_mean
+
+    need_fundamental = (
+        row.return_on_equity is None
+        or row.gross_margins is None
+        or row.operating_margins is None
+        or row.revenue_growth is None
+        or row.earnings_growth is None
+        or row.debt_to_equity is None
+    )
+    if need_fundamental:
+        hub_fundamental: Dict[str, Any] | None = None
+        if isinstance(snapshot_fundamental, dict):
+            hub_fundamental = _to_hub_fundamental_payload(snapshot_fundamental)
+        if hub_fundamental is None:
+            hub_fundamental = fetch_fundamental_from_stock_data_hub(ticker=row.ticker, timeout_sec=6.0)
+        if isinstance(hub_fundamental, dict):
+            row.return_on_equity = _first_valid(row.return_on_equity, hub_fundamental.get("return_on_equity"))
+            row.gross_margins = _first_valid(row.gross_margins, hub_fundamental.get("gross_margins"))
+            row.operating_margins = _first_valid(row.operating_margins, hub_fundamental.get("operating_margins"))
+            row.revenue_growth = _first_valid(row.revenue_growth, hub_fundamental.get("revenue_growth"))
+            row.earnings_growth = _first_valid(row.earnings_growth, hub_fundamental.get("earnings_growth"))
+            row.debt_to_equity = _first_valid(row.debt_to_equity, hub_fundamental.get("debt_to_equity"))
+
+    row.note = _build_note(
+        base_note=row.base_note,
+        as_of_date=row.as_of_date,
+        close=row.close,
+        target_mean=row.target_mean_price,
+        fair_value=row.fair_value,
+        valuation_source=row.valuation_source,
+        dcf_symbol=row.dcf_symbol,
+        dcf_iv_base=row.dcf_iv_base,
+    )
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="构建实时数据版机会池输入（Yahoo Finance）")
+    parser = argparse.ArgumentParser(description="构建实时数据版机会池输入（stock-data-hub）")
     parser.add_argument(
         "--universe-file",
         type=Path,
@@ -354,8 +710,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--cache-dir",
         type=Path,
-        default=PROJECT_ROOT / "data" / "cache" / "yfinance",
-        help="API 缓存目录（默认 data/cache/yfinance）",
+        default=PROJECT_ROOT / "data" / "cache" / "stock_data_hub",
+        help="API 缓存目录（默认 data/cache/stock_data_hub）",
     )
     parser.add_argument(
         "--cache-ttl-hours",
@@ -429,6 +785,22 @@ def parse_args() -> argparse.Namespace:
         "--allow-partial",
         action="store_true",
         help="允许部分成功：失败 ticker 跳过并继续产出（默认关闭）",
+    )
+    parser.add_argument(
+        "--snapshot-root",
+        type=Path,
+        default=Path("/home/afu/projects/stock-data-hub/data_lake/snapshots"),
+        help="本地股票快照目录根路径（dt=YYYY-MM-DD 子目录）",
+    )
+    parser.add_argument(
+        "--snapshot-date",
+        default="",
+        help="指定快照日期（YYYY-MM-DD）；默认自动选择最新快照",
+    )
+    parser.add_argument(
+        "--disable-local-snapshot",
+        action="store_true",
+        help="禁用本地快照读取（默认启用）",
     )
     return parser.parse_args()
 
@@ -1035,24 +1407,35 @@ def fetch_raw_market_row(item: Dict[str, str], history_period: str) -> RawMarket
     if not ticker:
         raise ValueError("Universe row missing ticker")
     yf_ticker = YF_TICKER_MAP.get(ticker, normalize_yf_ticker(ticker))
+    snapshot_quote = get_snapshot_record("quotes", ticker)
+    snapshot_external = get_snapshot_record("external_valuations", ticker)
+    snapshot_fundamental = get_snapshot_record("fundamentals", ticker)
 
-    ticker_obj = yf.Ticker(yf_ticker)
-    try:
-        info = ticker_obj.info or {}
-    except Exception:  # noqa: BLE001
-        info = {}
-
-    try:
-        history = ticker_obj.history(period=history_period, interval="1d", auto_adjust=True)
-    except Exception:  # noqa: BLE001
-        history = pd.DataFrame()
-    closes = history.get("Close", pd.Series(dtype=float)).dropna()
+    if _stock_data_hub_url() is None:
+        raise ValueError("IML_STOCK_DATA_HUB_URL is missing in Hub-Only mode")
+    info = {}
+    closes = fetch_price_history_from_stock_data_hub(ticker=ticker, period=history_period, interval="1d")
 
     hub_quote = None
     if closes.empty:
-        hub_quote = fetch_quote_from_stock_data_hub(ticker=ticker, timeout_sec=8.0)
+        if isinstance(snapshot_quote, dict):
+            snapshot_price = _safe_float(snapshot_quote.get("price"))
+            if snapshot_price is not None and snapshot_price > 0:
+                as_of_raw = str(snapshot_quote.get("as_of") or "").strip()
+                as_of_date = as_of_raw[:10] if len(as_of_raw) >= 10 else datetime.now(timezone.utc).date().isoformat()
+                close = float(snapshot_price)
+                hub_quote = {
+                    "price": close,
+                    "as_of_date": as_of_date,
+                    "provider": str(snapshot_quote.get("provider") or "stock_data_hub_snapshot"),
+                    "quality_flag": str(snapshot_quote.get("quality_flag") or ""),
+                }
+            else:
+                hub_quote = None
         if hub_quote is None:
-            raise ValueError(f"{ticker}: missing close history from Yahoo Finance")
+            hub_quote = fetch_quote_from_stock_data_hub(ticker=ticker, timeout_sec=8.0)
+        if hub_quote is None:
+            raise ValueError(f"{ticker}: missing close history from stock-data-hub")
         as_of_date = hub_quote["as_of_date"]
         close = float(hub_quote["price"])
     else:
@@ -1061,8 +1444,28 @@ def fetch_raw_market_row(item: Dict[str, str], history_period: str) -> RawMarket
 
     yf_target_mean = _safe_float(info.get("targetMeanPrice"))
     hub_external = None
-    if yf_target_mean is None or yf_target_mean <= 0:
-        hub_external = fetch_external_valuation_from_stock_data_hub(ticker=ticker, timeout_sec=8.0)
+    need_external = (
+        yf_target_mean is None
+        or yf_target_mean <= 0
+        or _safe_float(info.get("numberOfAnalystOpinions")) is None
+        or _safe_float(info.get("recommendationMean")) is None
+    )
+    if need_external:
+        if isinstance(snapshot_external, dict):
+            hub_external = {
+                "provider": str(snapshot_external.get("provider") or "stock_data_hub_snapshot"),
+                "target_mean_price": _safe_float(snapshot_external.get("target_mean_price")),
+                "target_median_price": _safe_float(snapshot_external.get("target_median_price")),
+                "target_high_price": _safe_float(snapshot_external.get("target_high_price")),
+                "target_low_price": _safe_float(snapshot_external.get("target_low_price")),
+                "analyst_count": _safe_float(snapshot_external.get("analyst_count")),
+                "recommendation_mean": _first_valid(
+                    snapshot_external.get("recommendation_mean"),
+                    snapshot_external.get("target_rating_mean"),
+                ),
+            }
+        if hub_external is None:
+            hub_external = fetch_external_valuation_from_stock_data_hub(ticker=ticker, timeout_sec=8.0)
     target_mean, valuation_source = _target_from_sources(yf_target=yf_target_mean, hub_external=hub_external)
     fair_value = target_mean if target_mean and target_mean > 0 else close
 
@@ -1074,8 +1477,20 @@ def fetch_raw_market_row(item: Dict[str, str], history_period: str) -> RawMarket
         and _safe_float(info.get("revenueGrowth")) is None
         and _safe_float(info.get("earningsGrowth")) is None
     ):
-        hub_fundamental = fetch_fundamental_from_stock_data_hub(ticker=ticker, timeout_sec=8.0)
-    quality_fields = _calc_quality_fields(info=info, hub_fundamental=hub_fundamental)
+        if isinstance(snapshot_fundamental, dict):
+            hub_fundamental = {
+                "provider": str(snapshot_fundamental.get("provider") or "stock_data_hub_snapshot"),
+                "return_on_equity": _safe_float(snapshot_fundamental.get("return_on_equity")),
+                "gross_margins": _safe_float(snapshot_fundamental.get("gross_margin")),
+                "operating_margins": _safe_float(snapshot_fundamental.get("operating_margin")),
+                "revenue_growth": _safe_float(snapshot_fundamental.get("revenue_growth")),
+                "earnings_growth": _safe_float(snapshot_fundamental.get("earnings_growth")),
+                "debt_to_equity": _safe_float(snapshot_fundamental.get("debt_to_equity")),
+                "analyst_count": _safe_float(snapshot_fundamental.get("analyst_count")),
+            }
+        if hub_fundamental is None:
+            hub_fundamental = fetch_fundamental_from_stock_data_hub(ticker=ticker, timeout_sec=8.0)
+    quality_fields = _calc_quality_fields(info=info, hub_fundamental=hub_fundamental, hub_external=hub_external)
     if quality_fields.get("analyst_count") is None and hub_external is not None:
         quality_fields["analyst_count"] = _normalize_analyst_count(_safe_float(hub_external.get("analyst_count")))
 
@@ -1143,6 +1558,7 @@ def fetch_raw_market_row(item: Dict[str, str], history_period: str) -> RawMarket
             hub_quote=hub_quote,
         ),
         base_note=item.get("note", ""),
+        data_lineage="hub_only(price_history+quote+fundamental+external)",
     )
 
 
@@ -1629,6 +2045,7 @@ def write_real_opportunities(path: Path, df: pd.DataFrame, ordered_tickers: List
         "catalyst_score",
         "risk_score",
         "certainty_score",
+        "data_lineage",
         "note",
     ]
     row_map = {row["ticker"]: row for _, row in df.iterrows()}
@@ -1672,6 +2089,7 @@ def write_real_opportunities(path: Path, df: pd.DataFrame, ordered_tickers: List
                     "catalyst_score": f"{float(row['catalyst_score']):.1f}",
                     "risk_score": f"{float(row['risk_score']):.1f}",
                     "certainty_score": f"{float(row['certainty_score']):.1f}",
+                    "data_lineage": _format_text(row.get("data_lineage")),
                     "note": row["note"],
                 }
             )
@@ -1685,6 +2103,7 @@ def write_meta(
     cache_ttl_hours: int,
     dcf_meta: Dict[str, Any],
     hub_comps_meta: Dict[str, Any],
+    snapshot_meta: Dict[str, Any],
     requested_universe_size: int,
     failed_tickers: List[str],
 ) -> None:
@@ -1694,12 +2113,12 @@ def write_meta(
         str(k): int(v)
         for k, v in df["valuation_source"].value_counts(dropna=False).to_dict().items()
     }
-    source_text = "Yahoo Finance via yfinance + local DCF valuation link (partial coverage)"
-    if _stock_data_hub_url():
-        source_text = (
-            "Yahoo Finance via yfinance + stock-data-hub(optional quote fallback) "
-            "+ local DCF valuation link (partial coverage; comps baseline cross-check optional)"
-        )
+    source_text = "stock-data-hub(API+snapshot) + local DCF valuation link (partial coverage; comps baseline cross-check optional)"
+    skip_hub_history = str(os.getenv("IML_SKIP_HUB_PRICE_HISTORY", "0")).strip().lower() in {"1", "true", "yes", "on"}
+    if skip_hub_history:
+        source_text += " (price_history: snapshot-only, hub online fetch skipped)"
+    if _skip_hub_online():
+        source_text += " (hub online pull disabled; snapshot-only mode)"
 
     meta = {
         "generated_at_utc": generated_at,
@@ -1718,8 +2137,11 @@ def write_meta(
         "failed_ticker_count": int(len(failed_tickers)),
         "failed_tickers": failed_tickers,
         "valuation_source_breakdown": valuation_source_breakdown,
+        "skip_hub_price_history": bool(skip_hub_history),
+        "skip_hub_online": bool(_skip_hub_online()),
         "dcf_integration": dcf_meta,
         "hub_comps_overlay": hub_comps_meta,
+        "local_snapshot": snapshot_meta,
         "calculation": {
             "fair_value_priority": "dcf_iv_base > dcf_external_consensus > targetMeanPrice > close",
             "price_to_fair_value": "close / fair_value; fair_value uses priority above",
@@ -1763,7 +2185,7 @@ def write_meta(
             },
         ],
         "tickers_with_missing_target_mean_price": missing_target,
-        "non_realtime_disclaimer": "Yahoo Finance and DCF API may have short delays; this file is market-data-backed but not exchange-tick-level real-time.",
+        "non_realtime_disclaimer": "stock-data-hub 与 DCF API 可能有短延迟；本文件为市场数据支撑，但不是交易所逐笔级实时数据。",
     }
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -1771,6 +2193,11 @@ def write_meta(
 
 def main() -> None:
     args = parse_args()
+    snapshot_meta = configure_local_snapshot_context(
+        snapshot_root=args.snapshot_root,
+        snapshot_date=(args.snapshot_date or "").strip() or None,
+        enabled=not args.disable_local_snapshot,
+    )
     universe = load_universe(args.universe_file)
     ordered_tickers = [(item.get("ticker") or "").strip() for item in universe if item.get("ticker")]
 
@@ -1792,6 +2219,7 @@ def main() -> None:
             )
             if cached is not None:
                 cached.base_note = item.get("note", "")
+                enrich_cached_row_with_backfill(cached)
                 raw_rows.append(cached)
                 cache_hits += 1
                 continue
@@ -1849,6 +2277,7 @@ def main() -> None:
         cache_ttl_hours=args.cache_ttl_hours,
         dcf_meta=dcf_meta,
         hub_comps_meta=hub_comps_meta,
+        snapshot_meta=snapshot_meta,
         requested_universe_size=len(universe),
         failed_tickers=failures,
     )
@@ -1865,6 +2294,18 @@ def main() -> None:
         print(
             f"缓存: enabled (ttl={args.cache_ttl_hours}h, cache_hits={cache_hits}, api_fetches={api_fetches})"
         )
+    if snapshot_meta.get("enabled"):
+        print(
+            "本地快照: enabled "
+            f"(date={snapshot_meta.get('snapshot_date')}, "
+            f"quotes={snapshot_meta.get('quotes_count', 0)}, "
+            f"fundamentals={snapshot_meta.get('fundamentals_count', 0)}, "
+            f"external={snapshot_meta.get('external_valuations_count', 0)}, "
+            f"price_history={snapshot_meta.get('price_history_count', 0)}, "
+            f"financial_statements={snapshot_meta.get('financial_statements_count', 0)})"
+        )
+    else:
+        print(f"本地快照: disabled ({snapshot_meta.get('reason', 'manual_disable_or_not_found')})")
     if failures:
         print(f"拉取失败: {len(failures)}")
         if args.allow_partial:

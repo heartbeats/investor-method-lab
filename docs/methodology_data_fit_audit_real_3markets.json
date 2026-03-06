@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-03-05T02:12:44.274965+00:00",
+  "generated_at_utc": "2026-03-05T22:23:48.790867+00:00",
   "inputs": {
     "rulebook_file": "/home/afu/projects/investor-method-lab/data/methodology_rulebook_v4.json",
     "opportunities_file": "/home/afu/projects/investor-method-lab/data/opportunities.real_3markets.csv",
@@ -156,32 +156,32 @@
     },
     "dcf_comps_crosscheck_status": {
       "field": "dcf_comps_crosscheck_status",
-      "present": 30,
+      "present": 800,
       "total": 800,
-      "coverage_ratio": 0.0375,
+      "coverage_ratio": 1.0,
       "by_market": {
         "A": {
-          "present": 9,
+          "present": 300,
           "total": 300,
-          "coverage_ratio": 0.03
+          "coverage_ratio": 1.0
         },
         "HK": {
-          "present": 8,
+          "present": 200,
           "total": 200,
-          "coverage_ratio": 0.04
+          "coverage_ratio": 1.0
         },
         "US": {
-          "present": 13,
+          "present": 300,
           "total": 300,
-          "coverage_ratio": 0.043333333333333335
+          "coverage_ratio": 1.0
         }
       }
     },
     "dcf_quality_gate_status": {
       "field": "dcf_quality_gate_status",
-      "present": 30,
+      "present": 31,
       "total": 800,
-      "coverage_ratio": 0.0375,
+      "coverage_ratio": 0.03875,
       "by_market": {
         "A": {
           "present": 9,
@@ -189,9 +189,9 @@
           "coverage_ratio": 0.03
         },
         "HK": {
-          "present": 8,
+          "present": 9,
           "total": 200,
-          "coverage_ratio": 0.04
+          "coverage_ratio": 0.045
         },
         "US": {
           "present": 13,
@@ -340,14 +340,14 @@
     },
     "target_mean_price": {
       "field": "target_mean_price",
-      "present": 560,
+      "present": 751,
       "total": 800,
-      "coverage_ratio": 0.7,
+      "coverage_ratio": 0.93875,
       "by_market": {
         "A": {
-          "present": 103,
+          "present": 294,
           "total": 300,
-          "coverage_ratio": 0.3433333333333333
+          "coverage_ratio": 0.98
         },
         "HK": {
           "present": 160,
@@ -549,14 +549,14 @@
     },
     "analyst_count": {
       "field": "analyst_count",
-      "present": 560,
+      "present": 591,
       "total": 800,
-      "coverage_ratio": 0.7,
+      "coverage_ratio": 0.73875,
       "by_market": {
         "A": {
-          "present": 103,
+          "present": 134,
           "total": 300,
-          "coverage_ratio": 0.3433333333333333
+          "coverage_ratio": 0.44666666666666666
         },
         "HK": {
           "present": 160,
@@ -734,9 +734,9 @@
   },
   "valuation_source_counts": {
     "dcf_iv_base": 29,
-    "target_mean_price": 536,
-    "close_fallback": 234,
-    "dcf_external_consensus": 1
+    "target_mean_price": 720,
+    "close_fallback": 49,
+    "dcf_external_consensus": 2
   },
   "meta_extract": {
     "requested_universe_size": 800,
@@ -744,13 +744,22 @@
     "coverage_of_requested_universe": 1.0,
     "failed_ticker_count": 0,
     "failed_tickers": [],
-    "dcf_coverage_ratio": 0.0375,
+    "local_snapshot": {
+      "enabled": true,
+      "snapshot_date": "2026-03-05",
+      "snapshot_dir": "/home/afu/projects/stock-data-hub/data_lake/snapshots/dt=2026-03-05",
+      "quotes_count": 799,
+      "fundamentals_count": 799,
+      "external_valuations_count": 0,
+      "reason": ""
+    },
+    "dcf_coverage_ratio": 0.03875,
     "dcf_iv_coverage_ratio": 0.03625,
     "dcf_valuation_source_counts": {
       "dcf_iv_base": 29,
-      "target_mean_price": 536,
-      "close_fallback": 234,
-      "dcf_external_consensus": 1
+      "target_mean_price": 720,
+      "close_fallback": 49,
+      "dcf_external_consensus": 2
     }
   },
   "gaps": [
@@ -759,7 +768,7 @@
       "severity": "high",
       "description": "DCF 覆盖率偏低，会削弱安全边际与质量闸门可信度。",
       "current": {
-        "dcf_coverage_ratio": 0.0375
+        "dcf_coverage_ratio": 0.03875
       },
       "free_first_actions": [
         "优先扩充 DCF 可覆盖股票清单到核心池高权重标的",
@@ -770,29 +779,11 @@
       ]
     },
     {
-      "id": "a_market_target_price_sparse",
-      "severity": "high",
-      "description": "A 股分析师目标价覆盖偏低，影响催化分与估值参照稳定性。",
-      "current": {
-        "A_target_mean_price_coverage": 0.3433333333333333,
-        "HK_target_mean_price_coverage": 0.8,
-        "US_target_mean_price_coverage": 0.99
-      },
-      "free_first_actions": [
-        "补充 Eastmoney/akshare 研报聚合数据并转化为目标价统计",
-        "对目标价缺失标的，使用同业估值中位数回填并加风险标签"
-      ],
-      "paid_options": [
-        "Tushare Pro 研报/一致预期字段（低成本）",
-        "Wind/Choice 一致预期接口（中高成本）"
-      ]
-    },
-    {
       "id": "a_market_analyst_signal_sparse",
       "severity": "medium",
       "description": "A 股分析师维度覆盖不足，导致 catalyst/certainty 更依赖默认值。",
       "current": {
-        "A_analyst_count_coverage": 0.3433333333333333,
+        "A_analyst_count_coverage": 0.44666666666666666,
         "A_recommendation_mean_coverage": 0.2833333333333333
       },
       "free_first_actions": [

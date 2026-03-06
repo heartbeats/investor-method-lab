@@ -8,8 +8,13 @@ HUB_HOST="${IML_STOCK_DATA_HUB_HOST:-127.0.0.1}"
 HUB_PORT="${IML_STOCK_DATA_HUB_PORT:-18123}"
 HUB_URL="${IML_STOCK_DATA_HUB_URL:-http://${HUB_HOST}:${HUB_PORT}}"
 HUB_LOG="${IML_STOCK_DATA_HUB_LOG:-/tmp/iml_stock_data_hub.log}"
+HUB_WORKERS="${IML_STOCK_DATA_HUB_WORKERS:-2}"
 
 export IML_STOCK_DATA_HUB_URL="${HUB_URL}"
+export STOCK_DATA_QUOTE_CHAIN_A="${STOCK_DATA_QUOTE_CHAIN_A:-akshare,yfinance}"
+export STOCK_DATA_QUOTE_CHAIN_HK="${STOCK_DATA_QUOTE_CHAIN_HK:-yfinance}"
+export STOCK_DATA_QUOTE_CHAIN_US="${STOCK_DATA_QUOTE_CHAIN_US:-yfinance,fmp,alpha_vantage}"
+export STOCK_DATA_BATCH_MAX_WORKERS="${STOCK_DATA_BATCH_MAX_WORKERS:-6}"
 
 HUB_PID=""
 HUB_STARTED_BY_SCRIPT=0
@@ -45,7 +50,7 @@ if ! check_hub_health >/dev/null 2>&1; then
   fi
   echo "[with-hub] start stock-data-hub: ${HUB_URL}"
   PYTHONPATH="${HUB_ROOT}/src" python3 -m uvicorn stock_data_hub.main:app \
-    --host "$HUB_HOST" --port "$HUB_PORT" >"$HUB_LOG" 2>&1 &
+    --host "$HUB_HOST" --port "$HUB_PORT" --workers "$HUB_WORKERS" >"$HUB_LOG" 2>&1 &
   HUB_PID="$!"
   HUB_STARTED_BY_SCRIPT=1
   for _ in $(seq 1 20); do

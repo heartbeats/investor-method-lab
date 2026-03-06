@@ -1,7 +1,29 @@
 {
-  "as_of_utc": "2026-03-05T02:13:00Z",
+  "as_of_utc": "2026-03-05T22:25:04Z",
   "decision_status": "pending_user_decision",
   "principle": "free_first_then_low_cost_paid",
+  "latest_audit_snapshot": {
+    "scope": "real_3markets",
+    "target_mean_price_coverage": {
+      "all": 0.93875,
+      "A": 0.98,
+      "HK": 0.8,
+      "US": 0.99
+    },
+    "analyst_count_coverage": {
+      "all": 0.73875,
+      "A": 0.44666666666666666,
+      "HK": 0.8,
+      "US": 0.99
+    },
+    "recommendation_mean_coverage": {
+      "all": 0.5675,
+      "A": 0.2833333333333333,
+      "HK": 0.425,
+      "US": 0.9466666666666667
+    },
+    "dcf_coverage_ratio": 0.03875
+  },
   "free_first_actions": [
     {
       "id": "free_akshare_fundamental_ahk",
@@ -18,8 +40,14 @@
     {
       "id": "free_a_share_research_aggregation",
       "description": "接入 Eastmoney/akshare 研报聚合，提高 A 股分析师覆盖",
-      "status": "planned",
+      "status": "implemented",
       "owner_project": "stock-data-hub"
+    },
+    {
+      "id": "free_external_snapshot_prefetch_low_freq",
+      "description": "external_valuations 快照域低频批量预拉（每日1次）并被业务层优先消费",
+      "status": "planned",
+      "owner_project": "investor-method-lab + stock-data-hub"
     }
   ],
   "low_cost_paid_candidates": [

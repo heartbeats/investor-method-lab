@@ -15,6 +15,11 @@ TRACE_FILE="$ROOT_DIR/output/method_decision_trace_real_3markets.json"
 PLAYBOOK_FILE="$ROOT_DIR/docs/methodology_playbook_v4.md"
 RULEBOOK_FILE="$ROOT_DIR/data/methodology_rulebook_v4.json"
 DCF_BASE_URL="${DCF_BASE_URL:-http://127.0.0.1:8000}"
+IML_STOCK_DATA_HUB_URL="${IML_STOCK_DATA_HUB_URL:-http://127.0.0.1:18123}"
+SNAPSHOT_ROOT="${STOCK_DATA_SNAPSHOT_ROOT:-/home/afu/projects/stock-data-hub/data_lake/snapshots}"
+SNAPSHOT_DATE="${STOCK_DATA_SNAPSHOT_DATE:-}"
+PREFETCH_SCRIPT="$ROOT_DIR/scripts/prefetch_stock_snapshots_from_hub.sh"
+WATCHLIST_SYNC_SCRIPT="$ROOT_DIR/scripts/sync_watchlist_to_hub.py"
 FOCUS_FILE="$ROOT_DIR/data/dcf_special_focus_list.json"
 FOCUS_REPORT_FILE="$ROOT_DIR/docs/dcf_special_focus_daily.md"
 OPPORTUNITY_REPORT_FILE="$ROOT_DIR/docs/opportunity_mining_daily.md"
@@ -24,10 +29,33 @@ PER_TICKER_RETRIES="${IML_PER_TICKER_RETRIES:-2}"
 PER_TICKER_RETRY_TIMEOUT_MULTIPLIER="${IML_PER_TICKER_RETRY_TIMEOUT_MULTIPLIER:-1.6}"
 PER_TICKER_RETRY_BACKOFF_SECONDS="${IML_PER_TICKER_RETRY_BACKOFF_SECONDS:-0.25}"
 
+export IML_STOCK_DATA_HUB_URL
+
 if [[ $# -eq 0 ]]; then
   python3 "$ROOT_DIR/scripts/build_universe_core_3markets.py" \
     --output-file "$UNIVERSE_FILE" \
     --seed-file "$ROOT_DIR/data/opportunities.universe_3markets.csv"
+fi
+
+if [[ "${IML_SYNC_WATCHLIST_TO_HUB:-1}" == "1" ]] && [[ -f "$WATCHLIST_SYNC_SCRIPT" ]]; then
+  python3 "$WATCHLIST_SYNC_SCRIPT" \
+    --source investor-method-lab \
+    --symbols-file "$UNIVERSE_FILE" \
+    --hub-url "$IML_STOCK_DATA_HUB_URL" \
+    --replace || echo "[warn] watchlist sync failed, continue"
+fi
+
+if [[ "${IML_PREFETCH_SNAPSHOT_FROM_HUB:-1}" == "1" ]] && [[ -x "$PREFETCH_SCRIPT" ]]; then
+  if [[ -n "$SNAPSHOT_DATE" ]]; then
+    "$PREFETCH_SCRIPT" "$UNIVERSE_FILE" --date "$SNAPSHOT_DATE" || echo "[warn] snapshot prefetch failed, continue online fetch"
+  else
+    "$PREFETCH_SCRIPT" "$UNIVERSE_FILE" || echo "[warn] snapshot prefetch failed, continue online fetch"
+  fi
+fi
+
+SNAPSHOT_DATE_ARGS=()
+if [[ -n "$SNAPSHOT_DATE" ]]; then
+  SNAPSHOT_DATE_ARGS+=(--snapshot-date "$SNAPSHOT_DATE")
 fi
 
 python3 "$ROOT_DIR/scripts/build_real_opportunities.py" \
@@ -39,7 +67,9 @@ python3 "$ROOT_DIR/scripts/build_real_opportunities.py" \
   --per-ticker-retries "$PER_TICKER_RETRIES" \
   --per-ticker-retry-timeout-multiplier "$PER_TICKER_RETRY_TIMEOUT_MULTIPLIER" \
   --per-ticker-retry-backoff-seconds "$PER_TICKER_RETRY_BACKOFF_SECONDS" \
-  --dcf-base-url "$DCF_BASE_URL"
+  --dcf-base-url "$DCF_BASE_URL" \
+  --snapshot-root "$SNAPSHOT_ROOT" \
+  "${SNAPSHOT_DATE_ARGS[@]}"
 
 AS_OF_DATE="$(ROOT_DIR="$ROOT_DIR" python3 - << 'PY'
 import json

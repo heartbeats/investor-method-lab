@@ -5,6 +5,7 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 HUB_SCRIPT="/home/afu/projects/stock-data-hub/scripts/build_local_stock_snapshot.py"
 SYMBOLS_FILE="${1:-$ROOT_DIR/data/opportunities.universe_core_3markets.csv}"
 OUTPUT_ROOT="${STOCK_DATA_SNAPSHOT_ROOT:-/home/afu/projects/stock-data-hub/data_lake/snapshots}"
+PREFETCH_DOMAINS="${IML_SNAPSHOT_PREFETCH_DOMAINS:-quotes,fundamentals,external_valuations,price_history,financial_statements}"
 if [[ $# -gt 0 ]]; then
   shift
 fi
@@ -18,4 +19,5 @@ python3 "$HUB_SCRIPT" \
   --symbols-file "$SYMBOLS_FILE" \
   --output-root "$OUTPUT_ROOT" \
   --mode non_realtime \
+  --domains "$PREFETCH_DOMAINS" \
   "$@"

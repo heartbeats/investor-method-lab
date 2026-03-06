@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-03-04",
+  "updated_at": "2026-03-06T01:33:39.643574+00:00",
   "confirmed": {
     "status": "confirmed",
     "date": "2026-03-04",
@@ -8,6 +8,12 @@
   },
   "description": "逐公司深度 DCF 校准后的特别关注清单（作为主仓关注池）",
   "symbols": [
+    {
+      "dcf_symbol": "US.AAPL",
+      "ticker": "AAPL",
+      "name": "US.AAPL",
+      "tag": "manual"
+    },
     {
       "dcf_symbol": "SH.600519",
       "ticker": "600519.SS",
@@ -21,15 +27,15 @@
       "tag": "deep_calibrated"
     },
     {
-      "dcf_symbol": "HK.03690",
-      "ticker": "3690.HK",
-      "name": "美团",
+      "dcf_symbol": "US.PDD",
+      "ticker": "PDD",
+      "name": "拼多多",
       "tag": "deep_calibrated"
     },
     {
-      "dcf_symbol": "US.AAPL",
-      "ticker": "AAPL",
-      "name": "苹果",
+      "dcf_symbol": "HK.03690",
+      "ticker": "3690.HK",
+      "name": "美团",
       "tag": "deep_calibrated"
     },
     {
@@ -42,12 +48,6 @@
       "dcf_symbol": "US.NVDA",
       "ticker": "NVDA",
       "name": "英伟达",
-      "tag": "deep_calibrated"
-    },
-    {
-      "dcf_symbol": "US.PDD",
-      "ticker": "PDD",
-      "name": "拼多多",
       "tag": "deep_calibrated"
     }
   ]
