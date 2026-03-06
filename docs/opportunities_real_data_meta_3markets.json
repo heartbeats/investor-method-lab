@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-06T01:43:36.236357+00:00",
-  "source": "stock-data-hub(API+snapshot) + local DCF valuation link (partial coverage; comps baseline cross-check optional) (price_history: snapshot-only, hub online fetch skipped) (hub online pull disabled; snapshot-only mode)",
+  "generated_at_utc": "2026-03-06T04:34:00.336090+00:00",
+  "source": "stock-data-hub(API+snapshot) + local DCF valuation link (partial coverage; comps baseline cross-check optional)",
   "cache_policy": "enabled; ttl_hours=24; use cached result for non-real-time API calls",
   "as_of_dates": [
     "2026-03-04",
@@ -17,8 +17,8 @@
     "dcf_iv_base": 29,
     "dcf_external_consensus": 2
   },
-  "skip_hub_price_history": true,
-  "skip_hub_online": true,
+  "skip_hub_price_history": false,
+  "skip_hub_online": false,
   "dcf_integration": {
     "enabled": true,
     "dcf_link_script": "/home/afu/.codex/skills/dcf-valuation-link/scripts/dcf_valuation_link.py",
@@ -949,8 +949,8 @@
       "ok": 10
     },
     "comps_crosscheck_status_counts": {
-      "unavailable": 12,
-      "warn": 19
+      "unavailable": 6,
+      "warn": 25
     },
     "coverage_ratio": 0.03875,
     "iv_coverage_ratio": 0.03625
@@ -971,15 +971,15 @@
     "reason": "request_failed"
   },
   "local_snapshot": {
-    "enabled": true,
-    "snapshot_date": "2026-03-05",
-    "snapshot_dir": "/home/afu/projects/stock-data-hub/data_lake/snapshots/dt=2026-03-05",
-    "quotes_count": 799,
-    "fundamentals_count": 799,
+    "enabled": false,
+    "snapshot_date": "",
+    "snapshot_dir": "/tmp/iml_empty_snapshot",
+    "quotes_count": 0,
+    "fundamentals_count": 0,
     "external_valuations_count": 0,
     "price_history_count": 0,
     "financial_statements_count": 0,
-    "reason": ""
+    "reason": "snapshot_dir_not_found"
   },
   "calculation": {
     "fair_value_priority": "dcf_iv_base > dcf_external_consensus > targetMeanPrice > close",

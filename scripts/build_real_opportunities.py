@@ -211,6 +211,12 @@ def _stock_data_hub_url() -> str | None:
     return raw or None
 
 
+def _hub_urlopen(req: urllib_request.Request, timeout_sec: float):
+    # Bypass system HTTP proxy for localhost hub calls.
+    opener = urllib_request.build_opener(urllib_request.ProxyHandler({}))
+    return opener.open(req, timeout=max(1.0, float(timeout_sec)))
+
+
 def _hub_get_json(path: str, query: Dict[str, str], timeout_sec: float) -> Dict[str, Any] | None:
     base_url = _stock_data_hub_url()
     if not base_url:
@@ -218,7 +224,7 @@ def _hub_get_json(path: str, query: Dict[str, str], timeout_sec: float) -> Dict[
     qs = urllib_parse.urlencode(query)
     req = urllib_request.Request(f"{base_url}/{path}?{qs}", method="GET")
     try:
-        with urllib_request.urlopen(req, timeout=max(1.0, float(timeout_sec))) as resp:
+        with _hub_urlopen(req, timeout_sec=timeout_sec) as resp:
             payload = json.loads(resp.read().decode("utf-8"))
         return payload if isinstance(payload, dict) else None
     except Exception:  # noqa: BLE001
@@ -240,7 +246,7 @@ def _hub_post_json(path: str, payload: Dict[str, Any], timeout_sec: float) -> Di
         },
     )
     try:
-        with urllib_request.urlopen(req, timeout=max(1.0, float(timeout_sec))) as resp:
+        with _hub_urlopen(req, timeout_sec=timeout_sec) as resp:
             parsed = json.loads(resp.read().decode("utf-8"))
         return parsed if isinstance(parsed, dict) else None
     except Exception:  # noqa: BLE001

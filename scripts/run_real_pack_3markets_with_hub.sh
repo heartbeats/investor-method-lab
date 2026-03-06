@@ -26,7 +26,8 @@ import sys
 from urllib import request
 url = sys.argv[1].rstrip("/") + "/health"
 try:
-    with request.urlopen(url, timeout=2.5) as resp:
+    opener = request.build_opener(request.ProxyHandler({}))
+    with opener.open(url, timeout=2.5) as resp:
         payload = json.loads(resp.read().decode("utf-8"))
     ok = bool(payload.get("ok"))
 except Exception:

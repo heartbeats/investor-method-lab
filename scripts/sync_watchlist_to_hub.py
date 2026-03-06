@@ -36,7 +36,8 @@ def load_symbols(path: Path) -> list[str]:
 def post_json(url: str, payload: dict) -> dict:
     body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
     req = request.Request(url, data=body, method="POST", headers={"Content-Type": "application/json"})
-    with request.urlopen(req, timeout=20.0) as resp:
+    opener = request.build_opener(request.ProxyHandler({}))
+    with opener.open(req, timeout=20.0) as resp:
         raw = resp.read().decode("utf-8")
     parsed = json.loads(raw)
     if not isinstance(parsed, dict):
@@ -62,4 +63,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
