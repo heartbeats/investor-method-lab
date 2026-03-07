@@ -15,8 +15,8 @@ mkdir -p "$LOG_DIR"
 build_block() {
   cat <<EOF
 $CRON_BEGIN
-# 每天实时数据闭环（仅 real）
-$PAI_REAL_CRON PAI_NOTIFY_ON_SUCCESS=1 PYTHON_BIN="$PYTHON_BIN" bash "$TASK_REPORT_SCRIPT" --task 跟投实时闭环链路 --self-notify --report-on failure -- bash "$ROOT_DIR/scripts/pai_loop_guard.sh" real >> "$LOG_DIR/cron_real.log" 2>&1
+# 每天跟投（含DCF）主链路（仅 real）
+$PAI_REAL_CRON PAI_NOTIFY_ON_SUCCESS=1 PYTHON_BIN="$PYTHON_BIN" bash "$TASK_REPORT_SCRIPT" --task 跟投（含DCF）主链路 --self-notify --report-on failure -- bash "$ROOT_DIR/scripts/pai_loop_guard.sh" real >> "$LOG_DIR/cron_real.log" 2>&1
 $CRON_END
 EOF
 }

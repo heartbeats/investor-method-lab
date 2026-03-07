@@ -8,8 +8,74 @@ PYTHON_BIN="${PYTHON_BIN:-python3}"
 ENV_FILE="${PAI_ENV_FILE:-$ROOT_DIR/.env.pai}"
 NOTIFY_ENV_FILE="${PAI_NOTIFY_ENV_FILE:-$HOME/.config/dcf_notify.env}"
 FEISHU_SEND_SCRIPT="${PAI_FEISHU_SEND_SCRIPT:-$HOME/codex-project/scripts/send_feishu_text_message.py}"
+HOME_DIR="${HOME:-/Users/$(id -un 2>/dev/null || echo lucas)}"
+HUB_ROOT="${IML_STOCK_DATA_HUB_ROOT:-${HOME_DIR}/projects/stock-data-hub}"
+HUB_HOST="${IML_STOCK_DATA_HUB_HOST:-127.0.0.1}"
+HUB_PORT="${IML_STOCK_DATA_HUB_PORT:-18123}"
+HUB_URL="${IML_STOCK_DATA_HUB_URL:-http://${HUB_HOST}:${HUB_PORT}}"
+HUB_LOG="${IML_STOCK_DATA_HUB_LOG:-/tmp/iml_stock_data_hub.log}"
+HUB_WORKERS="${IML_STOCK_DATA_HUB_WORKERS:-2}"
+HUB_PYTHON="${IML_STOCK_DATA_HUB_PYTHON:-${HUB_ROOT}/.venv/bin/python}"
+HUB_PID=""
+HUB_STARTED_BY_GUARD=0
 
 mkdir -p "$LOG_DIR"
+
+check_hub_health() {
+  python3 - "$HUB_URL" <<'PY'
+import json
+import sys
+from urllib import request
+
+url = sys.argv[1].rstrip("/") + "/health"
+try:
+    opener = request.build_opener(request.ProxyHandler({}))
+    with opener.open(url, timeout=2.5) as resp:
+        payload = json.loads(resp.read().decode("utf-8"))
+    ok = bool(payload.get("ok"))
+except Exception:
+    ok = False
+print("ok" if ok else "down")
+raise SystemExit(0 if ok else 1)
+PY
+}
+
+resolve_hub_python() {
+  if [ -x "$HUB_PYTHON" ]; then
+    printf '%s\n' "$HUB_PYTHON"
+    return 0
+  fi
+  command -v python3
+}
+
+ensure_hub_ready() {
+  export IML_STOCK_DATA_HUB_URL="$HUB_URL"
+  if check_hub_health >/dev/null 2>&1; then
+    return 0
+  fi
+  if [ ! -d "$HUB_ROOT/src/stock_data_hub" ]; then
+    echo "[pai-loop-guard] stock-data-hub not found: $HUB_ROOT" >&2
+    return 2
+  fi
+
+  local hub_python
+  hub_python="$(resolve_hub_python)"
+  echo "[pai-loop-guard] start stock-data-hub: ${HUB_URL}"
+  PYTHONPATH="$HUB_ROOT/src:${PYTHONPATH:-}" "$hub_python" -m uvicorn stock_data_hub.main:app     --host "$HUB_HOST" --port "$HUB_PORT" --workers "$HUB_WORKERS" >"$HUB_LOG" 2>&1 &
+  HUB_PID="$!"
+  HUB_STARTED_BY_GUARD=1
+  disown "$HUB_PID" >/dev/null 2>&1 || true
+
+  for _ in $(seq 1 20); do
+    if check_hub_health >/dev/null 2>&1; then
+      return 0
+    fi
+    sleep 1
+  done
+
+  echo "[pai-loop-guard] stock-data-hub failed to start; log: $HUB_LOG" >&2
+  return 3
+}
 
 if [ -f "$NOTIFY_ENV_FILE" ]; then
   set -a
@@ -179,13 +245,30 @@ send_split_daily_modules() {
   return 0
 }
 
+cleanup() {
+  if [ "$HUB_STARTED_BY_GUARD" = "1" ] && [ -n "$HUB_PID" ]; then
+    kill "$HUB_PID" >/dev/null 2>&1 || true
+  fi
+}
+
+trap cleanup EXIT
+
 cd "$ROOT_DIR"
 echo "[pai-loop-guard] mode=$RUN_LABEL started_at=$(timestamp)"
 
-set +e
-"${RUN_CMD[@]}"
-rc=$?
-set -e
+rc=0
+if [ "$RUN_LABEL" = "real" ]; then
+  if ! ensure_hub_ready; then
+    rc=$?
+  fi
+fi
+
+if [ "$rc" -eq 0 ]; then
+  set +e
+  "${RUN_CMD[@]}"
+  rc=$?
+  set -e
+fi
 
 report_path="$ROOT_DIR/output/pai_loop/latest_report.md"
 host_name="$(hostname)"
