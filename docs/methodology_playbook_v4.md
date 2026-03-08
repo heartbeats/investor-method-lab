@@ -1,7 +1,7 @@
 # 方法论筛选引擎 V4 Playbook
 
 更新时间：2026-02-27
-生成时间(UTC)：2026-03-07T03:09:39.996265+00:00
+生成时间(UTC)：2026-03-08T01:15:15.778040+00:00
 
 ## 全局设置
 
@@ -69,7 +69,7 @@
 
 - 核心假设：寻找产业结构长期改善、竞争优势可持续扩大的龙头 
 - 适用市场：A, HK, US
-- 当前覆盖：core=9，watch=242，tactical=11，rejected=538
+- 当前覆盖：core=9，watch=243，tactical=12，rejected=536
 
 ### 默认规则
 
@@ -183,7 +183,7 @@
 
 - 核心假设：抓取被错杀资产在基本面或催化修复阶段的非对称收益 
 - 适用市场：A, HK, US
-- 当前覆盖：core=0，watch=57，tactical=0，rejected=743
+- 当前覆盖：core=0，watch=58，tactical=0，rejected=742
 
 ### 默认规则
 
@@ -235,7 +235,7 @@
 
 - 核心假设：宏观状态决定资产定价，优先选择宏观顺风方向 
 - 适用市场：A, HK, US
-- 当前覆盖：core=3，watch=0，tactical=32，rejected=765
+- 当前覆盖：core=3，watch=0，tactical=30，rejected=767
 
 ### 默认规则
 
@@ -287,7 +287,7 @@
 
 - 核心假设：趋势是最强定价变量，优先做主升段并严格控制回撤 
 - 适用市场：A, HK, US
-- 当前覆盖：core=4，watch=0，tactical=6，rejected=790
+- 当前覆盖：core=4，watch=0，tactical=5，rejected=791
 
 ### 默认规则
 
@@ -399,7 +399,7 @@
 
 - 核心假设：事件催化是主要收益来源，估值与风险控制作为约束 
 - 适用市场：A, HK, US
-- 当前覆盖：core=3，watch=2，tactical=52，rejected=743
+- 当前覆盖：core=4，watch=2，tactical=50，rejected=744
 
 ### 默认规则
 
@@ -455,7 +455,7 @@
 
 - 核心假设：信用扩张/收缩阶段驱动风险资产与防御资产轮动 
 - 适用市场：A, HK, US
-- 当前覆盖：core=0，watch=69，tactical=2，rejected=729
+- 当前覆盖：core=0，watch=68，tactical=2，rejected=730
 
 ### 默认规则
 

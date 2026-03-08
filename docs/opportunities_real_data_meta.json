@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-03-07T03:09:39.653251+00:00",
+  "generated_at_utc": "2026-03-08T01:15:14.231403+00:00",
   "source": "stock-data-hub(API+snapshot) + local DCF valuation link (partial coverage; comps baseline cross-check optional)",
   "cache_policy": "enabled; ttl_hours=24; use cached result for non-real-time API calls",
   "as_of_dates": [
@@ -939,12 +939,11 @@
       "close_fallback": 202
     },
     "quality_gate_status_counts": {
-      "caution": 21,
-      "ok": 8
+      "caution": 22,
+      "ok": 7
     },
     "comps_crosscheck_status_counts": {
-      "unavailable": 7,
-      "warn": 22
+      "unavailable": 29
     },
     "coverage_ratio": 0.03625,
     "iv_coverage_ratio": 0.03625

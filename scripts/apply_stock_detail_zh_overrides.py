@@ -104,6 +104,10 @@ def main() -> None:
         fiscal_period = str(payload.get("fiscal_period") or "未披露")
         data_confidence = str(payload.get("data_confidence") or "unknown")
         business_intro_zh = str(payload.get("business_intro_zh") or "").strip()
+        how_it_makes_money_zh = str(payload.get("how_it_makes_money_zh") or "").strip()
+        problem_solved_zh = str(payload.get("problem_solved_zh") or "").strip()
+        payers_zh = str(payload.get("payers_zh") or "").strip()
+        users_zh = str(payload.get("users_zh") or "").strip()
         products = payload.get("product_revenue_breakdown") or []
         key_customers = str(payload.get("key_customers_zh") or "").strip()
         competitiveness = str(payload.get("core_competitiveness_zh") or "").strip()
@@ -112,6 +116,10 @@ def main() -> None:
 
         profile["business_intro_zh"] = business_intro_zh
         profile["business_intro"] = business_intro_zh or profile.get("business_intro")
+        profile["how_it_makes_money_zh"] = how_it_makes_money_zh
+        profile["problem_solved_zh"] = problem_solved_zh
+        profile["payers_zh"] = payers_zh
+        profile["users_zh"] = users_zh
         profile["product_revenue_breakdown"] = products
         profile["key_customers_zh"] = key_customers
         profile["core_competitiveness_zh"] = competitiveness

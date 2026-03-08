@@ -1,7 +1,7 @@
 {
   "as_of_date": "2026-03-04",
   "generated_at_utc": "2026-03-04T02:38:03.607352+00:00",
-  "profile_count": 795,
+  "profile_count": 796,
   "profiles": {
     "000001.SZ": {
       "ticker": "000001.SZ",
@@ -4402,7 +4402,11 @@
           "url": "https://www.bydglobal.com/cn/Investors.html"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 汽车及相关产品｜收入占比：约80%｜客户：乘用车消费者、出行与车队客户｜竞争力：电池/电驱/整车垂直整合与规模成本优势\n2. 手机部件及组装等｜收入占比：约20%｜客户：消费电子品牌客户｜竞争力：精密制造与供应链管理能力\n公司主要客户：新能源车消费者、消费电子品牌客户、储能客户。\n公司核心竞争力：刀片电池、平台化车型、制造规模与成本控制。\n口径说明：按年报分部口径整理，为近似占比。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 汽车及相关产品｜收入占比：约80%｜客户：乘用车消费者、出行与车队客户｜竞争力：电池/电驱/整车垂直整合与规模成本优势\n2. 手机部件及组装等｜收入占比：约20%｜客户：消费电子品牌客户｜竞争力：精密制造与供应链管理能力\n公司主要客户：新能源车消费者、消费电子品牌客户、储能客户。\n公司核心竞争力：刀片电池、平台化车型、制造规模与成本控制。\n口径说明：按年报分部口径整理，为近似占比。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "002600.SZ": {
       "ticker": "002600.SZ",
@@ -7872,8 +7876,8 @@
       "sector": "Communication Services",
       "industry": "Internet Content & Information",
       "website": "https://www.tencent.com",
-      "business_intro": "Tencent Holdings Limited, an investment holding company, provides value-added services, marketing services, fintech, and business services in Mainland China and internationally. The company's consumers business includes communications and social services, such as instant messaging and social networks; digital content, including online games, videos, live streaming, news, music, and literature; fintech services, which include mobile payment, wealth management, loans, and securities trading; and various tools comprising network security management, browsing, navigation, application management, email, etc. Its enterprise business comprises marketing solutions, which offer digital tools, including user insight, creative management, placement strategy, and digital assets management; and cloud services, such as cloud computing, big data analytics, artificial intelligence, Internet of Things, and security and other technologies for financial services, education, healthcare, retail, industry, transport, energy, and radio and television industries. The company's innovation business includes artificial intelligences, such as robotics and quantum computing; and enterprise and next-generation technologies for food production, energy creation, and water management applications. The company also invests in, produces, and distributes films and television programs; offers copyrights licensing and merchandise sales and other services; provides internet advertisement services; and offers software development, and information technology and system integration services, as well as develops and operates mobile games. The company was formerly known as Tencent (BVI) Limited and changed its name to Tencent Holdings Limited in February 2004. Tencent Holdings Limited was founded in 1998 and is headquartered in Shenzhen, the People's Republic of China.",
-      "products_intro": "Tencent Holdings Limited, an investment holding company, provides value-added services, marketing services, fintech, and business services in Mainland China and internationally；The company's consumers business includes communications and social services, such as instant messaging and social networks; digital content, including online games, videos, live streaming, news, music, and literature; fintech services, which include mobile payment, wealth management, loans, and securities trading; and various tools comprising network security management, browsing, navigation, application management, email, etc",
+      "business_intro": "腾讯控股是一家以社交流量、数字内容和金融科技及企业服务为核心的平台型互联网公司。公司通过微信、QQ等入口连接用户，再在游戏、内容、广告、支付、云与企业软件等场景持续变现。",
+      "products_intro": "披露期：FY2024\n产品与收入结构：\n1. 增值服务（游戏、音乐、视频、社交增值等）｜收入占比：约47%｜客户：游戏与数字内容付费用户｜竞争力：社交分发入口、头部内容储备与长生命周期运营能力\n2. 金融科技及企业服务｜收入占比：约31%｜客户：支付商户、理财与信贷用户、企业云与软件客户｜竞争力：微信支付网络、交易闭环、云与企业服务协同\n3. 营销服务｜收入占比：约20%｜客户：品牌广告主、中小商家、效果广告客户｜竞争力：微信生态流量、广告算法与社交场景转化\n4. 其他业务｜收入占比：约2%｜客户：创新业务与其他生态合作方｜竞争力：技术储备与生态投资布局\n公司主要客户：个人用户、广告主、支付商户、企业客户与开发者生态。\n公司核心竞争力：社交关系链与超级流量入口、内容发行能力、支付网络、云与企业服务协同，以及长期的生态投资布局。\n口径说明：按腾讯 FY2024 年报/全年业绩披露的分部收入口径整理，其他收入占比较小单独列示。",
       "current_price": 506.0,
       "currency": "HKD",
       "price_as_of": "2026-03-04",
@@ -7895,7 +7899,50 @@
         "risk_score": 49.3,
         "certainty_score": 29.1,
         "note": "HK core | HK main board equity + shortsell eligible | real-data@2026-03-03 | close=510.50 | target=751.92 | fv_source=target_mean_price | dcf_symbol=HK.00700 | upside=47.3%"
-      }
+      },
+      "business_intro_zh": "腾讯控股是一家以社交流量、数字内容和金融科技及企业服务为核心的平台型互联网公司。公司通过微信、QQ等入口连接用户，再在游戏、内容、广告、支付、云与企业软件等场景持续变现。",
+      "how_it_makes_money_zh": "腾讯主要通过游戏与数字内容付费、广告投放、支付手续费与商户技术服务、云服务及企业软件收入变现。社交流量入口负责沉淀用户时长和交易场景，金融科技及企业服务负责把高频连接转成更稳定的现金流。",
+      "problem_solved_zh": "它为用户提供沟通、娱乐和支付基础设施，为商家和企业提供获客、交易、支付清结算与数字化经营工具。",
+      "payers_zh": "游戏与内容付费用户、广告主、支付商户、企业云客户。",
+      "users_zh": "微信/QQ用户、游戏与内容消费者、商家与企业客户。",
+      "product_revenue_breakdown": [
+        {
+          "product": "增值服务（游戏、音乐、视频、社交增值等）",
+          "revenue_share": "约47%",
+          "customers": "游戏与数字内容付费用户",
+          "core_competitiveness": "社交分发入口、头部内容储备与长生命周期运营能力"
+        },
+        {
+          "product": "金融科技及企业服务",
+          "revenue_share": "约31%",
+          "customers": "支付商户、理财与信贷用户、企业云与软件客户",
+          "core_competitiveness": "微信支付网络、交易闭环、云与企业服务协同"
+        },
+        {
+          "product": "营销服务",
+          "revenue_share": "约20%",
+          "customers": "品牌广告主、中小商家、效果广告客户",
+          "core_competitiveness": "微信生态流量、广告算法与社交场景转化"
+        },
+        {
+          "product": "其他业务",
+          "revenue_share": "约2%",
+          "customers": "创新业务与其他生态合作方",
+          "core_competitiveness": "技术储备与生态投资布局"
+        }
+      ],
+      "key_customers_zh": "个人用户、广告主、支付商户、企业客户与开发者生态。",
+      "core_competitiveness_zh": "社交关系链与超级流量入口、内容发行能力、支付网络、云与企业服务协同，以及长期的生态投资布局。",
+      "revenue_share_note_zh": "按腾讯 FY2024 年报/全年业绩披露的分部收入口径整理，其他收入占比较小单独列示。",
+      "intro_fiscal_period": "FY2024",
+      "intro_data_confidence": "high_disclosed",
+      "intro_sources": [
+        {
+          "title": "腾讯投资者关系",
+          "url": "https://www.tencent.com/en-us/investors.html"
+        }
+      ],
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 增值服务（游戏、音乐、视频、社交增值等）｜收入占比：约47%｜客户：游戏与数字内容付费用户｜竞争力：社交分发入口、头部内容储备与长生命周期运营能力\n2. 金融科技及企业服务｜收入占比：约31%｜客户：支付商户、理财与信贷用户、企业云与软件客户｜竞争力：微信支付网络、交易闭环、云与企业服务协同\n3. 营销服务｜收入占比：约20%｜客户：品牌广告主、中小商家、效果广告客户｜竞争力：微信生态流量、广告算法与社交场景转化\n4. 其他业务｜收入占比：约2%｜客户：创新业务与其他生态合作方｜竞争力：技术储备与生态投资布局\n公司主要客户：个人用户、广告主、支付商户、企业客户与开发者生态。\n公司核心竞争力：社交关系链与超级流量入口、内容发行能力、支付网络、云与企业服务协同，以及长期的生态投资布局。\n口径说明：按腾讯 FY2024 年报/全年业绩披露的分部收入口径整理，其他收入占比较小单独列示。"
     },
     "00709.HK": {
       "ticker": "00709.HK",
@@ -9388,7 +9435,11 @@
           "url": "https://www.smics.com/en/site/company_financialSummary"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 智能手机相关芯片晶圆代工｜收入占比：约28%｜客户：手机 SoC/射频/电源管理芯片设计公司｜竞争力：成熟工艺良率与产能保障\n2. 消费电子相关晶圆代工｜收入占比：约37%｜客户：消费电子与家电芯片设计公司｜竞争力：多平台工艺覆盖与成本效率\n3. 计算机/平板/工控汽车及其他｜收入占比：约35%｜客户：计算、工业与汽车电子客户｜竞争力：本地化供应链与长期产能协同\n公司主要客户：国内外 Fabless 设计公司与 IDM 客户。\n公司核心竞争力：成熟节点规模化制造能力、本地供应链协同与交付稳定性。\n口径说明：按公司披露的应用结构口径整理，部分为区间估算。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 智能手机相关芯片晶圆代工｜收入占比：约28%｜客户：手机 SoC/射频/电源管理芯片设计公司｜竞争力：成熟工艺良率与产能保障\n2. 消费电子相关晶圆代工｜收入占比：约37%｜客户：消费电子与家电芯片设计公司｜竞争力：多平台工艺覆盖与成本效率\n3. 计算机/平板/工控汽车及其他｜收入占比：约35%｜客户：计算、工业与汽车电子客户｜竞争力：本地化供应链与长期产能协同\n公司主要客户：国内外 Fabless 设计公司与 IDM 客户。\n公司核心竞争力：成熟节点规模化制造能力、本地供应链协同与交付稳定性。\n口径说明：按公司披露的应用结构口径整理，部分为区间估算。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "1211.HK": {
       "ticker": "1211.HK",
@@ -9448,7 +9499,11 @@
           "url": "https://www.bydglobal.com/cn/Investors.html"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 汽车及相关产品｜收入占比：约80%｜客户：乘用车消费者、出行与车队客户｜竞争力：电池/电驱/整车垂直整合与规模成本优势\n2. 手机部件及组装等｜收入占比：约20%｜客户：消费电子品牌客户｜竞争力：精密制造与供应链管理能力\n公司主要客户：新能源车消费者、消费电子品牌客户、储能客户。\n公司核心竞争力：刀片电池、平台化车型、制造规模与成本控制。\n口径说明：按年报分部口径整理，为近似占比。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 汽车及相关产品｜收入占比：约80%｜客户：乘用车消费者、出行与车队客户｜竞争力：电池/电驱/整车垂直整合与规模成本优势\n2. 手机部件及组装等｜收入占比：约20%｜客户：消费电子品牌客户｜竞争力：精密制造与供应链管理能力\n公司主要客户：新能源车消费者、消费电子品牌客户、储能客户。\n公司核心竞争力：刀片电池、平台化车型、制造规模与成本控制。\n口径说明：按年报分部口径整理，为近似占比。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "1810.HK": {
       "ticker": "1810.HK",
@@ -10736,7 +10791,11 @@
           "url": "https://about.meituan.com/en/investor"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 核心本地商业｜收入占比：约82%｜客户：本地消费者、餐饮商家、到店商家｜竞争力：本地网络效应、履约调度算法、高频交易场景\n2. 新业务（含社区零售等）｜收入占比：约18%｜客户：社区零售消费者与上游供给方｜竞争力：流量入口与履约能力复用\n公司主要客户：本地生活消费者、中小商家、品牌连锁与配送骑手生态。\n公司核心竞争力：高频场景带来的用户粘性、商户供给深度与配送效率。\n口径说明：按年报分部披露口径整理。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 核心本地商业｜收入占比：约82%｜客户：本地消费者、餐饮商家、到店商家｜竞争力：本地网络效应、履约调度算法、高频交易场景\n2. 新业务（含社区零售等）｜收入占比：约18%｜客户：社区零售消费者与上游供给方｜竞争力：流量入口与履约能力复用\n公司主要客户：本地生活消费者、中小商家、品牌连锁与配送骑手生态。\n公司核心竞争力：高频场景带来的用户粘性、商户供给深度与配送效率。\n口径说明：按年报分部披露口径整理。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "600000.SS": {
       "ticker": "600000.SS",
@@ -11340,7 +11399,11 @@
           "url": "https://investor.cmbchina.com/"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 净利息收入｜收入占比：约62%｜客户：零售与对公存贷款客户｜竞争力：低成本负债与精细化资产定价\n2. 手续费及佣金收入｜收入占比：约18%｜客户：财富管理、银行卡与结算客户｜竞争力：零售客户基础与财富管理能力\n3. 其他非息收入｜收入占比：约20%｜客户：金融市场与同业客户｜竞争力：综合金融与资产配置能力\n公司主要客户：零售客户、中高净值客群、中小企业与对公客户。\n公司核心竞争力：零售护城河、风控文化、数字化运营能力。\n口径说明：按年报利润表口径整理，为近似占比。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 净利息收入｜收入占比：约62%｜客户：零售与对公存贷款客户｜竞争力：低成本负债与精细化资产定价\n2. 手续费及佣金收入｜收入占比：约18%｜客户：财富管理、银行卡与结算客户｜竞争力：零售客户基础与财富管理能力\n3. 其他非息收入｜收入占比：约20%｜客户：金融市场与同业客户｜竞争力：综合金融与资产配置能力\n公司主要客户：零售客户、中高净值客群、中小企业与对公客户。\n公司核心竞争力：零售护城河、风控文化、数字化运营能力。\n口径说明：按年报利润表口径整理，为近似占比。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "600039.SS": {
       "ticker": "600039.SS",
@@ -12027,7 +12090,11 @@
           "url": "http://www.sse.com.cn/"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 创新药及创新相关收入（含部分海外授权）｜收入占比：约55%｜客户：医院终端、医保市场与海外合作方｜竞争力：持续研发投入与临床管线储备\n2. 成熟仿制药与传统品种｜收入占比：约45%｜客户：国内医院与基层医疗终端｜竞争力：销售网络与规模化生产能力\n公司主要客户：医院终端、医保支付体系、国际授权合作伙伴。\n公司核心竞争力：研发平台化能力、肿瘤与慢病等重点管线布局。\n口径说明：公司未长期按统一口径披露细分产品占比，以上为年报与公告推算值。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 创新药及创新相关收入（含部分海外授权）｜收入占比：约55%｜客户：医院终端、医保市场与海外合作方｜竞争力：持续研发投入与临床管线储备\n2. 成熟仿制药与传统品种｜收入占比：约45%｜客户：国内医院与基层医疗终端｜竞争力：销售网络与规模化生产能力\n公司主要客户：医院终端、医保支付体系、国际授权合作伙伴。\n公司核心竞争力：研发平台化能力、肿瘤与慢病等重点管线布局。\n口径说明：公司未长期按统一口径披露细分产品占比，以上为年报与公告推算值。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "600309.SS": {
       "ticker": "600309.SS",
@@ -12559,7 +12626,11 @@
           "url": "http://www.sse.com.cn/"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 茅台酒｜收入占比：约85%｜客户：经销商体系、直销渠道与终端消费者｜竞争力：品牌稀缺性、定价权与供给约束\n2. 系列酒｜收入占比：约15%｜客户：大众与次高端消费人群｜竞争力：品牌背书与渠道复用\n公司主要客户：经销商、直销平台用户与礼赠消费场景客户。\n公司核心竞争力：强品牌心智、渠道控制力与现金流能力。\n口径说明：按年报产品收入结构近似整理。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 茅台酒｜收入占比：约85%｜客户：经销商体系、直销渠道与终端消费者｜竞争力：品牌稀缺性、定价权与供给约束\n2. 系列酒｜收入占比：约15%｜客户：大众与次高端消费人群｜竞争力：品牌背书与渠道复用\n公司主要客户：经销商、直销平台用户与礼赠消费场景客户。\n公司核心竞争力：强品牌心智、渠道控制力与现金流能力。\n口径说明：按年报产品收入结构近似整理。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "600522.SS": {
       "ticker": "600522.SS",
@@ -13319,7 +13390,11 @@
           "url": "http://www.sse.com.cn/"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 水电发电与售电｜收入占比：约98%｜客户：国家电网/南方电网及相关电力交易主体｜竞争力：优质水电资产、低边际成本、长周期现金流\n2. 综合能源与其他｜收入占比：约2%｜客户：区域能源与用电客户｜竞争力：主业延伸与运营能力复用\n公司主要客户：电网公司与电力市场交易客户。\n公司核心竞争力：大水电资产稀缺性、运营稳定性、现金流质量高。\n口径说明：按年报收入结构口径整理。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 水电发电与售电｜收入占比：约98%｜客户：国家电网/南方电网及相关电力交易主体｜竞争力：优质水电资产、低边际成本、长周期现金流\n2. 综合能源与其他｜收入占比：约2%｜客户：区域能源与用电客户｜竞争力：主业延伸与运营能力复用\n公司主要客户：电网公司与电力市场交易客户。\n公司核心竞争力：大水电资产稀缺性、运营稳定性、现金流质量高。\n口径说明：按年报收入结构口径整理。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "600905.SS": {
       "ticker": "600905.SS",
@@ -14593,7 +14668,11 @@
           "url": "https://group.pingan.com/investors.html"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 寿险及健康险｜收入占比：约66%（按营运利润贡献口径）｜客户：个人与家庭保障、养老健康客户｜竞争力：代理人体系与长期保单价值管理\n2. 财产险｜收入占比：约14%（按营运利润贡献口径）｜客户：车险与企业财险客户｜竞争力：定价风控模型与规模效应\n3. 银行及其他｜收入占比：约20%（按营运利润贡献口径）｜客户：零售与对公金融客户｜竞争力：综合金融交叉销售与客户经营\n公司主要客户：个人保险客户、车险客户、银行零售与对公客户。\n公司核心竞争力：综合金融平台能力、长期资金管理能力与数字化运营。\n口径说明：公司常用分部口径存在“收入/利润”差异，这里采用更稳定的营运利润贡献近似。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 寿险及健康险｜收入占比：约66%（按营运利润贡献口径）｜客户：个人与家庭保障、养老健康客户｜竞争力：代理人体系与长期保单价值管理\n2. 财产险｜收入占比：约14%（按营运利润贡献口径）｜客户：车险与企业财险客户｜竞争力：定价风控模型与规模效应\n3. 银行及其他｜收入占比：约20%（按营运利润贡献口径）｜客户：零售与对公金融客户｜竞争力：综合金融交叉销售与客户经营\n公司主要客户：个人保险客户、车险客户、银行零售与对公客户。\n公司核心竞争力：综合金融平台能力、长期资金管理能力与数字化运营。\n口径说明：公司常用分部口径存在“收入/利润”差异，这里采用更稳定的营运利润贡献近似。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "601319.SS": {
       "ticker": "601319.SS",
@@ -15930,7 +16009,11 @@
           "url": "https://www.zijinmining.com/investor/"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 铜相关业务｜收入占比：约36%｜客户：冶炼与金属加工企业｜竞争力：资源储量与低成本矿山开发能力\n2. 金相关业务｜收入占比：约49%｜客户：黄金加工与金融投资链条客户｜竞争力：高品位资源与全球项目布局\n3. 锌铅银及其他｜收入占比：约15%｜客户：有色金属产业链客户｜竞争力：多金属组合与周期对冲能力\n公司主要客户：金属冶炼企业、加工企业及相关贸易客户。\n公司核心竞争力：全球化矿业资产组合、项目开发执行力与成本控制。\n口径说明：按年报产品结构口径近似整理。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 铜相关业务｜收入占比：约36%｜客户：冶炼与金属加工企业｜竞争力：资源储量与低成本矿山开发能力\n2. 金相关业务｜收入占比：约49%｜客户：黄金加工与金融投资链条客户｜竞争力：高品位资源与全球项目布局\n3. 锌铅银及其他｜收入占比：约15%｜客户：有色金属产业链客户｜竞争力：多金属组合与周期对冲能力\n公司主要客户：金属冶炼企业、加工企业及相关贸易客户。\n公司核心竞争力：全球化矿业资产组合、项目开发执行力与成本控制。\n口径说明：按年报产品结构口径近似整理。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "601901.SS": {
       "ticker": "601901.SS",
@@ -16884,7 +16967,11 @@
           "url": "http://www.sse.com.cn/"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 智能手机｜收入占比：约86%｜客户：非洲、南亚、东南亚等新兴市场终端消费者与渠道商｜竞争力：本地化产品定义、渠道深耕与高性价比机型组合\n2. 功能机｜收入占比：约9%｜客户：价格敏感用户与下沉市场渠道｜竞争力：极致成本控制与区域品牌认知\n3. 数码配件及移动互联网服务｜收入占比：约5%｜客户：存量终端用户与合作开发者生态｜竞争力：终端装机量带来的分发能力\n公司主要客户：海外新兴市场消费者、区域渠道商与零售终端。\n公司核心竞争力：“品牌矩阵+本地化渠道+供应链效率”三位一体。\n口径说明：按公司年报披露口径整理，部分为近似估算。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 智能手机｜收入占比：约86%｜客户：非洲、南亚、东南亚等新兴市场终端消费者与渠道商｜竞争力：本地化产品定义、渠道深耕与高性价比机型组合\n2. 功能机｜收入占比：约9%｜客户：价格敏感用户与下沉市场渠道｜竞争力：极致成本控制与区域品牌认知\n3. 数码配件及移动互联网服务｜收入占比：约5%｜客户：存量终端用户与合作开发者生态｜竞争力：终端装机量带来的分发能力\n公司主要客户：海外新兴市场消费者、区域渠道商与零售终端。\n公司核心竞争力：“品牌矩阵+本地化渠道+供应链效率”三位一体。\n口径说明：按公司年报披露口径整理，部分为近似估算。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "688041.SS": {
       "ticker": "688041.SS",
@@ -17469,7 +17556,11 @@
           "url": "https://ir.jd.com/financial-information/annual-reports"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 商品销售收入｜收入占比：约84%｜客户：C 端消费者与企业采购客户｜竞争力：自营供应链、正品心智与库存管理\n2. 服务收入（平台服务/广告/物流等）｜收入占比：约16%｜客户：第三方商家与品牌客户｜竞争力：平台变现与物流外部化能力\n公司主要客户：消费者、第三方商家、品牌客户与企业客户。\n公司核心竞争力：仓配一体履约效率、供应链数字化、服务体验稳定性。\n口径说明：按年报“商品收入/服务收入”口径整理。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 商品销售收入｜收入占比：约84%｜客户：C 端消费者与企业采购客户｜竞争力：自营供应链、正品心智与库存管理\n2. 服务收入（平台服务/广告/物流等）｜收入占比：约16%｜客户：第三方商家与品牌客户｜竞争力：平台变现与物流外部化能力\n公司主要客户：消费者、第三方商家、品牌客户与企业客户。\n公司核心竞争力：仓配一体履约效率、供应链数字化、服务体验稳定性。\n口径说明：按年报“商品收入/服务收入”口径整理。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "9988.HK": {
       "ticker": "9988.HK",
@@ -17541,7 +17632,11 @@
           "url": "https://www.alibabagroup.com/en-US/ir-financial-reports"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 淘天集团（电商平台）｜收入占比：约47%｜客户：品牌商家、中小商家与平台消费者｜竞争力：流量分发、商家生态、广告与交易基础设施\n2. 云智能｜收入占比：约11%｜客户：企业客户、开发者与政企客户｜竞争力：云基础设施与 AI 计算能力\n3. 国际数字商业｜收入占比：约11%｜客户：跨境商家与海外消费者｜竞争力：多平台跨境网络\n4. 菜鸟+本地生活+文娱及其他｜收入占比：约31%｜客户：电商履约客户、本地商家与平台用户｜竞争力：物流履约与本地服务生态协同\n公司主要客户：平台商家、品牌客户、企业云客户、终端消费者。\n公司核心竞争力：平台网络效应、数据中台、履约网络与生态协同。\n口径说明：按公司年报分部收入披露整理，部分分项为合并展示。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 淘天集团（电商平台）｜收入占比：约47%｜客户：品牌商家、中小商家与平台消费者｜竞争力：流量分发、商家生态、广告与交易基础设施\n2. 云智能｜收入占比：约11%｜客户：企业客户、开发者与政企客户｜竞争力：云基础设施与 AI 计算能力\n3. 国际数字商业｜收入占比：约11%｜客户：跨境商家与海外消费者｜竞争力：多平台跨境网络\n4. 菜鸟+本地生活+文娱及其他｜收入占比：约31%｜客户：电商履约客户、本地商家与平台用户｜竞争力：物流履约与本地服务生态协同\n公司主要客户：平台商家、品牌客户、企业云客户、终端消费者。\n公司核心竞争力：平台网络效应、数据中台、履约网络与生态协同。\n口径说明：按公司年报分部收入披露整理，部分分项为合并展示。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "9999.HK": {
       "ticker": "9999.HK",
@@ -17685,7 +17780,11 @@
           "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019324000123/aapl-20240928.htm"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. iPhone｜收入占比：约51%｜客户：全球中高端智能手机消费者、企业采购客户｜竞争力：芯片与系统垂直整合、品牌溢价、生态粘性\n2. 服务（App Store/iCloud/Apple Music/广告等）｜收入占比：约25%｜客户：苹果终端存量用户与开发者生态｜竞争力：高留存订阅体系、支付与分发生态、平台抽成能力\n3. Mac｜收入占比：约8%｜客户：创意生产力用户、教育与企业客户｜竞争力：Apple Silicon 性能功耗比、软硬协同\n4. iPad｜收入占比：约7%｜客户：教育、轻办公与内容消费用户｜竞争力：应用生态与多场景兼容\n5. 可穿戴/家居/配件｜收入占比：约9%｜客户：iPhone 存量用户｜竞争力：生态联动与交叉销售\n公司主要客户：终端消费者为主，辅以教育、企业与开发者生态。\n公司核心竞争力：生态封闭性、品牌与渠道控制力、芯片自研、服务高毛利。\n口径说明：按 FY2024 年报分部口径整理。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. iPhone｜收入占比：约51%｜客户：全球中高端智能手机消费者、企业采购客户｜竞争力：芯片与系统垂直整合、品牌溢价、生态粘性\n2. 服务（App Store/iCloud/Apple Music/广告等）｜收入占比：约25%｜客户：苹果终端存量用户与开发者生态｜竞争力：高留存订阅体系、支付与分发生态、平台抽成能力\n3. Mac｜收入占比：约8%｜客户：创意生产力用户、教育与企业客户｜竞争力：Apple Silicon 性能功耗比、软硬协同\n4. iPad｜收入占比：约7%｜客户：教育、轻办公与内容消费用户｜竞争力：应用生态与多场景兼容\n5. 可穿戴/家居/配件｜收入占比：约9%｜客户：iPhone 存量用户｜竞争力：生态联动与交叉销售\n公司主要客户：终端消费者为主，辅以教育、企业与开发者生态。\n公司核心竞争力：生态封闭性、品牌与渠道控制力、芯片自研、服务高毛利。\n口径说明：按 FY2024 年报分部口径整理。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "ABBV": {
       "ticker": "ABBV",
@@ -24648,8 +24747,8 @@
       "sector": "Communication Services",
       "industry": "Internet Content & Information",
       "website": "https://abc.xyz",
-      "business_intro": "Alphabet Inc. offers various products and platforms in the United States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, and Latin America. It operates through Google Services, Google Cloud, and Other Bets segments. The Google Services segment provides products and services, including ads, Android, Chrome, devices, Gmail, Google Drive, Google Maps, Google Photos, Google Play, Search, and YouTube. It is also involved in the sale of apps and in-app purchases and digital content in Google Play and YouTube; and devices, as well as the provision of YouTube consumer subscription services, such as YouTube TV, YouTube Music and Premium, NFL Sunday Ticket, and Google One. The Google Cloud segment offers consumption-based fees and subscriptions for AI solutions, including AI infrastructure, Vertex AI platform, and Gemini enterprise. It also provides cybersecurity, and data and analytics services; Google Workspace that include cloud-based communication and collaboration tools for enterprises, such as Calendar, Gmail, Docs, Drive, and Meet; and other enterprise services. The Other Bets segment sells transportation and internet services. Alphabet Inc. was incorporated in 1998 and is headquartered in Mountain View, California.",
-      "products_intro": "Alphabet Inc；offers various products and platforms in the United States, Europe, the Middle East, Africa, the Asia-Pacific, Canada, and Latin America",
+      "business_intro": "Alphabet 是一家以搜索入口、广告技术和云基础设施为核心的互联网平台公司。Google Services 负责流量与广告变现，Google Cloud 承接企业数字化与 AI 工作负载，Other Bets 代表前沿技术投资。",
+      "products_intro": "披露期：FY2025\n产品与收入结构：\n1. Google Search & other｜收入占比：约56%｜客户：搜索广告主与使用 Google 搜索/地图等产品的用户｜竞争力：搜索份额、广告拍卖机制与数据反馈飞轮\n2. YouTube Ads｜收入占比：约10%｜客户：品牌广告主、效果广告主与视频平台用户｜竞争力：全球视频分发规模与推荐系统\n3. Google Network｜收入占比：约9%｜客户：站长、开发者与第三方广告伙伴｜竞争力：广告技术网络与变现平台\n4. Subscriptions, Platforms, and Devices｜收入占比：约14%｜客户：订阅用户、应用开发者与设备消费者｜竞争力：Android/Play 生态、订阅服务与硬件入口\n5. Google Cloud｜收入占比：约13%｜客户：企业客户、开发者、AI 工作负载客户｜竞争力：全球云基础设施、数据分析栈与 AI 平台\n6. Other Bets｜收入占比：<1%｜客户：前沿项目试点客户｜竞争力：长期研发储备与技术孵化\n公司主要客户：品牌广告主、中小企业广告主、企业云客户、开发者与订阅用户。\n公司核心竞争力：搜索入口和用户数据飞轮、广告技术栈、全球云基础设施、AI 模型能力以及多产品入口协同。\n口径说明：按 Alphabet FY2025 年报披露的分项收入/分部收入近似整理，因对冲收益与四舍五入，合计可能不等于 100%。",
       "current_price": 300.39,
       "currency": "USD",
       "price_as_of": "2026-03-03",
@@ -24671,7 +24770,66 @@
         "risk_score": 56.5,
         "certainty_score": 23.3,
         "note": "US core | S&P500 constituent | real-data@2026-03-03 | close=301.08 | target=376.86 | fv_source=target_mean_price | dcf_symbol=US.GOOGL | upside=25.2%"
-      }
+      },
+      "business_intro_zh": "Alphabet 是一家以搜索入口、广告技术和云基础设施为核心的互联网平台公司。Google Services 负责流量与广告变现，Google Cloud 承接企业数字化与 AI 工作负载，Other Bets 代表前沿技术投资。",
+      "how_it_makes_money_zh": "Alphabet 的核心收入来自搜索、YouTube 和广告网络的广告变现，其次来自 Google Cloud、Workspace/订阅服务、应用分发和设备销售。广告业务贡献现金流，云和订阅业务提供第二增长曲线。",
+      "problem_solved_zh": "它为全球用户提供信息检索、视频、地图、邮箱和移动生态入口，为广告主提供精准投放能力，为企业提供云计算、数据分析和 AI 基础设施。",
+      "payers_zh": "广告主、企业云客户、Workspace/YouTube 等订阅用户和设备消费者。",
+      "users_zh": "全球互联网用户、YouTube 观众、Android 用户、企业员工与开发者。",
+      "product_revenue_breakdown": [
+        {
+          "product": "Google Search & other",
+          "revenue_share": "约56%",
+          "customers": "搜索广告主与使用 Google 搜索/地图等产品的用户",
+          "core_competitiveness": "搜索份额、广告拍卖机制与数据反馈飞轮"
+        },
+        {
+          "product": "YouTube Ads",
+          "revenue_share": "约10%",
+          "customers": "品牌广告主、效果广告主与视频平台用户",
+          "core_competitiveness": "全球视频分发规模与推荐系统"
+        },
+        {
+          "product": "Google Network",
+          "revenue_share": "约9%",
+          "customers": "站长、开发者与第三方广告伙伴",
+          "core_competitiveness": "广告技术网络与变现平台"
+        },
+        {
+          "product": "Subscriptions, Platforms, and Devices",
+          "revenue_share": "约14%",
+          "customers": "订阅用户、应用开发者与设备消费者",
+          "core_competitiveness": "Android/Play 生态、订阅服务与硬件入口"
+        },
+        {
+          "product": "Google Cloud",
+          "revenue_share": "约13%",
+          "customers": "企业客户、开发者、AI 工作负载客户",
+          "core_competitiveness": "全球云基础设施、数据分析栈与 AI 平台"
+        },
+        {
+          "product": "Other Bets",
+          "revenue_share": "<1%",
+          "customers": "前沿项目试点客户",
+          "core_competitiveness": "长期研发储备与技术孵化"
+        }
+      ],
+      "key_customers_zh": "品牌广告主、中小企业广告主、企业云客户、开发者与订阅用户。",
+      "core_competitiveness_zh": "搜索入口和用户数据飞轮、广告技术栈、全球云基础设施、AI 模型能力以及多产品入口协同。",
+      "revenue_share_note_zh": "按 Alphabet FY2025 年报披露的分项收入/分部收入近似整理，因对冲收益与四舍五入，合计可能不等于 100%。",
+      "intro_fiscal_period": "FY2025",
+      "intro_data_confidence": "high_disclosed",
+      "intro_sources": [
+        {
+          "title": "Alphabet Investor Relations",
+          "url": "https://abc.xyz/investor/"
+        },
+        {
+          "title": "Alphabet SEC Filings",
+          "url": "https://www.sec.gov/edgar/browse/?CIK=1652044&owner=exclude"
+        }
+      ],
+      "products_intro_zh": "披露期：FY2025\n产品与收入结构：\n1. Google Search & other｜收入占比：约56%｜客户：搜索广告主与使用 Google 搜索/地图等产品的用户｜竞争力：搜索份额、广告拍卖机制与数据反馈飞轮\n2. YouTube Ads｜收入占比：约10%｜客户：品牌广告主、效果广告主与视频平台用户｜竞争力：全球视频分发规模与推荐系统\n3. Google Network｜收入占比：约9%｜客户：站长、开发者与第三方广告伙伴｜竞争力：广告技术网络与变现平台\n4. Subscriptions, Platforms, and Devices｜收入占比：约14%｜客户：订阅用户、应用开发者与设备消费者｜竞争力：Android/Play 生态、订阅服务与硬件入口\n5. Google Cloud｜收入占比：约13%｜客户：企业客户、开发者、AI 工作负载客户｜竞争力：全球云基础设施、数据分析栈与 AI 平台\n6. Other Bets｜收入占比：<1%｜客户：前沿项目试点客户｜竞争力：长期研发储备与技术孵化\n公司主要客户：品牌广告主、中小企业广告主、企业云客户、开发者与订阅用户。\n公司核心竞争力：搜索入口和用户数据飞轮、广告技术栈、全球云基础设施、AI 模型能力以及多产品入口协同。\n口径说明：按 Alphabet FY2025 年报披露的分项收入/分部收入近似整理，因对冲收益与四舍五入，合计可能不等于 100%。"
     },
     "GPC": {
       "ticker": "GPC",
@@ -26331,7 +26489,11 @@
           "url": "https://www.sec.gov/Archives/edgar/data/19617/000001961725000270/jpm-20241231.htm"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 消费者与社区银行（CCB）｜收入占比：约40%（按四大核心业务净营收口径）｜客户：零售存贷、信用卡、小微客户｜竞争力：低成本存款基础与高频金融场景\n2. 企业与投资银行（CIB）｜收入占比：约39%（按四大核心业务净营收口径）｜客户：大型企业、机构投资者、政府客户｜竞争力：全球投行排名、交易做市与支付清算能力\n3. 资产与财富管理（AWM）｜收入占比：约12%（按四大核心业务净营收口径）｜客户：高净值客户、机构资管客户｜竞争力：多资产配置能力与全球渠道\n4. 商业银行（CB）｜收入占比：约9%（按四大核心业务净营收口径）｜客户：中大型企业与中端市场客户｜竞争力：授信能力与跨业务协同\n公司主要客户：零售消费者、企业客户、机构投资者与高净值客户。\n公司核心竞争力：规模化低成本负债、全球业务网络、风险管理与科技投入。\n口径说明：按 2024 年报分部净营收口径整理，为管理报表口径。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 消费者与社区银行（CCB）｜收入占比：约40%（按四大核心业务净营收口径）｜客户：零售存贷、信用卡、小微客户｜竞争力：低成本存款基础与高频金融场景\n2. 企业与投资银行（CIB）｜收入占比：约39%（按四大核心业务净营收口径）｜客户：大型企业、机构投资者、政府客户｜竞争力：全球投行排名、交易做市与支付清算能力\n3. 资产与财富管理（AWM）｜收入占比：约12%（按四大核心业务净营收口径）｜客户：高净值客户、机构资管客户｜竞争力：多资产配置能力与全球渠道\n4. 商业银行（CB）｜收入占比：约9%（按四大核心业务净营收口径）｜客户：中大型企业与中端市场客户｜竞争力：授信能力与跨业务协同\n公司主要客户：零售消费者、企业客户、机构投资者与高净值客户。\n公司核心竞争力：规模化低成本负债、全球业务网络、风险管理与科技投入。\n口径说明：按 2024 年报分部净营收口径整理，为管理报表口径。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "KDP": {
       "ticker": "KDP",
@@ -27480,8 +27642,8 @@
       "sector": "Technology",
       "industry": "Semiconductors",
       "website": "https://www.nvidia.com",
-      "business_intro": "NVIDIA Corporation, a computing infrastructure company, provides graphics and compute and networking solutions in the United States, Taiwan, China, Hong Kong, and internationally. It operates through Compute & Networking and Graphics segments. The Compute & Networking segment includes its Data Center accelerated computing and networking platforms and artificial intelligence solutions and software and automotive platforms and autonomous and electric vehicle solutions, including software. The Graphics segment offers GeForce GPUs for gaming and PCs; Quadro/NVIDIA RTX GPUs for enterprise workstation graphics; GeForce NOW cloud gaming service; and NVIDIA vGPU software for graphics- virtual desktops and workstations. It also develops standalone software solutions, including NVIDIA AI Enterprise, NVIDIA Omniverse, NVIDIA DRIVE, and other software products. The company's products are used in gaming, professional visualization, data center, and automotive markets. It sells its products to original equipment manufacturers, original device manufacturers, system integrators and distributors, independent software vendors, cloud service providers, add-in board manufacturers, distributors, automotive manufacturers and tier-1 automotive suppliers, and other ecosystem participants. NVIDIA Corporation was incorporated in 1993 and is headquartered in Santa Clara, California.",
-      "products_intro": "NVIDIA Corporation, a computing infrastructure company, provides graphics and compute and networking solutions in the United States, Taiwan, China, Hong Kong, and internationally；It operates through Compute & Networking and Graphics segments",
+      "business_intro": "英伟达是一家以 GPU、加速计算与高速互联为核心的算力基础设施公司。它既销售芯片、板卡、系统和网络设备，也通过 CUDA、AI Enterprise、Omniverse、DRIVE 等软件平台强化生态粘性，核心受益于 AI 数据中心建设。",
+      "products_intro": "披露期：FY2026\n产品与收入结构：\n1. Compute & Networking（含数据中心、网络、汽车）｜收入占比：约89%｜客户：云服务商、企业 AI 客户、服务器厂商与车厂｜竞争力：CUDA 生态、加速计算平台、网络互联与系统级整合能力\n2. Graphics（含 GeForce / RTX / 专业图形）｜收入占比：约11%｜客户：游戏玩家、工作站用户、AIB 厂商与渠道伙伴｜竞争力：GPU 架构迭代、品牌与开发者生态、软件工具链\n公司主要客户：云服务商、服务器厂商、系统集成商、AIB 厂商、企业客户与车厂。\n公司核心竞争力：CUDA + GPU + 网络 + 软件平台的全栈生态、产品迭代速度、开发者锁定效应和规模化供应链能力。\n口径说明：按 NVIDIA FY2026 年报披露的 Compute & Networking / Graphics 分部收入口径整理。",
       "current_price": 179.587,
       "currency": "USD",
       "price_as_of": "2026-03-03",
@@ -27503,7 +27665,38 @@
         "risk_score": 35.9,
         "certainty_score": 25.8,
         "note": "US growth | real-data@2026-03-03 | close=179.40 | target=264.25 | fv_source=target_mean_price | dcf_symbol=US.NVDA | upside=47.3%"
-      }
+      },
+      "business_intro_zh": "英伟达是一家以 GPU、加速计算与高速互联为核心的算力基础设施公司。它既销售芯片、板卡、系统和网络设备，也通过 CUDA、AI Enterprise、Omniverse、DRIVE 等软件平台强化生态粘性，核心受益于 AI 数据中心建设。",
+      "how_it_makes_money_zh": "公司主要通过数据中心 GPU、网络与系统销售变现，其次来自游戏显卡、专业可视化和汽车/机器人平台，并叠加软件与开发平台带来的高黏性生态收益。",
+      "problem_solved_zh": "它为云厂商和企业提供 AI 训练与推理算力，为开发者提供统一的软件栈，为玩家、设计工作站和车厂提供图形与边缘计算平台。",
+      "payers_zh": "云服务商、企业客户、OEM/ODM、整机厂、分销商、车厂与 Tier 1 供应商。",
+      "users_zh": "AI 开发者、数据中心运营方、游戏玩家、专业图形工作站用户与汽车制造商。",
+      "product_revenue_breakdown": [
+        {
+          "product": "Compute & Networking（含数据中心、网络、汽车）",
+          "revenue_share": "约89%",
+          "customers": "云服务商、企业 AI 客户、服务器厂商与车厂",
+          "core_competitiveness": "CUDA 生态、加速计算平台、网络互联与系统级整合能力"
+        },
+        {
+          "product": "Graphics（含 GeForce / RTX / 专业图形）",
+          "revenue_share": "约11%",
+          "customers": "游戏玩家、工作站用户、AIB 厂商与渠道伙伴",
+          "core_competitiveness": "GPU 架构迭代、品牌与开发者生态、软件工具链"
+        }
+      ],
+      "key_customers_zh": "云服务商、服务器厂商、系统集成商、AIB 厂商、企业客户与车厂。",
+      "core_competitiveness_zh": "CUDA + GPU + 网络 + 软件平台的全栈生态、产品迭代速度、开发者锁定效应和规模化供应链能力。",
+      "revenue_share_note_zh": "按 NVIDIA FY2026 年报披露的 Compute & Networking / Graphics 分部收入口径整理。",
+      "intro_fiscal_period": "FY2026",
+      "intro_data_confidence": "high_disclosed",
+      "intro_sources": [
+        {
+          "title": "NVIDIA Financial Reports",
+          "url": "https://investor.nvidia.com/financial-info/financial-reports/default.aspx"
+        }
+      ],
+      "products_intro_zh": "披露期：FY2026\n产品与收入结构：\n1. Compute & Networking（含数据中心、网络、汽车）｜收入占比：约89%｜客户：云服务商、企业 AI 客户、服务器厂商与车厂｜竞争力：CUDA 生态、加速计算平台、网络互联与系统级整合能力\n2. Graphics（含 GeForce / RTX / 专业图形）｜收入占比：约11%｜客户：游戏玩家、工作站用户、AIB 厂商与渠道伙伴｜竞争力：GPU 架构迭代、品牌与开发者生态、软件工具链\n公司主要客户：云服务商、服务器厂商、系统集成商、AIB 厂商、企业客户与车厂。\n公司核心竞争力：CUDA + GPU + 网络 + 软件平台的全栈生态、产品迭代速度、开发者锁定效应和规模化供应链能力。\n口径说明：按 NVIDIA FY2026 年报披露的 Compute & Networking / Graphics 分部收入口径整理。"
     },
     "PODD": {
       "ticker": "PODD",
@@ -27744,7 +27937,11 @@
           "url": "https://www.sec.gov/edgar/browse/?CIK=1318605"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 汽车业务（整车销售+租赁+监管积分）｜收入占比：约79%｜客户：个人购车用户、企业/车队客户｜竞争力：规模化制造、成本控制、软件与 OTA 能力\n2. 储能与发电（Megapack/Powerwall/光伏）｜收入占比：约10%｜客户：公用事业、工商业与家庭储能客户｜竞争力：电池系统集成与项目交付能力\n3. 服务及其他（售后、保险、二手车等）｜收入占比：约11%｜客户：存量车主与生态用户｜竞争力：自营服务网络与数据闭环\n公司主要客户：电动车消费者、公用事业储能客户、车主服务用户。\n公司核心竞争力：电池-整车-软件垂直一体化、超级充电网络、品牌心智。\n口径说明：按 FY2024 年报分部口径整理。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 汽车业务（整车销售+租赁+监管积分）｜收入占比：约79%｜客户：个人购车用户、企业/车队客户｜竞争力：规模化制造、成本控制、软件与 OTA 能力\n2. 储能与发电（Megapack/Powerwall/光伏）｜收入占比：约10%｜客户：公用事业、工商业与家庭储能客户｜竞争力：电池系统集成与项目交付能力\n3. 服务及其他（售后、保险、二手车等）｜收入占比：约11%｜客户：存量车主与生态用户｜竞争力：自营服务网络与数据闭环\n公司主要客户：电动车消费者、公用事业储能客户、车主服务用户。\n公司核心竞争力：电池-整车-软件垂直一体化、超级充电网络、品牌心智。\n口径说明：按 FY2024 年报分部口径整理。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "UNH": {
       "ticker": "UNH",
@@ -27826,7 +28023,11 @@
           "url": "https://www.sec.gov/Archives/edgar/data/731766/000073176625000063/unh-20241231.htm"
         }
       ],
-      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. UnitedHealthcare（健康险）｜收入占比：约54%（按 UHC+Optum 合计口径）｜客户：雇主团险、Medicare/Medicaid、个人保险客户｜竞争力：支付方规模、产品设计与风险定价能力\n2. Optum Rx（药事管理）｜收入占比：约24%（按 UHC+Optum 合计口径）｜客户：药店网络、保司、雇主与政府项目｜竞争力：PBM 议价与处方管理能力\n3. Optum Health（医疗服务）｜收入占比：约19%（按 UHC+Optum 合计口径）｜客户：医疗机构与患者｜竞争力：医疗服务网络与价值医疗管理\n4. Optum Insight（医疗信息化）｜收入占比：约3%（按 UHC+Optum 合计口径）｜客户：医院系统、政府与生命科学企业｜竞争力：医疗数据与软件解决方案\n公司主要客户：政府医保项目、企业团体客户、医疗机构与药店网络。\n公司核心竞争力：“支付+服务+药事+数据”闭环，规模与成本控制优势明显。\n口径说明：按 2024 年 SEC 分部收入表计算，属于管理口径，不等同于终端客户净口径。"
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. UnitedHealthcare（健康险）｜收入占比：约54%（按 UHC+Optum 合计口径）｜客户：雇主团险、Medicare/Medicaid、个人保险客户｜竞争力：支付方规模、产品设计与风险定价能力\n2. Optum Rx（药事管理）｜收入占比：约24%（按 UHC+Optum 合计口径）｜客户：药店网络、保司、雇主与政府项目｜竞争力：PBM 议价与处方管理能力\n3. Optum Health（医疗服务）｜收入占比：约19%（按 UHC+Optum 合计口径）｜客户：医疗机构与患者｜竞争力：医疗服务网络与价值医疗管理\n4. Optum Insight（医疗信息化）｜收入占比：约3%（按 UHC+Optum 合计口径）｜客户：医院系统、政府与生命科学企业｜竞争力：医疗数据与软件解决方案\n公司主要客户：政府医保项目、企业团体客户、医疗机构与药店网络。\n公司核心竞争力：“支付+服务+药事+数据”闭环，规模与成本控制优势明显。\n口径说明：按 2024 年 SEC 分部收入表计算，属于管理口径，不等同于终端客户净口径。",
+      "how_it_makes_money_zh": "",
+      "problem_solved_zh": "",
+      "payers_zh": "",
+      "users_zh": ""
     },
     "V": {
       "ticker": "V",
@@ -27926,14 +28127,64 @@
         "certainty_score": 57.5,
         "note": "US core | S&P500 constituent | real-data@2026-03-03 | close=63.13 | target=85.29 | fv_source=target_mean_price | upside=35.1%"
       }
+    },
+    "PDD": {
+      "ticker": "PDD",
+      "yf_ticker": "PDD",
+      "dcf_symbol": "US.PDD",
+      "symbol": "US.PDD",
+      "name": "PDD Holdings Inc.",
+      "name_cn": "拼多多",
+      "sector": "Consumer Cyclical",
+      "industry": "Internet Retail",
+      "website": "https://www.pddholdings.com",
+      "currency": "USD",
+      "business_intro_zh": "拼多多是一家以移动电商平台和跨境电商平台为核心的互联网零售公司。国内以拼多多连接消费者与制造商/农产品供给，海外以 Temu 扩展跨境电商订单与商家供给。",
+      "business_intro": "拼多多是一家以移动电商平台和跨境电商平台为核心的互联网零售公司。国内以拼多多连接消费者与制造商/农产品供给，海外以 Temu 扩展跨境电商订单与商家供给。",
+      "how_it_makes_money_zh": "公司主要通过向平台商家收取在线营销服务费和交易服务费变现。随着平台履约和跨境业务放大，交易服务收入的占比与经营杠杆持续提升。",
+      "problem_solved_zh": "它为消费者提供高性价比商品和发现式购物体验，为工厂、品牌和商家提供低成本获客、订单转化与跨区域销售渠道。",
+      "payers_zh": "平台商家、品牌方、制造商、农产品供给方和跨境卖家。",
+      "users_zh": "国内价格敏感型消费者、家庭消费用户以及海外 Temu 用户。",
+      "product_revenue_breakdown": [
+        {
+          "product": "在线营销服务及其他",
+          "revenue_share": "约63%",
+          "customers": "平台商家、品牌方、产业带工厂",
+          "core_competitiveness": "低价心智、流量分发与算法推荐带来的高转化"
+        },
+        {
+          "product": "交易服务",
+          "revenue_share": "约37%",
+          "customers": "平台商家、跨境卖家、履约链路参与方",
+          "core_competitiveness": "平台交易闭环、履约协同与规模扩张带来的经营杠杆"
+        }
+      ],
+      "key_customers_zh": "平台商家、产业带工厂、农产品供应商、品牌商与跨境卖家。",
+      "core_competitiveness_zh": "需求聚合能力、低价供给组织能力、算法分发效率，以及国内平台与 Temu 跨境扩张形成的规模飞轮。",
+      "revenue_share_note_zh": "按 PDD Holdings FY2024 年报/20-F 的收入分类口径整理，Temu 未单独披露收入，主要体现在交易服务与平台生态扩张中。",
+      "intro_fiscal_period": "FY2024",
+      "intro_data_confidence": "high_disclosed",
+      "intro_sources": [
+        {
+          "title": "PDD Holdings 公司介绍",
+          "url": "https://www.pddholdings.com/about_us/"
+        },
+        {
+          "title": "PDD Holdings Annual Reports",
+          "url": "https://investor.pddholdings.com/financial-information/annual-reports"
+        }
+      ],
+      "products_intro_zh": "披露期：FY2024\n产品与收入结构：\n1. 在线营销服务及其他｜收入占比：约63%｜客户：平台商家、品牌方、产业带工厂｜竞争力：低价心智、流量分发与算法推荐带来的高转化\n2. 交易服务｜收入占比：约37%｜客户：平台商家、跨境卖家、履约链路参与方｜竞争力：平台交易闭环、履约协同与规模扩张带来的经营杠杆\n公司主要客户：平台商家、产业带工厂、农产品供应商、品牌商与跨境卖家。\n公司核心竞争力：需求聚合能力、低价供给组织能力、算法分发效率，以及国内平台与 Temu 跨境扩张形成的规模飞轮。\n口径说明：按 PDD Holdings FY2024 年报/20-F 的收入分类口径整理，Temu 未单独披露收入，主要体现在交易服务与平台生态扩张中。",
+      "products_intro": "披露期：FY2024\n产品与收入结构：\n1. 在线营销服务及其他｜收入占比：约63%｜客户：平台商家、品牌方、产业带工厂｜竞争力：低价心智、流量分发与算法推荐带来的高转化\n2. 交易服务｜收入占比：约37%｜客户：平台商家、跨境卖家、履约链路参与方｜竞争力：平台交易闭环、履约协同与规模扩张带来的经营杠杆\n公司主要客户：平台商家、产业带工厂、农产品供应商、品牌商与跨境卖家。\n公司核心竞争力：需求聚合能力、低价供给组织能力、算法分发效率，以及国内平台与 Temu 跨境扩张形成的规模飞轮。\n口径说明：按 PDD Holdings FY2024 年报/20-F 的收入分类口径整理，Temu 未单独披露收入，主要体现在交易服务与平台生态扩张中。"
     }
   },
   "non_realtime_disclaimer": "行情与估值数据为市场数据口径，存在短延迟，不构成投资建议。",
   "cache_policy": "enabled; ttl_hours=24; cache_hits=795; api_fetches=0",
   "zh_detail_overrides_meta": {
-    "applied": 17,
-    "override_count": 17,
+    "applied": 21,
     "missing_tickers": [],
-    "override_file": "/home/afu/projects/investor-method-lab/data/stock_detail_zh_overrides.json"
+    "override_count": 21,
+    "applied_at_utc": "2026-03-08T18:57:43.849657+00:00",
+    "override_file": "/Users/lucas/projects/investor-method-lab/data/stock_detail_zh_overrides.json"
   }
 }

@@ -567,6 +567,178 @@
           "url": "http://www.sse.com.cn/"
         }
       ]
+    },
+    "00700.HK": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "腾讯控股是一家以社交流量、数字内容和金融科技及企业服务为核心的平台型互联网公司。公司通过微信、QQ等入口连接用户，再在游戏、内容、广告、支付、云与企业软件等场景持续变现。",
+      "how_it_makes_money_zh": "腾讯主要通过游戏与数字内容付费、广告投放、支付手续费与商户技术服务、云服务及企业软件收入变现。社交流量入口负责沉淀用户时长和交易场景，金融科技及企业服务负责把高频连接转成更稳定的现金流。",
+      "problem_solved_zh": "它为用户提供沟通、娱乐和支付基础设施，为商家和企业提供获客、交易、支付清结算与数字化经营工具。",
+      "payers_zh": "游戏与内容付费用户、广告主、支付商户、企业云客户。",
+      "users_zh": "微信/QQ用户、游戏与内容消费者、商家与企业客户。",
+      "product_revenue_breakdown": [
+        {
+          "product": "增值服务（游戏、音乐、视频、社交增值等）",
+          "revenue_share": "约47%",
+          "customers": "游戏与数字内容付费用户",
+          "core_competitiveness": "社交分发入口、头部内容储备与长生命周期运营能力"
+        },
+        {
+          "product": "金融科技及企业服务",
+          "revenue_share": "约31%",
+          "customers": "支付商户、理财与信贷用户、企业云与软件客户",
+          "core_competitiveness": "微信支付网络、交易闭环、云与企业服务协同"
+        },
+        {
+          "product": "营销服务",
+          "revenue_share": "约20%",
+          "customers": "品牌广告主、中小商家、效果广告客户",
+          "core_competitiveness": "微信生态流量、广告算法与社交场景转化"
+        },
+        {
+          "product": "其他业务",
+          "revenue_share": "约2%",
+          "customers": "创新业务与其他生态合作方",
+          "core_competitiveness": "技术储备与生态投资布局"
+        }
+      ],
+      "key_customers_zh": "个人用户、广告主、支付商户、企业客户与开发者生态。",
+      "core_competitiveness_zh": "社交关系链与超级流量入口、内容发行能力、支付网络、云与企业服务协同，以及长期的生态投资布局。",
+      "revenue_share_note_zh": "按腾讯 FY2024 年报/全年业绩披露的分部收入口径整理，其他收入占比较小单独列示。",
+      "sources": [
+        {
+          "title": "腾讯投资者关系",
+          "url": "https://www.tencent.com/en-us/investors.html"
+        }
+      ]
+    },
+    "PDD": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "拼多多是一家以移动电商平台和跨境电商平台为核心的互联网零售公司。国内以拼多多连接消费者与制造商/农产品供给，海外以 Temu 扩展跨境电商订单与商家供给。",
+      "how_it_makes_money_zh": "公司主要通过向平台商家收取在线营销服务费和交易服务费变现。随着平台履约和跨境业务放大，交易服务收入的占比与经营杠杆持续提升。",
+      "problem_solved_zh": "它为消费者提供高性价比商品和发现式购物体验，为工厂、品牌和商家提供低成本获客、订单转化与跨区域销售渠道。",
+      "payers_zh": "平台商家、品牌方、制造商、农产品供给方和跨境卖家。",
+      "users_zh": "国内价格敏感型消费者、家庭消费用户以及海外 Temu 用户。",
+      "product_revenue_breakdown": [
+        {
+          "product": "在线营销服务及其他",
+          "revenue_share": "约63%",
+          "customers": "平台商家、品牌方、产业带工厂",
+          "core_competitiveness": "低价心智、流量分发与算法推荐带来的高转化"
+        },
+        {
+          "product": "交易服务",
+          "revenue_share": "约37%",
+          "customers": "平台商家、跨境卖家、履约链路参与方",
+          "core_competitiveness": "平台交易闭环、履约协同与规模扩张带来的经营杠杆"
+        }
+      ],
+      "key_customers_zh": "平台商家、产业带工厂、农产品供应商、品牌商与跨境卖家。",
+      "core_competitiveness_zh": "需求聚合能力、低价供给组织能力、算法分发效率，以及国内平台与 Temu 跨境扩张形成的规模飞轮。",
+      "revenue_share_note_zh": "按 PDD Holdings FY2024 年报/20-F 的收入分类口径整理，Temu 未单独披露收入，主要体现在交易服务与平台生态扩张中。",
+      "sources": [
+        {
+          "title": "PDD Holdings 公司介绍",
+          "url": "https://www.pddholdings.com/about_us/"
+        },
+        {
+          "title": "PDD Holdings Annual Reports",
+          "url": "https://investor.pddholdings.com/financial-information/annual-reports"
+        }
+      ]
+    },
+    "GOOGL": {
+      "fiscal_period": "FY2025",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "Alphabet 是一家以搜索入口、广告技术和云基础设施为核心的互联网平台公司。Google Services 负责流量与广告变现，Google Cloud 承接企业数字化与 AI 工作负载，Other Bets 代表前沿技术投资。",
+      "how_it_makes_money_zh": "Alphabet 的核心收入来自搜索、YouTube 和广告网络的广告变现，其次来自 Google Cloud、Workspace/订阅服务、应用分发和设备销售。广告业务贡献现金流，云和订阅业务提供第二增长曲线。",
+      "problem_solved_zh": "它为全球用户提供信息检索、视频、地图、邮箱和移动生态入口，为广告主提供精准投放能力，为企业提供云计算、数据分析和 AI 基础设施。",
+      "payers_zh": "广告主、企业云客户、Workspace/YouTube 等订阅用户和设备消费者。",
+      "users_zh": "全球互联网用户、YouTube 观众、Android 用户、企业员工与开发者。",
+      "product_revenue_breakdown": [
+        {
+          "product": "Google Search & other",
+          "revenue_share": "约56%",
+          "customers": "搜索广告主与使用 Google 搜索/地图等产品的用户",
+          "core_competitiveness": "搜索份额、广告拍卖机制与数据反馈飞轮"
+        },
+        {
+          "product": "YouTube Ads",
+          "revenue_share": "约10%",
+          "customers": "品牌广告主、效果广告主与视频平台用户",
+          "core_competitiveness": "全球视频分发规模与推荐系统"
+        },
+        {
+          "product": "Google Network",
+          "revenue_share": "约9%",
+          "customers": "站长、开发者与第三方广告伙伴",
+          "core_competitiveness": "广告技术网络与变现平台"
+        },
+        {
+          "product": "Subscriptions, Platforms, and Devices",
+          "revenue_share": "约14%",
+          "customers": "订阅用户、应用开发者与设备消费者",
+          "core_competitiveness": "Android/Play 生态、订阅服务与硬件入口"
+        },
+        {
+          "product": "Google Cloud",
+          "revenue_share": "约13%",
+          "customers": "企业客户、开发者、AI 工作负载客户",
+          "core_competitiveness": "全球云基础设施、数据分析栈与 AI 平台"
+        },
+        {
+          "product": "Other Bets",
+          "revenue_share": "<1%",
+          "customers": "前沿项目试点客户",
+          "core_competitiveness": "长期研发储备与技术孵化"
+        }
+      ],
+      "key_customers_zh": "品牌广告主、中小企业广告主、企业云客户、开发者与订阅用户。",
+      "core_competitiveness_zh": "搜索入口和用户数据飞轮、广告技术栈、全球云基础设施、AI 模型能力以及多产品入口协同。",
+      "revenue_share_note_zh": "按 Alphabet FY2025 年报披露的分项收入/分部收入近似整理，因对冲收益与四舍五入，合计可能不等于 100%。",
+      "sources": [
+        {
+          "title": "Alphabet Investor Relations",
+          "url": "https://abc.xyz/investor/"
+        },
+        {
+          "title": "Alphabet SEC Filings",
+          "url": "https://www.sec.gov/edgar/browse/?CIK=1652044&owner=exclude"
+        }
+      ]
+    },
+    "NVDA": {
+      "fiscal_period": "FY2026",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "英伟达是一家以 GPU、加速计算与高速互联为核心的算力基础设施公司。它既销售芯片、板卡、系统和网络设备，也通过 CUDA、AI Enterprise、Omniverse、DRIVE 等软件平台强化生态粘性，核心受益于 AI 数据中心建设。",
+      "how_it_makes_money_zh": "公司主要通过数据中心 GPU、网络与系统销售变现，其次来自游戏显卡、专业可视化和汽车/机器人平台，并叠加软件与开发平台带来的高黏性生态收益。",
+      "problem_solved_zh": "它为云厂商和企业提供 AI 训练与推理算力，为开发者提供统一的软件栈，为玩家、设计工作站和车厂提供图形与边缘计算平台。",
+      "payers_zh": "云服务商、企业客户、OEM/ODM、整机厂、分销商、车厂与 Tier 1 供应商。",
+      "users_zh": "AI 开发者、数据中心运营方、游戏玩家、专业图形工作站用户与汽车制造商。",
+      "product_revenue_breakdown": [
+        {
+          "product": "Compute & Networking（含数据中心、网络、汽车）",
+          "revenue_share": "约89%",
+          "customers": "云服务商、企业 AI 客户、服务器厂商与车厂",
+          "core_competitiveness": "CUDA 生态、加速计算平台、网络互联与系统级整合能力"
+        },
+        {
+          "product": "Graphics（含 GeForce / RTX / 专业图形）",
+          "revenue_share": "约11%",
+          "customers": "游戏玩家、工作站用户、AIB 厂商与渠道伙伴",
+          "core_competitiveness": "GPU 架构迭代、品牌与开发者生态、软件工具链"
+        }
+      ],
+      "key_customers_zh": "云服务商、服务器厂商、系统集成商、AIB 厂商、企业客户与车厂。",
+      "core_competitiveness_zh": "CUDA + GPU + 网络 + 软件平台的全栈生态、产品迭代速度、开发者锁定效应和规模化供应链能力。",
+      "revenue_share_note_zh": "按 NVIDIA FY2026 年报披露的 Compute & Networking / Graphics 分部收入口径整理。",
+      "sources": [
+        {
+          "title": "NVIDIA Financial Reports",
+          "url": "https://investor.nvidia.com/financial-info/financial-reports/default.aspx"
+        }
+      ]
     }
   }
 }

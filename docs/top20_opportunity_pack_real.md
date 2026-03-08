@@ -48,16 +48,16 @@
 
 | 排名 | 代码 | 公司 | 行业 | 组合分 | 最匹配方法论 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|---|
-| 1 | 600000.SS | 浦发银行 | Unknown | 49.23 | 宏观周期 | 趋势:21.9 \| 催化:18.8 | A core \| CSI300 constituent \| weight=0.504% \| real-data@2026-03-06 \| close=9.89 \| target=10.35 \| fv_source=target_mean_price \| upside=4.7% |
-| 2 | 002241.SZ | 歌尔股份 | Unknown | 42.32 | 宏观周期 | 趋势:20.6 \| 风控:15.8 | A core \| CSI300 constituent \| weight=0.262% \| real-data@2026-03-04 \| close=25.13 \| target=23.45 \| fv_source=target_mean_price \| upside=-6.7% |
-| 3 | 601136.SS | 首创证券 | Unknown | 40.43 | 宏观周期 | 趋势:22.4 \| 催化:19.9 | A core \| CSI300 constituent \| weight=0.039% \| real-data@2026-03-04 \| close=17.30 \| target=17.47 \| fv_source=target_mean_price \| upside=1.0% |
-| 4 | 600415.SS | 小商品城 | Unknown | 36.63 | 宏观周期 | 催化:19.5 \| 趋势:19.3 | A core \| CSI300 constituent \| weight=0.158% \| real-data@2026-03-04 \| close=14.16 \| target=13.38 \| fv_source=target_mean_price \| upside=-5.5% |
-| 5 | 000063.SZ | 中兴通讯 | Unknown | 35.48 | 宏观周期 | 趋势:16.3 \| 风控:15.4 | A core \| CSI300 constituent \| weight=0.484% \| real-data@2026-03-04 \| close=37.88 \| target=34.18 \| fv_source=target_mean_price \| upside=-9.8% |
-| 6 | 688506.SS | 百利天恒 | Unknown | 34.30 | 宏观周期 | 催化:20.6 \| 趋势:17.8 | A core \| CSI300 constituent \| weight=0.085% \| real-data@2026-03-04 \| close=254.87 \| target=167.16 \| fv_source=target_mean_price \| upside=-34.4% |
-| 7 | 688126.SS | 沪硅产业 | Unknown | 33.80 | 宏观周期 | 催化:22.4 \| 风控:15.0 | A core \| CSI300 constituent \| weight=0.162% \| real-data@2026-03-04 \| close=19.50 \| target=18.91 \| fv_source=target_mean_price \| upside=-3.0% |
-| 8 | 601881.SS | 中国银河 | Unknown | 33.73 | 宏观周期 | 趋势:20.9 \| 催化:18.6 | A core \| CSI300 constituent \| weight=0.123% \| real-data@2026-03-04 \| close=14.07 \| target=12.49 \| fv_source=target_mean_price \| upside=-11.3% |
-| 9 | 600377.SS | 宁沪高速 | Unknown | 32.54 | 宏观周期 | 趋势:20.4 \| 催化:15.2 | A core \| CSI300 constituent \| weight=0.023% \| real-data@2026-03-04 \| close=12.03 \| target=12.35 \| fv_source=target_mean_price \| upside=2.6% |
-| 10 | 601166.SS | 兴业银行 | Unknown | 31.66 | 宏观周期 | 趋势:22.0 \| 催化:18.4 | A core \| CSI300 constituent \| weight=1.206% \| real-data@2026-03-04 \| close=18.47 \| target=18.99 \| fv_source=target_mean_price \| upside=2.8% |
+| 1 | 600000.SS | 浦发银行 | Unknown | 49.47 | 宏观周期 | 趋势:21.9 \| 催化:18.8 | A core \| CSI300 constituent \| weight=0.504% \| real-data@2026-03-06 \| close=9.89 \| target=10.35 \| fv_source=target_mean_price \| upside=4.7% |
+| 2 | 002241.SZ | 歌尔股份 | Unknown | 42.39 | 宏观周期 | 趋势:20.6 \| 风控:15.8 | A core \| CSI300 constituent \| weight=0.262% \| real-data@2026-03-04 \| close=25.13 \| target=23.45 \| fv_source=target_mean_price \| upside=-6.7% |
+| 3 | 601136.SS | 首创证券 | Unknown | 40.51 | 宏观周期 | 趋势:22.4 \| 催化:19.9 | A core \| CSI300 constituent \| weight=0.039% \| real-data@2026-03-04 \| close=17.30 \| target=17.47 \| fv_source=target_mean_price \| upside=1.0% |
+| 4 | 600415.SS | 小商品城 | Unknown | 38.09 | 宏观周期 | 催化:19.7 \| 趋势:19.3 | A core \| CSI300 constituent \| weight=0.158% \| real-data@2026-03-04 \| close=14.16 \| target=13.38 \| fv_source=target_mean_price \| upside=-5.5% |
+| 5 | 000063.SZ | 中兴通讯 | Unknown | 35.54 | 宏观周期 | 趋势:16.3 \| 风控:15.4 | A core \| CSI300 constituent \| weight=0.484% \| real-data@2026-03-04 \| close=37.88 \| target=34.18 \| fv_source=target_mean_price \| upside=-9.8% |
+| 6 | 688506.SS | 百利天恒 | Unknown | 34.35 | 宏观周期 | 催化:20.6 \| 趋势:17.8 | A core \| CSI300 constituent \| weight=0.085% \| real-data@2026-03-04 \| close=254.87 \| target=167.16 \| fv_source=target_mean_price \| upside=-34.4% |
+| 7 | 688126.SS | 沪硅产业 | Unknown | 33.85 | 宏观周期 | 催化:22.4 \| 风控:15.0 | A core \| CSI300 constituent \| weight=0.162% \| real-data@2026-03-04 \| close=19.50 \| target=18.91 \| fv_source=target_mean_price \| upside=-3.0% |
+| 8 | 601881.SS | 中国银河 | Unknown | 33.78 | 宏观周期 | 趋势:20.9 \| 催化:18.5 | A core \| CSI300 constituent \| weight=0.123% \| real-data@2026-03-04 \| close=14.07 \| target=12.49 \| fv_source=target_mean_price \| upside=-11.3% |
+| 9 | 600377.SS | 宁沪高速 | Unknown | 32.62 | 宏观周期 | 趋势:20.4 \| 催化:15.2 | A core \| CSI300 constituent \| weight=0.023% \| real-data@2026-03-04 \| close=12.03 \| target=12.35 \| fv_source=target_mean_price \| upside=2.6% |
+| 10 | 600515.SS | 海南机场 | Unknown | 31.69 | 宏观周期 | 催化:23.2 \| 趋势:14.0 | A core \| CSI300 constituent \| weight=0.094% \| real-data@2026-03-04 \| close=4.02 \| target=3.93 \| fv_source=target_mean_price \| upside=-2.3% |
 
 ## 4) 各方法论 Top5 机会池
 
@@ -65,106 +65,106 @@
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | BLDR | Builders FirstSource | Industrials | 81.43 | 安全边际:27.8 \| 质量:25.4 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=93.12 \| target=127.29 \| fv_source=target_mean_price \| upside=36.7% |
-| 2 | APTV | Aptiv | Consumer Discretionary | 79.02 | 安全边际:28.2 \| 质量:26.6 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=72.70 \| target=100.88 \| fv_source=target_mean_price \| upside=38.8% |
-| 3 | BXP | BXP, Inc. | Real Estate | 78.62 | 安全边际:28.4 \| 质量:25.9 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=52.94 \| target=73.65 \| fv_source=target_mean_price \| upside=39.1% |
-| 4 | DDOG | Datadog | Information Technology | 73.38 | 安全边际:29.0 \| 质量:23.2 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=125.75 \| target=182.43 \| fv_source=target_mean_price \| upside=45.1% |
-| 5 | ELV | Elevance Health | Health Care | 72.39 | 安全边际:26.8 \| 质量:24.8 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=289.64 \| target=387.85 \| fv_source=target_mean_price \| upside=33.9% |
+| 1 | BLDR | Builders FirstSource | Industrials | 81.38 | 安全边际:27.8 \| 质量:25.5 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=93.12 \| target=127.29 \| fv_source=target_mean_price \| upside=36.7% |
+| 2 | APTV | Aptiv | Consumer Discretionary | 79.04 | 安全边际:28.2 \| 质量:26.6 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=72.70 \| target=100.88 \| fv_source=target_mean_price \| upside=38.8% |
+| 3 | BXP | BXP, Inc. | Real Estate | 78.69 | 安全边际:28.4 \| 质量:25.9 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=52.94 \| target=73.65 \| fv_source=target_mean_price \| upside=39.1% |
+| 4 | DDOG | Datadog | Information Technology | 73.42 | 安全边际:29.1 \| 质量:23.2 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=125.75 \| target=182.43 \| fv_source=target_mean_price \| upside=45.1% |
+| 5 | ELV | Elevance Health | Health Care | 72.28 | 安全边际:26.8 \| 质量:24.8 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=289.64 \| target=387.85 \| fv_source=target_mean_price \| upside=33.9% |
 
 ### 行业复利
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | BLDR | Builders FirstSource | Industrials | 79.90 | 质量:23.6 \| 成长:20.0 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=93.12 \| target=127.29 \| fv_source=target_mean_price \| upside=36.7% |
-| 2 | BXP | BXP, Inc. | Real Estate | 76.12 | 质量:24.1 \| 安全边际:19.0 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=52.94 \| target=73.65 \| fv_source=target_mean_price \| upside=39.1% |
-| 3 | APTV | Aptiv | Consumer Discretionary | 75.27 | 质量:24.7 \| 安全边际:18.8 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=72.70 \| target=100.88 \| fv_source=target_mean_price \| upside=38.8% |
-| 4 | 301236.SZ | 软通动力 | Unknown | 75.22 | 质量:26.0 \| 成长:18.3 | A core \| CSI300 constituent \| weight=0.128% \| real-data@2026-03-06 \| close=47.04 \| target=50.39 \| fv_source=target_mean_price \| upside=7.1% |
-| 5 | CARR | Carrier Global | Industrials | 73.58 | 质量:23.5 \| 成长:19.9 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=58.35 \| target=71.80 \| fv_source=target_mean_price \| upside=23.0% |
+| 1 | BLDR | Builders FirstSource | Industrials | 79.88 | 质量:23.7 \| 成长:20.0 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=93.12 \| target=127.29 \| fv_source=target_mean_price \| upside=36.7% |
+| 2 | BXP | BXP, Inc. | Real Estate | 76.18 | 质量:24.1 \| 安全边际:19.0 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=52.94 \| target=73.65 \| fv_source=target_mean_price \| upside=39.1% |
+| 3 | 301236.SZ | 软通动力 | Unknown | 75.29 | 质量:26.0 \| 成长:18.4 | A core \| CSI300 constituent \| weight=0.128% \| real-data@2026-03-06 \| close=47.04 \| target=50.39 \| fv_source=target_mean_price \| upside=7.1% |
+| 4 | APTV | Aptiv | Consumer Discretionary | 75.29 | 质量:24.7 \| 安全边际:18.8 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=72.70 \| target=100.88 \| fv_source=target_mean_price \| upside=38.8% |
+| 5 | CARR | Carrier Global | Industrials | 73.52 | 质量:23.5 \| 成长:19.9 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=58.35 \| target=71.80 \| fv_source=target_mean_price \| upside=23.0% |
 
 ### GARP 成长
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | BLDR | Builders FirstSource | Industrials | 83.49 | 成长:31.9 \| 质量:18.2 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=93.12 \| target=127.29 \| fv_source=target_mean_price \| upside=36.7% |
-| 2 | 301269.SZ | 华大九天 | Unknown | 80.59 | 成长:31.0 \| 质量:16.7 | A core \| CSI300 constituent \| weight=0.086% \| real-data@2026-03-06 \| close=95.57 \| target=134.72 \| fv_source=target_mean_price \| upside=41.0% |
-| 3 | LEN | Lennar | Consumer Discretionary | 80.07 | 成长:31.5 \| 质量:18.0 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=101.17 \| target=108.21 \| fv_source=target_mean_price \| upside=7.0% |
-| 4 | BXP | BXP, Inc. | Real Estate | 79.21 | 成长:28.5 \| 质量:18.5 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=52.94 \| target=73.65 \| fv_source=target_mean_price \| upside=39.1% |
-| 5 | CARR | Carrier Global | Industrials | 78.15 | 成长:31.8 \| 质量:18.1 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=58.35 \| target=71.80 \| fv_source=target_mean_price \| upside=23.0% |
+| 1 | BLDR | Builders FirstSource | Industrials | 83.47 | 成长:31.9 \| 质量:18.2 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=93.12 \| target=127.29 \| fv_source=target_mean_price \| upside=36.7% |
+| 2 | 301269.SZ | 华大九天 | Unknown | 80.82 | 成长:31.1 \| 质量:16.9 | A core \| CSI300 constituent \| weight=0.086% \| real-data@2026-03-06 \| close=95.57 \| target=134.72 \| fv_source=target_mean_price \| upside=41.0% |
+| 3 | LEN | Lennar | Consumer Discretionary | 80.17 | 成长:31.5 \| 质量:18.0 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=101.17 \| target=108.21 \| fv_source=target_mean_price \| upside=7.0% |
+| 4 | BXP | BXP, Inc. | Real Estate | 79.28 | 成长:28.5 \| 质量:18.5 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=52.94 \| target=73.65 \| fv_source=target_mean_price \| upside=39.1% |
+| 5 | 301236.SZ | 软通动力 | Unknown | 78.20 | 成长:29.4 \| 质量:20.0 | A core \| CSI300 constituent \| weight=0.128% \| real-data@2026-03-06 \| close=47.04 \| target=50.39 \| fv_source=target_mean_price \| upside=7.1% |
 
 ### 深度价值修复
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | LW | Lamb Weston | Consumer Staples | 61.06 | 安全边际:23.3 \| 风控:19.4 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=46.03 \| target=54.64 \| fv_source=target_mean_price \| upside=18.7% |
-| 2 | IP | International Paper | Materials | 59.82 | 安全边际:23.1 \| 风控:17.6 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=39.53 \| target=46.87 \| fv_source=target_mean_price \| upside=18.6% |
+| 1 | LW | Lamb Weston | Consumer Staples | 61.05 | 安全边际:23.3 \| 风控:19.4 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=46.03 \| target=54.64 \| fv_source=target_mean_price \| upside=18.7% |
+| 2 | IP | International Paper | Materials | 59.85 | 安全边际:23.1 \| 风控:17.6 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=39.53 \| target=46.87 \| fv_source=target_mean_price \| upside=18.6% |
 | 3 | ARE | Alexandria Real Estate Equities | Real Estate | 56.88 | 安全边际:22.9 \| 风控:18.9 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=50.73 \| target=60.07 \| fv_source=target_mean_price \| upside=18.4% |
-| 4 | GNRC | Generac | Industrials | 54.06 | 安全边际:23.0 \| 风控:18.5 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=204.02 \| target=241.65 \| fv_source=target_mean_price \| upside=18.4% |
-| 5 | 300866.SZ | 安克创新 | Unknown | 53.18 | 安全边际:31.1 \| 风控:19.8 | A core \| CSI300 constituent \| weight=0.081% \| real-data@2026-03-06 \| close=96.51 \| target=123.91 \| fv_source=target_mean_price \| upside=28.4% |
+| 4 | GNRC | Generac | Industrials | 54.09 | 安全边际:23.0 \| 风控:18.5 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=204.02 \| target=241.65 \| fv_source=target_mean_price \| upside=18.4% |
+| 5 | 300979.SZ | 华利集团 | Unknown | 53.03 | 安全边际:31.0 \| 风控:17.0 | A core \| CSI300 constituent \| weight=0.032% \| real-data@2026-03-06 \| close=47.20 \| target=59.73 \| fv_source=target_mean_price \| upside=26.6% |
 
 ### 宏观周期
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | 600000.SS | 浦发银行 | Unknown | 76.71 | 趋势:21.9 \| 催化:18.8 | A core \| CSI300 constituent \| weight=0.504% \| real-data@2026-03-06 \| close=9.89 \| target=10.35 \| fv_source=target_mean_price \| upside=4.7% |
-| 2 | 002241.SZ | 歌尔股份 | Unknown | 72.49 | 趋势:20.6 \| 风控:15.8 | A core \| CSI300 constituent \| weight=0.262% \| real-data@2026-03-04 \| close=25.13 \| target=23.45 \| fv_source=target_mean_price \| upside=-6.7% |
-| 3 | 601136.SS | 首创证券 | Unknown | 70.35 | 趋势:22.4 \| 催化:19.9 | A core \| CSI300 constituent \| weight=0.039% \| real-data@2026-03-04 \| close=17.30 \| target=17.47 \| fv_source=target_mean_price \| upside=1.0% |
-| 4 | 600415.SS | 小商品城 | Unknown | 68.65 | 催化:19.5 \| 趋势:19.3 | A core \| CSI300 constituent \| weight=0.158% \| real-data@2026-03-04 \| close=14.16 \| target=13.38 \| fv_source=target_mean_price \| upside=-5.5% |
-| 5 | 688506.SS | 百利天恒 | Unknown | 66.65 | 催化:20.6 \| 趋势:17.8 | A core \| CSI300 constituent \| weight=0.085% \| real-data@2026-03-04 \| close=254.87 \| target=167.16 \| fv_source=target_mean_price \| upside=-34.4% |
+| 1 | 600000.SS | 浦发银行 | Unknown | 77.01 | 趋势:21.9 \| 催化:18.8 | A core \| CSI300 constituent \| weight=0.504% \| real-data@2026-03-06 \| close=9.89 \| target=10.35 \| fv_source=target_mean_price \| upside=4.7% |
+| 2 | 002241.SZ | 歌尔股份 | Unknown | 72.55 | 趋势:20.6 \| 风控:15.8 | A core \| CSI300 constituent \| weight=0.262% \| real-data@2026-03-04 \| close=25.13 \| target=23.45 \| fv_source=target_mean_price \| upside=-6.7% |
+| 3 | 601136.SS | 首创证券 | Unknown | 70.44 | 趋势:22.4 \| 催化:19.9 | A core \| CSI300 constituent \| weight=0.039% \| real-data@2026-03-04 \| close=17.30 \| target=17.47 \| fv_source=target_mean_price \| upside=1.0% |
+| 4 | 600415.SS | 小商品城 | Unknown | 68.84 | 催化:19.7 \| 趋势:19.3 | A core \| CSI300 constituent \| weight=0.158% \| real-data@2026-03-04 \| close=14.16 \| target=13.38 \| fv_source=target_mean_price \| upside=-5.5% |
+| 5 | 688506.SS | 百利天恒 | Unknown | 66.72 | 催化:20.6 \| 趋势:17.8 | A core \| CSI300 constituent \| weight=0.085% \| real-data@2026-03-04 \| close=254.87 \| target=167.16 \| fv_source=target_mean_price \| upside=-34.4% |
 
 ### 趋势跟随
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | 600000.SS | 浦发银行 | Unknown | 80.98 | 趋势:37.4 \| 催化:16.6 | A core \| CSI300 constituent \| weight=0.504% \| real-data@2026-03-06 \| close=9.89 \| target=10.35 \| fv_source=target_mean_price \| upside=4.7% |
-| 2 | 601136.SS | 首创证券 | Unknown | 75.95 | 趋势:38.2 \| 催化:17.6 | A core \| CSI300 constituent \| weight=0.039% \| real-data@2026-03-04 \| close=17.30 \| target=17.47 \| fv_source=target_mean_price \| upside=1.0% |
-| 3 | 600415.SS | 小商品城 | Unknown | 73.33 | 趋势:33.0 \| 催化:17.3 | A core \| CSI300 constituent \| weight=0.158% \| real-data@2026-03-04 \| close=14.16 \| target=13.38 \| fv_source=target_mean_price \| upside=-5.5% |
-| 4 | 601881.SS | 中国银河 | Unknown | 72.05 | 趋势:35.7 \| 催化:16.4 | A core \| CSI300 constituent \| weight=0.123% \| real-data@2026-03-04 \| close=14.07 \| target=12.49 \| fv_source=target_mean_price \| upside=-11.3% |
-| 5 | 601166.SS | 兴业银行 | Unknown | 69.24 | 趋势:37.7 \| 催化:16.3 | A core \| CSI300 constituent \| weight=1.206% \| real-data@2026-03-04 \| close=18.47 \| target=18.99 \| fv_source=target_mean_price \| upside=2.8% |
+| 1 | 600000.SS | 浦发银行 | Unknown | 81.21 | 趋势:37.4 \| 催化:16.6 | A core \| CSI300 constituent \| weight=0.504% \| real-data@2026-03-06 \| close=9.89 \| target=10.35 \| fv_source=target_mean_price \| upside=4.7% |
+| 2 | 601136.SS | 首创证券 | Unknown | 76.00 | 趋势:38.2 \| 催化:17.6 | A core \| CSI300 constituent \| weight=0.039% \| real-data@2026-03-04 \| close=17.30 \| target=17.47 \| fv_source=target_mean_price \| upside=1.0% |
+| 3 | 600415.SS | 小商品城 | Unknown | 73.48 | 趋势:33.0 \| 催化:17.4 | A core \| CSI300 constituent \| weight=0.158% \| real-data@2026-03-04 \| close=14.16 \| target=13.38 \| fv_source=target_mean_price \| upside=-5.5% |
+| 4 | 601881.SS | 中国银河 | Unknown | 72.06 | 趋势:35.7 \| 催化:16.4 | A core \| CSI300 constituent \| weight=0.123% \| real-data@2026-03-04 \| close=14.07 \| target=12.49 \| fv_source=target_mean_price \| upside=-11.3% |
+| 5 | 601166.SS | 兴业银行 | Unknown | 69.22 | 趋势:37.7 \| 催化:16.3 | A core \| CSI300 constituent \| weight=1.206% \| real-data@2026-03-04 \| close=18.47 \| target=18.99 \| fv_source=target_mean_price \| upside=2.8% |
 
 ### 系统化量化
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
 | 1 | 00147.HK | IB SETTLEMENT | Unknown | 76.61 | 质量:23.9 \| 风控:20.9 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-04 \| close=0.11 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
-| 2 | 00881.HK | ZHONGSHENG HLDG | Unknown | 74.15 | 质量:21.3 \| 风控:18.6 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-06 \| close=9.82 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
+| 2 | 00881.HK | ZHONGSHENG HLDG | Unknown | 74.17 | 质量:21.3 \| 风控:18.6 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-06 \| close=9.82 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
 | 3 | 00347.HK | ANGANG STEEL | Unknown | 73.72 | 质量:23.2 \| 风控:18.3 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-04 \| close=1.92 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
-| 4 | 00819.HK | TIANNENG POWER | Unknown | 73.35 | 质量:21.7 \| 风控:17.8 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-06 \| close=6.80 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
-| 5 | 600000.SS | 浦发银行 | Unknown | 72.84 | 质量:19.6 \| 安全边际:16.1 | A core \| CSI300 constituent \| weight=0.504% \| real-data@2026-03-06 \| close=9.89 \| target=10.35 \| fv_source=target_mean_price \| upside=4.7% |
+| 4 | 600000.SS | 浦发银行 | Unknown | 73.39 | 质量:19.9 \| 安全边际:16.3 | A core \| CSI300 constituent \| weight=0.504% \| real-data@2026-03-06 \| close=9.89 \| target=10.35 \| fv_source=target_mean_price \| upside=4.7% |
+| 5 | 00819.HK | TIANNENG POWER | Unknown | 73.29 | 质量:21.7 \| 风控:17.8 | HK core \| HK main board equity + shortsell eligible \| real-data@2026-03-06 \| close=6.80 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
 
 ### 事件驱动激进
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | 600000.SS | 浦发银行 | Unknown | 69.96 | 催化:24.5 \| 质量:13.0 | A core \| CSI300 constituent \| weight=0.504% \| real-data@2026-03-06 \| close=9.89 \| target=10.35 \| fv_source=target_mean_price \| upside=4.7% |
-| 2 | 002241.SZ | 歌尔股份 | Unknown | 68.52 | 催化:18.6 \| 风控:15.8 | A core \| CSI300 constituent \| weight=0.262% \| real-data@2026-03-04 \| close=25.13 \| target=23.45 \| fv_source=target_mean_price \| upside=-6.7% |
-| 3 | 688126.SS | 沪硅产业 | Unknown | 67.52 | 催化:29.3 \| 风控:15.0 | A core \| CSI300 constituent \| weight=0.162% \| real-data@2026-03-04 \| close=19.50 \| target=18.91 \| fv_source=target_mean_price \| upside=-3.0% |
-| 4 | 600415.SS | 小商品城 | Unknown | 66.76 | 催化:25.6 \| 风控:16.4 | A core \| CSI300 constituent \| weight=0.158% \| real-data@2026-03-04 \| close=14.16 \| target=13.38 \| fv_source=target_mean_price \| upside=-5.5% |
-| 5 | 600515.SS | 海南机场 | Unknown | 66.36 | 催化:30.3 \| 风控:13.1 | A core \| CSI300 constituent \| weight=0.094% \| real-data@2026-03-04 \| close=4.02 \| target=3.93 \| fv_source=target_mean_price \| upside=-2.3% |
+| 1 | 600000.SS | 浦发银行 | Unknown | 70.29 | 催化:24.5 \| 质量:13.3 | A core \| CSI300 constituent \| weight=0.504% \| real-data@2026-03-06 \| close=9.89 \| target=10.35 \| fv_source=target_mean_price \| upside=4.7% |
+| 2 | 002241.SZ | 歌尔股份 | Unknown | 68.59 | 催化:18.5 \| 风控:15.8 | A core \| CSI300 constituent \| weight=0.262% \| real-data@2026-03-04 \| close=25.13 \| target=23.45 \| fv_source=target_mean_price \| upside=-6.7% |
+| 3 | 688126.SS | 沪硅产业 | Unknown | 67.63 | 催化:29.3 \| 风控:15.0 | A core \| CSI300 constituent \| weight=0.162% \| real-data@2026-03-04 \| close=19.50 \| target=18.91 \| fv_source=target_mean_price \| upside=-3.0% |
+| 4 | 600415.SS | 小商品城 | Unknown | 67.02 | 催化:25.7 \| 风控:16.4 | A core \| CSI300 constituent \| weight=0.158% \| real-data@2026-03-04 \| close=14.16 \| target=13.38 \| fv_source=target_mean_price \| upside=-5.5% |
+| 5 | 600515.SS | 海南机场 | Unknown | 66.47 | 催化:30.3 \| 风控:13.1 | A core \| CSI300 constituent \| weight=0.094% \| real-data@2026-03-04 \| close=4.02 \| target=3.93 \| fv_source=target_mean_price \| upside=-2.3% |
 
 ### 信用周期
 
 | 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|
-| 1 | 600000.SS | 浦发银行 | Unknown | 60.66 | 趋势:17.4 \| 催化:14.4 | A core \| CSI300 constituent \| weight=0.504% \| real-data@2026-03-06 \| close=9.89 \| target=10.35 \| fv_source=target_mean_price \| upside=4.7% |
-| 2 | 301236.SZ | 软通动力 | Unknown | 58.01 | 风控:17.1 \| 趋势:16.2 | A core \| CSI300 constituent \| weight=0.128% \| real-data@2026-03-06 \| close=47.04 \| target=50.39 \| fv_source=target_mean_price \| upside=7.1% |
-| 3 | HPQ | HP Inc. | Information Technology | 57.21 | 趋势:18.4 \| 催化:16.2 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=19.46 \| target=19.99 \| fv_source=target_mean_price \| upside=2.7% |
-| 4 | ERIE | Erie Indemnity | Financials | 53.41 | 催化:18.1 \| 趋势:17.8 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=260.00 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
-| 5 | 1810.HK | Xiaomi | Technology | 52.32 | 安全边际:21.2 \| 趋势:18.5 | HK hardware \| real-data@2026-03-06 \| close=33.42 \| target=NA(fallback-close) \| fv_source=dcf_iv_base \| dcf_symbol=HK.01810 \| dcf_iv=35.56 \| upside=6.4% |
+| 1 | 600000.SS | 浦发银行 | Unknown | 60.96 | 趋势:17.4 \| 催化:14.4 | A core \| CSI300 constituent \| weight=0.504% \| real-data@2026-03-06 \| close=9.89 \| target=10.35 \| fv_source=target_mean_price \| upside=4.7% |
+| 2 | 301236.SZ | 软通动力 | Unknown | 58.01 | 风控:17.0 \| 趋势:16.2 | A core \| CSI300 constituent \| weight=0.128% \| real-data@2026-03-06 \| close=47.04 \| target=50.39 \| fv_source=target_mean_price \| upside=7.1% |
+| 3 | HPQ | HP Inc. | Information Technology | 57.23 | 趋势:18.4 \| 催化:16.3 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=19.46 \| target=19.99 \| fv_source=target_mean_price \| upside=2.7% |
+| 4 | ERIE | Erie Indemnity | Financials | 53.39 | 催化:18.2 \| 趋势:17.8 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=260.00 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
+| 5 | 601166.SS | 兴业银行 | Unknown | 51.74 | 趋势:17.4 \| 催化:14.1 | A core \| CSI300 constituent \| weight=1.206% \| real-data@2026-03-04 \| close=18.47 \| target=18.99 \| fv_source=target_mean_price \| upside=2.8% |
 
 ## 5) 行业分散约束版 TOP10（单行业最多 2 个）
 
 | 排名 | 代码 | 公司 | 行业 | 组合分 | 最匹配方法论 | 理由 | 备注 |
 |---|---|---|---|---:|---|---|---|
-| 1 | 600000.SS | 浦发银行 | Unknown | 49.23 | 宏观周期 | 趋势:21.9 \| 催化:18.8 | A core \| CSI300 constituent \| weight=0.504% \| real-data@2026-03-06 \| close=9.89 \| target=10.35 \| fv_source=target_mean_price \| upside=4.7% |
-| 2 | 002241.SZ | 歌尔股份 | Unknown | 42.32 | 宏观周期 | 趋势:20.6 \| 风控:15.8 | A core \| CSI300 constituent \| weight=0.262% \| real-data@2026-03-04 \| close=25.13 \| target=23.45 \| fv_source=target_mean_price \| upside=-6.7% |
-| 3 | META | Meta Platforms | Communication Services | 26.02 | 宏观周期 | 催化:24.5 \| 趋势:17.5 | US core \| real-data@2026-03-06 \| close=644.86 \| target=863.20 \| fv_source=dcf_iv_base \| dcf_symbol=US.META \| dcf_iv=420.58 \| upside=-34.8% |
-| 4 | ERIE | Erie Indemnity | Financials | 20.49 | 事件驱动激进 | 催化:30.8 \| 风控:13.4 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=260.00 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
-| 5 | FOX | Fox Corporation (Class B) | Communication Services | 20.23 | 事件驱动激进 | 催化:30.8 \| 质量:10.2 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=54.31 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
-| 6 | V | Visa | Financial Services | 19.83 | 宏观周期 | 催化:24.4 \| 趋势:18.8 | US quality \| real-data@2026-03-06 \| close=317.36 \| target=400.47 \| fv_source=dcf_iv_base \| dcf_symbol=US.V \| dcf_iv=230.65 \| upside=-27.3% |
-| 7 | HRL | Hormel Foods | Consumer Staples | 19.24 | 系统化量化 | 质量:22.4 \| 安全边际:12.3 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=24.42 \| target=27.62 \| fv_source=target_mean_price \| upside=13.1% |
-| 8 | LEN | Lennar | Consumer Discretionary | 18.94 | 系统化量化 | 质量:21.6 \| 风控:14.6 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=101.17 \| target=108.21 \| fv_source=target_mean_price \| upside=7.0% |
-| 9 | MSFT | Microsoft | Technology | 18.90 | 宏观周期 | 催化:25.0 \| 趋势:20.6 | US core \| real-data@2026-03-06 \| close=408.63 \| target=596.00 \| fv_source=dcf_iv_base \| dcf_symbol=US.MSFT \| dcf_iv=197.45 \| upside=-51.7% |
-| 10 | GNRC | Generac | Industrials | 18.06 | 深度价值修复 | 安全边际:23.0 \| 风控:18.5 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=204.02 \| target=241.65 \| fv_source=target_mean_price \| upside=18.4% |
+| 1 | 600000.SS | 浦发银行 | Unknown | 49.47 | 宏观周期 | 趋势:21.9 \| 催化:18.8 | A core \| CSI300 constituent \| weight=0.504% \| real-data@2026-03-06 \| close=9.89 \| target=10.35 \| fv_source=target_mean_price \| upside=4.7% |
+| 2 | 002241.SZ | 歌尔股份 | Unknown | 42.39 | 宏观周期 | 趋势:20.6 \| 风控:15.8 | A core \| CSI300 constituent \| weight=0.262% \| real-data@2026-03-04 \| close=25.13 \| target=23.45 \| fv_source=target_mean_price \| upside=-6.7% |
+| 3 | MSFT | Microsoft | Technology | 27.14 | 宏观周期 | 催化:24.5 \| 趋势:20.6 | US core \| real-data@2026-03-06 \| close=408.63 \| target=596.00 \| fv_source=dcf_iv_base \| dcf_symbol=US.MSFT \| dcf_iv=271.05 \| upside=-33.7% |
+| 4 | ERIE | Erie Indemnity | Financials | 20.48 | 事件驱动激进 | 催化:31.0 \| 风控:13.4 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=260.00 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
+| 5 | FOX | Fox Corporation (Class B) | Communication Services | 20.27 | 事件驱动激进 | 催化:31.0 \| 质量:10.2 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=54.31 \| target=NA(fallback-close) \| fv_source=close_fallback \| upside=0.0% |
+| 6 | HRL | Hormel Foods | Consumer Staples | 19.25 | 系统化量化 | 质量:22.4 \| 安全边际:12.3 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=24.42 \| target=27.62 \| fv_source=target_mean_price \| upside=13.1% |
+| 7 | LEN | Lennar | Consumer Discretionary | 18.96 | 系统化量化 | 质量:21.6 \| 风控:14.6 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=101.17 \| target=108.21 \| fv_source=target_mean_price \| upside=7.0% |
+| 8 | GNRC | Generac | Industrials | 18.07 | 深度价值修复 | 安全边际:23.0 \| 风控:18.5 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=204.02 \| target=241.65 \| fv_source=target_mean_price \| upside=18.4% |
+| 9 | BLDR | Builders FirstSource | Industrials | 16.31 | 价值质量复利 | 安全边际:27.8 \| 质量:25.5 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=93.12 \| target=127.29 \| fv_source=target_mean_price \| upside=36.7% |
+| 10 | F | Ford Motor Company | Consumer Discretionary | 16.21 | 深度价值修复 | 安全边际:20.7 \| 质量:12.0 | US core \| S&P500 constituent \| real-data@2026-03-06 \| close=12.15 \| target=14.14 \| fv_source=target_mean_price \| upside=16.4% |
 
 ## 6) 安全边际口径参照
 
