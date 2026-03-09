@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-03-08T01:15:14.231403+00:00",
+  "generated_at_utc": "2026-03-09T01:35:54.064618+00:00",
   "source": "stock-data-hub(API+snapshot) + local DCF valuation link (partial coverage; comps baseline cross-check optional)",
   "cache_policy": "enabled; ttl_hours=24; use cached result for non-real-time API calls",
   "as_of_dates": [

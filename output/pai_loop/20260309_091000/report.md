@@ -1,7 +1,7 @@
 # PAI 迭代闭环报告
 
-- run_id: `20260309_095419`
-- started_at: `2026-03-09 09:54:19`
+- run_id: `20260309_091000`
+- started_at: `2026-03-09 09:10:00`
 - with_real_data: `True`
 - skip_tests: `False`
 
@@ -9,11 +9,11 @@
 
 | Step | Status | RC | Duration(s) |
 |---|---|---:|---:|
-| `build_verified_investors` | ok | 0 | 0.00 |
-| `generate_top20_pack_sample` | ok | 0 | 0.00 |
-| `build_real_opportunities` | ok | 0 | 0.00 |
-| `generate_top20_pack_real` | ok | 0 | 0.00 |
-| `unit_tests` | ok | 0 | 0.00 |
+| `build_verified_investors` | ok | 0 | 0.07 |
+| `generate_top20_pack_sample` | ok | 0 | 0.11 |
+| `build_real_opportunities` | ok | 0 | 1553.23 |
+| `generate_top20_pack_real` | ok | 0 | 1.35 |
+| `unit_tests` | ok | 0 | 0.96 |
 
 ## 2) 关键产物快照
 
