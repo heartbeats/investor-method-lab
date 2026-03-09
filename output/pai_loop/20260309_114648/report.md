@@ -1,7 +1,7 @@
 # PAI 迭代闭环报告
 
-- run_id: `20260309_134637`
-- started_at: `2026-03-09 13:46:37`
+- run_id: `20260309_114648`
+- started_at: `2026-03-09 11:46:48`
 - with_real_data: `True`
 - skip_tests: `False`
 

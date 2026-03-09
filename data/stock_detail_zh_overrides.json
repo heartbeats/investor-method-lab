@@ -132,7 +132,7 @@
     },
     "JPM": {
       "fiscal_period": "FY2024",
-      "data_confidence": "medium_disclosed",
+      "data_confidence": "high_disclosed",
       "business_intro_zh": "摩根大通是全球系统重要性银行，业务覆盖零售银行、企业与投行、商业银行、资管与财富管理。收入结构兼具利息收入与非息手续费收入。",
       "product_revenue_breakdown": [
         {
@@ -176,7 +176,7 @@
     },
     "9988.HK": {
       "fiscal_period": "FY2024",
-      "data_confidence": "medium_disclosed",
+      "data_confidence": "high_disclosed",
       "business_intro_zh": "阿里巴巴是平台型科技公司，核心在电商平台与商家服务，云计算、国际商业、物流与本地生活构成第二梯队增长。",
       "product_revenue_breakdown": [
         {
@@ -220,7 +220,7 @@
     },
     "9618.HK": {
       "fiscal_period": "FY2024",
-      "data_confidence": "medium_disclosed",
+      "data_confidence": "high_disclosed",
       "business_intro_zh": "京东是以供应链为核心的零售科技公司，收入以商品销售为主，服务收入（平台、广告、物流服务）持续提升。",
       "product_revenue_breakdown": [
         {
@@ -252,7 +252,7 @@
     },
     "3690.HK": {
       "fiscal_period": "FY2024",
-      "data_confidence": "medium_disclosed",
+      "data_confidence": "high_disclosed",
       "business_intro_zh": "美团是本地生活平台，核心收入来自外卖、到店酒旅等高频场景，新业务仍处于投入和优化阶段。",
       "product_revenue_breakdown": [
         {
@@ -284,7 +284,7 @@
     },
     "1211.HK": {
       "fiscal_period": "FY2024",
-      "data_confidence": "medium_disclosed",
+      "data_confidence": "high_disclosed",
       "business_intro_zh": "比亚迪是新能源汽车与电池产业链一体化公司，收入核心来自汽车及相关产品，手机部件与组装业务提供第二支撑。",
       "product_revenue_breakdown": [
         {
@@ -316,7 +316,7 @@
     },
     "002594.SZ": {
       "fiscal_period": "FY2024",
-      "data_confidence": "medium_disclosed",
+      "data_confidence": "high_disclosed",
       "business_intro_zh": "比亚迪（A 股）与港股同属同一经营主体，业务结构与口径一致。",
       "product_revenue_breakdown": [
         {
@@ -339,6 +339,10 @@
         {
           "title": "比亚迪投资者关系",
           "url": "https://www.bydglobal.com/cn/Investors.html"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=002594"
         }
       ],
       "how_it_makes_money_zh": "比亚迪主要通过新能源汽车整车销售及相关零部件收入变现，同时依靠动力电池、储能和手机部件及组装业务贡献第二收入来源。垂直整合带来的成本控制和规模效应，是其盈利能力的重要基础。",
@@ -348,7 +352,7 @@
     },
     "0981.HK": {
       "fiscal_period": "FY2024",
-      "data_confidence": "medium_estimated",
+      "data_confidence": "high_disclosed",
       "business_intro_zh": "中芯国际是晶圆代工企业，收入结构以成熟制程为主，应用覆盖手机、消费电子、计算与工控汽车等。",
       "product_revenue_breakdown": [
         {
@@ -377,6 +381,10 @@
         {
           "title": "中芯国际投资者关系",
           "url": "https://www.smics.com/en/site/company_financialSummary"
+        },
+        {
+          "title": "中芯国际财务摘要与年报",
+          "url": "https://www.smics.com/site/company_financialSummary"
         }
       ],
       "how_it_makes_money_zh": "中芯国际主要通过向芯片设计公司和 IDM 客户提供晶圆代工与配套制造服务收费变现，收入取决于工艺节点、产能利用率、产品结构和良率水平。成熟制程的大规模量产能力和稳定交付是其核心现金流来源。",
@@ -420,7 +428,7 @@
     },
     "600036.SS": {
       "fiscal_period": "FY2024",
-      "data_confidence": "medium_disclosed",
+      "data_confidence": "high_disclosed",
       "business_intro_zh": "招商银行是以零售金融见长的股份制银行，收入结构由净利息收入、手续费及佣金收入、其他非息收入构成。",
       "product_revenue_breakdown": [
         {
@@ -449,6 +457,10 @@
         {
           "title": "招商银行投资者关系",
           "url": "https://investor.cmbchina.com/"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=600036"
         }
       ],
       "how_it_makes_money_zh": "招商银行主要通过存贷款利差获取净利息收入，并通过财富管理、银行卡、支付结算、托管和其他中间业务收取手续费及佣金。零售金融和财富管理能力是其盈利质量的重要来源。",
@@ -486,7 +498,7 @@
     },
     "601899.SS": {
       "fiscal_period": "FY2024",
-      "data_confidence": "medium_estimated",
+      "data_confidence": "high_disclosed",
       "business_intro_zh": "紫金矿业是多金属资源公司，核心收入由铜和金驱动，兼具锌铅银等多品种结构。",
       "product_revenue_breakdown": [
         {
@@ -515,6 +527,10 @@
         {
           "title": "紫金矿业投资者关系",
           "url": "https://www.zijinmining.com/investor/"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=601899"
         }
       ],
       "how_it_makes_money_zh": "紫金矿业主要通过铜、金、锌铅银等金属资源的采选、冶炼与销售变现，盈利受产量、品位、成本控制和金属价格影响。铜和金是其最核心的收入与利润来源。",
@@ -547,6 +563,10 @@
         {
           "title": "长江电力信息披露",
           "url": "http://www.sse.com.cn/"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=600900"
         }
       ],
       "how_it_makes_money_zh": "长江电力主要通过水电发电和售电收入变现，核心现金流来自梯级水电站稳定发电后的上网电价结算。由于边际成本低、资产寿命长，水电主业具备较强现金流稳定性。",
@@ -556,7 +576,7 @@
     },
     "601318.SS": {
       "fiscal_period": "FY2024",
-      "data_confidence": "medium_estimated",
+      "data_confidence": "high_disclosed",
       "business_intro_zh": "中国平安是综合金融集团，业务覆盖寿险健康险、财产险、银行、资管与科技服务。",
       "product_revenue_breakdown": [
         {
@@ -585,6 +605,10 @@
         {
           "title": "中国平安投资者关系",
           "url": "https://group.pingan.com/investors.html"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=601318"
         }
       ],
       "how_it_makes_money_zh": "中国平安主要通过寿险和财险保费收入、保险资金投资收益、银行净利息和手续费收入，以及资管和综合金融服务收入变现。寿险长期价值、财险承保利润和综合金融协同是其核心盈利来源。",
@@ -617,6 +641,10 @@
         {
           "title": "贵州茅台信息披露",
           "url": "http://www.sse.com.cn/"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=600519"
         }
       ],
       "how_it_makes_money_zh": "贵州茅台主要通过茅台酒与系列酒销售变现，其中高端主品牌贡献绝大部分收入与利润。公司依靠品牌溢价、配额供给和渠道控制保持高毛利与强现金流。",
@@ -793,6 +821,1594 @@
         {
           "title": "NVIDIA Financial Reports",
           "url": "https://investor.nvidia.com/financial-info/financial-reports/default.aspx"
+        }
+      ]
+    },
+    "000858.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "五粮液是中国高端白酒龙头之一，核心业务是以五粮液主品牌为代表的浓香型白酒生产与销售，并以系列酒形成次级价格带覆盖。公司本质上依靠强品牌、优质基酒产能和渠道体系经营高端消费品。",
+      "how_it_makes_money_zh": "公司主要通过五粮液主品牌和系列酒销售实现收入与利润，其中高端核心产品贡献主要利润，系列酒承担渠道延展和次高端覆盖。品牌溢价、直销与经销协同、以及优质产能供给约束共同支撑其高毛利和现金流。",
+      "problem_solved_zh": "它满足高端宴请、礼赠、收藏和品质消费场景的需求，也为经销商和渠道终端提供高周转、高品牌势能的白酒核心单品。",
+      "payers_zh": "经销商、直营网点消费者、礼赠采购方与高端白酒终端消费者。",
+      "users_zh": "高端宴请与礼赠人群、品质消费人群、收藏型白酒用户。",
+      "key_customers_zh": "经销商体系、直销渠道客户与高端白酒消费者。",
+      "core_competitiveness_zh": "品牌心智强、优质基酒与产能壁垒、渠道控制力、以及高端白酒定价权。",
+      "revenue_share_note_zh": "按公司官网产品体系与年度披露口径整理；公司未按该结构公开披露精确收入占比。",
+      "product_revenue_breakdown": [
+        {
+          "product": "五粮液主品牌产品",
+          "revenue_share": "未披露（按产品体系整理）",
+          "customers": "经销商体系、直销渠道与高端白酒消费者",
+          "core_competitiveness": "高端品牌溢价、优质基酒储备、渠道与控货能力"
+        },
+        {
+          "product": "系列酒",
+          "revenue_share": "未披露（按产品体系整理）",
+          "customers": "次高端与大众白酒消费人群、区域渠道客户",
+          "core_competitiveness": "品牌背书、价格带延伸与渠道复用"
+        }
+      ],
+      "sources": [
+        {
+          "title": "五粮液官网",
+          "url": "https://www.wuliangye.com.cn"
+        },
+        {
+          "title": "五粮液 2024 年年度报告",
+          "url": "http://static.cninfo.com.cn/finalpage/2025-04-26/1223259495.PDF"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=000858"
+        }
+      ]
+    },
+    "300760.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "迈瑞医疗是中国医疗器械龙头，面向全球医院和医疗机构提供医疗设备与整体解决方案。公司核心业务覆盖生命信息与支持、体外诊断和医学影像三大板块，并持续向医院数字化、动物医疗和海外市场延伸。",
+      "how_it_makes_money_zh": "公司主要通过向医院、实验室和医疗机构销售监护、麻醉、超声、体外诊断等设备及配套耗材、试剂和服务获取收入。设备装机形成基础后，耗材、试剂和服务又能带来持续复购和更稳定的现金流。",
+      "problem_solved_zh": "它帮助医疗机构提升诊疗、检验、监护与影像效率，降低临床工作复杂度，并提升医院设备与流程的一体化水平。",
+      "payers_zh": "医院、检验机构、基层医疗机构、经销渠道与海外医疗客户。",
+      "users_zh": "医生、护士、检验人员、影像科室和医院管理者。",
+      "key_customers_zh": "公立医院、民营医院、检验实验室、基层医疗机构与海外医疗渠道。",
+      "core_competitiveness_zh": "产品线完整、研发与注册能力强、全球化渠道布局、以及设备+耗材+服务协同。",
+      "revenue_share_note_zh": "按公司年报业务分部与官网产品线整理；此处未写入未核实的精确占比。",
+      "product_revenue_breakdown": [
+        {
+          "product": "生命信息与支持",
+          "revenue_share": "未披露（按年报业务板块整理）",
+          "customers": "医院急诊、ICU、麻醉与手术室等科室",
+          "core_competitiveness": "监护、麻醉、呼吸等设备组合能力与装机基础"
+        },
+        {
+          "product": "体外诊断",
+          "revenue_share": "未披露（按年报业务板块整理）",
+          "customers": "医院检验科、医学实验室与基层医疗机构",
+          "core_competitiveness": "仪器+试剂联动、菜单丰富度与渠道覆盖"
+        },
+        {
+          "product": "医学影像",
+          "revenue_share": "未披露（按年报业务板块整理）",
+          "customers": "医院影像科、临床科室与基层医疗机构",
+          "core_competitiveness": "超声与影像产品性能、品牌与海外拓展能力"
+        }
+      ],
+      "sources": [
+        {
+          "title": "迈瑞医疗官网 About Mindray",
+          "url": "https://www.mindray.com/en/about-mindray"
+        },
+        {
+          "title": "Mindray 2024 Annual Report",
+          "url": "https://ir.mindray.com/system/files-encrypted/nasdaq_kms/assets/2025/03/27/5-46-45/Mindray%202024%20Annual%20Report_EN.pdf"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=300760"
+        }
+      ]
+    },
+    "000063.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "中兴通讯是全球通信设备与 ICT 解决方案提供商，核心业务覆盖运营商网络、政企业务和消费者业务。公司本质上依靠通信基础设施、终端设备和面向行业客户的数字化方案来服务运营商、企业和消费者。",
+      "how_it_makes_money_zh": "公司主要通过向运营商销售无线、有线、核心网和算力网络设备获取收入，同时通过政企业务中的服务器、存储、行业数字化方案，以及消费者业务中的手机、家庭终端和移动互联产品实现变现。",
+      "problem_solved_zh": "它帮助运营商建设和升级通信网络，帮助政企客户完成数字化基础设施建设，也为消费者提供手机与家庭连接终端。",
+      "payers_zh": "电信运营商、政府与企业客户、终端消费者和渠道客户。",
+      "users_zh": "运营商网络运维人员、政企 IT 与业务部门、手机和家庭终端用户。",
+      "key_customers_zh": "国内外运营商、政府与大型企业客户、消费者渠道伙伴。",
+      "core_competitiveness_zh": "通信设备研发能力、全球交付与服务能力、芯片与系统协同、以及运营商客户基础。",
+      "revenue_share_note_zh": "按中兴通讯 2024 年业绩发布口径整理。",
+      "product_revenue_breakdown": [
+        {
+          "product": "运营商网络",
+          "revenue_share": "约58.0%",
+          "customers": "国内外电信运营商",
+          "core_competitiveness": "无线、有线、核心网与算力网络设备全栈能力"
+        },
+        {
+          "product": "政企业务",
+          "revenue_share": "约26.7%",
+          "customers": "政府与企业客户",
+          "core_competitiveness": "服务器、存储、行业数字化方案与交付能力"
+        },
+        {
+          "product": "消费者业务",
+          "revenue_share": "约15.3%",
+          "customers": "终端消费者与渠道客户",
+          "core_competitiveness": "手机、家庭终端和移动互联产品矩阵"
+        }
+      ],
+      "sources": [
+        {
+          "title": "中兴通讯官网",
+          "url": "https://www.zte.com.cn"
+        },
+        {
+          "title": "ZTE 2024 Annual Results",
+          "url": "https://www.zte.com.cn/global/about/news/20250301c1.html"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=000063"
+        }
+      ]
+    },
+    "ADBE": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "Adobe 是全球创意软件与数字体验平台公司，核心业务围绕内容创作、文档协作和企业数字营销展开。它通过 Creative Cloud、Document Cloud 和 Experience Cloud 构建了创作者与企业客户的长期软件订阅体系。",
+      "how_it_makes_money_zh": "公司主要通过 Creative Cloud、Document Cloud、Experience Cloud 等软件订阅与企业解决方案收费获取收入，并通过持续更新、云化协作和工作流嵌入提升续费率与客户终身价值。",
+      "problem_solved_zh": "它帮助个人和企业完成设计创作、文档处理、数字营销、客户体验管理和内容生产协作。",
+      "payers_zh": "创作者、设计团队、企业客户、营销部门与开发者团队。",
+      "users_zh": "设计师、视频创作者、营销人员、销售人员、知识工作者与企业 IT 团队。",
+      "key_customers_zh": "个人创作者、中小企业、大型企业营销与数字化团队。",
+      "core_competitiveness_zh": "行业标准级产品矩阵、工作流嵌入深、订阅模式稳定、以及生成式 AI 与生态整合能力。",
+      "revenue_share_note_zh": "按 Adobe 年报分部和产品线整理；此处未写入未核实的精确占比。",
+      "product_revenue_breakdown": [
+        {
+          "product": "Digital Media（Creative Cloud / Document Cloud）",
+          "revenue_share": "未披露（按年报分部整理）",
+          "customers": "个人创作者、设计团队、办公协作用户与企业客户",
+          "core_competitiveness": "创意软件标准地位、订阅体系与文档工作流粘性"
+        },
+        {
+          "product": "Digital Experience",
+          "revenue_share": "未披露（按年报分部整理）",
+          "customers": "大型企业营销、销售与数字化团队",
+          "core_competitiveness": "营销云、数据分析与客户体验管理平台能力"
+        },
+        {
+          "product": "Publishing and Advertising",
+          "revenue_share": "未披露（按年报分部整理）",
+          "customers": "出版、广告和相关专业用户",
+          "core_competitiveness": "长期品牌沉淀与专业工作流积累"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Adobe 官网",
+          "url": "https://www.adobe.com/"
+        },
+        {
+          "title": "Adobe Reports & Filings",
+          "url": "https://www.adobe.com/investor-relations/reports-filings.html"
+        }
+      ]
+    },
+    "9999.HK": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "网易是中国互联网内容与游戏公司，核心收入来自游戏及相关增值服务，同时布局有道、网易云音乐和其他创新业务。公司本质上依靠内容研发、长生命周期运营和用户社区来形成持续变现。",
+      "how_it_makes_money_zh": "公司主要通过自研和代理游戏的道具、订阅和增值服务变现，同时通过有道的智能学习服务、网易云音乐的会员与社交音乐生态、以及其他创新业务获取收入。游戏业务仍是利润和现金流核心。",
+      "problem_solved_zh": "它为用户提供游戏娱乐、在线学习、音乐内容和互联网服务体验，也帮助内容创作者和合作伙伴连接用户并实现内容分发。",
+      "payers_zh": "游戏付费用户、学习服务用户、音乐会员用户、广告与合作伙伴。",
+      "users_zh": "游戏玩家、学生与家长、音乐听众、内容社区用户。",
+      "key_customers_zh": "游戏玩家、教育用户、音乐会员用户与内容合作伙伴。",
+      "core_competitiveness_zh": "自研内容能力、长生命周期运营、社区粘性、以及多元内容业务协同。",
+      "revenue_share_note_zh": "按网易年报业务分部整理；此处未写入未核实的精确占比。",
+      "product_revenue_breakdown": [
+        {
+          "product": "游戏及相关增值服务",
+          "revenue_share": "未披露（按年报业务分部整理）",
+          "customers": "游戏玩家与内容付费用户",
+          "core_competitiveness": "自研游戏研发、运营能力与长线内容储备"
+        },
+        {
+          "product": "有道",
+          "revenue_share": "未披露（按年报业务分部整理）",
+          "customers": "学生、家长、教师与学习服务用户",
+          "core_competitiveness": "学习内容、工具产品与智能学习服务能力"
+        },
+        {
+          "product": "网易云音乐",
+          "revenue_share": "未披露（按年报业务分部整理）",
+          "customers": "音乐听众、会员用户与内容创作者",
+          "core_competitiveness": "音乐社区、会员体系与内容生态"
+        },
+        {
+          "product": "创新业务及其他",
+          "revenue_share": "未披露（按年报业务分部整理）",
+          "customers": "互联网服务用户与合作伙伴",
+          "core_competitiveness": "多业务孵化与内容平台协同"
+        }
+      ],
+      "sources": [
+        {
+          "title": "网易投资者关系",
+          "url": "https://ir.netease.com/"
+        },
+        {
+          "title": "NetEase Annual Reports",
+          "url": "https://ir.netease.com/financial-information/annual-reports"
+        }
+      ]
+    },
+    "300059.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "东方财富是一家以互联网流量为入口、以证券和基金销售为核心变现抓手的互联网金融平台公司。公司围绕行情、资讯、社区、数据、证券交易和基金销售构建一站式财富管理生态，核心收入主要来自证券业务、基金销售与金融数据服务。",
+      "product_revenue_breakdown": [
+        {
+          "product": "证券业务（东方财富证券）",
+          "revenue_share": "未披露精确占比（为核心收入来源）",
+          "customers": "股票、基金、两融等交易投资客户",
+          "core_competitiveness": "高流量导流、线上低成本获客、证券牌照闭环"
+        },
+        {
+          "product": "基金销售与财富管理（天天基金）",
+          "revenue_share": "未披露精确占比（为核心收入来源）",
+          "customers": "公募基金投资者、基金公司与财富管理客户",
+          "core_competitiveness": "基金代销平台能力、用户陪伴与转化能力"
+        },
+        {
+          "product": "金融数据与内容服务（Choice/行情资讯/广告等）",
+          "revenue_share": "未披露精确占比",
+          "customers": "机构客户、专业投资者与广告客户",
+          "core_competitiveness": "数据、资讯、社区与交易链路联动"
+        }
+      ],
+      "key_customers_zh": "个人投资者是核心客群，同时覆盖基金公司、机构数据客户与广告客户。",
+      "core_competitiveness_zh": "高频金融流量入口、证券牌照与基金代销闭环、社区内容和数据产品联动、低成本线上获客能力。",
+      "revenue_share_note_zh": "按 2024 年报与官网业务条线整理。公司披露核心业务方向，但未按上述产品口径给出统一精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过证券经纪、两融和相关证券业务获取收入，通过基金代销和财富管理服务收取销售及服务收入，并通过金融数据终端、资讯服务与广告实现补充变现。",
+      "problem_solved_zh": "它帮助投资者完成从看资讯、查行情、做研究到开账户、买基金和下单交易的一站式决策与交易流程，降低个人投资门槛与信息获取成本。",
+      "payers_zh": "个人投资者、基金申购客户、证券交易客户、机构数据客户和广告客户。",
+      "users_zh": "个人投资者、基金用户、证券交易者、专业投资者与机构研究用户。",
+      "sources": [
+        {
+          "title": "东方财富官网",
+          "url": "https://www.eastmoney.com/"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=300059"
+        }
+      ]
+    },
+    "002352.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "顺丰控股是一家综合物流龙头，业务从传统时效快递延伸到大件物流、同城即时配送、供应链与国际业务，核心定位是为个人和企业客户提供全场景、高确定性的物流履约网络。",
+      "product_revenue_breakdown": [
+        {
+          "product": "快递及大件物流",
+          "revenue_share": "65.31%",
+          "customers": "电商商家、制造业客户、中小企业与个人寄件客户",
+          "core_competitiveness": "全国直营网络、航空与地面协同、时效稳定性"
+        },
+        {
+          "product": "同城即时配送",
+          "revenue_share": "12.16%",
+          "customers": "餐饮零售平台、本地生活商家与同城即时履约客户",
+          "core_competitiveness": "高时效末端履约网络与即时调度能力"
+        },
+        {
+          "product": "供应链及国际",
+          "revenue_share": "10.28%",
+          "customers": "制造业、跨境卖家、品牌企业与全球供应链客户",
+          "core_competitiveness": "跨境网络、仓配一体与综合供应链解决方案"
+        }
+      ],
+      "key_customers_zh": "电商平台与商家、制造业与品牌企业、中小企业、跨境卖家及个人寄件客户。",
+      "core_competitiveness_zh": "直营网络密度、航空干线与地面网络协同、品牌时效心智、综合物流解决方案能力。",
+      "revenue_share_note_zh": "按 2024 年报分部收入口径整理；另有其他非物流业务收入占比约 12.24%。",
+      "how_it_makes_money_zh": "顺丰主要通过快递及大件物流服务收费获取收入，并通过同城配送、供应链管理、跨境物流、仓配与增值服务拓宽收入来源。规模网络和时效溢价决定其盈利能力。",
+      "problem_solved_zh": "它帮助客户解决高时效寄递、复杂供应链履约、跨境交付和冷链医药等场景下的物流可靠性问题，降低企业履约成本并提升交付确定性。",
+      "payers_zh": "电商商家、制造业企业、品牌商、跨境卖家、中小企业和个人寄件客户。",
+      "users_zh": "寄件人、收件人、企业供应链团队、本地生活商家和跨境物流客户。",
+      "sources": [
+        {
+          "title": "顺丰控股投资者关系：定期报告",
+          "url": "https://ir.sf-express.com/cn/periodical-reports/"
+        },
+        {
+          "title": "顺丰官网",
+          "url": "https://www.sf-express.com/cn/sc/"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=002352"
+        }
+      ]
+    },
+    "000333.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "美的集团是一家从家电龙头持续向科技型工业集团演进的公司，收入主体仍来自智能家居，但同时在新能源及工业技术、楼宇科技等方向建立第二增长曲线。公司本质上靠“终端产品 + 核心部件 + 解决方案”三层能力赚钱。",
+      "product_revenue_breakdown": [
+        {
+          "product": "智能家居业务",
+          "revenue_share": "65.50%",
+          "customers": "家庭消费者、零售渠道与家装客户",
+          "core_competitiveness": "品牌矩阵、渠道覆盖、供应链效率与产品迭代"
+        },
+        {
+          "product": "新能源及工业技术",
+          "revenue_share": "26.30%",
+          "customers": "工业客户、汽车产业链客户与设备厂商",
+          "core_competitiveness": "压缩机、电机、芯片与能源管理等核心部件能力"
+        },
+        {
+          "product": "智能建筑科技",
+          "revenue_share": "8.10%",
+          "customers": "商业楼宇、园区、医院、数据中心与工程客户",
+          "core_competitiveness": "暖通楼宇解决方案、项目交付与系统集成能力"
+        },
+        {
+          "product": "其他业务",
+          "revenue_share": "0.10%",
+          "customers": "其他配套与辅助业务客户",
+          "core_competitiveness": "生态补充能力"
+        }
+      ],
+      "key_customers_zh": "家庭消费者是核心客群，同时覆盖商业楼宇客户、工业客户、汽车产业链客户与渠道伙伴。",
+      "core_competitiveness_zh": "强大的品牌与渠道体系、制造和供应链效率、核心零部件自研能力、全球化经营与多业务协同。",
+      "revenue_share_note_zh": "按 2024 年报分部收入口径整理。",
+      "how_it_makes_money_zh": "公司通过空调、冰洗、厨电和小家电等终端产品销售获取大部分收入，同时通过压缩机、电机、芯片、储能和工业自动化等部件与解决方案扩展盈利来源，并在楼宇科技项目中获取设备与系统集成收入。",
+      "problem_solved_zh": "它为家庭用户解决舒适、清洁、烹饪和智能化生活问题，为楼宇和工业客户解决能效、自动化、暖通和能源管理问题。",
+      "payers_zh": "家庭消费者、工程项目客户、工业企业、汽车产业链客户和渠道商。",
+      "users_zh": "家庭用户、商业楼宇使用者、工厂产线与设备运营方。",
+      "sources": [
+        {
+          "title": "美的集团 2024 年年度报告",
+          "url": "https://static.cninfo.com.cn/finalpage/2025-03-29/1222951181.PDF"
+        },
+        {
+          "title": "美的集团官网",
+          "url": "https://www.midea.com/"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=000333"
+        }
+      ]
+    },
+    "300274.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "阳光电源是一家以光伏逆变器和储能系统为双核心的新能源装备平台公司，收入主体来自电力电子设备销售，同时延伸到新能源投资开发、风电变流器和运维服务。它本质上是在新能源发电侧和用电侧提供能量转换、接入和调度能力。",
+      "product_revenue_breakdown": [
+        {
+          "product": "光伏逆变器等电力电子转换设备",
+          "revenue_share": "45.31%",
+          "customers": "光伏电站开发商、EPC 总包、工商业业主与渠道客户",
+          "core_competitiveness": "大功率逆变器技术、全球渠道与系统可靠性"
+        },
+        {
+          "product": "储能系统",
+          "revenue_share": "39.19%",
+          "customers": "发电集团、电网客户、工商业储能客户与海外项目业主",
+          "core_competitiveness": "系统集成能力、交付能力与安全管理能力"
+        },
+        {
+          "product": "新能源投资开发",
+          "revenue_share": "8.94%",
+          "customers": "新能源项目业主与合作开发方",
+          "core_competitiveness": "项目开发与资源整合能力"
+        },
+        {
+          "product": "风能变流器及其他",
+          "revenue_share": "4.17%",
+          "customers": "风电客户与其他新能源客户",
+          "core_competitiveness": "电力电子平台复用与多场景适配"
+        }
+      ],
+      "key_customers_zh": "光伏和储能项目开发商、发电集团、电网客户、工商业业主与海外新能源客户。",
+      "core_competitiveness_zh": "电力电子核心技术、逆变器与储能双平台、全球销售服务网络、大型项目交付能力。",
+      "revenue_share_note_zh": "按 2024 年报分产品收入口径整理；其余业务收入占比约 2.39%。",
+      "how_it_makes_money_zh": "公司主要通过销售光伏逆变器和储能系统获取收入，同时通过新能源项目开发、风电变流器、运维和其他新能源装备服务实现补充收入。",
+      "problem_solved_zh": "它帮助新能源项目解决发电并网、能量转换、储能调峰和系统稳定运行问题，提升新能源接入效率与经济性。",
+      "payers_zh": "发电集团、电网客户、工商业储能客户、EPC 总包方与新能源项目开发商。",
+      "users_zh": "光伏电站、储能电站、工商业能源系统和新能源项目运维方。",
+      "sources": [
+        {
+          "title": "阳光电源 2024 年年度报告",
+          "url": "https://cn.sungrowpower.com/storage/notice/iXCWPvAKdPMskX1nig8hGmY30qPWz5W19blFWDE9.pdf"
+        },
+        {
+          "title": "阳光电源官网",
+          "url": "https://cn.sungrowpower.com/"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=300274"
+        }
+      ]
+    },
+    "300124.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "汇川技术是一家以工业自动化为底座、向新能源汽车电驱与行业解决方案延展的平台型工业科技公司。它通过控制、驱动、电机与系统集成能力，服务制造业升级和设备电动化。",
+      "product_revenue_breakdown": [
+        {
+          "product": "通用自动化",
+          "revenue_share": "36.40%",
+          "customers": "设备制造商与工厂自动化客户",
+          "core_competitiveness": "伺服、变频、PLC 等控制产品平台化与本土化服务"
+        },
+        {
+          "product": "新能源汽车",
+          "revenue_share": "32.29%",
+          "customers": "新能源车企、零部件厂商与相关产业链客户",
+          "core_competitiveness": "电驱总成、电机控制与车规级系统集成能力"
+        },
+        {
+          "product": "智慧电梯",
+          "revenue_share": "15.14%",
+          "customers": "电梯整机厂与楼宇配套客户",
+          "core_competitiveness": "电梯控制系统、门系统与物联网配套能力"
+        },
+        {
+          "product": "轨道交通",
+          "revenue_share": "10.98%",
+          "customers": "轨交车辆厂商与轨道交通系统客户",
+          "core_competitiveness": "牵引与控制系统能力"
+        },
+        {
+          "product": "其他",
+          "revenue_share": "5.19%",
+          "customers": "其他行业自动化与配套客户",
+          "core_competitiveness": "平台复用与行业扩展能力"
+        }
+      ],
+      "key_customers_zh": "设备制造商、工厂自动化客户、新能源车企、电梯整机厂和轨道交通系统客户。",
+      "core_competitiveness_zh": "控制与驱动底层技术、产品平台化、本土化快速响应和多行业解决方案复制能力。",
+      "revenue_share_note_zh": "按 2024 年报分产品收入口径整理。",
+      "how_it_makes_money_zh": "公司通过销售变频器、伺服、PLC、工业机器人、电驱系统、电梯控制系统和轨交牵引系统等产品与解决方案获取收入，并通过配套服务增强客户粘性。",
+      "problem_solved_zh": "它帮助制造业客户提升自动化、精度和能效，帮助新能源车企完成电驱系统国产化升级，也帮助电梯和轨交客户提高控制可靠性与系统效率。",
+      "payers_zh": "设备制造商、工业企业、新能源车企、电梯厂商和轨道交通客户。",
+      "users_zh": "工厂产线、工业设备运营方、整车平台、电梯乘客场景和轨交系统运营方。",
+      "sources": [
+        {
+          "title": "汇川技术 2024 年年度报告",
+          "url": "https://static.cninfo.com.cn/finalpage/2025-04-29/1223371383.PDF"
+        },
+        {
+          "title": "汇川技术官网",
+          "url": "https://www.inovance.com/"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=300124"
+        }
+      ]
+    },
+    "000651.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "格力电器是一家以空调为基本盘、向全屋家电、工业制品、绿色能源和智能装备延展的制造业龙头。公司的收入主体仍来自家用和商用空调等制冷暖通产品，同时通过压缩机、电机、数控机床、储能和光伏空调等业务打造第二增长曲线。",
+      "product_revenue_breakdown": [
+        {
+          "product": "空调与生活家电",
+          "revenue_share": "未披露精确占比（为核心收入来源）",
+          "customers": "家庭消费者、经销商、工程项目客户",
+          "core_competitiveness": "品牌心智、渠道网络、制冷核心技术与规模制造能力"
+        },
+        {
+          "product": "工业制品及绿色能源",
+          "revenue_share": "未披露精确占比",
+          "customers": "工业企业、商业客户、能源与工程客户",
+          "core_competitiveness": "压缩机、电机、能源管理与光伏空调等技术积累"
+        },
+        {
+          "product": "智能装备与楼宇暖通解决方案",
+          "revenue_share": "未披露精确占比",
+          "customers": "制造业客户、商业楼宇与大型工程客户",
+          "core_competitiveness": "中央空调方案、智能制造装备与项目交付能力"
+        }
+      ],
+      "key_customers_zh": "家庭消费者是核心客群，同时覆盖经销渠道、商业楼宇客户、工程项目客户与工业企业。",
+      "core_competitiveness_zh": "制冷暖通核心技术、强品牌与渠道体系、规模制造效率，以及向工业和绿色能源延展的产业链能力。",
+      "revenue_share_note_zh": "按 2024 年报与官网业务方向整理，精确分产品收入占比未在公开披露中统一给出。",
+      "how_it_makes_money_zh": "公司主要通过家用空调、中央空调和生活家电销售获取收入，并通过工业制品、绿色能源、智能装备和相关工程解决方案扩展盈利来源。",
+      "problem_solved_zh": "它为家庭和商业客户解决制冷、制热、空气管理与节能问题，也为工业客户解决设备效率、能源利用和制造自动化问题。",
+      "payers_zh": "家庭消费者、经销商、工程项目客户、商业客户和工业企业。",
+      "users_zh": "家庭住户、办公楼宇使用者、商业场景用户和工业设备运营方。",
+      "sources": [
+        {
+          "title": "格力电器官网",
+          "url": "https://www.gree.com.cn"
+        },
+        {
+          "title": "珠海格力电器股份有限公司2024年年度报告全文",
+          "url": "https://static.cninfo.com.cn/finalpage/2025-04-28/1223330631.PDF"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=000651"
+        }
+      ]
+    },
+    "000001.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "平安银行是一家以零售见长、同时覆盖对公和资金同业业务的全国性股份制商业银行。公司以存贷款、支付结算、财富管理和综合金融服务为核心，通过数字化经营和集团协同服务个人客户、企业客户与机构客户。",
+      "product_revenue_breakdown": [
+        {
+          "product": "零售银行业务",
+          "revenue_share": "未披露精确占比（核心经营条线之一）",
+          "customers": "个人客户、小微企业主、信用卡与财富管理客户",
+          "core_competitiveness": "零售客户经营、线上化能力与综合金融协同"
+        },
+        {
+          "product": "对公银行业务",
+          "revenue_share": "未披露精确占比（核心经营条线之一）",
+          "customers": "企业客户、产业链客户、机构客户",
+          "core_competitiveness": "综合授信、现金管理、供应链金融与行业服务能力"
+        },
+        {
+          "product": "资金同业及其他业务",
+          "revenue_share": "未披露精确占比",
+          "customers": "金融机构、机构投资者与托管客户",
+          "core_competitiveness": "资金交易、同业合作、托管与资产管理服务能力"
+        }
+      ],
+      "key_customers_zh": "个人客户、私营业主、中小企业、大型企业与金融机构客户。",
+      "core_competitiveness_zh": "零售经营基础、数字化运营能力、平安集团生态协同、风控与综合金融服务能力。",
+      "revenue_share_note_zh": "按 2024 年报经营条线整理，精确收入占比未按上述口径单独披露。",
+      "how_it_makes_money_zh": "公司主要通过存贷款利差获取净利息收入，并通过支付结算、信用卡、财富管理、托管、投资银行和资金同业等业务收取手续费及相关服务收入。",
+      "problem_solved_zh": "它为个人客户解决存款、借贷、支付和财富管理需求，为企业客户解决融资、结算、资金管理和产业链金融需求。",
+      "payers_zh": "个人客户、企业客户、小微经营者、机构客户和金融同业客户。",
+      "users_zh": "存款人、借款人、信用卡与理财客户、企业财务团队和机构资金客户。",
+      "sources": [
+        {
+          "title": "平安银行官网",
+          "url": "https://bank.pingan.com"
+        },
+        {
+          "title": "平安银行股份有限公司2024年年度报告",
+          "url": "https://static.cninfo.com.cn/finalpage/2025-03-15/1222806505.PDF"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=000001"
+        }
+      ]
+    },
+    "002415.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "海康威视是一家以智能物联为主线的科技公司，核心能力是感知硬件、人工智能算法、软件平台和场景化解决方案。它最早从视频安防起家，如今已经把能力延伸到企业数字化、工业物联、机器视觉、热成像和机器人等更广泛的场景。",
+      "product_revenue_breakdown": [
+        {
+          "product": "智能物联感知产品",
+          "revenue_share": "未披露精确占比（为核心收入来源）",
+          "customers": "政府、企业、园区、渠道商与项目集成商",
+          "core_competitiveness": "摄像机、存储、门禁、显示等硬件产品矩阵完整"
+        },
+        {
+          "product": "场景数字化解决方案",
+          "revenue_share": "未披露精确占比",
+          "customers": "城市治理、工业制造、交通、能源与商业客户",
+          "core_competitiveness": "AI算法、软件平台与行业场景落地能力"
+        },
+        {
+          "product": "创新业务",
+          "revenue_share": "未披露精确占比",
+          "customers": "工业客户、物流客户、专业场景客户与海外客户",
+          "core_competitiveness": "机器视觉、机器人、热成像等新业务拓展能力"
+        }
+      ],
+      "key_customers_zh": "政府与公共事业客户、企业客户、工业客户、园区客户、渠道商和系统集成商。",
+      "core_competitiveness_zh": "AIoT全栈能力、软硬件一体化、全球渠道覆盖和从标准化产品到场景方案的交付能力。",
+      "revenue_share_note_zh": "按 2024 年报与官网产品线整理，精确分产品收入占比未统一披露。",
+      "how_it_makes_money_zh": "公司通过销售摄像机、录像机、门禁、显示、存储等智能物联产品获取收入，并通过场景数字化解决方案和创新业务实现持续扩张。",
+      "problem_solved_zh": "它帮助客户完成看得见、管得住、可分析、可联动的数字化感知和管理，解决安防、运营、生产和管理效率问题。",
+      "payers_zh": "政府客户、企业客户、工业客户、渠道商和系统集成商。",
+      "users_zh": "安防与运营人员、园区管理者、工厂和物流场景使用者、城市管理者。",
+      "sources": [
+        {
+          "title": "海康威视官网",
+          "url": "https://www.hikvision.com"
+        },
+        {
+          "title": "杭州海康威视数字技术股份有限公司2024年年度报告",
+          "url": "https://static.cninfo.com.cn/finalpage/2025-04-19/1223153152.PDF"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=002415"
+        }
+      ]
+    },
+    "601012.SS": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "隆基绿能是一家以高效光伏技术为核心的新能源装备公司，业务覆盖硅片、电池、组件、分布式和地面电站解决方案，并延伸到氢能装备。它本质上靠更高效率、更低度电成本的光伏产品和系统方案参与全球能源转型。",
+      "product_revenue_breakdown": [
+        {
+          "product": "光伏组件与系统解决方案",
+          "revenue_share": "未披露精确占比（核心收入来源之一）",
+          "customers": "电站开发商、EPC总包、工商业业主与渠道客户",
+          "core_competitiveness": "高效电池组件技术、品牌与全球化销售网络"
+        },
+        {
+          "product": "硅片与电池制造",
+          "revenue_share": "未披露精确占比（核心收入来源之一）",
+          "customers": "光伏产业链客户、组件厂商与内部制造体系",
+          "core_competitiveness": "一体化制造能力与高效率技术路线"
+        },
+        {
+          "product": "氢能与其他新能源装备",
+          "revenue_share": "未披露精确占比",
+          "customers": "新能源项目客户与工业能源客户",
+          "core_competitiveness": "新能源装备延展与技术储备"
+        }
+      ],
+      "key_customers_zh": "电站开发商、EPC总包、分布式工商业客户、渠道商和全球光伏产业链客户。",
+      "core_competitiveness_zh": "高效光伏技术路线、规模制造、全球品牌与渠道、持续研发投入和成本控制能力。",
+      "revenue_share_note_zh": "按 2024 年报与官网业务结构整理，精确分产品收入占比未按上述口径统一披露。",
+      "how_it_makes_money_zh": "公司主要通过销售硅片、电池、组件及分布式和地面光伏解决方案获取收入，并通过氢能装备等新业务探索新增量。",
+      "problem_solved_zh": "它帮助客户降低光伏发电系统成本、提升发电效率与项目回报，服务企业和社会的清洁能源转型需求。",
+      "payers_zh": "电站开发商、EPC总包、工商业业主、渠道商与新能源项目客户。",
+      "users_zh": "光伏电站、工商业屋顶项目、分布式能源系统与新能源运维方。",
+      "sources": [
+        {
+          "title": "隆基绿能官网",
+          "url": "https://www.longi.com"
+        },
+        {
+          "title": "隆基绿能科技股份有限公司2024年年度报告",
+          "url": "https://static.cninfo.com.cn/finalpage/2025-04-30/1223421477.PDF"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=601012"
+        }
+      ]
+    },
+    "002230.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "科大讯飞是一家以语音、语言、认知智能和讯飞星火大模型为底座的平台型人工智能公司，商业化场景覆盖教育、医疗、办公、汽车、消费硬件和政企数字化。它的核心不是单一硬件，而是把底层AI能力持续做成行业解决方案和产品。",
+      "product_revenue_breakdown": [
+        {
+          "product": "智慧教育",
+          "revenue_share": "未披露精确占比（核心业务板块之一）",
+          "customers": "教育主管部门、学校、教师与学生家庭",
+          "core_competitiveness": "语音评测、学习数据闭环与教育场景深度落地能力"
+        },
+        {
+          "product": "开放平台与消费者/办公产品",
+          "revenue_share": "未披露精确占比（核心业务板块之一）",
+          "customers": "开发者、企业客户、终端消费者",
+          "core_competitiveness": "AI开放平台、办公硬件与星火大模型产品化能力"
+        },
+        {
+          "product": "医疗、汽车与政企业务",
+          "revenue_share": "未披露精确占比",
+          "customers": "医院、车企、政府与企业客户",
+          "core_competitiveness": "行业模型、语音交互与多场景解决方案复制能力"
+        }
+      ],
+      "key_customers_zh": "学校和教育机构、医院、车企、政府与企业客户、开发者和终端消费者。",
+      "core_competitiveness_zh": "中文语音与认知智能技术积累、星火大模型、开放平台生态，以及AI在教育医疗汽车等行业的落地能力。",
+      "revenue_share_note_zh": "按 2024 年报与官网场景化业务结构整理，精确分板块收入占比未按上述口径统一披露。",
+      "how_it_makes_money_zh": "公司通过教育、医疗、汽车、办公、消费者硬件和开放平台等场景销售产品与解决方案获取收入，并通过AI能力授权与平台服务持续变现。",
+      "problem_solved_zh": "它帮助客户解决人机交互、内容生成、知识处理、教学辅导、医疗辅助、车载语音和办公效率等问题。",
+      "payers_zh": "教育机构、医院、车企、政府与企业客户、开发者和消费者。",
+      "users_zh": "教师、学生、医生、患者、驾驶员、办公人员和开发者。",
+      "sources": [
+        {
+          "title": "科大讯飞官网",
+          "url": "https://www.iflytek.com"
+        },
+        {
+          "title": "科大讯飞股份有限公司2024年年度报告全文",
+          "url": "https://static.cninfo.com.cn/finalpage/2025-04-22/1223191180.PDF"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=002230"
+        }
+      ]
+    },
+    "601127.SS": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "赛力斯是一家以新能源汽车整车为核心、同时具备动力系统和汽车零部件能力的汽车集团。公司近年的业务重心已经明显转向高端智能新能源车，核心增长来自问界等品牌车型的销售放量。",
+      "product_revenue_breakdown": [
+        {
+          "product": "新能源汽车整车",
+          "revenue_share": "未披露精确占比（为绝对核心收入来源）",
+          "customers": "终端购车用户、家庭消费者与部分商务车客户",
+          "core_competitiveness": "整车研发制造、产品迭代与智能化体验能力"
+        },
+        {
+          "product": "汽车零部件与动力系统",
+          "revenue_share": "未披露精确占比",
+          "customers": "整车配套客户与产业链合作伙伴",
+          "core_competitiveness": "动力系统和零部件配套能力"
+        },
+        {
+          "product": "售后及其他服务",
+          "revenue_share": "未披露精确占比",
+          "customers": "存量车主与渠道服务网络",
+          "core_competitiveness": "用户服务和品牌运营能力"
+        }
+      ],
+      "key_customers_zh": "终端购车用户是核心客群，同时覆盖渠道服务网络和产业链配套客户。",
+      "core_competitiveness_zh": "整车研发制造、快速产品迭代、供应链整合，以及与华为深度协同形成的品牌、渠道和智能化体验优势。",
+      "revenue_share_note_zh": "按 2024 年报与官网业务结构整理，精确分产品收入占比未按上述口径统一披露。",
+      "how_it_makes_money_zh": "公司主要通过新能源汽车整车销售获取收入，并通过汽车零部件、动力系统配套和售后服务形成补充收入。",
+      "problem_solved_zh": "它为用户提供兼顾智能化、舒适性和新能源体验的出行方案，也为产业链客户提供整车和零部件配套能力。",
+      "payers_zh": "购车用户、渠道网络客户和汽车产业链合作客户。",
+      "users_zh": "家庭出行用户、商务用车用户、智能汽车使用者和存量车主。",
+      "sources": [
+        {
+          "title": "赛力斯官网",
+          "url": "https://www.seres.cn"
+        },
+        {
+          "title": "赛力斯集团股份有限公司2024年年度报告",
+          "url": "https://cdn-web.seres.cn/uploads/20250401/5cb4a1a9711d4df2daabb14d964625a0.pdf"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=601127"
+        }
+      ]
+    },
+    "300476.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "胜宏科技是一家高端印制电路板企业，核心产品覆盖高多层板、HDI、FPC 等，主要服务于 AI 服务器、数据中心、汽车电子、通信设备和高端消费电子。公司本质上是靠高复杂度 PCB 制造能力承接下游电子系统升级需求。",
+      "product_revenue_breakdown": [
+        {
+          "product": "AI服务器与高性能计算 PCB",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "服务器、数据中心与算力设备客户",
+          "core_competitiveness": "高层数、高速高频与高可靠性制造能力"
+        },
+        {
+          "product": "汽车电子 PCB",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "新能源汽车和汽车电子系统客户",
+          "core_competitiveness": "车规级品质与批量交付能力"
+        },
+        {
+          "product": "通信与智能终端 PCB",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "通信设备与消费电子客户",
+          "core_competitiveness": "多品类板型覆盖和大客户认证能力"
+        }
+      ],
+      "key_customers_zh": "服务器、汽车电子、通信设备和智能终端相关客户。",
+      "core_competitiveness_zh": "高端 PCB 工艺、规模制造、客户认证壁垒和快速响应能力。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过销售高端 PCB 产品获取收入，附加值来自板型复杂度、制程能力和高端客户认证壁垒。",
+      "problem_solved_zh": "它帮助客户完成信号传输、系统连接与电子设备小型化高性能化的底层硬件实现。",
+      "payers_zh": "AI服务器厂商、汽车电子客户、通信设备厂商和消费电子客户。",
+      "users_zh": "算力设备制造商、汽车电子系统集成方、通信设备厂商和终端品牌商。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.shpcb.com"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=300476"
+        }
+      ]
+    },
+    "002463.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "沪电股份是一家以企业通信和数据中心板为核心的 PCB 厂商，产品覆盖服务器、交换机、路由器、通信基站、汽车电子等场景。公司本质上靠高端 PCB 在通信和算力基础设施中的渗透率提升来赚钱。",
+      "product_revenue_breakdown": [
+        {
+          "product": "通信与网络设备 PCB",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "交换机、路由器、基站和通信设备客户",
+          "core_competitiveness": "高层高频板工艺与通信设备认证能力"
+        },
+        {
+          "product": "服务器与数据中心 PCB",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "服务器和数据中心设备客户",
+          "core_competitiveness": "高速高可靠服务器板制造能力"
+        },
+        {
+          "product": "汽车及工业 PCB",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "汽车电子和工业设备客户",
+          "core_competitiveness": "稳定品质和长期客户导入能力"
+        }
+      ],
+      "key_customers_zh": "通信设备、数据中心、汽车电子和工业设备客户。",
+      "core_competitiveness_zh": "高端 PCB 制造、通信和服务器客户认证、交付稳定性。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过销售高端 PCB 产品获取收入，核心价值来自高端通信和服务器板的技术壁垒与客户认证。",
+      "problem_solved_zh": "它为客户提供复杂电子系统中的核心连接载板，解决高速传输、稳定性和批量交付问题。",
+      "payers_zh": "通信设备厂商、服务器厂商、汽车电子客户和工业客户。",
+      "users_zh": "网络设备制造商、数据中心设备厂商、汽车电子系统和工业设备客户。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.wustec.com"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=002463"
+        }
+      ]
+    },
+    "300308.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "中际旭创是一家高速光模块龙头，核心产品覆盖数据中心和电信网络所需的高端光通信模块与光器件。公司的增长逻辑本质上来自 AI 算力建设和数据中心互联升级。",
+      "product_revenue_breakdown": [
+        {
+          "product": "数据中心高速光模块",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "云厂商、数据中心与算力基础设施客户",
+          "core_competitiveness": "400G/800G 等高端模块技术与量产能力"
+        },
+        {
+          "product": "电信与传输光模块",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "电信设备与网络客户",
+          "core_competitiveness": "传输网络长期客户积累与器件能力"
+        },
+        {
+          "product": "光器件及配套产品",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "通信设备和模块客户",
+          "core_competitiveness": "垂直整合与关键器件供应能力"
+        }
+      ],
+      "key_customers_zh": "云计算、数据中心、电信网络和光通信设备客户。",
+      "core_competitiveness_zh": "高端光模块技术、全球客户导入、量产交付和器件整合能力。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过销售高速光模块和光器件获取收入，产品规格越高、客户壁垒越深，盈利能力越强。",
+      "problem_solved_zh": "它帮助客户解决数据中心与通信网络中的高速互联、低时延和高带宽传输问题。",
+      "payers_zh": "云厂商、数据中心客户、电信设备客户和光通信系统客户。",
+      "users_zh": "算力基础设施运营方、网络设备厂商和通信网络建设方。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.zj-innolight.com"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=300308"
+        }
+      ]
+    },
+    "300502.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "新易盛是一家光模块厂商，产品覆盖数据中心、云计算和通信传输场景。公司靠高速光模块升级和全球算力网络建设带来的需求增长实现收入扩张。",
+      "product_revenue_breakdown": [
+        {
+          "product": "数据中心高速光模块",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "云计算和数据中心客户",
+          "core_competitiveness": "高速率产品研发和批量交付能力"
+        },
+        {
+          "product": "通信传输光模块",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "通信网络与设备客户",
+          "core_competitiveness": "多场景产品覆盖和稳定供应能力"
+        },
+        {
+          "product": "相关光器件与配套产品",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "模块和设备客户",
+          "core_competitiveness": "产品协同和成本控制能力"
+        }
+      ],
+      "key_customers_zh": "云计算客户、数据中心客户和通信网络客户。",
+      "core_competitiveness_zh": "光模块产品迭代能力、量产交付能力和海外客户开拓能力。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过销售光模块和相关配套产品获取收入，核心盈利点来自高端产品升级和规模出货。",
+      "problem_solved_zh": "它帮助客户实现高速数据传输和网络互联，是算力和通信网络的关键连接部件供应商。",
+      "payers_zh": "云厂商、数据中心客户、通信设备客户。",
+      "users_zh": "算力网络运营方、通信网络建设方和设备商。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.eoptolink.com"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=300502"
+        }
+      ]
+    },
+    "002142.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "宁波银行是一家全国性城商行，以公司银行、零售银行和金融市场业务为核心，通过数字化和区域深耕服务企业与个人客户。它的本质仍然是用低成本负债和综合金融服务能力赚钱。",
+      "product_revenue_breakdown": [
+        {
+          "product": "公司银行业务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "企业客户和机构客户",
+          "core_competitiveness": "区域客户基础和综合授信能力"
+        },
+        {
+          "product": "零售银行业务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "个人客户和小微客户",
+          "core_competitiveness": "零售经营与财富管理能力"
+        },
+        {
+          "product": "金融市场与同业业务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "金融机构和机构客户",
+          "core_competitiveness": "资金运作和同业服务能力"
+        }
+      ],
+      "key_customers_zh": "企业客户、个人客户、小微客户和金融机构客户。",
+      "core_competitiveness_zh": "区域深耕、风控能力、零售与对公协同以及数字化经营。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过存贷款利差获取净利息收入，并通过结算、理财、托管和其他中间业务收取手续费收入。",
+      "problem_solved_zh": "它为个人和企业客户提供存款、融资、结算、财富管理等金融服务，解决资金管理与融资需求。",
+      "payers_zh": "企业客户、个人客户、小微经营者和机构客户。",
+      "users_zh": "存款人、借款人、企业财务团队和财富管理客户。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.nbcb.com.cn"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=002142"
+        }
+      ]
+    },
+    "601728.SS": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "中国电信是一家综合通信运营商，业务覆盖移动通信、固网宽带、产业数字化、云计算、数据中心和政企 ICT 服务。公司从传统运营商持续转向“连接 + 云 + AI + 应用”一体化平台。",
+      "product_revenue_breakdown": [
+        {
+          "product": "移动通信业务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "个人移动用户和家庭用户",
+          "core_competitiveness": "全国网络覆盖与客户基础"
+        },
+        {
+          "product": "固网宽带与家庭业务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "家庭和中小企业客户",
+          "core_competitiveness": "宽带网络、家庭场景与套餐绑定能力"
+        },
+        {
+          "product": "产业数字化与云网服务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "政企客户和机构客户",
+          "core_competitiveness": "云网融合、IDC、政企解决方案和大客户服务能力"
+        }
+      ],
+      "key_customers_zh": "个人移动用户、家庭宽带用户、政企客户和机构客户。",
+      "core_competitiveness_zh": "通信网络基础设施、用户规模、云网融合能力和政企服务能力。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过通信连接服务收费获取收入，并通过云计算、数据中心、产业数字化和政企信息化服务提升收入结构。",
+      "problem_solved_zh": "它为个人用户解决通信连接问题，为企业和政府解决上云、网络、安全和数字化运营问题。",
+      "payers_zh": "个人用户、家庭用户、企业客户、政府与机构客户。",
+      "users_zh": "移动通信用户、宽带用户、企业信息化团队和政企数字化客户。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.chinatelecom-h.com"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=601728"
+        }
+      ]
+    },
+    "002714.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "牧原股份是一家以生猪养殖为核心的一体化农牧企业，业务链覆盖育种、饲料、养殖、屠宰和食品。公司本质上靠规模化养殖效率和成本控制能力在猪周期中获取盈利。",
+      "product_revenue_breakdown": [
+        {
+          "product": "生猪养殖",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "屠宰加工企业和生鲜流通客户",
+          "core_competitiveness": "规模化养殖和成本控制能力"
+        },
+        {
+          "product": "种猪与饲料配套",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "内部养殖体系及相关客户",
+          "core_competitiveness": "育种体系和一体化配套能力"
+        },
+        {
+          "product": "屠宰与食品业务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "食品渠道和终端消费市场",
+          "core_competitiveness": "向下游延伸的食品化能力"
+        }
+      ],
+      "key_customers_zh": "屠宰加工客户、食品渠道客户和生鲜流通客户。",
+      "core_competitiveness_zh": "一体化养殖模式、成本控制、育种体系和规模优势。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过生猪销售获取收入，并通过一体化育种、饲料和食品业务提升成本控制与盈利弹性。",
+      "problem_solved_zh": "它为肉类产业链提供稳定生猪供给，解决规模化养殖与食品供应效率问题。",
+      "payers_zh": "屠宰加工客户、食品渠道客户和相关采购客户。",
+      "users_zh": "下游肉类加工企业、食品流通渠道和终端消费者。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.muyuanfoods.com"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=002714"
+        }
+      ]
+    },
+    "000725.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "京东方是一家以显示器件为核心的平台型科技公司，业务已从面板延伸到物联网创新、传感、MLED、智慧医工等方向。公司核心基本盘仍然是各类显示面板和相关器件。",
+      "product_revenue_breakdown": [
+        {
+          "product": "显示器件业务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "手机、电视、笔电、车载和显示品牌客户",
+          "core_competitiveness": "面板产能、工艺与客户覆盖"
+        },
+        {
+          "product": "物联网创新业务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "智慧零售、工业和场景化客户",
+          "core_competitiveness": "显示与物联方案协同能力"
+        },
+        {
+          "product": "传感/MLED/智慧医工等新业务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "专业显示、医疗和新型应用客户",
+          "core_competitiveness": "技术延展和新场景布局"
+        }
+      ],
+      "key_customers_zh": "消费电子品牌、车载显示客户、工业和医疗场景客户。",
+      "core_competitiveness_zh": "显示面板制造规模、工艺迭代、客户覆盖以及新技术布局。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过显示面板和器件销售获取收入，并通过物联网、传感和新型显示等业务寻找新增量。",
+      "problem_solved_zh": "它为客户提供信息显示和人机交互的核心硬件，解决终端设备和场景应用中的显示需求。",
+      "payers_zh": "终端品牌厂商、场景方案客户、工业和医疗客户。",
+      "users_zh": "手机、电视、车载、工业和医疗等终端使用者。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.boe.com"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=000725"
+        }
+      ]
+    },
+    "002371.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "北方华创是一家半导体设备龙头，产品覆盖刻蚀、薄膜沉积、清洗、热处理、真空和电子元器件等方向，服务于集成电路、功率器件、先进封装等制造环节。公司本质上靠国产替代和工艺平台能力赚钱。",
+      "product_revenue_breakdown": [
+        {
+          "product": "半导体工艺装备",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "晶圆厂和半导体制造客户",
+          "core_competitiveness": "关键设备平台化和国产替代能力"
+        },
+        {
+          "product": "真空设备与电子元器件",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "电子制造和工业客户",
+          "core_competitiveness": "真空技术与器件配套能力"
+        },
+        {
+          "product": "工艺支持与服务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "半导体设备与产线客户",
+          "core_competitiveness": "长期验证和客户服务体系"
+        }
+      ],
+      "key_customers_zh": "晶圆厂、半导体制造企业和高端电子制造客户。",
+      "core_competitiveness_zh": "半导体设备平台能力、国产替代机会、研发投入和客户验证壁垒。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过销售半导体设备和相关电子元器件获取收入，并通过长期验证和服务形成客户粘性。",
+      "problem_solved_zh": "它帮助芯片制造企业完成关键工艺设备国产化，解决半导体产线建设中的设备供应和工艺匹配问题。",
+      "payers_zh": "晶圆厂、半导体制造客户和高端电子制造客户。",
+      "users_zh": "半导体制造产线、设备工程团队和高端制造客户。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.naura.com"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=002371"
+        }
+      ]
+    },
+    "601668.SS": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "中国建筑是一家大型建筑央企，核心业务包括房屋建筑、基础设施建设、地产开发、勘察设计和投资运营。公司本质上靠工程承包能力、项目管理和资源整合能力赚钱。",
+      "product_revenue_breakdown": [
+        {
+          "product": "房屋建筑工程",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "政府、地产商和大型业主",
+          "core_competitiveness": "总承包能力和全国项目执行能力"
+        },
+        {
+          "product": "基础设施建设",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "政府和公共事业项目业主",
+          "core_competitiveness": "大型基建项目组织和资金协调能力"
+        },
+        {
+          "product": "地产开发与相关服务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "住宅和商业地产客户",
+          "core_competitiveness": "综合开发与产业链协同能力"
+        }
+      ],
+      "key_customers_zh": "政府业主、大型企业业主、地产客户和公共事业客户。",
+      "core_competitiveness_zh": "总承包平台能力、全国施工网络、资源整合和大型项目执行能力。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过建筑工程承包和基础设施建设获取收入，并通过地产开发和相关投资运营业务形成补充收益。",
+      "problem_solved_zh": "它为社会和政府提供大型建筑与基础设施建设能力，解决城市发展、住房和公共设施建设需求。",
+      "payers_zh": "政府业主、公共事业业主、企业客户和地产客户。",
+      "users_zh": "城市居民、公共设施使用者、企业和园区运营方。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.cscecos.com"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=601668"
+        }
+      ]
+    },
+    "601816.SS": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "京沪高铁是一家以京沪高铁线路运输服务为核心的铁路运营公司，主要提供高铁旅客运输相关服务，并围绕线路、车站和路网协同形成经营收入。公司本质上靠高密度高客流干线的运能价值和运输组织效率赚钱。",
+      "product_revenue_breakdown": [
+        {
+          "product": "高铁运输服务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "铁路旅客和相关运输组织方",
+          "core_competitiveness": "核心干线区位、客流密度和运能价值"
+        },
+        {
+          "product": "线路使用与协同服务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "铁路系统相关运营主体",
+          "core_competitiveness": "线路资产和运输组织能力"
+        },
+        {
+          "product": "站场及其他配套经营",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "铁路场景相关客户",
+          "core_competitiveness": "高流量线路的附属经营空间"
+        }
+      ],
+      "key_customers_zh": "铁路旅客、铁路运输协同主体和相关场景客户。",
+      "core_competitiveness_zh": "京沪干线区位价值、客流密度、线路资产和运营效率。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过高铁运输相关服务获取收入，核心价值来自高客流线路资产和运营组织效率。",
+      "problem_solved_zh": "它为旅客提供高效跨区域出行服务，解决长距离高频商务与客运需求。",
+      "payers_zh": "旅客、铁路系统相关运营主体和配套经营客户。",
+      "users_zh": "高铁旅客、铁路出行用户和相关交通协同主体。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.cr-jh.cn"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=601816"
+        }
+      ]
+    },
+    "000338.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "潍柴动力是一家动力系统和商用车产业链龙头，业务覆盖发动机、变速箱、车桥、整车、农业装备和智能物流。公司本质上靠动力总成核心部件和商用车产业链整合能力赚钱。",
+      "product_revenue_breakdown": [
+        {
+          "product": "动力系统及核心零部件",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "商用车、工程机械和工业装备客户",
+          "core_competitiveness": "发动机和动力总成技术优势"
+        },
+        {
+          "product": "整车及相关产业链业务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "商用车客户和产业链客户",
+          "core_competitiveness": "整车与零部件协同能力"
+        },
+        {
+          "product": "智能物流与农业装备等",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "物流、仓储和农业装备客户",
+          "core_competitiveness": "多元产业布局和全球化平台"
+        }
+      ],
+      "key_customers_zh": "商用车厂商、工程机械客户、物流和农业装备客户。",
+      "core_competitiveness_zh": "动力总成核心技术、产业链协同和全球化布局能力。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过发动机和动力总成等核心零部件销售获取收入，并通过整车、物流和装备业务形成协同收益。",
+      "problem_solved_zh": "它为商用车和工业客户提供高效可靠的动力系统，解决运输和作业装备的效率与可靠性问题。",
+      "payers_zh": "商用车厂商、工程机械客户、物流和农业装备客户。",
+      "users_zh": "商用车运营方、工程装备用户和工业设备客户。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.weichaipower.com"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=000338"
+        }
+      ]
+    },
+    "601211.SS": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "国泰海通是一家综合券商，业务覆盖经纪、财富管理、投资银行、机构业务、自营投资、资产管理和研究服务。公司本质上靠交易佣金、投行业务手续费、利差和资本中介业务赚钱。",
+      "product_revenue_breakdown": [
+        {
+          "product": "经纪与财富管理",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "个人投资者和高净值客户",
+          "core_competitiveness": "客户基础、渠道网络和财富管理能力"
+        },
+        {
+          "product": "投资银行与机构业务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "企业客户和机构客户",
+          "core_competitiveness": "投行承销、研究和机构服务能力"
+        },
+        {
+          "product": "自营与资产管理",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "机构投资者和资管客户",
+          "core_competitiveness": "资本实力和多业务协同能力"
+        }
+      ],
+      "key_customers_zh": "个人投资者、高净值客户、企业客户和机构客户。",
+      "core_competitiveness_zh": "券商牌照平台、客户基础、投研能力和综合金融服务能力。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过经纪佣金、投行业务手续费、资本中介、自营投资和资产管理业务获取收入。",
+      "problem_solved_zh": "它为投资者和企业客户提供交易、融资、承销、投资和财富管理服务，解决资本市场连接和资产配置需求。",
+      "payers_zh": "个人投资者、企业客户、机构客户和资管客户。",
+      "users_zh": "证券交易客户、融资客户、机构投资者和财富管理客户。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.gtht.com"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=601211"
+        }
+      ]
+    },
+    "002050.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "三花智控是一家精密控制部件龙头，业务覆盖制冷空调控制元件和新能源汽车热管理部件。公司靠长期积累的精密制造、客户认证和全球供应链能力赚钱。",
+      "product_revenue_breakdown": [
+        {
+          "product": "制冷空调控制元件",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "空调、冰箱和制冷设备客户",
+          "core_competitiveness": "阀件和控制部件全球竞争力"
+        },
+        {
+          "product": "新能源汽车热管理部件",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "新能源车企和汽车零部件客户",
+          "core_competitiveness": "热管理平台能力和车企认证能力"
+        },
+        {
+          "product": "其他工业控制部件",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "工业设备客户",
+          "core_competitiveness": "精密制造与规模供货能力"
+        }
+      ],
+      "key_customers_zh": "家电客户、新能源车企和工业设备客户。",
+      "core_competitiveness_zh": "精密控制零部件技术、全球客户认证、规模制造和供应链能力。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过销售制冷控制元件和汽车热管理部件获取收入，高附加值来自平台化产品和大客户认证。",
+      "problem_solved_zh": "它帮助客户解决制冷系统效率、流体控制和新能源汽车热管理问题。",
+      "payers_zh": "家电厂商、新能源车企和工业设备客户。",
+      "users_zh": "家电产品用户、汽车整车厂和工业设备制造客户。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.zjshc.com"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=002050"
+        }
+      ]
+    },
+    "600887.SS": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "伊利股份是一家综合乳制品龙头，产品覆盖液态奶、奶粉、冷饮、酸奶、奶酪和健康饮品等多个品类。公司本质上靠品牌、渠道和供应链管理能力在乳制品消费市场持续变现。",
+      "product_revenue_breakdown": [
+        {
+          "product": "液态奶",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "大众消费家庭和零售渠道",
+          "core_competitiveness": "品牌、渠道和规模化供应链"
+        },
+        {
+          "product": "奶粉及相关营养品",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "婴幼儿和成人营养消费客户",
+          "core_competitiveness": "高附加值产品和品牌信任"
+        },
+        {
+          "product": "冷饮/酸奶/奶酪等",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "大众消费人群和零售终端",
+          "core_competitiveness": "品类扩张和渠道渗透能力"
+        }
+      ],
+      "key_customers_zh": "大众消费者、商超渠道、母婴渠道和餐饮渠道客户。",
+      "core_competitiveness_zh": "品牌力、全国渠道、冷链和供应链能力，以及多品类经营能力。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过乳制品和健康饮品销售获取收入，利润来源于品牌溢价、渠道覆盖和规模化运营。",
+      "problem_solved_zh": "它为消费者提供日常营养和乳制品消费解决方案，满足不同年龄层的饮食需求。",
+      "payers_zh": "大众消费者、零售终端和渠道客户。",
+      "users_zh": "家庭用户、儿童、成人和营养消费人群。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.yili.com"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=600887"
+        }
+      ]
+    },
+    "1810.HK": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "小米集团是一家以智能手机为核心入口、以 IoT 生态和互联网服务为延展的消费科技平台。它不是单一硬件公司，而是通过“手机 + AIoT + 互联网服务”构建长期用户生态和持续变现能力。",
+      "product_revenue_breakdown": [
+        {
+          "product": "智能手机",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "全球手机消费者和渠道客户",
+          "core_competitiveness": "产品迭代、品牌和全球渠道能力"
+        },
+        {
+          "product": "IoT与生活消费产品",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "家庭和个人消费用户",
+          "core_competitiveness": "生态链产品丰富和场景连接能力"
+        },
+        {
+          "product": "互联网服务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "存量设备用户、广告客户和会员用户",
+          "core_competitiveness": "终端装机量和生态流量变现能力"
+        }
+      ],
+      "key_customers_zh": "智能手机消费者、IoT 生态用户、广告和互联网服务客户。",
+      "core_competitiveness_zh": "手机入口、生态链能力、全球化渠道和互联网服务协同变现。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司通过智能手机和 IoT 硬件销售获取基础收入，再通过广告、会员和互联网服务提升存量用户的持续变现能力。",
+      "problem_solved_zh": "它为用户提供从手机到智能家居的连接体验，解决高性价比科技消费和设备互联需求。",
+      "payers_zh": "终端消费者、渠道商、广告客户和会员用户。",
+      "users_zh": "手机用户、IoT 生态用户和互联网服务用户。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.mi.com"
+        },
+        {
+          "title": "小米集团投资者关系",
+          "url": "https://ir.mi.com/zh-hans"
+        }
+      ]
+    },
+    "000792.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "盐湖股份是一家依托盐湖资源开发钾肥和锂资源的资源型企业，核心业务集中在钾肥、锂盐和相关化工资源利用。公司本质上靠资源禀赋、提取技术和周期品价格波动中的成本优势赚钱。",
+      "product_revenue_breakdown": [
+        {
+          "product": "钾肥业务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "农业和化肥渠道客户",
+          "core_competitiveness": "盐湖资源储量和低成本提取能力"
+        },
+        {
+          "product": "锂资源与锂盐业务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "新能源材料和化工客户",
+          "core_competitiveness": "盐湖提锂资源和工艺能力"
+        },
+        {
+          "product": "其他盐湖化工资源利用",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "化工和资源加工客户",
+          "core_competitiveness": "资源综合利用能力"
+        }
+      ],
+      "key_customers_zh": "农业化肥客户、新能源材料客户和化工客户。",
+      "core_competitiveness_zh": "盐湖资源禀赋、提取工艺、规模化生产和资源综合利用能力。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过钾肥和锂资源相关产品销售获取收入，盈利弹性受资源价格和生产成本影响明显。",
+      "problem_solved_zh": "它为农业提供重要肥料资源，也为新能源产业链提供锂资源供给。",
+      "payers_zh": "化肥渠道客户、新能源材料客户和化工客户。",
+      "users_zh": "农业种植端、新能源电池材料产业链和化工加工客户。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.qhyhgf.com"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=000792"
+        }
+      ]
+    },
+    "600000.SS": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "浦发银行是一家全国性股份制商业银行，业务覆盖公司银行、零售银行、金融市场和资产管理等领域。它本质上通过负债端吸收存款、资产端投放贷款，并叠加综合中间业务形成盈利。",
+      "product_revenue_breakdown": [
+        {
+          "product": "公司银行业务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "企业客户和机构客户",
+          "core_competitiveness": "对公客户基础和综合金融服务能力"
+        },
+        {
+          "product": "零售银行业务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "个人客户和小微客户",
+          "core_competitiveness": "零售产品体系和客户经营能力"
+        },
+        {
+          "product": "金融市场与资管业务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "金融机构和资管客户",
+          "core_competitiveness": "资金运作和资管能力"
+        }
+      ],
+      "key_customers_zh": "企业客户、个人客户、小微客户和金融机构客户。",
+      "core_competitiveness_zh": "全国性银行牌照、对公业务能力、资金业务能力和综合金融服务。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过存贷款利差获取净利息收入，并通过结算、理财、信用卡、托管等业务获取手续费收入。",
+      "problem_solved_zh": "它为企业和个人客户提供融资、结算、财富管理和资金运营服务，解决资金周转和金融服务需求。",
+      "payers_zh": "企业客户、个人客户、小微客户和机构客户。",
+      "users_zh": "存款人、借款人、企业财务人员和财富管理客户。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.spdb.com.cn"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=600000"
+        }
+      ]
+    },
+    "000425.SZ": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "徐工机械是一家工程机械龙头，产品覆盖起重机械、挖掘机械、道路机械、矿山机械、混凝土机械等多个门类。公司本质上靠工程机械整机、核心部件和全球渠道服务体系赚钱。",
+      "product_revenue_breakdown": [
+        {
+          "product": "起重与高空作业机械",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "工程施工和设备租赁客户",
+          "core_competitiveness": "品牌、产品线和规模优势"
+        },
+        {
+          "product": "挖掘/道路/矿山机械",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "基建、矿山和工程客户",
+          "core_competitiveness": "多品类产品和工况适配能力"
+        },
+        {
+          "product": "核心零部件与国际化服务",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "工程机械客户和海外市场客户",
+          "core_competitiveness": "零部件配套和全球渠道能力"
+        }
+      ],
+      "key_customers_zh": "基建施工客户、矿山客户、设备租赁客户和海外工程客户。",
+      "core_competitiveness_zh": "工程机械全产品线、品牌影响力、制造能力和国际化渠道。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过工程机械整机和核心零部件销售获取收入，并通过售后服务和国际化市场扩张形成补充收益。",
+      "problem_solved_zh": "它为工程建设和资源开发提供高效率装备，解决施工、搬运和基础设施建设中的设备需求。",
+      "payers_zh": "施工企业、矿山客户、设备租赁客户和海外工程客户。",
+      "users_zh": "工程机械操作方、施工现场和矿山作业客户。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://www.xcmg.com"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=000425"
+        }
+      ]
+    },
+    "600690.SS": {
+      "fiscal_period": "FY2024",
+      "data_confidence": "high_disclosed",
+      "business_intro_zh": "海尔智家是一家全球化家电与智慧家庭平台公司，业务覆盖冰箱、洗衣机、空调、厨电、热水器和智慧家庭解决方案。它的核心不是单一品类，而是品牌矩阵、全球渠道和智慧家庭生态协同。",
+      "product_revenue_breakdown": [
+        {
+          "product": "冰洗及白色家电",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "家庭消费者和零售渠道",
+          "core_competitiveness": "品牌、产品力和全球渠道"
+        },
+        {
+          "product": "空调/热水器/厨电等",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "家庭和工程客户",
+          "core_competitiveness": "多品类协同和场景化解决方案"
+        },
+        {
+          "product": "智慧家庭与服务生态",
+          "revenue_share": "未披露（按业务板块整理）",
+          "customers": "存量家庭用户和生态客户",
+          "core_competitiveness": "全屋智能、服务和品牌矩阵运营能力"
+        }
+      ],
+      "key_customers_zh": "家庭消费者、零售渠道客户、工程客户和全球品牌用户。",
+      "core_competitiveness_zh": "全球化品牌矩阵、供应链效率、渠道能力和智慧家庭生态布局。",
+      "revenue_share_note_zh": "按官网与公开业务板块整理，未写入未核实的精确收入占比。",
+      "how_it_makes_money_zh": "公司主要通过家电产品销售获取收入，并通过高端品牌、全球化经营和智慧家庭服务提高用户终身价值。",
+      "problem_solved_zh": "它为家庭用户解决制冷、洗护、烹饪、空气和全屋智能管理需求。",
+      "payers_zh": "家庭消费者、零售渠道、工程客户和海外客户。",
+      "users_zh": "家庭住户、智慧家庭场景用户和全球消费用户。",
+      "sources": [
+        {
+          "title": "公司官网",
+          "url": "https://smart-home.haier.com"
+        },
+        {
+          "title": "巨潮资讯投资者关系",
+          "url": "https://irm.cninfo.com.cn/ircs/company/companyDetail?stockcode=600690"
         }
       ]
     }
