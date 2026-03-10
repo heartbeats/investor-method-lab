@@ -8,6 +8,7 @@ PYTHON_BIN="${PYTHON_BIN:-python3}"
 ENV_FILE="${PAI_ENV_FILE:-$ROOT_DIR/.env.pai}"
 NOTIFY_ENV_FILE="${PAI_NOTIFY_ENV_FILE:-$HOME/.config/dcf_notify.env}"
 FEISHU_SEND_SCRIPT="${PAI_FEISHU_SEND_SCRIPT:-$HOME/codex-project/scripts/send_feishu_text_message.py}"
+PAI_NOTIFY_ON_SUCCESS_OVERRIDE="${PAI_NOTIFY_ON_SUCCESS-__UNSET__}"
 HOME_DIR="${HOME:-/Users/$(id -un 2>/dev/null || echo lucas)}"
 HUB_ROOT="${IML_STOCK_DATA_HUB_ROOT:-${HOME_DIR}/projects/stock-data-hub}"
 HUB_HOST="${IML_STOCK_DATA_HUB_HOST:-127.0.0.1}"
@@ -91,6 +92,10 @@ if [ -f "$ENV_FILE" ]; then
   set +a
 fi
 
+if [ "$PAI_NOTIFY_ON_SUCCESS_OVERRIDE" != "__UNSET__" ]; then
+  export PAI_NOTIFY_ON_SUCCESS="$PAI_NOTIFY_ON_SUCCESS_OVERRIDE"
+fi
+
 MODE="${1:-sample}"
 if [ "$#" -gt 0 ]; then
   shift
@@ -142,6 +147,7 @@ PY
 )"
       if curl -sS -m 12 -H 'Content-Type: application/json' -d "$payload" "$webhook" >/dev/null; then
         log_alert "[notify-ok] sent to feishu webhook"
+        echo '{"sent": true, "delivery_channel": "webhook"}'
         return 0
       fi
       log_alert "[notify-failed] webhook request failed"
@@ -178,6 +184,11 @@ PY
   set -e
   if [ "$send_rc" -eq 0 ]; then
     log_alert "[notify-ok] sent via feishu app script"
+    if [ -n "$send_out" ]; then
+      printf '%s\n' "$send_out"
+    else
+      echo '{"sent": true, "delivery_channel": "app"}'
+    fi
   else
     log_alert "[notify-failed] app script rc=$send_rc detail=$(printf '%s\n' "$send_out" | tail -n1)"
   fi

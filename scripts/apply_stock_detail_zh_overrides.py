@@ -48,6 +48,10 @@ def ticker_variants(value: str) -> List[str]:
         if code.isdigit():
             variants.append(f"{code.zfill(5)}.HK")
             variants.append(f"{int(code)}.HK")
+    if "." in ticker and not ticker.endswith((".HK", ".SS", ".SZ")):
+        variants.append(ticker.replace(".", "-"))
+    if "-" in ticker:
+        variants.append(ticker.replace("-", "."))
     dedup: List[str] = []
     seen = set()
     for item in variants:
@@ -91,15 +95,21 @@ def main() -> None:
     applied = 0
     missing: List[str] = []
     for raw_ticker, payload in override_profiles.items():
+        variants = ticker_variants(raw_ticker)
         matched_key = None
-        for key in ticker_variants(raw_ticker):
+        for key in variants:
             if key in profiles:
                 matched_key = key
                 break
         profile = profiles.get(matched_key) if matched_key else None
         if not profile:
-            missing.append((raw_ticker or "").strip().upper())
-            continue
+            matched_key = variants[0] if variants else (raw_ticker or '').strip().upper()
+            profile = {
+                "ticker": matched_key,
+                "yf_ticker": matched_key,
+                "name": str(payload.get("name_cn") or payload.get("name") or matched_key).strip(),
+            }
+            profiles[matched_key] = profile
 
         fiscal_period = str(payload.get("fiscal_period") or "未披露")
         data_confidence = str(payload.get("data_confidence") or "unknown")
@@ -114,8 +124,32 @@ def main() -> None:
         revenue_share_note = str(payload.get("revenue_share_note_zh") or "").strip()
         sources = payload.get("sources") or []
 
+        direct_products_intro_zh = str(payload.get("products_intro_zh") or "").strip()
+        products_intro_zh = direct_products_intro_zh or build_products_intro_text(
+            fiscal_period=fiscal_period,
+            revenue_share_note=revenue_share_note,
+            products=products,
+            key_customers=key_customers,
+            competitiveness=competitiveness,
+        )
+
+        existing_business_intro = str(profile.get("business_intro") or "").strip()
+        existing_products_intro = str(profile.get("products_intro") or "").strip()
+        business_intro_raw = str(profile.get("business_intro_raw") or "").strip()
+        products_intro_raw = str(profile.get("products_intro_raw") or "").strip()
+
+        if existing_business_intro and existing_business_intro != business_intro_zh and not business_intro_raw:
+            business_intro_raw = existing_business_intro
+        if existing_products_intro and existing_products_intro != products_intro_zh and not products_intro_raw:
+            products_intro_raw = existing_products_intro
+
         profile["business_intro_zh"] = business_intro_zh
-        profile["business_intro"] = business_intro_zh or profile.get("business_intro")
+        if business_intro_raw:
+            profile["business_intro_raw"] = business_intro_raw
+            profile["business_intro"] = business_intro_raw
+        elif not existing_business_intro:
+            profile["business_intro"] = business_intro_zh
+
         profile["how_it_makes_money_zh"] = how_it_makes_money_zh
         profile["problem_solved_zh"] = problem_solved_zh
         profile["payers_zh"] = payers_zh
@@ -127,14 +161,12 @@ def main() -> None:
         profile["intro_fiscal_period"] = fiscal_period
         profile["intro_data_confidence"] = data_confidence
         profile["intro_sources"] = sources
-        profile["products_intro_zh"] = build_products_intro_text(
-            fiscal_period=fiscal_period,
-            revenue_share_note=revenue_share_note,
-            products=products,
-            key_customers=key_customers,
-            competitiveness=competitiveness,
-        )
-        profile["products_intro"] = profile["products_intro_zh"]
+        profile["products_intro_zh"] = products_intro_zh
+        if products_intro_raw:
+            profile["products_intro_raw"] = products_intro_raw
+            profile["products_intro"] = products_intro_raw
+        elif not existing_products_intro:
+            profile["products_intro"] = products_intro_zh
         applied += 1
 
     stock_doc["profiles"] = profiles

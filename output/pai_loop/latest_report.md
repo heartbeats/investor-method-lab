@@ -1,19 +1,17 @@
 # PAI 迭代闭环报告
 
-- run_id: `20260309_134637`
-- started_at: `2026-03-09 13:46:37`
-- with_real_data: `True`
+- run_id: `20260310_195906`
+- started_at: `2026-03-10 19:59:06`
+- with_real_data: `False`
 - skip_tests: `False`
 
 ## 1) 执行步骤
 
 | Step | Status | RC | Duration(s) |
 |---|---|---:|---:|
-| `build_verified_investors` | ok | 0 | 0.00 |
-| `generate_top20_pack_sample` | ok | 0 | 0.00 |
-| `build_real_opportunities` | ok | 0 | 0.00 |
-| `generate_top20_pack_real` | ok | 0 | 0.00 |
-| `unit_tests` | ok | 0 | 0.00 |
+| `build_verified_investors` | ok | 0 | 0.03 |
+| `generate_top20_pack_sample` | ok | 0 | 0.05 |
+| `unit_tests` | ok | 0 | 0.27 |
 
 ## 2) 关键产物快照
 

@@ -12,3 +12,5 @@
 [2026-03-07 00:45:19] [notify-ok] sent via feishu app script
 [2026-03-07 11:09:40] [run-failed] mode=real rc=120 reason=执行异常 report=/Users/lucas/projects/investor-method-lab/output/pai_loop/latest_report.md
 [2026-03-07 11:09:40] [notify-skipped] webhook not configured and app sender missing
+[2026-03-10 19:59:05] [notify-ok] sent via feishu app script
+[2026-03-10 19:59:06] [notify-ok] sent via feishu app script
