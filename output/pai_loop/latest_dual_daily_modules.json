@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-03-05T00:01:17",
-  "as_of_date": "2026-03-03",
+  "generated_at": "2026-03-11T13:23:53",
+  "as_of_date": "2026-03-11",
   "inputs": {
-    "focus_file": "/home/afu/projects/investor-method-lab/data/dcf_special_focus_list.json",
+    "focus_file": "data/dcf_special_focus_list.json",
     "top_file": "output/top20_first_batch_opportunities_real.csv",
     "real_file": "data/opportunities.real.csv",
     "meta_file": "docs/opportunities_real_data_meta.json"
@@ -12,96 +12,99 @@
     "opportunity_markdown": "output/pai_loop/latest_opportunity_daily.md"
   },
   "focus_module": {
-    "title": "【特别关注｜深度DCF校准】2026-03-03",
+    "title": "【特别关注｜深度DCF校准】2026-03-11",
     "summary": {
       "focus_total": 7,
-      "covered": 6,
-      "missing": 1
+      "covered": 7,
+      "missing": 0
     },
     "rows": [
+      {
+        "name": "拼多多",
+        "ticker": "PDD",
+        "dcf_symbol": "US.PDD",
+        "tag": "deep_calibrated",
+        "close": 100.74,
+        "iv": 250.8553,
+        "mos": 0.5984,
+        "status": "hit40"
+      },
       {
         "name": "Meituan",
         "ticker": "3690.HK",
         "dcf_symbol": "HK.03690",
         "tag": "deep_calibrated",
-        "close": 75.65,
-        "iv": 118.4122,
-        "mos": 0.3611300186973977,
-        "status": ""
-      },
-      {
-        "name": "NVIDIA",
-        "ticker": "NVDA",
-        "dcf_symbol": "US.NVDA",
-        "tag": "deep_calibrated",
-        "close": 179.4,
-        "iv": 264.2488,
-        "mos": 0.32109436258556334,
-        "status": ""
-      },
-      {
-        "name": "Tencent Holdings",
-        "ticker": "0700.HK",
-        "dcf_symbol": "HK.00700",
-        "tag": "deep_calibrated",
-        "close": 510.5,
-        "iv": 751.7248,
-        "mos": 0.3208950935235873,
-        "status": ""
-      },
-      {
-        "name": "Alphabet",
-        "ticker": "GOOGL",
-        "dcf_symbol": "US.GOOGL",
-        "tag": "deep_calibrated",
-        "close": 301.08,
-        "iv": 376.86,
-        "mos": 0.2010826301544341,
-        "status": ""
-      },
-      {
-        "name": "Apple",
-        "ticker": "AAPL",
-        "dcf_symbol": "US.AAPL",
-        "tag": "deep_calibrated",
-        "close": 262.43,
-        "iv": 293.0695,
-        "mos": 0.10454687369378253,
-        "status": ""
+        "close": 76.85,
+        "iv": 189.7014,
+        "mos": 0.5949,
+        "status": "hit40"
       },
       {
         "name": "贵州茅台",
         "ticker": "600519.SS",
         "dcf_symbol": "SH.600519",
         "tag": "deep_calibrated",
-        "close": 1426.19,
-        "iv": 1426.1899,
-        "mos": -7.011688974581712e-08,
-        "status": ""
-      }
-    ],
-    "missing_rows": [
+        "close": 1397.62,
+        "iv": 2120.4222,
+        "mos": 0.3409,
+        "status": "hit20"
+      },
       {
-        "dcf_symbol": "US.PDD",
-        "ticker": "PDD",
-        "name": "拼多多",
-        "tag": "deep_calibrated"
+        "name": "Tencent Holdings",
+        "ticker": "0700.HK",
+        "dcf_symbol": "HK.00700",
+        "tag": "deep_calibrated",
+        "close": 519.0,
+        "iv": 573.1636,
+        "mos": 0.0945,
+        "status": "watch"
+      },
+      {
+        "name": "Apple Inc.",
+        "ticker": "AAPL",
+        "dcf_symbol": "US.AAPL",
+        "tag": "manual",
+        "close": 260.29,
+        "iv": 195.3437,
+        "mos": -0.3325,
+        "status": "overvalued"
+      },
+      {
+        "name": "NVIDIA",
+        "ticker": "NVDA",
+        "dcf_symbol": "US.NVDA",
+        "tag": "manual",
+        "close": 183.34,
+        "iv": 128.2148,
+        "mos": -0.4299,
+        "status": "overvalued"
+      },
+      {
+        "name": "Alphabet Inc. (Class A)",
+        "ticker": "GOOGL",
+        "dcf_symbol": "US.GOOGL",
+        "tag": "deep_calibrated",
+        "close": 300.88,
+        "iv": 178.7076,
+        "mos": -0.6836,
+        "status": "overvalued"
       }
     ],
+    "missing_rows": [],
     "message_lines": [
       "口径：逐公司校准清单（7只）",
-      "命中行情覆盖：6/7",
-      "1. Meituan(HK.03690) MOS 36.11% | 现价 75.65 | 中性 118.41",
-      "2. NVIDIA(US.NVDA) MOS 32.11% | 现价 179.40 | 中性 264.25",
-      "3. Tencent Holdings(HK.00700) MOS 32.09% | 现价 510.50 | 中性 751.72",
-      "4. Alphabet(US.GOOGL) MOS 20.11% | 现价 301.08 | 中性 376.86",
-      "5. Apple(US.AAPL) MOS 10.45% | 现价 262.43 | 中性 293.07",
-      "6. 贵州茅台(SH.600519) MOS -0.00% | 现价 1426.19 | 中性 1426.19",
-      "待补数据：US.PDD"
+      "命中行情覆盖：7/7",
+      "1. 拼多多(US.PDD) MOS 59.84% | 现价 100.74 | 中性 250.86",
+      "2. Meituan(HK.03690) MOS 59.49% | 现价 76.85 | 中性 189.70",
+      "3. 贵州茅台(SH.600519) MOS 34.09% | 现价 1397.62 | 中性 2120.42",
+      "4. Tencent Holdings(HK.00700) MOS 9.45% | 现价 519.00 | 中性 573.16",
+      "5. Apple Inc.(US.AAPL) MOS -33.25% | 现价 260.29 | 中性 195.34",
+      "6. NVIDIA(US.NVDA) MOS -42.99% | 现价 183.34 | 中性 128.21",
+      "7. Alphabet Inc. (Class A)(US.GOOGL) MOS -68.36% | 现价 300.88 | 中性 178.71"
     ]
   },
   "opportunity_module": {
-    "title": "【机会挖掘｜新增候选】2026-03-03",
+    "title": "【机会挖掘｜新增候选】2026-03-11",
     "summary": {
       "count": 10,
       "excluded_focus_tickers": [
@@ -116,117 +119,117 @@
     },
     "rows": [
       {
-        "ticker": "HPE",
-        "name": "Hewlett Packard Enterprise",
-        "market": "US",
-        "score": 70.77,
-        "mos_pct": 17.7,
-        "best_group": "宏观周期",
-        "close": 21.4,
-        "target": 26.01
-      },
-      {
-        "ticker": "000002.SZ",
-        "name": "万科A",
+        "ticker": "688126.SS",
+        "name": "沪硅产业",
         "market": "A",
-        "score": 62.8,
-        "mos_pct": 11.9,
+        "score": 44.21,
+        "mos_pct": -3.1,
         "best_group": "宏观周期",
-        "close": 4.67,
-        "target": 5.3
+        "close": 19.5,
+        "target": 18.91
       },
       {
-        "ticker": "CARR",
-        "name": "Carrier Global",
-        "market": "US",
-        "score": 62.68,
-        "mos_pct": 14.5,
-        "best_group": "宏观周期",
-        "close": 61.38,
-        "target": 71.8
-      },
-      {
-        "ticker": "HPQ",
-        "name": "HP Inc.",
-        "market": "US",
-        "score": 58.91,
-        "mos_pct": 6.3,
-        "best_group": "宏观周期",
-        "close": 18.73,
-        "target": 19.99
-      },
-      {
-        "ticker": "BBY",
-        "name": "Best Buy",
-        "market": "US",
-        "score": 57.32,
-        "mos_pct": 15.7,
-        "best_group": "宏观周期",
-        "close": 65.2,
-        "target": 77.37
-      },
-      {
-        "ticker": "688036.SS",
-        "name": "传音控股",
+        "ticker": "600000.SS",
+        "name": "浦发银行",
         "market": "A",
-        "score": 56.05,
-        "mos_pct": 0.0,
+        "score": 43.63,
+        "mos_pct": 3.8,
         "best_group": "宏观周期",
-        "close": 54.08,
-        "target": null
+        "close": 9.96,
+        "target": 10.35
       },
       {
-        "ticker": "603260.SS",
-        "name": "合盛硅业",
+        "ticker": "688506.SS",
+        "name": "百利天恒",
         "market": "A",
-        "score": 54.46,
-        "mos_pct": 0.0,
+        "score": 40.42,
+        "mos_pct": -52.5,
         "best_group": "宏观周期",
-        "close": 48.97,
-        "target": null
+        "close": 254.87,
+        "target": 167.16
       },
       {
-        "ticker": "LEN",
-        "name": "Lennar",
-        "market": "US",
-        "score": 53.86,
+        "ticker": "601136.SS",
+        "name": "首创证券",
+        "market": "A",
+        "score": 40.06,
         "mos_pct": 1.0,
         "best_group": "宏观周期",
-        "close": 107.47,
-        "target": 108.62
+        "close": 17.3,
+        "target": 17.47
       },
       {
-        "ticker": "KMX",
-        "name": "CarMax",
-        "market": "US",
-        "score": 52.53,
-        "mos_pct": -4.6,
+        "ticker": "002241.SZ",
+        "name": "歌尔股份",
+        "market": "A",
+        "score": 38.05,
+        "mos_pct": -7.2,
         "best_group": "宏观周期",
-        "close": 41.02,
-        "target": 39.23
+        "close": 25.13,
+        "target": 23.45
       },
       {
-        "ticker": "IT",
-        "name": "Gartner",
-        "market": "US",
-        "score": 51.27,
-        "mos_pct": 16.3,
+        "ticker": "000063.SZ",
+        "name": "中兴通讯",
+        "market": "A",
+        "score": 33.54,
+        "mos_pct": -11.0,
         "best_group": "宏观周期",
-        "close": 159.38,
-        "target": 190.46
+        "close": 37.88,
+        "target": 34.12
+      },
+      {
+        "ticker": "600377.SS",
+        "name": "宁沪高速",
+        "market": "A",
+        "score": 32.02,
+        "mos_pct": 2.6,
+        "best_group": "宏观周期",
+        "close": 12.03,
+        "target": 12.35
+      },
+      {
+        "ticker": "601166.SS",
+        "name": "兴业银行",
+        "market": "A",
+        "score": 31.5,
+        "mos_pct": 2.7,
+        "best_group": "宏观周期",
+        "close": 18.47,
+        "target": 18.99
+      },
+      {
+        "ticker": "601818.SS",
+        "name": "光大银行",
+        "market": "A",
+        "score": 29.41,
+        "mos_pct": 0.4,
+        "best_group": "宏观周期",
+        "close": 3.24,
+        "target": 3.25
+      },
+      {
+        "ticker": "601236.SS",
+        "name": "红塔证券",
+        "market": "A",
+        "score": 28.76,
+        "mos_pct": 6.8,
+        "best_group": "宏观周期",
+        "close": 7.87,
+        "target": 8.44
       }
     ],
     "message_lines": [
       "口径：机会池剔除特别关注标的后按综合分排序",
       "本次展示：8只",
-      "1. Hewlett Packard Enterprise(HPE) 分数 70.8 | MOS 17.7% | 现价/目标 21.40/26.01",
-      "2. 万科A(000002.SZ) 分数 62.8 | MOS 11.9% | 现价/目标 4.67/5.30",
-      "3. Carrier Global(CARR) 分数 62.7 | MOS 14.5% | 现价/目标 61.38/71.80",
-      "4. HP Inc.(HPQ) 分数 58.9 | MOS 6.3% | 现价/目标 18.73/19.99",
-      "5. Best Buy(BBY) 分数 57.3 | MOS 15.7% | 现价/目标 65.20/77.37",
-      "6. 传音控股(688036.SS) 分数 56.0 | MOS 0.0% | 现价/目标 54.08/-",
-      "7. 合盛硅业(603260.SS) 分数 54.5 | MOS 0.0% | 现价/目标 48.97/-",
-      "8. Lennar(LEN) 分数 53.9 | MOS 1.0% | 现价/目标 107.47/108.62"
+      "1. 沪硅产业(688126.SS) 分数 44.2 | MOS -3.1% | 现价/目标 19.50/18.91",
+      "2. 浦发银行(600000.SS) 分数 43.6 | MOS 3.8% | 现价/目标 9.96/10.35",
+      "3. 百利天恒(688506.SS) 分数 40.4 | MOS -52.5% | 现价/目标 254.87/167.16",
+      "4. 首创证券(601136.SS) 分数 40.1 | MOS 1.0% | 现价/目标 17.30/17.47",
+      "5. 歌尔股份(002241.SZ) 分数 38.0 | MOS -7.2% | 现价/目标 25.13/23.45",
+      "6. 中兴通讯(000063.SZ) 分数 33.5 | MOS -11.0% | 现价/目标 37.88/34.12",
+      "7. 宁沪高速(600377.SS) 分数 32.0 | MOS 2.6% | 现价/目标 12.03/12.35",
+      "8. 兴业银行(601166.SS) 分数 31.5 | MOS 2.7% | 现价/目标 18.47/18.99"
     ]
   }
 }

@@ -12,6 +12,7 @@ import pandas as pd
 import requests
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_FOCUS_FILE = PROJECT_ROOT / "data" / "dcf_special_focus_list.json"
 
 US_SP500_URL = (
     "https://raw.githubusercontent.com/datasets/s-and-p-500-companies/master/data/constituents.csv"
@@ -58,6 +59,12 @@ def parse_args() -> argparse.Namespace:
         default=PROJECT_ROOT / "data" / "opportunities.universe_3markets.csv",
         help="旧股票池锚点（优先保留）",
     )
+    parser.add_argument(
+        "--focus-file",
+        type=Path,
+        default=DEFAULT_FOCUS_FILE,
+        help="特别关注清单（自动并入核心股票池，避免跟踪标的缺失）",
+    )
     parser.add_argument("--a-limit", type=int, default=300, help="A 股核心池规模")
     parser.add_argument("--hk-limit", type=int, default=200, help="港股核心池规模")
     parser.add_argument("--us-limit", type=int, default=300, help="美股核心池规模")
@@ -71,6 +78,39 @@ def infer_market_from_ticker(ticker: str) -> str:
     if value.endswith(".HK"):
         return "HK"
     return "US"
+
+
+def _normalize_ticker(raw: str) -> str:
+    return str(raw or "").strip().upper()
+
+
+def canonical_ticker_key(raw: str) -> str:
+    ticker = _normalize_ticker(raw)
+    if not ticker:
+        return ""
+    if ticker.endswith(".HK"):
+        code = ticker[:-3]
+        if code.isdigit():
+            return f"{int(code)}.HK"
+    return ticker
+
+
+def dcf_symbol_to_ticker(dcf_symbol: str) -> str:
+    raw = _normalize_ticker(dcf_symbol)
+    if not raw or "." not in raw:
+        return raw
+    market, code = raw.split(".", 1)
+    if market == "US":
+        return code
+    if market == "HK" and code.isdigit():
+        return f"{int(code)}.HK"
+    if market == "HK":
+        return f"{code}.HK"
+    if market == "SH":
+        return f"{code}.SS"
+    if market == "SZ":
+        return f"{code}.SZ"
+    return raw
 
 
 def load_seed_rows(path: Path) -> List[UniverseRow]:
@@ -98,6 +138,56 @@ def load_seed_rows(path: Path) -> List[UniverseRow]:
                 )
             )
     return rows
+
+
+def load_focus_rows(path: Path) -> List[UniverseRow]:
+    if not path.exists():
+        return []
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    symbols = payload.get("symbols") if isinstance(payload, dict) else payload
+    if not isinstance(symbols, list):
+        return []
+
+    rows: List[UniverseRow] = []
+    seen: set[str] = set()
+    for item in symbols:
+        if not isinstance(item, dict):
+            continue
+        dcf_symbol = _normalize_ticker(item.get("dcf_symbol") or item.get("symbol") or "")
+        ticker = _normalize_ticker(item.get("ticker") or dcf_symbol_to_ticker(dcf_symbol))
+        if not ticker:
+            continue
+        key = canonical_ticker_key(ticker)
+        if key in seen:
+            continue
+        seen.add(key)
+        market = infer_market_from_ticker(ticker)
+        name = str(item.get("name") or item.get("name_cn") or ticker).strip() or ticker
+        rows.append(
+            UniverseRow(
+                ticker=ticker,
+                market=market,
+                name=name,
+                sector="Unknown",
+                liquidity_tag="special_focus_anchor",
+                included_reason="dcf_special_focus",
+                note="special focus | auto-anchored from dcf_special_focus_list",
+            )
+        )
+    return rows
+
+
+def merge_anchor_rows(*groups: List[UniverseRow]) -> List[UniverseRow]:
+    merged: List[UniverseRow] = []
+    seen: set[str] = set()
+    for rows in groups:
+        for row in rows:
+            key = canonical_ticker_key(row.ticker)
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            merged.append(row)
+    return merged
 
 
 def build_us_pool(limit: int) -> List[UniverseRow]:
@@ -308,26 +398,30 @@ def build_hk_pool(limit: int) -> List[UniverseRow]:
 def apply_seed_anchors(
     source_rows: List[UniverseRow], seed_rows: List[UniverseRow], market: str, limit: int
 ) -> List[UniverseRow]:
-    rows_by_ticker: Dict[str, UniverseRow] = {row.ticker: row for row in source_rows}
+    rows_by_ticker: Dict[str, UniverseRow] = {}
+    for row in source_rows:
+        rows_by_ticker.setdefault(canonical_ticker_key(row.ticker), row)
     selected: List[UniverseRow] = []
     seen: set[str] = set()
 
     for seed in seed_rows:
         if seed.market != market:
             continue
-        if seed.ticker in seen:
+        seed_key = canonical_ticker_key(seed.ticker)
+        if seed_key in seen:
             continue
-        picked = rows_by_ticker.get(seed.ticker, seed)
+        picked = rows_by_ticker.get(seed_key, seed)
         selected.append(picked)
-        seen.add(seed.ticker)
+        seen.add(seed_key)
         if len(selected) >= limit:
             return selected
 
     for row in source_rows:
-        if row.ticker in seen:
+        row_key = canonical_ticker_key(row.ticker)
+        if row_key in seen:
             continue
         selected.append(row)
-        seen.add(row.ticker)
+        seen.add(row_key)
         if len(selected) >= limit:
             break
 
@@ -365,10 +459,12 @@ def write_csv(path: Path, rows: List[UniverseRow]) -> None:
 def main() -> None:
     args = parse_args()
     seed_rows = load_seed_rows(args.seed_file)
+    focus_rows = load_focus_rows(args.focus_file)
+    anchor_rows = merge_anchor_rows(focus_rows, seed_rows)
 
-    us_rows = apply_seed_anchors(build_us_pool(args.us_limit), seed_rows, "US", args.us_limit)
-    hk_rows = apply_seed_anchors(build_hk_pool(args.hk_limit), seed_rows, "HK", args.hk_limit)
-    a_rows = apply_seed_anchors(build_a_pool(args.a_limit), seed_rows, "A", args.a_limit)
+    us_rows = apply_seed_anchors(build_us_pool(args.us_limit), anchor_rows, "US", args.us_limit)
+    hk_rows = apply_seed_anchors(build_hk_pool(args.hk_limit), anchor_rows, "HK", args.hk_limit)
+    a_rows = apply_seed_anchors(build_a_pool(args.a_limit), anchor_rows, "A", args.a_limit)
 
     combined = a_rows + hk_rows + us_rows
     write_csv(args.output_file, combined)
@@ -385,6 +481,13 @@ def main() -> None:
             "A": "akshare.index_stock_cons_weight_csindex(000300) with SSE fallback",
             "HK": "HKEX ListOfSecurities.xlsx (Main Board Equity + HKD + shortsell priority)",
             "US": "datasets/s-and-p-500-companies",
+        },
+        "anchors": {
+            "seed_file": str(args.seed_file),
+            "focus_file": str(args.focus_file),
+            "seed_count": len(seed_rows),
+            "focus_count": len(focus_rows),
+            "merged_anchor_count": len(anchor_rows),
         },
     }
     print(json.dumps(summary, ensure_ascii=False, indent=2))

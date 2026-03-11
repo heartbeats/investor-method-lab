@@ -138,6 +138,41 @@ def normalize_ticker(raw: str) -> str:
     return str(raw or "").strip().upper()
 
 
+def ticker_lookup_keys(raw: str) -> List[str]:
+    ticker = normalize_ticker(raw)
+    if not ticker:
+        return []
+
+    keys: List[str] = []
+
+    def add(value: str) -> None:
+        normalized = normalize_ticker(value)
+        if normalized and normalized not in keys:
+            keys.append(normalized)
+
+    add(ticker)
+    if ticker.endswith(".HK"):
+        code = ticker[:-3]
+        if code.isdigit():
+            add(f"{int(code)}.HK")
+            add(f"{int(code):05d}.HK")
+            add(f"HK.{int(code)}")
+            add(f"HK.{int(code):05d}")
+    elif ticker.endswith(".SS"):
+        code = ticker[:-3]
+        if code.isdigit():
+            add(f"SH.{code}")
+    elif ticker.endswith(".SZ"):
+        code = ticker[:-3]
+        if code.isdigit():
+            add(f"SZ.{code}")
+    elif ticker.startswith(("US.", "HK.", "SH.", "SZ.")):
+        add(dcf_symbol_to_ticker(ticker))
+    else:
+        add(f"US.{ticker}")
+    return keys
+
+
 def dcf_symbol_to_ticker(dcf_symbol: str) -> str:
     raw = str(dcf_symbol or "").strip().upper()
     if not raw or "." not in raw:
@@ -256,7 +291,11 @@ def build_focus_rows(
     rows: List[Dict[str, Any]] = []
     missing: List[FocusItem] = []
     for item in focus_items:
-        row = real_map.get(item.ticker)
+        row = None
+        for key in ticker_lookup_keys(item.ticker) + ticker_lookup_keys(item.dcf_symbol):
+            row = real_map.get(key)
+            if row is not None:
+                break
         if row is None:
             missing.append(item)
             continue
@@ -458,7 +497,12 @@ def main() -> None:
 
     top_rows = read_csv(top_file)
     real_rows = read_csv(real_file)
-    real_map = {normalize_ticker(row.get("ticker", "")): row for row in real_rows if row.get("ticker")}
+    real_map: Dict[str, Dict[str, str]] = {}
+    for row in real_rows:
+        ticker = row.get("ticker", "")
+        dcf_symbol = row.get("dcf_symbol", "")
+        for key in ticker_lookup_keys(ticker) + ticker_lookup_keys(dcf_symbol):
+            real_map.setdefault(key, row)
     as_of_date = infer_as_of_date(meta_file=meta_file, fallback=args.as_of_date)
 
     focus_rows, missing_focus = build_focus_rows(focus_items=focus_items, real_map=real_map)

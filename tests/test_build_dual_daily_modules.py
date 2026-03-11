@@ -80,6 +80,28 @@ class BuildDualDailyModulesTest(unittest.TestCase):
         self.assertEqual(len(rows), 1)
         self.assertEqual(rows[0]["ticker"], "MSFT")
 
+    def test_build_focus_rows_matches_hk_aliases(self) -> None:
+        focus_items = [mod.FocusItem(dcf_symbol="HK.00700", ticker="0700.HK", name="腾讯控股", tag="manual")]
+        real_map = {
+            "00700.HK": {
+                "ticker": "00700.HK",
+                "dcf_symbol": "HK.00700",
+                "name": "Tencent Holdings",
+                "note": "close=553.50 | target=600.00",
+                "target_mean_price": "600.0",
+            }
+        }
+        rows, missing = mod.build_focus_rows(focus_items, real_map)
+        self.assertEqual(len(rows), 1)
+        self.assertFalse(missing)
+        self.assertEqual(rows[0]["name"], "Tencent Holdings")
+
+    def test_ticker_lookup_keys_covers_hk_variants(self) -> None:
+        keys = mod.ticker_lookup_keys("0700.HK")
+        self.assertIn("0700.HK", keys)
+        self.assertIn("00700.HK", keys)
+        self.assertIn("HK.00700", keys)
+
 
 if __name__ == "__main__":
     unittest.main()

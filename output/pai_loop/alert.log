@@ -14,3 +14,6 @@
 [2026-03-07 11:09:40] [notify-skipped] webhook not configured and app sender missing
 [2026-03-10 19:59:05] [notify-ok] sent via feishu app script
 [2026-03-10 19:59:06] [notify-ok] sent via feishu app script
+[2026-03-11 09:38:59] [notify-ok] sent via feishu app script
+[2026-03-11 09:39:01] [notify-ok] sent via feishu app script
+[2026-03-11 09:39:01] [dual-modules-sent] json=/Users/lucas/projects/investor-method-lab/output/pai_loop/latest_dual_daily_modules.json
