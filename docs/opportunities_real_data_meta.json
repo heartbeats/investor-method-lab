@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-03-11T05:21:26.683182+00:00",
+  "generated_at_utc": "2026-03-12T01:13:30.490954+00:00",
   "source": "stock-data-hub(API+snapshot) + local DCF valuation link (partial coverage; comps baseline cross-check optional)",
   "cache_policy": "enabled; ttl_hours=24; use cached result for non-real-time API calls",
   "as_of_dates": [
@@ -9,15 +9,15 @@
     "2026-03-10",
     "2026-03-11"
   ],
-  "universe_size": 801,
-  "requested_universe_size": 801,
+  "universe_size": 800,
+  "requested_universe_size": 800,
   "coverage_of_requested_universe": 1.0,
   "failed_ticker_count": 0,
   "failed_tickers": [],
   "valuation_source_breakdown": {
     "target_mean_price": 569,
     "close_fallback": 202,
-    "dcf_iv_base": 30
+    "dcf_iv_base": 29
   },
   "skip_hub_price_history": false,
   "skip_hub_online": false,
@@ -63,7 +63,6 @@
       "US.META",
       "US.MSFT",
       "US.NVDA",
-      "US.PDD",
       "US.TSLA",
       "US.UNH",
       "US.V",
@@ -96,7 +95,6 @@
       "US.META",
       "US.MSFT",
       "US.NVDA",
-      "US.PDD",
       "US.TSLA",
       "US.UNH",
       "US.V",
@@ -128,7 +126,6 @@
       "META",
       "MSFT",
       "NVDA",
-      "PDD",
       "TSLA",
       "UNH",
       "V",
@@ -160,7 +157,6 @@
       "META",
       "MSFT",
       "NVDA",
-      "PDD",
       "TSLA",
       "UNH",
       "V",
@@ -940,25 +936,25 @@
     ],
     "errors": [],
     "valuation_source_counts": {
-      "dcf_iv_base": 30,
+      "dcf_iv_base": 29,
       "target_mean_price": 569,
       "close_fallback": 202
     },
     "quality_gate_status_counts": {
-      "caution": 23,
+      "caution": 22,
       "ok": 7
     },
     "comps_crosscheck_status_counts": {
-      "unavailable": 30
+      "unavailable": 29
     },
-    "coverage_ratio": 0.03745318352059925,
-    "iv_coverage_ratio": 0.03745318352059925
+    "coverage_ratio": 0.03625,
+    "iv_coverage_ratio": 0.03625
   },
   "hub_comps_overlay": {
     "enabled": true,
     "base_url": "http://127.0.0.1:18123",
     "request_count": 771,
-    "skipped_existing_count": 29,
+    "skipped_existing_count": 28,
     "max_peers": 6,
     "min_peers": 2,
     "peer_strategy": "sector_market",
@@ -1232,8 +1228,7 @@
     "00881.HK",
     "ERIE",
     "FOX",
-    "L",
-    "PDD"
+    "L"
   ],
   "non_realtime_disclaimer": "stock-data-hub 与 DCF API 可能有短延迟；本文件为市场数据支撑，但不是交易所逐笔级实时数据。"
 }

@@ -1,34 +1,24 @@
 {
-  "generated_at": "2026-03-11T13:23:53",
+  "generated_at": "2026-03-12T09:13:32",
   "as_of_date": "2026-03-11",
   "inputs": {
-    "focus_file": "data/dcf_special_focus_list.json",
-    "top_file": "output/top20_first_batch_opportunities_real.csv",
-    "real_file": "data/opportunities.real.csv",
-    "meta_file": "docs/opportunities_real_data_meta.json"
+    "focus_file": "/Users/lucas/projects/investor-method-lab/data/dcf_special_focus_list.json",
+    "top_file": "/Users/lucas/projects/investor-method-lab/output/top20_first_batch_opportunities_real.csv",
+    "real_file": "/Users/lucas/projects/investor-method-lab/data/opportunities.real.csv",
+    "meta_file": "/Users/lucas/projects/investor-method-lab/docs/opportunities_real_data_meta.json"
   },
   "outputs": {
-    "focus_markdown": "output/pai_loop/latest_focus_daily.md",
-    "opportunity_markdown": "output/pai_loop/latest_opportunity_daily.md"
+    "focus_markdown": "/Users/lucas/projects/investor-method-lab/output/pai_loop/latest_focus_daily.md",
+    "opportunity_markdown": "/Users/lucas/projects/investor-method-lab/output/pai_loop/latest_opportunity_daily.md"
   },
   "focus_module": {
     "title": "【特别关注｜深度DCF校准】2026-03-11",
     "summary": {
       "focus_total": 7,
-      "covered": 7,
-      "missing": 0
+      "covered": 6,
+      "missing": 1
     },
     "rows": [
-      {
-        "name": "拼多多",
-        "ticker": "PDD",
-        "dcf_symbol": "US.PDD",
-        "tag": "deep_calibrated",
-        "close": 100.74,
-        "iv": 250.8553,
-        "mos": 0.5984,
-        "status": "hit40"
-      },
       {
         "name": "Meituan",
         "ticker": "3690.HK",
@@ -90,17 +80,24 @@
         "status": "overvalued"
       }
     ],
-    "missing_rows": [],
+    "missing_rows": [
+      {
+        "dcf_symbol": "US.PDD",
+        "ticker": "PDD",
+        "name": "拼多多",
+        "tag": "deep_calibrated"
+      }
+    ],
     "message_lines": [
       "口径：逐公司校准清单（7只）",
-      "命中行情覆盖：7/7",
-      "1. 拼多多(US.PDD) MOS 59.84% | 现价 100.74 | 中性 250.86",
-      "2. Meituan(HK.03690) MOS 59.49% | 现价 76.85 | 中性 189.70",
-      "3. 贵州茅台(SH.600519) MOS 34.09% | 现价 1397.62 | 中性 2120.42",
-      "4. Tencent Holdings(HK.00700) MOS 9.45% | 现价 519.00 | 中性 573.16",
-      "5. Apple Inc.(US.AAPL) MOS -33.25% | 现价 260.29 | 中性 195.34",
-      "6. NVIDIA(US.NVDA) MOS -42.99% | 现价 183.34 | 中性 128.21",
-      "7. Alphabet Inc. (Class A)(US.GOOGL) MOS -68.36% | 现价 300.88 | 中性 178.71"
+      "命中行情覆盖：6/7",
+      "1. Meituan(HK.03690) MOS 59.49% | 现价 76.85 | 中性 189.70",
+      "2. 贵州茅台(SH.600519) MOS 34.09% | 现价 1397.62 | 中性 2120.42",
+      "3. Tencent Holdings(HK.00700) MOS 9.45% | 现价 519.00 | 中性 573.16",
+      "4. Apple Inc.(US.AAPL) MOS -33.25% | 现价 260.29 | 中性 195.34",
+      "5. NVIDIA(US.NVDA) MOS -42.99% | 现价 183.34 | 中性 128.21",
+      "6. Alphabet Inc. (Class A)(US.GOOGL) MOS -68.36% | 现价 300.88 | 中性 178.71",
+      "待补数据：US.PDD"
     ]
   },
   "opportunity_module": {
@@ -122,7 +119,7 @@
         "ticker": "688126.SS",
         "name": "沪硅产业",
         "market": "A",
-        "score": 44.21,
+        "score": 44.17,
         "mos_pct": -3.1,
         "best_group": "宏观周期",
         "close": 19.5,
@@ -132,7 +129,7 @@
         "ticker": "600000.SS",
         "name": "浦发银行",
         "market": "A",
-        "score": 43.63,
+        "score": 43.47,
         "mos_pct": 3.8,
         "best_group": "宏观周期",
         "close": 9.96,
@@ -142,27 +139,17 @@
         "ticker": "688506.SS",
         "name": "百利天恒",
         "market": "A",
-        "score": 40.42,
+        "score": 40.28,
         "mos_pct": -52.5,
         "best_group": "宏观周期",
         "close": 254.87,
         "target": 167.16
       },
       {
-        "ticker": "601136.SS",
-        "name": "首创证券",
-        "market": "A",
-        "score": 40.06,
-        "mos_pct": 1.0,
-        "best_group": "宏观周期",
-        "close": 17.3,
-        "target": 17.47
-      },
-      {
         "ticker": "002241.SZ",
         "name": "歌尔股份",
         "market": "A",
-        "score": 38.05,
+        "score": 37.97,
         "mos_pct": -7.2,
         "best_group": "宏观周期",
         "close": 25.13,
@@ -172,64 +159,74 @@
         "ticker": "000063.SZ",
         "name": "中兴通讯",
         "market": "A",
-        "score": 33.54,
+        "score": 33.48,
         "mos_pct": -11.0,
         "best_group": "宏观周期",
         "close": 37.88,
         "target": 34.12
       },
       {
-        "ticker": "600377.SS",
-        "name": "宁沪高速",
-        "market": "A",
-        "score": 32.02,
-        "mos_pct": 2.6,
-        "best_group": "宏观周期",
-        "close": 12.03,
-        "target": 12.35
-      },
-      {
         "ticker": "601166.SS",
         "name": "兴业银行",
         "market": "A",
-        "score": 31.5,
+        "score": 31.72,
         "mos_pct": 2.7,
         "best_group": "宏观周期",
         "close": 18.47,
         "target": 18.99
       },
       {
+        "ticker": "601136.SS",
+        "name": "首创证券",
+        "market": "A",
+        "score": 30.34,
+        "mos_pct": 1.0,
+        "best_group": "宏观周期",
+        "close": 17.3,
+        "target": 17.47
+      },
+      {
         "ticker": "601818.SS",
         "name": "光大银行",
         "market": "A",
-        "score": 29.41,
+        "score": 29.67,
         "mos_pct": 0.4,
         "best_group": "宏观周期",
         "close": 3.24,
         "target": 3.25
       },
       {
-        "ticker": "601236.SS",
-        "name": "红塔证券",
+        "ticker": "601169.SS",
+        "name": "北京银行",
         "market": "A",
-        "score": 28.76,
-        "mos_pct": 6.8,
+        "score": 27.93,
+        "mos_pct": -2.0,
         "best_group": "宏观周期",
-        "close": 7.87,
-        "target": 8.44
+        "close": 5.4,
+        "target": 5.3
+      },
+      {
+        "ticker": "MSFT",
+        "name": "Microsoft",
+        "market": "US",
+        "score": 27.15,
+        "mos_pct": -49.7,
+        "best_group": "宏观周期",
+        "close": 405.76,
+        "target": 596.0
       }
     ],
     "message_lines": [
       "口径：机会池剔除特别关注标的后按综合分排序",
       "本次展示：8只",
       "1. 沪硅产业(688126.SS) 分数 44.2 | MOS -3.1% | 现价/目标 19.50/18.91",
-      "2. 浦发银行(600000.SS) 分数 43.6 | MOS 3.8% | 现价/目标 9.96/10.35",
-      "3. 百利天恒(688506.SS) 分数 40.4 | MOS -52.5% | 现价/目标 254.87/167.16",
-      "4. 首创证券(601136.SS) 分数 40.1 | MOS 1.0% | 现价/目标 17.30/17.47",
-      "5. 歌尔股份(002241.SZ) 分数 38.0 | MOS -7.2% | 现价/目标 25.13/23.45",
-      "6. 中兴通讯(000063.SZ) 分数 33.5 | MOS -11.0% | 现价/目标 37.88/34.12",
-      "7. 宁沪高速(600377.SS) 分数 32.0 | MOS 2.6% | 现价/目标 12.03/12.35",
-      "8. 兴业银行(601166.SS) 分数 31.5 | MOS 2.7% | 现价/目标 18.47/18.99"
+      "2. 浦发银行(600000.SS) 分数 43.5 | MOS 3.8% | 现价/目标 9.96/10.35",
+      "3. 百利天恒(688506.SS) 分数 40.3 | MOS -52.5% | 现价/目标 254.87/167.16",
+      "4. 歌尔股份(002241.SZ) 分数 38.0 | MOS -7.2% | 现价/目标 25.13/23.45",
+      "5. 中兴通讯(000063.SZ) 分数 33.5 | MOS -11.0% | 现价/目标 37.88/34.12",
+      "6. 兴业银行(601166.SS) 分数 31.7 | MOS 2.7% | 现价/目标 18.47/18.99",
+      "7. 首创证券(601136.SS) 分数 30.3 | MOS 1.0% | 现价/目标 17.30/17.47",
+      "8. 光大银行(601818.SS) 分数 29.7 | MOS 0.4% | 现价/目标 3.24/3.25"
     ]
   }
 }
