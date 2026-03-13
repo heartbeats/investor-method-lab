@@ -1,0 +1,22 @@
+{
+  "generated_at_utc": "2026-03-13T06:12:29.734339+00:00",
+  "source": {
+    "credential_source": "profile:openclaw.json:jarvis",
+    "auth_probe_errors": [],
+    "app_token": "NLiPbStTFauj36sdGOuc8ASrnYd",
+    "app_url": "https://my.feishu.cn/base/NLiPbStTFauj36sdGOuc8ASrnYd",
+    "table_id": "tblKFQRYC2BjRViZ",
+    "view_id": "vewEqE9Kkx",
+    "main_url": "https://feishu.cn/base/NLiPbStTFauj36sdGOuc8ASrnYd?table=tblKFQRYC2BjRViZ&view=vewEqE9Kkx",
+    "records_scanned": 33
+  },
+  "items": [],
+  "summary": {
+    "reviewed_items_count": 0,
+    "followup_backlog_count": 0,
+    "decision_breakdown": {},
+    "action_breakdown": {},
+    "writeback_status_breakdown": {},
+    "generated_at_utc": "2026-03-13T06:12:29.734331+00:00"
+  }
+}

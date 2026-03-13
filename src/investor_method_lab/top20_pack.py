@@ -430,6 +430,98 @@ def _group_rule_text(profile_id: str) -> Tuple[str, str]:
     return rule.get("hard", "默认硬筛：无"), rule.get("soft", "默认软惩罚：无")
 
 
+def _optional_float(value: Any) -> float | None:
+    if value in (None, ""):
+        return None
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
+def _format_number(value: Any, digits: int = 2) -> str:
+    number = _optional_float(value)
+    if number is None:
+        return "-"
+    return f"{number:.{digits}f}"
+
+
+def _format_pct(value: Any, digits: int = 1, *, signed: bool = False) -> str:
+    number = _optional_float(value)
+    if number is None:
+        return "-"
+    if signed:
+        return f"{number * 100:+.{digits}f}%"
+    return f"{number * 100:.{digits}f}%"
+
+
+def build_validation_summary(row: Dict[str, Any]) -> str:
+    status = str(row.get("validation_status") or "").strip()
+    if not status:
+        return "-"
+    parts = [status]
+    hit = row.get("validation_hit")
+    if hit is True:
+        parts.append("命中")
+    elif hit is False:
+        parts.append("未命中")
+    excess = _optional_float(row.get("validation_primary_excess_return"))
+    if excess is not None:
+        parts.append(f"超额{excess * 100:+.1f}%")
+    days_held = _optional_float(row.get("validation_days_held"))
+    if days_held is not None and days_held > 0:
+        parts.append(f"{int(days_held)}d")
+    return " | ".join(parts)
+
+
+def build_valuation_summary(row: Dict[str, Any]) -> str:
+    valuation_source = str(row.get("valuation_source") or row.get("valuation_source_at_signal") or "").strip()
+    fair_value = _optional_float(row.get("fair_value") or row.get("fair_value_at_signal"))
+    dcf_value = _optional_float(row.get("dcf_iv_base"))
+    target_mean = _optional_float(row.get("target_mean_price"))
+
+    parts: List[str] = []
+    if valuation_source:
+        parts.append(valuation_source)
+    if valuation_source == "dcf_iv_base" and dcf_value is not None:
+        parts.append(f"DCF {_format_number(dcf_value)}")
+    elif fair_value is not None:
+        parts.append(f"FV {_format_number(fair_value)}")
+    if target_mean is not None and (dcf_value is not None or valuation_source != "target_mean_price"):
+        parts.append(f"外部 {_format_number(target_mean)}")
+    elif target_mean is not None and fair_value is None:
+        parts.append(f"外部 {_format_number(target_mean)}")
+    return " | ".join(parts) if parts else "-"
+
+
+def build_risk_summary(row: Dict[str, Any]) -> str:
+    parts: List[str] = []
+    valuation_source = str(row.get("valuation_source") or "").strip()
+    if valuation_source == "close_fallback":
+        parts.append("仅现价回退")
+
+    dcf_quality = str(row.get("dcf_quality_gate_status") or "").strip()
+    if dcf_quality in {"review", "caution", "warn", "fail"}:
+        parts.append(f"DCF质量:{dcf_quality}")
+
+    dcf_crosscheck = str(row.get("dcf_comps_crosscheck_status") or "").strip()
+    if dcf_crosscheck in {"review", "warn", "unavailable", "fail"}:
+        parts.append(f"交叉验证:{dcf_crosscheck}")
+
+    review_state = str(row.get("review_state") or "").strip()
+    if review_state and review_state != "auto":
+        parts.append(f"复核:{review_state}")
+
+    validation_status = str(row.get("validation_status") or "").strip()
+    validation_hit = row.get("validation_hit")
+    if validation_status == "expired":
+        parts.append("历史信号已过期")
+    elif validation_status == "closed" and validation_hit is False:
+        parts.append("历史信号未命中")
+
+    return " | ".join(parts) if parts else "-"
+
+
 def render_opportunity_pack_markdown(
     as_of_date: str,
     profiles: List[GroupProfile],
@@ -484,14 +576,16 @@ def render_opportunity_pack_markdown(
     lines.append("")
     lines.append("## 3) 首批机会池 TOP10（组合评分）")
     lines.append("")
-    lines.append("| 排名 | 代码 | 公司 | 行业 | 组合分 | 最匹配方法论 | 理由 | 备注 |")
-    lines.append("|---|---|---|---|---:|---|---|---|")
+    lines.append("| 排名 | 代码 | 公司 | 行业 | 组合分 | 最匹配方法论 | 机会验真 | 估值联动 | 风险提示 | 可信度 | 来源摘要 | 原始理由 | 原始备注 |")
+    lines.append("|---|---|---|---|---:|---|---|---|---|---|---|---|---|")
     for idx, row in enumerate(top_rows, start=1):
         lines.append(
             f"| {idx} | {_escape_md_cell(row.get('ticker', ''))} | {_escape_md_cell(row.get('name', ''))} | "
             f"{_escape_md_cell(row.get('sector', ''))} | {row.get('composite_score', 0.0):.2f} | "
-            f"{_escape_md_cell(row.get('best_group', ''))} | {_escape_md_cell(row.get('best_reason', ''))} | "
-            f"{_escape_md_cell(row.get('note', ''))} |"
+            f"{_escape_md_cell(row.get('best_group', ''))} | {_escape_md_cell(build_validation_summary(row))} | "
+            f"{_escape_md_cell(build_valuation_summary(row))} | {_escape_md_cell(build_risk_summary(row))} | "
+            f"{_escape_md_cell(row.get('confidence_summary', '-'))} | {_escape_md_cell(row.get('source_lineage_summary', '-'))} | "
+            f"{_escape_md_cell(row.get('best_reason', ''))} | {_escape_md_cell(row.get('note', ''))} |"
         )
 
     if group_top_rows:
@@ -501,27 +595,32 @@ def render_opportunity_pack_markdown(
         for profile, rows in group_top_rows:
             lines.append(f"### {profile.name}")
             lines.append("")
-            lines.append("| 排名 | 代码 | 公司 | 行业 | 组内分 | 理由 | 备注 |")
-            lines.append("|---|---|---|---|---:|---|---|")
+            lines.append("| 排名 | 代码 | 公司 | 行业 | 组内分 | 机会验真 | 估值联动 | 风险提示 | 可信度 | 来源摘要 | 理由 | 原始备注 |")
+            lines.append("|---|---|---|---|---:|---|---|---|---|---|---|---|")
             for idx, row in enumerate(rows, start=1):
                 lines.append(
                     f"| {idx} | {_escape_md_cell(row.get('ticker', ''))} | {_escape_md_cell(row.get('name', ''))} | "
                     f"{_escape_md_cell(row.get('sector', ''))} | {row.get('group_score', 0.0):.2f} | "
-                    f"{_escape_md_cell(row.get('reason', ''))} | {_escape_md_cell(row.get('note', ''))} |"
+                    f"{_escape_md_cell(build_validation_summary(row))} | {_escape_md_cell(build_valuation_summary(row))} | "
+                    f"{_escape_md_cell(build_risk_summary(row))} | {_escape_md_cell(row.get('confidence_summary', '-'))} | "
+                    f"{_escape_md_cell(row.get('source_lineage_summary', '-'))} | {_escape_md_cell(row.get('reason', ''))} | "
+                    f"{_escape_md_cell(row.get('note', ''))} |"
                 )
             lines.append("")
 
     if diversified_rows:
         lines.append(f"## 5) 行业分散约束版 TOP10（单行业最多 {max_per_sector} 个）")
         lines.append("")
-        lines.append("| 排名 | 代码 | 公司 | 行业 | 组合分 | 最匹配方法论 | 理由 | 备注 |")
-        lines.append("|---|---|---|---|---:|---|---|---|")
+        lines.append("| 排名 | 代码 | 公司 | 行业 | 组合分 | 最匹配方法论 | 机会验真 | 估值联动 | 风险提示 | 可信度 | 来源摘要 | 原始理由 | 原始备注 |")
+        lines.append("|---|---|---|---|---:|---|---|---|---|---|---|---|---|")
         for idx, row in enumerate(diversified_rows, start=1):
             lines.append(
                 f"| {idx} | {_escape_md_cell(row.get('ticker', ''))} | {_escape_md_cell(row.get('name', ''))} | "
                 f"{_escape_md_cell(row.get('sector', ''))} | {row.get('composite_score', 0.0):.2f} | "
-                f"{_escape_md_cell(row.get('best_group', ''))} | {_escape_md_cell(row.get('best_reason', ''))} | "
-                f"{_escape_md_cell(row.get('note', ''))} |"
+                f"{_escape_md_cell(row.get('best_group', ''))} | {_escape_md_cell(build_validation_summary(row))} | "
+                f"{_escape_md_cell(build_valuation_summary(row))} | {_escape_md_cell(build_risk_summary(row))} | "
+                f"{_escape_md_cell(row.get('confidence_summary', '-'))} | {_escape_md_cell(row.get('source_lineage_summary', '-'))} | "
+                f"{_escape_md_cell(row.get('best_reason', ''))} | {_escape_md_cell(row.get('note', ''))} |"
             )
 
     lines.append("")

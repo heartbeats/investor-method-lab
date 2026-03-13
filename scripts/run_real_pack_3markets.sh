@@ -25,10 +25,33 @@ FOCUS_FILE="$ROOT_DIR/data/dcf_special_focus_list.json"
 FOCUS_REPORT_FILE="$ROOT_DIR/docs/dcf_special_focus_daily.md"
 OPPORTUNITY_REPORT_FILE="$ROOT_DIR/docs/opportunity_mining_daily.md"
 DUAL_MODULES_JSON="$ROOT_DIR/docs/daily_dual_modules.json"
+LEDGER_FILE="$ROOT_DIR/data/opportunity_signal_ledger.jsonl"
+LEDGER_LATEST_MD="$ROOT_DIR/output/opportunity_signal_ledger_latest.md"
+LEDGER_LATEST_JSON="$ROOT_DIR/output/opportunity_signal_ledger_latest.json"
+VALIDATION_LATEST_JSON="$ROOT_DIR/output/opportunity_validation_latest.json"
+VALIDATION_LATEST_MD="$ROOT_DIR/output/opportunity_validation_latest.md"
+VALIDATION_POSITIONS_JSON="$ROOT_DIR/output/opportunity_validation_positions_latest.json"
+FIELD_LINEAGE_JSON="$ROOT_DIR/output/opportunity_field_lineage_latest.json"
+CONFIDENCE_JSON="$ROOT_DIR/output/opportunity_confidence_latest.json"
+CONFIDENCE_MD="$ROOT_DIR/output/opportunity_confidence_latest.md"
+REVIEW_QUEUE_JSON="$ROOT_DIR/output/opportunity_review_queue_latest.json"
+REVIEW_QUEUE_MD="$ROOT_DIR/output/opportunity_review_queue_latest.md"
+REVIEW_WRITEBACK_JSON="$ROOT_DIR/output/opportunity_review_writeback_latest.json"
+REVIEW_WRITEBACK_MD="$ROOT_DIR/output/opportunity_review_writeback_latest.md"
+REVIEW_BACKLOG_JSON="$ROOT_DIR/output/opportunity_review_backlog_latest.json"
+REVIEW_BACKLOG_MD="$ROOT_DIR/output/opportunity_review_backlog_latest.md"
+VALUATION_COVERAGE_JSON="$ROOT_DIR/output/valuation_coverage_latest.json"
+VALUATION_COVERAGE_MD="$ROOT_DIR/output/valuation_coverage_latest.md"
+VALUATION_COVERAGE_HISTORY="$ROOT_DIR/data/valuation_coverage_history.jsonl"
+SOURCE_UPGRADE_BACKLOG_JSON="$ROOT_DIR/data/source_upgrade_backlog.json"
+VALUATION_UPGRADE_BACKLOG_MD="$ROOT_DIR/output/valuation_upgrade_backlog_latest.md"
 PER_TICKER_TIMEOUT_SECONDS="${IML_PER_TICKER_TIMEOUT_SECONDS:-8}"
 PER_TICKER_RETRIES="${IML_PER_TICKER_RETRIES:-2}"
 PER_TICKER_RETRY_TIMEOUT_MULTIPLIER="${IML_PER_TICKER_RETRY_TIMEOUT_MULTIPLIER:-1.6}"
 PER_TICKER_RETRY_BACKOFF_SECONDS="${IML_PER_TICKER_RETRY_BACKOFF_SECONDS:-0.25}"
+CODEX_PROJECT_ROOT="${CODEX_PROJECT_ROOT:-${HOME_DIR}/codex-project}"
+REVIEW_QUEUE_SYNC_SCRIPT="${CODEX_PROJECT_ROOT}/scripts/sync_hit_zone_review_queue_bitable.py"
+REVIEW_WRITEBACK_PULL_SCRIPT="${CODEX_PROJECT_ROOT}/scripts/pull_hit_zone_review_queue_writeback.py"
 
 export IML_STOCK_DATA_HUB_URL
 
@@ -59,18 +82,23 @@ if [[ -n "$SNAPSHOT_DATE" ]]; then
   SNAPSHOT_DATE_ARGS+=(--snapshot-date "$SNAPSHOT_DATE")
 fi
 
-python3 "$ROOT_DIR/scripts/build_real_opportunities.py" \
-  --universe-file "$UNIVERSE_FILE" \
-  --output-file "$REAL_FILE" \
-  --meta-file "$META_FILE" \
-  --allow-partial \
-  --per-ticker-timeout-seconds "$PER_TICKER_TIMEOUT_SECONDS" \
-  --per-ticker-retries "$PER_TICKER_RETRIES" \
-  --per-ticker-retry-timeout-multiplier "$PER_TICKER_RETRY_TIMEOUT_MULTIPLIER" \
-  --per-ticker-retry-backoff-seconds "$PER_TICKER_RETRY_BACKOFF_SECONDS" \
-  --dcf-base-url "$DCF_BASE_URL" \
-  --snapshot-root "$SNAPSHOT_ROOT" \
-  "${SNAPSHOT_DATE_ARGS[@]}"
+BUILD_REAL_ARGS=(
+  --universe-file "$UNIVERSE_FILE"
+  --output-file "$REAL_FILE"
+  --meta-file "$META_FILE"
+  --allow-partial
+  --per-ticker-timeout-seconds "$PER_TICKER_TIMEOUT_SECONDS"
+  --per-ticker-retries "$PER_TICKER_RETRIES"
+  --per-ticker-retry-timeout-multiplier "$PER_TICKER_RETRY_TIMEOUT_MULTIPLIER"
+  --per-ticker-retry-backoff-seconds "$PER_TICKER_RETRY_BACKOFF_SECONDS"
+  --dcf-base-url "$DCF_BASE_URL"
+  --snapshot-root "$SNAPSHOT_ROOT"
+)
+if [[ -n "$SNAPSHOT_DATE" ]]; then
+  BUILD_REAL_ARGS+=(--snapshot-date "$SNAPSHOT_DATE")
+fi
+
+python3 "$ROOT_DIR/scripts/build_real_opportunities.py" "${BUILD_REAL_ARGS[@]}"
 
 AS_OF_DATE="$(ROOT_DIR="$ROOT_DIR" python3 - << 'PY'
 import json
@@ -111,6 +139,96 @@ python3 "$ROOT_DIR/scripts/build_dual_daily_modules.py" \
   --output-json "$DUAL_MODULES_JSON" \
   --opportunity-top 10
 
+python3 "$ROOT_DIR/scripts/update_opportunity_signal_ledger.py" \
+  --focus-file "$FOCUS_FILE" \
+  --top-file "$TOP_FILE" \
+  --real-file "$REAL_FILE" \
+  --trace-file "$TRACE_FILE" \
+  --meta-file "$META_FILE" \
+  --ledger-file "$LEDGER_FILE" \
+  --output-md "$LEDGER_LATEST_MD" \
+  --output-json "$LEDGER_LATEST_JSON"
+
+python3 "$ROOT_DIR/scripts/build_opportunity_validation.py" \
+  --ledger-file "$LEDGER_FILE" \
+  --meta-file "$META_FILE" \
+  --output-json "$VALIDATION_LATEST_JSON" \
+  --output-md "$VALIDATION_LATEST_MD" \
+  --output-positions-json "$VALIDATION_POSITIONS_JSON"
+
+python3 "$ROOT_DIR/scripts/build_opportunity_trust_chain.py" \
+  --ledger-file "$LEDGER_FILE" \
+  --positions-json "$VALIDATION_POSITIONS_JSON" \
+  --snapshot-root "$SNAPSHOT_ROOT" \
+  --snapshot-date "$SNAPSHOT_DATE" \
+  --output-field-lineage-json "$FIELD_LINEAGE_JSON" \
+  --output-confidence-json "$CONFIDENCE_JSON" \
+  --output-review-queue-json "$REVIEW_QUEUE_JSON" \
+  --output-confidence-md "$CONFIDENCE_MD" \
+  --output-review-queue-md "$REVIEW_QUEUE_MD"
+
+if [[ "${IML_PULL_REVIEW_WRITEBACK_FROM_FEISHU:-0}" == "1" ]] && [[ -f "$REVIEW_WRITEBACK_PULL_SCRIPT" ]]; then
+  REVIEW_WRITEBACK_PULL_ARGS=(--project-root "$ROOT_DIR")
+  if [[ "${IML_PULL_REVIEW_WRITEBACK_DRY_RUN:-0}" == "1" ]]; then
+    REVIEW_WRITEBACK_PULL_ARGS+=(--dry-run)
+  fi
+  if [[ "${IML_MARK_REVIEW_WRITEBACK_STATUS:-1}" == "0" ]]; then
+    REVIEW_WRITEBACK_PULL_ARGS+=(--no-mark-written-back)
+  fi
+  python3 "$REVIEW_WRITEBACK_PULL_SCRIPT" "${REVIEW_WRITEBACK_PULL_ARGS[@]}" || echo "[warn] review queue writeback pull failed, continue"
+fi
+
+python3 "$ROOT_DIR/scripts/generate_top20_opportunity_pack.py" \
+  --opportunities-file "$REAL_FILE" \
+  --engine-version v4 \
+  --rulebook-file "$RULEBOOK_FILE" \
+  --output-csv "$TOP_FILE" \
+  --output-group-csv "$GROUP_FILE" \
+  --output-diversified-csv "$DIVERSIFIED_FILE" \
+  --output-tiered-group-csv "$TIERED_GROUP_FILE" \
+  --output-decision-trace-json "$TRACE_FILE" \
+  --output-playbook-md "$PLAYBOOK_FILE" \
+  --output-md "$REPORT_FILE" \
+  --as-of-date "$AS_OF_DATE" \
+  --top 10 \
+  --per-group-top 5 \
+  --per-tier-top 10 \
+  --max-per-sector 2 \
+  --validation-positions-json "$VALIDATION_POSITIONS_JSON" \
+  --confidence-json "$CONFIDENCE_JSON" \
+  --field-lineage-json "$FIELD_LINEAGE_JSON" \
+  --review-writeback-json "$REVIEW_WRITEBACK_JSON"
+
+python3 "$ROOT_DIR/scripts/build_valuation_coverage.py" \
+  --real-file "$REAL_FILE" \
+  --focus-file "$FOCUS_FILE" \
+  --ledger-file "$LEDGER_FILE" \
+  --meta-file "$META_FILE" \
+  --positions-json "$VALIDATION_POSITIONS_JSON" \
+  --confidence-json "$CONFIDENCE_JSON" \
+  --review-writeback-json "$REVIEW_WRITEBACK_JSON" \
+  --history-file "$VALUATION_COVERAGE_HISTORY" \
+  --output-json "$VALUATION_COVERAGE_JSON" \
+  --output-md "$VALUATION_COVERAGE_MD"
+
+python3 "$ROOT_DIR/scripts/build_valuation_upgrade_backlog.py" \
+  --coverage-json "$VALUATION_COVERAGE_JSON" \
+  --real-file "$REAL_FILE" \
+  --ledger-file "$LEDGER_FILE" \
+  --output-json "$SOURCE_UPGRADE_BACKLOG_JSON" \
+  --output-md "$VALUATION_UPGRADE_BACKLOG_MD"
+
+if [[ "${IML_SYNC_REVIEW_QUEUE_TO_FEISHU:-0}" == "1" ]] && [[ -f "$REVIEW_QUEUE_SYNC_SCRIPT" ]]; then
+  REVIEW_QUEUE_SYNC_ARGS=(--input-file "$REVIEW_QUEUE_JSON")
+  if [[ "${IML_SYNC_REVIEW_QUEUE_DRY_RUN:-0}" == "1" ]]; then
+    REVIEW_QUEUE_SYNC_ARGS+=(--dry-run)
+  fi
+  if [[ "${IML_SYNC_REVIEW_QUEUE_ENSURE_EDITABLE:-0}" == "1" ]]; then
+    REVIEW_QUEUE_SYNC_ARGS+=(--ensure-editable)
+  fi
+  python3 "$REVIEW_QUEUE_SYNC_SCRIPT" "${REVIEW_QUEUE_SYNC_ARGS[@]}" || echo "[warn] review queue Feishu sync failed, continue"
+fi
+
 echo "三市场实时机会包已生成:"
 echo "- $REPORT_FILE"
 echo "- $TOP_FILE"
@@ -124,3 +242,22 @@ echo "- $META_FILE"
 echo "- $FOCUS_REPORT_FILE"
 echo "- $OPPORTUNITY_REPORT_FILE"
 echo "- $DUAL_MODULES_JSON"
+echo "- $LEDGER_FILE"
+echo "- $LEDGER_LATEST_MD"
+echo "- $LEDGER_LATEST_JSON"
+echo "- $VALIDATION_LATEST_JSON"
+echo "- $VALIDATION_LATEST_MD"
+echo "- $VALIDATION_POSITIONS_JSON"
+echo "- $FIELD_LINEAGE_JSON"
+echo "- $CONFIDENCE_JSON"
+echo "- $CONFIDENCE_MD"
+echo "- $REVIEW_QUEUE_JSON"
+echo "- $REVIEW_QUEUE_MD"
+echo "- $REVIEW_WRITEBACK_JSON"
+echo "- $REVIEW_WRITEBACK_MD"
+echo "- $REVIEW_BACKLOG_JSON"
+echo "- $REVIEW_BACKLOG_MD"
+echo "- $VALUATION_COVERAGE_JSON"
+echo "- $VALUATION_COVERAGE_MD"
+echo "- $SOURCE_UPGRADE_BACKLOG_JSON"
+echo "- $VALUATION_UPGRADE_BACKLOG_MD"

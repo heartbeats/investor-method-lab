@@ -1,0 +1,97 @@
+{
+  "active_context": [
+    {
+      "order": 3,
+      "path": "_index.md",
+      "tokens": 1012,
+      "type": "summary"
+    },
+    {
+      "order": 2,
+      "path": "investor_method_lab/_index.md",
+      "tokens": 932,
+      "type": "summary"
+    },
+    {
+      "importance": 50,
+      "path": "investor_method_lab/context.md",
+      "tokens": 75,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "investor_method_lab/methodologies/context.md",
+      "tokens": 41,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "investor_method_lab/methodologies/investment_methodologies.md",
+      "tokens": 250,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "investor_method_lab/overview/context.md",
+      "tokens": 43,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "investor_method_lab/overview/project_overview.md",
+      "tokens": 607,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "investor_method_lab/requirements/context.md",
+      "tokens": 39,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "investor_method_lab/requirements/project_requirements.md",
+      "tokens": 970,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "investor_method_lab/requirements/requirement_ops.md",
+      "tokens": 651,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "investor_method_lab/technical/context.md",
+      "tokens": 38,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "investor_method_lab/technical/technical_implementation.md",
+      "tokens": 486,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "investor_method_lab/workflow/context.md",
+      "tokens": 40,
+      "type": "context"
+    },
+    {
+      "importance": 50,
+      "path": "investor_method_lab/workflow/standard_workflows.md",
+      "tokens": 352,
+      "type": "context"
+    }
+  ],
+  "generated_at": "2026-03-13T02:45:12.479Z",
+  "lane_tokens": {
+    "contexts": 3592,
+    "stubs": 0,
+    "summaries": 1944
+  },
+  "source_fingerprint": "405a91f4dc26d8045d343aa245e5dcc7ae2d388dd897e79cbcdac64b88cee060",
+  "total_tokens": 5536,
+  "version": 1
+}

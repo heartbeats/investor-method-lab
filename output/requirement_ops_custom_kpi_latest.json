@@ -1,0 +1,64 @@
+{
+  "metrics": [
+    {
+      "id": "BIZ-HITZONE-SIGNAL-FORMAL-COVERAGE",
+      "layer": "result",
+      "formula": "signal_pool.formal_valuation_coverage_rate",
+      "target": 0.8,
+      "current": 0.7142857142857143,
+      "evidence_refs": [
+        "REQ-0002",
+        "output/valuation_coverage_latest.json"
+      ]
+    },
+    {
+      "id": "BIZ-HITZONE-SIGNAL-FORMAL-OR-REFERENCE-COVERAGE",
+      "layer": "result",
+      "formula": "signal_pool.formal_or_reference_coverage_rate",
+      "target": 1.0,
+      "current": 1.0,
+      "evidence_refs": [
+        "REQ-0003",
+        "output/valuation_coverage_latest.json"
+      ]
+    },
+    {
+      "id": "BIZ-HITZONE-FOCUS-FORMAL-COVERAGE",
+      "layer": "result",
+      "formula": "focus_pool.formal_valuation_coverage_rate",
+      "target": 1.0,
+      "current": 1.0,
+      "evidence_refs": [
+        "REQ-0002",
+        "output/valuation_coverage_latest.json"
+      ]
+    },
+    {
+      "id": "BIZ-HITZONE-ACTIVE-REVIEW-COVERAGE",
+      "layer": "result",
+      "formula": "manual_review.active_signal_reviewed_count / signal_pool.count",
+      "target": 0.5,
+      "current": 0.0,
+      "evidence_refs": [
+        "REQ-0004",
+        "TASK-0012",
+        "output/opportunity_review_writeback_latest.json"
+      ]
+    },
+    {
+      "id": "BIZ-HITZONE-REVIEW-WRITEBACK-CLOSURE",
+      "layer": "result",
+      "formula": "1 - pending_writeback_count / reviewed_items_count",
+      "target": 1.0,
+      "current": 1.0,
+      "evidence_refs": [
+        "REQ-0004",
+        "TASK-0012",
+        "output/opportunity_review_writeback_latest.json"
+      ]
+    }
+  ],
+  "summary_overrides": {
+    "headline": "击球区当前主要瓶颈仍是活跃信号的正式估值覆盖率。"
+  }
+}

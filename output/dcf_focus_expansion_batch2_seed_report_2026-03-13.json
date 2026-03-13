@@ -1,0 +1,74 @@
+{
+  "universe_file": "data/dcf_focus_expansion_batch2_2026-03-13.csv",
+  "dcf_data_dir": "/Users/lucas/codex-project/data",
+  "source_adapter": "multi_source",
+  "operator": "investor-method-lab:auto-seed",
+  "summary": {
+    "total": 5,
+    "ok": 5,
+    "failed": 0,
+    "skipped_existing": 0
+  },
+  "results": [
+    {
+      "ticker": "600660.SS",
+      "symbol": "SH.600660",
+      "status": "ok",
+      "company_status": "created",
+      "company_seed_source": "ths_company_profile",
+      "snapshot_id": "b5dbcc89-4f17-44a0-b310-867ce8de414c",
+      "valuation_id": "f605aaaf-33f7-467e-ac71-4facab1bf3a9",
+      "iv_base": 26.245320214926195,
+      "mos_base": -1.3040298508650974,
+      "fallback_mode": "ths_manual:SourceUnavailableError"
+    },
+    {
+      "ticker": "601169.SS",
+      "symbol": "SH.601169",
+      "status": "ok",
+      "company_status": "created",
+      "company_seed_source": "ths_company_profile",
+      "snapshot_id": "e2b8a723-90ae-4aab-ac93-06df84f65923",
+      "valuation_id": "35f04128-0bd8-46c6-a23f-71c690811fec",
+      "iv_base": 63.97390040593432,
+      "mos_base": 0.9140274398606184,
+      "fallback_mode": "ths_manual:SourceUnavailableError"
+    },
+    {
+      "ticker": "601229.SS",
+      "symbol": "SH.601229",
+      "status": "ok",
+      "company_status": "created",
+      "company_seed_source": "ths_company_profile",
+      "snapshot_id": "712043de-24f5-4dbd-aa19-c24b1facd0f4",
+      "valuation_id": "8b54e24e-f95b-4f93-806c-b84e378c32f3",
+      "iv_base": 5.570806964973525,
+      "mos_base": -0.7771213510441659,
+      "fallback_mode": "ths_manual:SourceUnavailableError"
+    },
+    {
+      "ticker": "601288.SS",
+      "symbol": "SH.601288",
+      "status": "ok",
+      "company_status": "created",
+      "company_seed_source": "ths_company_profile",
+      "snapshot_id": "de4b04de-b7f9-4884-bda1-c02d1eb59bfd",
+      "valuation_id": "ab4f35cb-cb27-49fa-8d72-2f6d52f94ebc",
+      "iv_base": 41.208247781124136,
+      "mos_base": 0.8427499258524233,
+      "fallback_mode": "ths_manual:SourceUnavailableError"
+    },
+    {
+      "ticker": "601688.SS",
+      "symbol": "SH.601688",
+      "status": "ok",
+      "company_status": "created",
+      "company_seed_source": "ths_company_profile",
+      "snapshot_id": "7fbc1b6c-4a5f-4cfb-91fc-1fd5224bdff0",
+      "valuation_id": "3272c1fe-df89-48a7-9b81-baf163deb775",
+      "iv_base": 119.35813973788882,
+      "mos_base": 0.8345316034300542,
+      "fallback_mode": "ths_manual:SourceUnavailableError"
+    }
+  ]
+}

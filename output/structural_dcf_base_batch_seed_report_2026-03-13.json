@@ -1,0 +1,34 @@
+{
+  "universe_file": "/tmp/structural_dcf_base_batch.csv",
+  "dcf_data_dir": "/Users/lucas/codex-project/data",
+  "source_adapter": "multi_source",
+  "operator": "investor-method-lab:auto-seed",
+  "summary": {
+    "total": 2,
+    "ok": 1,
+    "failed": 1,
+    "skipped_existing": 0
+  },
+  "results": [
+    {
+      "ticker": "688126.SS",
+      "symbol": "SH.688126",
+      "status": "ok",
+      "company_status": "created",
+      "company_seed_source": "ths_company_profile",
+      "quote_seed_source": "real_opportunities_csv",
+      "snapshot_id": "d93efac4-565f-4f8c-896f-649c45477786",
+      "valuation_id": "be40b9a3-9717-47c4-9bbc-94a8239a063f",
+      "iv_base": -41.894581878979785,
+      "mos_base": 1.465465285614515,
+      "fallback_mode": null
+    },
+    {
+      "ticker": "688506.SS",
+      "symbol": "SH.688506",
+      "status": "failed",
+      "stage": "sync_or_valuation",
+      "error": "FCF疑似单年峰值异常，已拒绝入库。"
+    }
+  ]
+}

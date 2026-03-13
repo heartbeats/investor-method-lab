@@ -1,0 +1,226 @@
+{
+  "version": 1,
+  "project": "investor-method-lab",
+  "generated_at": "2026-03-13T17:10:32.823716+08:00",
+  "summary": {
+    "flow_status": "good",
+    "result_status": "bad",
+    "headline": "击球区当前主要瓶颈仍是活跃信号的正式估值覆盖率。"
+  },
+  "metrics": [
+    {
+      "id": "FLOW-CANDIDATE-INGEST",
+      "layer": "flow",
+      "formula": "structured change events / total change events",
+      "target": 1.0,
+      "current": 1.0,
+      "status": "good",
+      "evidence_refs": [
+        "CHG-0001",
+        "CHG-0002",
+        "CHG-0003",
+        "CHG-0004",
+        "CHG-0005"
+      ]
+    },
+    {
+      "id": "FLOW-CONFLICT-ACCURACY",
+      "layer": "flow",
+      "formula": "explicit conflict events with linked requirement refs / explicit conflict events",
+      "target": 0.9,
+      "current": 1.0,
+      "status": "good",
+      "evidence_refs": [
+        "CHG-0003"
+      ]
+    },
+    {
+      "id": "FLOW-MERGE-LATENCY",
+      "layer": "flow",
+      "formula": "1 - avg(merge latency hours)/24, clipped at 0",
+      "target": 0.9,
+      "current": 1.0,
+      "status": "good",
+      "evidence_refs": [
+        "CHG-0001",
+        "CHG-0002",
+        "CHG-0003",
+        "CHG-0004"
+      ]
+    },
+    {
+      "id": "FLOW-DECOMPOSITION-COVERAGE",
+      "layer": "flow",
+      "formula": "active requirements with linked tasks / active requirements",
+      "target": 0.95,
+      "current": 1.0,
+      "status": "good",
+      "evidence_refs": [
+        "REQ-0002",
+        "REQ-0003",
+        "REQ-0004"
+      ]
+    },
+    {
+      "id": "FLOW-ACCEPTANCE-COMPLETENESS",
+      "layer": "flow",
+      "formula": "active requirements with acceptance criteria / active requirements",
+      "target": 0.9,
+      "current": 1.0,
+      "status": "good",
+      "evidence_refs": [
+        "REQ-0002",
+        "REQ-0003",
+        "REQ-0004"
+      ]
+    },
+    {
+      "id": "FLOW-WRITEBACK-COMPLETION",
+      "layer": "flow",
+      "formula": "tasks with writeback fields / total tasks",
+      "target": 1.0,
+      "current": 1.0,
+      "status": "good",
+      "evidence_refs": [
+        "TASK-0008",
+        "TASK-0009",
+        "TASK-0010",
+        "TASK-0011",
+        "TASK-0012"
+      ]
+    },
+    {
+      "id": "RESULT-DELIVERED-COVERAGE",
+      "layer": "result",
+      "formula": "active requirements whose linked tasks are all done / active requirements",
+      "target": 0.7,
+      "current": 0.6667,
+      "status": "warn",
+      "evidence_refs": [
+        "REQ-0002",
+        "REQ-0003"
+      ]
+    },
+    {
+      "id": "RESULT-ACCEPTANCE-PASS",
+      "layer": "result",
+      "formula": "done tasks with pass validation / done tasks",
+      "target": 0.9,
+      "current": 1.0,
+      "status": "good",
+      "evidence_refs": [
+        "TASK-0007",
+        "TASK-0008",
+        "TASK-0009",
+        "TASK-0010",
+        "TASK-0011"
+      ]
+    },
+    {
+      "id": "RESULT-REWORK-RATE",
+      "layer": "result",
+      "formula": "1 - superseded requirements / total requirements",
+      "target": 0.8,
+      "current": 0.75,
+      "status": "warn",
+      "evidence_refs": [
+        "REQ-0001"
+      ]
+    },
+    {
+      "id": "RESULT-CONFLICT-ROLLBACK",
+      "layer": "result",
+      "formula": "1 - rollback-like changes / explicit conflicts",
+      "target": 0.9,
+      "current": 1.0,
+      "status": "good",
+      "evidence_refs": []
+    },
+    {
+      "id": "RESULT-TRACEABILITY",
+      "layer": "result",
+      "formula": "active requirements with linked tasks and linked kpis / active requirements",
+      "target": 0.95,
+      "current": 1.0,
+      "status": "good",
+      "evidence_refs": [
+        "REQ-0002",
+        "REQ-0003",
+        "REQ-0004"
+      ]
+    },
+    {
+      "id": "RESULT-CUSTOM-BIZ-KPI",
+      "layer": "result",
+      "formula": "active requirements linked to custom business kpi / active requirements",
+      "target": 0.5,
+      "current": 0.3333,
+      "status": "bad",
+      "evidence_refs": [
+        "REQ-0004"
+      ]
+    },
+    {
+      "id": "BIZ-HITZONE-SIGNAL-FORMAL-COVERAGE",
+      "layer": "result",
+      "formula": "signal_pool.formal_valuation_coverage_rate",
+      "target": 0.8,
+      "current": 0.7143,
+      "status": "warn",
+      "evidence_refs": [
+        "REQ-0002",
+        "output/valuation_coverage_latest.json"
+      ]
+    },
+    {
+      "id": "BIZ-HITZONE-SIGNAL-FORMAL-OR-REFERENCE-COVERAGE",
+      "layer": "result",
+      "formula": "signal_pool.formal_or_reference_coverage_rate",
+      "target": 1.0,
+      "current": 1.0,
+      "status": "good",
+      "evidence_refs": [
+        "REQ-0003",
+        "output/valuation_coverage_latest.json"
+      ]
+    },
+    {
+      "id": "BIZ-HITZONE-FOCUS-FORMAL-COVERAGE",
+      "layer": "result",
+      "formula": "focus_pool.formal_valuation_coverage_rate",
+      "target": 1.0,
+      "current": 1.0,
+      "status": "good",
+      "evidence_refs": [
+        "REQ-0002",
+        "output/valuation_coverage_latest.json"
+      ]
+    },
+    {
+      "id": "BIZ-HITZONE-ACTIVE-REVIEW-COVERAGE",
+      "layer": "result",
+      "formula": "manual_review.active_signal_reviewed_count / signal_pool.count",
+      "target": 0.5,
+      "current": 0.0,
+      "status": "bad",
+      "evidence_refs": [
+        "REQ-0004",
+        "TASK-0012",
+        "output/opportunity_review_writeback_latest.json"
+      ]
+    },
+    {
+      "id": "BIZ-HITZONE-REVIEW-WRITEBACK-CLOSURE",
+      "layer": "result",
+      "formula": "1 - pending_writeback_count / reviewed_items_count",
+      "target": 1.0,
+      "current": 1.0,
+      "status": "good",
+      "evidence_refs": [
+        "REQ-0004",
+        "TASK-0012",
+        "output/opportunity_review_writeback_latest.json"
+      ]
+    }
+  ]
+}

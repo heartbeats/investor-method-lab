@@ -1,0 +1,162 @@
+{
+  "generated_at_utc": "2026-03-13T08:10:01.493587+00:00",
+  "validation_as_of_date": "2026-03-12",
+  "ledger_file": "data/opportunity_signal_ledger.jsonl",
+  "total_signals": 39,
+  "status_breakdown": {
+    "pending_entry": 21,
+    "open": 16,
+    "closed": 2
+  },
+  "template_breakdown": {
+    "market": 23,
+    "dcf": 15,
+    "investor_follow": 1
+  },
+  "valuation_source_breakdown": {
+    "target_mean_price": 20,
+    "dcf_iv_base": 15,
+    "close_fallback": 4
+  },
+  "valuation_support_breakdown": {
+    "reference_only": 20,
+    "formal_core": 15,
+    "price_fallback": 4
+  },
+  "valuation_support_summary": {
+    "formal_core": {
+      "count": 15,
+      "evaluated_count": 0,
+      "open_count": 0,
+      "closed_count": 0,
+      "expired_count": 0,
+      "pending_entry_count": 15,
+      "avg_strategy_return_net": null,
+      "avg_primary_excess_return": null,
+      "hit_rate": null
+    },
+    "price_fallback": {
+      "count": 4,
+      "evaluated_count": 4,
+      "open_count": 2,
+      "closed_count": 2,
+      "expired_count": 0,
+      "pending_entry_count": 0,
+      "avg_strategy_return_net": -0.03350939208961021,
+      "avg_primary_excess_return": null,
+      "hit_rate": 0.0
+    },
+    "reference_only": {
+      "count": 20,
+      "evaluated_count": 14,
+      "open_count": 14,
+      "closed_count": 0,
+      "expired_count": 0,
+      "pending_entry_count": 6,
+      "avg_strategy_return_net": 0.007224337639889841,
+      "avg_primary_excess_return": null,
+      "hit_rate": 0.6428571428571429
+    }
+  },
+  "overall_summary": {
+    "evaluated_signal_count": 18,
+    "avg_strategy_return_net": -0.0018276022999990588,
+    "avg_primary_excess_return": null,
+    "opportunity_hit_rate": 0.5,
+    "profit_loss_ratio": 0.8566267201148108,
+    "max_drawdown": -0.08794102159031081,
+    "valuation_realization_rate": 0.0,
+    "minimum_viable_threshold_checks": {
+      "opportunity_excess_return": {
+        "value": null,
+        "target": 0.0,
+        "op": "gt",
+        "passed": null
+      },
+      "opportunity_hit_rate": {
+        "value": 0.5,
+        "target": 0.55,
+        "op": "gte",
+        "passed": false
+      },
+      "profit_loss_ratio": {
+        "value": 0.8566267201148108,
+        "target": 1.5,
+        "op": "gte",
+        "passed": false
+      },
+      "max_drawdown": {
+        "value": -0.08794102159031081,
+        "target": 0.2,
+        "op": "lte",
+        "passed": true
+      },
+      "valuation_realization_rate": {
+        "value": 0.0,
+        "target": 0.4,
+        "op": "gte",
+        "passed": false
+      }
+    }
+  },
+  "method_group_summary": {
+    "系统化量化": {
+      "count": 8,
+      "entered_count": 4,
+      "open_count": 2,
+      "closed_count": 2,
+      "expired_count": 0,
+      "pending_entry_count": 4,
+      "avg_strategy_return_net": -0.03350939208961021,
+      "avg_primary_excess_return": null,
+      "hit_rate": 0.0,
+      "win_rate": 0.0,
+      "profit_loss_ratio": null,
+      "valuation_realization_rate": 0.0,
+      "median_days_held": 5.0,
+      "max_drawdown_worst": -0.08794102159031081
+    },
+    "宏观周期": {
+      "count": 29,
+      "entered_count": 13,
+      "open_count": 13,
+      "closed_count": 0,
+      "expired_count": 0,
+      "pending_entry_count": 16,
+      "avg_strategy_return_net": 0.008633016688891227,
+      "avg_primary_excess_return": null,
+      "hit_rate": 0.6923076923076923,
+      "win_rate": 0.6923076923076923,
+      "profit_loss_ratio": 1.03597635725288,
+      "valuation_realization_rate": null,
+      "median_days_held": 6,
+      "max_drawdown_worst": -0.08181494661921707
+    },
+    "价值质量复利": {
+      "count": 2,
+      "entered_count": 1,
+      "open_count": 1,
+      "closed_count": 0,
+      "expired_count": 0,
+      "pending_entry_count": 1,
+      "avg_strategy_return_net": -0.011088489997128192,
+      "avg_primary_excess_return": null,
+      "hit_rate": 0.0,
+      "win_rate": 0.0,
+      "profit_loss_ratio": null,
+      "valuation_realization_rate": null,
+      "median_days_held": 6,
+      "max_drawdown_worst": -0.05755015839493138
+    }
+  },
+  "top_winners": [],
+  "top_losers": [],
+  "positions_file": "output/opportunity_validation_positions_latest.json",
+  "history_loader_context": {
+    "snapshot_root": "/Users/lucas/projects/stock-data-hub/data_lake/snapshots",
+    "snapshot_dir": "/Users/lucas/projects/stock-data-hub/data_lake/snapshots/dt=2026-03-13",
+    "snapshot_enabled": true,
+    "hub_url": "",
+    "yfinance_fallback": true
+  }
+}

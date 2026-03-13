@@ -1,0 +1,17 @@
+{
+  "last_sent_at": "2026-03-13T17:10:33.012620+08:00",
+  "last_event_key": "after_task_update:TASK-0012:doing:not_run",
+  "last_fingerprint": "cb431715e5d302b5b759ffa9473cdb5effcf1afdb280bc9700bf27ae9f13ad5a",
+  "last_title": "requirement-ops 任务回写：TASK-0012 doing",
+  "last_receipt": {
+    "ok": true,
+    "dry_run": false,
+    "intent_id": "AUTO-击球区-20260313-170746.7360210800",
+    "created": false,
+    "project": "击球区",
+    "progress_updated": true,
+    "next_step_updated": true,
+    "out_json": "/Users/lucas/codex-project/output/project_management/project_management_latest.json",
+    "brief_dir": "/Users/lucas/codex-project/memory/project_briefs"
+  }
+}

@@ -14,9 +14,13 @@ SRC_DIR = PROJECT_ROOT / "src"
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
+from investor_method_lab.review_writeback import format_manual_review_summary, load_review_writeback, reviewed_items_by_ticker
 from investor_method_lab.scoring import load_opportunities
 from investor_method_lab.top20_pack import (
     build_group_profiles,
+    build_risk_summary,
+    build_validation_summary,
+    build_valuation_summary,
     rank_diversified_opportunities,
     rank_first_batch_opportunities,
     rank_opportunities_for_each_group,
@@ -32,6 +36,222 @@ from investor_method_lab.top20_pack_v4 import (
 def load_json(path: Path) -> Dict[str, Any]:
     with path.open("r", encoding="utf-8") as file:
         return json.load(file)
+
+
+def _ticker_key(value: Any) -> str:
+    return str(value or "").strip().upper()
+
+
+def load_validation_positions(path: Path | None) -> Dict[str, Dict[str, Any]]:
+    if path is None or not path.exists():
+        return {}
+    payload = load_json(path)
+    positions = payload.get("positions") if isinstance(payload, dict) else payload
+    if not isinstance(positions, list):
+        return {}
+
+    result: Dict[str, Dict[str, Any]] = {}
+    for item in positions:
+        if not isinstance(item, dict):
+            continue
+        ticker = _ticker_key(item.get("ticker"))
+        if not ticker:
+            continue
+        result[ticker] = item
+    return result
+
+
+def load_confidence_records(path: Path | None) -> Dict[str, Dict[str, Any]]:
+    if path is None or not path.exists():
+        return {}
+    payload = load_json(path)
+    records = payload.get("opportunities") if isinstance(payload, dict) else payload
+    if not isinstance(records, list):
+        return {}
+
+    result: Dict[str, Dict[str, Any]] = {}
+    for item in records:
+        if not isinstance(item, dict):
+            continue
+        ticker = _ticker_key(item.get("ticker"))
+        if not ticker:
+            continue
+        result[ticker] = item
+    return result
+
+
+def load_review_writeback_records(path: Path | None) -> Dict[str, Dict[str, Any]]:
+    if path is None or not path.exists():
+        return {}
+    payload = load_review_writeback(path)
+    records = reviewed_items_by_ticker(payload)
+    return {
+        _ticker_key(ticker): dict(item)
+        for ticker, item in records.items()
+        if _ticker_key(ticker)
+    }
+
+
+def load_field_lineage_summaries(path: Path | None) -> Dict[str, Dict[str, Any]]:
+    if path is None or not path.exists():
+        return {}
+    payload = load_json(path)
+    fields = payload.get("fields") if isinstance(payload, dict) else payload
+    if not isinstance(fields, list):
+        return {}
+
+    grouped: Dict[str, Dict[str, Any]] = {}
+    for item in fields:
+        if not isinstance(item, dict):
+            continue
+        ticker = _ticker_key(item.get("ticker"))
+        if not ticker:
+            continue
+        row = grouped.setdefault(
+            ticker,
+            {
+                "traceability_scores": [],
+                "provider_tiers": set(),
+                "source_match_types": set(),
+                "source_systems": set(),
+            },
+        )
+        if item.get("traceability_score") not in (None, ""):
+            row["traceability_scores"].append(float(item.get("traceability_score")))
+        provider_tier = str(item.get("observed_provider_tier") or "").strip()
+        if provider_tier and provider_tier.upper() != "UNKNOWN":
+            row["provider_tiers"].add(provider_tier)
+        if item.get("source_match_type"):
+            row["source_match_types"].add(str(item.get("source_match_type")))
+        if item.get("source_system"):
+            row["source_systems"].add(str(item.get("source_system")))
+
+    result: Dict[str, Dict[str, Any]] = {}
+    for ticker, item in grouped.items():
+        scores = item["traceability_scores"]
+        result[ticker] = {
+            "traceability_score": round(sum(scores) / len(scores), 2) if scores else None,
+            "provider_tiers": sorted(item["provider_tiers"]),
+            "source_match_types": sorted(item["source_match_types"]),
+            "source_systems": sorted(item["source_systems"]),
+        }
+    return result
+
+
+def _format_confidence_summary(confidence: Dict[str, Any]) -> str:
+    if not confidence:
+        return "-"
+    grade = str(confidence.get("trust_grade") or "").strip()
+    bucket = str(confidence.get("trust_bucket") or "").strip()
+    review_result = str(confidence.get("review_result") or "").strip()
+    score = confidence.get("trust_score")
+    formal = confidence.get("formal_layer_eligible") is True
+
+    head = grade or "-"
+    if score not in (None, ""):
+        head = f"{head}({float(score):.1f})"
+    parts = [head]
+    if bucket:
+        parts.append(bucket)
+    parts.append("正式层" if formal else "非正式层")
+    if review_result:
+        parts.append(review_result)
+    return " | ".join(parts)
+
+
+def _format_source_lineage_summary(lineage: Dict[str, Any]) -> str:
+    if not lineage:
+        return "-"
+    parts: List[str] = []
+    score = lineage.get("traceability_score")
+    if score not in (None, ""):
+        parts.append(f"追踪{float(score):.0f}")
+    match_types = "/".join(lineage.get("source_match_types") or [])
+    if match_types:
+        parts.append(match_types)
+    provider_tiers = "/".join(lineage.get("provider_tiers") or [])
+    if provider_tiers:
+        parts.append(provider_tiers)
+    return " | ".join(parts) if parts else "-"
+
+
+def annotate_row(
+    row: Dict[str, Any],
+    positions_by_ticker: Dict[str, Dict[str, Any]],
+    confidence_by_ticker: Dict[str, Dict[str, Any]] | None = None,
+    lineage_by_ticker: Dict[str, Dict[str, Any]] | None = None,
+    review_writeback_by_ticker: Dict[str, Dict[str, Any]] | None = None,
+) -> None:
+    ticker = _ticker_key(row.get("ticker"))
+    position = positions_by_ticker.get(ticker)
+    if position:
+        row["validation_status"] = position.get("status", "")
+        row["validation_hit"] = position.get("hit")
+        row["validation_days_held"] = position.get("days_held")
+        row["validation_primary_excess_return"] = position.get("primary_excess_return")
+        row["validation_exit_reason"] = position.get("exit_reason", "")
+        row["validation_template_id"] = position.get("template_id", "")
+        row["validation_as_of_date"] = position.get("validation_as_of_date", "")
+
+    confidence = (confidence_by_ticker or {}).get(ticker, {})
+    if confidence:
+        row["trust_score"] = confidence.get("trust_score")
+        row["trust_grade"] = confidence.get("trust_grade", "")
+        row["trust_bucket"] = confidence.get("trust_bucket", "")
+        row["review_result"] = confidence.get("review_result", "")
+        row["formal_layer_eligible"] = bool(confidence.get("formal_layer_eligible"))
+        row["confidence_summary"] = _format_confidence_summary(confidence)
+    else:
+        row["confidence_summary"] = row.get("confidence_summary") or "-"
+
+    lineage = (lineage_by_ticker or {}).get(ticker, {})
+    if lineage:
+        row["field_traceability_score"] = lineage.get("traceability_score")
+        row["source_match_types"] = "/".join(lineage.get("source_match_types") or [])
+        row["provider_tiers"] = "/".join(lineage.get("provider_tiers") or [])
+        row["source_lineage_summary"] = _format_source_lineage_summary(lineage)
+    else:
+        row["source_lineage_summary"] = row.get("source_lineage_summary") or "-"
+
+    review_writeback = (review_writeback_by_ticker or {}).get(ticker, {})
+    if review_writeback:
+        row["manual_review_decision"] = review_writeback.get("manual_review_decision", "")
+        row["manual_review_action"] = review_writeback.get("manual_action", "")
+        row["manual_review_note"] = review_writeback.get("manual_note", "")
+        row["manual_reviewed_at"] = review_writeback.get("manual_reviewed_at", "")
+        row["manual_review_summary"] = format_manual_review_summary(review_writeback)
+        existing_confidence = str(row.get("confidence_summary") or "").strip()
+        manual_summary = str(row.get("manual_review_summary") or "").strip()
+        if manual_summary:
+            row["confidence_summary"] = f"{existing_confidence} | {manual_summary}" if existing_confidence and existing_confidence != "-" else manual_summary
+    else:
+        row["manual_review_summary"] = row.get("manual_review_summary") or "-"
+
+    row["validation_summary"] = build_validation_summary(row)
+    row["valuation_summary"] = build_valuation_summary(row)
+    row["risk_summary"] = build_risk_summary(row)
+
+
+def annotate_pack_outputs(
+    *,
+    top_rows: List[Dict[str, Any]],
+    group_top_rows: List[Tuple[Any, List[Dict[str, Any]]]],
+    diversified_rows: List[Dict[str, Any]],
+    tiered_group_rows: List[Dict[str, Any]],
+    positions_by_ticker: Dict[str, Dict[str, Any]],
+    confidence_by_ticker: Dict[str, Dict[str, Any]] | None = None,
+    lineage_by_ticker: Dict[str, Dict[str, Any]] | None = None,
+    review_writeback_by_ticker: Dict[str, Dict[str, Any]] | None = None,
+) -> None:
+    for row in top_rows:
+        annotate_row(row, positions_by_ticker, confidence_by_ticker, lineage_by_ticker, review_writeback_by_ticker)
+    for _profile, rows in group_top_rows:
+        for row in rows:
+            annotate_row(row, positions_by_ticker, confidence_by_ticker, lineage_by_ticker, review_writeback_by_ticker)
+    for row in diversified_rows:
+        annotate_row(row, positions_by_ticker, confidence_by_ticker, lineage_by_ticker, review_writeback_by_ticker)
+    for row in tiered_group_rows:
+        annotate_row(row, positions_by_ticker, confidence_by_ticker, lineage_by_ticker, review_writeback_by_ticker)
 
 
 def _to_cell(value: Any) -> Any:
@@ -83,6 +303,38 @@ def write_csv(path: Path, rows: List[Dict[str, Any]]) -> None:
         "explain_failed_group_count",
         "explain_market",
         "explain_group_trace_json",
+        "valuation_source",
+        "valuation_source_detail",
+        "fair_value",
+        "target_mean_price",
+        "dcf_iv_base",
+        "dcf_mos_base",
+        "dcf_status",
+        "validation_status",
+        "validation_hit",
+        "validation_days_held",
+        "validation_primary_excess_return",
+        "validation_template_id",
+        "validation_exit_reason",
+        "validation_as_of_date",
+        "trust_score",
+        "trust_grade",
+        "trust_bucket",
+        "review_result",
+        "formal_layer_eligible",
+        "confidence_summary",
+        "field_traceability_score",
+        "source_match_types",
+        "provider_tiers",
+        "source_lineage_summary",
+        "manual_review_decision",
+        "manual_review_action",
+        "manual_review_note",
+        "manual_reviewed_at",
+        "manual_review_summary",
+        "validation_summary",
+        "valuation_summary",
+        "risk_summary",
     ]
     fieldnames = base_fields + _resolve_extra_fieldnames(rows, base_fields, preferred_extras)
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -127,6 +379,38 @@ def write_group_csv(path: Path, rows_by_group: List[Tuple[Any, List[Dict[str, An
         "dcf_comps_crosscheck_status",
         "dcf_quality_penalty_multiplier",
         "trace_id",
+        "valuation_source",
+        "valuation_source_detail",
+        "fair_value",
+        "target_mean_price",
+        "dcf_iv_base",
+        "dcf_mos_base",
+        "dcf_status",
+        "validation_status",
+        "validation_hit",
+        "validation_days_held",
+        "validation_primary_excess_return",
+        "validation_template_id",
+        "validation_exit_reason",
+        "validation_as_of_date",
+        "trust_score",
+        "trust_grade",
+        "trust_bucket",
+        "review_result",
+        "formal_layer_eligible",
+        "confidence_summary",
+        "field_traceability_score",
+        "source_match_types",
+        "provider_tiers",
+        "source_lineage_summary",
+        "manual_review_decision",
+        "manual_review_action",
+        "manual_review_note",
+        "manual_reviewed_at",
+        "manual_review_summary",
+        "validation_summary",
+        "valuation_summary",
+        "risk_summary",
     ]
     fieldnames = base_fields + _resolve_extra_fieldnames(candidate_rows, base_fields, preferred_extras)
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -186,6 +470,38 @@ def write_tiered_group_csv(path: Path, rows: List[Dict[str, Any]]) -> None:
         "dcf_quality_penalty_multiplier",
         "note",
         "trace_id",
+        "valuation_source",
+        "valuation_source_detail",
+        "fair_value",
+        "target_mean_price",
+        "dcf_iv_base",
+        "dcf_mos_base",
+        "dcf_status",
+        "validation_status",
+        "validation_hit",
+        "validation_days_held",
+        "validation_primary_excess_return",
+        "validation_template_id",
+        "validation_exit_reason",
+        "validation_as_of_date",
+        "trust_score",
+        "trust_grade",
+        "trust_bucket",
+        "review_result",
+        "formal_layer_eligible",
+        "confidence_summary",
+        "field_traceability_score",
+        "source_match_types",
+        "provider_tiers",
+        "source_lineage_summary",
+        "manual_review_decision",
+        "manual_review_action",
+        "manual_review_note",
+        "manual_reviewed_at",
+        "manual_review_summary",
+        "validation_summary",
+        "valuation_summary",
+        "risk_summary",
     ]
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", encoding="utf-8", newline="") as file:
@@ -311,6 +627,30 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="报告日期覆盖（例如 2026-02-28）",
     )
+    parser.add_argument(
+        "--validation-positions-json",
+        type=Path,
+        default=None,
+        help="可选：机会验真持仓结果 JSON，用于把验真结论并入机会包",
+    )
+    parser.add_argument(
+        "--confidence-json",
+        type=Path,
+        default=None,
+        help="可选：机会可信度 JSON，用于把 trust score 摘要并入机会包",
+    )
+    parser.add_argument(
+        "--field-lineage-json",
+        type=Path,
+        default=None,
+        help="可选：字段级来源映射 JSON，用于把来源摘要并入机会包",
+    )
+    parser.add_argument(
+        "--review-writeback-json",
+        type=Path,
+        default=None,
+        help="可选：人工复核回写 JSON，用于把人工判定并入机会包",
+    )
     return parser.parse_args()
 
 
@@ -352,6 +692,22 @@ def main() -> None:
         tiered_group_rows = analysis["tiered_group_rows"]
         decision_trace_rows = analysis["decision_trace_rows"]
 
+        positions_by_ticker = load_validation_positions(args.validation_positions_json)
+        confidence_by_ticker = load_confidence_records(args.confidence_json)
+        lineage_by_ticker = load_field_lineage_summaries(args.field_lineage_json)
+        review_writeback_by_ticker = load_review_writeback_records(args.review_writeback_json)
+        if positions_by_ticker or confidence_by_ticker or lineage_by_ticker or review_writeback_by_ticker:
+            annotate_pack_outputs(
+                top_rows=top_rows,
+                group_top_rows=group_top_rows,
+                diversified_rows=diversified_rows,
+                tiered_group_rows=tiered_group_rows,
+                positions_by_ticker=positions_by_ticker,
+                confidence_by_ticker=confidence_by_ticker,
+                lineage_by_ticker=lineage_by_ticker,
+                review_writeback_by_ticker=review_writeback_by_ticker,
+            )
+
         write_csv(args.output_csv, top_rows)
         write_group_csv(args.output_group_csv, group_top_rows)
         write_csv(args.output_diversified_csv, diversified_rows)
@@ -382,6 +738,22 @@ def main() -> None:
             top_n=args.top,
             max_per_sector=args.max_per_sector,
         )
+        tiered_group_rows = []
+        positions_by_ticker = load_validation_positions(args.validation_positions_json)
+        confidence_by_ticker = load_confidence_records(args.confidence_json)
+        lineage_by_ticker = load_field_lineage_summaries(args.field_lineage_json)
+        review_writeback_by_ticker = load_review_writeback_records(args.review_writeback_json)
+        if positions_by_ticker or confidence_by_ticker or lineage_by_ticker or review_writeback_by_ticker:
+            annotate_pack_outputs(
+                top_rows=top_rows,
+                group_top_rows=group_top_rows,
+                diversified_rows=diversified_rows,
+                tiered_group_rows=tiered_group_rows,
+                positions_by_ticker=positions_by_ticker,
+                confidence_by_ticker=confidence_by_ticker,
+                lineage_by_ticker=lineage_by_ticker,
+                review_writeback_by_ticker=review_writeback_by_ticker,
+            )
         write_csv(args.output_csv, top_rows)
         write_group_csv(args.output_group_csv, group_top_rows)
         write_csv(args.output_diversified_csv, diversified_rows)

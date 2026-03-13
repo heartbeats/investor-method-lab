@@ -1,0 +1,27 @@
+{
+  "universe_file": "/tmp/688506_snapshot_seed_batch.csv",
+  "dcf_data_dir": "/Users/lucas/codex-project/data",
+  "source_adapter": "multi_source",
+  "operator": "investor-method-lab:auto-seed",
+  "summary": {
+    "total": 1,
+    "ok": 1,
+    "failed": 0,
+    "skipped_existing": 0
+  },
+  "results": [
+    {
+      "ticker": "688506.SS",
+      "symbol": "SH.688506",
+      "status": "ok",
+      "company_status": "existing",
+      "company_seed_source": null,
+      "quote_seed_source": null,
+      "snapshot_id": "e523aa0e-ec61-498b-877d-06fccc42f810",
+      "valuation_id": "6d08d0fe-db3f-4868-aa86-f74b4fada37d",
+      "iv_base": 49.021641510013225,
+      "mos_base": -4.199096445351393,
+      "fallback_mode": "ths_manual:ths_primary:mean:w5:relaxed:ValidationError"
+    }
+  ]
+}

@@ -1,82 +1,205 @@
 {
-  "as_of_utc": "2026-03-05T22:25:04Z",
-  "decision_status": "pending_user_decision",
-  "principle": "free_first_then_low_cost_paid",
-  "latest_audit_snapshot": {
-    "scope": "real_3markets",
-    "target_mean_price_coverage": {
-      "all": 0.93875,
-      "A": 0.98,
-      "HK": 0.8,
-      "US": 0.99
+  "generated_at_utc": "2026-03-13T08:10:02.666121+00:00",
+  "as_of_date": "2026-03-12",
+  "summary": {
+    "gap_count": 6,
+    "priority_breakdown": {
+      "P1": 1,
+      "P2": 5
     },
-    "analyst_count_coverage": {
-      "all": 0.73875,
-      "A": 0.44666666666666666,
-      "HK": 0.8,
-      "US": 0.99
+    "lane_breakdown": {
+      "structural_dcf_base_batch": 1,
+      "formalization_review": 5
     },
-    "recommendation_mean_coverage": {
-      "all": 0.5675,
-      "A": 0.2833333333333333,
-      "HK": 0.425,
-      "US": 0.9466666666666667
+    "current_signal_support_breakdown": {
+      "formal_core": 15,
+      "reference_only": 6
     },
-    "dcf_coverage_ratio": 0.03875
+    "target_signal_support_breakdown_if_done": {
+      "formal_core": 1,
+      "reference_only": 1,
+      "formal_support": 4
+    },
+    "target_signal_formal_coverage_rate_if_done": 0.23809523809523808,
+    "target_signal_formal_or_reference_coverage_rate_if_done": 0.2857142857142857
   },
-  "free_first_actions": [
+  "lanes": [
     {
-      "id": "free_akshare_fundamental_ahk",
-      "description": "A/HK 基本面优先走 akshare，再回退 yfinance（已落地 stock-data-hub）",
-      "status": "implemented",
-      "owner_project": "stock-data-hub"
+      "lane": "formalization_review",
+      "count": 5,
+      "priorities": {
+        "P2": 5
+      },
+      "target_support_tiers": {
+        "formal_support": 4,
+        "reference_only": 1
+      },
+      "tickers": [
+        "688126.SS",
+        "AES",
+        "BLDR",
+        "BXP",
+        "F"
+      ]
     },
     {
-      "id": "free_daily_snapshot_local_lake",
-      "description": "每日收盘后将 quote/fundamental/external valuation 批量落盘本地 data_lake（已落地脚本）",
-      "status": "implemented",
-      "owner_project": "stock-data-hub"
-    },
-    {
-      "id": "free_a_share_research_aggregation",
-      "description": "接入 Eastmoney/akshare 研报聚合，提高 A 股分析师覆盖",
-      "status": "implemented",
-      "owner_project": "stock-data-hub"
-    },
-    {
-      "id": "free_external_snapshot_prefetch_low_freq",
-      "description": "external_valuations 快照域低频批量预拉（每日1次）并被业务层优先消费",
-      "status": "planned",
-      "owner_project": "investor-method-lab + stock-data-hub"
+      "lane": "structural_dcf_base_batch",
+      "count": 1,
+      "priorities": {
+        "P1": 1
+      },
+      "target_support_tiers": {
+        "formal_core": 1
+      },
+      "tickers": [
+        "600515.SS"
+      ]
     }
   ],
-  "low_cost_paid_candidates": [
+  "items": [
     {
-      "id": "paid_tushare_pro",
-      "name": "Tushare Pro",
-      "markets": ["A"],
-      "use_case": "A 股财务与一致预期补全",
-      "cost_level": "low_to_medium",
-      "priority": "high",
-      "decision": "pending"
+      "priority": "P1",
+      "ticker": "600515.SS",
+      "name": "海南机场",
+      "market": "A",
+      "method_group": "宏观周期",
+      "signal_id": "47e160ecd3b55f458c493752",
+      "signal_as_of_date": "2026-03-04",
+      "pool": "signal_pool",
+      "signal_valuation_source": "target_mean_price",
+      "signal_support_tier": "reference_only",
+      "current_real_valuation_source": "target_mean_price",
+      "current_real_support_tier": "reference_only",
+      "valuation_source_detail": "yahoo_target_mean_price(dcf_symbol_unavailable)",
+      "trust_bucket": "watch",
+      "trust_grade": "C",
+      "current_action": "keep_in_watch_pool",
+      "upgrade_lane": "structural_dcf_base_batch",
+      "issue_type": "structural_dcf_base_blocked",
+      "blocking_reason": "no financial shell model and valuation_mode=parameterized_only",
+      "target_support_tier": "formal_core",
+      "recommended_action": "按结构性异常批次处理：统一补 company seed / shares 入口，或统一保持 reference_only，不逐票手工补",
+      "batch_kind": "structural_dcf_base"
     },
     {
-      "id": "paid_fmp_pro",
-      "name": "Financial Modeling Prep Pro",
-      "markets": ["US", "HK"],
-      "use_case": "US/HK 基本面与目标价稳定补源",
-      "cost_level": "low_to_medium",
-      "priority": "medium",
-      "decision": "pending"
+      "priority": "P2",
+      "ticker": "688126.SS",
+      "name": "沪硅产业",
+      "market": "A",
+      "method_group": "宏观周期",
+      "signal_id": "e0f333b3a0883ac28690752c",
+      "signal_as_of_date": "2026-03-04",
+      "pool": "signal_pool",
+      "signal_valuation_source": "target_mean_price",
+      "signal_support_tier": "reference_only",
+      "current_real_valuation_source": "target_mean_price",
+      "current_real_support_tier": "reference_only",
+      "valuation_source_detail": "yahoo_target_mean_price(dcf_symbol_unavailable)",
+      "trust_bucket": "watch",
+      "trust_grade": "C",
+      "current_action": "keep_in_watch_pool",
+      "upgrade_lane": "formalization_review",
+      "issue_type": "dcf_non_positive_iv",
+      "blocking_reason": "latest valuation exists but iv_base<=0 (-41.8946)",
+      "target_support_tier": "reference_only",
+      "recommended_action": "DCF 已有结果但 iv_base<=0，当前不升级到 dcf_iv_base；继续保留 reference_only，只复核是否存在 external consensus 或规则例外",
+      "batch_kind": "non_positive_dcf_hold"
     },
     {
-      "id": "paid_polygon_intrinio",
-      "name": "Polygon or Intrinio",
-      "markets": ["US"],
-      "use_case": "US 行情/财务高稳定与更高频刷新",
-      "cost_level": "medium",
-      "priority": "medium",
-      "decision": "pending"
+      "priority": "P2",
+      "ticker": "AES",
+      "name": "AES Corporation",
+      "market": "US",
+      "method_group": "系统化量化",
+      "signal_id": "88bad6b134d159b5efc5f190",
+      "signal_as_of_date": "2026-03-12",
+      "pool": "signal_pool",
+      "signal_valuation_source": "target_mean_price",
+      "signal_support_tier": "reference_only",
+      "current_real_valuation_source": "target_mean_price",
+      "current_real_support_tier": "reference_only",
+      "valuation_source_detail": "yahoo_target_mean_price(dcf_symbol_unavailable)",
+      "trust_bucket": "watch",
+      "trust_grade": "C",
+      "current_action": "keep_in_watch_pool",
+      "upgrade_lane": "formalization_review",
+      "issue_type": "reference_only_gap",
+      "blocking_reason": "yahoo_target_mean_price(dcf_symbol_unavailable)",
+      "target_support_tier": "formal_support",
+      "recommended_action": "确认是否能升级到 formal support；否则继续保留 reference_only",
+      "batch_kind": ""
+    },
+    {
+      "priority": "P2",
+      "ticker": "BLDR",
+      "name": "Builders FirstSource",
+      "market": "US",
+      "method_group": "系统化量化",
+      "signal_id": "0bc58db25f8253361295ca50",
+      "signal_as_of_date": "2026-03-12",
+      "pool": "signal_pool",
+      "signal_valuation_source": "target_mean_price",
+      "signal_support_tier": "reference_only",
+      "current_real_valuation_source": "target_mean_price",
+      "current_real_support_tier": "reference_only",
+      "valuation_source_detail": "yahoo_target_mean_price(dcf_symbol_unavailable)",
+      "trust_bucket": "watch",
+      "trust_grade": "C",
+      "current_action": "keep_in_watch_pool",
+      "upgrade_lane": "formalization_review",
+      "issue_type": "reference_only_gap",
+      "blocking_reason": "yahoo_target_mean_price(dcf_symbol_unavailable)",
+      "target_support_tier": "formal_support",
+      "recommended_action": "确认是否能升级到 formal support；否则继续保留 reference_only",
+      "batch_kind": ""
+    },
+    {
+      "priority": "P2",
+      "ticker": "BXP",
+      "name": "BXP, Inc.",
+      "market": "US",
+      "method_group": "系统化量化",
+      "signal_id": "4a0f2dc8eb22510021ec8c46",
+      "signal_as_of_date": "2026-03-12",
+      "pool": "signal_pool",
+      "signal_valuation_source": "target_mean_price",
+      "signal_support_tier": "reference_only",
+      "current_real_valuation_source": "target_mean_price",
+      "current_real_support_tier": "reference_only",
+      "valuation_source_detail": "yahoo_target_mean_price(dcf_symbol_unavailable)",
+      "trust_bucket": "watch",
+      "trust_grade": "C",
+      "current_action": "keep_in_watch_pool",
+      "upgrade_lane": "formalization_review",
+      "issue_type": "reference_only_gap",
+      "blocking_reason": "yahoo_target_mean_price(dcf_symbol_unavailable)",
+      "target_support_tier": "formal_support",
+      "recommended_action": "确认是否能升级到 formal support；否则继续保留 reference_only",
+      "batch_kind": ""
+    },
+    {
+      "priority": "P2",
+      "ticker": "F",
+      "name": "Ford Motor Company",
+      "market": "US",
+      "method_group": "系统化量化",
+      "signal_id": "e25999ccf68ee817e42892c7",
+      "signal_as_of_date": "2026-03-12",
+      "pool": "signal_pool",
+      "signal_valuation_source": "target_mean_price",
+      "signal_support_tier": "reference_only",
+      "current_real_valuation_source": "target_mean_price",
+      "current_real_support_tier": "reference_only",
+      "valuation_source_detail": "yahoo_target_mean_price(dcf_symbol_unavailable)",
+      "trust_bucket": "watch",
+      "trust_grade": "C",
+      "current_action": "keep_in_watch_pool",
+      "upgrade_lane": "formalization_review",
+      "issue_type": "reference_only_gap",
+      "blocking_reason": "yahoo_target_mean_price(dcf_symbol_unavailable)",
+      "target_support_tier": "formal_support",
+      "recommended_action": "确认是否能升级到 formal support；否则继续保留 reference_only",
+      "batch_kind": ""
     }
   ]
 }

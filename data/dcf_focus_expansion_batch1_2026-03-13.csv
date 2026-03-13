@@ -1,0 +1,6 @@
+ticker,market,name,sector,liquidity_tag,included_reason,note
+000063.SZ,A,中兴通讯,Unknown,dcf_focus_expansion_batch1,valuation_upgrade_backlog_p1,M5 batch1 | dcf_focus_expansion first batch
+002241.SZ,A,歌尔股份,Unknown,dcf_focus_expansion_batch1,valuation_upgrade_backlog_p1,M5 batch1 | dcf_focus_expansion first batch
+600000.SS,A,浦发银行,Unknown,dcf_focus_expansion_batch1,valuation_upgrade_backlog_p1,M5 batch1 | dcf_focus_expansion first batch
+600029.SS,A,南方航空,Unknown,dcf_focus_expansion_batch1,valuation_upgrade_backlog_p1,M5 batch1 | dcf_focus_expansion first batch
+601136.SS,A,首创证券,Unknown,dcf_focus_expansion_batch1,valuation_upgrade_backlog_p1,M5 batch1 | dcf_focus_expansion first batch

@@ -168,6 +168,46 @@ class Top20PackTest(unittest.TestCase):
         self.assertIn("MOS_FV = (FV - P) / FV", markdown)
         self.assertIn("docs/margin_of_safety_references.md", markdown)
 
+    def test_render_markdown_includes_validation_valuation_and_risk_columns(self) -> None:
+        profiles = self._sample_profiles()
+        markdown = render_opportunity_pack_markdown(
+            as_of_date="2026-03-13",
+            profiles=profiles,
+            top_rows=[
+                {
+                    "ticker": "AAPL",
+                    "name": "Apple",
+                    "sector": "Technology",
+                    "composite_score": 88.5,
+                    "best_group": "价值",
+                    "best_reason": "质量:23.2 | 安全边际:19.1",
+                    "note": "real-data@2026-03-13",
+                    "validation_status": "open",
+                    "validation_hit": True,
+                    "validation_primary_excess_return": 0.025,
+                    "validation_days_held": 5,
+                    "valuation_source": "dcf_iv_base",
+                    "fair_value": "130",
+                    "dcf_iv_base": "130",
+                    "target_mean_price": "120",
+                    "dcf_quality_gate_status": "caution",
+                    "dcf_comps_crosscheck_status": "warn",
+                    "confidence_summary": "C(89.3) | watch | 非正式层",
+                    "source_lineage_summary": "追踪100 | backup/reference_only | P1",
+                }
+            ],
+        )
+        self.assertIn("机会验真", markdown)
+        self.assertIn("估值联动", markdown)
+        self.assertIn("风险提示", markdown)
+        self.assertIn("可信度", markdown)
+        self.assertIn("来源摘要", markdown)
+        self.assertIn("open \\| 命中 \\| 超额+2.5% \\| 5d", markdown)
+        self.assertIn("dcf_iv_base \\| DCF 130.00 \\| 外部 120.00", markdown)
+        self.assertIn("DCF质量:caution \\| 交叉验证:warn", markdown)
+        self.assertIn("C(89.3) \\| watch \\| 非正式层", markdown)
+        self.assertIn("追踪100 \\| backup/reference_only \\| P1", markdown)
+
     def test_rank_opportunities_for_each_group(self) -> None:
         profiles = self._sample_profiles()
         opportunities = [

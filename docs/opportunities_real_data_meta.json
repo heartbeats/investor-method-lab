@@ -1,13 +1,12 @@
 {
-  "generated_at_utc": "2026-03-12T01:13:30.490954+00:00",
+  "generated_at_utc": "2026-03-13T01:34:52.105040+00:00",
   "source": "stock-data-hub(API+snapshot) + local DCF valuation link (partial coverage; comps baseline cross-check optional)",
   "cache_policy": "enabled; ttl_hours=24; use cached result for non-real-time API calls",
   "as_of_dates": [
     "2026-03-04",
     "2026-03-05",
-    "2026-03-06",
     "2026-03-10",
-    "2026-03-11"
+    "2026-03-12"
   ],
   "universe_size": 800,
   "requested_universe_size": 800,
@@ -15,8 +14,8 @@
   "failed_ticker_count": 0,
   "failed_tickers": [],
   "valuation_source_breakdown": {
-    "target_mean_price": 569,
-    "close_fallback": 202,
+    "target_mean_price": 567,
+    "close_fallback": 204,
     "dcf_iv_base": 29
   },
   "skip_hub_price_history": false,
@@ -937,8 +936,8 @@
     "errors": [],
     "valuation_source_counts": {
       "dcf_iv_base": 29,
-      "target_mean_price": 569,
-      "close_fallback": 202
+      "target_mean_price": 567,
+      "close_fallback": 204
     },
     "quality_gate_status_counts": {
       "caution": 22,
@@ -1019,6 +1018,8 @@
     }
   ],
   "tickers_with_missing_target_mean_price": [
+    "601211.SS",
+    "300274.SZ",
     "600016.SS",
     "000166.SZ",
     "600015.SS",

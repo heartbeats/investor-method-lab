@@ -1,0 +1,320 @@
+{
+  "version": 1,
+  "project": "investor-method-lab",
+  "generated_at": "2026-03-13T17:07:46.877412+08:00",
+  "iterations": [
+    {
+      "id": "ITER-0002",
+      "title": "迭代：同一机会包展示机会验真结果与 DCF 估值联动",
+      "objective": "完成 同一机会包展示机会验真结果与 DCF 估值联动 的一轮可验证交付。",
+      "requirement_refs": [
+        "REQ-0002"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "ITER-0003",
+      "title": "迭代：机会包补齐字段级来源映射与可信度评分",
+      "objective": "完成 机会包补齐字段级来源映射与可信度评分 的一轮可验证交付。",
+      "requirement_refs": [
+        "REQ-0003"
+      ],
+      "status": "done"
+    },
+    {
+      "id": "ITER-0004",
+      "title": "迭代：人工复核结果回写到 backlog、机会包和 KPI",
+      "objective": "完成 人工复核结果回写到 backlog、机会包和 KPI 的一轮可验证交付。",
+      "requirement_refs": [
+        "REQ-0004"
+      ],
+      "status": "doing",
+      "updated_at": "2026-03-13T17:07:46.877412+08:00"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "TASK-0004",
+      "iteration_id": "ITER-0002",
+      "requirement_refs": [
+        "REQ-0002"
+      ],
+      "title": "明确边界与输入",
+      "objective": "明确这条需求的输入、输出与边界。",
+      "input": [
+        "effective_requirements:REQ-0002",
+        "change_log.jsonl",
+        "requirements.md"
+      ],
+      "output": [
+        "updated artifacts",
+        "verification notes"
+      ],
+      "validation": [
+        "边界清晰",
+        "输入输出明确"
+      ],
+      "done_definition": "主产物已更新、验证完成、结果可回写。",
+      "writeback_fields": [
+        "status",
+        "execution_summary",
+        "verification_result",
+        "artifacts"
+      ],
+      "status": "done",
+      "last_validation_status": "pass"
+    },
+    {
+      "id": "TASK-0005",
+      "iteration_id": "ITER-0002",
+      "requirement_refs": [
+        "REQ-0002"
+      ],
+      "title": "完成核心实现",
+      "objective": "交付需求最小闭环，并保留回写字段。",
+      "input": [
+        "effective_requirements:REQ-0002",
+        "change_log.jsonl",
+        "requirements.md"
+      ],
+      "output": [
+        "updated artifacts",
+        "verification notes"
+      ],
+      "validation": [
+        "主能力可用",
+        "依赖关系已记录"
+      ],
+      "done_definition": "主产物已更新、验证完成、结果可回写。",
+      "writeback_fields": [
+        "status",
+        "execution_summary",
+        "verification_result",
+        "artifacts"
+      ],
+      "status": "done",
+      "last_validation_status": "pass"
+    },
+    {
+      "id": "TASK-0006",
+      "iteration_id": "ITER-0002",
+      "requirement_refs": [
+        "REQ-0002"
+      ],
+      "title": "验证并回写",
+      "objective": "完成验证、结果记录与下一步建议。",
+      "input": [
+        "effective_requirements:REQ-0002",
+        "change_log.jsonl",
+        "requirements.md"
+      ],
+      "output": [
+        "updated artifacts",
+        "verification notes"
+      ],
+      "validation": [
+        "验证口径清晰",
+        "writeback_fields 完整"
+      ],
+      "done_definition": "主产物已更新、验证完成、结果可回写。",
+      "writeback_fields": [
+        "status",
+        "execution_summary",
+        "verification_result",
+        "artifacts"
+      ],
+      "status": "done",
+      "last_validation_status": "pass"
+    },
+    {
+      "id": "TASK-0007",
+      "iteration_id": "ITER-0003",
+      "requirement_refs": [
+        "REQ-0003"
+      ],
+      "title": "明确边界与输入",
+      "objective": "明确这条需求的输入、输出与边界。",
+      "input": [
+        "effective_requirements:REQ-0003",
+        "change_log.jsonl",
+        "requirements.md"
+      ],
+      "output": [
+        "updated artifacts",
+        "verification notes"
+      ],
+      "validation": [
+        "边界清晰",
+        "输入输出明确"
+      ],
+      "done_definition": "主产物已更新、验证完成、结果可回写。",
+      "writeback_fields": [
+        "status",
+        "execution_summary",
+        "verification_result",
+        "artifacts"
+      ],
+      "status": "done",
+      "last_validation_status": "pass"
+    },
+    {
+      "id": "TASK-0008",
+      "iteration_id": "ITER-0003",
+      "requirement_refs": [
+        "REQ-0003"
+      ],
+      "title": "完成核心实现",
+      "objective": "交付需求最小闭环，并保留回写字段。",
+      "input": [
+        "effective_requirements:REQ-0003",
+        "change_log.jsonl",
+        "requirements.md"
+      ],
+      "output": [
+        "updated artifacts",
+        "verification notes"
+      ],
+      "validation": [
+        "主能力可用",
+        "依赖关系已记录"
+      ],
+      "done_definition": "主产物已更新、验证完成、结果可回写。",
+      "writeback_fields": [
+        "status",
+        "execution_summary",
+        "verification_result",
+        "artifacts"
+      ],
+      "status": "done",
+      "last_validation_status": "pass"
+    },
+    {
+      "id": "TASK-0009",
+      "iteration_id": "ITER-0003",
+      "requirement_refs": [
+        "REQ-0003"
+      ],
+      "title": "验证并回写",
+      "objective": "完成验证、结果记录与下一步建议。",
+      "input": [
+        "effective_requirements:REQ-0003",
+        "change_log.jsonl",
+        "requirements.md"
+      ],
+      "output": [
+        "updated artifacts",
+        "verification notes"
+      ],
+      "validation": [
+        "验证口径清晰",
+        "writeback_fields 完整"
+      ],
+      "done_definition": "主产物已更新、验证完成、结果可回写。",
+      "writeback_fields": [
+        "status",
+        "execution_summary",
+        "verification_result",
+        "artifacts"
+      ],
+      "status": "done",
+      "last_validation_status": "pass"
+    },
+    {
+      "id": "TASK-0010",
+      "iteration_id": "ITER-0004",
+      "requirement_refs": [
+        "REQ-0004"
+      ],
+      "title": "定义集成映射",
+      "objective": "明确本地工件到外部查看面的字段映射。",
+      "input": [
+        "effective_requirements:REQ-0004",
+        "change_log.jsonl",
+        "requirements.md"
+      ],
+      "output": [
+        "updated artifacts",
+        "verification notes"
+      ],
+      "validation": [
+        "字段映射明确",
+        "失败路径可回执"
+      ],
+      "done_definition": "主产物已更新、验证完成、结果可回写。",
+      "writeback_fields": [
+        "status",
+        "execution_summary",
+        "verification_result",
+        "artifacts"
+      ],
+      "status": "done",
+      "last_validation_status": "pass"
+    },
+    {
+      "id": "TASK-0011",
+      "iteration_id": "ITER-0004",
+      "requirement_refs": [
+        "REQ-0004"
+      ],
+      "title": "实现同步链路",
+      "objective": "打通主流程的同步调用与日志记录。",
+      "input": [
+        "effective_requirements:REQ-0004",
+        "change_log.jsonl",
+        "requirements.md"
+      ],
+      "output": [
+        "updated artifacts",
+        "verification notes"
+      ],
+      "validation": [
+        "同步结果可记录",
+        "失败不阻断主流程"
+      ],
+      "done_definition": "主产物已更新、验证完成、结果可回写。",
+      "writeback_fields": [
+        "status",
+        "execution_summary",
+        "verification_result",
+        "artifacts"
+      ],
+      "status": "done",
+      "last_validation_status": "pass"
+    },
+    {
+      "id": "TASK-0012",
+      "iteration_id": "ITER-0004",
+      "requirement_refs": [
+        "REQ-0004"
+      ],
+      "title": "验证回执与容错",
+      "objective": "检查成功与失败两条路径都能留下证据。",
+      "input": [
+        "effective_requirements:REQ-0004",
+        "change_log.jsonl",
+        "requirements.md"
+      ],
+      "output": [
+        "updated artifacts",
+        "verification notes"
+      ],
+      "validation": [
+        "sync_log 有记录",
+        "dry-run 可用"
+      ],
+      "done_definition": "主产物已更新、验证完成、结果可回写。",
+      "writeback_fields": [
+        "status",
+        "execution_summary",
+        "verification_result",
+        "artifacts"
+      ],
+      "status": "doing",
+      "last_validation_status": "not_run",
+      "execution_summary": "已完成 requirement-ops after_task_update 联调与防重校验",
+      "verification_result": "任务回写适配器、项目管理回写、dry-run 摘要均可用",
+      "updated_at": "2026-03-13T17:07:46.877412+08:00"
+    }
+  ],
+  "skipped_requirements": []
+}

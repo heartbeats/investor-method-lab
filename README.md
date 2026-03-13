@@ -60,7 +60,7 @@ python3 scripts/seed_dcf_coverage_from_universe.py \
   --report-file data/dcf_coverage_seed_report.json
 ```
 
-说明：该脚本基于 `yfinance` 财报与行情，失败项会在报告里逐条列出原因。
+说明：该脚本默认基于 `yfinance` 财报与行情；A 股在 `yfinance` 限流或缺股本时，会回退到 THS 股本/财报种子，失败项会在报告里逐条列出原因。
 
 ### 网页看板（查看全部整理信息）
 

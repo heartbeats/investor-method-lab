@@ -1,0 +1,201 @@
+{
+  "generated_at_utc": "2026-03-13T08:09:39.831744+00:00",
+  "ledger_file": "data/opportunity_signal_ledger.jsonl",
+  "total_signals": 39,
+  "distinct_signal_dates": 3,
+  "latest_as_of_date": "2026-03-12",
+  "latest_batch_as_of_dates": [
+    "2026-03-04",
+    "2026-03-12"
+  ],
+  "latest_batch_scope": "current_run_candidates",
+  "latest_signal_count": 11,
+  "newly_appended_count": 2,
+  "latest_batch_method_group_breakdown": {
+    "宏观周期": 11
+  },
+  "latest_batch_valuation_source_breakdown": {
+    "dcf_iv_base": 9,
+    "target_mean_price": 2
+  },
+  "latest_batch_review_state_breakdown": {
+    "escalated": 7,
+    "auto": 4
+  },
+  "latest_batch_signal_origin_breakdown": {
+    "top_ranked_candidate": 10,
+    "refresh_reissue": 1
+  },
+  "latest_batch_source_list_breakdown": {
+    "opportunity_mining_daily": 10,
+    "opportunity_mining_daily_refresh_reissue": 1
+  },
+  "latest_batch_refresh_reissue_count": 1,
+  "latest_refresh_reissue_signals": [
+    {
+      "ticker": "688506.SS",
+      "name": "百利天恒",
+      "previous_signal_as_of_date": "2026-03-04",
+      "previous_valuation_source_at_signal": "target_mean_price",
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "entry_reason_summary": "signal_refresh_reissue:target_mean_price->dcf_iv_base"
+    }
+  ],
+  "latest_batch_signals": [
+    {
+      "source_rank": 3,
+      "ticker": "688506.SS",
+      "name": "百利天恒",
+      "method_group": "宏观周期",
+      "signal_origin": "refresh_reissue",
+      "source_list_id": "opportunity_mining_daily_refresh_reissue",
+      "composite_score_at_signal": 40.42,
+      "price_at_signal": 254.87,
+      "fair_value_at_signal": 49.0216,
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "entry_reason_summary": "signal_refresh_reissue:target_mean_price->dcf_iv_base"
+    },
+    {
+      "source_rank": 9,
+      "ticker": "MSFT",
+      "name": "Microsoft",
+      "method_group": "宏观周期",
+      "signal_origin": "top_ranked_candidate",
+      "source_list_id": "opportunity_mining_daily",
+      "composite_score_at_signal": 26.76,
+      "price_at_signal": 401.86,
+      "fair_value_at_signal": 271.0503,
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "entry_reason_summary": "催化:24.2 | 趋势:19.2"
+    },
+    {
+      "source_rank": 2,
+      "ticker": "600000.SS",
+      "name": "浦发银行",
+      "method_group": "宏观周期",
+      "signal_origin": "top_ranked_candidate",
+      "source_list_id": "opportunity_mining_daily",
+      "composite_score_at_signal": 56.61,
+      "price_at_signal": 10.18,
+      "fair_value_at_signal": 121.8683,
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "entry_reason_summary": "催化:20.2 | 趋势:20.0"
+    },
+    {
+      "source_rank": 1,
+      "ticker": "600029.SS",
+      "name": "南方航空",
+      "method_group": "宏观周期",
+      "signal_origin": "top_ranked_candidate",
+      "source_list_id": "opportunity_mining_daily",
+      "composite_score_at_signal": 58.75,
+      "price_at_signal": 6.32,
+      "fair_value_at_signal": 9.5829,
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "auto",
+      "entry_reason_summary": "催化:18.2 | 趋势:13.6"
+    },
+    {
+      "source_rank": 10,
+      "ticker": "600515.SS",
+      "name": "海南机场",
+      "method_group": "宏观周期",
+      "signal_origin": "top_ranked_candidate",
+      "source_list_id": "opportunity_mining_daily",
+      "composite_score_at_signal": 26.08,
+      "price_at_signal": 4.02,
+      "fair_value_at_signal": 3.9289,
+      "valuation_source_at_signal": "target_mean_price",
+      "review_state": "auto",
+      "entry_reason_summary": "催化:23.0 | 趋势:14.4"
+    },
+    {
+      "source_rank": 8,
+      "ticker": "601288.SS",
+      "name": "农业银行",
+      "method_group": "宏观周期",
+      "signal_origin": "top_ranked_candidate",
+      "source_list_id": "opportunity_mining_daily",
+      "composite_score_at_signal": 33.4,
+      "price_at_signal": 6.74,
+      "fair_value_at_signal": 41.2082,
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "entry_reason_summary": "催化:23.4 | 趋势:13.4"
+    },
+    {
+      "source_rank": 7,
+      "ticker": "601818.SS",
+      "name": "光大银行",
+      "method_group": "宏观周期",
+      "signal_origin": "top_ranked_candidate",
+      "source_list_id": "opportunity_mining_daily",
+      "composite_score_at_signal": 35.93,
+      "price_at_signal": 3.24,
+      "fair_value_at_signal": 5.2986,
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "entry_reason_summary": "趋势:21.8 | 催化:17.7"
+    },
+    {
+      "source_rank": 6,
+      "ticker": "601166.SS",
+      "name": "兴业银行",
+      "method_group": "宏观周期",
+      "signal_origin": "top_ranked_candidate",
+      "source_list_id": "opportunity_mining_daily",
+      "composite_score_at_signal": 36.05,
+      "price_at_signal": 18.47,
+      "fair_value_at_signal": 29.2922,
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "entry_reason_summary": "趋势:22.2 | 催化:18.8"
+    },
+    {
+      "source_rank": 5,
+      "ticker": "601169.SS",
+      "name": "北京银行",
+      "method_group": "宏观周期",
+      "signal_origin": "top_ranked_candidate",
+      "source_list_id": "opportunity_mining_daily",
+      "composite_score_at_signal": 37.8,
+      "price_at_signal": 5.4,
+      "fair_value_at_signal": 63.9739,
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "entry_reason_summary": "催化:24.0 | 趋势:18.9"
+    },
+    {
+      "source_rank": 4,
+      "ticker": "000063.SZ",
+      "name": "中兴通讯",
+      "method_group": "宏观周期",
+      "signal_origin": "top_ranked_candidate",
+      "source_list_id": "opportunity_mining_daily",
+      "composite_score_at_signal": 41.54,
+      "price_at_signal": 37.88,
+      "fair_value_at_signal": 38.5253,
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "auto",
+      "entry_reason_summary": "趋势:16.6 | 风控:15.9"
+    },
+    {
+      "source_rank": 3,
+      "ticker": "688126.SS",
+      "name": "沪硅产业",
+      "method_group": "宏观周期",
+      "signal_origin": "top_ranked_candidate",
+      "source_list_id": "opportunity_mining_daily",
+      "composite_score_at_signal": 44.13,
+      "price_at_signal": 19.5,
+      "fair_value_at_signal": 18.9068,
+      "valuation_source_at_signal": "target_mean_price",
+      "review_state": "auto",
+      "entry_reason_summary": "催化:22.4 | 趋势:15.2"
+    }
+  ]
+}

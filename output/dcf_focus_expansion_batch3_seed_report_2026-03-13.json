@@ -1,0 +1,49 @@
+{
+  "universe_file": "data/dcf_focus_expansion_batch3_2026-03-13.csv",
+  "dcf_data_dir": "/Users/lucas/codex-project/data",
+  "source_adapter": "multi_source",
+  "operator": "investor-method-lab:auto-seed",
+  "summary": {
+    "total": 5,
+    "ok": 0,
+    "failed": 5,
+    "skipped_existing": 0
+  },
+  "results": [
+    {
+      "ticker": "600919.SS",
+      "symbol": "SH.600919",
+      "status": "failed",
+      "stage": "sync_or_valuation",
+      "error": "SH.600919: company profile fallback failed (yfinance=Too Many Requests. Rate limited. Try after a while. | ths=SH.600919: akshare unavailable for A-share company profile fallback)"
+    },
+    {
+      "ticker": "601166.SS",
+      "symbol": "SH.601166",
+      "status": "failed",
+      "stage": "sync_or_valuation",
+      "error": "SH.601166: company profile fallback failed (yfinance=Too Many Requests. Rate limited. Try after a while. | ths=SH.601166: akshare unavailable for A-share company profile fallback)"
+    },
+    {
+      "ticker": "601818.SS",
+      "symbol": "SH.601818",
+      "status": "failed",
+      "stage": "sync_or_valuation",
+      "error": "SH.601818: company profile fallback failed (yfinance=Too Many Requests. Rate limited. Try after a while. | ths=SH.601818: akshare unavailable for A-share company profile fallback)"
+    },
+    {
+      "ticker": "688126.SS",
+      "symbol": "SH.688126",
+      "status": "failed",
+      "stage": "sync_or_valuation",
+      "error": "SH.688126: company profile fallback failed (yfinance=Too Many Requests. Rate limited. Try after a while. | ths=SH.688126: akshare unavailable for A-share company profile fallback)"
+    },
+    {
+      "ticker": "688506.SS",
+      "symbol": "SH.688506",
+      "status": "failed",
+      "stage": "sync_or_valuation",
+      "error": "SH.688506: company profile fallback failed (yfinance=Too Many Requests. Rate limited. Try after a while. | ths=SH.688506: akshare unavailable for A-share company profile fallback)"
+    }
+  ]
+}

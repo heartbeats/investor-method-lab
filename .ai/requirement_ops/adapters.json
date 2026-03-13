@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "project": "investor-method-lab",
+  "updated_at": "2026-03-13T16:09:55.297018+08:00",
+  "adapters": [
+    {
+      "id": "feishu_summary",
+      "type": "builtin_feishu_sync",
+      "enabled": true,
+      "hooks": [
+        "sync_summary"
+      ],
+      "description": "Feishu Docx / webhook 查看面适配器。",
+      "config": {}
+    },
+    {
+      "id": "custom_kpi_command",
+      "type": "command",
+      "enabled": true,
+      "hooks": [
+        "score_kpi"
+      ],
+      "description": "外部命令型 KPI 扩展适配器。",
+      "command_template": "python3 \"{workspace}/scripts/requirement_ops_custom_kpi_adapter.py\" \"{payload_file}\"",
+      "cwd": "",
+      "env": {}
+    },
+    {
+      "id": "project_writeback_command",
+      "type": "command",
+      "enabled": true,
+      "hooks": [
+        "after_cycle",
+        "after_task_update"
+      ],
+      "description": "外部命令型项目回写 / 协同适配器。",
+      "command_template": "python3 \"{workspace}/scripts/requirement_ops_project_writeback_adapter.py\" \"{payload_file}\"",
+      "cwd": "",
+      "env": {}
+    }
+  ]
+}
