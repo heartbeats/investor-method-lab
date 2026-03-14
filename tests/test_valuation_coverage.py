@@ -151,6 +151,32 @@ class ValuationCoverageTests(unittest.TestCase):
         self.assertIn("人工复核闭环", markdown)
         self.assertIn("upgrade_valuation_source", markdown)
 
+
+    def test_build_valuation_coverage_surfaces_review_sync_receipt(self) -> None:
+        review_payload = {
+            "reviewed_items": [],
+            "sync_receipt": {
+                "synced": False,
+                "reason": "missing_feishu_credentials",
+                "fallback_mode": "reuse_previous_snapshot",
+            },
+        }
+        doc = build_valuation_coverage(
+            real_rows=[],
+            signals=[],
+            positions=[],
+            focus_lookup=set(),
+            meta_payload={"as_of_dates": ["2026-03-05"]},
+            review_writeback_payload=review_payload,
+            history_rows=[],
+        )
+
+        self.assertEqual(doc["manual_review"]["sync_status"], "degraded")
+        self.assertEqual(doc["manual_review"]["sync_reason"], "missing_feishu_credentials")
+        markdown = render_valuation_coverage_markdown(doc)
+        self.assertIn("拉取状态", markdown)
+        self.assertIn("reuse_previous_snapshot", markdown)
+
     def test_signal_pool_uses_latest_signal_per_ticker(self) -> None:
         doc = build_valuation_coverage(
             real_rows=[{"ticker": "AES", "valuation_source": "target_mean_price"}],
@@ -189,6 +215,27 @@ class ValuationCoverageTests(unittest.TestCase):
         self.assertEqual(doc["signal_pool"]["valuation_support_breakdown"]["reference_only"], 1)
         self.assertNotIn("price_fallback", doc["signal_pool"]["valuation_support_breakdown"])
         self.assertEqual(doc["confidence_by_valuation_support"]["reference_only"]["watch"], 1)
+
+    def test_latest_as_of_date_prefers_newer_signal_date_when_meta_is_stale(self) -> None:
+        doc = build_valuation_coverage(
+            real_rows=[{"ticker": "BLDR", "valuation_source": "dcf_iv_base"}],
+            signals=[
+                {
+                    "signal_id": "refresh",
+                    "ticker": "BLDR",
+                    "name": "Builders FirstSource",
+                    "method_group": "系统化量化",
+                    "valuation_source_at_signal": "dcf_iv_base",
+                    "as_of_date": "2026-03-14",
+                    "signal_generated_at_utc": "2026-03-14T01:00:00+00:00",
+                },
+            ],
+            positions=[],
+            focus_lookup=set(),
+            meta_payload={"as_of_dates": ["2026-03-12"]},
+            history_rows=[],
+        )
+        self.assertEqual(doc["as_of_date"], "2026-03-14")
 
     def test_history_append_dedupes_same_snapshot(self) -> None:
         record = history_snapshot_record(

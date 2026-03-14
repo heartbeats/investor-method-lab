@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-13T09:34:54",
+  "generated_at": "2026-03-14T09:17:03",
   "as_of_date": "2026-03-12",
   "inputs": {
     "focus_file": "/Users/lucas/projects/investor-method-lab/data/dcf_special_focus_list.json",
@@ -54,9 +54,9 @@
         "ticker": "AAPL",
         "dcf_symbol": "US.AAPL",
         "tag": "manual",
-        "close": 260.29,
+        "close": 255.76,
         "iv": 195.3437,
-        "mos": -0.3325,
+        "mos": -0.3093,
         "status": "overvalued"
       },
       {
@@ -64,9 +64,9 @@
         "ticker": "NVDA",
         "dcf_symbol": "US.NVDA",
         "tag": "manual",
-        "close": 183.34,
+        "close": 183.14,
         "iv": 128.2148,
-        "mos": -0.4299,
+        "mos": -0.4284,
         "status": "overvalued"
       },
       {
@@ -74,9 +74,9 @@
         "ticker": "GOOGL",
         "dcf_symbol": "US.GOOGL",
         "tag": "deep_calibrated",
-        "close": 300.88,
+        "close": 303.55,
         "iv": 178.7076,
-        "mos": -0.6836,
+        "mos": -0.6986,
         "status": "overvalued"
       }
     ],
@@ -94,9 +94,9 @@
       "1. Meituan(HK.03690) MOS 59.49% | 现价 76.85 | 中性 189.70",
       "2. 贵州茅台(SH.600519) MOS 34.09% | 现价 1397.62 | 中性 2120.42",
       "3. Tencent Holdings(HK.00700) MOS 9.45% | 现价 519.00 | 中性 573.16",
-      "4. Apple Inc.(US.AAPL) MOS -33.25% | 现价 260.29 | 中性 195.34",
-      "5. NVIDIA(US.NVDA) MOS -42.99% | 现价 183.34 | 中性 128.21",
-      "6. Alphabet Inc. (Class A)(US.GOOGL) MOS -68.36% | 现价 300.88 | 中性 178.71",
+      "4. Apple Inc.(US.AAPL) MOS -30.93% | 现价 255.76 | 中性 195.34",
+      "5. NVIDIA(US.NVDA) MOS -42.84% | 现价 183.14 | 中性 128.21",
+      "6. Alphabet Inc. (Class A)(US.GOOGL) MOS -69.86% | 现价 303.55 | 中性 178.71",
       "待补数据：US.PDD"
     ]
   },
@@ -119,114 +119,114 @@
         "ticker": "688126.SS",
         "name": "沪硅产业",
         "market": "A",
-        "score": 44.23,
+        "score": 44.11,
         "mos_pct": -3.1,
         "best_group": "宏观周期",
         "close": 19.5,
         "target": 18.91
       },
       {
-        "ticker": "600000.SS",
-        "name": "浦发银行",
+        "ticker": "601618.SS",
+        "name": "中国中冶",
         "market": "A",
-        "score": 41.37,
-        "mos_pct": 1.7,
+        "score": 32.19,
+        "mos_pct": 6.9,
         "best_group": "宏观周期",
-        "close": 10.18,
-        "target": 10.35
-      },
-      {
-        "ticker": "688506.SS",
-        "name": "百利天恒",
-        "market": "A",
-        "score": 40.42,
-        "mos_pct": -52.5,
-        "best_group": "宏观周期",
-        "close": 254.87,
-        "target": 167.16
-      },
-      {
-        "ticker": "002241.SZ",
-        "name": "歌尔股份",
-        "market": "A",
-        "score": 38.12,
-        "mos_pct": -7.2,
-        "best_group": "宏观周期",
-        "close": 25.13,
-        "target": 23.45
-      },
-      {
-        "ticker": "000063.SZ",
-        "name": "中兴通讯",
-        "market": "A",
-        "score": 33.5,
-        "mos_pct": -11.0,
-        "best_group": "宏观周期",
-        "close": 37.88,
-        "target": 34.12
+        "close": 3.12,
+        "target": 3.35
       },
       {
         "ticker": "601166.SS",
         "name": "兴业银行",
         "market": "A",
-        "score": 31.87,
+        "score": 32.0,
         "mos_pct": 2.7,
         "best_group": "宏观周期",
         "close": 18.47,
         "target": 18.99
       },
       {
-        "ticker": "601136.SS",
-        "name": "首创证券",
-        "market": "A",
-        "score": 30.38,
-        "mos_pct": 1.0,
-        "best_group": "宏观周期",
-        "close": 17.3,
-        "target": 17.47
-      },
-      {
-        "ticker": "600029.SS",
-        "name": "南方航空",
-        "market": "A",
-        "score": 30.19,
-        "mos_pct": -2.6,
-        "best_group": "宏观周期",
-        "close": 6.32,
-        "target": 6.16
-      },
-      {
         "ticker": "601818.SS",
         "name": "光大银行",
         "market": "A",
-        "score": 29.73,
+        "score": 29.76,
         "mos_pct": 0.4,
         "best_group": "宏观周期",
         "close": 3.24,
         "target": 3.25
       },
       {
-        "ticker": "601169.SS",
-        "name": "北京银行",
-        "market": "A",
-        "score": 27.86,
-        "mos_pct": -2.0,
+        "ticker": "MSFT",
+        "name": "Microsoft",
+        "market": "US",
+        "score": 26.72,
+        "mos_pct": -48.3,
         "best_group": "宏观周期",
-        "close": 5.4,
-        "target": 5.3
+        "close": 401.86,
+        "target": 596.0
+      },
+      {
+        "ticker": "600515.SS",
+        "name": "海南机场",
+        "market": "A",
+        "score": 26.12,
+        "mos_pct": -2.3,
+        "best_group": "宏观周期",
+        "close": 4.02,
+        "target": 3.93
+      },
+      {
+        "ticker": "600377.SS",
+        "name": "宁沪高速",
+        "market": "A",
+        "score": 26.12,
+        "mos_pct": 2.6,
+        "best_group": "宏观周期",
+        "close": 12.03,
+        "target": 12.35
+      },
+      {
+        "ticker": "601916.SS",
+        "name": "浙商银行",
+        "market": "A",
+        "score": 25.88,
+        "mos_pct": -3.2,
+        "best_group": "宏观周期",
+        "close": 3.0,
+        "target": 2.91
+      },
+      {
+        "ticker": "600415.SS",
+        "name": "小商品城",
+        "market": "A",
+        "score": 25.82,
+        "mos_pct": -5.8,
+        "best_group": "宏观周期",
+        "close": 14.16,
+        "target": 13.38
+      },
+      {
+        "ticker": "000002.SZ",
+        "name": "万科A",
+        "market": "A",
+        "score": 25.33,
+        "mos_pct": 55.8,
+        "best_group": "系统化量化",
+        "close": 4.69,
+        "target": 10.61
       }
     ],
     "message_lines": [
       "口径：机会池剔除特别关注标的后按综合分排序",
       "本次展示：8只",
-      "1. 沪硅产业(688126.SS) 分数 44.2 | MOS -3.1% | 现价/目标 19.50/18.91",
-      "2. 浦发银行(600000.SS) 分数 41.4 | MOS 1.7% | 现价/目标 10.18/10.35",
-      "3. 百利天恒(688506.SS) 分数 40.4 | MOS -52.5% | 现价/目标 254.87/167.16",
-      "4. 歌尔股份(002241.SZ) 分数 38.1 | MOS -7.2% | 现价/目标 25.13/23.45",
-      "5. 中兴通讯(000063.SZ) 分数 33.5 | MOS -11.0% | 现价/目标 37.88/34.12",
-      "6. 兴业银行(601166.SS) 分数 31.9 | MOS 2.7% | 现价/目标 18.47/18.99",
-      "7. 首创证券(601136.SS) 分数 30.4 | MOS 1.0% | 现价/目标 17.30/17.47",
-      "8. 南方航空(600029.SS) 分数 30.2 | MOS -2.6% | 现价/目标 6.32/6.16"
+      "1. 沪硅产业(688126.SS) 分数 44.1 | MOS -3.1% | 现价/目标 19.50/18.91",
+      "2. 中国中冶(601618.SS) 分数 32.2 | MOS 6.9% | 现价/目标 3.12/3.35",
+      "3. 兴业银行(601166.SS) 分数 32.0 | MOS 2.7% | 现价/目标 18.47/18.99",
+      "4. 光大银行(601818.SS) 分数 29.8 | MOS 0.4% | 现价/目标 3.24/3.25",
+      "5. Microsoft(MSFT) 分数 26.7 | MOS -48.3% | 现价/目标 401.86/596.00",
+      "6. 海南机场(600515.SS) 分数 26.1 | MOS -2.3% | 现价/目标 4.02/3.93",
+      "7. 宁沪高速(600377.SS) 分数 26.1 | MOS 2.6% | 现价/目标 12.03/12.35",
+      "8. 浙商银行(601916.SS) 分数 25.9 | MOS -3.2% | 现价/目标 3.00/2.91"
     ]
   }
 }

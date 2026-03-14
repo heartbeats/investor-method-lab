@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import csv
 import json
 import sys
@@ -13,8 +14,9 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_UNIVERSE = PROJECT_ROOT / "data" / "opportunities.universe_3markets.csv"
 DEFAULT_REPORT = PROJECT_ROOT / "data" / "dcf_coverage_seed_report.json"
 DEFAULT_REAL_FILE = PROJECT_ROOT / "data" / "opportunities.real_3markets.csv"
-DEFAULT_DCF_ROOT = Path.home() / "codex-project"
+DEFAULT_DCF_ROOT = Path((os.getenv("HIT_ZONE_PROJECT_DIR") or str(Path.home() / "projects" / "hit-zone")).strip()).expanduser()
 DEFAULT_DCF_DATA_DIR = DEFAULT_DCF_ROOT / "data"
+DEFAULT_SNAPSHOT_ROOT = Path.home() / "projects" / "stock-data-hub" / "data_lake" / "snapshots"
 
 if str(DEFAULT_DCF_ROOT) not in sys.path:
     sys.path.insert(0, str(DEFAULT_DCF_ROOT))
@@ -50,6 +52,12 @@ def parse_args() -> argparse.Namespace:
         default="multi_source",
         choices=["yfinance", "alpha_vantage", "multi_source", "merged"],
         help="财报同步源",
+    )
+    parser.add_argument(
+        "--snapshot-root",
+        type=Path,
+        default=DEFAULT_SNAPSHOT_ROOT,
+        help="stock-data-hub 快照根目录（用于 shares/currency 本地兜底）",
     )
     parser.add_argument(
         "--operator",
@@ -170,12 +178,99 @@ def build_a_share_company_profile_from_ths(
     )
 
 
+def _load_jsonl_by_symbol(path: Path) -> Dict[str, Dict[str, Any]]:
+    records: Dict[str, Dict[str, Any]] = {}
+    if not path.exists():
+        return records
+    with path.open("r", encoding="utf-8") as file:
+        for line in file:
+            text = line.strip()
+            if not text:
+                continue
+            try:
+                payload = json.loads(text)
+            except Exception:  # noqa: BLE001
+                continue
+            if not isinstance(payload, dict):
+                continue
+            symbol = str(payload.get("symbol") or "").strip().upper()
+            if symbol:
+                records[symbol] = payload
+    return records
+
+
+def _resolve_snapshot_dir(snapshot_root: Path) -> Path | None:
+    if not snapshot_root.exists():
+        return None
+    dirs = sorted([item for item in snapshot_root.glob("dt=*") if item.is_dir()])
+    if not dirs:
+        return None
+    return dirs[-1]
+
+
+def load_snapshot_fundamentals(snapshot_root: Path) -> Dict[str, Dict[str, Any]]:
+    if not snapshot_root.exists():
+        return {}
+    snapshot_dirs = sorted([item for item in snapshot_root.glob("dt=*") if item.is_dir()], reverse=True)
+    if not snapshot_dirs:
+        return {}
+    merged: Dict[str, Dict[str, Any]] = {}
+    for snapshot_dir in snapshot_dirs:
+        payload = _load_jsonl_by_symbol(snapshot_dir / "fundamentals.jsonl")
+        for symbol, record in payload.items():
+            if symbol not in merged:
+                merged[symbol] = record
+    return merged
+
+
+def build_company_profile_from_snapshot_fundamentals(
+    *,
+    symbol: str,
+    name_hint: str,
+    policy_id: str,
+    snapshot_fundamentals: Dict[str, Dict[str, Any]] | None,
+) -> CompanyProfile | None:
+    if not snapshot_fundamentals:
+        return None
+    payload = snapshot_fundamentals.get(symbol) or {}
+    if not isinstance(payload, dict) or not payload:
+        return None
+    shares = payload.get("shares_outstanding")
+    if shares is None:
+        shares = payload.get("weighted_average_shares")
+    if shares is None:
+        shares = payload.get("shares")
+    try:
+        shares_value = float(shares)
+    except (TypeError, ValueError):
+        return None
+    if shares_value <= 0:
+        return None
+    currency = str(payload.get("currency") or "USD").upper()
+    fx_rate = 1.0
+    if symbol.startswith("HK."):
+        fx_rate = 1.08
+    elif symbol.startswith(("SH.", "SZ.")):
+        fx_rate = 1.0
+    company_name = str(payload.get("name") or name_hint or symbol).strip() or symbol
+    return CompanyProfile(
+        symbol=symbol,
+        name=company_name,
+        currency=currency,
+        shares=shares_value,
+        fx_rate=fx_rate,
+        active_policy_id=policy_id,
+        growth_scenarios=GrowthScenarios(bear=0.02, base=0.05, bull=0.08),
+    )
+
+
 def build_company_profile(
     *,
     service: DCFService,
     symbol: str,
     name_hint: str,
     policy_id: str,
+    snapshot_fundamentals: Dict[str, Dict[str, Any]] | None = None,
 ) -> tuple[CompanyProfile, str]:
     yfinance_error: Exception | None = None
     profile = None
@@ -205,6 +300,15 @@ def build_company_profile(
             ),
             "yfinance",
         )
+
+    snapshot_company = build_company_profile_from_snapshot_fundamentals(
+        symbol=symbol,
+        name_hint=name_hint,
+        policy_id=policy_id,
+        snapshot_fundamentals=snapshot_fundamentals,
+    )
+    if snapshot_company is not None:
+        return snapshot_company, "stock_data_snapshot_fundamentals"
 
     if symbol.startswith(("SH.", "SZ.")):
         placeholder_error: Exception | None = None
@@ -354,6 +458,7 @@ def ensure_company(
     symbol: str,
     name_hint: str,
     policy_ids: set[str],
+    snapshot_fundamentals: Dict[str, Dict[str, Any]] | None = None,
 ) -> tuple[CompanyProfile, str, str | None]:
     company = existing_companies.get(symbol)
     if company is not None:
@@ -365,6 +470,7 @@ def ensure_company(
         symbol=symbol,
         name_hint=name_hint,
         policy_id=policy_id,
+        snapshot_fundamentals=snapshot_fundamentals,
     )
     repo.upsert_company(company)
     existing_companies[symbol] = company
@@ -490,6 +596,7 @@ def main() -> None:
 
     universe = load_universe(args.universe_file)
     real_price_lookup = load_real_price_lookup(DEFAULT_REAL_FILE)
+    snapshot_fundamentals = load_snapshot_fundamentals(args.snapshot_root)
     results: List[Dict[str, Any]] = []
 
     for row in universe:
@@ -514,6 +621,7 @@ def main() -> None:
                 symbol=symbol,
                 name_hint=name,
                 policy_ids=policy_ids,
+                snapshot_fundamentals=snapshot_fundamentals,
             )
             quote_seed_source = seed_quote_from_real_lookup(
                 repo=repo,

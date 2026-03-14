@@ -1,0 +1,54 @@
+{
+  "universe_file": "/tmp/iml_us_batch_seed.csv",
+  "dcf_data_dir": "/Users/lucas/codex-project/data",
+  "source_adapter": "multi_source",
+  "operator": "investor-method-lab:auto-seed",
+  "summary": {
+    "total": 4,
+    "ok": 0,
+    "failed": 4,
+    "skipped_existing": 0
+  },
+  "results": [
+    {
+      "ticker": "AES",
+      "symbol": "US.AES",
+      "status": "failed",
+      "stage": "sync_or_valuation",
+      "error": "财报源返回空数据。",
+      "error_details": {
+        "symbol": "US.AES"
+      }
+    },
+    {
+      "ticker": "BLDR",
+      "symbol": "US.BLDR",
+      "status": "failed",
+      "stage": "sync_or_valuation",
+      "error": "财报源返回空数据。",
+      "error_details": {
+        "symbol": "US.BLDR"
+      }
+    },
+    {
+      "ticker": "BXP",
+      "symbol": "US.BXP",
+      "status": "failed",
+      "stage": "sync_or_valuation",
+      "error": "财报源返回空数据。",
+      "error_details": {
+        "symbol": "US.BXP"
+      }
+    },
+    {
+      "ticker": "F",
+      "symbol": "US.F",
+      "status": "failed",
+      "stage": "sync_or_valuation",
+      "error": "财报源返回空数据。",
+      "error_details": {
+        "symbol": "US.F"
+      }
+    }
+  ]
+}

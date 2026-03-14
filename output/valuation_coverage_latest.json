@@ -1,24 +1,24 @@
 {
-  "generated_at_utc": "2026-03-13T08:10:02.229872+00:00",
-  "as_of_date": "2026-03-12",
+  "generated_at_utc": "2026-03-14T10:09:41.059270+00:00",
+  "as_of_date": "2026-03-14",
   "signal_pool_scope": "latest_signal_per_ticker",
   "validation_scope": "all_positions_history",
   "overall_real_universe": {
     "count": 800,
     "valuation_source_breakdown": {
-      "dcf_iv_base": 43,
-      "target_mean_price": 555,
+      "dcf_iv_base": 45,
+      "target_mean_price": 553,
       "close_fallback": 202
     },
     "valuation_support_breakdown": {
-      "formal_core": 43,
-      "reference_only": 555,
+      "formal_core": 45,
+      "reference_only": 553,
       "price_fallback": 202
     },
-    "formal_valuation_coverage_rate": 0.05375,
+    "formal_valuation_coverage_rate": 0.05625,
     "formal_or_reference_coverage_rate": 0.7475,
     "price_fallback_rate": 0.2525,
-    "high_quality_formal_rate": 0.05375
+    "high_quality_formal_rate": 0.05625
   },
   "focus_pool": {
     "count": 7,
@@ -36,29 +36,29 @@
   "signal_pool": {
     "count": 21,
     "valuation_source_breakdown": {
-      "dcf_iv_base": 15,
-      "target_mean_price": 6
+      "dcf_iv_base": 17,
+      "target_mean_price": 4
     },
     "valuation_support_breakdown": {
-      "formal_core": 15,
-      "reference_only": 6
+      "formal_core": 17,
+      "reference_only": 4
     },
-    "formal_valuation_coverage_rate": 0.7142857142857143,
+    "formal_valuation_coverage_rate": 0.8095238095238095,
     "formal_or_reference_coverage_rate": 1.0,
     "price_fallback_rate": 0.0,
-    "high_quality_formal_rate": 0.7142857142857143
+    "high_quality_formal_rate": 0.8095238095238095
   },
   "validation_by_valuation_support": {
     "formal_core": {
-      "count": 15,
-      "evaluated_count": 0,
-      "open_count": 0,
-      "closed_count": 0,
+      "count": 17,
+      "evaluated_count": 12,
+      "open_count": 6,
+      "closed_count": 6,
       "expired_count": 0,
-      "pending_entry_count": 15,
-      "avg_strategy_return_net": null,
+      "pending_entry_count": 5,
+      "avg_strategy_return_net": 0.004252475534038559,
       "avg_primary_excess_return": null,
-      "hit_rate": null
+      "hit_rate": 0.8333333333333334
     },
     "price_fallback": {
       "count": 4,
@@ -78,27 +78,29 @@
       "closed_count": 0,
       "expired_count": 0,
       "pending_entry_count": 6,
-      "avg_strategy_return_net": 0.007224337639889841,
+      "avg_strategy_return_net": 0.009348977561353135,
       "avg_primary_excess_return": null,
       "hit_rate": 0.6428571428571429
     }
   },
   "confidence_by_valuation_support": {
     "formal_core": {
-      "watch": 2,
+      "high_confidence": 1,
+      "watch": 3,
       "noisy": 13
     },
     "reference_only": {
-      "watch": 6
+      "watch": 4
     }
   },
   "manual_review": {
     "reviewed_items_count": 0,
     "followup_backlog_count": 0,
+    "pending_writeback_count": 0,
     "decision_breakdown": {},
     "action_breakdown": {},
     "writeback_status_breakdown": {},
-    "generated_at_utc": "2026-03-13T08:10:02.229850+00:00",
+    "generated_at_utc": "2026-03-14T10:09:41.059244+00:00",
     "active_signal_reviewed_count": 0
   },
   "gap_rows": [
@@ -143,34 +145,8 @@
     },
     {
       "pool": "signal_pool",
-      "ticker": "BLDR",
-      "name": "Builders FirstSource",
-      "method_group": "系统化量化",
-      "valuation_source": "target_mean_price",
-      "valuation_support_tier": "reference_only",
-      "trust_bucket": "watch",
-      "trust_grade": "C",
-      "suggested_action": "keep_in_watch_pool",
-      "manual_review_decision": "",
-      "manual_action": ""
-    },
-    {
-      "pool": "signal_pool",
       "ticker": "BXP",
       "name": "BXP, Inc.",
-      "method_group": "系统化量化",
-      "valuation_source": "target_mean_price",
-      "valuation_support_tier": "reference_only",
-      "trust_bucket": "watch",
-      "trust_grade": "C",
-      "suggested_action": "keep_in_watch_pool",
-      "manual_review_decision": "",
-      "manual_action": ""
-    },
-    {
-      "pool": "signal_pool",
-      "ticker": "F",
-      "name": "Ford Motor Company",
       "method_group": "系统化量化",
       "valuation_source": "target_mean_price",
       "valuation_support_tier": "reference_only",
@@ -199,10 +175,10 @@
       }
     },
     {
-      "generated_at_utc": "2026-03-13T08:10:02.228671+00:00",
+      "generated_at_utc": "2026-03-14T09:57:02.957192+00:00",
       "as_of_date": "2026-03-12",
       "overall_real": {
-        "formal_valuation_coverage_rate": 0.05375,
+        "formal_valuation_coverage_rate": 0.05625,
         "price_fallback_rate": 0.2525
       },
       "focus_pool": {
@@ -211,6 +187,22 @@
       },
       "signal_pool": {
         "formal_valuation_coverage_rate": 0.7142857142857143,
+        "price_fallback_rate": 0.0
+      }
+    },
+    {
+      "generated_at_utc": "2026-03-14T10:09:41.057998+00:00",
+      "as_of_date": "2026-03-14",
+      "overall_real": {
+        "formal_valuation_coverage_rate": 0.05625,
+        "price_fallback_rate": 0.2525
+      },
+      "focus_pool": {
+        "formal_valuation_coverage_rate": 1.0,
+        "price_fallback_rate": 0.0
+      },
+      "signal_pool": {
+        "formal_valuation_coverage_rate": 0.8095238095238095,
         "price_fallback_rate": 0.0
       }
     }

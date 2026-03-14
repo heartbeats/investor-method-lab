@@ -24,7 +24,28 @@ from investor_method_lab.opportunity_validation import (
 from investor_method_lab.signal_ledger import load_ledger_entries, read_json
 
 HOME_DIR = Path.home()
-DEFAULT_RULES = HOME_DIR / "codex-project" / "data" / "unified_opportunity_validation_rules_v1.json"
+
+
+def resolve_hit_zone_data_dir() -> Path:
+    candidates = [
+        os.getenv("HIT_ZONE_PROJECT_DIR"),
+        str(HOME_DIR / "projects" / "hit-zone"),
+        str(HOME_DIR / "projects" / "dcf-suite"),
+        str(HOME_DIR / "codex-project"),
+    ]
+    for raw in candidates:
+        text = str(raw or "").strip()
+        if not text:
+            continue
+        root = Path(text).expanduser()
+        data_dir = root / "data"
+        if data_dir.exists():
+            return data_dir
+    return HOME_DIR / "projects" / "hit-zone" / "data"
+
+
+HIT_ZONE_DATA_DIR = resolve_hit_zone_data_dir()
+DEFAULT_RULES = HIT_ZONE_DATA_DIR / "unified_opportunity_validation_rules_v1.json"
 
 
 def parse_args() -> argparse.Namespace:
@@ -89,13 +110,20 @@ def parse_args() -> argparse.Namespace:
 
 
 
-def infer_validation_as_of_date(meta_file: Path, fallback: str = "") -> str:
+def infer_validation_as_of_date(meta_file: Path, signals: list[dict] | None = None, fallback: str = "") -> str:
+    candidates: list[str] = []
     if meta_file.exists():
         payload = read_json(meta_file)
         dates = payload.get("as_of_dates") or []
         if dates:
-            return str(dates[-1])
-    return fallback
+            candidates.append(str(dates[-1]))
+    signal_dates = sorted({str(row.get("as_of_date") or "").strip() for row in (signals or []) if str(row.get("as_of_date") or "").strip()})
+    if signal_dates:
+        candidates.append(signal_dates[-1])
+    if fallback:
+        candidates.append(fallback)
+    candidates = [item for item in candidates if item]
+    return max(candidates) if candidates else ""
 
 
 
@@ -104,7 +132,7 @@ def main() -> None:
     signals = load_ledger_entries(args.ledger_file)
     if not signals:
         raise RuntimeError(f"signal ledger is empty: {args.ledger_file}")
-    validation_as_of = args.validation_as_of or infer_validation_as_of_date(args.meta_file)
+    validation_as_of = args.validation_as_of or infer_validation_as_of_date(args.meta_file, signals=signals)
     if not validation_as_of:
         raise RuntimeError("validation_as_of date is required")
     validation_date = datetime.strptime(validation_as_of, "%Y-%m-%d").date()

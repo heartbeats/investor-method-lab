@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import os
 import sys
 from functools import lru_cache
 from datetime import datetime, timezone
@@ -64,9 +65,29 @@ def to_dcf_symbol(ticker: Any) -> str:
     return f"US.{raw}" if raw else raw
 
 
+
+
+@lru_cache(maxsize=1)
+def resolve_hit_zone_root() -> Path:
+    candidates = [
+        os.getenv("HIT_ZONE_PROJECT_DIR"),
+        str(Path.home() / "projects" / "hit-zone"),
+        str(Path.home() / "projects" / "dcf-suite"),
+        str(Path.home() / "codex-project"),
+    ]
+    for raw in candidates:
+        text = str(raw or "").strip()
+        if not text:
+            continue
+        path = Path(text).expanduser()
+        if path.exists():
+            return path
+    return Path.home() / "projects" / "hit-zone"
+
+
 @lru_cache(maxsize=1)
 def _load_dcf_service() -> Any | None:
-    root = Path.home() / 'codex-project'
+    root = resolve_hit_zone_root()
     try:
         if str(root) not in sys.path:
             sys.path.insert(0, str(root))
@@ -78,14 +99,11 @@ def _load_dcf_service() -> Any | None:
 
 
 @lru_cache(maxsize=256)
-def diagnose_a_hk_dcf_gap_batch(ticker: str, name: str = '') -> Dict[str, Any]:
+def diagnose_dcf_gap_batch(ticker: str, name: str = '') -> Dict[str, Any]:
     service = _load_dcf_service()
     if service is None:
         return {}
     symbol = to_dcf_symbol(ticker)
-    if not symbol.startswith(("SH.", "SZ.", "HK.")):
-        return {}
-
     overview: Dict[str, Any] = {}
     try:
         fetched_overview = service.get_company_overview(symbol=symbol)
@@ -110,6 +128,7 @@ def diagnose_a_hk_dcf_gap_batch(ticker: str, name: str = '') -> Dict[str, Any]:
     except Exception:
         return {}
 
+    template_id = normalize_text(parameter_library.get('template_id'))
     family_id = normalize_text(parameter_library.get('financial_template_family_id'))
     shell_model = normalize_text(parameter_library.get('financial_template_family_shell_model'))
     valuation_mode = normalize_text(parameter_library.get('valuation_mode'))
@@ -119,9 +138,18 @@ def diagnose_a_hk_dcf_gap_batch(ticker: str, name: str = '') -> Dict[str, Any]:
     iv_base = optional_float((latest_valuation or {}).get('iv_base'))
     consensus_fair_value = optional_float((latest_valuation or {}).get('consensus_fair_value'))
 
+    if template_id == 'reference_only' or normalize_text(parameter_library.get('reference_only')) in {'true', '1', 'yes'}:
+        return {
+            'batch_kind': 'reference_only_template_hold',
+            'template_id': template_id or None,
+            'family_id': family_id or None,
+            'shell_model': shell_model or None,
+            'reason': 'template is reference_only / non-DCF-friendly',
+        }
     if latest_valuation and iv_base is not None and iv_base <= 0 and not (consensus_fair_value and consensus_fair_value > 0):
         return {
             'batch_kind': 'non_positive_dcf_hold',
+            'template_id': template_id or None,
             'family_id': family_id or None,
             'shell_model': shell_model or None,
             'reason': f'latest valuation exists but iv_base<=0 ({iv_base:.4f})',
@@ -129,6 +157,7 @@ def diagnose_a_hk_dcf_gap_batch(ticker: str, name: str = '') -> Dict[str, Any]:
     if company_exists and latest_snapshot is None:
         return {
             'batch_kind': 'snapshot_seed_batch',
+            'template_id': template_id or None,
             'family_id': family_id or None,
             'shell_model': shell_model or None,
             'reason': 'company seed exists but approved financial snapshot is still missing',
@@ -215,38 +244,44 @@ def classify_gap_item(
         if "dcf_symbol_unavailable" in detail:
             blocking_reason = "缺 dcf_symbol，且 external valuation 未命中，当前只能 close_fallback"
     elif signal_support == "reference_only":
-        if market in {"A", "HK"}:
-            batch_meta = dcf_gap_batch_meta if isinstance(dcf_gap_batch_meta, dict) else diagnose_a_hk_dcf_gap_batch(ticker, normalize_text(gap_row.get("name")))
-            batch_kind = normalize_text((batch_meta or {}).get("batch_kind"))
-            target_support_tier = "formal_core"
-            priority = "P1"
-            if batch_kind == "non_positive_dcf_hold":
-                upgrade_lane = "formalization_review"
-                issue_type = "dcf_non_positive_iv"
-                target_support_tier = "reference_only"
-                priority = "P2"
-                recommended_action = "DCF 已有结果但 iv_base<=0，当前不升级到 dcf_iv_base；继续保留 reference_only，只复核是否存在 external consensus 或规则例外"
-                blocking_reason = normalize_text((batch_meta or {}).get("reason")) or "latest valuation exists but iv_base<=0"
-            elif batch_kind == "snapshot_seed_batch":
-                upgrade_lane = "snapshot_seed_batch"
-                issue_type = "snapshot_seed_blocked"
-                recommended_action = "按财报 seed / 峰值风控异常批次处理，统一重试 snapshot 入库，不逐票手工补"
-                blocking_reason = normalize_text((batch_meta or {}).get("reason")) or "company exists but approved snapshot missing"
-            elif batch_kind == "runtime_shell_ready":
-                upgrade_lane = "dcf_runtime_shell_batch"
-                issue_type = "runtime_shell_batch_ready"
-                recommended_action = "按金融模板 runtime shell 批量放行，不再逐票补 symbol/seed"
-                blocking_reason = normalize_text((batch_meta or {}).get("reason")) or "financial shell runtime ready"
-            elif batch_kind == "structural_dcf_base":
-                upgrade_lane = "structural_dcf_base_batch"
-                issue_type = "structural_dcf_base_blocked"
-                recommended_action = "按结构性异常批次处理：统一补 company seed / shares 入口，或统一保持 reference_only，不逐票手工补"
-                blocking_reason = normalize_text((batch_meta or {}).get("reason")) or "无 financial shell model，且 valuation_mode=parameterized_only"
-            else:
-                upgrade_lane = "dcf_focus_expansion"
-                issue_type = "dcf_symbol_missing"
-                recommended_action = "补 dcf_symbol 映射并进入 dcf_focus_expansion 批次清单，验收后再决定是否并入 dcf_special_focus_list"
-                blocking_reason = normalize_text((batch_meta or {}).get("reason")) or "当前只有 target_mean_price，且 dcf_symbol 缺失"
+        batch_meta = dcf_gap_batch_meta if isinstance(dcf_gap_batch_meta, dict) else diagnose_dcf_gap_batch(ticker, normalize_text(gap_row.get("name")))
+        batch_kind = normalize_text((batch_meta or {}).get("batch_kind"))
+        target_support_tier = "formal_core" if market in {"A", "HK"} else "formal_support"
+        priority = "P1"
+        if batch_kind == "reference_only_template_hold":
+            upgrade_lane = "formalization_review"
+            issue_type = "reference_only_template_hold"
+            target_support_tier = "reference_only"
+            priority = "P2"
+            recommended_action = "模板已明确为非 DCF 友好型，继续保留 reference_only；不再进入结构性补底座批次"
+            blocking_reason = normalize_text((batch_meta or {}).get("reason")) or "template is reference_only / non-DCF-friendly"
+        elif batch_kind == "non_positive_dcf_hold":
+            upgrade_lane = "formalization_review"
+            issue_type = "dcf_non_positive_iv"
+            target_support_tier = "reference_only"
+            priority = "P2"
+            recommended_action = "DCF 已有结果但 iv_base<=0，当前不升级到 dcf_iv_base；继续保留 reference_only，只复核是否存在 external consensus 或规则例外"
+            blocking_reason = normalize_text((batch_meta or {}).get("reason")) or "latest valuation exists but iv_base<=0"
+        elif batch_kind == "snapshot_seed_batch":
+            upgrade_lane = "snapshot_seed_batch"
+            issue_type = "snapshot_seed_blocked"
+            recommended_action = "按财报 seed / 峰值风控异常批次处理，统一重试 snapshot 入库，不逐票手工补"
+            blocking_reason = normalize_text((batch_meta or {}).get("reason")) or "company exists but approved snapshot missing"
+        elif batch_kind == "runtime_shell_ready":
+            upgrade_lane = "dcf_runtime_shell_batch"
+            issue_type = "runtime_shell_batch_ready"
+            recommended_action = "按金融模板 runtime shell 批量放行，不再逐票补 symbol/seed"
+            blocking_reason = normalize_text((batch_meta or {}).get("reason")) or "financial shell runtime ready"
+        elif batch_kind == "structural_dcf_base":
+            upgrade_lane = "structural_dcf_base_batch"
+            issue_type = "structural_dcf_base_blocked"
+            recommended_action = "按结构性异常批次处理：统一补 company seed / shares 入口，或统一保持 reference_only，不逐票手工补"
+            blocking_reason = normalize_text((batch_meta or {}).get("reason")) or "无 financial shell model，且 valuation_mode=parameterized_only"
+        elif batch_kind == "dcf_focus_expansion":
+            upgrade_lane = "dcf_focus_expansion"
+            issue_type = "dcf_symbol_missing"
+            recommended_action = "补 dcf_symbol 映射并进入 dcf_focus_expansion 批次清单，验收后再决定是否并入 dcf_special_focus_list"
+            blocking_reason = normalize_text((batch_meta or {}).get("reason")) or "当前只有 target_mean_price，且 dcf_symbol 缺失"
         else:
             upgrade_lane = "formalization_review"
             target_support_tier = "formal_support"
@@ -276,7 +311,7 @@ def classify_gap_item(
         "blocking_reason": blocking_reason,
         "target_support_tier": target_support_tier,
         "recommended_action": recommended_action,
-        "batch_kind": normalize_text((dcf_gap_batch_meta or {}).get("batch_kind")) if isinstance(dcf_gap_batch_meta, dict) else normalize_text((diagnose_a_hk_dcf_gap_batch(ticker, normalize_text(gap_row.get("name"))) if market in {"A", "HK"} and signal_support == "reference_only" else {}).get("batch_kind")),
+        "batch_kind": normalize_text((dcf_gap_batch_meta or {}).get("batch_kind")) if isinstance(dcf_gap_batch_meta, dict) else normalize_text((diagnose_dcf_gap_batch(ticker, normalize_text(gap_row.get("name"))) if signal_support == "reference_only" else {}).get("batch_kind")),
     }
 
 
@@ -407,3 +442,8 @@ def render_source_upgrade_backlog_markdown(doc: Dict[str, Any]) -> str:
 
 def load_signals(path: Path) -> List[Dict[str, Any]]:
     return load_ledger_entries(path)
+
+
+# backward compatibility
+def diagnose_a_hk_dcf_gap_batch(ticker: str, name: str = '') -> Dict[str, Any]:
+    return diagnose_dcf_gap_batch(ticker, name)

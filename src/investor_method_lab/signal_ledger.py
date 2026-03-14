@@ -708,7 +708,7 @@ def build_refresh_reissue_entries(
     current_batch_tickers = {normalize_text(item.get("ticker")) for item in current_batch_entries if normalize_text(item.get("ticker"))}
     latest_history = latest_entries_by_ticker(ledger_entries)
     real_index = build_row_index(real_rows, "ticker", "dcf_symbol")
-    current_as_of_date = (meta_payload.get("as_of_dates") or [""])[-1] if (meta_payload.get("as_of_dates") or []) else ""
+    meta_as_of_date = normalize_text((meta_payload.get("as_of_dates") or [""])[-1]) if (meta_payload.get("as_of_dates") or []) else ""
 
     entries: List[Dict[str, Any]] = []
     for ticker, previous_entry in sorted(latest_history.items()):
@@ -728,6 +728,7 @@ def build_refresh_reissue_entries(
         previous_source = normalize_text(previous_entry.get("valuation_source_at_signal"))
         if valuation_support_rank(current_source) <= valuation_support_rank(previous_source):
             continue
+        current_as_of_date = extract_as_of_date(real_row.get("note"), fallback=meta_as_of_date)
         symbol = normalize_text(real_row.get("dcf_symbol")) or normalize_text(previous_entry.get("symbol")) or normalize_internal_symbol_for_ticker(ticker)
         current_price = _current_price_from_real_row(real_row)
         current_fair_value = as_float(real_row.get("fair_value"))

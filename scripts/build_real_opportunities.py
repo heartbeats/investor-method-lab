@@ -24,7 +24,7 @@ HOME_DIR = Path.home()
 DEFAULT_DCF_LINK_SCRIPT = Path(
     HOME_DIR / ".codex" / "skills" / "dcf-valuation-link" / "scripts" / "dcf_valuation_link.py"
 )
-DEFAULT_DCF_COMPANIES_FILE = HOME_DIR / "codex-project" / "data" / "companies.json"
+DEFAULT_DCF_COMPANIES_FILE = Path((os.getenv("HIT_ZONE_PROJECT_DIR") or str(HOME_DIR / "projects" / "hit-zone")).strip()).expanduser() / "data" / "companies.json"
 
 YF_TICKER_MAP = {
     "BRK.B": "BRK-B",

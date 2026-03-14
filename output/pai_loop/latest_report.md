@@ -1,7 +1,7 @@
 # PAI 迭代闭环报告
 
-- run_id: `20260313_091001`
-- started_at: `2026-03-13 09:10:01`
+- run_id: `20260314_091001`
+- started_at: `2026-03-14 09:10:01`
 - with_real_data: `True`
 - skip_tests: `False`
 
@@ -9,11 +9,11 @@
 
 | Step | Status | RC | Duration(s) |
 |---|---|---:|---:|
-| `build_verified_investors` | ok | 0 | 0.09 |
-| `generate_top20_pack_sample` | ok | 0 | 0.10 |
-| `build_real_opportunities` | ok | 0 | 1490.78 |
-| `generate_top20_pack_real` | ok | 0 | 1.33 |
-| `unit_tests` | ok | 0 | 0.66 |
+| `build_verified_investors` | ok | 0 | 0.06 |
+| `generate_top20_pack_sample` | ok | 0 | 0.12 |
+| `build_real_opportunities` | ok | 0 | 419.21 |
+| `generate_top20_pack_real` | ok | 0 | 1.32 |
+| `unit_tests` | ok | 0 | 1.30 |
 
 ## 2) 关键产物快照
 
@@ -22,7 +22,7 @@
 | `data/top20_global_investors_verified_ab.json` | True | 47195 | 1182 | no |
 | `docs/top20_global_investors_verified_ab.md` | True | 6634 | 26 | no |
 | `docs/top20_verification_backlog.md` | True | 145 | 4 | no |
-| `docs/top20_opportunity_pack.md` | True | 11969 | 176 | no |
+| `docs/top20_opportunity_pack.md` | True | 14359 | 176 | yes |
 | `output/top20_first_batch_opportunities.csv` | True | 198494 | 11 | no |
 | `output/top20_methodology_top5_by_group.csv` | True | 13555 | 46 | no |
 | `output/top20_diversified_opportunities.csv` | True | 198556 | 11 | no |

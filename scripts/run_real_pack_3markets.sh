@@ -101,14 +101,30 @@ fi
 python3 "$ROOT_DIR/scripts/build_real_opportunities.py" "${BUILD_REAL_ARGS[@]}"
 
 AS_OF_DATE="$(ROOT_DIR="$ROOT_DIR" python3 - << 'PY'
+import csv
 import json
 import os
+import re
 from pathlib import Path
 root = Path(os.environ["ROOT_DIR"])
-p = root / "docs" / "opportunities_real_data_meta_3markets.json"
-doc = json.loads(p.read_text(encoding="utf-8"))
-dates = doc.get("as_of_dates") or []
-print(dates[-1] if dates else "")
+dates = set()
+meta_file = root / "docs" / "opportunities_real_data_meta_3markets.json"
+if meta_file.exists():
+    doc = json.loads(meta_file.read_text(encoding="utf-8"))
+    for value in doc.get("as_of_dates") or []:
+        text = str(value).strip()
+        if text:
+            dates.add(text)
+real_file = root / "data" / "opportunities.real_3markets.csv"
+pattern = re.compile(r"real-data@(\d{4}-\d{2}-\d{2})")
+if real_file.exists():
+    with real_file.open(encoding="utf-8-sig", newline="") as f:
+        for row in csv.DictReader(f):
+            note = str(row.get("note") or "")
+            match = pattern.search(note)
+            if match:
+                dates.add(match.group(1))
+print(max(dates) if dates else "")
 PY
 )"
 
@@ -134,6 +150,7 @@ python3 "$ROOT_DIR/scripts/build_dual_daily_modules.py" \
   --top-file "$TOP_FILE" \
   --real-file "$REAL_FILE" \
   --meta-file "$META_FILE" \
+  --as-of-date "$AS_OF_DATE" \
   --output-focus-md "$FOCUS_REPORT_FILE" \
   --output-opportunity-md "$OPPORTUNITY_REPORT_FILE" \
   --output-json "$DUAL_MODULES_JSON" \
@@ -152,6 +169,7 @@ python3 "$ROOT_DIR/scripts/update_opportunity_signal_ledger.py" \
 python3 "$ROOT_DIR/scripts/build_opportunity_validation.py" \
   --ledger-file "$LEDGER_FILE" \
   --meta-file "$META_FILE" \
+  --validation-as-of "$AS_OF_DATE" \
   --output-json "$VALIDATION_LATEST_JSON" \
   --output-md "$VALIDATION_LATEST_MD" \
   --output-positions-json "$VALIDATION_POSITIONS_JSON"

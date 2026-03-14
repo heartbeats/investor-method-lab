@@ -1,0 +1,53 @@
+{
+  "universe_file": "/tmp/iml_us_snapshot_seed_retry.csv",
+  "dcf_data_dir": "/Users/lucas/codex-project/data",
+  "source_adapter": "multi_source",
+  "operator": "investor-method-lab:auto-seed",
+  "summary": {
+    "total": 3,
+    "ok": 3,
+    "failed": 0,
+    "skipped_existing": 0
+  },
+  "results": [
+    {
+      "ticker": "AES",
+      "symbol": "US.AES",
+      "status": "ok",
+      "company_status": "existing",
+      "company_seed_source": null,
+      "quote_seed_source": null,
+      "snapshot_id": "7ebb2f7e-d38a-4d51-81e1-ead98eddaa5a",
+      "valuation_id": "54a5bf45-4d46-4f8e-b910-84139ccdf810",
+      "iv_base": -84.10228514610012,
+      "mos_base": 1.1687231206066462,
+      "fallback_mode": null
+    },
+    {
+      "ticker": "BLDR",
+      "symbol": "US.BLDR",
+      "status": "ok",
+      "company_status": "existing",
+      "company_seed_source": null,
+      "quote_seed_source": null,
+      "snapshot_id": "88651b82-1cc4-45c4-a6e0-f0dbabadfa01",
+      "valuation_id": "4cb57f1b-13d3-4d96-ba54-b5d68f023c22",
+      "iv_base": 382.0312917614916,
+      "mos_base": 0.7694167941222049,
+      "fallback_mode": null
+    },
+    {
+      "ticker": "F",
+      "symbol": "US.F",
+      "status": "ok",
+      "company_status": "existing",
+      "company_seed_source": null,
+      "quote_seed_source": null,
+      "snapshot_id": "2c981396-bb0f-4473-9c76-bb15ab337919",
+      "valuation_id": "6bb43904-87d9-459e-99da-879498e0cfcc",
+      "iv_base": 55.19195520396868,
+      "mos_base": 0.7885561408927791,
+      "fallback_mode": null
+    }
+  ]
+}

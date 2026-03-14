@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+import tempfile
 import unittest
+from pathlib import Path
 
 from investor_method_lab.review_writeback import (
     build_backlog_items,
     build_review_payload,
     format_manual_review_summary,
+    load_review_writeback,
     reviewed_items_by_ticker,
 )
 
@@ -78,6 +81,17 @@ class ReviewWritebackTest(unittest.TestCase):
         )
 
         self.assertEqual(summary, "人工通过 | 纳入机会包 | 进入今日机会包")
+
+    def test_load_review_writeback_tolerates_invalid_json(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "broken.json"
+            path.write_text("{not-json", encoding="utf-8")
+
+            payload = load_review_writeback(path)
+
+            self.assertEqual(payload["summary"]["reviewed_items_count"], 0)
+            self.assertIn("invalid_json", payload["load_receipt"]["reason"])
+
 
 
 if __name__ == "__main__":

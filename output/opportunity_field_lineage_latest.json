@@ -1,20 +1,20 @@
 {
-  "generated_at_utc": "2026-03-13T08:10:01.837796+00:00",
+  "generated_at_utc": "2026-03-14T10:09:40.282305+00:00",
   "snapshot_context": {
     "snapshot_root": "/Users/lucas/projects/stock-data-hub/data_lake/snapshots",
     "snapshot_dir": "/Users/lucas/projects/stock-data-hub/data_lake/snapshots/dt=2026-03-13"
   },
-  "total_opportunities": 39,
-  "total_field_rows": 195,
+  "total_opportunities": 41,
+  "total_field_rows": 205,
   "field_traceability_rate": 1.0,
   "provider_tier_breakdown": {
-    "P1": 117,
-    "UNKNOWN": 78
+    "P1": 123,
+    "UNKNOWN": 82
   },
   "source_match_breakdown": {
-    "backup": 39,
+    "backup": 41,
     "reference_only": 24,
-    "primary": 132
+    "primary": 140
   },
   "fields": [
     {
@@ -35,7 +35,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -49,9 +49,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -72,7 +74,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -114,7 +116,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -151,7 +153,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.096468602222224,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -182,7 +184,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.096468602222224,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -213,7 +215,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -227,9 +229,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -250,7 +254,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -292,7 +296,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -329,7 +333,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.096465459722225,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -360,7 +364,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.096465459722225,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -391,7 +395,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -405,9 +409,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -428,7 +434,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -470,7 +476,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -507,7 +513,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.09646249472222,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -538,7 +544,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.09646249472222,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -569,7 +575,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -583,9 +589,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -606,7 +614,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -648,7 +656,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -685,7 +693,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.096459527499995,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -716,7 +724,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.096459527499995,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -747,7 +755,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -761,9 +769,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -784,7 +794,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -826,7 +836,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -863,7 +873,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.096456538055556,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -894,7 +904,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.096456538055556,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -925,7 +935,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -939,9 +949,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -962,7 +974,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -1004,7 +1016,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -1041,7 +1053,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.09645359305556,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -1072,7 +1084,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.09645359305556,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -1103,7 +1115,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 23.99972222222222,
+      "age_hours_vs_reference": 71.99972222222222,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "yahoo_finance",
       "expected_backup_sources": [
@@ -1117,9 +1129,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 50.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -1140,7 +1154,7 @@
       "verified_status": "needs_review",
       "truth_level": "fallback_only",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -1183,7 +1197,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -1220,7 +1234,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.09645061972222,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -1251,7 +1265,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.09645061972222,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -1282,7 +1296,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 23.99972222222222,
+      "age_hours_vs_reference": 71.99972222222222,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "yahoo_finance",
       "expected_backup_sources": [
@@ -1296,9 +1310,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 50.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -1319,7 +1335,7 @@
       "verified_status": "needs_review",
       "truth_level": "fallback_only",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -1362,7 +1378,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -1399,7 +1415,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.09644765722223,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -1430,7 +1446,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.09644765722223,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -1461,7 +1477,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 23.99972222222222,
+      "age_hours_vs_reference": 71.99972222222222,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "yahoo_finance",
       "expected_backup_sources": [
@@ -1475,9 +1491,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 50.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -1498,7 +1516,7 @@
       "verified_status": "needs_review",
       "truth_level": "fallback_only",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -1541,7 +1559,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -1578,7 +1596,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.09644464333333,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -1609,7 +1627,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.09644464333333,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -1640,7 +1658,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 23.99972222222222,
+      "age_hours_vs_reference": 71.99972222222222,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "yahoo_finance",
       "expected_backup_sources": [
@@ -1654,9 +1672,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 50.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -1677,7 +1697,7 @@
       "verified_status": "needs_review",
       "truth_level": "fallback_only",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -1720,7 +1740,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 163.43296219722222,
+      "age_hours_vs_reference": 211.43296219722222,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -1757,7 +1777,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.09644159138889,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -1788,7 +1808,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 46.09644159138889,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -1819,7 +1839,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -1833,9 +1853,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -1856,7 +1878,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -1869,10 +1891,11 @@
       "source_match_type": "reference_only",
       "source_authenticity_score": 45.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 65.0,
       "warnings": [
         "source_match=reference_only",
+        "freshness_below_target",
         "cross_source_consistency_weakened"
       ],
       "hard_veto_flags": []
@@ -1895,7 +1918,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -1905,9 +1928,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -1928,7 +1953,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.17390961833333,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -1959,7 +1984,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.17390961833333,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -1990,7 +2015,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 23.99972222222222,
+      "age_hours_vs_reference": 71.99972222222222,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -2004,9 +2029,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 50.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -2027,7 +2054,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -2040,10 +2067,11 @@
       "source_match_type": "reference_only",
       "source_authenticity_score": 45.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 65.0,
       "warnings": [
         "source_match=reference_only",
+        "freshness_below_target",
         "cross_source_consistency_weakened"
       ],
       "hard_veto_flags": []
@@ -2066,7 +2094,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -2076,9 +2104,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -2099,7 +2129,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.17390651444445,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -2130,7 +2160,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.17390651444445,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -2161,7 +2191,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -2175,9 +2205,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -2198,7 +2230,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -2211,10 +2243,11 @@
       "source_match_type": "reference_only",
       "source_authenticity_score": 45.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 65.0,
       "warnings": [
         "source_match=reference_only",
+        "freshness_below_target",
         "cross_source_consistency_weakened"
       ],
       "hard_veto_flags": []
@@ -2237,7 +2270,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -2247,9 +2280,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -2270,7 +2305,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.17390346888889,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -2301,7 +2336,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.17390346888889,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -2332,7 +2367,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -2346,9 +2381,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -2369,7 +2406,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -2382,10 +2419,11 @@
       "source_match_type": "reference_only",
       "source_authenticity_score": 45.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 65.0,
       "warnings": [
         "source_match=reference_only",
+        "freshness_below_target",
         "cross_source_consistency_weakened"
       ],
       "hard_veto_flags": []
@@ -2408,7 +2446,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -2418,9 +2456,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -2441,7 +2481,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.173900515,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -2472,7 +2512,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.173900515,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -2503,7 +2543,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -2517,9 +2557,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -2540,7 +2582,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -2553,10 +2595,11 @@
       "source_match_type": "reference_only",
       "source_authenticity_score": 45.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 65.0,
       "warnings": [
         "source_match=reference_only",
+        "freshness_below_target",
         "cross_source_consistency_weakened"
       ],
       "hard_veto_flags": []
@@ -2579,7 +2622,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -2589,9 +2632,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -2612,7 +2657,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.17389447944444,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -2643,7 +2688,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.17389447944444,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -2674,7 +2719,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -2688,9 +2733,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -2711,7 +2758,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -2724,10 +2771,11 @@
       "source_match_type": "reference_only",
       "source_authenticity_score": 45.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 65.0,
       "warnings": [
         "source_match=reference_only",
+        "freshness_below_target",
         "cross_source_consistency_weakened"
       ],
       "hard_veto_flags": []
@@ -2750,7 +2798,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -2760,9 +2808,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -2783,7 +2833,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.17389153,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -2814,7 +2864,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.17389153,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -2845,7 +2895,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 23.99972222222222,
+      "age_hours_vs_reference": 71.99972222222222,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -2859,9 +2909,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 50.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -2882,7 +2934,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -2895,10 +2947,11 @@
       "source_match_type": "reference_only",
       "source_authenticity_score": 45.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 65.0,
       "warnings": [
         "source_match=reference_only",
+        "freshness_below_target",
         "cross_source_consistency_weakened"
       ],
       "hard_veto_flags": []
@@ -2921,7 +2974,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -2931,9 +2984,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -2954,7 +3009,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.173888534444444,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -2985,7 +3040,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.173888534444444,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -3016,7 +3071,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -3030,9 +3085,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -3053,7 +3110,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -3066,10 +3123,11 @@
       "source_match_type": "reference_only",
       "source_authenticity_score": 45.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 65.0,
       "warnings": [
         "source_match=reference_only",
+        "freshness_below_target",
         "cross_source_consistency_weakened"
       ],
       "hard_veto_flags": []
@@ -3092,7 +3150,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -3102,9 +3160,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -3125,7 +3185,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.17388552944444,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -3156,7 +3216,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.17388552944444,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -3187,7 +3247,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -3201,9 +3261,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -3224,7 +3286,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -3237,10 +3299,11 @@
       "source_match_type": "reference_only",
       "source_authenticity_score": 45.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 65.0,
       "warnings": [
         "source_match=reference_only",
+        "freshness_below_target",
         "cross_source_consistency_weakened"
       ],
       "hard_veto_flags": []
@@ -3263,7 +3326,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -3273,9 +3336,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -3296,7 +3361,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.173882613055554,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -3327,7 +3392,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.173882613055554,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -3358,7 +3423,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 23.99972222222222,
+      "age_hours_vs_reference": 71.99972222222222,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "yahoo_finance",
       "expected_backup_sources": [
@@ -3372,9 +3437,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 50.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -3395,7 +3462,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -3408,10 +3475,11 @@
       "source_match_type": "reference_only",
       "source_authenticity_score": 45.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 65.0,
       "warnings": [
         "source_match=reference_only",
+        "freshness_below_target",
         "cross_source_consistency_weakened"
       ],
       "hard_veto_flags": []
@@ -3434,7 +3502,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -3444,9 +3512,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -3467,7 +3537,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.93348238916667,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -3498,7 +3568,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.93348238916667,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -3529,7 +3599,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 23.99972222222222,
+      "age_hours_vs_reference": 71.99972222222222,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "yahoo_finance",
       "expected_backup_sources": [
@@ -3543,9 +3613,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 50.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -3566,7 +3638,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -3579,10 +3651,11 @@
       "source_match_type": "reference_only",
       "source_authenticity_score": 45.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 65.0,
       "warnings": [
         "source_match=reference_only",
+        "freshness_below_target",
         "cross_source_consistency_weakened"
       ],
       "hard_veto_flags": []
@@ -3605,7 +3678,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -3615,9 +3688,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -3638,7 +3713,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.93347882277778,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -3669,7 +3744,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.93347882277778,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -3700,7 +3775,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 23.99972222222222,
+      "age_hours_vs_reference": 71.99972222222222,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "yahoo_finance",
       "expected_backup_sources": [
@@ -3714,9 +3789,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 50.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -3737,7 +3814,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -3750,10 +3827,11 @@
       "source_match_type": "reference_only",
       "source_authenticity_score": 45.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 65.0,
       "warnings": [
         "source_match=reference_only",
+        "freshness_below_target",
         "cross_source_consistency_weakened"
       ],
       "hard_veto_flags": []
@@ -3776,7 +3854,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -3786,9 +3864,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -3809,7 +3889,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.93347578722222,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -3840,7 +3920,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.93347578722222,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -3871,7 +3951,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 23.99972222222222,
+      "age_hours_vs_reference": 71.99972222222222,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "yahoo_finance",
       "expected_backup_sources": [
@@ -3885,9 +3965,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 50.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -3908,7 +3990,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -3921,10 +4003,11 @@
       "source_match_type": "reference_only",
       "source_authenticity_score": 45.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 65.0,
       "warnings": [
         "source_match=reference_only",
+        "freshness_below_target",
         "cross_source_consistency_weakened"
       ],
       "hard_veto_flags": []
@@ -3947,7 +4030,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -3957,9 +4040,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -3980,7 +4065,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.93347276305556,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -4011,7 +4096,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.93347276305556,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -4042,7 +4127,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -4056,9 +4141,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4079,7 +4166,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -4092,9 +4179,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4115,7 +4204,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -4125,9 +4214,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4148,7 +4239,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.238059783611114,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -4179,7 +4270,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.238059783611114,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -4210,7 +4301,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -4224,9 +4315,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4247,7 +4340,7 @@
       "verified_status": "needs_review",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -4260,9 +4353,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4283,7 +4378,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -4293,9 +4388,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4316,7 +4413,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.23805690583333,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -4347,7 +4444,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.23805690583333,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -4378,7 +4475,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 23.99972222222222,
+      "age_hours_vs_reference": 71.99972222222222,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -4392,9 +4489,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 50.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4415,7 +4514,7 @@
       "verified_status": "needs_review",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -4428,9 +4527,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4451,7 +4552,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -4461,9 +4562,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4484,7 +4587,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.2380540325,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -4515,7 +4618,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.2380540325,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -4546,7 +4649,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 23.99972222222222,
+      "age_hours_vs_reference": 71.99972222222222,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -4560,9 +4663,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 50.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4583,7 +4688,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -4596,9 +4701,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4619,7 +4726,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -4629,9 +4736,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4652,7 +4761,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.238051185555555,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -4683,7 +4792,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.238051185555555,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -4714,7 +4823,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -4728,9 +4837,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4751,7 +4862,7 @@
       "verified_status": "needs_review",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -4764,9 +4875,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4787,7 +4900,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -4797,9 +4910,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4820,7 +4935,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.23804834138889,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -4851,7 +4966,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.23804834138889,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -4882,7 +4997,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -4896,9 +5011,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4919,7 +5036,7 @@
       "verified_status": "needs_review",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -4932,9 +5049,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4955,7 +5074,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -4965,9 +5084,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -4988,7 +5109,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.1570961525,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -5019,7 +5140,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.1570961525,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -5050,7 +5171,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -5064,9 +5185,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5087,7 +5210,7 @@
       "verified_status": "needs_review",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -5100,9 +5223,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5123,7 +5248,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -5133,9 +5258,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5156,7 +5283,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.15709322722222,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -5187,7 +5314,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.15709322722222,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -5218,7 +5345,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -5232,9 +5359,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5255,7 +5384,7 @@
       "verified_status": "needs_review",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -5268,9 +5397,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5291,7 +5422,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -5301,9 +5432,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5324,7 +5457,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.1570903875,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -5355,7 +5488,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.1570903875,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -5386,7 +5519,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -5400,9 +5533,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5423,7 +5558,7 @@
       "verified_status": "needs_review",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -5436,9 +5571,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5459,7 +5596,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -5469,9 +5606,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5492,7 +5631,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.15708760222222,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -5523,7 +5662,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.15708760222222,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -5554,7 +5693,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -5568,9 +5707,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5591,7 +5732,7 @@
       "verified_status": "needs_review",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -5604,9 +5745,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5627,7 +5770,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -5637,9 +5780,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5660,7 +5805,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.15708479972222,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -5691,7 +5836,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 43.15708479972222,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -5722,7 +5867,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 23.99972222222222,
+      "age_hours_vs_reference": 71.99972222222222,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "yahoo_finance",
       "expected_backup_sources": [
@@ -5736,9 +5881,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 50.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5759,7 +5906,7 @@
       "verified_status": "needs_review",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -5772,9 +5919,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5795,7 +5944,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -5805,9 +5954,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5828,7 +5979,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 41.336433981388886,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -5859,7 +6010,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 41.336433981388886,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -5890,7 +6041,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -5904,9 +6055,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5927,7 +6080,7 @@
       "verified_status": "needs_review",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -5940,9 +6093,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5963,7 +6118,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -5973,9 +6128,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -5996,7 +6153,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 41.336430121666666,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -6027,7 +6184,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 41.336430121666666,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -6058,7 +6215,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -6072,9 +6229,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -6095,7 +6254,7 @@
       "verified_status": "needs_review",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -6108,9 +6267,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -6131,7 +6292,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -6141,9 +6302,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -6164,7 +6327,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 41.33642710861111,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -6195,7 +6358,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 41.33642710861111,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -6226,7 +6389,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -6240,9 +6403,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -6263,7 +6428,7 @@
       "verified_status": "needs_review",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -6276,9 +6441,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -6299,7 +6466,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -6309,9 +6476,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -6332,7 +6501,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 41.336424109999996,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -6363,7 +6532,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 41.336424109999996,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -6394,7 +6563,7 @@
       "verified_status": "verified",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -6408,9 +6577,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -6431,7 +6602,7 @@
       "verified_status": "verified",
       "truth_level": "reference_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -6444,10 +6615,11 @@
       "source_match_type": "reference_only",
       "source_authenticity_score": 45.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 65.0,
       "warnings": [
         "source_match=reference_only",
+        "freshness_below_target",
         "cross_source_consistency_weakened"
       ],
       "hard_veto_flags": []
@@ -6470,7 +6642,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -6480,9 +6652,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -6503,7 +6677,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 39.83866494833333,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -6534,7 +6708,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 39.83866494833333,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -6565,7 +6739,7 @@
       "verified_status": "warning",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 47.999722222222225,
       "cross_check_rule": "price_or_valuation",
       "expected_primary_source": "futu_opend",
       "expected_backup_sources": [
@@ -6579,9 +6753,11 @@
       "source_match_type": "backup",
       "source_authenticity_score": 100.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -6602,7 +6778,7 @@
       "verified_status": "needs_review",
       "truth_level": "formal_snapshot",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "multiple_or_financial",
       "expected_primary_source": "local_dcf_snapshot",
       "expected_backup_sources": [
@@ -6615,9 +6791,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 85.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -6638,7 +6816,7 @@
       "verified_status": "verified",
       "truth_level": "formal_generated",
       "freshness_sla_hours": 24.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 44.174057930555556,
       "cross_check_rule": "non_empty_and_consistent_method_id",
       "expected_primary_source": "method_decision_trace",
       "expected_backup_sources": [
@@ -6648,9 +6826,11 @@
       "source_match_type": "primary",
       "source_authenticity_score": 92.0,
       "traceability_score": 100.0,
-      "freshness_score": 100.0,
+      "freshness_score": 70.0,
       "consistency_score": 100.0,
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "hard_veto_flags": []
     },
     {
@@ -6671,7 +6851,7 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 39.83866110444445,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],
@@ -6702,7 +6882,355 @@
       "verified_status": "verified",
       "truth_level": "formal_policy",
       "freshness_sla_hours": 168.0,
-      "age_hours_vs_reference": 0.0,
+      "age_hours_vs_reference": 39.83866110444445,
+      "cross_check_rule": "benchmark_mapping",
+      "expected_primary_source": "local_verified_cache",
+      "expected_backup_sources": [],
+      "expected_reference_sources": [],
+      "source_match_type": "primary",
+      "source_authenticity_score": 100.0,
+      "traceability_score": 100.0,
+      "freshness_score": 100.0,
+      "consistency_score": 100.0,
+      "warnings": [],
+      "hard_veto_flags": []
+    },
+    {
+      "signal_id": "a43c54e409f6aa1d2abbbf2c",
+      "ticker": "BLDR",
+      "name": "Builders FirstSource",
+      "market": "US",
+      "field_id": "focus_dashboard.price",
+      "field_label": "当前价",
+      "domain": "quote_data",
+      "value_at_signal": 88.09,
+      "source_system": "snapshot_price_history",
+      "source_file_or_api": "/Users/lucas/projects/stock-data-hub/data_lake/snapshots/dt=2026-03-13/price_history.jsonl",
+      "observed_provider": "local_verified_cache",
+      "observed_provider_tier": "P1",
+      "updated_at": "2026-03-12T00:00:00+00:00",
+      "cache_ttl": 24.0,
+      "verified_status": "verified",
+      "truth_level": "formal_snapshot",
+      "freshness_sla_hours": 24.0,
+      "age_hours_vs_reference": 71.99972222222222,
+      "cross_check_rule": "price_or_valuation",
+      "expected_primary_source": "yahoo_finance",
+      "expected_backup_sources": [
+        "fmp",
+        "local_verified_cache"
+      ],
+      "expected_reference_sources": [
+        "alpha_vantage",
+        "external_reference_cache"
+      ],
+      "source_match_type": "backup",
+      "source_authenticity_score": 100.0,
+      "traceability_score": 100.0,
+      "freshness_score": 50.0,
+      "consistency_score": 85.0,
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "hard_veto_flags": []
+    },
+    {
+      "signal_id": "a43c54e409f6aa1d2abbbf2c",
+      "ticker": "BLDR",
+      "name": "Builders FirstSource",
+      "market": "US",
+      "field_id": "focus_dashboard.fv50",
+      "field_label": "中性估值",
+      "domain": "valuation",
+      "value_at_signal": 382.0313,
+      "source_system": "local_dcf_snapshot",
+      "source_file_or_api": "/Users/lucas/projects/investor-method-lab/data/opportunities.real_3markets.csv",
+      "observed_provider": "local_dcf_snapshot",
+      "observed_provider_tier": "UNKNOWN",
+      "updated_at": "2026-03-13T03:49:32.391450+00:00",
+      "cache_ttl": 24.0,
+      "verified_status": "verified",
+      "truth_level": "formal_snapshot",
+      "freshness_sla_hours": 24.0,
+      "age_hours_vs_reference": 44.174057930555556,
+      "cross_check_rule": "multiple_or_financial",
+      "expected_primary_source": "local_dcf_snapshot",
+      "expected_backup_sources": [
+        "dcf_engine_result_cache"
+      ],
+      "expected_reference_sources": [
+        "external_valuation_cache",
+        "stock_data_hub_comps_baseline"
+      ],
+      "source_match_type": "primary",
+      "source_authenticity_score": 92.0,
+      "traceability_score": 100.0,
+      "freshness_score": 70.0,
+      "consistency_score": 85.0,
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "hard_veto_flags": []
+    },
+    {
+      "signal_id": "a43c54e409f6aa1d2abbbf2c",
+      "ticker": "BLDR",
+      "name": "Builders FirstSource",
+      "market": "US",
+      "field_id": "opportunities.best_reason",
+      "field_label": "机会原因",
+      "domain": "opportunity_generation",
+      "value_at_signal": "signal_refresh_reissue:target_mean_price->dcf_iv_base",
+      "source_system": "method_decision_trace",
+      "source_file_or_api": "/Users/lucas/projects/investor-method-lab/output/method_decision_trace_real_3markets.json",
+      "observed_provider": "method_decision_trace",
+      "observed_provider_tier": "UNKNOWN",
+      "updated_at": "2026-03-13T03:49:32.391450+00:00",
+      "cache_ttl": 24.0,
+      "verified_status": "verified",
+      "truth_level": "formal_generated",
+      "freshness_sla_hours": 24.0,
+      "age_hours_vs_reference": 44.174057930555556,
+      "cross_check_rule": "non_empty_and_consistent_method_id",
+      "expected_primary_source": "method_decision_trace",
+      "expected_backup_sources": [
+        "opportunity_csv_snapshot"
+      ],
+      "expected_reference_sources": [],
+      "source_match_type": "primary",
+      "source_authenticity_score": 92.0,
+      "traceability_score": 100.0,
+      "freshness_score": 70.0,
+      "consistency_score": 100.0,
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "hard_veto_flags": []
+    },
+    {
+      "signal_id": "a43c54e409f6aa1d2abbbf2c",
+      "ticker": "BLDR",
+      "name": "Builders FirstSource",
+      "market": "US",
+      "field_id": "benchmark.primary",
+      "field_label": "一级基准",
+      "domain": "quote_data",
+      "value_at_signal": "US_WIDE_SPX",
+      "source_system": "benchmark_mapping_formal_asset",
+      "source_file_or_api": "/Users/lucas/codex-project/data/unified_benchmark_mapping_v1.json",
+      "observed_provider": "local_verified_cache",
+      "observed_provider_tier": "P1",
+      "updated_at": "2026-03-14T10:09:02.582511+00:00",
+      "cache_ttl": 168.0,
+      "verified_status": "verified",
+      "truth_level": "formal_policy",
+      "freshness_sla_hours": 168.0,
+      "age_hours_vs_reference": 13.849004858055556,
+      "cross_check_rule": "benchmark_mapping",
+      "expected_primary_source": "local_verified_cache",
+      "expected_backup_sources": [],
+      "expected_reference_sources": [],
+      "source_match_type": "primary",
+      "source_authenticity_score": 100.0,
+      "traceability_score": 100.0,
+      "freshness_score": 100.0,
+      "consistency_score": 100.0,
+      "warnings": [],
+      "hard_veto_flags": []
+    },
+    {
+      "signal_id": "a43c54e409f6aa1d2abbbf2c",
+      "ticker": "BLDR",
+      "name": "Builders FirstSource",
+      "market": "US",
+      "field_id": "benchmark.secondary",
+      "field_label": "二级基准",
+      "domain": "quote_data",
+      "value_at_signal": "US_ENERGY_INDUSTRIAL_DEFENSE",
+      "source_system": "benchmark_mapping_formal_asset",
+      "source_file_or_api": "/Users/lucas/codex-project/data/unified_benchmark_mapping_v1.json",
+      "observed_provider": "local_verified_cache",
+      "observed_provider_tier": "P1",
+      "updated_at": "2026-03-14T10:09:02.582511+00:00",
+      "cache_ttl": 168.0,
+      "verified_status": "verified",
+      "truth_level": "formal_policy",
+      "freshness_sla_hours": 168.0,
+      "age_hours_vs_reference": 13.849004858055556,
+      "cross_check_rule": "benchmark_mapping",
+      "expected_primary_source": "local_verified_cache",
+      "expected_backup_sources": [],
+      "expected_reference_sources": [],
+      "source_match_type": "primary",
+      "source_authenticity_score": 100.0,
+      "traceability_score": 100.0,
+      "freshness_score": 100.0,
+      "consistency_score": 100.0,
+      "warnings": [],
+      "hard_veto_flags": []
+    },
+    {
+      "signal_id": "8d83b06ce60dc196cc80f022",
+      "ticker": "F",
+      "name": "Ford Motor Company",
+      "market": "US",
+      "field_id": "focus_dashboard.price",
+      "field_label": "当前价",
+      "domain": "quote_data",
+      "value_at_signal": 11.67,
+      "source_system": "snapshot_price_history",
+      "source_file_or_api": "/Users/lucas/projects/stock-data-hub/data_lake/snapshots/dt=2026-03-13/price_history.jsonl",
+      "observed_provider": "local_verified_cache",
+      "observed_provider_tier": "P1",
+      "updated_at": "2026-03-12T00:00:00+00:00",
+      "cache_ttl": 24.0,
+      "verified_status": "verified",
+      "truth_level": "formal_snapshot",
+      "freshness_sla_hours": 24.0,
+      "age_hours_vs_reference": 71.99972222222222,
+      "cross_check_rule": "price_or_valuation",
+      "expected_primary_source": "yahoo_finance",
+      "expected_backup_sources": [
+        "fmp",
+        "local_verified_cache"
+      ],
+      "expected_reference_sources": [
+        "alpha_vantage",
+        "external_reference_cache"
+      ],
+      "source_match_type": "backup",
+      "source_authenticity_score": 100.0,
+      "traceability_score": 100.0,
+      "freshness_score": 50.0,
+      "consistency_score": 85.0,
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "hard_veto_flags": []
+    },
+    {
+      "signal_id": "8d83b06ce60dc196cc80f022",
+      "ticker": "F",
+      "name": "Ford Motor Company",
+      "market": "US",
+      "field_id": "focus_dashboard.fv50",
+      "field_label": "中性估值",
+      "domain": "valuation",
+      "value_at_signal": 55.192,
+      "source_system": "local_dcf_snapshot",
+      "source_file_or_api": "/Users/lucas/projects/investor-method-lab/data/opportunities.real_3markets.csv",
+      "observed_provider": "local_dcf_snapshot",
+      "observed_provider_tier": "UNKNOWN",
+      "updated_at": "2026-03-13T03:49:32.391450+00:00",
+      "cache_ttl": 24.0,
+      "verified_status": "verified",
+      "truth_level": "formal_snapshot",
+      "freshness_sla_hours": 24.0,
+      "age_hours_vs_reference": 44.174057930555556,
+      "cross_check_rule": "multiple_or_financial",
+      "expected_primary_source": "local_dcf_snapshot",
+      "expected_backup_sources": [
+        "dcf_engine_result_cache"
+      ],
+      "expected_reference_sources": [
+        "external_valuation_cache",
+        "stock_data_hub_comps_baseline"
+      ],
+      "source_match_type": "primary",
+      "source_authenticity_score": 92.0,
+      "traceability_score": 100.0,
+      "freshness_score": 70.0,
+      "consistency_score": 85.0,
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "hard_veto_flags": []
+    },
+    {
+      "signal_id": "8d83b06ce60dc196cc80f022",
+      "ticker": "F",
+      "name": "Ford Motor Company",
+      "market": "US",
+      "field_id": "opportunities.best_reason",
+      "field_label": "机会原因",
+      "domain": "opportunity_generation",
+      "value_at_signal": "signal_refresh_reissue:target_mean_price->dcf_iv_base",
+      "source_system": "method_decision_trace",
+      "source_file_or_api": "/Users/lucas/projects/investor-method-lab/output/method_decision_trace_real_3markets.json",
+      "observed_provider": "method_decision_trace",
+      "observed_provider_tier": "UNKNOWN",
+      "updated_at": "2026-03-13T03:49:32.391450+00:00",
+      "cache_ttl": 24.0,
+      "verified_status": "verified",
+      "truth_level": "formal_generated",
+      "freshness_sla_hours": 24.0,
+      "age_hours_vs_reference": 44.174057930555556,
+      "cross_check_rule": "non_empty_and_consistent_method_id",
+      "expected_primary_source": "method_decision_trace",
+      "expected_backup_sources": [
+        "opportunity_csv_snapshot"
+      ],
+      "expected_reference_sources": [],
+      "source_match_type": "primary",
+      "source_authenticity_score": 92.0,
+      "traceability_score": 100.0,
+      "freshness_score": 70.0,
+      "consistency_score": 100.0,
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "hard_veto_flags": []
+    },
+    {
+      "signal_id": "8d83b06ce60dc196cc80f022",
+      "ticker": "F",
+      "name": "Ford Motor Company",
+      "market": "US",
+      "field_id": "benchmark.primary",
+      "field_label": "一级基准",
+      "domain": "quote_data",
+      "value_at_signal": "US_WIDE_SPX",
+      "source_system": "benchmark_mapping_formal_asset",
+      "source_file_or_api": "/Users/lucas/codex-project/data/unified_benchmark_mapping_v1.json",
+      "observed_provider": "local_verified_cache",
+      "observed_provider_tier": "P1",
+      "updated_at": "2026-03-14T10:09:02.593743+00:00",
+      "cache_ttl": 168.0,
+      "verified_status": "verified",
+      "truth_level": "formal_policy",
+      "freshness_sla_hours": 168.0,
+      "age_hours_vs_reference": 13.849001738055556,
+      "cross_check_rule": "benchmark_mapping",
+      "expected_primary_source": "local_verified_cache",
+      "expected_backup_sources": [],
+      "expected_reference_sources": [],
+      "source_match_type": "primary",
+      "source_authenticity_score": 100.0,
+      "traceability_score": 100.0,
+      "freshness_score": 100.0,
+      "consistency_score": 100.0,
+      "warnings": [],
+      "hard_veto_flags": []
+    },
+    {
+      "signal_id": "8d83b06ce60dc196cc80f022",
+      "ticker": "F",
+      "name": "Ford Motor Company",
+      "market": "US",
+      "field_id": "benchmark.secondary",
+      "field_label": "二级基准",
+      "domain": "quote_data",
+      "value_at_signal": "US_CONSUMER_PLATFORM",
+      "source_system": "benchmark_mapping_formal_asset",
+      "source_file_or_api": "/Users/lucas/codex-project/data/unified_benchmark_mapping_v1.json",
+      "observed_provider": "local_verified_cache",
+      "observed_provider_tier": "P1",
+      "updated_at": "2026-03-14T10:09:02.593743+00:00",
+      "cache_ttl": 168.0,
+      "verified_status": "verified",
+      "truth_level": "formal_policy",
+      "freshness_sla_hours": 168.0,
+      "age_hours_vs_reference": 13.849001738055556,
       "cross_check_rule": "benchmark_mapping",
       "expected_primary_source": "local_verified_cache",
       "expected_backup_sources": [],

@@ -27,7 +27,6 @@ def _now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
-
 def _parse_datetime(value: Any) -> datetime | None:
     text = normalize_text(value)
     if not text:
@@ -43,7 +42,6 @@ def _parse_datetime(value: Any) -> datetime | None:
     return None
 
 
-
 def _sort_datetime_key(value: Any) -> tuple[int, str]:
     dt = _parse_datetime(value)
     if dt is None:
@@ -51,15 +49,12 @@ def _sort_datetime_key(value: Any) -> tuple[int, str]:
     return (1, dt.isoformat())
 
 
-
 def ticker_key(value: Any) -> str:
     return normalize_text(value).upper()
 
 
-
 def action_label(action: Any) -> str:
     return ACTION_LABELS.get(normalize_text(action), normalize_text(action))
-
 
 
 def format_manual_review_summary(item: Dict[str, Any]) -> str:
@@ -76,20 +71,11 @@ def format_manual_review_summary(item: Dict[str, Any]) -> str:
     return " | ".join(parts)
 
 
-
-def load_review_writeback(path: Path | None) -> Dict[str, Any]:
-    if path is None or not path.exists():
-        return {}
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
-
 def reviewed_items(payload: Dict[str, Any] | None) -> List[Dict[str, Any]]:
     if not isinstance(payload, dict):
         return []
     rows = payload.get("reviewed_items") or []
     return [dict(item) for item in rows if isinstance(item, dict)]
-
 
 
 def reviewed_items_by_ticker(payload: Dict[str, Any] | None) -> Dict[str, Dict[str, Any]]:
@@ -102,7 +88,6 @@ def reviewed_items_by_ticker(payload: Dict[str, Any] | None) -> Dict[str, Dict[s
         if previous is None or _sort_datetime_key(item.get("manual_reviewed_at")) >= _sort_datetime_key(previous.get("manual_reviewed_at")):
             mapping[ticker] = item
     return mapping
-
 
 
 def build_backlog_items(reviewed: Sequence[Dict[str, Any]]) -> List[Dict[str, Any]]:
@@ -138,12 +123,12 @@ def build_backlog_items(reviewed: Sequence[Dict[str, Any]]) -> List[Dict[str, An
     return rows
 
 
-
 def summarize_review_writeback(reviewed: Sequence[Dict[str, Any]], backlog: Sequence[Dict[str, Any]] | None = None) -> Dict[str, Any]:
     backlog = list(backlog or build_backlog_items(reviewed))
     decision_breakdown: Dict[str, int] = {}
     action_breakdown: Dict[str, int] = {}
     writeback_status_breakdown: Dict[str, int] = {}
+    pending_writeback_count = 0
     for item in reviewed:
         decision = normalize_text(item.get("manual_review_decision")) or "unknown"
         action = normalize_text(item.get("manual_action")) or MANUAL_DECISION_DEFAULT_ACTION.get(decision, "unknown")
@@ -151,9 +136,12 @@ def summarize_review_writeback(reviewed: Sequence[Dict[str, Any]], backlog: Sequ
         decision_breakdown[decision] = decision_breakdown.get(decision, 0) + 1
         action_breakdown[action] = action_breakdown.get(action, 0) + 1
         writeback_status_breakdown[status] = writeback_status_breakdown.get(status, 0) + 1
+        if status != "written_back":
+            pending_writeback_count += 1
     return {
         "reviewed_items_count": len(reviewed),
         "followup_backlog_count": len(backlog),
+        "pending_writeback_count": pending_writeback_count,
         "decision_breakdown": decision_breakdown,
         "action_breakdown": action_breakdown,
         "writeback_status_breakdown": writeback_status_breakdown,
@@ -161,18 +149,100 @@ def summarize_review_writeback(reviewed: Sequence[Dict[str, Any]], backlog: Sequ
     }
 
 
+def build_review_payload(*, source: Dict[str, Any], reviewed: Sequence[Dict[str, Any]], receipt: Dict[str, Any] | None = None) -> Dict[str, Any]:
+    reviewed_rows = [dict(item) for item in reviewed]
+    backlog = build_backlog_items(reviewed_rows)
+    summary = summarize_review_writeback(reviewed_rows, backlog)
+    payload = {
+        "generated_at_utc": _now_iso(),
+        "source": source,
+        "reviewed_items": reviewed_rows,
+        "backlog_items": backlog,
+        "summary": summary,
+        "pending_writeback_count": int(summary.get("pending_writeback_count") or 0),
+    }
+    if isinstance(receipt, dict) and receipt:
+        payload["sync_receipt"] = dict(receipt)
+    return payload
+
+
+def empty_review_payload(
+    *,
+    reason: str = "",
+    source: Dict[str, Any] | None = None,
+    receipt_key: str = "load_receipt",
+    fallback_mode: str = "empty_snapshot",
+) -> Dict[str, Any]:
+    payload = build_review_payload(source=source or {}, reviewed=[])
+    if reason:
+        payload[receipt_key] = {
+            "synced": False,
+            "reason": reason,
+            "fallback_mode": fallback_mode,
+            "generated_at_utc": _now_iso(),
+        }
+    return payload
+
+
+def normalize_review_payload(payload: Dict[str, Any] | None) -> Dict[str, Any]:
+    if not isinstance(payload, dict):
+        return empty_review_payload(reason="invalid_payload")
+    source = payload.get("source") if isinstance(payload.get("source"), dict) else {}
+    reviewed = reviewed_items(payload)
+    receipt = payload.get("sync_receipt") if isinstance(payload.get("sync_receipt"), dict) else None
+    normalized = build_review_payload(source=source, reviewed=reviewed, receipt=receipt)
+    generated_at = normalize_text(payload.get("generated_at_utc"))
+    if generated_at:
+        normalized["generated_at_utc"] = generated_at
+    pending = payload.get("pending_writeback_count")
+    if pending not in (None, ""):
+        try:
+            normalized["pending_writeback_count"] = int(pending)
+        except Exception:
+            pass
+    if isinstance(payload.get("load_receipt"), dict):
+        normalized["load_receipt"] = dict(payload.get("load_receipt") or {})
+    if "dry_run" in payload:
+        normalized["dry_run"] = bool(payload.get("dry_run"))
+    return normalized
+
+
+def load_review_writeback(path: Path | None) -> Dict[str, Any]:
+    if path is None:
+        return empty_review_payload(reason="path_missing", source={})
+    if not path.exists():
+        return empty_review_payload(reason="file_missing", source={"path": str(path)})
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        return empty_review_payload(reason=f"invalid_json:{exc}", source={"path": str(path)})
+    return normalize_review_payload(payload)
+
 
 def render_review_writeback_markdown(payload: Dict[str, Any]) -> str:
-    reviewed = reviewed_items(payload)
-    backlog = [dict(item) for item in (payload.get("backlog_items") or []) if isinstance(item, dict)]
-    summary = payload.get("summary") if isinstance(payload.get("summary"), dict) else summarize_review_writeback(reviewed, backlog)
+    normalized = normalize_review_payload(payload)
+    reviewed = reviewed_items(normalized)
+    backlog = [dict(item) for item in (normalized.get("backlog_items") or []) if isinstance(item, dict)]
+    summary = normalized.get("summary") if isinstance(normalized.get("summary"), dict) else summarize_review_writeback(reviewed, backlog)
+    sync_receipt = normalized.get("sync_receipt") if isinstance(normalized.get("sync_receipt"), dict) else {}
+    load_receipt = normalized.get("load_receipt") if isinstance(normalized.get("load_receipt"), dict) else {}
 
     lines: List[str] = []
     lines.append("# 机会复核回写最新快照")
     lines.append("")
-    lines.append(f"- 生成时间：{normalize_text(payload.get('generated_at_utc')) or normalize_text(summary.get('generated_at_utc'))}")
+    lines.append(f"- 生成时间：{normalize_text(normalized.get('generated_at_utc')) or normalize_text(summary.get('generated_at_utc'))}")
     lines.append(f"- 已人工复核：{int(summary.get('reviewed_items_count') or 0)}")
     lines.append(f"- 需继续跟进：{int(summary.get('followup_backlog_count') or 0)}")
+    lines.append(f"- 待回写：{int(normalized.get('pending_writeback_count') or summary.get('pending_writeback_count') or 0)}")
+    if sync_receipt:
+        sync_state = "成功" if sync_receipt.get("synced") else "失败/降级"
+        lines.append(f"- 拉取回执：{sync_state}")
+        if normalize_text(sync_receipt.get("reason")):
+            lines.append(f"- 拉取原因：{normalize_text(sync_receipt.get('reason'))}")
+        if normalize_text(sync_receipt.get("fallback_mode")):
+            lines.append(f"- 容错模式：{normalize_text(sync_receipt.get('fallback_mode'))}")
+    elif load_receipt:
+        lines.append(f"- 读取回执：失败/降级（{normalize_text(load_receipt.get('reason')) or 'unknown'}）")
     lines.append("")
     lines.append("## 人工结论")
     lines.append("")
@@ -205,21 +275,6 @@ def render_review_writeback_markdown(payload: Dict[str, Any]) -> str:
         lines.append("| - | - | - | 当前还没有人工复核写回 |")
     lines.append("")
     return "\n".join(lines)
-
-
-
-def build_review_payload(*, source: Dict[str, Any], reviewed: Sequence[Dict[str, Any]]) -> Dict[str, Any]:
-    reviewed_rows = [dict(item) for item in reviewed]
-    backlog = build_backlog_items(reviewed_rows)
-    summary = summarize_review_writeback(reviewed_rows, backlog)
-    return {
-        "generated_at_utc": _now_iso(),
-        "source": source,
-        "reviewed_items": reviewed_rows,
-        "backlog_items": backlog,
-        "summary": summary,
-    }
-
 
 
 def ticker_aliases(item: Dict[str, Any]) -> set[str]:

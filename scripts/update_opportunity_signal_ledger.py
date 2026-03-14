@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from pathlib import Path
 import sys
 
@@ -26,7 +27,28 @@ from investor_method_lab.signal_ledger import (
 )
 
 HOME_DIR = Path.home()
-DEFAULT_BENCHMARK_CONFIG = HOME_DIR / "codex-project" / "data" / "unified_benchmark_mapping_v1.json"
+
+
+def resolve_hit_zone_data_dir() -> Path:
+    candidates = [
+        os.getenv("HIT_ZONE_PROJECT_DIR"),
+        str(HOME_DIR / "projects" / "hit-zone"),
+        str(HOME_DIR / "projects" / "dcf-suite"),
+        str(HOME_DIR / "codex-project"),
+    ]
+    for raw in candidates:
+        text = str(raw or "").strip()
+        if not text:
+            continue
+        root = Path(text).expanduser()
+        data_dir = root / "data"
+        if data_dir.exists():
+            return data_dir
+    return HOME_DIR / "projects" / "hit-zone" / "data"
+
+
+HIT_ZONE_DATA_DIR = resolve_hit_zone_data_dir()
+DEFAULT_BENCHMARK_CONFIG = HIT_ZONE_DATA_DIR / "unified_benchmark_mapping_v1.json"
 
 
 def parse_args() -> argparse.Namespace:

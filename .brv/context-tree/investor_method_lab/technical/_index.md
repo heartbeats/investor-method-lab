@@ -1,36 +1,56 @@
 ---
-children_hash: c600cfafb7a77d68568aae382ad35088052f12cbb723caefff2dd5310b767571
-compression_ratio: 0.7595419847328244
+children_hash: 94b4c4e6bcb7b1832ec500cb116065105e535675bcfdbd9a1ee5ff503c195610
+compression_ratio: 0.5682788051209103
 condensation_order: 1
-covers: [context.md, technical_implementation.md]
-covers_token_total: 524
+covers: [context.md, review_writeback_system.md, technical_implementation.md, valuation_coverage_system.md]
+covers_token_total: 1406
 summary_level: d1
-token_count: 398
+token_count: 799
 type: summary
 ---
-# Technical Implementation Overview
+# Technical Domain Structural Summary
 
-Structural summary of the project's integration logic, data routing, and script architecture.
+This domain covers the core data routing, integration logic, and valuation systems governing the investor methodology laboratory.
 
-### Core Architecture & Orchestration
-- **Main Orchestrator**: `scripts/run_real_pack_3markets.sh` is the primary execution script for the 3-market pack.
-- **Iteration Loop**: `scripts/pai_loop.py` manages the PAI iteration cycle.
-- **Web Interface**: Local dashboard accessible at `http://127.0.0.1:8090/web/` (Entry: `web/index.html`, `web/investor.html`).
+## Core Systems & Architectures
 
-### Data Strategy & Routing
-- **Valuation Priority**: `dcf_iv_base` > `targetMeanPrice` > `close`.
-- **Source Fallback**: `build_investor_profiles.py` routes A/HK market data via **Futu OpenD**, falling back to **Yahoo Finance**.
-- **Caching**: 24-hour cache at `data/cache/yfinance`; `build_real_opportunities.py` supports a `--no-cache` flag.
-- **Manual Calibration**: `data/dcf_special_focus_list.json` tracks manual DCF overrides.
+### Review Writeback System
+**Entry:** `review_writeback_system.md`
+*   **Purpose:** Normalizes and processes manual review decisions into actionable backlogs.
+*   **Key Files:** `src/investor_method_lab/review_writeback.py`, `tests/test_review_writeback.py`
+*   **Logic Flow:** `load review -> normalize payload -> deduplicate by ticker -> generate backlog -> build payload`.
+*   **Key Decisions:**
+    *   **Deduplication:** Keeps only the latest review per ticker based on `manual_reviewed_at`.
+    *   **Error Handling:** Loaders return count 0 and error reasons for broken JSON instead of failing.
+    *   **Decision Mappings:** Maps manual inputs to system actions: '通过' (promote_to_pack), '观察' (keep_in_watch_pool), '驳回' (archive), and '升级' (upgrade_valuation_source).
+    *   **ID Convention:** Backlog items use the prefix `RWB-`.
 
-### Key Knowledge Components
-- **Investor & Methodology Data**:
-    - `data/investors.json`: Central investor database.
-    - `data/methodologies.json`: Classification and screening rulebook.
-- **Analysis Scripts**:
-    - `scripts/rank_investors.py`: Ranking logic.
-    - `scripts/rank_opportunities.py`: Strategy-based output generation.
-    - `scripts/build_real_opportunities.py`: Opportunity data construction.
-- **Dependencies**: Futu OpenD, Yahoo Finance, `stock-data-hub`, `dcf-valuation-link`.
+### Valuation Coverage System
+**Entry:** `valuation_coverage_system.md`
+*   **Purpose:** Manages coverage analysis, historical trend tracking, and gap identification for stock valuations.
+*   **Key Files:** `src/investor_method_lab/valuation_coverage.py`, `tests/test_valuation_coverage.py`
+*   **Logic Flow:** `analyze coverage -> derive support tiers -> identify gaps -> record snapshot -> render markdown`.
+*   **Quality Tiers:** Establishes a 0-4 priority scale:
+    *   **4 (formal_core)** / **3 (formal_support)**: Defined as "Formal Support."
+    *   **2 (unknown)** / **1 (reference_only)** / **0 (price_fallback)**.
+*   **Architectural Decisions:** `append_history` prevents duplicates if metrics match the last entry date. Gap analysis specifically targets tickers lacking tiers 3 or 4.
 
-*Refer to [technical_implementation.md](technical_implementation.md) for full script signatures and [context.md](context.md) for high-level integration details.*
+### Technical Implementation & Integration
+**Entry:** `technical_implementation.md`, `context.md`
+*   **Data Routing:** `build_investor_profiles.py` routes A/HK market data through Futu OpenD, falling back to Yahoo Finance.
+*   **Valuation Priority:** `dcf_iv_base > targetMeanPrice > close`.
+*   **Caching Strategy:** `build_real_opportunities.py` defaults to a 24-hour cache at `data/cache/yfinance` (bypassable via `--no-cache`).
+*   **Orchestration:** `scripts/run_real_pack_3markets.sh` serves as the primary execution script for the 3-market real pack.
+*   **Key Components:**
+    *   **Data Hub:** Centralized data source routing and caching.
+    *   **PAI Loop:** Iteration loop managed via `scripts/pai_loop.py`.
+    *   **Web Dashboard:** Accessible at `http://127.0.0.1:8090/web/` for visualizing results.
+
+## Key Relationships & Dependencies
+*   **External Integrations:** Futu OpenD, Yahoo Finance, and sync receipts (Feishu).
+*   **Data Dependencies:** The systems rely on `stock-data-hub` and `dcf-valuation-link`.
+*   **Repository Structure:**
+    *   `data/investors.json`: Investor database.
+    *   `data/methodologies.json`: Screening and classification rules.
+    *   `data/dcf_special_focus_list.json`: Manual DCF calibration targets.
+    *   `scripts/`: Contains core analysis scripts (`rank_investors.py`, `rank_opportunities.py`).

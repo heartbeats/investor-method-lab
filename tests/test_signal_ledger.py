@@ -245,10 +245,70 @@ class SignalLedgerTest(unittest.TestCase):
         entry = refresh_entries[0]
         self.assertEqual(entry["signal_origin"], "refresh_reissue")
         self.assertEqual(entry["ticker"], "AES")
+        self.assertEqual(entry["as_of_date"], "2026-03-12")
         self.assertEqual(entry["valuation_source_at_signal"], "target_mean_price")
         self.assertEqual(entry["previous_valuation_source_at_signal"], "close_fallback")
         self.assertEqual(entry["refresh_reissue_of_signal_id"], "sig-old")
         self.assertEqual(entry["review_state"], "auto")
+
+    def test_build_refresh_reissue_entries_prefers_real_note_date_over_stale_meta(self) -> None:
+        ledger_entries = [
+            {
+                "signal_id": "sig-old",
+                "signal_generated_at_utc": "2026-03-12T01:00:00+00:00",
+                "source_list_id": "opportunity_mining_daily",
+                "source_rank": 2,
+                "as_of_date": "2026-03-12",
+                "ticker": "BLDR",
+                "symbol": "US.BLDR",
+                "market": "US",
+                "name": "Builders FirstSource",
+                "sector": "Industrials",
+                "method_group": "系统化量化",
+                "method_group_id": "systematic_quant",
+                "method_family": "系统化量化",
+                "method_family_id": "systematic_quant",
+                "strategy_version": "top20_pack_v4::v4",
+                "signal_origin": "refresh_reissue",
+                "entry_reason_summary": "old",
+                "price_at_signal": 88.09,
+                "fair_value_at_signal": 127.28,
+                "margin_of_safety_at_signal": 0.0,
+                "risk_control_at_signal": 50.0,
+                "composite_score_at_signal": 70.0,
+                "valuation_source_at_signal": "target_mean_price",
+                "valuation_source_detail_at_signal": "target_mean_price(stock_data_hub:yfinance)",
+                "primary_benchmark": {"benchmark_id": "US_WIDE_SPX"},
+                "secondary_benchmark": {"benchmark_id": "US_WIDE_SPX"},
+                "exit_template_id": "systematic_quant",
+                "review_state": "auto",
+                "review_reason": "passed_default_gate",
+                "trace_summary": {},
+                "snapshot_refs": {},
+            }
+        ]
+        real_rows = [
+            {
+                "ticker": "BLDR",
+                "name": "Builders FirstSource",
+                "sector": "Industrials",
+                "fair_value": "382.03",
+                "valuation_source": "dcf_iv_base",
+                "valuation_source_detail": "US.BLDR:iv_base",
+                "note": "US core | real-data@2026-03-14 | close=88.09 | target=127.29 | fv_source=dcf_iv_base | dcf_symbol=US.BLDR | dcf_iv=382.03 | upside=333.7%",
+            }
+        ]
+        refresh_entries = build_refresh_reissue_entries(
+            ledger_entries=ledger_entries,
+            current_batch_entries=[],
+            real_rows=real_rows,
+            meta_payload={"as_of_dates": ["2026-03-12"]},
+            artifact_paths={},
+            refresh_source_list_id="opportunity_mining_daily_refresh_reissue",
+            focus_tickers=set(),
+        )
+        self.assertEqual(len(refresh_entries), 1)
+        self.assertEqual(refresh_entries[0]["as_of_date"], "2026-03-14")
 
     def test_append_only_dedup_and_summary(self) -> None:
         entry = {

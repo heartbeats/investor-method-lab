@@ -37,6 +37,62 @@ class SeedDCFCoverageFromUniverseTests(unittest.TestCase):
         self.assertEqual(company.shares, 29352000000.0)
         self.assertEqual(source, "yfinance")
 
+
+
+    def test_load_snapshot_fundamentals_uses_latest_available_record_across_dates(self) -> None:
+        import json
+        import tempfile
+
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            root = Path(tmp_dir)
+            (root / "dt=2026-03-14").mkdir()
+            older = root / "dt=2026-03-13"
+            older.mkdir()
+            (older / "fundamentals.jsonl").write_text(
+                json.dumps({
+                    "symbol": "US.F",
+                    "currency": "USD",
+                    "shares_outstanding": 3918623149.0,
+                }) + "\n",
+                encoding="utf-8",
+            )
+
+            fundamentals = MODULE.load_snapshot_fundamentals(root)
+
+        self.assertIn("US.F", fundamentals)
+        self.assertEqual(fundamentals["US.F"]["shares_outstanding"], 3918623149.0)
+
+    def test_build_company_profile_falls_back_to_stock_data_snapshot_for_us(self) -> None:
+        original_fetch = MODULE.fetch_company_profile_from_yfinance
+        snapshot_fundamentals = {
+            "US.F": {
+                "symbol": "US.F",
+                "name": "Ford Motor Company",
+                "currency": "USD",
+                "shares_outstanding": 3918623149.0,
+            }
+        }
+        try:
+            def raise_rate_limit(symbol: str):
+                raise RuntimeError("rate limited")
+
+            MODULE.fetch_company_profile_from_yfinance = raise_rate_limit
+            company, source = MODULE.build_company_profile(
+                service=object(),
+                symbol="US.F",
+                name_hint="Ford Motor Company",
+                policy_id="anchored-us-quality-r09-g3",
+                snapshot_fundamentals=snapshot_fundamentals,
+            )
+        finally:
+            MODULE.fetch_company_profile_from_yfinance = original_fetch
+
+        self.assertEqual(company.symbol, "US.F")
+        self.assertEqual(company.name, "Ford Motor Company")
+        self.assertEqual(company.currency, "USD")
+        self.assertEqual(company.shares, 3918623149.0)
+        self.assertEqual(source, "stock_data_snapshot_fundamentals")
+
     def test_build_company_profile_falls_back_to_ths_for_a_share(self) -> None:
         original_fetch = MODULE.fetch_company_profile_from_yfinance
         original_ths = MODULE.build_a_share_company_profile_from_ths

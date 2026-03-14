@@ -1,7 +1,7 @@
 {
   "version": 1,
   "project": "investor-method-lab",
-  "generated_at": "2026-03-13T17:07:46.877412+08:00",
+  "generated_at": "2026-03-14T09:42:54.762394+08:00",
   "iterations": [
     {
       "id": "ITER-0002",
@@ -28,8 +28,8 @@
       "requirement_refs": [
         "REQ-0004"
       ],
-      "status": "doing",
-      "updated_at": "2026-03-13T17:07:46.877412+08:00"
+      "status": "done",
+      "updated_at": "2026-03-14T09:42:54.762394+08:00"
     }
   ],
   "tasks": [
@@ -309,11 +309,19 @@
         "verification_result",
         "artifacts"
       ],
-      "status": "doing",
-      "last_validation_status": "not_run",
-      "execution_summary": "已完成 requirement-ops after_task_update 联调与防重校验",
-      "verification_result": "任务回写适配器、项目管理回写、dry-run 摘要均可用",
-      "updated_at": "2026-03-13T17:07:46.877412+08:00"
+      "status": "done",
+      "last_validation_status": "pass",
+      "execution_summary": "已补齐 review writeback 回执、失败兜底、workspace 作用域落盘与下游安全读取；失败场景会稳定写出 sync_receipt，报表会显示拉取状态与容错模式。",
+      "verification_result": "17 个 investor-method-lab 相关测试通过，3 个 codex-project review writeback 测试通过；真实失败降级演示已验证 valuation_coverage.md 会显示拉取状态/说明/容错模式。",
+      "updated_at": "2026-03-14T09:42:54.762394+08:00",
+      "artifacts": [
+        "src/investor_method_lab/review_writeback.py",
+        "src/investor_method_lab/valuation_coverage.py",
+        "tests/test_review_writeback.py",
+        "tests/test_valuation_coverage.py",
+        "tests/test_requirement_ops_adapters.py"
+      ],
+      "completed_at": "2026-03-14T09:42:54.762394+08:00"
     }
   ],
   "skipped_requirements": []

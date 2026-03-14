@@ -1,7 +1,7 @@
 {
   "version": 1,
   "project": "investor-method-lab",
-  "generated_at": "2026-03-13T17:10:32.823716+08:00",
+  "generated_at": "2026-03-14T09:42:54.763586+08:00",
   "summary": {
     "flow_status": "good",
     "result_status": "bad",
@@ -94,11 +94,12 @@
       "layer": "result",
       "formula": "active requirements whose linked tasks are all done / active requirements",
       "target": 0.7,
-      "current": 0.6667,
-      "status": "warn",
+      "current": 1.0,
+      "status": "good",
       "evidence_refs": [
         "REQ-0002",
-        "REQ-0003"
+        "REQ-0003",
+        "REQ-0004"
       ]
     },
     {
@@ -109,11 +110,11 @@
       "current": 1.0,
       "status": "good",
       "evidence_refs": [
-        "TASK-0007",
         "TASK-0008",
         "TASK-0009",
         "TASK-0010",
-        "TASK-0011"
+        "TASK-0011",
+        "TASK-0012"
       ]
     },
     {
@@ -205,7 +206,6 @@
       "status": "bad",
       "evidence_refs": [
         "REQ-0004",
-        "TASK-0012",
         "output/opportunity_review_writeback_latest.json"
       ]
     },
@@ -218,7 +218,6 @@
       "status": "good",
       "evidence_refs": [
         "REQ-0004",
-        "TASK-0012",
         "output/opportunity_review_writeback_latest.json"
       ]
     }

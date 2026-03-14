@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-03-13T11:49:32",
-  "as_of_date": "2026-03-12",
+  "generated_at": "2026-03-14T18:09:02",
+  "as_of_date": "2026-03-14",
   "inputs": {
     "focus_file": "/Users/lucas/projects/investor-method-lab/data/dcf_special_focus_list.json",
     "top_file": "/Users/lucas/projects/investor-method-lab/output/top20_first_batch_opportunities_real_3markets.csv",
@@ -12,7 +12,7 @@
     "opportunity_markdown": "/Users/lucas/projects/investor-method-lab/docs/opportunity_mining_daily.md"
   },
   "focus_module": {
-    "title": "【特别关注｜深度DCF校准】2026-03-12",
+    "title": "【特别关注｜深度DCF校准】2026-03-14",
     "summary": {
       "focus_total": 7,
       "covered": 6,
@@ -101,7 +101,7 @@
     ]
   },
   "opportunity_module": {
-    "title": "【机会挖掘｜新增候选】2026-03-12",
+    "title": "【机会挖掘｜新增候选】2026-03-14",
     "summary": {
       "count": 10,
       "excluded_focus_tickers": [
@@ -116,117 +116,117 @@
     },
     "rows": [
       {
+        "ticker": "600029.SS",
+        "name": "南方航空",
+        "market": "A",
+        "score": 58.75,
+        "mos_pct": 30.8,
+        "best_group": "宏观周期",
+        "close": 6.32,
+        "target": 6.16
+      },
+      {
+        "ticker": "600000.SS",
+        "name": "浦发银行",
+        "market": "A",
+        "score": 56.61,
+        "mos_pct": 91.9,
+        "best_group": "宏观周期",
+        "close": 10.18,
+        "target": 10.35
+      },
+      {
         "ticker": "688126.SS",
         "name": "沪硅产业",
         "market": "A",
-        "score": 44.25,
+        "score": 44.13,
         "mos_pct": -3.1,
         "best_group": "宏观周期",
         "close": 19.5,
         "target": 18.91
       },
       {
-        "ticker": "600000.SS",
-        "name": "浦发银行",
-        "market": "A",
-        "score": 41.37,
-        "mos_pct": 1.7,
-        "best_group": "宏观周期",
-        "close": 10.18,
-        "target": 10.35
-      },
-      {
-        "ticker": "688506.SS",
-        "name": "百利天恒",
-        "market": "A",
-        "score": 40.42,
-        "mos_pct": -52.5,
-        "best_group": "宏观周期",
-        "close": 254.87,
-        "target": 167.16
-      },
-      {
-        "ticker": "002241.SZ",
-        "name": "歌尔股份",
-        "market": "A",
-        "score": 38.14,
-        "mos_pct": -7.2,
-        "best_group": "宏观周期",
-        "close": 25.13,
-        "target": 23.45
-      },
-      {
         "ticker": "000063.SZ",
         "name": "中兴通讯",
         "market": "A",
-        "score": 33.53,
-        "mos_pct": -11.0,
+        "score": 41.54,
+        "mos_pct": 4.6,
         "best_group": "宏观周期",
         "close": 37.88,
         "target": 34.12
       },
       {
+        "ticker": "601169.SS",
+        "name": "北京银行",
+        "market": "A",
+        "score": 37.8,
+        "mos_pct": 91.4,
+        "best_group": "宏观周期",
+        "close": 5.4,
+        "target": 5.3
+      },
+      {
         "ticker": "601166.SS",
         "name": "兴业银行",
         "market": "A",
-        "score": 31.95,
-        "mos_pct": 2.7,
+        "score": 36.05,
+        "mos_pct": 37.0,
         "best_group": "宏观周期",
         "close": 18.47,
         "target": 18.99
       },
       {
-        "ticker": "601136.SS",
-        "name": "首创证券",
-        "market": "A",
-        "score": 30.45,
-        "mos_pct": 1.0,
-        "best_group": "宏观周期",
-        "close": 17.3,
-        "target": 17.47
-      },
-      {
-        "ticker": "600029.SS",
-        "name": "南方航空",
-        "market": "A",
-        "score": 30.22,
-        "mos_pct": -2.6,
-        "best_group": "宏观周期",
-        "close": 6.32,
-        "target": 6.16
-      },
-      {
         "ticker": "601818.SS",
         "name": "光大银行",
         "market": "A",
-        "score": 29.71,
-        "mos_pct": 0.4,
+        "score": 35.93,
+        "mos_pct": 38.8,
         "best_group": "宏观周期",
         "close": 3.24,
         "target": 3.25
       },
       {
-        "ticker": "601169.SS",
-        "name": "北京银行",
+        "ticker": "601288.SS",
+        "name": "农业银行",
         "market": "A",
-        "score": 27.86,
-        "mos_pct": -2.0,
+        "score": 33.4,
+        "mos_pct": 84.3,
         "best_group": "宏观周期",
-        "close": 5.4,
-        "target": 5.3
+        "close": 6.74,
+        "target": 5.14
+      },
+      {
+        "ticker": "MSFT",
+        "name": "Microsoft",
+        "market": "US",
+        "score": 26.76,
+        "mos_pct": -48.3,
+        "best_group": "宏观周期",
+        "close": 401.86,
+        "target": 596.0
+      },
+      {
+        "ticker": "600515.SS",
+        "name": "海南机场",
+        "market": "A",
+        "score": 26.08,
+        "mos_pct": -2.3,
+        "best_group": "宏观周期",
+        "close": 4.02,
+        "target": 3.93
       }
     ],
     "message_lines": [
       "口径：机会池剔除特别关注标的后按综合分排序",
       "本次展示：8只",
-      "1. 沪硅产业(688126.SS) 分数 44.2 | MOS -3.1% | 现价/目标 19.50/18.91",
-      "2. 浦发银行(600000.SS) 分数 41.4 | MOS 1.7% | 现价/目标 10.18/10.35",
-      "3. 百利天恒(688506.SS) 分数 40.4 | MOS -52.5% | 现价/目标 254.87/167.16",
-      "4. 歌尔股份(002241.SZ) 分数 38.1 | MOS -7.2% | 现价/目标 25.13/23.45",
-      "5. 中兴通讯(000063.SZ) 分数 33.5 | MOS -11.0% | 现价/目标 37.88/34.12",
-      "6. 兴业银行(601166.SS) 分数 31.9 | MOS 2.7% | 现价/目标 18.47/18.99",
-      "7. 首创证券(601136.SS) 分数 30.4 | MOS 1.0% | 现价/目标 17.30/17.47",
-      "8. 南方航空(600029.SS) 分数 30.2 | MOS -2.6% | 现价/目标 6.32/6.16"
+      "1. 南方航空(600029.SS) 分数 58.8 | MOS 30.8% | 现价/目标 6.32/6.16",
+      "2. 浦发银行(600000.SS) 分数 56.6 | MOS 91.9% | 现价/目标 10.18/10.35",
+      "3. 沪硅产业(688126.SS) 分数 44.1 | MOS -3.1% | 现价/目标 19.50/18.91",
+      "4. 中兴通讯(000063.SZ) 分数 41.5 | MOS 4.6% | 现价/目标 37.88/34.12",
+      "5. 北京银行(601169.SS) 分数 37.8 | MOS 91.4% | 现价/目标 5.40/5.30",
+      "6. 兴业银行(601166.SS) 分数 36.0 | MOS 37.0% | 现价/目标 18.47/18.99",
+      "7. 光大银行(601818.SS) 分数 35.9 | MOS 38.8% | 现价/目标 3.24/3.25",
+      "8. 农业银行(601288.SS) 分数 33.4 | MOS 84.3% | 现价/目标 6.74/5.14"
     ]
   }
 }

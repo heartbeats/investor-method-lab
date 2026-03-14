@@ -1,64 +1,45 @@
 {
-  "generated_at_utc": "2026-03-13T08:10:02.666121+00:00",
-  "as_of_date": "2026-03-12",
+  "generated_at_utc": "2026-03-14T10:09:41.641944+00:00",
+  "as_of_date": "2026-03-14",
   "summary": {
-    "gap_count": 6,
+    "gap_count": 4,
     "priority_breakdown": {
-      "P1": 1,
-      "P2": 5
+      "P2": 4
     },
     "lane_breakdown": {
-      "structural_dcf_base_batch": 1,
-      "formalization_review": 5
+      "formalization_review": 4
     },
     "current_signal_support_breakdown": {
-      "formal_core": 15,
-      "reference_only": 6
+      "formal_core": 17,
+      "reference_only": 4
     },
     "target_signal_support_breakdown_if_done": {
-      "formal_core": 1,
-      "reference_only": 1,
-      "formal_support": 4
+      "reference_only": 4
     },
-    "target_signal_formal_coverage_rate_if_done": 0.23809523809523808,
-    "target_signal_formal_or_reference_coverage_rate_if_done": 0.2857142857142857
+    "target_signal_formal_coverage_rate_if_done": 0.0,
+    "target_signal_formal_or_reference_coverage_rate_if_done": 0.19047619047619047
   },
   "lanes": [
     {
       "lane": "formalization_review",
-      "count": 5,
+      "count": 4,
       "priorities": {
-        "P2": 5
+        "P2": 4
       },
       "target_support_tiers": {
-        "formal_support": 4,
-        "reference_only": 1
+        "reference_only": 4
       },
       "tickers": [
+        "600515.SS",
         "688126.SS",
         "AES",
-        "BLDR",
-        "BXP",
-        "F"
-      ]
-    },
-    {
-      "lane": "structural_dcf_base_batch",
-      "count": 1,
-      "priorities": {
-        "P1": 1
-      },
-      "target_support_tiers": {
-        "formal_core": 1
-      },
-      "tickers": [
-        "600515.SS"
+        "BXP"
       ]
     }
   ],
   "items": [
     {
-      "priority": "P1",
+      "priority": "P2",
       "ticker": "600515.SS",
       "name": "海南机场",
       "market": "A",
@@ -74,12 +55,12 @@
       "trust_bucket": "watch",
       "trust_grade": "C",
       "current_action": "keep_in_watch_pool",
-      "upgrade_lane": "structural_dcf_base_batch",
-      "issue_type": "structural_dcf_base_blocked",
-      "blocking_reason": "no financial shell model and valuation_mode=parameterized_only",
-      "target_support_tier": "formal_core",
-      "recommended_action": "按结构性异常批次处理：统一补 company seed / shares 入口，或统一保持 reference_only，不逐票手工补",
-      "batch_kind": "structural_dcf_base"
+      "upgrade_lane": "formalization_review",
+      "issue_type": "reference_only_template_hold",
+      "blocking_reason": "template is reference_only / non-DCF-friendly",
+      "target_support_tier": "reference_only",
+      "recommended_action": "模板已明确为非 DCF 友好型，继续保留 reference_only；不再进入结构性补底座批次",
+      "batch_kind": "reference_only_template_hold"
     },
     {
       "priority": "P2",
@@ -118,40 +99,16 @@
       "signal_support_tier": "reference_only",
       "current_real_valuation_source": "target_mean_price",
       "current_real_support_tier": "reference_only",
-      "valuation_source_detail": "yahoo_target_mean_price(dcf_symbol_unavailable)",
+      "valuation_source_detail": "yahoo_target_mean_price(dcf_missing_payload)",
       "trust_bucket": "watch",
       "trust_grade": "C",
       "current_action": "keep_in_watch_pool",
       "upgrade_lane": "formalization_review",
-      "issue_type": "reference_only_gap",
-      "blocking_reason": "yahoo_target_mean_price(dcf_symbol_unavailable)",
-      "target_support_tier": "formal_support",
-      "recommended_action": "确认是否能升级到 formal support；否则继续保留 reference_only",
-      "batch_kind": ""
-    },
-    {
-      "priority": "P2",
-      "ticker": "BLDR",
-      "name": "Builders FirstSource",
-      "market": "US",
-      "method_group": "系统化量化",
-      "signal_id": "0bc58db25f8253361295ca50",
-      "signal_as_of_date": "2026-03-12",
-      "pool": "signal_pool",
-      "signal_valuation_source": "target_mean_price",
-      "signal_support_tier": "reference_only",
-      "current_real_valuation_source": "target_mean_price",
-      "current_real_support_tier": "reference_only",
-      "valuation_source_detail": "yahoo_target_mean_price(dcf_symbol_unavailable)",
-      "trust_bucket": "watch",
-      "trust_grade": "C",
-      "current_action": "keep_in_watch_pool",
-      "upgrade_lane": "formalization_review",
-      "issue_type": "reference_only_gap",
-      "blocking_reason": "yahoo_target_mean_price(dcf_symbol_unavailable)",
-      "target_support_tier": "formal_support",
-      "recommended_action": "确认是否能升级到 formal support；否则继续保留 reference_only",
-      "batch_kind": ""
+      "issue_type": "dcf_non_positive_iv",
+      "blocking_reason": "latest valuation exists but iv_base<=0 (-84.1023)",
+      "target_support_tier": "reference_only",
+      "recommended_action": "DCF 已有结果但 iv_base<=0，当前不升级到 dcf_iv_base；继续保留 reference_only，只复核是否存在 external consensus 或规则例外",
+      "batch_kind": "non_positive_dcf_hold"
     },
     {
       "priority": "P2",
@@ -171,35 +128,11 @@
       "trust_grade": "C",
       "current_action": "keep_in_watch_pool",
       "upgrade_lane": "formalization_review",
-      "issue_type": "reference_only_gap",
-      "blocking_reason": "yahoo_target_mean_price(dcf_symbol_unavailable)",
-      "target_support_tier": "formal_support",
-      "recommended_action": "确认是否能升级到 formal support；否则继续保留 reference_only",
-      "batch_kind": ""
-    },
-    {
-      "priority": "P2",
-      "ticker": "F",
-      "name": "Ford Motor Company",
-      "market": "US",
-      "method_group": "系统化量化",
-      "signal_id": "e25999ccf68ee817e42892c7",
-      "signal_as_of_date": "2026-03-12",
-      "pool": "signal_pool",
-      "signal_valuation_source": "target_mean_price",
-      "signal_support_tier": "reference_only",
-      "current_real_valuation_source": "target_mean_price",
-      "current_real_support_tier": "reference_only",
-      "valuation_source_detail": "yahoo_target_mean_price(dcf_symbol_unavailable)",
-      "trust_bucket": "watch",
-      "trust_grade": "C",
-      "current_action": "keep_in_watch_pool",
-      "upgrade_lane": "formalization_review",
-      "issue_type": "reference_only_gap",
-      "blocking_reason": "yahoo_target_mean_price(dcf_symbol_unavailable)",
-      "target_support_tier": "formal_support",
-      "recommended_action": "确认是否能升级到 formal support；否则继续保留 reference_only",
-      "batch_kind": ""
+      "issue_type": "reference_only_template_hold",
+      "blocking_reason": "template is reference_only / non-DCF-friendly",
+      "target_support_tier": "reference_only",
+      "recommended_action": "模板已明确为非 DCF 友好型，继续保留 reference_only；不再进入结构性补底座批次",
+      "batch_kind": "reference_only_template_hold"
     }
   ]
 }

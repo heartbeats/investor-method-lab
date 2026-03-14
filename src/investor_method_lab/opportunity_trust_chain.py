@@ -3,6 +3,7 @@ from __future__ import annotations
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta, timezone
 import json
+import os
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Sequence
 
@@ -15,12 +16,33 @@ from investor_method_lab.signal_ledger import (
 )
 
 HOME_DIR = Path.home()
-DEFAULT_TRUST_STANDARD = HOME_DIR / "codex-project" / "data" / "unified_trust_scoring_standard_v1.json"
-DEFAULT_REVIEW_STANDARD = HOME_DIR / "codex-project" / "data" / "unified_review_workflow_standard_v1.json"
-DEFAULT_FIELD_MAPPING = HOME_DIR / "codex-project" / "data" / "unified_field_source_mapping_v1.json"
-DEFAULT_SOURCE_WHITELIST = HOME_DIR / "codex-project" / "data" / "unified_source_whitelist_and_applicability_v1.json"
-DEFAULT_ANOMALY_STANDARD = HOME_DIR / "codex-project" / "data" / "unified_sampling_and_anomaly_standard_v1.json"
-DEFAULT_BENCHMARK_MAPPING = HOME_DIR / "codex-project" / "data" / "unified_benchmark_mapping_v1.json"
+
+
+def resolve_hit_zone_data_dir() -> Path:
+    candidates = [
+        os.getenv("HIT_ZONE_PROJECT_DIR"),
+        str(HOME_DIR / "projects" / "hit-zone"),
+        str(HOME_DIR / "projects" / "dcf-suite"),
+        str(HOME_DIR / "codex-project"),
+    ]
+    for raw in candidates:
+        text = str(raw or "").strip()
+        if not text:
+            continue
+        root = Path(text).expanduser()
+        data_dir = root / "data"
+        if data_dir.exists():
+            return data_dir
+    return HOME_DIR / "projects" / "hit-zone" / "data"
+
+
+HIT_ZONE_DATA_DIR = resolve_hit_zone_data_dir()
+DEFAULT_TRUST_STANDARD = HIT_ZONE_DATA_DIR / "unified_trust_scoring_standard_v1.json"
+DEFAULT_REVIEW_STANDARD = HIT_ZONE_DATA_DIR / "unified_review_workflow_standard_v1.json"
+DEFAULT_FIELD_MAPPING = HIT_ZONE_DATA_DIR / "unified_field_source_mapping_v1.json"
+DEFAULT_SOURCE_WHITELIST = HIT_ZONE_DATA_DIR / "unified_source_whitelist_and_applicability_v1.json"
+DEFAULT_ANOMALY_STANDARD = HIT_ZONE_DATA_DIR / "unified_sampling_and_anomaly_standard_v1.json"
+DEFAULT_BENCHMARK_MAPPING = HIT_ZONE_DATA_DIR / "unified_benchmark_mapping_v1.json"
 DEFAULT_SNAPSHOT_ROOT = HOME_DIR / "projects" / "stock-data-hub" / "data_lake" / "snapshots"
 
 FIELD_WEIGHTS: Dict[str, float] = {

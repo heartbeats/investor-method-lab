@@ -7,7 +7,11 @@ ALERT_LOG="$LOG_DIR/alert.log"
 PYTHON_BIN="${PYTHON_BIN:-python3}"
 ENV_FILE="${PAI_ENV_FILE:-$ROOT_DIR/.env.pai}"
 NOTIFY_ENV_FILE="${PAI_NOTIFY_ENV_FILE:-$HOME/.config/dcf_notify.env}"
-FEISHU_SEND_SCRIPT="${PAI_FEISHU_SEND_SCRIPT:-$HOME/codex-project/scripts/send_feishu_text_message.py}"
+HIT_ZONE_ROOT="${HIT_ZONE_PROJECT_DIR:-$HOME/projects/hit-zone}"
+FEISHU_SEND_SCRIPT="${PAI_FEISHU_SEND_SCRIPT:-${HIT_ZONE_ROOT}/scripts/send_feishu_text_message.py}"
+if [[ ! -f "${FEISHU_SEND_SCRIPT}" ]]; then
+  FEISHU_SEND_SCRIPT="$HOME/codex-project/scripts/send_feishu_text_message.py"
+fi
 PAI_NOTIFY_ON_SUCCESS_OVERRIDE="${PAI_NOTIFY_ON_SUCCESS-__UNSET__}"
 HOME_DIR="${HOME:-/Users/$(id -un 2>/dev/null || echo lucas)}"
 HUB_ROOT="${IML_STOCK_DATA_HUB_ROOT:-${HOME_DIR}/projects/stock-data-hub}"

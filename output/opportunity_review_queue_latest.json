@@ -1,18 +1,20 @@
 {
-  "generated_at_utc": "2026-03-13T08:10:01.837800+00:00",
-  "total_items": 39,
+  "generated_at_utc": "2026-03-14T10:09:40.282308+00:00",
+  "total_items": 41,
   "priority_breakdown": {
     "P1": 23,
-    "P2": 16
+    "P2": 17,
+    "P3": 1
   },
   "review_result_breakdown": {
-    "auto_pass_with_warning": 14,
+    "auto_pass_with_warning": 15,
     "manual_escalation": 17,
-    "auto_hold": 8
+    "auto_hold": 9
   },
   "trust_bucket_breakdown": {
     "noisy": 23,
-    "watch": 16
+    "watch": 17,
+    "high_confidence": 1
   },
   "queue_items": [
     {
@@ -37,7 +39,7 @@
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-04",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "c88dfd1a280db69926fa08b2",
@@ -47,17 +49,18 @@
       "method_group": "宏观周期",
       "priority": "P1",
       "trust_bucket": "noisy",
-      "trust_grade": "A",
-      "trust_score": 96.75,
+      "trust_grade": "B",
+      "trust_score": 93.38,
       "review_result": "manual_escalation",
-      "position_status": "pending_entry",
+      "position_status": "closed",
       "queue_reason_summary": [
+        "freshness_below_target",
         "high_grade_source_conflict",
         "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution"
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "58492f71c412b1e12f996966",
@@ -67,17 +70,18 @@
       "method_group": "宏观周期",
       "priority": "P1",
       "trust_bucket": "noisy",
-      "trust_grade": "A",
-      "trust_score": 96.75,
+      "trust_grade": "B",
+      "trust_score": 92.62,
       "review_result": "manual_escalation",
       "position_status": "pending_entry",
       "queue_reason_summary": [
+        "freshness_below_target",
         "high_grade_source_conflict",
         "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution"
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "86d436df85ce536482305f0e",
@@ -101,7 +105,7 @@
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-04",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "ef3153aaf839ead4df547975",
@@ -111,17 +115,18 @@
       "method_group": "宏观周期",
       "priority": "P1",
       "trust_bucket": "noisy",
-      "trust_grade": "A",
-      "trust_score": 96.75,
+      "trust_grade": "B",
+      "trust_score": 93.38,
       "review_result": "manual_escalation",
-      "position_status": "pending_entry",
+      "position_status": "closed",
       "queue_reason_summary": [
+        "freshness_below_target",
         "high_grade_source_conflict",
         "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution"
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "2f2086f437bd55cf4531ceb5",
@@ -145,7 +150,7 @@
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-04",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "e044ee8b6031eb24eeecb2e8",
@@ -155,17 +160,18 @@
       "method_group": "宏观周期",
       "priority": "P1",
       "trust_bucket": "noisy",
-      "trust_grade": "A",
-      "trust_score": 96.75,
+      "trust_grade": "B",
+      "trust_score": 93.38,
       "review_result": "manual_escalation",
-      "position_status": "pending_entry",
+      "position_status": "open",
       "queue_reason_summary": [
+        "freshness_below_target",
         "high_grade_source_conflict",
         "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution"
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "f5f6209eb2c14a1f7fe7f6a3",
@@ -175,17 +181,18 @@
       "method_group": "宏观周期",
       "priority": "P1",
       "trust_bucket": "noisy",
-      "trust_grade": "A",
-      "trust_score": 96.75,
+      "trust_grade": "B",
+      "trust_score": 93.38,
       "review_result": "manual_escalation",
-      "position_status": "pending_entry",
+      "position_status": "closed",
       "queue_reason_summary": [
+        "freshness_below_target",
         "high_grade_source_conflict",
         "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution"
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "e629650e9b75b6128affe10e",
@@ -195,17 +202,18 @@
       "method_group": "宏观周期",
       "priority": "P1",
       "trust_bucket": "noisy",
-      "trust_grade": "A",
-      "trust_score": 96.75,
+      "trust_grade": "B",
+      "trust_score": 93.38,
       "review_result": "manual_escalation",
-      "position_status": "pending_entry",
+      "position_status": "open",
       "queue_reason_summary": [
+        "freshness_below_target",
         "high_grade_source_conflict",
         "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution"
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "010fd6a0ff2907ce8c41b538",
@@ -215,17 +223,18 @@
       "method_group": "宏观周期",
       "priority": "P1",
       "trust_bucket": "noisy",
-      "trust_grade": "A",
-      "trust_score": 96.75,
+      "trust_grade": "B",
+      "trust_score": 93.38,
       "review_result": "manual_escalation",
-      "position_status": "pending_entry",
+      "position_status": "open",
       "queue_reason_summary": [
+        "freshness_below_target",
         "high_grade_source_conflict",
         "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution"
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "8e81ae21fb76629047e33cad",
@@ -249,7 +258,7 @@
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-04",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "bc06110373ab7e50eefcefa8",
@@ -259,17 +268,18 @@
       "method_group": "宏观周期",
       "priority": "P1",
       "trust_bucket": "noisy",
-      "trust_grade": "A",
-      "trust_score": 96.75,
+      "trust_grade": "B",
+      "trust_score": 93.38,
       "review_result": "manual_escalation",
-      "position_status": "pending_entry",
+      "position_status": "closed",
       "queue_reason_summary": [
+        "freshness_below_target",
         "high_grade_source_conflict",
         "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution"
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "331436f490b870becd83395a",
@@ -293,7 +303,7 @@
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-04",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "6f0e397ab2cc0efd45fa5d04",
@@ -303,17 +313,18 @@
       "method_group": "宏观周期",
       "priority": "P1",
       "trust_bucket": "noisy",
-      "trust_grade": "A",
-      "trust_score": 96.75,
+      "trust_grade": "B",
+      "trust_score": 93.38,
       "review_result": "manual_escalation",
-      "position_status": "pending_entry",
+      "position_status": "open",
       "queue_reason_summary": [
+        "freshness_below_target",
         "high_grade_source_conflict",
         "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution"
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "1b5eff2094eee3c06259b7ba",
@@ -337,7 +348,7 @@
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-04",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "bf1d86e2fc93ed0c231f7253",
@@ -347,17 +358,18 @@
       "method_group": "宏观周期",
       "priority": "P1",
       "trust_bucket": "noisy",
-      "trust_grade": "A",
-      "trust_score": 96.75,
+      "trust_grade": "B",
+      "trust_score": 93.38,
       "review_result": "manual_escalation",
-      "position_status": "pending_entry",
+      "position_status": "open",
       "queue_reason_summary": [
+        "freshness_below_target",
         "high_grade_source_conflict",
         "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution"
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "7a982fc80def9b75c8a4e0f5",
@@ -367,17 +379,18 @@
       "method_group": "宏观周期",
       "priority": "P1",
       "trust_bucket": "noisy",
-      "trust_grade": "A",
-      "trust_score": 96.75,
+      "trust_grade": "B",
+      "trust_score": 93.38,
       "review_result": "manual_escalation",
-      "position_status": "pending_entry",
+      "position_status": "open",
       "queue_reason_summary": [
+        "freshness_below_target",
         "high_grade_source_conflict",
         "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution"
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "6ef603e09b5c344be2a820b7",
@@ -387,17 +400,18 @@
       "method_group": "宏观周期",
       "priority": "P1",
       "trust_bucket": "noisy",
-      "trust_grade": "A",
-      "trust_score": 96.75,
+      "trust_grade": "B",
+      "trust_score": 93.38,
       "review_result": "manual_escalation",
-      "position_status": "pending_entry",
+      "position_status": "closed",
       "queue_reason_summary": [
+        "freshness_below_target",
         "high_grade_source_conflict",
         "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution"
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "7242800e136eb5fa7359e4db",
@@ -424,7 +438,7 @@
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-05",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "52f3cc04a716e2e5000fcad4",
@@ -451,7 +465,7 @@
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-05",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "e1d5e4a53041b87ae1215aa7",
@@ -478,7 +492,7 @@
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-05",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "35e1b055831ab1e6f07c5d9f",
@@ -505,7 +519,7 @@
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-05",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "9b8dd4203d15bba3362d418e",
@@ -515,36 +529,18 @@
       "method_group": "宏观周期",
       "priority": "P1",
       "trust_bucket": "noisy",
-      "trust_grade": "A",
-      "trust_score": 96.75,
+      "trust_grade": "B",
+      "trust_score": 92.62,
       "review_result": "manual_escalation",
       "position_status": "pending_entry",
       "queue_reason_summary": [
         "dcf_quality_gate:caution",
+        "freshness_below_target",
         "high_grade_source_conflict"
       ],
       "suggested_action": "send_to_review_queue",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
-    },
-    {
-      "signal_id": "4044f60d98f6b6e3195f9c51",
-      "ticker": "000063.SZ",
-      "name": "中兴通讯",
-      "market": "A",
-      "method_group": "价值质量复利",
-      "priority": "P2",
-      "trust_bucket": "watch",
-      "trust_grade": "A",
-      "trust_score": 96.75,
-      "review_result": "auto_hold",
-      "position_status": "pending_entry",
-      "queue_reason_summary": [
-        "signal_refresh_reissue:target_mean_price->dcf_iv_base;passed_default_gate"
-      ],
-      "suggested_action": "keep_in_watch_pool",
-      "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "1a28589fa90ce2a275e50d7c",
@@ -555,17 +551,18 @@
       "priority": "P2",
       "trust_bucket": "watch",
       "trust_grade": "C",
-      "trust_score": 89.91,
+      "trust_score": 86.54,
       "review_result": "auto_pass_with_warning",
       "position_status": "open",
       "queue_reason_summary": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "passed_default_gate",
         "source_match=reference_only"
       ],
       "suggested_action": "keep_in_watch_pool",
       "as_of_date": "2026-03-04",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "534939aa2d3d5280aee35082",
@@ -576,17 +573,18 @@
       "priority": "P2",
       "trust_bucket": "watch",
       "trust_grade": "C",
-      "trust_score": 89.91,
+      "trust_score": 85.79,
       "review_result": "auto_hold",
       "position_status": "pending_entry",
       "queue_reason_summary": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "passed_default_gate",
         "source_match=reference_only"
       ],
       "suggested_action": "keep_in_watch_pool",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "02f1127c59e9d970fa472bfa",
@@ -597,17 +595,18 @@
       "priority": "P2",
       "trust_bucket": "watch",
       "trust_grade": "C",
-      "trust_score": 89.91,
+      "trust_score": 85.79,
       "review_result": "auto_hold",
       "position_status": "pending_entry",
       "queue_reason_summary": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "passed_default_gate",
         "source_match=reference_only"
       ],
       "suggested_action": "keep_in_watch_pool",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "e1424ae45c6ef02dd0fb89f6",
@@ -617,16 +616,17 @@
       "method_group": "宏观周期",
       "priority": "P2",
       "trust_bucket": "watch",
-      "trust_grade": "A",
-      "trust_score": 96.75,
+      "trust_grade": "B",
+      "trust_score": 92.62,
       "review_result": "auto_hold",
       "position_status": "pending_entry",
       "queue_reason_summary": [
+        "freshness_below_target",
         "signal_refresh_reissue:target_mean_price->dcf_iv_base;passed_default_gate"
       ],
       "suggested_action": "keep_in_watch_pool",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "47e160ecd3b55f458c493752",
@@ -637,17 +637,18 @@
       "priority": "P2",
       "trust_bucket": "watch",
       "trust_grade": "C",
-      "trust_score": 89.91,
+      "trust_score": 86.54,
       "review_result": "auto_pass_with_warning",
       "position_status": "open",
       "queue_reason_summary": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "passed_default_gate",
         "source_match=reference_only"
       ],
       "suggested_action": "keep_in_watch_pool",
       "as_of_date": "2026-03-04",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "ebc7c5e1a04fca9bc94318c1",
@@ -658,17 +659,18 @@
       "priority": "P2",
       "trust_bucket": "watch",
       "trust_grade": "C",
-      "trust_score": 89.91,
+      "trust_score": 86.54,
       "review_result": "auto_pass_with_warning",
       "position_status": "open",
       "queue_reason_summary": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "passed_default_gate",
         "source_match=reference_only"
       ],
       "suggested_action": "keep_in_watch_pool",
       "as_of_date": "2026-03-04",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "171a5c4e9d8da251f12a51ff",
@@ -679,17 +681,18 @@
       "priority": "P2",
       "trust_bucket": "watch",
       "trust_grade": "C",
-      "trust_score": 89.91,
+      "trust_score": 86.54,
       "review_result": "auto_pass_with_warning",
       "position_status": "open",
       "queue_reason_summary": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "passed_default_gate",
         "source_match=reference_only"
       ],
       "suggested_action": "keep_in_watch_pool",
       "as_of_date": "2026-03-04",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "bdc962528472650d03144549",
@@ -700,17 +703,18 @@
       "priority": "P2",
       "trust_bucket": "watch",
       "trust_grade": "C",
-      "trust_score": 89.91,
+      "trust_score": 86.54,
       "review_result": "auto_pass_with_warning",
       "position_status": "open",
       "queue_reason_summary": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "passed_default_gate",
         "source_match=reference_only"
       ],
       "suggested_action": "keep_in_watch_pool",
       "as_of_date": "2026-03-04",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "23d900a12dc8509afcc263b5",
@@ -721,17 +725,18 @@
       "priority": "P2",
       "trust_bucket": "watch",
       "trust_grade": "C",
-      "trust_score": 89.91,
+      "trust_score": 86.54,
       "review_result": "auto_pass_with_warning",
       "position_status": "open",
       "queue_reason_summary": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "passed_default_gate",
         "source_match=reference_only"
       ],
       "suggested_action": "keep_in_watch_pool",
       "as_of_date": "2026-03-04",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "e0f333b3a0883ac28690752c",
@@ -742,17 +747,18 @@
       "priority": "P2",
       "trust_bucket": "watch",
       "trust_grade": "C",
-      "trust_score": 89.91,
+      "trust_score": 86.54,
       "review_result": "auto_pass_with_warning",
       "position_status": "open",
       "queue_reason_summary": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "passed_default_gate",
         "source_match=reference_only"
       ],
       "suggested_action": "keep_in_watch_pool",
       "as_of_date": "2026-03-04",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "103fc6c29bcbe9e4c0468b64",
@@ -763,17 +769,18 @@
       "priority": "P2",
       "trust_bucket": "watch",
       "trust_grade": "C",
-      "trust_score": 89.91,
+      "trust_score": 86.54,
       "review_result": "auto_pass_with_warning",
       "position_status": "open",
       "queue_reason_summary": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "passed_default_gate",
         "source_match=reference_only"
       ],
       "suggested_action": "keep_in_watch_pool",
       "as_of_date": "2026-03-04",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "88bad6b134d159b5efc5f190",
@@ -784,17 +791,18 @@
       "priority": "P2",
       "trust_bucket": "watch",
       "trust_grade": "C",
-      "trust_score": 89.91,
+      "trust_score": 85.79,
       "review_result": "auto_hold",
       "position_status": "pending_entry",
       "queue_reason_summary": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "signal_refresh_reissue:close_fallback->target_mean_price;passed_default_gate",
         "source_match=reference_only"
       ],
       "suggested_action": "keep_in_watch_pool",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "0bc58db25f8253361295ca50",
@@ -805,17 +813,38 @@
       "priority": "P2",
       "trust_bucket": "watch",
       "trust_grade": "C",
-      "trust_score": 89.91,
+      "trust_score": 85.79,
       "review_result": "auto_hold",
       "position_status": "pending_entry",
       "queue_reason_summary": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "signal_refresh_reissue:close_fallback->target_mean_price;passed_default_gate",
         "source_match=reference_only"
       ],
       "suggested_action": "keep_in_watch_pool",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
+    },
+    {
+      "signal_id": "a43c54e409f6aa1d2abbbf2c",
+      "ticker": "BLDR",
+      "name": "Builders FirstSource",
+      "market": "US",
+      "method_group": "系统化量化",
+      "priority": "P2",
+      "trust_bucket": "watch",
+      "trust_grade": "B",
+      "trust_score": 92.62,
+      "review_result": "auto_hold",
+      "position_status": "pending_entry",
+      "queue_reason_summary": [
+        "freshness_below_target",
+        "signal_refresh_reissue:target_mean_price->dcf_iv_base;passed_default_gate"
+      ],
+      "suggested_action": "keep_in_watch_pool",
+      "as_of_date": "2026-03-14",
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "4a0f2dc8eb22510021ec8c46",
@@ -826,17 +855,18 @@
       "priority": "P2",
       "trust_bucket": "watch",
       "trust_grade": "C",
-      "trust_score": 89.91,
+      "trust_score": 85.79,
       "review_result": "auto_hold",
       "position_status": "pending_entry",
       "queue_reason_summary": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "signal_refresh_reissue:close_fallback->target_mean_price;passed_default_gate",
         "source_match=reference_only"
       ],
       "suggested_action": "keep_in_watch_pool",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
     },
     {
       "signal_id": "e25999ccf68ee817e42892c7",
@@ -847,17 +877,58 @@
       "priority": "P2",
       "trust_bucket": "watch",
       "trust_grade": "C",
-      "trust_score": 89.91,
+      "trust_score": 85.79,
       "review_result": "auto_hold",
       "position_status": "pending_entry",
       "queue_reason_summary": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "signal_refresh_reissue:close_fallback->target_mean_price;passed_default_gate",
         "source_match=reference_only"
       ],
       "suggested_action": "keep_in_watch_pool",
       "as_of_date": "2026-03-12",
-      "validation_as_of_date": "2026-03-12"
+      "validation_as_of_date": "2026-03-14"
+    },
+    {
+      "signal_id": "8d83b06ce60dc196cc80f022",
+      "ticker": "F",
+      "name": "Ford Motor Company",
+      "market": "US",
+      "method_group": "系统化量化",
+      "priority": "P2",
+      "trust_bucket": "watch",
+      "trust_grade": "B",
+      "trust_score": 92.62,
+      "review_result": "auto_hold",
+      "position_status": "pending_entry",
+      "queue_reason_summary": [
+        "freshness_below_target",
+        "signal_refresh_reissue:target_mean_price->dcf_iv_base;passed_default_gate"
+      ],
+      "suggested_action": "keep_in_watch_pool",
+      "as_of_date": "2026-03-14",
+      "validation_as_of_date": "2026-03-14"
+    },
+    {
+      "signal_id": "4044f60d98f6b6e3195f9c51",
+      "ticker": "000063.SZ",
+      "name": "中兴通讯",
+      "market": "A",
+      "method_group": "价值质量复利",
+      "priority": "P3",
+      "trust_bucket": "high_confidence",
+      "trust_grade": "B",
+      "trust_score": 93.38,
+      "review_result": "auto_pass_with_warning",
+      "position_status": "closed",
+      "queue_reason_summary": [
+        "freshness_below_target",
+        "signal_refresh_reissue:target_mean_price->dcf_iv_base;passed_default_gate"
+      ],
+      "suggested_action": "keep_in_formal_layer",
+      "as_of_date": "2026-03-12",
+      "validation_as_of_date": "2026-03-14"
     }
   ]
 }

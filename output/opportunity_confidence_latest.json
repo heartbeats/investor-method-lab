@@ -1,57 +1,69 @@
 {
-  "generated_at_utc": "2026-03-13T08:10:01.837634+00:00",
+  "generated_at_utc": "2026-03-14T10:09:40.282125+00:00",
   "snapshot_context": {
     "snapshot_root": "/Users/lucas/projects/stock-data-hub/data_lake/snapshots",
     "snapshot_dir": "/Users/lucas/projects/stock-data-hub/data_lake/snapshots/dt=2026-03-13"
   },
-  "total_opportunities": 39,
+  "total_opportunities": 41,
   "trust_bucket_breakdown": {
-    "watch": 16,
+    "high_confidence": 1,
+    "watch": 17,
     "noisy": 23
   },
   "trust_grade_breakdown": {
-    "A": 15,
+    "B": 17,
     "C": 14,
     "D": 10
   },
   "review_result_breakdown": {
-    "auto_hold": 8,
-    "auto_pass_with_warning": 14,
+    "auto_pass_with_warning": 15,
+    "auto_hold": 9,
     "manual_escalation": 17
   },
   "formal_layer_breakdown": {
-    "formal": 0,
-    "non_formal": 39
+    "formal": 1,
+    "non_formal": 40
   },
   "validation_by_confidence_bucket": {
+    "high_confidence": {
+      "count": 1,
+      "evaluated_count": 1,
+      "open_count": 0,
+      "closed_count": 1,
+      "expired_count": 0,
+      "pending_entry_count": 0,
+      "avg_strategy_return_net": -0.004307126267120931,
+      "avg_primary_excess_return": null,
+      "hit_rate": 0.0
+    },
     "noisy": {
       "count": 23,
-      "evaluated_count": 10,
-      "open_count": 8,
-      "closed_count": 2,
+      "evaluated_count": 21,
+      "open_count": 14,
+      "closed_count": 7,
       "expired_count": 0,
-      "pending_entry_count": 13,
-      "avg_strategy_return_net": -0.015755513710720835,
+      "pending_entry_count": 2,
+      "avg_strategy_return_net": -0.0043997708774326065,
       "avg_primary_excess_return": null,
-      "hit_rate": 0.3
+      "hit_rate": 0.6666666666666666
     },
     "watch": {
-      "count": 16,
+      "count": 17,
       "evaluated_count": 8,
       "open_count": 8,
       "closed_count": 0,
       "expired_count": 0,
-      "pending_entry_count": 8,
-      "avg_strategy_return_net": 0.015582286963403164,
+      "pending_entry_count": 9,
+      "avg_strategy_return_net": 0.01807251732527143,
       "avg_primary_excess_return": null,
-      "hit_rate": 0.75
+      "hit_rate": 0.625
     }
   },
   "top_risk_patterns": {
+    "freshness_below_target": 41,
     "cross_source_consistency_weakened": 24,
     "source_match=reference_only": 24,
     "H4_severely_stale": 10,
-    "freshness_below_target": 10,
     "H2_inferred_or_fallback_only": 4
   },
   "opportunities": [
@@ -65,13 +77,13 @@
       "valuation_source_at_signal": "dcf_iv_base",
       "review_state": "auto",
       "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;passed_default_gate",
-      "position_status": "pending_entry",
-      "trust_score": 96.75,
-      "trust_grade": "A",
-      "trust_label": "主参考",
-      "trust_bucket": "watch",
-      "formal_layer_eligible": false,
-      "review_result": "auto_hold",
+      "position_status": "closed",
+      "trust_score": 93.38,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
+      "trust_bucket": "high_confidence",
+      "formal_layer_eligible": true,
+      "review_result": "auto_pass_with_warning",
       "review_layers": {
         "R0": {
           "required_fields_present": true,
@@ -100,21 +112,23 @@
         }
       },
       "escalation_triggers": [],
-      "priority": "P2",
-      "suggested_action": "keep_in_watch_pool",
+      "priority": "P3",
+      "suggested_action": "keep_in_formal_layer",
       "hard_veto_reasons": [],
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "trust_breakdown": {
         "source_authenticity": 96.0,
         "traceability": 100.0,
         "cross_source_consistency": 91.75,
-        "freshness": 100.0
+        "freshness": 77.5
       },
       "validation_snapshot": {
-        "status": "pending_entry",
+        "status": "closed",
         "primary_excess_return": null,
-        "strategy_return_net": null,
-        "days_held": 0
+        "strategy_return_net": -0.004307126267120931,
+        "days_held": 1
       },
       "standards_applied": {
         "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
@@ -132,9 +146,9 @@
       "review_state": "auto",
       "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;passed_default_gate",
       "position_status": "pending_entry",
-      "trust_score": 96.75,
-      "trust_grade": "A",
-      "trust_label": "主参考",
+      "trust_score": 92.62,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
       "trust_bucket": "watch",
       "formal_layer_eligible": false,
       "review_result": "auto_hold",
@@ -151,7 +165,7 @@
           "cache_ttl_present": true,
           "verified_status_present": true,
           "truth_level_present": true,
-          "age_within_sla": true
+          "age_within_sla": false
         },
         "R2": {
           "numeric_tolerance_check": true,
@@ -169,12 +183,150 @@
       "priority": "P2",
       "suggested_action": "keep_in_watch_pool",
       "hard_veto_reasons": [],
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "trust_breakdown": {
         "source_authenticity": 96.0,
         "traceability": 100.0,
         "cross_source_consistency": 91.75,
-        "freshness": 100.0
+        "freshness": 72.5
+      },
+      "validation_snapshot": {
+        "status": "pending_entry",
+        "primary_excess_return": null,
+        "strategy_return_net": null,
+        "days_held": 0
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "a43c54e409f6aa1d2abbbf2c",
+      "ticker": "BLDR",
+      "name": "Builders FirstSource",
+      "market": "US",
+      "method_group": "系统化量化",
+      "method_group_id": "systematic_quant",
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "auto",
+      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;passed_default_gate",
+      "position_status": "pending_entry",
+      "trust_score": 92.62,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
+      "trust_bucket": "watch",
+      "formal_layer_eligible": false,
+      "review_result": "auto_hold",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": false
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": false,
+          "conflict_explanation_present": false
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [],
+      "priority": "P2",
+      "suggested_action": "keep_in_watch_pool",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 96.0,
+        "traceability": 100.0,
+        "cross_source_consistency": 91.75,
+        "freshness": 72.5
+      },
+      "validation_snapshot": {
+        "status": "pending_entry",
+        "primary_excess_return": null,
+        "strategy_return_net": null,
+        "days_held": 0
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "8d83b06ce60dc196cc80f022",
+      "ticker": "F",
+      "name": "Ford Motor Company",
+      "market": "US",
+      "method_group": "系统化量化",
+      "method_group_id": "systematic_quant",
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "auto",
+      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;passed_default_gate",
+      "position_status": "pending_entry",
+      "trust_score": 92.62,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
+      "trust_bucket": "watch",
+      "formal_layer_eligible": false,
+      "review_result": "auto_hold",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": false
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": false,
+          "conflict_explanation_present": false
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [],
+      "priority": "P2",
+      "suggested_action": "keep_in_watch_pool",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 96.0,
+        "traceability": 100.0,
+        "cross_source_consistency": 91.75,
+        "freshness": 72.5
       },
       "validation_snapshot": {
         "status": "pending_entry",
@@ -198,7 +350,7 @@
       "review_state": "auto",
       "review_reason": "passed_default_gate",
       "position_status": "open",
-      "trust_score": 89.91,
+      "trust_score": 86.54,
       "trust_grade": "C",
       "trust_label": "仅参考",
       "trust_bucket": "watch",
@@ -237,19 +389,20 @@
       "hard_veto_reasons": [],
       "warnings": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "source_match=reference_only"
       ],
       "trust_breakdown": {
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 85.75,
-        "freshness": 100.0
+        "freshness": 77.5
       },
       "validation_snapshot": {
         "status": "open",
         "primary_excess_return": null,
-        "strategy_return_net": 0.010460357368139439,
-        "days_held": 6
+        "strategy_return_net": 0.007271527837983571,
+        "days_held": 7
       },
       "standards_applied": {
         "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
@@ -257,22 +410,22 @@
       }
     },
     {
-      "signal_id": "534939aa2d3d5280aee35082",
-      "ticker": "600000.SS",
-      "name": "浦发银行",
+      "signal_id": "47e160ecd3b55f458c493752",
+      "ticker": "600515.SS",
+      "name": "海南机场",
       "market": "A",
       "method_group": "宏观周期",
       "method_group_id": "macro_regime",
       "valuation_source_at_signal": "target_mean_price",
       "review_state": "auto",
       "review_reason": "passed_default_gate",
-      "position_status": "pending_entry",
-      "trust_score": 89.91,
+      "position_status": "open",
+      "trust_score": 86.54,
       "trust_grade": "C",
       "trust_label": "仅参考",
       "trust_bucket": "watch",
       "formal_layer_eligible": false,
-      "review_result": "auto_hold",
+      "review_result": "auto_pass_with_warning",
       "review_layers": {
         "R0": {
           "required_fields_present": true,
@@ -306,13 +459,504 @@
       "hard_veto_reasons": [],
       "warnings": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "source_match=reference_only"
       ],
       "trust_breakdown": {
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 85.75,
-        "freshness": 100.0
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "open",
+        "primary_excess_return": null,
+        "strategy_return_net": -0.02374161529982266,
+        "days_held": 7
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "ebc7c5e1a04fca9bc94318c1",
+      "ticker": "601136.SS",
+      "name": "首创证券",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "target_mean_price",
+      "review_state": "auto",
+      "review_reason": "passed_default_gate",
+      "position_status": "open",
+      "trust_score": 86.54,
+      "trust_grade": "C",
+      "trust_label": "仅参考",
+      "trust_bucket": "watch",
+      "formal_layer_eligible": false,
+      "review_result": "auto_pass_with_warning",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": true
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": true,
+          "conflict_explanation_present": false
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [],
+      "priority": "P2",
+      "suggested_action": "keep_in_watch_pool",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "cross_source_consistency_weakened",
+        "freshness_below_target",
+        "source_match=reference_only"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 81.9,
+        "traceability": 100.0,
+        "cross_source_consistency": 85.75,
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "open",
+        "primary_excess_return": null,
+        "strategy_return_net": -0.000925873503604957,
+        "days_held": 7
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "171a5c4e9d8da251f12a51ff",
+      "ticker": "601166.SS",
+      "name": "兴业银行",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "target_mean_price",
+      "review_state": "auto",
+      "review_reason": "passed_default_gate",
+      "position_status": "open",
+      "trust_score": 86.54,
+      "trust_grade": "C",
+      "trust_label": "仅参考",
+      "trust_bucket": "watch",
+      "formal_layer_eligible": false,
+      "review_result": "auto_pass_with_warning",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": true
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": true,
+          "conflict_explanation_present": false
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [],
+      "priority": "P2",
+      "suggested_action": "keep_in_watch_pool",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "cross_source_consistency_weakened",
+        "freshness_below_target",
+        "source_match=reference_only"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 81.9,
+        "traceability": 100.0,
+        "cross_source_consistency": 85.75,
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "open",
+        "primary_excess_return": null,
+        "strategy_return_net": 0.03809044143036533,
+        "days_held": 7
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "bdc962528472650d03144549",
+      "ticker": "601169.SS",
+      "name": "北京银行",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "target_mean_price",
+      "review_state": "auto",
+      "review_reason": "passed_default_gate",
+      "position_status": "open",
+      "trust_score": 86.54,
+      "trust_grade": "C",
+      "trust_label": "仅参考",
+      "trust_bucket": "watch",
+      "formal_layer_eligible": false,
+      "review_result": "auto_pass_with_warning",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": true
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": true,
+          "conflict_explanation_present": false
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [],
+      "priority": "P2",
+      "suggested_action": "keep_in_watch_pool",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "cross_source_consistency_weakened",
+        "freshness_below_target",
+        "source_match=reference_only"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 81.9,
+        "traceability": 100.0,
+        "cross_source_consistency": 85.75,
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "open",
+        "primary_excess_return": null,
+        "strategy_return_net": 0.02458252919128756,
+        "days_held": 7
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "23d900a12dc8509afcc263b5",
+      "ticker": "601818.SS",
+      "name": "光大银行",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "target_mean_price",
+      "review_state": "auto",
+      "review_reason": "passed_default_gate",
+      "position_status": "open",
+      "trust_score": 86.54,
+      "trust_grade": "C",
+      "trust_label": "仅参考",
+      "trust_bucket": "watch",
+      "formal_layer_eligible": false,
+      "review_result": "auto_pass_with_warning",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": true
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": true,
+          "conflict_explanation_present": false
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [],
+      "priority": "P2",
+      "suggested_action": "keep_in_watch_pool",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "cross_source_consistency_weakened",
+        "freshness_below_target",
+        "source_match=reference_only"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 81.9,
+        "traceability": 100.0,
+        "cross_source_consistency": 85.75,
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "open",
+        "primary_excess_return": null,
+        "strategy_return_net": 0.04530703944083858,
+        "days_held": 7
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "e0f333b3a0883ac28690752c",
+      "ticker": "688126.SS",
+      "name": "沪硅产业",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "target_mean_price",
+      "review_state": "auto",
+      "review_reason": "passed_default_gate",
+      "position_status": "open",
+      "trust_score": 86.54,
+      "trust_grade": "C",
+      "trust_label": "仅参考",
+      "trust_bucket": "watch",
+      "formal_layer_eligible": false,
+      "review_result": "auto_pass_with_warning",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": true
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": true,
+          "conflict_explanation_present": false
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [],
+      "priority": "P2",
+      "suggested_action": "keep_in_watch_pool",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "cross_source_consistency_weakened",
+        "freshness_below_target",
+        "source_match=reference_only"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 81.9,
+        "traceability": 100.0,
+        "cross_source_consistency": 85.75,
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "open",
+        "primary_excess_return": null,
+        "strategy_return_net": -0.008086854489838813,
+        "days_held": 7
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "103fc6c29bcbe9e4c0468b64",
+      "ticker": "688506.SS",
+      "name": "百利天恒",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "target_mean_price",
+      "review_state": "auto",
+      "review_reason": "passed_default_gate",
+      "position_status": "open",
+      "trust_score": 86.54,
+      "trust_grade": "C",
+      "trust_label": "仅参考",
+      "trust_bucket": "watch",
+      "formal_layer_eligible": false,
+      "review_result": "auto_pass_with_warning",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": true
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": true,
+          "conflict_explanation_present": false
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [],
+      "priority": "P2",
+      "suggested_action": "keep_in_watch_pool",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "cross_source_consistency_weakened",
+        "freshness_below_target",
+        "source_match=reference_only"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 81.9,
+        "traceability": 100.0,
+        "cross_source_consistency": 85.75,
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "open",
+        "primary_excess_return": null,
+        "strategy_return_net": 0.062082943994962836,
+        "days_held": 7
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "534939aa2d3d5280aee35082",
+      "ticker": "600000.SS",
+      "name": "浦发银行",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "target_mean_price",
+      "review_state": "auto",
+      "review_reason": "passed_default_gate",
+      "position_status": "pending_entry",
+      "trust_score": 85.79,
+      "trust_grade": "C",
+      "trust_label": "仅参考",
+      "trust_bucket": "watch",
+      "formal_layer_eligible": false,
+      "review_result": "auto_hold",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": false
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": true,
+          "conflict_explanation_present": false
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [],
+      "priority": "P2",
+      "suggested_action": "keep_in_watch_pool",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "cross_source_consistency_weakened",
+        "freshness_below_target",
+        "source_match=reference_only"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 81.9,
+        "traceability": 100.0,
+        "cross_source_consistency": 85.75,
+        "freshness": 72.5
       },
       "validation_snapshot": {
         "status": "pending_entry",
@@ -336,7 +980,7 @@
       "review_state": "auto",
       "review_reason": "passed_default_gate",
       "position_status": "pending_entry",
-      "trust_score": 89.91,
+      "trust_score": 85.79,
       "trust_grade": "C",
       "trust_label": "仅参考",
       "trust_bucket": "watch",
@@ -355,7 +999,7 @@
           "cache_ttl_present": true,
           "verified_status_present": true,
           "truth_level_present": true,
-          "age_within_sla": true
+          "age_within_sla": false
         },
         "R2": {
           "numeric_tolerance_check": true,
@@ -375,502 +1019,20 @@
       "hard_veto_reasons": [],
       "warnings": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "source_match=reference_only"
       ],
       "trust_breakdown": {
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 85.75,
-        "freshness": 100.0
+        "freshness": 72.5
       },
       "validation_snapshot": {
         "status": "pending_entry",
         "primary_excess_return": null,
         "strategy_return_net": null,
         "days_held": 0
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "47e160ecd3b55f458c493752",
-      "ticker": "600515.SS",
-      "name": "海南机场",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "target_mean_price",
-      "review_state": "auto",
-      "review_reason": "passed_default_gate",
-      "position_status": "open",
-      "trust_score": 89.91,
-      "trust_grade": "C",
-      "trust_label": "仅参考",
-      "trust_bucket": "watch",
-      "formal_layer_eligible": false,
-      "review_result": "auto_pass_with_warning",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": true,
-          "conflict_explanation_present": false
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [],
-      "priority": "P2",
-      "suggested_action": "keep_in_watch_pool",
-      "hard_veto_reasons": [],
-      "warnings": [
-        "cross_source_consistency_weakened",
-        "source_match=reference_only"
-      ],
-      "trust_breakdown": {
-        "source_authenticity": 81.9,
-        "traceability": 100.0,
-        "cross_source_consistency": 85.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "open",
-        "primary_excess_return": null,
-        "strategy_return_net": -0.026213155514253517,
-        "days_held": 6
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "ebc7c5e1a04fca9bc94318c1",
-      "ticker": "601136.SS",
-      "name": "首创证券",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "target_mean_price",
-      "review_state": "auto",
-      "review_reason": "passed_default_gate",
-      "position_status": "open",
-      "trust_score": 89.91,
-      "trust_grade": "C",
-      "trust_label": "仅参考",
-      "trust_bucket": "watch",
-      "formal_layer_eligible": false,
-      "review_result": "auto_pass_with_warning",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": true,
-          "conflict_explanation_present": false
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [],
-      "priority": "P2",
-      "suggested_action": "keep_in_watch_pool",
-      "hard_veto_reasons": [],
-      "warnings": [
-        "cross_source_consistency_weakened",
-        "source_match=reference_only"
-      ],
-      "trust_breakdown": {
-        "source_authenticity": 81.9,
-        "traceability": 100.0,
-        "cross_source_consistency": 85.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "open",
-        "primary_excess_return": null,
-        "strategy_return_net": 0.0047929251597975675,
-        "days_held": 6
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "171a5c4e9d8da251f12a51ff",
-      "ticker": "601166.SS",
-      "name": "兴业银行",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "target_mean_price",
-      "review_state": "auto",
-      "review_reason": "passed_default_gate",
-      "position_status": "open",
-      "trust_score": 89.91,
-      "trust_grade": "C",
-      "trust_label": "仅参考",
-      "trust_bucket": "watch",
-      "formal_layer_eligible": false,
-      "review_result": "auto_pass_with_warning",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": true,
-          "conflict_explanation_present": false
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [],
-      "priority": "P2",
-      "suggested_action": "keep_in_watch_pool",
-      "hard_veto_reasons": [],
-      "warnings": [
-        "cross_source_consistency_weakened",
-        "source_match=reference_only"
-      ],
-      "trust_breakdown": {
-        "source_authenticity": 81.9,
-        "traceability": 100.0,
-        "cross_source_consistency": 85.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "open",
-        "primary_excess_return": null,
-        "strategy_return_net": 0.03424158915811293,
-        "days_held": 6
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "bdc962528472650d03144549",
-      "ticker": "601169.SS",
-      "name": "北京银行",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "target_mean_price",
-      "review_state": "auto",
-      "review_reason": "passed_default_gate",
-      "position_status": "open",
-      "trust_score": 89.91,
-      "trust_grade": "C",
-      "trust_label": "仅参考",
-      "trust_bucket": "watch",
-      "formal_layer_eligible": false,
-      "review_result": "auto_pass_with_warning",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": true,
-          "conflict_explanation_present": false
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [],
-      "priority": "P2",
-      "suggested_action": "keep_in_watch_pool",
-      "hard_veto_reasons": [],
-      "warnings": [
-        "cross_source_consistency_weakened",
-        "source_match=reference_only"
-      ],
-      "trust_breakdown": {
-        "source_authenticity": 81.9,
-        "traceability": 100.0,
-        "cross_source_consistency": 85.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "open",
-        "primary_excess_return": null,
-        "strategy_return_net": 0.020856774539683043,
-        "days_held": 6
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "23d900a12dc8509afcc263b5",
-      "ticker": "601818.SS",
-      "name": "光大银行",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "target_mean_price",
-      "review_state": "auto",
-      "review_reason": "passed_default_gate",
-      "position_status": "open",
-      "trust_score": 89.91,
-      "trust_grade": "C",
-      "trust_label": "仅参考",
-      "trust_bucket": "watch",
-      "formal_layer_eligible": false,
-      "review_result": "auto_pass_with_warning",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": true,
-          "conflict_explanation_present": false
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [],
-      "priority": "P2",
-      "suggested_action": "keep_in_watch_pool",
-      "hard_veto_reasons": [],
-      "warnings": [
-        "cross_source_consistency_weakened",
-        "source_match=reference_only"
-      ],
-      "trust_breakdown": {
-        "source_authenticity": 81.9,
-        "traceability": 100.0,
-        "cross_source_consistency": 85.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "open",
-        "primary_excess_return": null,
-        "strategy_return_net": 0.03906640039940079,
-        "days_held": 6
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "e0f333b3a0883ac28690752c",
-      "ticker": "688126.SS",
-      "name": "沪硅产业",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "target_mean_price",
-      "review_state": "auto",
-      "review_reason": "passed_default_gate",
-      "position_status": "open",
-      "trust_score": 89.91,
-      "trust_grade": "C",
-      "trust_label": "仅参考",
-      "trust_bucket": "watch",
-      "formal_layer_eligible": false,
-      "review_result": "auto_pass_with_warning",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": true,
-          "conflict_explanation_present": false
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [],
-      "priority": "P2",
-      "suggested_action": "keep_in_watch_pool",
-      "hard_veto_reasons": [],
-      "warnings": [
-        "cross_source_consistency_weakened",
-        "source_match=reference_only"
-      ],
-      "trust_breakdown": {
-        "source_authenticity": 81.9,
-        "traceability": 100.0,
-        "cross_source_consistency": 85.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "open",
-        "primary_excess_return": null,
-        "strategy_return_net": -0.01011427021903688,
-        "days_held": 6
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "103fc6c29bcbe9e4c0468b64",
-      "ticker": "688506.SS",
-      "name": "百利天恒",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "target_mean_price",
-      "review_state": "auto",
-      "review_reason": "passed_default_gate",
-      "position_status": "open",
-      "trust_score": 89.91,
-      "trust_grade": "C",
-      "trust_label": "仅参考",
-      "trust_bucket": "watch",
-      "formal_layer_eligible": false,
-      "review_result": "auto_pass_with_warning",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": true,
-          "conflict_explanation_present": false
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [],
-      "priority": "P2",
-      "suggested_action": "keep_in_watch_pool",
-      "hard_veto_reasons": [],
-      "warnings": [
-        "cross_source_consistency_weakened",
-        "source_match=reference_only"
-      ],
-      "trust_breakdown": {
-        "source_authenticity": 81.9,
-        "traceability": 100.0,
-        "cross_source_consistency": 85.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "open",
-        "primary_excess_return": null,
-        "strategy_return_net": 0.051567674815381936,
-        "days_held": 6
       },
       "standards_applied": {
         "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
@@ -888,7 +1050,7 @@
       "review_state": "auto",
       "review_reason": "signal_refresh_reissue:close_fallback->target_mean_price;passed_default_gate",
       "position_status": "pending_entry",
-      "trust_score": 89.91,
+      "trust_score": 85.79,
       "trust_grade": "C",
       "trust_label": "仅参考",
       "trust_bucket": "watch",
@@ -907,7 +1069,7 @@
           "cache_ttl_present": true,
           "verified_status_present": true,
           "truth_level_present": true,
-          "age_within_sla": true
+          "age_within_sla": false
         },
         "R2": {
           "numeric_tolerance_check": true,
@@ -927,13 +1089,14 @@
       "hard_veto_reasons": [],
       "warnings": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "source_match=reference_only"
       ],
       "trust_breakdown": {
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 85.75,
-        "freshness": 100.0
+        "freshness": 72.5
       },
       "validation_snapshot": {
         "status": "pending_entry",
@@ -957,7 +1120,7 @@
       "review_state": "auto",
       "review_reason": "signal_refresh_reissue:close_fallback->target_mean_price;passed_default_gate",
       "position_status": "pending_entry",
-      "trust_score": 89.91,
+      "trust_score": 85.79,
       "trust_grade": "C",
       "trust_label": "仅参考",
       "trust_bucket": "watch",
@@ -976,7 +1139,7 @@
           "cache_ttl_present": true,
           "verified_status_present": true,
           "truth_level_present": true,
-          "age_within_sla": true
+          "age_within_sla": false
         },
         "R2": {
           "numeric_tolerance_check": true,
@@ -996,13 +1159,14 @@
       "hard_veto_reasons": [],
       "warnings": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "source_match=reference_only"
       ],
       "trust_breakdown": {
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 85.75,
-        "freshness": 100.0
+        "freshness": 72.5
       },
       "validation_snapshot": {
         "status": "pending_entry",
@@ -1026,7 +1190,7 @@
       "review_state": "auto",
       "review_reason": "signal_refresh_reissue:close_fallback->target_mean_price;passed_default_gate",
       "position_status": "pending_entry",
-      "trust_score": 89.91,
+      "trust_score": 85.79,
       "trust_grade": "C",
       "trust_label": "仅参考",
       "trust_bucket": "watch",
@@ -1045,7 +1209,7 @@
           "cache_ttl_present": true,
           "verified_status_present": true,
           "truth_level_present": true,
-          "age_within_sla": true
+          "age_within_sla": false
         },
         "R2": {
           "numeric_tolerance_check": true,
@@ -1065,13 +1229,14 @@
       "hard_veto_reasons": [],
       "warnings": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "source_match=reference_only"
       ],
       "trust_breakdown": {
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 85.75,
-        "freshness": 100.0
+        "freshness": 72.5
       },
       "validation_snapshot": {
         "status": "pending_entry",
@@ -1095,7 +1260,7 @@
       "review_state": "auto",
       "review_reason": "signal_refresh_reissue:close_fallback->target_mean_price;passed_default_gate",
       "position_status": "pending_entry",
-      "trust_score": 89.91,
+      "trust_score": 85.79,
       "trust_grade": "C",
       "trust_label": "仅参考",
       "trust_bucket": "watch",
@@ -1114,7 +1279,7 @@
           "cache_ttl_present": true,
           "verified_status_present": true,
           "truth_level_present": true,
-          "age_within_sla": true
+          "age_within_sla": false
         },
         "R2": {
           "numeric_tolerance_check": true,
@@ -1134,13 +1299,14 @@
       "hard_veto_reasons": [],
       "warnings": [
         "cross_source_consistency_weakened",
+        "freshness_below_target",
         "source_match=reference_only"
       ],
       "trust_breakdown": {
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 85.75,
-        "freshness": 100.0
+        "freshness": 72.5
       },
       "validation_snapshot": {
         "status": "pending_entry",
@@ -1163,10 +1329,10 @@
       "valuation_source_at_signal": "dcf_iv_base",
       "review_state": "escalated",
       "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
-      "position_status": "pending_entry",
-      "trust_score": 96.75,
-      "trust_grade": "A",
-      "trust_label": "主参考",
+      "position_status": "closed",
+      "trust_score": 93.38,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
       "trust_bucket": "noisy",
       "formal_layer_eligible": false,
       "review_result": "manual_escalation",
@@ -1203,18 +1369,720 @@
       "priority": "P1",
       "suggested_action": "send_to_review_queue",
       "hard_veto_reasons": [],
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "trust_breakdown": {
         "source_authenticity": 96.0,
         "traceability": 100.0,
         "cross_source_consistency": 91.75,
-        "freshness": 100.0
+        "freshness": 77.5
       },
       "validation_snapshot": {
-        "status": "pending_entry",
+        "status": "closed",
         "primary_excess_return": null,
-        "strategy_return_net": null,
-        "days_held": 0
+        "strategy_return_net": 6.70162349802883e-05,
+        "days_held": 1
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "ef3153aaf839ead4df547975",
+      "ticker": "600660.SS",
+      "name": "福耀玻璃",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
+      "position_status": "closed",
+      "trust_score": 93.38,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
+      "trust_bucket": "noisy",
+      "formal_layer_eligible": false,
+      "review_result": "manual_escalation",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": true
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": false,
+          "conflict_explanation_present": true
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [
+        "high_grade_source_conflict"
+      ],
+      "priority": "P1",
+      "suggested_action": "send_to_review_queue",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 96.0,
+        "traceability": 100.0,
+        "cross_source_consistency": 91.75,
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "closed",
+        "primary_excess_return": null,
+        "strategy_return_net": 0.008157311566965753,
+        "days_held": 1
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "e044ee8b6031eb24eeecb2e8",
+      "ticker": "600919.SS",
+      "name": "江苏银行",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
+      "position_status": "open",
+      "trust_score": 93.38,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
+      "trust_bucket": "noisy",
+      "formal_layer_eligible": false,
+      "review_result": "manual_escalation",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": true
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": false,
+          "conflict_explanation_present": true
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [
+        "high_grade_source_conflict"
+      ],
+      "priority": "P1",
+      "suggested_action": "send_to_review_queue",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 96.0,
+        "traceability": 100.0,
+        "cross_source_consistency": 91.75,
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "open",
+        "primary_excess_return": null,
+        "strategy_return_net": 0.009784757891411422,
+        "days_held": 1
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "f5f6209eb2c14a1f7fe7f6a3",
+      "ticker": "601136.SS",
+      "name": "首创证券",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
+      "position_status": "closed",
+      "trust_score": 93.38,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
+      "trust_bucket": "noisy",
+      "formal_layer_eligible": false,
+      "review_result": "manual_escalation",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": true
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": false,
+          "conflict_explanation_present": true
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [
+        "high_grade_source_conflict"
+      ],
+      "priority": "P1",
+      "suggested_action": "send_to_review_queue",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 96.0,
+        "traceability": 100.0,
+        "cross_source_consistency": 91.75,
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "closed",
+        "primary_excess_return": null,
+        "strategy_return_net": -0.005203052564011212,
+        "days_held": 1
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "e629650e9b75b6128affe10e",
+      "ticker": "601166.SS",
+      "name": "兴业银行",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
+      "position_status": "open",
+      "trust_score": 93.38,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
+      "trust_bucket": "noisy",
+      "formal_layer_eligible": false,
+      "review_result": "manual_escalation",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": true
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": false,
+          "conflict_explanation_present": true
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [
+        "high_grade_source_conflict"
+      ],
+      "priority": "P1",
+      "suggested_action": "send_to_review_queue",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 96.0,
+        "traceability": 100.0,
+        "cross_source_consistency": 91.75,
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "open",
+        "primary_excess_return": null,
+        "strategy_return_net": 0.002751192360395338,
+        "days_held": 1
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "010fd6a0ff2907ce8c41b538",
+      "ticker": "601169.SS",
+      "name": "北京银行",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
+      "position_status": "open",
+      "trust_score": 93.38,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
+      "trust_bucket": "noisy",
+      "formal_layer_eligible": false,
+      "review_result": "manual_escalation",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": true
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": false,
+          "conflict_explanation_present": true
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [
+        "high_grade_source_conflict"
+      ],
+      "priority": "P1",
+      "suggested_action": "send_to_review_queue",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 96.0,
+        "traceability": 100.0,
+        "cross_source_consistency": 91.75,
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "open",
+        "primary_excess_return": null,
+        "strategy_return_net": 0.0039784929552655335,
+        "days_held": 1
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "bc06110373ab7e50eefcefa8",
+      "ticker": "601229.SS",
+      "name": "上海银行",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
+      "position_status": "closed",
+      "trust_score": 93.38,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
+      "trust_bucket": "noisy",
+      "formal_layer_eligible": false,
+      "review_result": "manual_escalation",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": true
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": false,
+          "conflict_explanation_present": true
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [
+        "high_grade_source_conflict"
+      ],
+      "priority": "P1",
+      "suggested_action": "send_to_review_queue",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 96.0,
+        "traceability": 100.0,
+        "cross_source_consistency": 91.75,
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "closed",
+        "primary_excess_return": null,
+        "strategy_return_net": 0.013915919543090238,
+        "days_held": 1
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "6f0e397ab2cc0efd45fa5d04",
+      "ticker": "601288.SS",
+      "name": "农业银行",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
+      "position_status": "open",
+      "trust_score": 93.38,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
+      "trust_bucket": "noisy",
+      "formal_layer_eligible": false,
+      "review_result": "manual_escalation",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": true
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": false,
+          "conflict_explanation_present": true
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [
+        "high_grade_source_conflict"
+      ],
+      "priority": "P1",
+      "suggested_action": "send_to_review_queue",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 96.0,
+        "traceability": 100.0,
+        "cross_source_consistency": 91.75,
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "open",
+        "primary_excess_return": null,
+        "strategy_return_net": 0.001509783517494867,
+        "days_held": 1
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "bf1d86e2fc93ed0c231f7253",
+      "ticker": "601688.SS",
+      "name": "华泰证券",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
+      "position_status": "open",
+      "trust_score": 93.38,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
+      "trust_bucket": "noisy",
+      "formal_layer_eligible": false,
+      "review_result": "manual_escalation",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": true
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": false,
+          "conflict_explanation_present": true
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [
+        "high_grade_source_conflict"
+      ],
+      "priority": "P1",
+      "suggested_action": "send_to_review_queue",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 96.0,
+        "traceability": 100.0,
+        "cross_source_consistency": 91.75,
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "open",
+        "primary_excess_return": null,
+        "strategy_return_net": 2.1266275029629966e-05,
+        "days_held": 1
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "7a982fc80def9b75c8a4e0f5",
+      "ticker": "601818.SS",
+      "name": "光大银行",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
+      "position_status": "open",
+      "trust_score": 93.38,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
+      "trust_bucket": "noisy",
+      "formal_layer_eligible": false,
+      "review_result": "manual_escalation",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": true
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": false,
+          "conflict_explanation_present": true
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [
+        "high_grade_source_conflict"
+      ],
+      "priority": "P1",
+      "suggested_action": "send_to_review_queue",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 96.0,
+        "traceability": 100.0,
+        "cross_source_consistency": 91.75,
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "open",
+        "primary_excess_return": null,
+        "strategy_return_net": 0.0075248572923747314,
+        "days_held": 1
+      },
+      "standards_applied": {
+        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
+        "review_standard": "统一投研系统的机器优先复核流程标准。"
+      }
+    },
+    {
+      "signal_id": "6ef603e09b5c344be2a820b7",
+      "ticker": "688506.SS",
+      "name": "百利天恒",
+      "market": "A",
+      "method_group": "宏观周期",
+      "method_group_id": "macro_regime",
+      "valuation_source_at_signal": "dcf_iv_base",
+      "review_state": "escalated",
+      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
+      "position_status": "closed",
+      "trust_score": 93.38,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
+      "trust_bucket": "noisy",
+      "formal_layer_eligible": false,
+      "review_result": "manual_escalation",
+      "review_layers": {
+        "R0": {
+          "required_fields_present": true,
+          "time_fields_parseable": true,
+          "symbol_market_mappable": true
+        },
+        "R1": {
+          "source_system_present": true,
+          "source_file_or_api_present": true,
+          "updated_at_present": true,
+          "cache_ttl_present": true,
+          "verified_status_present": true,
+          "truth_level_present": true,
+          "age_within_sla": true
+        },
+        "R2": {
+          "numeric_tolerance_check": true,
+          "primary_backup_alignment": true,
+          "single_source_downgrade": false,
+          "conflict_explanation_present": true
+        },
+        "R3": {
+          "entity_alignment_check": true,
+          "dcf_quality_gate_check": true,
+          "execution_rule_presence_check": true
+        }
+      },
+      "escalation_triggers": [
+        "high_grade_source_conflict"
+      ],
+      "priority": "P1",
+      "suggested_action": "send_to_review_queue",
+      "hard_veto_reasons": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
+      "trust_breakdown": {
+        "source_authenticity": 96.0,
+        "traceability": 100.0,
+        "cross_source_consistency": 91.75,
+        "freshness": 77.5
+      },
+      "validation_snapshot": {
+        "status": "closed",
+        "primary_excess_return": null,
+        "strategy_return_net": 0.012829287602587058,
+        "days_held": 1
       },
       "standards_applied": {
         "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
@@ -1232,9 +2100,9 @@
       "review_state": "escalated",
       "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
       "position_status": "pending_entry",
-      "trust_score": 96.75,
-      "trust_grade": "A",
-      "trust_label": "主参考",
+      "trust_score": 92.62,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
       "trust_bucket": "noisy",
       "formal_layer_eligible": false,
       "review_result": "manual_escalation",
@@ -1251,7 +2119,7 @@
           "cache_ttl_present": true,
           "verified_status_present": true,
           "truth_level_present": true,
-          "age_within_sla": true
+          "age_within_sla": false
         },
         "R2": {
           "numeric_tolerance_check": true,
@@ -1271,692 +2139,14 @@
       "priority": "P1",
       "suggested_action": "send_to_review_queue",
       "hard_veto_reasons": [],
-      "warnings": [],
-      "trust_breakdown": {
-        "source_authenticity": 96.0,
-        "traceability": 100.0,
-        "cross_source_consistency": 91.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "pending_entry",
-        "primary_excess_return": null,
-        "strategy_return_net": null,
-        "days_held": 0
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "ef3153aaf839ead4df547975",
-      "ticker": "600660.SS",
-      "name": "福耀玻璃",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "dcf_iv_base",
-      "review_state": "escalated",
-      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
-      "position_status": "pending_entry",
-      "trust_score": 96.75,
-      "trust_grade": "A",
-      "trust_label": "主参考",
-      "trust_bucket": "noisy",
-      "formal_layer_eligible": false,
-      "review_result": "manual_escalation",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": false,
-          "conflict_explanation_present": true
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [
-        "high_grade_source_conflict"
+      "warnings": [
+        "freshness_below_target"
       ],
-      "priority": "P1",
-      "suggested_action": "send_to_review_queue",
-      "hard_veto_reasons": [],
-      "warnings": [],
       "trust_breakdown": {
         "source_authenticity": 96.0,
         "traceability": 100.0,
         "cross_source_consistency": 91.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "pending_entry",
-        "primary_excess_return": null,
-        "strategy_return_net": null,
-        "days_held": 0
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "e044ee8b6031eb24eeecb2e8",
-      "ticker": "600919.SS",
-      "name": "江苏银行",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "dcf_iv_base",
-      "review_state": "escalated",
-      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
-      "position_status": "pending_entry",
-      "trust_score": 96.75,
-      "trust_grade": "A",
-      "trust_label": "主参考",
-      "trust_bucket": "noisy",
-      "formal_layer_eligible": false,
-      "review_result": "manual_escalation",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": false,
-          "conflict_explanation_present": true
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [
-        "high_grade_source_conflict"
-      ],
-      "priority": "P1",
-      "suggested_action": "send_to_review_queue",
-      "hard_veto_reasons": [],
-      "warnings": [],
-      "trust_breakdown": {
-        "source_authenticity": 96.0,
-        "traceability": 100.0,
-        "cross_source_consistency": 91.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "pending_entry",
-        "primary_excess_return": null,
-        "strategy_return_net": null,
-        "days_held": 0
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "f5f6209eb2c14a1f7fe7f6a3",
-      "ticker": "601136.SS",
-      "name": "首创证券",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "dcf_iv_base",
-      "review_state": "escalated",
-      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
-      "position_status": "pending_entry",
-      "trust_score": 96.75,
-      "trust_grade": "A",
-      "trust_label": "主参考",
-      "trust_bucket": "noisy",
-      "formal_layer_eligible": false,
-      "review_result": "manual_escalation",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": false,
-          "conflict_explanation_present": true
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [
-        "high_grade_source_conflict"
-      ],
-      "priority": "P1",
-      "suggested_action": "send_to_review_queue",
-      "hard_veto_reasons": [],
-      "warnings": [],
-      "trust_breakdown": {
-        "source_authenticity": 96.0,
-        "traceability": 100.0,
-        "cross_source_consistency": 91.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "pending_entry",
-        "primary_excess_return": null,
-        "strategy_return_net": null,
-        "days_held": 0
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "e629650e9b75b6128affe10e",
-      "ticker": "601166.SS",
-      "name": "兴业银行",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "dcf_iv_base",
-      "review_state": "escalated",
-      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
-      "position_status": "pending_entry",
-      "trust_score": 96.75,
-      "trust_grade": "A",
-      "trust_label": "主参考",
-      "trust_bucket": "noisy",
-      "formal_layer_eligible": false,
-      "review_result": "manual_escalation",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": false,
-          "conflict_explanation_present": true
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [
-        "high_grade_source_conflict"
-      ],
-      "priority": "P1",
-      "suggested_action": "send_to_review_queue",
-      "hard_veto_reasons": [],
-      "warnings": [],
-      "trust_breakdown": {
-        "source_authenticity": 96.0,
-        "traceability": 100.0,
-        "cross_source_consistency": 91.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "pending_entry",
-        "primary_excess_return": null,
-        "strategy_return_net": null,
-        "days_held": 0
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "010fd6a0ff2907ce8c41b538",
-      "ticker": "601169.SS",
-      "name": "北京银行",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "dcf_iv_base",
-      "review_state": "escalated",
-      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
-      "position_status": "pending_entry",
-      "trust_score": 96.75,
-      "trust_grade": "A",
-      "trust_label": "主参考",
-      "trust_bucket": "noisy",
-      "formal_layer_eligible": false,
-      "review_result": "manual_escalation",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": false,
-          "conflict_explanation_present": true
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [
-        "high_grade_source_conflict"
-      ],
-      "priority": "P1",
-      "suggested_action": "send_to_review_queue",
-      "hard_veto_reasons": [],
-      "warnings": [],
-      "trust_breakdown": {
-        "source_authenticity": 96.0,
-        "traceability": 100.0,
-        "cross_source_consistency": 91.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "pending_entry",
-        "primary_excess_return": null,
-        "strategy_return_net": null,
-        "days_held": 0
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "bc06110373ab7e50eefcefa8",
-      "ticker": "601229.SS",
-      "name": "上海银行",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "dcf_iv_base",
-      "review_state": "escalated",
-      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
-      "position_status": "pending_entry",
-      "trust_score": 96.75,
-      "trust_grade": "A",
-      "trust_label": "主参考",
-      "trust_bucket": "noisy",
-      "formal_layer_eligible": false,
-      "review_result": "manual_escalation",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": false,
-          "conflict_explanation_present": true
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [
-        "high_grade_source_conflict"
-      ],
-      "priority": "P1",
-      "suggested_action": "send_to_review_queue",
-      "hard_veto_reasons": [],
-      "warnings": [],
-      "trust_breakdown": {
-        "source_authenticity": 96.0,
-        "traceability": 100.0,
-        "cross_source_consistency": 91.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "pending_entry",
-        "primary_excess_return": null,
-        "strategy_return_net": null,
-        "days_held": 0
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "6f0e397ab2cc0efd45fa5d04",
-      "ticker": "601288.SS",
-      "name": "农业银行",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "dcf_iv_base",
-      "review_state": "escalated",
-      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
-      "position_status": "pending_entry",
-      "trust_score": 96.75,
-      "trust_grade": "A",
-      "trust_label": "主参考",
-      "trust_bucket": "noisy",
-      "formal_layer_eligible": false,
-      "review_result": "manual_escalation",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": false,
-          "conflict_explanation_present": true
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [
-        "high_grade_source_conflict"
-      ],
-      "priority": "P1",
-      "suggested_action": "send_to_review_queue",
-      "hard_veto_reasons": [],
-      "warnings": [],
-      "trust_breakdown": {
-        "source_authenticity": 96.0,
-        "traceability": 100.0,
-        "cross_source_consistency": 91.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "pending_entry",
-        "primary_excess_return": null,
-        "strategy_return_net": null,
-        "days_held": 0
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "bf1d86e2fc93ed0c231f7253",
-      "ticker": "601688.SS",
-      "name": "华泰证券",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "dcf_iv_base",
-      "review_state": "escalated",
-      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
-      "position_status": "pending_entry",
-      "trust_score": 96.75,
-      "trust_grade": "A",
-      "trust_label": "主参考",
-      "trust_bucket": "noisy",
-      "formal_layer_eligible": false,
-      "review_result": "manual_escalation",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": false,
-          "conflict_explanation_present": true
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [
-        "high_grade_source_conflict"
-      ],
-      "priority": "P1",
-      "suggested_action": "send_to_review_queue",
-      "hard_veto_reasons": [],
-      "warnings": [],
-      "trust_breakdown": {
-        "source_authenticity": 96.0,
-        "traceability": 100.0,
-        "cross_source_consistency": 91.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "pending_entry",
-        "primary_excess_return": null,
-        "strategy_return_net": null,
-        "days_held": 0
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "7a982fc80def9b75c8a4e0f5",
-      "ticker": "601818.SS",
-      "name": "光大银行",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "dcf_iv_base",
-      "review_state": "escalated",
-      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
-      "position_status": "pending_entry",
-      "trust_score": 96.75,
-      "trust_grade": "A",
-      "trust_label": "主参考",
-      "trust_bucket": "noisy",
-      "formal_layer_eligible": false,
-      "review_result": "manual_escalation",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": false,
-          "conflict_explanation_present": true
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [
-        "high_grade_source_conflict"
-      ],
-      "priority": "P1",
-      "suggested_action": "send_to_review_queue",
-      "hard_veto_reasons": [],
-      "warnings": [],
-      "trust_breakdown": {
-        "source_authenticity": 96.0,
-        "traceability": 100.0,
-        "cross_source_consistency": 91.75,
-        "freshness": 100.0
-      },
-      "validation_snapshot": {
-        "status": "pending_entry",
-        "primary_excess_return": null,
-        "strategy_return_net": null,
-        "days_held": 0
-      },
-      "standards_applied": {
-        "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
-        "review_standard": "统一投研系统的机器优先复核流程标准。"
-      }
-    },
-    {
-      "signal_id": "6ef603e09b5c344be2a820b7",
-      "ticker": "688506.SS",
-      "name": "百利天恒",
-      "market": "A",
-      "method_group": "宏观周期",
-      "method_group_id": "macro_regime",
-      "valuation_source_at_signal": "dcf_iv_base",
-      "review_state": "escalated",
-      "review_reason": "signal_refresh_reissue:target_mean_price->dcf_iv_base;dcf_quality_gate:caution",
-      "position_status": "pending_entry",
-      "trust_score": 96.75,
-      "trust_grade": "A",
-      "trust_label": "主参考",
-      "trust_bucket": "noisy",
-      "formal_layer_eligible": false,
-      "review_result": "manual_escalation",
-      "review_layers": {
-        "R0": {
-          "required_fields_present": true,
-          "time_fields_parseable": true,
-          "symbol_market_mappable": true
-        },
-        "R1": {
-          "source_system_present": true,
-          "source_file_or_api_present": true,
-          "updated_at_present": true,
-          "cache_ttl_present": true,
-          "verified_status_present": true,
-          "truth_level_present": true,
-          "age_within_sla": true
-        },
-        "R2": {
-          "numeric_tolerance_check": true,
-          "primary_backup_alignment": true,
-          "single_source_downgrade": false,
-          "conflict_explanation_present": true
-        },
-        "R3": {
-          "entity_alignment_check": true,
-          "dcf_quality_gate_check": true,
-          "execution_rule_presence_check": true
-        }
-      },
-      "escalation_triggers": [
-        "high_grade_source_conflict"
-      ],
-      "priority": "P1",
-      "suggested_action": "send_to_review_queue",
-      "hard_veto_reasons": [],
-      "warnings": [],
-      "trust_breakdown": {
-        "source_authenticity": 96.0,
-        "traceability": 100.0,
-        "cross_source_consistency": 91.75,
-        "freshness": 100.0
+        "freshness": 72.5
       },
       "validation_snapshot": {
         "status": "pending_entry",
@@ -1980,9 +2170,9 @@
       "review_state": "escalated",
       "review_reason": "dcf_quality_gate:caution",
       "position_status": "pending_entry",
-      "trust_score": 96.75,
-      "trust_grade": "A",
-      "trust_label": "主参考",
+      "trust_score": 92.62,
+      "trust_grade": "B",
+      "trust_label": "辅助参考",
       "trust_bucket": "noisy",
       "formal_layer_eligible": false,
       "review_result": "manual_escalation",
@@ -1999,7 +2189,7 @@
           "cache_ttl_present": true,
           "verified_status_present": true,
           "truth_level_present": true,
-          "age_within_sla": true
+          "age_within_sla": false
         },
         "R2": {
           "numeric_tolerance_check": true,
@@ -2019,12 +2209,14 @@
       "priority": "P1",
       "suggested_action": "send_to_review_queue",
       "hard_veto_reasons": [],
-      "warnings": [],
+      "warnings": [
+        "freshness_below_target"
+      ],
       "trust_breakdown": {
         "source_authenticity": 96.0,
         "traceability": 100.0,
         "cross_source_consistency": 91.75,
-        "freshness": 100.0
+        "freshness": 72.5
       },
       "validation_snapshot": {
         "status": "pending_entry",
@@ -2098,13 +2290,13 @@
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 85.75,
-        "freshness": 60.0
+        "freshness": 52.5
       },
       "validation_snapshot": {
         "status": "open",
         "primary_excess_return": null,
-        "strategy_return_net": -0.011088489997128192,
-        "days_held": 6
+        "strategy_return_net": -0.020412817273555928,
+        "days_held": 7
       },
       "standards_applied": {
         "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
@@ -2172,13 +2364,13 @@
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 85.75,
-        "freshness": 60.0
+        "freshness": 52.5
       },
       "validation_snapshot": {
         "status": "open",
         "primary_excess_return": null,
-        "strategy_return_net": 0.008265080464266328,
-        "days_held": 6
+        "strategy_return_net": 0.0048985860386763225,
+        "days_held": 7
       },
       "standards_applied": {
         "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
@@ -2246,13 +2438,13 @@
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 85.75,
-        "freshness": 60.0
+        "freshness": 52.5
       },
       "validation_snapshot": {
         "status": "open",
         "primary_excess_return": null,
-        "strategy_return_net": 0.0166221536844684,
-        "days_held": 6
+        "strategy_return_net": 0.02425158823369511,
+        "days_held": 7
       },
       "standards_applied": {
         "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
@@ -2320,13 +2512,13 @@
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 85.75,
-        "freshness": 60.0
+        "freshness": 52.5
       },
       "validation_snapshot": {
         "status": "open",
         "primary_excess_return": null,
-        "strategy_return_net": -0.00962391610955915,
-        "days_held": 6
+        "strategy_return_net": 0.00561263902721687,
+        "days_held": 7
       },
       "standards_applied": {
         "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
@@ -2394,13 +2586,13 @@
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 85.75,
-        "freshness": 60.0
+        "freshness": 52.5
       },
       "validation_snapshot": {
         "status": "open",
         "primary_excess_return": null,
-        "strategy_return_net": 0.010679103296274972,
-        "days_held": 6
+        "strategy_return_net": 0.013723317462830176,
+        "days_held": 7
       },
       "standards_applied": {
         "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
@@ -2468,13 +2660,13 @@
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 85.75,
-        "freshness": 60.0
+        "freshness": 52.5
       },
       "validation_snapshot": {
         "status": "open",
         "primary_excess_return": null,
-        "strategy_return_net": -0.038371500087089894,
-        "days_held": 6
+        "strategy_return_net": -0.04176776623209011,
+        "days_held": 7
       },
       "standards_applied": {
         "trust_standard": "统一投研系统的可信度评分与正式层准入标准。",
@@ -2545,7 +2737,7 @@
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 78.25,
-        "freshness": 60.0
+        "freshness": 47.5
       },
       "validation_snapshot": {
         "status": "open",
@@ -2622,7 +2814,7 @@
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 78.25,
-        "freshness": 60.0
+        "freshness": 47.5
       },
       "validation_snapshot": {
         "status": "closed",
@@ -2699,7 +2891,7 @@
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 78.25,
-        "freshness": 60.0
+        "freshness": 47.5
       },
       "validation_snapshot": {
         "status": "closed",
@@ -2776,7 +2968,7 @@
         "source_authenticity": 81.9,
         "traceability": 100.0,
         "cross_source_consistency": 78.25,
-        "freshness": 60.0
+        "freshness": 47.5
       },
       "validation_snapshot": {
         "status": "open",

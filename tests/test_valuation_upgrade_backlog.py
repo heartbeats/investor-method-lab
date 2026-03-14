@@ -81,6 +81,29 @@ class ValuationUpgradeBacklogTests(unittest.TestCase):
         self.assertEqual(item["target_support_tier"], "reference_only")
         self.assertEqual(item["priority"], "P2")
 
+
+    def test_classify_reference_only_a_share_as_reference_only_template_hold(self) -> None:
+        item = classify_gap_item(
+            {
+                "ticker": "600515.SS",
+                "name": "海南机场",
+                "method_group": "宏观周期",
+                "pool": "signal_pool",
+                "valuation_source": "target_mean_price",
+                "valuation_support_tier": "reference_only",
+                "trust_bucket": "watch",
+                "trust_grade": "C",
+                "suggested_action": "keep_in_watch_pool",
+            },
+            real_row={"valuation_source": "target_mean_price", "valuation_source_detail": "yahoo_target_mean_price(dcf_symbol_unavailable)"},
+            signal_row={"market": "A", "signal_id": "s6", "as_of_date": "2026-03-13"},
+            dcf_gap_batch_meta={"batch_kind": "reference_only_template_hold", "reason": "template is reference_only / non-DCF-friendly"},
+        )
+        self.assertEqual(item["upgrade_lane"], "formalization_review")
+        self.assertEqual(item["issue_type"], "reference_only_template_hold")
+        self.assertEqual(item["target_support_tier"], "reference_only")
+        self.assertEqual(item["priority"], "P2")
+
     def test_classify_reference_only_a_share_as_snapshot_seed_batch(self) -> None:
         item = classify_gap_item(
             {
@@ -101,6 +124,51 @@ class ValuationUpgradeBacklogTests(unittest.TestCase):
         self.assertEqual(item["upgrade_lane"], "snapshot_seed_batch")
         self.assertEqual(item["issue_type"], "snapshot_seed_blocked")
         self.assertEqual(item["target_support_tier"], "formal_core")
+        self.assertEqual(item["priority"], "P1")
+
+
+    def test_classify_reference_only_us_as_reference_only_template_hold(self) -> None:
+        item = classify_gap_item(
+            {
+                "ticker": "BXP",
+                "name": "BXP, Inc.",
+                "method_group": "系统化量化",
+                "pool": "signal_pool",
+                "valuation_source": "target_mean_price",
+                "valuation_support_tier": "reference_only",
+                "trust_bucket": "watch",
+                "trust_grade": "C",
+                "suggested_action": "keep_in_watch_pool",
+            },
+            real_row={"valuation_source": "target_mean_price", "valuation_source_detail": "yahoo_target_mean_price(dcf_symbol_unavailable)"},
+            signal_row={"market": "US", "signal_id": "s7", "as_of_date": "2026-03-14"},
+            dcf_gap_batch_meta={"batch_kind": "reference_only_template_hold", "reason": "template is reference_only / non-DCF-friendly"},
+        )
+        self.assertEqual(item["upgrade_lane"], "formalization_review")
+        self.assertEqual(item["issue_type"], "reference_only_template_hold")
+        self.assertEqual(item["target_support_tier"], "reference_only")
+        self.assertEqual(item["priority"], "P2")
+
+    def test_classify_reference_only_us_as_structural_dcf_base_batch(self) -> None:
+        item = classify_gap_item(
+            {
+                "ticker": "F",
+                "name": "Ford Motor Company",
+                "method_group": "系统化量化",
+                "pool": "signal_pool",
+                "valuation_source": "target_mean_price",
+                "valuation_support_tier": "reference_only",
+                "trust_bucket": "watch",
+                "trust_grade": "C",
+                "suggested_action": "keep_in_watch_pool",
+            },
+            real_row={"valuation_source": "target_mean_price", "valuation_source_detail": "yahoo_target_mean_price(dcf_symbol_unavailable)"},
+            signal_row={"market": "US", "signal_id": "s8", "as_of_date": "2026-03-14"},
+            dcf_gap_batch_meta={"batch_kind": "structural_dcf_base", "reason": "no financial shell model and valuation_mode=parameterized_only"},
+        )
+        self.assertEqual(item["upgrade_lane"], "structural_dcf_base_batch")
+        self.assertEqual(item["issue_type"], "structural_dcf_base_blocked")
+        self.assertEqual(item["target_support_tier"], "formal_support")
         self.assertEqual(item["priority"], "P1")
 
     def test_classify_price_fallback_with_upgraded_real_source_as_refresh_reissue(self) -> None:
@@ -147,8 +215,8 @@ class ValuationUpgradeBacklogTests(unittest.TestCase):
         self.assertEqual(item["priority"], "P0")
 
     def test_build_backlog_summary(self) -> None:
-        original = backlog_module.diagnose_a_hk_dcf_gap_batch
-        backlog_module.diagnose_a_hk_dcf_gap_batch = lambda ticker, name='': {"batch_kind": "dcf_focus_expansion"}
+        original = backlog_module.diagnose_dcf_gap_batch
+        backlog_module.diagnose_dcf_gap_batch = lambda ticker, name='': {"batch_kind": "dcf_focus_expansion"}
         try:
             doc = build_source_upgrade_backlog(
                 coverage_doc={
@@ -196,7 +264,7 @@ class ValuationUpgradeBacklogTests(unittest.TestCase):
             self.assertAlmostEqual(doc["summary"]["target_signal_formal_coverage_rate_if_done"], 0.5)
             self.assertAlmostEqual(doc["summary"]["target_signal_formal_or_reference_coverage_rate_if_done"], 1.0)
         finally:
-            backlog_module.diagnose_a_hk_dcf_gap_batch = original
+            backlog_module.diagnose_dcf_gap_batch = original
 
 
 if __name__ == "__main__":

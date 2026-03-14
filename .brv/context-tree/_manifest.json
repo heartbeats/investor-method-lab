@@ -3,13 +3,19 @@
     {
       "order": 3,
       "path": "_index.md",
-      "tokens": 1012,
+      "tokens": 818,
       "type": "summary"
     },
     {
       "order": 2,
       "path": "investor_method_lab/_index.md",
-      "tokens": 932,
+      "tokens": 842,
+      "type": "summary"
+    },
+    {
+      "order": 1,
+      "path": "investor_method_lab/methodologies/_index.md",
+      "tokens": 184,
       "type": "summary"
     },
     {
@@ -68,6 +74,12 @@
     },
     {
       "importance": 50,
+      "path": "investor_method_lab/technical/review_writeback_system.md",
+      "tokens": 456,
+      "type": "context"
+    },
+    {
+      "importance": 50,
       "path": "investor_method_lab/technical/technical_implementation.md",
       "tokens": 486,
       "type": "context"
@@ -77,21 +89,15 @@
       "path": "investor_method_lab/workflow/context.md",
       "tokens": 40,
       "type": "context"
-    },
-    {
-      "importance": 50,
-      "path": "investor_method_lab/workflow/standard_workflows.md",
-      "tokens": 352,
-      "type": "context"
     }
   ],
-  "generated_at": "2026-03-13T02:45:12.479Z",
+  "generated_at": "2026-03-14T01:46:08.555Z",
   "lane_tokens": {
-    "contexts": 3592,
+    "contexts": 3696,
     "stubs": 0,
-    "summaries": 1944
+    "summaries": 1844
   },
-  "source_fingerprint": "405a91f4dc26d8045d343aa245e5dcc7ae2d388dd897e79cbcdac64b88cee060",
-  "total_tokens": 5536,
+  "source_fingerprint": "3d54f6b99ee1941b442876a63203f2413febce554b230780fd8e9d29e54456ea",
+  "total_tokens": 5540,
   "version": 1
 }

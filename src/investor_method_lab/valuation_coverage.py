@@ -187,11 +187,15 @@ def build_gap_rows(
 
 
 def latest_as_of_date(meta_payload: Dict[str, Any], signals: Sequence[Dict[str, Any]]) -> str:
+    candidates: List[str] = []
     dates = meta_payload.get("as_of_dates") or []
     if dates:
-        return normalize_text(dates[-1])
+        candidates.append(normalize_text(dates[-1]))
     signal_dates = sorted({normalize_text(row.get("as_of_date")) for row in signals if normalize_text(row.get("as_of_date"))})
-    return signal_dates[-1] if signal_dates else ""
+    if signal_dates:
+        candidates.append(signal_dates[-1])
+    candidates = [item for item in candidates if item]
+    return max(candidates) if candidates else ""
 
 
 def history_snapshot_record(
@@ -281,6 +285,16 @@ def build_valuation_coverage(
     review_rows = reviewed_items(review_writeback_payload)
     review_by_ticker = reviewed_items_by_ticker(review_writeback_payload)
     manual_review = summarize_review_writeback(review_rows)
+    sync_receipt = review_writeback_payload.get("sync_receipt") if isinstance(review_writeback_payload, dict) and isinstance(review_writeback_payload.get("sync_receipt"), dict) else {}
+    load_receipt = review_writeback_payload.get("load_receipt") if isinstance(review_writeback_payload, dict) and isinstance(review_writeback_payload.get("load_receipt"), dict) else {}
+    if sync_receipt:
+        manual_review["sync_status"] = "ok" if sync_receipt.get("synced") else "degraded"
+        manual_review["sync_reason"] = normalize_text(sync_receipt.get("reason"))
+        manual_review["fallback_mode"] = normalize_text(sync_receipt.get("fallback_mode"))
+    elif load_receipt:
+        manual_review["sync_status"] = "degraded"
+        manual_review["sync_reason"] = normalize_text(load_receipt.get("reason"))
+        manual_review["fallback_mode"] = normalize_text(load_receipt.get("fallback_mode"))
     active_signal_tickers = {normalize_text(row.get("ticker")).upper() for row in signal_rows if normalize_text(row.get("ticker"))}
     manual_review["active_signal_reviewed_count"] = sum(
         1 for item in review_rows if normalize_text(item.get("ticker")).upper() in active_signal_tickers
@@ -367,6 +381,12 @@ def render_valuation_coverage_markdown(doc: Dict[str, Any]) -> str:
     lines.append(f"- 已人工复核：{int(manual_review.get('reviewed_items_count') or 0)}")
     lines.append(f"- 命中当前 signal 池：{int(manual_review.get('active_signal_reviewed_count') or 0)}")
     lines.append(f"- 待继续跟进：{int(manual_review.get('followup_backlog_count') or 0)}")
+    if normalize_text(manual_review.get('sync_status')):
+        lines.append(f"- 拉取状态：{normalize_text(manual_review.get('sync_status'))}")
+    if normalize_text(manual_review.get('sync_reason')):
+        lines.append(f"- 拉取说明：{normalize_text(manual_review.get('sync_reason'))}")
+    if normalize_text(manual_review.get('fallback_mode')):
+        lines.append(f"- 容错模式：{normalize_text(manual_review.get('fallback_mode'))}")
     lines.append("")
     lines.append("| 结论 | 数量 |")
     lines.append("|---|---:|")

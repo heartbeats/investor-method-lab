@@ -191,19 +191,17 @@
 
 #### 当前仍需继续推进的 A 股
 
-- `600515.SS`
-
-当前 A 股剩余问题，已经被批处理拆成两类：
+当前 A 股剩余问题已经不再有“结构性 DCF 底座批次”：
 
 - `688126.SS`：DCF company / snapshot / valuation 已补齐，但 `iv_base <= 0`，当前不宜升格到 `dcf_iv_base`
-- `600515.SS`：当前仍属 `structural_dcf_base_batch`，本质是 company seed / DCF base 结构性缺口
+- `600515.SS`：参数模板明确是 `reference_only` / 非 DCF 友好型，当前应继续保留 `reference_only`
 - `688506.SS`：已通过 `snapshot_seed_batch` 批处理补齐，real row 已升级到 `dcf_iv_base`
 
 ### 下一步
 
-1. 先把 `600515.SS` 作为新的 A 股结构性批次处理对象，不再按单票零敲碎打
-2. `688126.SS` 继续保留 `reference_only`，只补做 external consensus / 规则例外复核，不再强推 `formal_core`
-3. 再进入 `AES / BLDR / BXP / F` 的 `formalization_review`，确认是否存在稳定 `formal_support`
+1. A 股不再继续追“结构性补底座”批次
+2. `688126.SS` 与 `600515.SS` 都按持有复核口径处理：前者是非正 DCF，后者是 reference_only 模板
+3. 主推进重心切到 `AES / BLDR / BXP / F` 的 `formalization_review`
 
 ## 9. 2026-03-13 实施结果（Batch 3 / 批处理版）
 
@@ -255,6 +253,88 @@
 
 ### 下一步
 
-- `600515.SS` 接替成为当前唯一的 A 股结构性批次
+- A 股侧不再继续追结构性 DCF 底座批次
 - `688126.SS` 继续保留 `reference_only`，仅复核是否存在 external consensus 或规则例外
+- `600515.SS` 作为 `reference_only_template_hold` 保持 reference_only，不再强推 DCF
 - `AES / BLDR / BXP / F` 维持 `formalization_review`，后续只在找到稳定正式源时再升级
+
+## 9. 2026-03-14 US 批处理复核结果
+
+### 本轮落地
+
+- 已为 `seed_dcf_coverage_from_universe.py` 增加 **stock-data-hub fundamentals 本地兜底**，不再只依赖实时 `yfinance shares`。
+- 已把 US `reference_only` backlog 改成 **按异常类型自动分桶**，不再统一塞进 `formalization_review`。
+- 已实跑 US 批次：`AES / BLDR / BXP / F`，产物见：
+  - `output/us_snapshot_seed_batch_report_2026-03-14.json`
+  - `output/us_snapshot_seed_batch_report_2026-03-14.md`
+
+### 本轮结果
+
+- `AES / BLDR / F`：已完成 company seed，但统一卡在 `sync_financials -> 财报源返回空数据`，因此进入 `snapshot_seed_batch`。
+- `BXP`：参数模板明确为 `reference_only`，应降回 `reference_only_template_hold`，不再以 `formal_support` 为目标。
+
+### 更新后的 backlog 口径
+
+- `snapshot_seed_batch`：`AES`、`BLDR`、`F`
+- `formalization_review(reference_only hold)`：`600515.SS`、`688126.SS`、`BXP`
+- 目标 signal 支持分布（若当前 backlog 完成）：`formal_support=3`、`reference_only=3`
+
+### 下一步
+
+- 不再逐票人工排查 `AES / BLDR / F`，而是统一补“US 财报空数据”这一类 source 缺口。
+- `BXP` 直接退出 US formal_support 候选，不再消耗批次容量。
+
+## 10. 2026-03-14 US snapshot batch 打通结果
+
+### 本轮结果
+
+- 已在 `codex-project/dcf/financial_ingest.py` 为 US `multi_source` 接入 `SEC companyfacts` fallback，解决 `yfinance` 空表 + `alpha_vantage` 无 key 时的 DCF 财报缺口。
+- 已实跑 `AES / BLDR / F` 的 `snapshot_seed_batch` 重试，结果见：
+  - `output/us_snapshot_seed_retry_report_2026-03-14.json`
+  - `output/us_snapshot_seed_retry_report_2026-03-14.md`
+- 结果分化：
+  - `BLDR`、`F`：已升级为 `dcf_iv_base`
+  - `AES`：虽已补齐 approved snapshot 与 valuation，但 `iv_base<=0`，改归 `dcf_non_positive_iv` 持有
+  - `BXP`：继续 `reference_only_template_hold`
+
+### 更新后的 backlog 口径
+
+- `signal_refresh_reissue`：`BLDR`、`F`
+- `formalization_review/reference_only hold`：`600515.SS`、`688126.SS`、`AES`、`BXP`
+
+### 下一步
+
+- 若要让 signal pool 真实 coverage 也前移，需要补一次 `BLDR / F` 的 signal refresh reissue。
+- `AES` 不再走 snapshot 缺失通道，后续只看是否存在 `external consensus` 或规则例外。
+
+## 11. 2026-03-14 US signal refresh reissue 完成
+
+### 本轮结果
+
+- 已完成 `BLDR / F` 的 `signal_refresh_reissue`，并正式写入 `opportunity_signal_ledger.jsonl`。
+- 已补根因修复：当 `real` 已经是新日期、但 `meta` 仍滞后时，refresh 不再卡死在旧 `as_of_date` 上。
+- 已重刷以下产物：
+  - `output/opportunity_signal_ledger_latest.json`
+  - `output/opportunity_validation_latest.json`
+  - `output/valuation_coverage_latest.json`
+  - `output/valuation_upgrade_backlog_latest.md`
+
+### 最新业务口径
+
+- `signal_pool formal coverage`：`71.43% -> 80.95%`
+- `signal_pool` 支持分布：`formal_core=17`、`reference_only=4`
+- backlog：`6 -> 4`
+- backlog lane 已收敛为：
+  - `formalization_review`：`600515.SS`、`688126.SS`、`AES`、`BXP`
+
+### 结论
+
+- `BLDR / F` 已不再属于“待补 source 升级缺口”，而是已经完成从 `target_mean_price` 到 `dcf_iv_base` 的 signal 层闭环。
+- 当前 US 侧剩余问题已只剩两类：
+  - `AES`：`dcf_non_positive_iv`，后续只看 external consensus / 规则例外
+  - `BXP`：`reference_only_template_hold`
+
+### 下一步
+
+- 不再回头重做 `BLDR / F`；后续默认按已完成处理。
+- 集中处理剩余 `formalization_review` 4 条，优先判断哪些本来就不该再追 formal_core。
