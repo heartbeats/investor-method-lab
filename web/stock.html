@@ -10,27 +10,44 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260314-stock-01" />
   </head>
   <body>
     <div class="bg-glow bg-glow-a"></div>
     <div class="bg-glow bg-glow-b"></div>
 
-    <main class="detail-page reveal">
-      <p class="breadcrumb"><a href="./index.html">← 返回总览页</a></p>
+    <header class="panel global-nav reveal">
+      <div class="global-nav-brand">
+        <p class="eyebrow">Investor Method Lab</p>
+        <strong>击球区股票详情</strong>
+      </div>
+      <nav class="global-nav-links" aria-label="全局导航">
+        <a class="global-nav-link" href="./index.html">总览页</a>
+        <a class="global-nav-link" href="./method.html">方法地图</a>
+        <a class="global-nav-link" href="./data-info.html">来源与口径</a>
+        <span class="global-nav-current">股票详情</span>
+      </nav>
+    </header>
 
-      <section class="panel profile-hero">
-        <h1 id="stock-title">加载中...</h1>
-        <p class="subtitle" id="stock-subtitle">-</p>
+    <main class="detail-page reveal stock-detail-page">
+      <section class="panel profile-hero stock-core-panel" id="stock-core-panel">
+        <p class="muted">股票详情加载中...</p>
       </section>
 
-      <section class="panel" id="stock-price-panel"></section>
+      <nav class="panel stock-section-nav" aria-label="股票模块导航">
+        <a class="stock-section-link" href="#stock-valuation-panel">估值总览</a>
+        <a class="stock-section-link" href="#stock-business-panel">公司与产品 / 最新动态</a>
+        <a class="stock-section-link" href="#stock-thesis-panel">机会原因 / 方法轨迹</a>
+        <a class="stock-section-link" href="#stock-sources-panel">来源与口径</a>
+      </nav>
 
-      <section class="panel" id="stock-business-panel"></section>
+      <section class="panel stock-section" id="stock-valuation-panel"></section>
 
-      <section class="panel" id="stock-valuation-panel"></section>
+      <section class="panel stock-section" id="stock-business-panel"></section>
 
-      <section class="panel" id="stock-trace-panel"></section>
+      <section class="panel stock-section" id="stock-thesis-panel"></section>
+
+      <section class="panel stock-section" id="stock-sources-panel"></section>
     </main>
 
     <script src="./stock.js"></script>

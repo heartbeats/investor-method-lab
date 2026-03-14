@@ -1,24 +1,20 @@
 {
   "project": "击球区",
-  "hook": "after_task_update",
-  "event_key": "after_task_update:TASK-0012:done:pass",
-  "title": "requirement-ops 任务回写：TASK-0012 done",
-  "summary": "击球区 requirement-ops 当前正式需求 3 条、生效需求 3 条、迭代 3 个、任务 9 个；活跃信号正式估值覆盖率 71.4%，人工复核覆盖率 0.0%，回写闭环率 100.0%，待回写 0 条。",
-  "verification": "流程状态=good，结果状态=bad；headline=击球区当前主要瓶颈仍是活跃信号的正式估值覆盖率。；证据=output/valuation_coverage_latest.json, output/opportunity_review_writeback_latest.json。",
+  "hook": "after_cycle",
+  "event_key": "after_cycle:CHG-0006",
+  "title": "requirement-ops 周期回写：CHG-0006",
+  "summary": "击球区 requirement-ops 当前正式需求 0 条、生效需求 3 条、迭代 3 个、任务 9 个；活跃信号正式估值覆盖率 81.0%，人工复核覆盖率 0.0%，回写闭环率 100.0%，待回写 0 条。",
+  "verification": "流程状态=good，结果状态=bad；headline=击球区估值覆盖已基本可用，但人工复核回写覆盖仍偏低。；证据=output/valuation_coverage_latest.json, output/opportunity_review_writeback_latest.json。",
   "next_step": "继续观察下一轮真实产物，并提出新的稳定需求。",
   "progress": "building",
   "source": "requirement-ops-adapter",
   "event_source": "requirement_ops_adapter",
   "workspace": "/Users/lucas/projects/investor-method-lab",
-  "requirement_refs": [
-    "REQ-0002",
-    "REQ-0004",
-    "REQ-0003"
+  "requirement_refs": [],
+  "task_refs": [],
+  "change_refs": [
+    "CHG-0006"
   ],
-  "task_refs": [
-    "TASK-0012"
-  ],
-  "change_refs": [],
   "kpi_refs": [
     "BIZ-HITZONE-SIGNAL-FORMAL-COVERAGE",
     "BIZ-HITZONE-SIGNAL-FORMAL-OR-REFERENCE-COVERAGE",
@@ -27,10 +23,7 @@
     "BIZ-HITZONE-REVIEW-WRITEBACK-CLOSURE"
   ],
   "evidence_refs": [
-    "REQ-0002",
-    "REQ-0004",
-    "REQ-0003",
-    "TASK-0012",
+    "CHG-0006",
     "BIZ-HITZONE-SIGNAL-FORMAL-COVERAGE",
     "BIZ-HITZONE-SIGNAL-FORMAL-OR-REFERENCE-COVERAGE",
     "BIZ-HITZONE-FOCUS-FORMAL-COVERAGE",
@@ -39,12 +32,12 @@
     "output/valuation_coverage_latest.json",
     "output/opportunity_review_writeback_latest.json"
   ],
-  "fingerprint": "86cd8879050aef6f3bd4aa8f5bf1d5894855a0fc62e0898833787304ba957bbf",
+  "fingerprint": "c69c8c32efcbd9ba85409b98b5cb49f4584f568552528876271e0d50898048de",
   "returncode": 0,
   "writeback_receipt": {
     "ok": true,
     "dry_run": false,
-    "intent_id": "AUTO-击球区-20260314-094254.8470570800",
+    "intent_id": "AUTO-击球区-20260314-223852.0316690800",
     "created": true,
     "project": "击球区",
     "progress_updated": true,

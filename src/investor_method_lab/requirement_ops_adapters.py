@@ -15,6 +15,9 @@ PROJECT_WRITEBACK_STATE = Path('requirement_ops_project_writeback_state.json')
 PROJECT_WRITEBACK_SCRIPT = Path('/Users/lucas/codex-project/scripts/project_management_writeback.py')
 
 BUSINESS_KPI_IDS = [
+    'BIZ-HITZONE-FOCUS-CORE-DATA-COVERAGE',
+    'BIZ-HITZONE-SIGNAL-CORE-DATA-COVERAGE',
+    'BIZ-HITZONE-TOP50-CORE-DATA-COVERAGE',
     'BIZ-HITZONE-SIGNAL-FORMAL-COVERAGE',
     'BIZ-HITZONE-SIGNAL-FORMAL-OR-REFERENCE-COVERAGE',
     'BIZ-HITZONE-FOCUS-FORMAL-COVERAGE',
@@ -87,12 +90,16 @@ def _workspace_output_path(workspace: Path, filename: Path) -> Path:
 def _hit_zone_metrics_context(adapter_payload: dict[str, Any]) -> dict[str, Any]:
     workspace = Path(adapter_payload.get('workspace') or PROJECT_ROOT).resolve()
     valuation = load_json(workspace / 'output' / 'valuation_coverage_latest.json')
+    core_data = load_json(workspace / 'output' / 'core_data_coverage_latest.json')
     review = load_json(workspace / 'output' / 'opportunity_review_writeback_latest.json')
     requirements_payload = adapter_payload.get('requirements') if isinstance(adapter_payload.get('requirements'), dict) else {}
     backlog = adapter_payload.get('backlog') if isinstance(adapter_payload.get('backlog'), dict) else {}
 
     signal_pool = valuation.get('signal_pool') if isinstance(valuation.get('signal_pool'), dict) else {}
     focus_pool = valuation.get('focus_pool') if isinstance(valuation.get('focus_pool'), dict) else {}
+    core_focus_pool = core_data.get('focus_pool') if isinstance(core_data.get('focus_pool'), dict) else {}
+    core_signal_pool = core_data.get('signal_pool') if isinstance(core_data.get('signal_pool'), dict) else {}
+    core_top50_pool = core_data.get('top50_pool') if isinstance(core_data.get('top50_pool'), dict) else {}
     manual_review = valuation.get('manual_review') if isinstance(valuation.get('manual_review'), dict) else {}
     review_summary = review.get('summary') if isinstance(review.get('summary'), dict) else {}
 
@@ -104,6 +111,7 @@ def _hit_zone_metrics_context(adapter_payload: dict[str, Any]) -> dict[str, Any]
     review_writeback_closure = 1.0 if reviewed_items_count <= 0 else max(0.0, 1.0 - pending_writeback_count / reviewed_items_count)
 
     valuation_refs = _find_requirement_refs(requirements_payload, ('机会包', '估值'), ('估值',))
+    core_data_refs = _find_requirement_refs(requirements_payload, ('核心数据', '覆盖'), ('数据库', '沉淀'), ('增量', '沉淀'))
     review_refs = _find_requirement_refs(requirements_payload, ('复核', '回写'), ('backlog', 'KPI'))
     traceability_refs = _find_requirement_refs(requirements_payload, ('来源映射',), ('可信度',))
 
@@ -113,9 +121,13 @@ def _hit_zone_metrics_context(adapter_payload: dict[str, Any]) -> dict[str, Any]
     return {
         'workspace': workspace,
         'valuation': valuation,
+        'core_data': core_data,
         'review': review,
         'signal_pool': signal_pool,
         'focus_pool': focus_pool,
+        'core_focus_pool': core_focus_pool,
+        'core_signal_pool': core_signal_pool,
+        'core_top50_pool': core_top50_pool,
         'manual_review': manual_review,
         'review_summary': review_summary,
         'review_rate': review_rate,
@@ -123,6 +135,7 @@ def _hit_zone_metrics_context(adapter_payload: dict[str, Any]) -> dict[str, Any]
         'reviewed_items_count': reviewed_items_count,
         'review_writeback_closure': review_writeback_closure,
         'valuation_refs': valuation_refs,
+        'core_data_refs': core_data_refs,
         'review_refs': review_refs,
         'traceability_refs': traceability_refs,
         'open_task_refs': open_task_refs,
@@ -133,7 +146,13 @@ def build_hit_zone_custom_kpi_output(adapter_payload: dict[str, Any]) -> dict[st
     context = _hit_zone_metrics_context(adapter_payload)
     signal_pool = context['signal_pool']
     focus_pool = context['focus_pool']
+    core_focus_pool = context['core_focus_pool']
+    core_signal_pool = context['core_signal_pool']
+    core_top50_pool = context['core_top50_pool']
 
+    focus_core_data_coverage = float(core_focus_pool.get('core_data_coverage_rate') or 0.0)
+    signal_core_data_coverage = float(core_signal_pool.get('core_data_coverage_rate') or 0.0)
+    top50_core_data_coverage = float(core_top50_pool.get('core_data_coverage_rate') or 0.0)
     formal_signal_coverage = float(signal_pool.get('formal_valuation_coverage_rate') or 0.0)
     formal_or_reference_coverage = float(signal_pool.get('formal_or_reference_coverage_rate') or 0.0)
     focus_formal_coverage = float(focus_pool.get('formal_valuation_coverage_rate') or 0.0)
@@ -142,10 +161,35 @@ def build_hit_zone_custom_kpi_output(adapter_payload: dict[str, Any]) -> dict[st
     review_writeback_closure = float(context['review_writeback_closure'])
 
     valuation_evidence = _dedupe_keep_order(context['valuation_refs'] + ['output/valuation_coverage_latest.json'])
+    core_data_evidence = _dedupe_keep_order(context['core_data_refs'] + ['output/core_data_coverage_latest.json'])
     review_evidence = _dedupe_keep_order(context['review_refs'] + context['open_task_refs'] + ['output/opportunity_review_writeback_latest.json'])
     traceability_evidence = _dedupe_keep_order(context['traceability_refs'] + ['output/valuation_coverage_latest.json'])
 
     metrics = [
+        {
+            'id': 'BIZ-HITZONE-FOCUS-CORE-DATA-COVERAGE',
+            'layer': 'result',
+            'formula': 'focus_pool.core_data_coverage_rate',
+            'target': 1.0,
+            'current': focus_core_data_coverage,
+            'evidence_refs': core_data_evidence,
+        },
+        {
+            'id': 'BIZ-HITZONE-SIGNAL-CORE-DATA-COVERAGE',
+            'layer': 'result',
+            'formula': 'signal_pool.core_data_coverage_rate',
+            'target': 0.9,
+            'current': signal_core_data_coverage,
+            'evidence_refs': core_data_evidence,
+        },
+        {
+            'id': 'BIZ-HITZONE-TOP50-CORE-DATA-COVERAGE',
+            'layer': 'result',
+            'formula': 'top50_pool.core_data_coverage_rate',
+            'target': 0.8,
+            'current': top50_core_data_coverage,
+            'evidence_refs': core_data_evidence,
+        },
         {
             'id': 'BIZ-HITZONE-SIGNAL-FORMAL-COVERAGE',
             'layer': 'result',
@@ -188,7 +232,9 @@ def build_hit_zone_custom_kpi_output(adapter_payload: dict[str, Any]) -> dict[st
         },
     ]
 
-    if formal_signal_coverage < 0.8:
+    if focus_core_data_coverage < 1.0 or signal_core_data_coverage < 0.9:
+        headline = '击球区当前主要瓶颈已经切到核心系统数据覆盖度，估值覆盖只能算代理指标。'
+    elif formal_signal_coverage < 0.8:
         headline = '击球区当前主要瓶颈仍是活跃信号的正式估值覆盖率。'
     elif review_rate < 0.5:
         headline = '击球区估值覆盖已基本可用，但人工复核回写覆盖仍偏低。'
@@ -208,7 +254,7 @@ def build_hit_zone_custom_kpi_output(adapter_payload: dict[str, Any]) -> dict[st
 
 
 def _build_writeback_refs(context: dict[str, Any], extra: dict[str, Any]) -> tuple[list[str], list[str], list[str], list[str]]:
-    requirement_refs = _dedupe_keep_order(context['valuation_refs'] + context['review_refs'] + context['traceability_refs'])
+    requirement_refs = _dedupe_keep_order(context['valuation_refs'] + context['core_data_refs'] + context['review_refs'] + context['traceability_refs'])
     task_refs = _dedupe_keep_order(context['open_task_refs'] + [normalize_text(extra.get('task_id'))])
     change_refs = _dedupe_keep_order([str(item) for item in (extra.get('ingested_change_ids') or [])])
     evidence_refs = _dedupe_keep_order(
@@ -216,7 +262,7 @@ def _build_writeback_refs(context: dict[str, Any], extra: dict[str, Any]) -> tup
         + task_refs
         + change_refs
         + BUSINESS_KPI_IDS
-        + ['output/valuation_coverage_latest.json', 'output/opportunity_review_writeback_latest.json']
+        + ['output/core_data_coverage_latest.json', 'output/valuation_coverage_latest.json', 'output/opportunity_review_writeback_latest.json']
     )
     return requirement_refs, task_refs, change_refs, evidence_refs
 
@@ -274,6 +320,12 @@ def build_hit_zone_project_writeback_payload(adapter_payload: dict[str, Any]) ->
         task_label = f"{normalize_text(first_open_task.get('id'))} {normalize_text(first_open_task.get('title'))}".strip()
 
     signal_pool = context['signal_pool']
+    core_focus_pool = context['core_focus_pool']
+    core_signal_pool = context['core_signal_pool']
+    core_top50_pool = context['core_top50_pool']
+    focus_core_data_coverage = float(core_focus_pool.get('core_data_coverage_rate') or 0.0)
+    signal_core_data_coverage = float(core_signal_pool.get('core_data_coverage_rate') or 0.0)
+    top50_core_data_coverage = float(core_top50_pool.get('core_data_coverage_rate') or 0.0)
     formal_signal_coverage = float(signal_pool.get('formal_valuation_coverage_rate') or 0.0)
     review_rate = float(context['review_rate'])
     pending_writeback_count = int(context['pending_writeback_count'])
@@ -291,13 +343,14 @@ def build_hit_zone_project_writeback_payload(adapter_payload: dict[str, Any]) ->
     summary = (
         f"击球区 requirement-ops 当前正式需求 {len(active_requirements)} 条、生效需求 {len(effective_payload.get('requirements') or [])} 条、"
         f"迭代 {len(backlog.get('iterations') or [])} 个、任务 {len(backlog.get('tasks') or [])} 个；"
+        f"核心数据覆盖度 focus={focus_core_data_coverage:.1%}、signal={signal_core_data_coverage:.1%}、top50={top50_core_data_coverage:.1%}；"
         f"活跃信号正式估值覆盖率 {formal_signal_coverage:.1%}，人工复核覆盖率 {review_rate:.1%}，"
         f"回写闭环率 {review_writeback_closure:.1%}，待回写 {pending_writeback_count} 条。"
     )
     verification = (
         f"流程状态={normalize_text(summary_block.get('flow_status')) or 'warn'}，结果状态={normalize_text(summary_block.get('result_status')) or 'warn'}；"
         f"headline={normalize_text(summary_block.get('headline')) or '待补'}；"
-        f"证据=output/valuation_coverage_latest.json, output/opportunity_review_writeback_latest.json。"
+        f"证据=output/core_data_coverage_latest.json, output/valuation_coverage_latest.json, output/opportunity_review_writeback_latest.json。"
     )
     next_step = f"优先推进 {task_label}" if task_label else '继续观察下一轮真实产物，并提出新的稳定需求。'
     progress = 'done' if normalize_text(summary_block.get('result_status')) == 'good' else 'building'

@@ -13,7 +13,10 @@ from typing import Any, Dict, List
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_FOCUS_FILE = PROJECT_ROOT / "data" / "dcf_special_focus_list.json"
-DEFAULT_DCF_TARGETS_FILE = PROJECT_ROOT.parent / "dcf-suite" / "data" / "parameter_targets.json"
+DEFAULT_DCF_TARGETS_CANDIDATES = [
+    PROJECT_ROOT.parent / "hit-zone" / "data" / "parameter_targets.json",
+    PROJECT_ROOT.parent / "dcf-suite" / "data" / "parameter_targets.json",
+]
 TOP_FILE_CANDIDATES = [
     PROJECT_ROOT / "output" / "top20_first_batch_opportunities_real_3markets.csv",
     PROJECT_ROOT / "output" / "top20_first_batch_opportunities_real.csv",
@@ -36,6 +39,16 @@ class FocusItem:
     ticker: str
     name: str
     tag: str
+
+
+def resolve_default_dcf_targets_file() -> Path:
+    for path in DEFAULT_DCF_TARGETS_CANDIDATES:
+        if path.exists():
+            return path
+    return DEFAULT_DCF_TARGETS_CANDIDATES[0]
+
+
+DEFAULT_DCF_TARGETS_FILE = resolve_default_dcf_targets_file()
 
 
 def parse_args() -> argparse.Namespace:

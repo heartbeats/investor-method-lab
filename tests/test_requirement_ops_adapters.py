@@ -40,17 +40,26 @@ class RequirementOpsAdapterTests(unittest.TestCase):
                 'pending_writeback_count': 1,
             },
         )
+        write_json(
+            output_dir / 'core_data_coverage_latest.json',
+            {
+                'focus_pool': {'core_data_coverage_rate': 0.57},
+                'signal_pool': {'core_data_coverage_rate': 0.42},
+                'top50_pool': {'core_data_coverage_rate': 0.31},
+            },
+        )
         return {
             'workspace': str(workspace),
             'hook': hook,
             'requirements': {
                 'requirements': [
                     {'id': 'REQ-0002', 'title': '机会包与估值联动', 'body': '需要把机会包和估值联动起来', 'status': 'active'},
+                    {'id': 'REQ-0005', 'title': '核心数据覆盖与数据库沉淀', 'body': '把核心数据覆盖度和数据库沉淀纳入主 KPI', 'status': 'active'},
                     {'id': 'REQ-0003', 'title': '来源映射与可信度评分', 'body': '补齐来源映射与可信度评分', 'status': 'active'},
                     {'id': 'REQ-0004', 'title': '人工复核结果回写到 backlog、机会包和 KPI', 'body': '人工复核结果需要回写', 'status': 'active'},
                 ]
             },
-            'effective_requirements': {'requirements': [{'requirement_id': 'REQ-0002'}, {'requirement_id': 'REQ-0003'}, {'requirement_id': 'REQ-0004'}]},
+            'effective_requirements': {'requirements': [{'requirement_id': 'REQ-0002'}, {'requirement_id': 'REQ-0003'}, {'requirement_id': 'REQ-0004'}, {'requirement_id': 'REQ-0005'}]},
             'backlog': {
                 'iterations': [{'id': 'ITER-0004', 'status': 'doing'}],
                 'tasks': [
@@ -67,10 +76,12 @@ class RequirementOpsAdapterTests(unittest.TestCase):
             payload = self._workspace_payload(Path(tmp))
             result = build_hit_zone_custom_kpi_output(payload)
             metric_ids = [item['id'] for item in result['metrics']]
+            self.assertIn('BIZ-HITZONE-FOCUS-CORE-DATA-COVERAGE', metric_ids)
+            self.assertIn('BIZ-HITZONE-SIGNAL-CORE-DATA-COVERAGE', metric_ids)
             self.assertIn('BIZ-HITZONE-SIGNAL-FORMAL-COVERAGE', metric_ids)
             self.assertIn('BIZ-HITZONE-ACTIVE-REVIEW-COVERAGE', metric_ids)
             self.assertIn('BIZ-HITZONE-REVIEW-WRITEBACK-CLOSURE', metric_ids)
-            self.assertIn('估值覆盖', result['summary_overrides']['headline'])
+            self.assertIn('核心系统数据覆盖度', result['summary_overrides']['headline'])
 
     def test_project_writeback_payload_skips_empty_after_cycle(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -84,10 +95,12 @@ class RequirementOpsAdapterTests(unittest.TestCase):
             payload = self._workspace_payload(Path(tmp), hook='after_task_update', extra={'task_id': 'TASK-0011', 'task_status': 'doing'})
             result = build_hit_zone_project_writeback_payload(payload)
             self.assertEqual(result['project'], '击球区')
-            self.assertIn('估值覆盖率', result['summary'])
+            self.assertIn('核心数据覆盖度', result['summary'])
             self.assertIn('回写闭环率', result['summary'])
             self.assertIn('TASK-0011', result['task_refs'])
+            self.assertIn('REQ-0005', result['requirement_refs'])
             self.assertIn('REQ-0004', result['requirement_refs'])
+            self.assertIn('BIZ-HITZONE-FOCUS-CORE-DATA-COVERAGE', result['kpi_refs'])
             self.assertIn('BIZ-HITZONE-ACTIVE-REVIEW-COVERAGE', result['kpi_refs'])
             self.assertTrue(result['fingerprint'])
 

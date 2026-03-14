@@ -7,7 +7,7 @@ Keep the embedded JSON block authoritative; the human-readable sections below ar
 {
   "version": 1,
   "project": "investor-method-lab",
-  "updated_at": "2026-03-13T16:51:17.065960+08:00",
+  "updated_at": "2026-03-14T22:38:51.934634+08:00",
   "goal": "稳定产出可审阅、可追踪的真实数据机会包，并把机会验真结果与 DCF/外部估值联动进同一份机会包，支撑每日研究判断。",
   "target_users": [
     "Lucas（主审阅者 / 决策辅助使用者）",
@@ -65,6 +65,17 @@ Keep the embedded JSON block authoritative; the human-readable sections below ar
         "REQ-0004"
       ],
       "updated_requirement_ids": []
+    },
+    {
+      "timestamp": "2026-03-14T22:38:51.934629+08:00",
+      "type": "auto_merge",
+      "change_ids": [
+        "CHG-0006"
+      ],
+      "created_requirement_ids": [],
+      "updated_requirement_ids": [
+        "REQ-0004"
+      ]
     }
   ],
   "requirements": [
@@ -147,14 +158,15 @@ Keep the embedded JSON block authoritative; the human-readable sections below ar
     {
       "id": "REQ-0004",
       "title": "人工复核结果回写到 backlog、机会包和 KPI",
-      "body": "需要把人工复核结果回写到 backlog、机会包和 KPI，并保持本地工件与人工复核证据可追踪。",
+      "body": "需要把人工复核结果回写到 backlog、机会包和 KPI，并保持本地工件与人工复核证据可追踪。\n\n补充（CHG-0006）：新增并上调核心数据覆盖度为击球区最重要的KPI之一，需要按focus_pool、signal_pool、top50和整体池分层统计覆盖率，需要系统梳理所有API的能力边界、可查范围、免费层限制、频率预算，需要建立每日固定运行的API增量抓取机制，把能合法获取且未入库的数据持续写入本地数据库，核心数据定义为系统实际需要用到的行情、财务、估值校验、宏观与披露数据，并固化成后续日常数据沉淀规则，已经存在且未变化的数据不要重复存储，逐步形成完整数据库",
       "priority": "P1",
       "status": "active",
       "acceptance": [
         "人工复核结果回写后，backlog 或关联工件能够看到对应 review status 与证据引用。",
         "机会包消费人工复核结果后，关键结论或复核状态在正文或附属工件中可见。",
         "KPI 快照消费人工复核结果后，相关指标保留 evidence refs 并能追溯到 review 工件。",
-        "外部查看面失败时，不阻断本地 writeback 与证据落盘。"
+        "外部查看面失败时，不阻断本地 writeback 与证据落盘。",
+        "补充要求来自 CHG-0006。"
       ],
       "linked_tasks": [
         "TASK-0010",
@@ -167,10 +179,11 @@ Keep the embedded JSON block authoritative; the human-readable sections below ar
         "BIZ-CUSTOM"
       ],
       "source_change_ids": [
-        "CHG-0004"
+        "CHG-0004",
+        "CHG-0006"
       ],
       "superseded_by": [],
-      "last_updated": "2026-03-13T14:54:43.929393+08:00"
+      "last_updated": "2026-03-14T22:38:51.934621+08:00"
     }
   ]
 }
@@ -179,7 +192,7 @@ Keep the embedded JSON block authoritative; the human-readable sections below ar
 ## Summary
 
 - Project: investor-method-lab
-- Updated: 2026-03-13T16:51:17.065960+08:00
+- Updated: 2026-03-14T22:38:51.934634+08:00
 - Goal: 稳定产出可审阅、可追踪的真实数据机会包，并把机会验真结果与 DCF/外部估值联动进同一份机会包，支撑每日研究判断。
 - Target users: Lucas（主审阅者 / 决策辅助使用者）, 围绕机会包做日更研究的投资研究者
 - Core problem: 机会验真、估值联动和数据来源分散在多条输出中，导致同一标的的机会、风险、估值难以在一个包里解释清楚。
@@ -249,13 +262,16 @@ Keep the embedded JSON block authoritative; the human-readable sections below ar
 
 - Priority: P1
 - Status: active
-- Last updated: 2026-03-13T14:54:43.929393+08:00
+- Last updated: 2026-03-14T22:38:51.934621+08:00
 - Linked KPIs: FLOW-WRITEBACK-COMPLETION, RESULT-TRACEABILITY, BIZ-CUSTOM
 - Linked Tasks: TASK-0010, TASK-0011, TASK-0012
-- Source changes: CHG-0004
+- Source changes: CHG-0004, CHG-0006
 - Body: 需要把人工复核结果回写到 backlog、机会包和 KPI，并保持本地工件与人工复核证据可追踪。
+
+补充（CHG-0006）：新增并上调核心数据覆盖度为击球区最重要的KPI之一，需要按focus_pool、signal_pool、top50和整体池分层统计覆盖率，需要系统梳理所有API的能力边界、可查范围、免费层限制、频率预算，需要建立每日固定运行的API增量抓取机制，把能合法获取且未入库的数据持续写入本地数据库，核心数据定义为系统实际需要用到的行情、财务、估值校验、宏观与披露数据，并固化成后续日常数据沉淀规则，已经存在且未变化的数据不要重复存储，逐步形成完整数据库
 - Acceptance:
   - 人工复核结果回写后，backlog 或关联工件能够看到对应 review status 与证据引用。
   - 机会包消费人工复核结果后，关键结论或复核状态在正文或附属工件中可见。
   - KPI 快照消费人工复核结果后，相关指标保留 evidence refs 并能追溯到 review 工件。
   - 外部查看面失败时，不阻断本地 writeback 与证据落盘。
+  - 补充要求来自 CHG-0006。

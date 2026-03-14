@@ -52,6 +52,9 @@ PER_TICKER_RETRY_BACKOFF_SECONDS="${IML_PER_TICKER_RETRY_BACKOFF_SECONDS:-0.25}"
 CODEX_PROJECT_ROOT="${CODEX_PROJECT_ROOT:-${HOME_DIR}/codex-project}"
 REVIEW_QUEUE_SYNC_SCRIPT="${CODEX_PROJECT_ROOT}/scripts/sync_hit_zone_review_queue_bitable.py"
 REVIEW_WRITEBACK_PULL_SCRIPT="${CODEX_PROJECT_ROOT}/scripts/pull_hit_zone_review_queue_writeback.py"
+MARKET_DATA_HARVEST_SCRIPT="${CODEX_PROJECT_ROOT}/scripts/harvest_market_data_lake.py"
+CORE_DATA_COVERAGE_SCRIPT="${CODEX_PROJECT_ROOT}/scripts/build_core_data_coverage_report.py"
+MARKET_DATA_INCREMENTAL_DB="${MARKET_DATA_INCREMENTAL_DB:-${HOME_DIR}/projects/stock-data-hub/data_lake/incremental/market_data_incremental.db}"
 
 export IML_STOCK_DATA_HUB_URL
 
@@ -235,6 +238,25 @@ python3 "$ROOT_DIR/scripts/build_valuation_upgrade_backlog.py" \
   --ledger-file "$LEDGER_FILE" \
   --output-json "$SOURCE_UPGRADE_BACKLOG_JSON" \
   --output-md "$VALUATION_UPGRADE_BACKLOG_MD"
+
+if [[ -f "$MARKET_DATA_HARVEST_SCRIPT" ]]; then
+  HARVEST_ARGS=(
+    --symbols-file "$UNIVERSE_FILE"
+    --snapshot-root "$SNAPSHOT_ROOT"
+    --db-path "$MARKET_DATA_INCREMENTAL_DB"
+    --build-snapshot-if-missing
+  )
+  if [[ -n "$SNAPSHOT_DATE" ]]; then
+    HARVEST_ARGS+=(--snapshot-date "$SNAPSHOT_DATE")
+  fi
+  python3 "$MARKET_DATA_HARVEST_SCRIPT" "${HARVEST_ARGS[@]}" || echo "[warn] market data harvest failed, continue"
+fi
+
+if [[ -f "$CORE_DATA_COVERAGE_SCRIPT" ]]; then
+  python3 "$CORE_DATA_COVERAGE_SCRIPT" \
+    --iml-root "$ROOT_DIR" \
+    --db-path "$MARKET_DATA_INCREMENTAL_DB" || echo "[warn] core data coverage build failed, continue"
+fi
 
 if [[ "${IML_SYNC_REVIEW_QUEUE_TO_FEISHU:-0}" == "1" ]] && [[ -f "$REVIEW_QUEUE_SYNC_SCRIPT" ]]; then
   REVIEW_QUEUE_SYNC_ARGS=(--input-file "$REVIEW_QUEUE_JSON")

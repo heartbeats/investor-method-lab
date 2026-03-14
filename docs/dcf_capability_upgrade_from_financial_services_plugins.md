@@ -53,14 +53,14 @@
 
 ## 4) 对我们现有项目的落地动作（下一阶段）
 
-1. 在 `dcf-suite` 增加 `comps_crosscheck` 结构化输出（隐含倍数 vs 行业锚）。  
+1. 在 `hit-zone` 增加 `comps_crosscheck` 结构化输出（隐含倍数 vs 行业锚）。  
 2. 在日报推送前增加 `valuation_quality_gate`（终值占比、隐含倍数偏离、敏感性完整性）。  
 3. 将“特别关注 / 机会挖掘”两模块都绑定输入来源元数据（文件、as-of、口径）。  
 4. 后续若接入机构数据，统一走 `stock-data-hub` 扩展层，不把供应商耦合进业务脚本。
 
 ## 4.1 当前落地进度（2026-03-05）
 
-- 已完成：`dcf-suite` 输出 `valuation_quality_gate` 与 `comps_crosscheck` 结构化字段，并接入 dashboard 展示。
+- 已完成：`hit-zone` 输出 `valuation_quality_gate` 与 `comps_crosscheck` 结构化字段，并接入 dashboard 展示。
 - 已完成：日报拆分为 `特别关注` / `机会挖掘` 双模块，且输出来源元信息。
 - 已完成：`stock-data-hub` 新增 `POST /v1/comps-baselines`，并在 `build_real_opportunities.py` 接入“仅补充型 fallback overlay”。
   - 规则：仅当 `dcf_comps_crosscheck_status` 缺失时补齐；
