@@ -7,7 +7,7 @@ Keep the embedded JSON block authoritative; the human-readable sections below ar
 {
   "version": 1,
   "project": "investor-method-lab",
-  "updated_at": "2026-03-14T22:38:51.934634+08:00",
+  "updated_at": "2026-03-14T23:26:48.242557+08:00",
   "goal": "稳定产出可审阅、可追踪的真实数据机会包，并把机会验真结果与 DCF/外部估值联动进同一份机会包，支撑每日研究判断。",
   "target_users": [
     "Lucas（主审阅者 / 决策辅助使用者）",
@@ -192,7 +192,7 @@ Keep the embedded JSON block authoritative; the human-readable sections below ar
 ## Summary
 
 - Project: investor-method-lab
-- Updated: 2026-03-14T22:38:51.934634+08:00
+- Updated: 2026-03-14T23:26:48.242557+08:00
 - Goal: 稳定产出可审阅、可追踪的真实数据机会包，并把机会验真结果与 DCF/外部估值联动进同一份机会包，支撑每日研究判断。
 - Target users: Lucas（主审阅者 / 决策辅助使用者）, 围绕机会包做日更研究的投资研究者
 - Core problem: 机会验真、估值联动和数据来源分散在多条输出中，导致同一标的的机会、风险、估值难以在一个包里解释清楚。

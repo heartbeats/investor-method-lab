@@ -761,6 +761,120 @@ tbody tr.selected {
   margin-bottom: 8px;
 }
 
+.dynamic-summary-card {
+  border: 1px solid #ece3d3;
+  border-radius: 14px;
+  padding: 16px;
+  background: linear-gradient(180deg, #fffdf8, #fff);
+}
+
+.dynamic-summary-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.dynamic-summary-date {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.dynamic-summary-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.dynamic-summary-text {
+  margin: 14px 0 8px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.dynamic-summary-link {
+  margin: 10px 0 0;
+}
+
+.latest-updates-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.latest-update-card {
+  border: 1px solid #ece3d3;
+  border-radius: 14px;
+  padding: 14px;
+  background: #fff;
+}
+
+.latest-update-card h4 {
+  margin: 10px 0 8px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.latest-update-card p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.latest-update-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.latest-update-type,
+.latest-update-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.latest-update-type {
+  color: #6b3f12;
+  background: rgba(248, 207, 122, 0.24);
+}
+
+.latest-update-type.report {
+  color: #0c5f58;
+  background: rgba(15, 118, 110, 0.16);
+}
+
+.latest-update-type.notice {
+  color: #7a261b;
+  background: rgba(180, 35, 24, 0.12);
+}
+
+.latest-update-type.news {
+  color: #2f4b59;
+  background: rgba(86, 111, 124, 0.12);
+}
+
+.latest-update-tag {
+  color: var(--muted);
+  background: #f5efe2;
+}
+
+.latest-update-date {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 12px;
+}
+
 .bullet-list {
   margin: 0;
   padding-left: 18px;
@@ -1125,7 +1239,8 @@ tbody tr.selected {
   .source-columns,
   .thesis-grid,
   .trace-summary-grid,
-  .valuation-highlight-grid {
+  .valuation-highlight-grid,
+  .latest-updates-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1166,8 +1281,21 @@ tbody tr.selected {
   .source-columns,
   .thesis-grid,
   .trace-summary-grid,
-  .valuation-highlight-grid {
+  .valuation-highlight-grid,
+  .latest-updates-list {
     grid-template-columns: 1fr;
+  }
+
+  .dynamic-summary-head {
+    flex-direction: column;
+  }
+
+  .dynamic-summary-stats {
+    justify-content: flex-start;
+  }
+
+  .latest-update-date {
+    margin-left: 0;
   }
 
   .kv-row {

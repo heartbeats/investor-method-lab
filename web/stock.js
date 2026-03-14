@@ -28,6 +28,12 @@
     unknown: "未知",
   };
 
+  const CONTENT_TYPE_LABELS = {
+    report: "研报",
+    notice: "公告",
+    news: "资讯",
+  };
+
   function qs(selector) {
     return document.querySelector(selector);
   }
@@ -442,7 +448,24 @@
       storedBase = "";
     }
 
-    return uniqueNonEmpty([preferredBase, storedBase, "http://127.0.0.1:8000", "http://localhost:8000"]);
+    return uniqueNonEmpty([
+      preferredBase,
+      storedBase,
+      "http://127.0.0.1:8000",
+      "http://localhost:8000",
+      "http://127.0.0.1:18000",
+      "http://localhost:18000",
+    ]);
+  }
+
+  function rememberDcfBase(base) {
+    const value = String(base || "").trim();
+    if (!value) return;
+    try {
+      window.localStorage.setItem("iml_dcf_base", value);
+    } catch (_err) {
+      // ignore storage failures
+    }
   }
 
   function resolveDcfSymbol(profile, ticker) {
@@ -514,6 +537,7 @@
             quote = null;
           }
 
+          rememberDcfBase(base);
           return {
             overview,
             quote,
@@ -533,6 +557,45 @@
       base: null,
       refreshed: false,
       error: attempts.join("；") || "DCF API 不可用。",
+    };
+  }
+
+  async function fetchHubStockDetail(dcfSymbol, preferredBase) {
+    if (!dcfSymbol) {
+      return {
+        payload: null,
+        base: null,
+        error: "未找到可用的详情 symbol。",
+      };
+    }
+
+    const attempts = [];
+    const bases = getDcfBaseCandidates(preferredBase);
+
+    for (const base of bases) {
+      const detailUrl = `${base}/v1/hub/stock-detail?symbol=${encodeURIComponent(dcfSymbol)}`;
+      try {
+        const detailResp = await fetch(detailUrl);
+        if (!detailResp.ok) {
+          attempts.push(`${base} -> HTTP ${detailResp.status}`);
+          continue;
+        }
+        const payload = await detailResp.json();
+        rememberDcfBase(base);
+        return {
+          payload,
+          base,
+          error: null,
+        };
+      } catch (error) {
+        attempts.push(`${base} -> ${error.message || "fetch failed"}`);
+      }
+    }
+
+    return {
+      payload: null,
+      base: null,
+      error: attempts.join("；") || "结构化最新动态源不可用。",
     };
   }
 
@@ -581,9 +644,14 @@
       ? '<span class="metric-pending">待接入</span>'
       : escapeHtml(formatPct(changePct, 2));
     const changeClass = changePct === null ? "" : changePct > 0 ? "positive" : changePct < 0 ? "negative" : "";
+    const refreshText = quote?.timestamp ? formatDateTime(quote.timestamp) : valuation?.calculated_at ? formatDateTime(valuation.calculated_at) : escapeHtml(profile.price_as_of || "-");
+    const changeMeta = changePct === null
+      ? "当前详情页数据合同尚未回传该字段。"
+      : quote?.source
+        ? `报价源 ${escapeHtml(quote.source)} · 更新时间 ${escapeHtml(refreshText)}`
+        : `更新时间 ${escapeHtml(refreshText)}`;
     const mosText = valuation ? escapeHtml(formatSignedPct(valuation.mos_base, 2)) : "-";
     const baseValueText = valuation ? `${escapeHtml(formatNum(valuation.iv_base, 2))} ${escapeHtml(profile.currency || "")}` : "-";
-    const refreshText = quote?.timestamp ? formatDateTime(quote.timestamp) : valuation?.calculated_at ? formatDateTime(valuation.calculated_at) : escapeHtml(profile.price_as_of || "-");
     const priceMeta = quote?.source
       ? `报价源 ${escapeHtml(quote.source)} · 更新时间 ${escapeHtml(refreshText)}`
       : `更新时间 ${escapeHtml(refreshText)}`;
@@ -617,7 +685,7 @@
       </div>
       <div class="stock-core-grid">
         ${buildCoreMetricCard("最新价", escapeHtml(currentPriceText), priceMeta)}
-        ${buildCoreMetricCard("日内涨跌幅", changeText, "当前详情页数据合同尚未回传该字段。", changeClass)}
+        ${buildCoreMetricCard("日内涨跌幅", changeText, changeMeta, changeClass)}
         ${buildCoreMetricCard("当前安全边际", mosText, valuation ? `基于中性估值 ${escapeHtml(formatNum(valuation.iv_base, 2))}` : "待接入 DCF 主链路。", valuation?.mos_base > 0 ? "positive" : valuation?.mos_base < 0 ? "negative" : "")}
         ${buildCoreMetricCard("中性估值", escapeHtml(baseValueText), policy ? `折现率 R ${escapeHtml(formatRatioPct(policy.r, 2))} · g2 ${escapeHtml(formatRatioPct(policy.g_terminal, 2))}` : "当前未拿到折现模板。")}
       </div>
@@ -766,12 +834,110 @@
     `;
   }
 
-  function renderBusinessPanel(profile, dcfData) {
+  function summarizeDigestSources(items) {
+    const rows = Array.isArray(items) ? items : [];
+    const sources = rows.map((item) => item?.publisher_source || item?.aggregator_source || item?.source || "");
+    return uniqueNonEmpty(sources).slice(0, 5);
+  }
+
+  function buildLatestUpdatesHtml(hubDetail) {
+    if (hubDetail?.loading) {
+      return `
+        <article class="dynamic-summary-card">
+          <h3>最新动态加载中</h3>
+          <p class="section-subnote">正在读取结构化动态源，准备把最近一次有新增内容的自然日拉进详情页。</p>
+        </article>
+      `;
+    }
+
+    if (hubDetail?.error) {
+      return `
+        <article class="dynamic-summary-card empty-card">
+          <h3>最新动态暂未接通</h3>
+          <p class="muted">结构化最新动态源暂时不可用，所以这里不再回退到系统更新占位卡片。</p>
+          <p class="section-subnote">${escapeHtml(hubDetail.error)}</p>
+        </article>
+      `;
+    }
+
+    const digest = hubDetail?.payload?.sections?.research_digest || null;
+    if (!digest) {
+      return `
+        <article class="dynamic-summary-card empty-card">
+          <h3>最新动态暂未返回</h3>
+          <p class="muted">当前没有拿到结构化最新动态模块，页面保持空态，不伪造动态内容。</p>
+        </article>
+      `;
+    }
+
+    const items = Array.isArray(digest.items) ? digest.items : [];
+    const summaryText = digest.summary_zh || (items.length ? "已接通结构化最新动态源。" : "最近 30 天暂无新增动态。");
+    const sources = summarizeDigestSources(items);
+    const summaryLink = Array.isArray(digest.summary_links) ? digest.summary_links[0] || null : null;
+    const sourceNote = sources.length
+      ? `来源：${sources.join(" / ")}`
+      : `当前共 ${escapeHtml(String(digest.source_count || 0))} 个来源命中`;
+
+    const summaryCard = `
+      <article class="dynamic-summary-card ${items.length ? "" : "empty-card"}">
+        <div class="dynamic-summary-head">
+          <div>
+            <h3>最近一次更新</h3>
+            <p class="dynamic-summary-date">${escapeHtml(digest.effective_date_label_zh || "最近一次更新")}</p>
+          </div>
+          <div class="dynamic-summary-stats">
+            <span class="stock-data-chip">${escapeHtml(String(digest.item_count || 0))} 条动态</span>
+            <span class="stock-data-chip">${escapeHtml(String(digest.source_count || 0))} 个来源</span>
+          </div>
+        </div>
+        <p class="dynamic-summary-text">${escapeHtml(summaryText)}</p>
+        <p class="section-subnote">${escapeHtml(sourceNote)}</p>
+        ${
+          summaryLink?.url
+            ? `<p class="dynamic-summary-link"><a class="detail-link" href="${escapeHtml(summaryLink.url)}" target="_blank" rel="noreferrer">查看主动态</a></p>`
+            : ""
+        }
+      </article>
+    `;
+
+    if (!items.length) return summaryCard;
+
+    const itemCards = items.slice(0, 6).map((item) => {
+      const type = CONTENT_TYPE_LABELS[item?.content_type] || item?.content_type || "动态";
+      const signalTags = uniqueNonEmpty([
+        item?.primary_signal_label_zh && item.primary_signal_label_zh !== "动态更新" ? item.primary_signal_label_zh : "",
+        ...(Array.isArray(item?.display_tags) ? item.display_tags : []),
+      ]).slice(0, 2);
+      const sourceLabel = uniqueNonEmpty([item?.publisher_source, item?.aggregator_source, item?.source]).join(" / ");
+      const publishedAt = item?.published_at ? formatDateTime(item.published_at) : "-";
+
+      return `
+        <article class="latest-update-card">
+          <div class="latest-update-meta">
+            <span class="latest-update-type ${escapeHtml(item?.content_type || "news")}">${escapeHtml(type)}</span>
+            ${signalTags.map((tag) => `<span class="latest-update-tag">${escapeHtml(tag)}</span>`).join("")}
+            <span class="latest-update-date">${escapeHtml(publishedAt)}</span>
+          </div>
+          <h4>${escapeHtml(item?.title || "动态标题待补")}</h4>
+          <p>${escapeHtml(item?.summary || "当前动态摘要待补。")}</p>
+          <p class="section-subnote">${escapeHtml(sourceLabel || "来源待补")}</p>
+          ${
+            item?.url
+              ? `<p class="dynamic-summary-link"><a class="detail-link" href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">查看原文</a></p>`
+              : ""
+          }
+        </article>
+      `;
+    }).join("");
+
+    return `
+      ${summaryCard}
+      <div class="latest-updates-list">${itemCards}</div>
+    `;
+  }
+
+  function renderBusinessPanel(profile, dcfData, hubDetail) {
     const overview = dcfData?.overview || {};
-    const quote = dcfData?.quote || null;
-    const valuation = overview.latest_valuation || null;
-    const policy = overview.policy || null;
-    const snapshot = overview.latest_snapshot || null;
     const confidence = explainConfidence(profile.intro_data_confidence || "unknown");
     const businessIntro =
       profile.business_intro_zh ||
@@ -844,32 +1010,7 @@
 
       <div class="opportunity-detail">
         <h3 class="section-subhead">最新动态</h3>
-        <div class="dynamic-grid">
-          <article class="dynamic-card">
-            <h3>最新估值刷新</h3>
-            <ul class="source-meta-list">
-              <li><strong>现价：</strong>${quote?.price !== undefined && quote?.price !== null ? escapeHtml(formatNum(quote.price, 2)) : valuation ? escapeHtml(formatNum(valuation.price, 2)) : "-"}</li>
-              <li><strong>刷新时间：</strong>${escapeHtml(quote?.timestamp ? formatDateTime(quote.timestamp) : valuation?.calculated_at ? formatDateTime(valuation.calculated_at) : "-")}</li>
-              <li><strong>来源：</strong>${escapeHtml(quote?.source || dcfData?.base || "未接入")}</li>
-            </ul>
-          </article>
-          <article class="dynamic-card">
-            <h3>最新财报口径</h3>
-            <ul class="source-meta-list">
-              <li><strong>财年：</strong>${snapshot ? `FY${escapeHtml(String(snapshot.fiscal_year))}` : "-"}</li>
-              <li><strong>快照来源：</strong>${escapeHtml(snapshot?.source || "-")}</li>
-              <li><strong>复核状态：</strong>${escapeHtml(snapshot?.status || "-")}${snapshot?.reviewed_at ? ` · ${escapeHtml(formatDateTime(snapshot.reviewed_at))}` : ""}</li>
-            </ul>
-          </article>
-          <article class="dynamic-card">
-            <h3>当前折现模板</h3>
-            <ul class="source-meta-list">
-              <li><strong>模板：</strong>${escapeHtml(policy?.policy_id || "-")}</li>
-              <li><strong>折现率 R：</strong>${policy ? escapeHtml(formatRatioPct(policy.r, 2)) : "-"}</li>
-              <li><strong>长期增长 g2：</strong>${policy ? escapeHtml(formatRatioPct(policy.g_terminal, 2)) : "-"}</li>
-            </ul>
-          </article>
-        </div>
+        ${buildLatestUpdatesHtml(hubDetail)}
       </div>
     `;
   }
@@ -1063,13 +1204,15 @@
     `;
   }
 
-  function renderSourcesPanel(profile, opportunityRow, dcfData) {
+  function renderSourcesPanel(profile, opportunityRow, dcfData, hubDetail) {
     const overview = dcfData?.overview || {};
     const valuation = overview.latest_valuation || null;
     const snapshot = overview.latest_snapshot || null;
     const policy = overview.policy || null;
     const noteFields = parseNoteFields(opportunityRow?.note || profile.note || "");
     const confidence = explainConfidence(profile.intro_data_confidence || "unknown");
+    const researchDigest = hubDetail?.payload?.sections?.research_digest || null;
+    const dynamicSources = summarizeDigestSources(researchDigest?.items || []);
     const boundaryItems = [];
 
     if (resolvePriceChangePct(profile, dcfData?.quote) === null) {
@@ -1080,6 +1223,11 @@
     }
     if (!valuation) {
       boundaryItems.push("DCF 主估值不可用时，只展示 fallback 估值与公司画像，不伪造结果。");
+    }
+    if (!researchDigest) {
+      boundaryItems.push("结构化最新动态源未接通时，页面保持空态，不回退旧系统更新卡片。");
+    } else if (!Array.isArray(researchDigest.items) || !researchDigest.items.length) {
+      boundaryItems.push("最近 30 天暂无新增动态时，页面只展示真实空态，不回填旧动态。");
     }
 
     qs("#stock-sources-panel").innerHTML = `
@@ -1108,8 +1256,14 @@
         </article>
 
         <article class="source-card-lite">
-          <h3>当前边界</h3>
+          <h3>最新动态口径 / 当前边界</h3>
           <ul class="source-meta-list">
+            <li><strong>最新动态：</strong>${
+              researchDigest
+                ? `${escapeHtml(researchDigest.effective_date_label_zh || "最近一次更新")} · ${escapeHtml(String(researchDigest.item_count || 0))} 条动态 / ${escapeHtml(String(researchDigest.source_count || 0))} 个来源`
+                : "结构化最新动态源未接通"
+            }</li>
+            <li><strong>动态来源：</strong>${escapeHtml(dynamicSources.join(" / ") || "-")}</li>
             ${(boundaryItems.length
               ? boundaryItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("")
               : "<li>当前核心字段已接通，未发现额外边界说明。</li>")}
@@ -1170,13 +1324,18 @@
     const traceRow = findMappedRow(traceMap, ticker);
 
     const dcfSymbol = resolveDcfSymbol(profile, ticker);
+    const hubDetailPromise = fetchHubStockDetail(dcfSymbol, params.dcfBase);
     const dcfData = await fetchDcfOverview(dcfSymbol, params.dcfBase);
 
     renderCorePanel(profile, dcfData);
     renderValuationPanel(profile, opportunityRow, dcfData);
-    renderBusinessPanel(profile, dcfData);
+    renderBusinessPanel(profile, dcfData, { loading: true });
     renderThesisPanel(profile, opportunityRow, traceRow, dcfData);
-    renderSourcesPanel(profile, opportunityRow, dcfData);
+    renderSourcesPanel(profile, opportunityRow, dcfData, { loading: true });
+
+    const hubDetail = await hubDetailPromise;
+    renderBusinessPanel(profile, dcfData, hubDetail);
+    renderSourcesPanel(profile, opportunityRow, dcfData, hubDetail);
   }
 
   bootstrap();

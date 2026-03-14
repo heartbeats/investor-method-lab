@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-14T15:10:07.828684+00:00",
-  "as_of_date": "2026-03-13",
+  "generated_at_utc": "2026-03-14T17:29:10.651353+00:00",
+  "as_of_date": "2026-03-14",
   "db_path": "/Users/lucas/projects/stock-data-hub/data_lake/incremental/market_data_incremental.db",
   "registry_path": "/Users/lucas/codex-project/data/market_data_provider_registry_v1.json",
   "coverage_contract": {
@@ -14,8 +14,7 @@
       "HK": [
         "quote",
         "fundamentals",
-        "price_history",
-        "external_valuations"
+        "price_history"
       ],
       "US": [
         "quote",
@@ -36,6 +35,10 @@
       "focus_pool_core_data_coverage_rate",
       "signal_pool_core_data_coverage_rate",
       "top50_core_data_coverage_rate"
+    ],
+    "notes": [
+      "HK.external_valuations 暂不列为核心槽位：当前免费稳定链路只剩 yfinance，实测存在高限流且无可验证第二回退源。",
+      "若后续补上可稳定日更的港股外部估值源，再把 HK.external_valuations 恢复为核心槽位。"
     ],
     "global_slots": [
       {
@@ -70,232 +73,47 @@
   ],
   "headline": [
     "核心系统数据覆盖度已升级为主 KPI；估值覆盖率不再是唯一代理指标。",
-    "特别关注池完整覆盖率 0.00%，活跃信号池 0.00%，Top50 0.00%。",
-    "重点池/信号池仍未达核心标准，说明数据库层面的核心槽位还没补齐。"
+    "特别关注池核心槽位覆盖率 100.00%，活跃信号池 97.75%，Top50 99.53%。"
   ],
   "focus_pool": {
     "count": 7,
-    "required_slot_count": 32,
-    "covered_slot_count": 10,
-    "core_data_coverage_rate": 0.0,
-    "core_slot_fill_rate": 0.3125,
-    "fully_covered_symbol_count": 0,
-    "missing_domain_breakdown": {
-      "quote": 7,
-      "fundamentals": 4,
-      "price_history": 1,
-      "external_valuations": 6,
-      "financial_statements": 4
-    },
+    "required_slot_count": 30,
+    "covered_slot_count": 30,
+    "core_data_coverage_rate": 1.0,
+    "core_slot_fill_rate": 1.0,
+    "full_coverage_rate": 1.0,
+    "fully_covered_symbol_count": 7,
+    "missing_domain_breakdown": {},
     "stale_domain_breakdown": {},
-    "sample_missing_rows": [
-      {
-        "symbol": "US.PDD",
-        "name": "US.PDD",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "price_history",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": []
-      },
-      {
-        "symbol": "US.AAPL",
-        "name": "Apple Inc.",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.GOOGL",
-        "name": "Alphabet Inc. (Class A)",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.NVDA",
-        "name": "NVIDIA",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "HK.00700",
-        "name": "Tencent Holdings",
-        "market": "HK",
-        "missing_domains": [
-          "quote",
-          "external_valuations"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "HK.03690",
-        "name": "Meituan",
-        "market": "HK",
-        "missing_domains": [
-          "quote",
-          "external_valuations"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "SH.600519",
-        "name": "贵州茅台",
-        "market": "A",
-        "missing_domains": [
-          "quote"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history",
-          "external_valuations"
-        ]
-      }
-    ]
+    "sample_missing_rows": []
   },
   "signal_pool": {
     "count": 21,
     "required_slot_count": 89,
-    "covered_slot_count": 51,
-    "core_data_coverage_rate": 0.0,
-    "core_slot_fill_rate": 0.5730337078651685,
-    "fully_covered_symbol_count": 0,
+    "covered_slot_count": 87,
+    "core_data_coverage_rate": 0.9775280898876404,
+    "core_slot_fill_rate": 0.9775280898876404,
+    "full_coverage_rate": 0.9047619047619048,
+    "fully_covered_symbol_count": 19,
     "missing_domain_breakdown": {
-      "quote": 21,
-      "fundamentals": 5,
-      "external_valuations": 7,
-      "financial_statements": 5
+      "external_valuations": 2
     },
     "stale_domain_breakdown": {
       "external_valuations": 2
     },
     "sample_missing_rows": [
       {
-        "symbol": "US.AES",
-        "name": "AES Corporation",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.BLDR",
-        "name": "Builders FirstSource",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.BXP",
-        "name": "BXP, Inc.",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.F",
-        "name": "Ford Motor Company",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.MSFT",
-        "name": "Microsoft",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
         "symbol": "SH.601136",
         "name": "首创证券",
         "market": "A",
         "missing_domains": [
-          "quote",
           "external_valuations"
         ],
         "stale_domains": [
           "external_valuations"
         ],
         "available_domains": [
+          "quote",
           "fundamentals",
           "price_history"
         ]
@@ -305,510 +123,46 @@
         "name": "上海银行",
         "market": "A",
         "missing_domains": [
-          "quote",
           "external_valuations"
         ],
         "stale_domains": [
           "external_valuations"
         ],
         "available_domains": [
+          "quote",
           "fundamentals",
           "price_history"
-        ]
-      },
-      {
-        "symbol": "SH.600000",
-        "name": "浦发银行",
-        "market": "A",
-        "missing_domains": [
-          "quote"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history",
-          "external_valuations"
-        ]
-      },
-      {
-        "symbol": "SH.600029",
-        "name": "南方航空",
-        "market": "A",
-        "missing_domains": [
-          "quote"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history",
-          "external_valuations"
-        ]
-      },
-      {
-        "symbol": "SH.600515",
-        "name": "海南机场",
-        "market": "A",
-        "missing_domains": [
-          "quote"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history",
-          "external_valuations"
-        ]
-      },
-      {
-        "symbol": "SH.600660",
-        "name": "福耀玻璃",
-        "market": "A",
-        "missing_domains": [
-          "quote"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history",
-          "external_valuations"
-        ]
-      },
-      {
-        "symbol": "SH.600919",
-        "name": "江苏银行",
-        "market": "A",
-        "missing_domains": [
-          "quote"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history",
-          "external_valuations"
-        ]
-      },
-      {
-        "symbol": "SH.601166",
-        "name": "兴业银行",
-        "market": "A",
-        "missing_domains": [
-          "quote"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history",
-          "external_valuations"
-        ]
-      },
-      {
-        "symbol": "SH.601169",
-        "name": "北京银行",
-        "market": "A",
-        "missing_domains": [
-          "quote"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history",
-          "external_valuations"
-        ]
-      },
-      {
-        "symbol": "SH.601288",
-        "name": "农业银行",
-        "market": "A",
-        "missing_domains": [
-          "quote"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history",
-          "external_valuations"
-        ]
-      },
-      {
-        "symbol": "SH.601688",
-        "name": "华泰证券",
-        "market": "A",
-        "missing_domains": [
-          "quote"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history",
-          "external_valuations"
-        ]
-      },
-      {
-        "symbol": "SH.601818",
-        "name": "光大银行",
-        "market": "A",
-        "missing_domains": [
-          "quote"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history",
-          "external_valuations"
-        ]
-      },
-      {
-        "symbol": "SH.688126",
-        "name": "沪硅产业",
-        "market": "A",
-        "missing_domains": [
-          "quote"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history",
-          "external_valuations"
-        ]
-      },
-      {
-        "symbol": "SH.688506",
-        "name": "百利天恒",
-        "market": "A",
-        "missing_domains": [
-          "quote"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history",
-          "external_valuations"
-        ]
-      },
-      {
-        "symbol": "SZ.000063",
-        "name": "中兴通讯",
-        "market": "A",
-        "missing_domains": [
-          "quote"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history",
-          "external_valuations"
         ]
       }
     ]
   },
   "top50_pool": {
     "count": 50,
-    "required_slot_count": 216,
-    "covered_slot_count": 113,
-    "core_data_coverage_rate": 0.0,
-    "core_slot_fill_rate": 0.5231481481481481,
-    "fully_covered_symbol_count": 0,
+    "required_slot_count": 212,
+    "covered_slot_count": 211,
+    "core_data_coverage_rate": 0.9952830188679245,
+    "core_slot_fill_rate": 0.9952830188679245,
+    "full_coverage_rate": 0.98,
+    "fully_covered_symbol_count": 49,
     "missing_domain_breakdown": {
-      "quote": 50,
-      "fundamentals": 16,
-      "external_valuations": 21,
-      "financial_statements": 16
+      "external_valuations": 1
     },
     "stale_domain_breakdown": {
       "external_valuations": 1
     },
     "sample_missing_rows": [
       {
-        "symbol": "US.AES",
-        "name": "AES Corporation",
-        "market": "US",
+        "symbol": "SH.603392",
+        "name": "万泰生物",
+        "market": "A",
         "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.APO",
-        "name": "Apollo Global Management",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.ARES",
-        "name": "Ares Management",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.BLDR",
-        "name": "Builders FirstSource",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.BSX",
-        "name": "Boston Scientific",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.BX",
-        "name": "Blackstone Inc.",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.CCL",
-        "name": "Carnival",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.COF",
-        "name": "Capital One",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.CSGP",
-        "name": "CoStar Group",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.DASH",
-        "name": "DoorDash",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.F",
-        "name": "Ford Motor Company",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.FICO",
-        "name": "Fair Isaac",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.GDDY",
-        "name": "GoDaddy",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.GEN",
-        "name": "Gen Digital",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.KKR",
-        "name": "KKR & Co.",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.PODD",
-        "name": "Insulet Corporation",
-        "market": "US",
-        "missing_domains": [
-          "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "HK.01211",
-        "name": "BYD Company HK",
-        "market": "HK",
-        "missing_domains": [
-          "quote",
           "external_valuations"
         ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "HK.03690",
-        "name": "Meituan",
-        "market": "HK",
-        "missing_domains": [
-          "quote",
+        "stale_domains": [
           "external_valuations"
         ],
-        "stale_domains": [],
         "available_domains": [
-          "fundamentals",
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "HK.09618",
-        "name": "JD.com HK",
-        "market": "HK",
-        "missing_domains": [
           "quote",
-          "external_valuations"
-        ],
-        "stale_domains": [],
-        "available_domains": [
-          "fundamentals",
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "HK.09999",
-        "name": "NetEase HK",
-        "market": "HK",
-        "missing_domains": [
-          "quote",
-          "external_valuations"
-        ],
-        "stale_domains": [],
-        "available_domains": [
           "fundamentals",
           "price_history"
         ]
@@ -817,16 +171,16 @@
   },
   "overall_real_universe": {
     "count": 799,
-    "required_slot_count": 3496,
-    "covered_slot_count": 1581,
-    "core_data_coverage_rate": 0.0,
-    "core_slot_fill_rate": 0.45223112128146453,
-    "fully_covered_symbol_count": 0,
+    "required_slot_count": 3297,
+    "covered_slot_count": 2443,
+    "core_data_coverage_rate": 0.7409766454352441,
+    "core_slot_fill_rate": 0.7409766454352441,
+    "full_coverage_rate": 0.6295369211514393,
+    "fully_covered_symbol_count": 503,
     "missing_domain_breakdown": {
-      "quote": 799,
-      "fundamentals": 300,
-      "external_valuations": 516,
-      "financial_statements": 300
+      "fundamentals": 279,
+      "external_valuations": 296,
+      "financial_statements": 279
     },
     "stale_domain_breakdown": {
       "external_valuations": 10
@@ -837,28 +191,13 @@
         "name": "Agilent Technologies",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.AAPL",
-        "name": "Apple Inc.",
-        "market": "US",
-        "missing_domains": [
           "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
           "price_history"
         ]
       },
@@ -867,13 +206,13 @@
         "name": "AbbVie",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
+          "quote",
           "price_history"
         ]
       },
@@ -882,13 +221,13 @@
         "name": "Airbnb",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
+          "quote",
           "price_history"
         ]
       },
@@ -897,13 +236,13 @@
         "name": "Abbott Laboratories",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
+          "quote",
           "price_history"
         ]
       },
@@ -912,13 +251,13 @@
         "name": "Arch Capital Group",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
+          "quote",
           "price_history"
         ]
       },
@@ -927,13 +266,13 @@
         "name": "Accenture",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
+          "quote",
           "price_history"
         ]
       },
@@ -942,13 +281,13 @@
         "name": "Adobe Inc.",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
+          "quote",
           "price_history"
         ]
       },
@@ -957,13 +296,13 @@
         "name": "Analog Devices",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
+          "quote",
           "price_history"
         ]
       },
@@ -972,13 +311,13 @@
         "name": "Archer Daniels Midland",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
+          "quote",
           "price_history"
         ]
       },
@@ -987,13 +326,13 @@
         "name": "Automatic Data Processing",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
+          "quote",
           "price_history"
         ]
       },
@@ -1002,13 +341,13 @@
         "name": "Autodesk",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
+          "quote",
           "price_history"
         ]
       },
@@ -1017,13 +356,13 @@
         "name": "Ameren",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
+          "quote",
           "price_history"
         ]
       },
@@ -1032,28 +371,13 @@
         "name": "American Electric Power",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.AES",
-        "name": "AES Corporation",
-        "market": "US",
-        "missing_domains": [
           "quote",
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
-        "available_domains": [
           "price_history"
         ]
       },
@@ -1062,13 +386,13 @@
         "name": "Aflac",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
+          "quote",
           "price_history"
         ]
       },
@@ -1077,13 +401,13 @@
         "name": "American International Group",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
+          "quote",
           "price_history"
         ]
       },
@@ -1092,13 +416,13 @@
         "name": "Assurant",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
+          "quote",
           "price_history"
         ]
       },
@@ -1107,13 +431,13 @@
         "name": "Arthur J. Gallagher & Co.",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
+          "quote",
           "price_history"
         ]
       },
@@ -1122,13 +446,43 @@
         "name": "Akamai Technologies",
         "market": "US",
         "missing_domains": [
-          "quote",
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
         "stale_domains": [],
         "available_domains": [
+          "quote",
+          "price_history"
+        ]
+      },
+      {
+        "symbol": "US.ALB",
+        "name": "Albemarle Corporation",
+        "market": "US",
+        "missing_domains": [
+          "fundamentals",
+          "external_valuations",
+          "financial_statements"
+        ],
+        "stale_domains": [],
+        "available_domains": [
+          "quote",
+          "price_history"
+        ]
+      },
+      {
+        "symbol": "US.ALGN",
+        "name": "Align Technology",
+        "market": "US",
+        "missing_domains": [
+          "fundamentals",
+          "external_valuations",
+          "financial_statements"
+        ],
+        "stale_domains": [],
+        "available_domains": [
+          "quote",
           "price_history"
         ]
       }
@@ -1136,23 +490,51 @@
   },
   "trend": [
     {
-      "generated_at_utc": "2026-03-14T15:10:07.828695+00:00",
+      "generated_at_utc": "2026-03-14T16:12:44.146520+00:00",
       "as_of_date": "2026-03-13",
       "focus_pool": {
-        "core_data_coverage_rate": 0.0,
-        "core_slot_fill_rate": 0.3125
+        "core_data_coverage_rate": 0.75,
+        "core_slot_fill_rate": 0.75,
+        "full_coverage_rate": 0.14285714285714285
       },
       "signal_pool": {
-        "core_data_coverage_rate": 0.0,
-        "core_slot_fill_rate": 0.5730337078651685
+        "core_data_coverage_rate": 0.9213483146067416,
+        "core_slot_fill_rate": 0.9213483146067416,
+        "full_coverage_rate": 0.6666666666666666
       },
       "top50_pool": {
-        "core_data_coverage_rate": 0.0,
-        "core_slot_fill_rate": 0.5231481481481481
+        "core_data_coverage_rate": 0.9027777777777778,
+        "core_slot_fill_rate": 0.9027777777777778,
+        "full_coverage_rate": 0.58
       },
       "overall_real_universe": {
-        "core_data_coverage_rate": 0.0,
-        "core_slot_fill_rate": 0.45223112128146453
+        "core_data_coverage_rate": 0.6927917620137299,
+        "core_slot_fill_rate": 0.6927917620137299,
+        "full_coverage_rate": 0.3541927409261577
+      }
+    },
+    {
+      "generated_at_utc": "2026-03-14T17:29:10.651360+00:00",
+      "as_of_date": "2026-03-14",
+      "focus_pool": {
+        "core_data_coverage_rate": 1.0,
+        "core_slot_fill_rate": 1.0,
+        "full_coverage_rate": 1.0
+      },
+      "signal_pool": {
+        "core_data_coverage_rate": 0.9775280898876404,
+        "core_slot_fill_rate": 0.9775280898876404,
+        "full_coverage_rate": 0.9047619047619048
+      },
+      "top50_pool": {
+        "core_data_coverage_rate": 0.9952830188679245,
+        "core_slot_fill_rate": 0.9952830188679245,
+        "full_coverage_rate": 0.98
+      },
+      "overall_real_universe": {
+        "core_data_coverage_rate": 0.7409766454352441,
+        "core_slot_fill_rate": 0.7409766454352441,
+        "full_coverage_rate": 0.6295369211514393
       }
     }
   ]

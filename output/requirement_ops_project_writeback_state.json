@@ -1,12 +1,12 @@
 {
-  "last_sent_at": "2026-03-14T22:38:52.129766+08:00",
-  "last_event_key": "after_cycle:CHG-0006",
-  "last_fingerprint": "c69c8c32efcbd9ba85409b98b5cb49f4584f568552528876271e0d50898048de",
-  "last_title": "requirement-ops 周期回写：CHG-0006",
+  "last_sent_at": "2026-03-14T23:26:48.452477+08:00",
+  "last_event_key": "after_cycle:CHG-0007",
+  "last_fingerprint": "c4d84ceab6b00f87e857d844ea23a95d1ba61e582a620f7fa2b64590c438357b",
+  "last_title": "requirement-ops 周期回写：CHG-0007",
   "last_receipt": {
     "ok": true,
     "dry_run": false,
-    "intent_id": "AUTO-击球区-20260314-223852.0316690800",
+    "intent_id": "AUTO-击球区-20260314-232648.3308370800",
     "created": true,
     "project": "击球区",
     "progress_updated": true,
