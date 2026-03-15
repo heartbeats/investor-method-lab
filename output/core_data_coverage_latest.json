@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-03-14T17:29:10.651353+00:00",
+  "generated_at_utc": "2026-03-14T23:39:06.682525+00:00",
   "as_of_date": "2026-03-14",
   "db_path": "/Users/lucas/projects/stock-data-hub/data_lake/incremental/market_data_incremental.db",
   "registry_path": "/Users/lucas/codex-project/data/market_data_provider_registry_v1.json",
@@ -73,7 +73,7 @@
   ],
   "headline": [
     "核心系统数据覆盖度已升级为主 KPI；估值覆盖率不再是唯一代理指标。",
-    "特别关注池核心槽位覆盖率 100.00%，活跃信号池 97.75%，Top50 99.53%。"
+    "特别关注池核心槽位覆盖率 100.00%，活跃信号池 98.88%，Top50 100.00%。"
   ],
   "focus_pool": {
     "count": 7,
@@ -90,37 +90,21 @@
   "signal_pool": {
     "count": 21,
     "required_slot_count": 89,
-    "covered_slot_count": 87,
-    "core_data_coverage_rate": 0.9775280898876404,
-    "core_slot_fill_rate": 0.9775280898876404,
-    "full_coverage_rate": 0.9047619047619048,
-    "fully_covered_symbol_count": 19,
+    "covered_slot_count": 88,
+    "core_data_coverage_rate": 0.9887640449438202,
+    "core_slot_fill_rate": 0.9887640449438202,
+    "full_coverage_rate": 0.9523809523809523,
+    "fully_covered_symbol_count": 20,
     "missing_domain_breakdown": {
-      "external_valuations": 2
+      "external_valuations": 1
     },
     "stale_domain_breakdown": {
-      "external_valuations": 2
+      "external_valuations": 1
     },
     "sample_missing_rows": [
       {
         "symbol": "SH.601136",
         "name": "首创证券",
-        "market": "A",
-        "missing_domains": [
-          "external_valuations"
-        ],
-        "stale_domains": [
-          "external_valuations"
-        ],
-        "available_domains": [
-          "quote",
-          "fundamentals",
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "SH.601229",
-        "name": "上海银行",
         "market": "A",
         "missing_domains": [
           "external_valuations"
@@ -139,51 +123,30 @@
   "top50_pool": {
     "count": 50,
     "required_slot_count": 212,
-    "covered_slot_count": 211,
-    "core_data_coverage_rate": 0.9952830188679245,
-    "core_slot_fill_rate": 0.9952830188679245,
-    "full_coverage_rate": 0.98,
-    "fully_covered_symbol_count": 49,
-    "missing_domain_breakdown": {
-      "external_valuations": 1
-    },
-    "stale_domain_breakdown": {
-      "external_valuations": 1
-    },
-    "sample_missing_rows": [
-      {
-        "symbol": "SH.603392",
-        "name": "万泰生物",
-        "market": "A",
-        "missing_domains": [
-          "external_valuations"
-        ],
-        "stale_domains": [
-          "external_valuations"
-        ],
-        "available_domains": [
-          "quote",
-          "fundamentals",
-          "price_history"
-        ]
-      }
-    ]
+    "covered_slot_count": 212,
+    "core_data_coverage_rate": 1.0,
+    "core_slot_fill_rate": 1.0,
+    "full_coverage_rate": 1.0,
+    "fully_covered_symbol_count": 50,
+    "missing_domain_breakdown": {},
+    "stale_domain_breakdown": {},
+    "sample_missing_rows": []
   },
   "overall_real_universe": {
     "count": 799,
     "required_slot_count": 3297,
-    "covered_slot_count": 2443,
-    "core_data_coverage_rate": 0.7409766454352441,
-    "core_slot_fill_rate": 0.7409766454352441,
-    "full_coverage_rate": 0.6295369211514393,
-    "fully_covered_symbol_count": 503,
+    "covered_slot_count": 2445,
+    "core_data_coverage_rate": 0.7415832575068244,
+    "core_slot_fill_rate": 0.7415832575068244,
+    "full_coverage_rate": 0.6320400500625782,
+    "fully_covered_symbol_count": 505,
     "missing_domain_breakdown": {
       "fundamentals": 279,
-      "external_valuations": 296,
+      "external_valuations": 294,
       "financial_statements": 279
     },
     "stale_domain_breakdown": {
-      "external_valuations": 10
+      "external_valuations": 8
     },
     "sample_missing_rows": [
       {
@@ -514,7 +477,7 @@
       }
     },
     {
-      "generated_at_utc": "2026-03-14T17:29:10.651360+00:00",
+      "generated_at_utc": "2026-03-14T23:36:09.455686+00:00",
       "as_of_date": "2026-03-14",
       "focus_pool": {
         "core_data_coverage_rate": 1.0,
@@ -522,19 +485,19 @@
         "full_coverage_rate": 1.0
       },
       "signal_pool": {
-        "core_data_coverage_rate": 0.9775280898876404,
-        "core_slot_fill_rate": 0.9775280898876404,
-        "full_coverage_rate": 0.9047619047619048
+        "core_data_coverage_rate": 0.9887640449438202,
+        "core_slot_fill_rate": 0.9887640449438202,
+        "full_coverage_rate": 0.9523809523809523
       },
       "top50_pool": {
-        "core_data_coverage_rate": 0.9952830188679245,
-        "core_slot_fill_rate": 0.9952830188679245,
-        "full_coverage_rate": 0.98
+        "core_data_coverage_rate": 1.0,
+        "core_slot_fill_rate": 1.0,
+        "full_coverage_rate": 1.0
       },
       "overall_real_universe": {
-        "core_data_coverage_rate": 0.7409766454352441,
-        "core_slot_fill_rate": 0.7409766454352441,
-        "full_coverage_rate": 0.6295369211514393
+        "core_data_coverage_rate": 0.7415832575068244,
+        "core_slot_fill_rate": 0.7415832575068244,
+        "full_coverage_rate": 0.6320400500625782
       }
     }
   ]

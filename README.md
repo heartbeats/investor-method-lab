@@ -81,8 +81,14 @@ python3 scripts/build_methodology_v3.py
 bash scripts/run_dashboard.sh
 ```
 
-浏览器打开：`http://127.0.0.1:8090/web/`
-详情页示例：`http://127.0.0.1:8090/web/investor.html?id=warren_buffett`
+默认主页改为击球区：`http://127.0.0.1:8000/`
+
+`investor-method-lab` 的 `http://127.0.0.1:8090/web/` 现已退为历史首页跳转页，不再作为默认主页使用。
+
+若需要查看历史参考页，可直接打开：
+
+- 历史投资人详情：`http://127.0.0.1:8090/web/investor.html?id=warren_buffett`
+- 历史数据口径页：`http://127.0.0.1:8090/web/data-info.html`
 
 若 8090 被占用，可指定端口：
 
@@ -90,7 +96,7 @@ bash scripts/run_dashboard.sh
 bash scripts/run_dashboard.sh 8091
 ```
 
-- 页面入口：`web/index.html`
+- 历史首页跳转页：`web/index.html`
 - 详情页入口：`web/investor.html?id=<investor_id>`
 - 方法论详情页：`web/method.html?family_id=<family_id>`
 - 数据说明页：`web/data-info.html`

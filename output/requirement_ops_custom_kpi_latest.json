@@ -16,7 +16,7 @@
       "layer": "result",
       "formula": "signal_pool.core_data_coverage_rate",
       "target": 0.9,
-      "current": 0.9775280898876404,
+      "current": 0.9887640449438202,
       "evidence_refs": [
         "REQ-0004",
         "output/core_data_coverage_latest.json"
@@ -27,7 +27,7 @@
       "layer": "result",
       "formula": "top50_pool.core_data_coverage_rate",
       "target": 0.8,
-      "current": 0.9952830188679245,
+      "current": 1.0,
       "evidence_refs": [
         "REQ-0004",
         "output/core_data_coverage_latest.json"

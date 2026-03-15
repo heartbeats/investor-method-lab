@@ -1,7 +1,7 @@
 {
   "version": 1,
   "project": "investor-method-lab",
-  "generated_at": "2026-03-15T01:30:16.049710+08:00",
+  "generated_at": "2026-03-15T07:39:42.800838+08:00",
   "summary": {
     "flow_status": "good",
     "result_status": "bad",
@@ -179,7 +179,7 @@
       "layer": "result",
       "formula": "signal_pool.core_data_coverage_rate",
       "target": 0.9,
-      "current": 0.9775,
+      "current": 0.9888,
       "status": "good",
       "evidence_refs": [
         "REQ-0004",
@@ -191,7 +191,7 @@
       "layer": "result",
       "formula": "top50_pool.core_data_coverage_rate",
       "target": 0.8,
-      "current": 0.9953,
+      "current": 1.0,
       "status": "good",
       "evidence_refs": [
         "REQ-0004",

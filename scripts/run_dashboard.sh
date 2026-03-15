@@ -28,6 +28,10 @@ if ! is_port_free "$PORT" >/dev/null 2>&1; then
 fi
 
 cd "$ROOT_DIR"
-echo "[INFO] Investor Method Lab 网页看板启动中..."
-echo "[INFO] 打开地址：http://127.0.0.1:${PORT}/web/"
+echo "[INFO] Investor Method Lab 历史参考页服务启动中..."
+echo "[INFO] 默认主页请使用击球区：http://127.0.0.1:8000/"
+echo "[INFO] 当前 8090 仅保留历史页："
+echo "[INFO] - 首页跳转页：http://127.0.0.1:${PORT}/web/"
+echo "[INFO] - 历史投资人详情：http://127.0.0.1:${PORT}/web/investor.html?id=warren_buffett"
+echo "[INFO] - 历史数据口径页：http://127.0.0.1:${PORT}/web/data-info.html"
 python3 -m http.server "$PORT" --bind 0.0.0.0
