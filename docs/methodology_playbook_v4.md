@@ -1,7 +1,7 @@
 # 方法论筛选引擎 V4 Playbook
 
 更新时间：2026-02-27
-生成时间(UTC)：2026-03-15T02:11:51.649460+00:00
+生成时间(UTC)：2026-03-16T01:14:18.697739+00:00
 
 ## 全局设置
 
@@ -13,7 +13,7 @@
 
 - 核心假设：以合理价格买入高质量公司，通过时间复利兑现收益 
 - 适用市场：A, HK, US
-- 当前覆盖：core=0，watch=63，tactical=0，rejected=737
+- 当前覆盖：core=3，watch=65，tactical=2，rejected=730
 
 ### 默认规则
 
@@ -69,7 +69,7 @@
 
 - 核心假设：寻找产业结构长期改善、竞争优势可持续扩大的龙头 
 - 适用市场：A, HK, US
-- 当前覆盖：core=0，watch=244，tactical=0，rejected=556
+- 当前覆盖：core=3，watch=238，tactical=1，rejected=558
 
 ### 默认规则
 
@@ -126,7 +126,7 @@
 
 - 核心假设：在成长性和估值之间做平衡，避免为叙事支付过高价格 
 - 适用市场：A, HK, US
-- 当前覆盖：core=12，watch=8，tactical=23，rejected=757
+- 当前覆盖：core=19，watch=8，tactical=30，rejected=743
 
 ### 默认规则
 
@@ -183,7 +183,7 @@
 
 - 核心假设：抓取被错杀资产在基本面或催化修复阶段的非对称收益 
 - 适用市场：A, HK, US
-- 当前覆盖：core=1，watch=63，tactical=3，rejected=733
+- 当前覆盖：core=1，watch=63，tactical=4，rejected=732
 
 ### 默认规则
 
@@ -235,7 +235,7 @@
 
 - 核心假设：宏观状态决定资产定价，优先选择宏观顺风方向 
 - 适用市场：A, HK, US
-- 当前覆盖：core=5，watch=0，tactical=26，rejected=769
+- 当前覆盖：core=6，watch=0，tactical=26，rejected=768
 
 ### 默认规则
 
@@ -339,7 +339,7 @@
 
 - 核心假设：多因子规则组合在大样本中稳定获取超额收益 
 - 适用市场：A, HK, US
-- 当前覆盖：core=21，watch=0，tactical=98，rejected=681
+- 当前覆盖：core=24，watch=0，tactical=63，rejected=713
 
 ### 默认规则
 
@@ -399,7 +399,7 @@
 
 - 核心假设：事件催化是主要收益来源，估值与风险控制作为约束 
 - 适用市场：A, HK, US
-- 当前覆盖：core=5，watch=4，tactical=141，rejected=650
+- 当前覆盖：core=6，watch=4，tactical=141，rejected=649
 
 ### 默认规则
 
@@ -455,7 +455,7 @@
 
 - 核心假设：信用扩张/收缩阶段驱动风险资产与防御资产轮动 
 - 适用市场：A, HK, US
-- 当前覆盖：core=2，watch=61，tactical=14，rejected=723
+- 当前覆盖：core=2，watch=57，tactical=14，rejected=727
 
 ### 默认规则
 

@@ -1,6 +1,6 @@
 # real_3markets 数据架构（联动 stock-data-hub）
 
-更新时间：2026-03-06（CST）
+更新时间：2026-03-16（CST）
 
 ## 1. 结论先行
 
@@ -60,11 +60,14 @@
 - 本地快照落盘脚本：
   - `/home/afu/projects/stock-data-hub/scripts/build_local_stock_snapshot.py`
 - `build_real_opportunities.py` 缓存命中回填补源已接通（覆盖提升主因）。
+- `build_real_opportunities.py` 已补“研报多源聚合 + 增量去重”：
+  - 读取本地 cache / snapshot / hub external valuation 候选。
+  - 先按 provider 做增量去重，再按最新有效候选聚合。
+  - 输出 `research_source_count / research_source_providers / research_aggregation_mode`，并把多源摘要写入 `note` / `data_lineage`。
 - 实时机会元信息 `local_snapshot` 改为摘要口径（count），避免大体积 JSON 影响页面与审计。
 
 待落地（free-first）：
 
-- A 股研报聚合（Eastmoney/akshare）补分析师信号与目标价统计。
 - DCF 覆盖扩容（优先核心池高权重标的）。
 - `external_valuations` 快照域按低频批量预拉（建议每日 1 次，不做每次实时链路阻塞）。
 

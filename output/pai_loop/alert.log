@@ -28,3 +28,6 @@
 [2026-03-14 09:17:05] [dual-modules-sent] json=/Users/lucas/projects/investor-method-lab/output/pai_loop/latest_dual_daily_modules.json
 [2026-03-15 10:11:53] [run-failed] mode=real rc=2 reason=步骤失败或漂移告警 report=/Users/lucas/projects/investor-method-lab/output/pai_loop/latest_report.md
 [2026-03-15 10:11:53] [notify-failed] app script rc=1 detail=TypeError: FeishuDeliveryConfig.__init__() missing 1 required positional argument: 'receive_id_type'
+[2026-03-16 09:14:20] [notify-failed] app script rc=1 detail=TypeError: FeishuDeliveryConfig.__init__() missing 1 required positional argument: 'receive_id_type'
+[2026-03-16 09:14:20] [notify-failed] app script rc=1 detail=TypeError: FeishuDeliveryConfig.__init__() missing 1 required positional argument: 'receive_id_type'
+[2026-03-16 09:14:20] [dual-modules-sent] json=/Users/lucas/projects/investor-method-lab/output/pai_loop/latest_dual_daily_modules.json

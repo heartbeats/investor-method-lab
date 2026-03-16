@@ -55,6 +55,13 @@ REVIEW_WRITEBACK_PULL_SCRIPT="${CODEX_PROJECT_ROOT}/scripts/pull_hit_zone_review
 MARKET_DATA_HARVEST_SCRIPT="${CODEX_PROJECT_ROOT}/scripts/harvest_market_data_lake.py"
 CORE_DATA_COVERAGE_SCRIPT="${CODEX_PROJECT_ROOT}/scripts/build_core_data_coverage_report.py"
 MARKET_DATA_INCREMENTAL_DB="${MARKET_DATA_INCREMENTAL_DB:-${HOME_DIR}/projects/stock-data-hub/data_lake/incremental/market_data_incremental.db}"
+A_SHARE_GOVERNANCE_JSON="${CODEX_PROJECT_ROOT}/output/a_share_source_governance_latest.json"
+HARVEST_SYMBOLS_FILE="${IML_MARKET_DATA_HARVEST_SYMBOLS_FILE:-$REAL_FILE}"
+IML_A_SHARE_REPAIR_ENABLED="${IML_A_SHARE_REPAIR_ENABLED:-1}"
+IML_A_SHARE_REPAIR_DOMAINS="${IML_A_SHARE_REPAIR_DOMAINS:-quote,external_valuations}"
+IML_A_SHARE_REPAIR_MAX_TASKS="${IML_A_SHARE_REPAIR_MAX_TASKS:-2}"
+IML_A_SHARE_REPAIR_MAX_SLICES="${IML_A_SHARE_REPAIR_MAX_SLICES:-0}"
+IML_A_SHARE_REPAIR_REFRESH="${IML_A_SHARE_REPAIR_REFRESH:-1}"
 
 export IML_STOCK_DATA_HUB_URL
 
@@ -240,14 +247,29 @@ python3 "$ROOT_DIR/scripts/build_valuation_upgrade_backlog.py" \
   --output-md "$VALUATION_UPGRADE_BACKLOG_MD"
 
 if [[ -f "$MARKET_DATA_HARVEST_SCRIPT" ]]; then
+  if [[ ! -f "$HARVEST_SYMBOLS_FILE" ]]; then
+    HARVEST_SYMBOLS_FILE="$UNIVERSE_FILE"
+  fi
   HARVEST_ARGS=(
-    --symbols-file "$UNIVERSE_FILE"
+    --symbols-file "$HARVEST_SYMBOLS_FILE"
     --snapshot-root "$SNAPSHOT_ROOT"
     --db-path "$MARKET_DATA_INCREMENTAL_DB"
     --build-snapshot-if-missing
   )
   if [[ -n "$SNAPSHOT_DATE" ]]; then
     HARVEST_ARGS+=(--snapshot-date "$SNAPSHOT_DATE")
+  fi
+  if [[ "$IML_A_SHARE_REPAIR_ENABLED" == "1" ]]; then
+    HARVEST_ARGS+=(
+      --a-share-repair
+      --a-share-governance-json "$A_SHARE_GOVERNANCE_JSON"
+      --a-share-repair-domains "$IML_A_SHARE_REPAIR_DOMAINS"
+      --a-share-repair-max-tasks "$IML_A_SHARE_REPAIR_MAX_TASKS"
+      --a-share-repair-max-slices "$IML_A_SHARE_REPAIR_MAX_SLICES"
+    )
+    if [[ "$IML_A_SHARE_REPAIR_REFRESH" == "1" ]]; then
+      HARVEST_ARGS+=(--refresh-repair-snapshots)
+    fi
   fi
   python3 "$MARKET_DATA_HARVEST_SCRIPT" "${HARVEST_ARGS[@]}" || echo "[warn] market data harvest failed, continue"
 fi

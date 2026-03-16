@@ -1,8 +1,16 @@
 {
-  "generated_at_utc": "2026-03-14T23:39:06.682525+00:00",
-  "as_of_date": "2026-03-14",
+  "generated_at_utc": "2026-03-16T17:07:09.384724+00:00",
+  "as_of_date": "2026-03-16",
   "db_path": "/Users/lucas/projects/stock-data-hub/data_lake/incremental/market_data_incremental.db",
   "registry_path": "/Users/lucas/codex-project/data/market_data_provider_registry_v1.json",
+  "real_universe_source_file": "/Users/lucas/projects/hit-zone/data/opportunities.universe_full_market_3markets.csv",
+  "target_symbol_pool_definition": "A股总市值 >= 100亿人民币；港股总市值 >= 100亿港币；美股总市值 >= 50亿美元。",
+  "market_counts": {
+    "A": 2057,
+    "HK": 511,
+    "US": 1305,
+    "total": 3873
+  },
   "coverage_contract": {
     "symbol_core_domains_by_market": {
       "A": [
@@ -34,7 +42,7 @@
     "headline_kpis": [
       "focus_pool_core_data_coverage_rate",
       "signal_pool_core_data_coverage_rate",
-      "top50_core_data_coverage_rate"
+      "all_market_core_data_coverage_rate"
     ],
     "notes": [
       "HK.external_valuations 暂不列为核心槽位：当前免费稳定链路只剩 yfinance，实测存在高限流且无可验证第二回退源。",
@@ -73,7 +81,7 @@
   ],
   "headline": [
     "核心系统数据覆盖度已升级为主 KPI；估值覆盖率不再是唯一代理指标。",
-    "特别关注池核心槽位覆盖率 100.00%，活跃信号池 98.88%，Top50 100.00%。"
+    "特别关注池核心槽位覆盖率 100.00%，活跃信号池 98.88%，Top50 100.00%，全市场股票范围 75.49%。"
   ],
   "focus_pool": {
     "count": 7,
@@ -133,25 +141,28 @@
     "sample_missing_rows": []
   },
   "overall_real_universe": {
-    "count": 799,
-    "required_slot_count": 3297,
-    "covered_slot_count": 2445,
-    "core_data_coverage_rate": 0.7415832575068244,
-    "core_slot_fill_rate": 0.7415832575068244,
-    "full_coverage_rate": 0.6320400500625782,
-    "fully_covered_symbol_count": 505,
+    "count": 3873,
+    "required_slot_count": 16286,
+    "covered_slot_count": 12294,
+    "core_data_coverage_rate": 0.7548814933071349,
+    "core_slot_fill_rate": 0.7548814933071349,
+    "full_coverage_rate": 0.284275755228505,
+    "fully_covered_symbol_count": 1101,
     "missing_domain_breakdown": {
-      "fundamentals": 279,
-      "external_valuations": 294,
-      "financial_statements": 279
+      "fundamentals": 212,
+      "external_valuations": 2771,
+      "financial_statements": 1006,
+      "price_history": 3
     },
     "stale_domain_breakdown": {
-      "external_valuations": 8
+      "fundamentals": 16,
+      "price_history": 3,
+      "external_valuations": 4
     },
     "sample_missing_rows": [
       {
-        "symbol": "US.A",
-        "name": "Agilent Technologies",
+        "symbol": "US.ABEV",
+        "name": "Ambev SA ADR",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -165,8 +176,8 @@
         ]
       },
       {
-        "symbol": "US.ABBV",
-        "name": "AbbVie",
+        "symbol": "US.ABVX",
+        "name": "Abivax SA ADR",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -180,8 +191,8 @@
         ]
       },
       {
-        "symbol": "US.ABNB",
-        "name": "Airbnb",
+        "symbol": "US.AEG",
+        "name": "荷兰全球保险",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -195,8 +206,25 @@
         ]
       },
       {
-        "symbol": "US.ABT",
-        "name": "Abbott Laboratories",
+        "symbol": "US.AEM",
+        "name": "伊格尔矿业",
+        "market": "US",
+        "missing_domains": [
+          "fundamentals",
+          "external_valuations",
+          "financial_statements"
+        ],
+        "stale_domains": [
+          "fundamentals"
+        ],
+        "available_domains": [
+          "quote",
+          "price_history"
+        ]
+      },
+      {
+        "symbol": "US.AG",
+        "name": "First Majestic Silver Corp",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -210,8 +238,8 @@
         ]
       },
       {
-        "symbol": "US.ACGL",
-        "name": "Arch Capital Group",
+        "symbol": "US.AGI",
+        "name": "Alamos Gold Inc-A",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -225,8 +253,25 @@
         ]
       },
       {
-        "symbol": "US.ACN",
-        "name": "Accenture",
+        "symbol": "US.ALC",
+        "name": "Alcon Inc",
+        "market": "US",
+        "missing_domains": [
+          "fundamentals",
+          "external_valuations",
+          "financial_statements"
+        ],
+        "stale_domains": [
+          "fundamentals"
+        ],
+        "available_domains": [
+          "quote",
+          "price_history"
+        ]
+      },
+      {
+        "symbol": "US.AMX",
+        "name": "美洲移动",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -240,8 +285,8 @@
         ]
       },
       {
-        "symbol": "US.ADBE",
-        "name": "Adobe Inc.",
+        "symbol": "US.AR",
+        "name": "Antero Resources Corp",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -255,8 +300,8 @@
         ]
       },
       {
-        "symbol": "US.ADI",
-        "name": "Analog Devices",
+        "symbol": "US.ARGX",
+        "name": "argenx SE ADR",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -270,8 +315,8 @@
         ]
       },
       {
-        "symbol": "US.ADM",
-        "name": "Archer Daniels Midland",
+        "symbol": "US.AS",
+        "name": "亚玛芬体育",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -285,8 +330,8 @@
         ]
       },
       {
-        "symbol": "US.ADP",
-        "name": "Automatic Data Processing",
+        "symbol": "US.ASML",
+        "name": "阿斯麦",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -300,8 +345,8 @@
         ]
       },
       {
-        "symbol": "US.ADSK",
-        "name": "Autodesk",
+        "symbol": "US.ASND",
+        "name": "Ascendis Pharma AS ADR",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -315,8 +360,8 @@
         ]
       },
       {
-        "symbol": "US.AEE",
-        "name": "Ameren",
+        "symbol": "US.ASR",
+        "name": "Grupo Aeroportuario del Sureste SAB de CV ADR",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -330,8 +375,8 @@
         ]
       },
       {
-        "symbol": "US.AEP",
-        "name": "American Electric Power",
+        "symbol": "US.ASX",
+        "name": "日月光半导体",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -345,8 +390,8 @@
         ]
       },
       {
-        "symbol": "US.AFL",
-        "name": "Aflac",
+        "symbol": "US.AU",
+        "name": "AngloGold Ashanti plc",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -360,8 +405,8 @@
         ]
       },
       {
-        "symbol": "US.AIG",
-        "name": "American International Group",
+        "symbol": "US.AUGO",
+        "name": "Aura Minerals Inc",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -375,8 +420,8 @@
         ]
       },
       {
-        "symbol": "US.AIZ",
-        "name": "Assurant",
+        "symbol": "US.AXIA",
+        "name": "AXIA Energia ADR",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -390,8 +435,8 @@
         ]
       },
       {
-        "symbol": "US.AJG",
-        "name": "Arthur J. Gallagher & Co.",
+        "symbol": "US.AZN",
+        "name": "阿斯利康",
         "market": "US",
         "missing_domains": [
           "fundamentals",
@@ -405,45 +450,17 @@
         ]
       },
       {
-        "symbol": "US.AKAM",
-        "name": "Akamai Technologies",
+        "symbol": "US.B",
+        "name": "巴里克矿业",
         "market": "US",
         "missing_domains": [
           "fundamentals",
           "external_valuations",
           "financial_statements"
         ],
-        "stale_domains": [],
-        "available_domains": [
-          "quote",
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.ALB",
-        "name": "Albemarle Corporation",
-        "market": "US",
-        "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+        "stale_domains": [
+          "fundamentals"
         ],
-        "stale_domains": [],
-        "available_domains": [
-          "quote",
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.ALGN",
-        "name": "Align Technology",
-        "market": "US",
-        "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [],
         "available_domains": [
           "quote",
           "price_history"
@@ -498,6 +515,30 @@
         "core_data_coverage_rate": 0.7415832575068244,
         "core_slot_fill_rate": 0.7415832575068244,
         "full_coverage_rate": 0.6320400500625782
+      }
+    },
+    {
+      "generated_at_utc": "2026-03-16T17:07:09.384741+00:00",
+      "as_of_date": "2026-03-16",
+      "focus_pool": {
+        "core_data_coverage_rate": 1.0,
+        "core_slot_fill_rate": 1.0,
+        "full_coverage_rate": 1.0
+      },
+      "signal_pool": {
+        "core_data_coverage_rate": 0.9887640449438202,
+        "core_slot_fill_rate": 0.9887640449438202,
+        "full_coverage_rate": 0.9523809523809523
+      },
+      "top50_pool": {
+        "core_data_coverage_rate": 1.0,
+        "core_slot_fill_rate": 1.0,
+        "full_coverage_rate": 1.0
+      },
+      "overall_real_universe": {
+        "core_data_coverage_rate": 0.7548814933071349,
+        "core_slot_fill_rate": 0.7548814933071349,
+        "full_coverage_rate": 0.284275755228505
       }
     }
   ]

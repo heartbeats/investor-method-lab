@@ -12,7 +12,7 @@ import time
 from dataclasses import asdict, dataclass
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Sequence
 from urllib import parse as urllib_parse
 from urllib import request as urllib_request
 from urllib.parse import urlparse
@@ -41,6 +41,25 @@ LOCAL_SNAPSHOT_CONTEXT: Dict[str, Any] = {
     "price_history": {},
     "financial_statements": {},
 }
+
+DEFAULT_RESEARCH_CACHE_DIRS = [
+    PROJECT_ROOT / "data" / "cache" / "stock_data_hub",
+    PROJECT_ROOT / "data" / "cache" / "yfinance",
+]
+RESEARCH_MAX_AGE_DAYS = 21
+
+
+@dataclass(frozen=True)
+class ExternalValuationCandidate:
+    provider: str
+    as_of: str
+    target_mean_price: float | None = None
+    target_median_price: float | None = None
+    target_high_price: float | None = None
+    target_low_price: float | None = None
+    analyst_count: float | None = None
+    recommendation_mean: float | None = None
+    origin: str = ""
 
 
 def normalize_yf_ticker(ticker: str) -> str:
@@ -319,6 +338,7 @@ def fetch_external_valuation_from_stock_data_hub(
         return None
     return {
         "provider": str(payload.get("provider") or "stock_data_hub"),
+        "as_of": str(payload.get("as_of") or ""),
         "target_mean_price": mean,
         "target_median_price": median,
         "target_high_price": high,
@@ -328,6 +348,11 @@ def fetch_external_valuation_from_stock_data_hub(
             payload.get("recommendation_mean"),
             payload.get("target_rating_mean"),
         ),
+        "source_chain": [
+            str(item).strip()
+            for item in (payload.get("source_chain") or [])
+            if str(item).strip()
+        ],
     }
 
 
@@ -455,26 +480,403 @@ def _normalize_analyst_count(value: float | None) -> float | None:
     return value
 
 
+def _parse_as_of_datetime(value: Any) -> datetime | None:
+    text = str(value or "").strip()
+    if not text:
+        return None
+    candidates = [text]
+    if len(text) == 10 and text.count("-") == 2:
+        candidates.append(f"{text}T00:00:00+00:00")
+    for item in candidates:
+        try:
+            parsed = datetime.fromisoformat(item.replace("Z", "+00:00"))
+            if parsed.tzinfo is None:
+                parsed = parsed.replace(tzinfo=timezone.utc)
+            return parsed
+        except ValueError:
+            continue
+    return None
+
+
+def _extract_provider_from_valuation_detail(detail: Any) -> str:
+    text = normalize_text(detail)
+    if not text:
+        return ""
+    if text.startswith("yahoo_target_mean_price"):
+        return "yfinance"
+    if "multisource:" in text:
+        return ""
+    match = re.search(r"stock_data_hub:([^)]+)", text)
+    if match:
+        return normalize_text(match.group(1)).lower()
+    return ""
+
+
+def _normalize_external_provider(
+    provider: Any,
+    *,
+    detail: Any = "",
+    source_chain: Sequence[Any] | None = None,
+) -> str:
+    text = normalize_text(provider).lower()
+    if text in {"yahoo", "yahoo_finance", "yahoo_target_mean_price"}:
+        return "yfinance"
+    if text.startswith("stock_data_hub:"):
+        return normalize_text(text.split(":", 1)[1]).lower()
+    if not text or text in {"stock_data_hub", "stock_data_hub_snapshot"}:
+        detail_provider = _extract_provider_from_valuation_detail(detail)
+        if detail_provider:
+            return detail_provider
+        chain = [normalize_text(item).lower() for item in (source_chain or []) if normalize_text(item)]
+        if text == "stock_data_hub_snapshot" and chain:
+            return chain[0]
+        if text:
+            return text
+    return text
+
+
+def _candidate_completeness(candidate: ExternalValuationCandidate) -> int:
+    return sum(
+        1
+        for value in [
+            candidate.target_mean_price,
+            candidate.target_median_price,
+            candidate.target_high_price,
+            candidate.target_low_price,
+            candidate.analyst_count,
+            candidate.recommendation_mean,
+        ]
+        if value is not None
+    )
+
+
+def _merge_external_candidates(
+    primary: ExternalValuationCandidate,
+    secondary: ExternalValuationCandidate,
+) -> ExternalValuationCandidate:
+    merged_origin = " | ".join(
+        part
+        for part in [normalize_text(primary.origin), normalize_text(secondary.origin)]
+        if part
+    )
+    analyst_values = [value for value in [primary.analyst_count, secondary.analyst_count] if value is not None]
+    return ExternalValuationCandidate(
+        provider=primary.provider,
+        as_of=primary.as_of or secondary.as_of,
+        target_mean_price=primary.target_mean_price if primary.target_mean_price is not None else secondary.target_mean_price,
+        target_median_price=primary.target_median_price
+        if primary.target_median_price is not None
+        else secondary.target_median_price,
+        target_high_price=primary.target_high_price if primary.target_high_price is not None else secondary.target_high_price,
+        target_low_price=primary.target_low_price if primary.target_low_price is not None else secondary.target_low_price,
+        analyst_count=max(analyst_values) if analyst_values else None,
+        recommendation_mean=primary.recommendation_mean
+        if primary.recommendation_mean is not None
+        else secondary.recommendation_mean,
+        origin=merged_origin,
+    )
+
+
+def _candidate_merge_key(candidate: ExternalValuationCandidate) -> tuple[Any, ...]:
+    price_signature = tuple(
+        round(value, 4) if value is not None else None
+        for value in [
+            candidate.target_mean_price,
+            candidate.target_median_price,
+            candidate.target_high_price,
+            candidate.target_low_price,
+        ]
+    )
+    if any(value is not None for value in price_signature):
+        return (candidate.provider, *price_signature)
+    return (
+        candidate.provider,
+        round(candidate.analyst_count, 4) if candidate.analyst_count is not None else None,
+        round(candidate.recommendation_mean, 4) if candidate.recommendation_mean is not None else None,
+    )
+
+
+def _normalize_external_valuation_candidate(
+    payload: Dict[str, Any] | None,
+    *,
+    provider: Any = "",
+    detail: Any = "",
+    as_of: Any = "",
+    origin: str = "",
+) -> ExternalValuationCandidate | None:
+    if not isinstance(payload, dict):
+        return None
+    normalized_provider = _normalize_external_provider(
+        provider or payload.get("provider"),
+        detail=detail,
+        source_chain=payload.get("source_chain") if isinstance(payload.get("source_chain"), list) else None,
+    )
+    if not normalized_provider:
+        return None
+    candidate = ExternalValuationCandidate(
+        provider=normalized_provider,
+        as_of=normalize_text(as_of or payload.get("as_of") or payload.get("as_of_date")),
+        target_mean_price=_safe_float(payload.get("target_mean_price")),
+        target_median_price=_safe_float(payload.get("target_median_price")),
+        target_high_price=_safe_float(payload.get("target_high_price")),
+        target_low_price=_safe_float(payload.get("target_low_price")),
+        analyst_count=_normalize_analyst_count(_safe_float(payload.get("analyst_count"))),
+        recommendation_mean=_safe_float(payload.get("recommendation_mean")),
+        origin=origin,
+    )
+    if _candidate_completeness(candidate) <= 0:
+        return None
+    return candidate
+
+
+def _collapse_external_candidates_by_provider(
+    candidates: Sequence[ExternalValuationCandidate],
+) -> List[ExternalValuationCandidate]:
+    merged_by_signature: Dict[tuple[Any, ...], ExternalValuationCandidate] = {}
+    for candidate in candidates:
+        existing = merged_by_signature.get(_candidate_merge_key(candidate))
+        if existing is None:
+            merged_by_signature[_candidate_merge_key(candidate)] = candidate
+            continue
+        existing_dt = _parse_as_of_datetime(existing.as_of)
+        candidate_dt = _parse_as_of_datetime(candidate.as_of)
+        if candidate_dt and (existing_dt is None or candidate_dt >= existing_dt):
+            primary, secondary = candidate, existing
+        else:
+            primary, secondary = existing, candidate
+        merged_by_signature[_candidate_merge_key(candidate)] = _merge_external_candidates(primary, secondary)
+
+    provider_candidates = list(merged_by_signature.values())
+    dated_candidates = [(_parse_as_of_datetime(item.as_of), item) for item in provider_candidates]
+    valid_dates = [dt for dt, _ in dated_candidates if dt is not None]
+    if valid_dates:
+        freshest = max(valid_dates)
+        provider_candidates = [
+            item
+            for dt, item in dated_candidates
+            if dt is None or freshest - dt <= timedelta(days=RESEARCH_MAX_AGE_DAYS)
+        ]
+
+    latest_by_provider: Dict[str, ExternalValuationCandidate] = {}
+    for candidate in provider_candidates:
+        existing = latest_by_provider.get(candidate.provider)
+        if existing is None:
+            latest_by_provider[candidate.provider] = candidate
+            continue
+        existing_dt = _parse_as_of_datetime(existing.as_of)
+        candidate_dt = _parse_as_of_datetime(candidate.as_of)
+        if candidate_dt and (existing_dt is None or candidate_dt > existing_dt):
+            primary, secondary = candidate, existing
+        elif candidate_dt == existing_dt and _candidate_completeness(candidate) >= _candidate_completeness(existing):
+            primary, secondary = candidate, existing
+        else:
+            primary, secondary = existing, candidate
+        latest_by_provider[candidate.provider] = _merge_external_candidates(primary, secondary)
+    return [latest_by_provider[key] for key in sorted(latest_by_provider)]
+
+
+def aggregate_external_valuation_candidates(
+    candidates: Sequence[ExternalValuationCandidate],
+) -> Dict[str, Any]:
+    collapsed = _collapse_external_candidates_by_provider(candidates)
+    if not collapsed:
+        return {
+            "provider": "",
+            "as_of": "",
+            "target_mean_price": None,
+            "target_median_price": None,
+            "target_high_price": None,
+            "target_low_price": None,
+            "analyst_count": None,
+            "recommendation_mean": None,
+            "source_count": 0,
+            "source_providers": [],
+            "target_source_count": 0,
+            "target_source_providers": [],
+            "aggregation_mode": "none",
+            "deduped_candidate_count": 0,
+        }
+
+    source_providers = [candidate.provider for candidate in collapsed]
+    target_candidates = [
+        candidate for candidate in collapsed if candidate.target_mean_price is not None and candidate.target_mean_price > 0
+    ]
+    target_values = sorted(candidate.target_mean_price for candidate in target_candidates if candidate.target_mean_price is not None)
+    target_source_providers = [candidate.provider for candidate in target_candidates]
+
+    aggregated_target_mean = None
+    if len(target_values) == 1:
+        aggregated_target_mean = target_values[0]
+    elif len(target_values) > 1:
+        mid = len(target_values) // 2
+        if len(target_values) % 2 == 1:
+            aggregated_target_mean = target_values[mid]
+        else:
+            aggregated_target_mean = (target_values[mid - 1] + target_values[mid]) / 2.0
+
+    median_values = sorted(
+        candidate.target_median_price for candidate in collapsed if candidate.target_median_price is not None and candidate.target_median_price > 0
+    )
+    aggregated_target_median = None
+    if len(median_values) == 1:
+        aggregated_target_median = median_values[0]
+    elif len(median_values) > 1:
+        mid = len(median_values) // 2
+        if len(median_values) % 2 == 1:
+            aggregated_target_median = median_values[mid]
+        else:
+            aggregated_target_median = (median_values[mid - 1] + median_values[mid]) / 2.0
+    elif aggregated_target_mean is not None:
+        aggregated_target_median = aggregated_target_mean
+
+    high_values = [candidate.target_high_price for candidate in collapsed if candidate.target_high_price is not None and candidate.target_high_price > 0]
+    low_values = [candidate.target_low_price for candidate in collapsed if candidate.target_low_price is not None and candidate.target_low_price > 0]
+    analyst_values = [candidate.analyst_count for candidate in collapsed if candidate.analyst_count is not None]
+    recommendation_values = sorted(
+        {
+            round(candidate.recommendation_mean, 4)
+            for candidate in collapsed
+            if candidate.recommendation_mean is not None
+        }
+    )
+    valid_dates = [dt for dt in (_parse_as_of_datetime(candidate.as_of) for candidate in collapsed) if dt is not None]
+
+    if len(source_providers) <= 1 and len(target_source_providers) <= 1:
+        aggregation_mode = "single_source"
+    elif len(target_source_providers) > 1:
+        aggregation_mode = "multisource_consensus"
+    else:
+        aggregation_mode = "multisource_enriched"
+
+    return {
+        "provider": source_providers[0] if len(source_providers) == 1 else "multisource",
+        "as_of": max(valid_dates).isoformat() if valid_dates else "",
+        "target_mean_price": aggregated_target_mean,
+        "target_median_price": aggregated_target_median,
+        "target_high_price": max(high_values) if high_values else aggregated_target_mean,
+        "target_low_price": min(low_values) if low_values else aggregated_target_mean,
+        "analyst_count": max(analyst_values) if analyst_values else None,
+        "recommendation_mean": (
+            round(sum(recommendation_values) / len(recommendation_values), 4)
+            if recommendation_values
+            else None
+        ),
+        "source_count": len(source_providers),
+        "source_providers": source_providers,
+        "target_source_count": len(target_source_providers),
+        "target_source_providers": target_source_providers,
+        "aggregation_mode": aggregation_mode,
+        "deduped_candidate_count": len(collapsed),
+    }
+
+
+def _load_local_cached_external_candidates(ticker: str, history_period: str = "2y") -> List[ExternalValuationCandidate]:
+    candidates: List[ExternalValuationCandidate] = []
+    seen_paths: set[Path] = set()
+    for cache_dir in DEFAULT_RESEARCH_CACHE_DIRS:
+        cache_file = _cache_path(cache_dir, ticker, history_period)
+        if cache_file in seen_paths or not cache_file.exists():
+            continue
+        seen_paths.add(cache_file)
+        try:
+            payload = json.loads(cache_file.read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001
+            continue
+        row = payload.get("row") if isinstance(payload, dict) else None
+        if not isinstance(row, dict):
+            continue
+        detail = normalize_text(row.get("valuation_source_detail"))
+        if "multisource:" in detail:
+            continue
+        candidate = _normalize_external_valuation_candidate(
+            row,
+            detail=detail,
+            as_of=row.get("as_of_date"),
+            origin=f"cache:{cache_dir.name}",
+        )
+        if candidate is not None:
+            candidates.append(candidate)
+    return candidates
+
+
+def _research_sources_text(providers: Sequence[str]) -> str:
+    clean = [normalize_text(item) for item in providers if normalize_text(item)]
+    return "+".join(clean)
+
+
 def _target_from_sources(
     yf_target: float | None,
-    hub_external: Dict[str, Any] | None,
+    external_context: Dict[str, Any] | None,
 ) -> tuple[float | None, str]:
     if yf_target is not None and yf_target > 0:
         return yf_target, "target_mean_price"
-    if hub_external:
-        mean = _safe_float(hub_external.get("target_mean_price"))
+    if external_context:
+        mean = _safe_float(external_context.get("target_mean_price"))
         if mean is not None and mean > 0:
             return mean, "target_mean_price"
     return None, "close_fallback"
 
 
-def _target_detail(yf_target: float | None, hub_external: Dict[str, Any] | None) -> str:
+def _target_detail(yf_target: float | None, external_context: Dict[str, Any] | None) -> str:
     if yf_target is not None and yf_target > 0:
         return "yahoo_target_mean_price"
-    if hub_external and _safe_float(hub_external.get("target_mean_price")) is not None:
-        provider = str(hub_external.get("provider") or "stock_data_hub")
-        return f"target_mean_price(stock_data_hub:{provider})"
+    if external_context and _safe_float(external_context.get("target_mean_price")) is not None:
+        target_providers = [
+            normalize_text(item)
+            for item in (external_context.get("target_source_providers") or [])
+            if normalize_text(item)
+        ]
+        if len(target_providers) > 1:
+            return f"target_mean_price(multisource:{_research_sources_text(target_providers)})"
+        provider = normalize_text(external_context.get("provider") or (target_providers[0] if target_providers else ""))
+        if provider == "yfinance":
+            return "yahoo_target_mean_price"
+        if provider:
+            return f"target_mean_price(stock_data_hub:{provider})"
     return "close_fallback"
+
+
+def _apply_research_context_to_row(
+    row: RawMarketRow,
+    research_context: Dict[str, Any] | None,
+) -> None:
+    if not isinstance(research_context, dict):
+        return
+    row.research_source_count = int(research_context.get("source_count") or 0)
+    row.research_source_providers = "|".join(
+        normalize_text(item)
+        for item in (research_context.get("source_providers") or [])
+        if normalize_text(item)
+    )
+    row.research_aggregation_mode = normalize_text(research_context.get("aggregation_mode")) or "none"
+    target_mean = _safe_float(research_context.get("target_mean_price"))
+    if target_mean is not None and target_mean > 0:
+        row.target_mean_price = target_mean
+        if row.valuation_source == "target_mean_price":
+            row.fair_value = target_mean
+        if row.valuation_source == "close_fallback":
+            row.fair_value = target_mean
+            row.valuation_source = "target_mean_price"
+        if row.valuation_source == "target_mean_price":
+            row.valuation_source_detail = _target_detail(None, research_context)
+    analyst_count = _normalize_analyst_count(_safe_float(research_context.get("analyst_count")))
+    if analyst_count is not None:
+        row.analyst_count = analyst_count
+    recommendation_mean = _safe_float(research_context.get("recommendation_mean"))
+    if recommendation_mean is not None:
+        row.recommendation_mean = recommendation_mean
+
+
+def _apply_research_context_to_lineage(base_lineage: str, research_context: Dict[str, Any] | None) -> str:
+    providers = [
+        normalize_text(item)
+        for item in ((research_context or {}).get("source_providers") or [])
+        if normalize_text(item)
+    ]
+    if len(providers) <= 1:
+        return base_lineage
+    deduped_count = int((research_context or {}).get("deduped_candidate_count") or 0)
+    return f"{base_lineage}+research_multisource({_research_sources_text(providers)};dedup={deduped_count})"
 
 
 def _build_row_name(item: Dict[str, str], info: Dict[str, Any], ticker: str) -> str:
@@ -519,11 +921,11 @@ def _calc_quality_fields(
 def _build_valuation_detail(
     valuation_source: str,
     yf_target: float | None,
-    hub_external: Dict[str, Any] | None,
+    external_context: Dict[str, Any] | None,
     hub_quote: Dict[str, Any] | None,
 ) -> str:
     if valuation_source == "target_mean_price":
-        return _target_detail(yf_target, hub_external)
+        return _target_detail(yf_target, external_context)
     if hub_quote is not None:
         provider = str(hub_quote.get("provider") or "stock_data_hub")
         return f"close_fallback(stock_data_hub:{provider})"
@@ -589,6 +991,9 @@ class RawMarketRow:
     dcf_comps_deviation_vs_median: float | None = None
     dcf_comps_source: str | None = None
     dcf_quality_penalty_multiplier: float = 1.0
+    research_source_count: int = 0
+    research_source_providers: str = ""
+    research_aggregation_mode: str = "none"
     base_note: str = ""
     data_lineage: str = ""
 
@@ -596,6 +1001,7 @@ class RawMarketRow:
 def _to_hub_external_payload(snapshot_external: Dict[str, Any]) -> Dict[str, Any]:
     return {
         "provider": str(snapshot_external.get("provider") or "stock_data_hub_snapshot"),
+        "as_of": str(snapshot_external.get("as_of") or ""),
         "target_mean_price": _safe_float(snapshot_external.get("target_mean_price")),
         "target_median_price": _safe_float(snapshot_external.get("target_median_price")),
         "target_high_price": _safe_float(snapshot_external.get("target_high_price")),
@@ -605,6 +1011,11 @@ def _to_hub_external_payload(snapshot_external: Dict[str, Any]) -> Dict[str, Any
             snapshot_external.get("recommendation_mean"),
             snapshot_external.get("target_rating_mean"),
         ),
+        "source_chain": [
+            str(item).strip()
+            for item in (snapshot_external.get("source_chain") or [])
+            if str(item).strip()
+        ],
     }
 
 
@@ -621,9 +1032,54 @@ def _to_hub_fundamental_payload(snapshot_fundamental: Dict[str, Any]) -> Dict[st
     }
 
 
+def _collect_research_context(
+    *,
+    ticker: str,
+    history_period: str,
+    live_external: Dict[str, Any] | None = None,
+    snapshot_external: Dict[str, Any] | None = None,
+    current_row: RawMarketRow | None = None,
+) -> Dict[str, Any]:
+    candidates: List[ExternalValuationCandidate] = []
+    if isinstance(snapshot_external, dict):
+        candidate = _normalize_external_valuation_candidate(
+            snapshot_external,
+            as_of=snapshot_external.get("as_of"),
+            origin="snapshot:external_valuations",
+        )
+        if candidate is not None:
+            candidates.append(candidate)
+    if isinstance(live_external, dict):
+        candidate = _normalize_external_valuation_candidate(
+            live_external,
+            as_of=live_external.get("as_of"),
+            origin="hub:external_valuation",
+        )
+        if candidate is not None:
+            candidates.append(candidate)
+    if current_row is not None:
+        detail = normalize_text(current_row.valuation_source_detail)
+        if "multisource:" not in detail:
+            candidate = _normalize_external_valuation_candidate(
+                {
+                    "target_mean_price": current_row.target_mean_price,
+                    "analyst_count": current_row.analyst_count,
+                    "recommendation_mean": current_row.recommendation_mean,
+                },
+                detail=detail,
+                as_of=current_row.as_of_date,
+                origin="current_row",
+            )
+            if candidate is not None:
+                candidates.append(candidate)
+    candidates.extend(_load_local_cached_external_candidates(ticker=ticker, history_period=history_period))
+    return aggregate_external_valuation_candidates(candidates)
+
+
 def enrich_cached_row_with_backfill(row: RawMarketRow) -> None:
     snapshot_external = get_snapshot_record("external_valuations", row.ticker)
     snapshot_fundamental = get_snapshot_record("fundamentals", row.ticker)
+    history_period = "2y"
 
     need_external = (
         row.target_mean_price is None
@@ -637,23 +1093,14 @@ def enrich_cached_row_with_backfill(row: RawMarketRow) -> None:
             hub_external = _to_hub_external_payload(snapshot_external)
         if hub_external is None:
             hub_external = fetch_external_valuation_from_stock_data_hub(ticker=row.ticker, timeout_sec=6.0)
-        if isinstance(hub_external, dict):
-            target_mean = _safe_float(hub_external.get("target_mean_price"))
-            if (row.target_mean_price is None or row.target_mean_price <= 0) and target_mean is not None and target_mean > 0:
-                row.target_mean_price = target_mean
-                if row.valuation_source == "close_fallback":
-                    row.fair_value = target_mean
-                    row.valuation_source = "target_mean_price"
-                    provider = str(hub_external.get("provider") or "stock_data_hub")
-                    row.valuation_source_detail = f"target_mean_price(stock_data_hub:{provider})"
-            if row.analyst_count is None:
-                analyst_count = _normalize_analyst_count(_safe_float(hub_external.get("analyst_count")))
-                if analyst_count is not None:
-                    row.analyst_count = analyst_count
-            if row.recommendation_mean is None:
-                recommendation_mean = _safe_float(hub_external.get("recommendation_mean"))
-                if recommendation_mean is not None:
-                    row.recommendation_mean = recommendation_mean
+    research_context = _collect_research_context(
+        ticker=row.ticker,
+        history_period=history_period,
+        live_external=hub_external,
+        snapshot_external=_to_hub_external_payload(snapshot_external) if isinstance(snapshot_external, dict) else None,
+        current_row=row,
+    )
+    _apply_research_context_to_row(row, research_context)
 
     need_fundamental = (
         row.return_on_equity is None
@@ -686,6 +1133,11 @@ def enrich_cached_row_with_backfill(row: RawMarketRow) -> None:
         valuation_source=row.valuation_source,
         dcf_symbol=row.dcf_symbol,
         dcf_iv_base=row.dcf_iv_base,
+        research_sources=row.research_source_providers,
+    )
+    row.data_lineage = _apply_research_context_to_lineage(
+        row.data_lineage or "hub_only(price_history+quote+fundamental+external)",
+        research_context,
     )
 
 
@@ -1153,7 +1605,19 @@ def _apply_non_dcf_valuation(row: RawMarketRow, reason: str) -> None:
     if row.target_mean_price and row.target_mean_price > 0:
         row.fair_value = row.target_mean_price
         row.valuation_source = "target_mean_price"
-        row.valuation_source_detail = f"yahoo_target_mean_price({reason})"
+        research_context = {
+            "provider": "multisource" if row.research_source_count > 1 else _extract_provider_from_valuation_detail(row.valuation_source_detail),
+            "target_mean_price": row.target_mean_price,
+            "target_source_providers": [
+                normalize_text(item)
+                for item in row.research_source_providers.split("|")
+                if normalize_text(item)
+            ],
+        }
+        detail = _target_detail(None, research_context)
+        if detail == "close_fallback":
+            detail = f"yahoo_target_mean_price({reason})"
+        row.valuation_source_detail = detail
     else:
         row.fair_value = row.close
         row.valuation_source = "close_fallback"
@@ -1301,6 +1765,7 @@ def apply_dcf_overlay(
             valuation_source=row.valuation_source,
             dcf_symbol=row.dcf_symbol,
             dcf_iv_base=row.dcf_iv_base,
+            research_sources=row.research_source_providers,
         )
         if row.dcf_quality_gate_status:
             key = str(row.dcf_quality_gate_status).lower()
@@ -1346,6 +1811,7 @@ def _build_note(
     valuation_source: str,
     dcf_symbol: str | None,
     dcf_iv_base: float | None,
+    research_sources: str = "",
 ) -> str:
     price_upside = (fair_value / close - 1.0) if close > 0 else 0.0
     note_parts = [base_note.strip()]
@@ -1360,6 +1826,8 @@ def _build_note(
         note_parts.append(f"dcf_symbol={dcf_symbol}")
     if dcf_iv_base is not None and dcf_iv_base > 0:
         note_parts.append(f"dcf_iv={dcf_iv_base:.2f}")
+    if research_sources and "|" in research_sources:
+        note_parts.append(f"research_sources={research_sources.replace('|', '+')}")
     note_parts.append(f"upside={price_upside * 100:.1f}%")
     return " | ".join(part for part in note_parts if part)
 
@@ -1459,21 +1927,19 @@ def fetch_raw_market_row(item: Dict[str, str], history_period: str) -> RawMarket
     )
     if need_external:
         if isinstance(snapshot_external, dict):
-            hub_external = {
-                "provider": str(snapshot_external.get("provider") or "stock_data_hub_snapshot"),
-                "target_mean_price": _safe_float(snapshot_external.get("target_mean_price")),
-                "target_median_price": _safe_float(snapshot_external.get("target_median_price")),
-                "target_high_price": _safe_float(snapshot_external.get("target_high_price")),
-                "target_low_price": _safe_float(snapshot_external.get("target_low_price")),
-                "analyst_count": _safe_float(snapshot_external.get("analyst_count")),
-                "recommendation_mean": _first_valid(
-                    snapshot_external.get("recommendation_mean"),
-                    snapshot_external.get("target_rating_mean"),
-                ),
-            }
+            hub_external = _to_hub_external_payload(snapshot_external)
         if hub_external is None:
             hub_external = fetch_external_valuation_from_stock_data_hub(ticker=ticker, timeout_sec=8.0)
-    target_mean, valuation_source = _target_from_sources(yf_target=yf_target_mean, hub_external=hub_external)
+    research_context = _collect_research_context(
+        ticker=ticker,
+        history_period=history_period,
+        live_external=hub_external,
+        snapshot_external=_to_hub_external_payload(snapshot_external) if isinstance(snapshot_external, dict) else None,
+    )
+    target_mean, valuation_source = _target_from_sources(
+        yf_target=yf_target_mean,
+        external_context=research_context,
+    )
     fair_value = target_mean if target_mean and target_mean > 0 else close
 
     hub_fundamental = None
@@ -1497,9 +1963,9 @@ def fetch_raw_market_row(item: Dict[str, str], history_period: str) -> RawMarket
             }
         if hub_fundamental is None:
             hub_fundamental = fetch_fundamental_from_stock_data_hub(ticker=ticker, timeout_sec=8.0)
-    quality_fields = _calc_quality_fields(info=info, hub_fundamental=hub_fundamental, hub_external=hub_external)
-    if quality_fields.get("analyst_count") is None and hub_external is not None:
-        quality_fields["analyst_count"] = _normalize_analyst_count(_safe_float(hub_external.get("analyst_count")))
+    quality_fields = _calc_quality_fields(info=info, hub_fundamental=hub_fundamental, hub_external=research_context)
+    if quality_fields.get("analyst_count") is None:
+        quality_fields["analyst_count"] = _normalize_analyst_count(_safe_float(research_context.get("analyst_count")))
 
     if closes.empty:
         ret_3m = None
@@ -1529,6 +1995,11 @@ def fetch_raw_market_row(item: Dict[str, str], history_period: str) -> RawMarket
         valuation_source=valuation_source,
         dcf_symbol=None,
         dcf_iv_base=None,
+        research_sources="|".join(research_context.get("source_providers") or []),
+    )
+    data_lineage = _apply_research_context_to_lineage(
+        "hub_only(price_history+quote+fundamental+external)",
+        research_context,
     )
 
     return RawMarketRow(
@@ -1561,11 +2032,14 @@ def fetch_raw_market_row(item: Dict[str, str], history_period: str) -> RawMarket
         valuation_source_detail=_build_valuation_detail(
             valuation_source=valuation_source,
             yf_target=yf_target_mean,
-            hub_external=hub_external,
+            external_context=research_context,
             hub_quote=hub_quote,
         ),
+        research_source_count=int(research_context.get("source_count") or 0),
+        research_source_providers="|".join(research_context.get("source_providers") or []),
+        research_aggregation_mode=normalize_text(research_context.get("aggregation_mode")) or "none",
         base_note=item.get("note", ""),
-        data_lineage="hub_only(price_history+quote+fundamental+external)",
+        data_lineage=data_lineage,
     )
 
 
@@ -2034,6 +2508,9 @@ def write_real_opportunities(path: Path, df: pd.DataFrame, ordered_tickers: List
         "target_mean_price",
         "valuation_source",
         "valuation_source_detail",
+        "research_source_count",
+        "research_source_providers",
+        "research_aggregation_mode",
         "dcf_symbol",
         "dcf_iv_base",
         "dcf_mos_base",
@@ -2074,6 +2551,9 @@ def write_real_opportunities(path: Path, df: pd.DataFrame, ordered_tickers: List
                     "target_mean_price": _format_float(row.get("target_mean_price"), digits=4),
                     "valuation_source": _format_text(row.get("valuation_source")),
                     "valuation_source_detail": _format_text(row.get("valuation_source_detail")),
+                    "research_source_count": int(row.get("research_source_count") or 0),
+                    "research_source_providers": _format_text(row.get("research_source_providers")),
+                    "research_aggregation_mode": _format_text(row.get("research_aggregation_mode")),
                     "dcf_symbol": _format_text(row.get("dcf_symbol")),
                     "dcf_iv_base": _format_float(row.get("dcf_iv_base"), digits=4),
                     "dcf_mos_base": _format_float(row.get("dcf_mos_base"), digits=4),
@@ -2120,6 +2600,20 @@ def write_meta(
         str(k): int(v)
         for k, v in df["valuation_source"].value_counts(dropna=False).to_dict().items()
     }
+    research_source_counts = pd.to_numeric(df.get("research_source_count"), errors="coerce").fillna(0)
+    research_provider_breakdown: Dict[str, int] = {}
+    for raw in df.get("research_source_providers", pd.Series(dtype=str)).fillna(""):
+        for provider in [normalize_text(item) for item in str(raw).split("|") if normalize_text(item)]:
+            research_provider_breakdown[provider] = research_provider_breakdown.get(provider, 0) + 1
+    research_mode_breakdown = {
+        str(k): int(v)
+        for k, v in df.get("research_aggregation_mode", pd.Series(dtype=str))
+        .replace("", "none")
+        .fillna("none")
+        .value_counts(dropna=False)
+        .to_dict()
+        .items()
+    }
     source_text = "stock-data-hub(API+snapshot) + local DCF valuation link (partial coverage; comps baseline cross-check optional)"
     skip_hub_history = str(os.getenv("IML_SKIP_HUB_PRICE_HISTORY", "0")).strip().lower() in {"1", "true", "yes", "on"}
     if skip_hub_history:
@@ -2144,6 +2638,16 @@ def write_meta(
         "failed_ticker_count": int(len(failed_tickers)),
         "failed_tickers": failed_tickers,
         "valuation_source_breakdown": valuation_source_breakdown,
+        "research_multisource": {
+            "rows_with_research_sources": int((research_source_counts > 0).sum()),
+            "rows_with_multisource": int((research_source_counts > 1).sum()),
+            "rows_with_multisource_consensus": int(
+                (df.get("research_aggregation_mode", pd.Series(dtype=str)).fillna("") == "multisource_consensus").sum()
+            ),
+            "provider_breakdown": dict(sorted(research_provider_breakdown.items())),
+            "aggregation_mode_breakdown": research_mode_breakdown,
+            "aggregation_policy": "per-provider latest snapshot within 21d -> exact/near-identical increments deduped -> target_mean uses median across providers, analyst_count uses max, recommendation_mean uses mean of unique values",
+        },
         "skip_hub_price_history": bool(skip_hub_history),
         "skip_hub_online": bool(_skip_hub_online()),
         "dcf_integration": dcf_meta,

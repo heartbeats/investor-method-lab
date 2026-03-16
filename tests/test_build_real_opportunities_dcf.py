@@ -58,6 +58,127 @@ def _sample_row(ticker: str, close: float = 100.0, target_mean: float | None = 1
 
 
 class BuildRealOpportunitiesDCFTest(unittest.TestCase):
+    def test_aggregate_external_valuation_candidates_dedupes_incremental_multisource(self) -> None:
+        candidates = [
+            mod.ExternalValuationCandidate(
+                provider="yfinance",
+                as_of="2026-03-04",
+                target_mean_price=100.0,
+                analyst_count=15.0,
+                recommendation_mean=2.0,
+                origin="cache:yfinance",
+            ),
+            mod.ExternalValuationCandidate(
+                provider="yfinance",
+                as_of="2026-03-05",
+                target_mean_price=100.0,
+                analyst_count=15.0,
+                recommendation_mean=2.0,
+                origin="cache:stock_data_hub",
+            ),
+            mod.ExternalValuationCandidate(
+                provider="nasdaq",
+                as_of="2026-03-13",
+                target_mean_price=110.0,
+                analyst_count=8.0,
+                recommendation_mean=None,
+                origin="hub:external_valuation",
+            ),
+        ]
+
+        result = mod.aggregate_external_valuation_candidates(candidates)
+
+        self.assertEqual(result["source_count"], 2)
+        self.assertEqual(result["source_providers"], ["nasdaq", "yfinance"])
+        self.assertEqual(result["target_source_providers"], ["nasdaq", "yfinance"])
+        self.assertEqual(result["deduped_candidate_count"], 2)
+        self.assertEqual(result["aggregation_mode"], "multisource_consensus")
+        self.assertAlmostEqual(result["target_mean_price"] or 0.0, 105.0, places=4)
+        self.assertAlmostEqual(result["analyst_count"] or 0.0, 15.0, places=4)
+        self.assertAlmostEqual(result["recommendation_mean"] or 0.0, 2.0, places=4)
+
+    def test_collect_research_context_and_apply_to_row_updates_user_visible_summary(self) -> None:
+        row = _sample_row("AAPL", close=100.0, target_mean=120.0)
+        row.valuation_source = "target_mean_price"
+        row.valuation_source_detail = "yahoo_target_mean_price"
+
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp_path = Path(tmp)
+            stock_cache = tmp_path / "stock_data_hub"
+            yahoo_cache = tmp_path / "yfinance"
+            stock_cache.mkdir()
+            yahoo_cache.mkdir()
+
+            (stock_cache / "aapl_2y.json").write_text(
+                json.dumps(
+                    {
+                        "cached_at_utc": "2026-03-13T00:00:00+00:00",
+                        "history_period": "2y",
+                        "row": {
+                            "ticker": "AAPL",
+                            "as_of_date": "2026-03-13",
+                            "target_mean_price": 110.0,
+                            "analyst_count": 8.0,
+                            "recommendation_mean": None,
+                            "valuation_source_detail": "target_mean_price(stock_data_hub:nasdaq)",
+                        },
+                    },
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+            (yahoo_cache / "aapl_2y.json").write_text(
+                json.dumps(
+                    {
+                        "cached_at_utc": "2026-03-05T00:00:00+00:00",
+                        "history_period": "2y",
+                        "row": {
+                            "ticker": "AAPL",
+                            "as_of_date": "2026-03-05",
+                            "target_mean_price": 100.0,
+                            "analyst_count": 15.0,
+                            "recommendation_mean": 2.0,
+                            "valuation_source_detail": "yahoo_target_mean_price",
+                        },
+                    },
+                    ensure_ascii=False,
+                ),
+                encoding="utf-8",
+            )
+
+            with mock.patch.object(mod, "DEFAULT_RESEARCH_CACHE_DIRS", [stock_cache, yahoo_cache]):
+                context = mod._collect_research_context(
+                    ticker="AAPL",
+                    history_period="2y",
+                    current_row=row,
+                )
+                mod._apply_research_context_to_row(row, context)
+                note = mod._build_note(
+                    base_note=row.base_note,
+                    as_of_date=row.as_of_date,
+                    close=row.close,
+                    target_mean=row.target_mean_price,
+                    fair_value=row.fair_value,
+                    valuation_source=row.valuation_source,
+                    dcf_symbol=row.dcf_symbol,
+                    dcf_iv_base=row.dcf_iv_base,
+                    research_sources=row.research_source_providers,
+                )
+                lineage = mod._apply_research_context_to_lineage(
+                    "hub_only(price_history+quote+fundamental+external)",
+                    context,
+                )
+
+        self.assertEqual(context["source_count"], 2)
+        self.assertEqual(row.research_source_count, 2)
+        self.assertEqual(row.research_source_providers, "nasdaq|yfinance")
+        self.assertEqual(row.research_aggregation_mode, "multisource_consensus")
+        self.assertAlmostEqual(row.target_mean_price or 0.0, 105.0, places=4)
+        self.assertAlmostEqual(row.fair_value or 0.0, 105.0, places=4)
+        self.assertEqual(row.valuation_source_detail, "target_mean_price(multisource:nasdaq+yfinance)")
+        self.assertIn("research_sources=nasdaq+yfinance", note)
+        self.assertIn("research_multisource(nasdaq+yfinance;dedup=2)", lineage)
+
     def test_dcf_symbol_candidates_hk(self) -> None:
         candidates = mod.dcf_symbol_candidates("3690.HK")
         self.assertIn("HK.03690", candidates)
