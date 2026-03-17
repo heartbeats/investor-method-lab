@@ -71,9 +71,9 @@ ticker,market,name,sector,liquidity_tag,included_reason,note
 000100.SZ,A,TCL科技,Unknown,csi300_constituent,CSI300 constituent (weight=0.402%),A core | CSI300 constituent | weight=0.402%
 002142.SZ,A,宁波银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.402%),A core | CSI300 constituent | weight=0.402%
 600660.SS,A,福耀玻璃,Unknown,csi300_constituent,CSI300 constituent (weight=0.376%),A core | CSI300 constituent | weight=0.376%
-600016.SS,A,民生银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.375%),A core | CSI300 constituent | weight=0.375%
 601229.SS,A,上海银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.375%),A core | CSI300 constituent | weight=0.375%
 600690.SS,A,海尔智家,Unknown,csi300_constituent,CSI300 constituent (weight=0.375%),A core | CSI300 constituent | weight=0.375%
+600016.SS,A,民生银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.375%),A core | CSI300 constituent | weight=0.375%
 601919.SS,A,中远海控,Unknown,csi300_constituent,CSI300 constituent (weight=0.368%),A core | CSI300 constituent | weight=0.368%
 600028.SS,A,中国石化,Unknown,csi300_constituent,CSI300 constituent (weight=0.366%),A core | CSI300 constituent | weight=0.366%
 600489.SS,A,中金黄金,Unknown,csi300_constituent,CSI300 constituent (weight=0.360%),A core | CSI300 constituent | weight=0.360%
@@ -83,10 +83,10 @@ ticker,market,name,sector,liquidity_tag,included_reason,note
 601127.SS,A,赛力斯,Unknown,csi300_constituent,CSI300 constituent (weight=0.341%),A core | CSI300 constituent | weight=0.341%
 600938.SS,A,中国海油,Unknown,csi300_constituent,CSI300 constituent (weight=0.334%),A core | CSI300 constituent | weight=0.334%
 600547.SS,A,山东黄金,Unknown,csi300_constituent,CSI300 constituent (weight=0.333%),A core | CSI300 constituent | weight=0.333%
-600941.SS,A,中国移动,Unknown,csi300_constituent,CSI300 constituent (weight=0.331%),A core | CSI300 constituent | weight=0.331%
 300498.SZ,A,温氏股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.331%),A core | CSI300 constituent | weight=0.331%
-300408.SZ,A,三环集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.329%),A core | CSI300 constituent | weight=0.329%
+600941.SS,A,中国移动,Unknown,csi300_constituent,CSI300 constituent (weight=0.331%),A core | CSI300 constituent | weight=0.331%
 300442.SZ,A,润泽科技,Unknown,csi300_constituent,CSI300 constituent (weight=0.329%),A core | CSI300 constituent | weight=0.329%
+300408.SZ,A,三环集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.329%),A core | CSI300 constituent | weight=0.329%
 600183.SS,A,生益科技,Unknown,csi300_constituent,CSI300 constituent (weight=0.327%),A core | CSI300 constituent | weight=0.327%
 002460.SZ,A,赣锋锂业,Unknown,csi300_constituent,CSI300 constituent (weight=0.321%),A core | CSI300 constituent | weight=0.321%
 600926.SS,A,杭州银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.321%),A core | CSI300 constituent | weight=0.321%
@@ -98,8 +98,8 @@ ticker,market,name,sector,liquidity_tag,included_reason,note
 300014.SZ,A,亿纬锂能,Unknown,csi300_constituent,CSI300 constituent (weight=0.302%),A core | CSI300 constituent | weight=0.302%
 600050.SS,A,中国联通,Unknown,csi300_constituent,CSI300 constituent (weight=0.299%),A core | CSI300 constituent | weight=0.299%
 601766.SS,A,中国中车,Unknown,csi300_constituent,CSI300 constituent (weight=0.298%),A core | CSI300 constituent | weight=0.298%
-600893.SS,A,航发动力,Unknown,csi300_constituent,CSI300 constituent (weight=0.296%),A core | CSI300 constituent | weight=0.296%
 002916.SZ,A,深南电路,Unknown,csi300_constituent,CSI300 constituent (weight=0.296%),A core | CSI300 constituent | weight=0.296%
+600893.SS,A,航发动力,Unknown,csi300_constituent,CSI300 constituent (weight=0.296%),A core | CSI300 constituent | weight=0.296%
 601988.SS,A,中国银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.294%),A core | CSI300 constituent | weight=0.294%
 601628.SS,A,中国人寿,Unknown,csi300_constituent,CSI300 constituent (weight=0.288%),A core | CSI300 constituent | weight=0.288%
 600010.SS,A,包钢股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.285%),A core | CSI300 constituent | weight=0.285%
@@ -109,15 +109,15 @@ ticker,market,name,sector,liquidity_tag,included_reason,note
 300033.SZ,A,同花顺,Unknown,csi300_constituent,CSI300 constituent (weight=0.278%),A core | CSI300 constituent | weight=0.278%
 601985.SS,A,中国核电,Unknown,csi300_constituent,CSI300 constituent (weight=0.273%),A core | CSI300 constituent | weight=0.273%
 300433.SZ,A,蓝思科技,Unknown,csi300_constituent,CSI300 constituent (weight=0.273%),A core | CSI300 constituent | weight=0.273%
-688111.SS,A,金山办公,Unknown,csi300_constituent,CSI300 constituent (weight=0.271%),A core | CSI300 constituent | weight=0.271%
 601009.SS,A,南京银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.271%),A core | CSI300 constituent | weight=0.271%
+688111.SS,A,金山办公,Unknown,csi300_constituent,CSI300 constituent (weight=0.271%),A core | CSI300 constituent | weight=0.271%
 600584.SS,A,长电科技,Unknown,csi300_constituent,CSI300 constituent (weight=0.268%),A core | CSI300 constituent | weight=0.268%
 000408.SZ,A,藏格矿业,Unknown,csi300_constituent,CSI300 constituent (weight=0.263%),A core | CSI300 constituent | weight=0.263%
 002241.SZ,A,歌尔股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.262%),A core | CSI300 constituent | weight=0.262%
 600104.SS,A,上汽集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.256%),A core | CSI300 constituent | weight=0.256%
 000977.SZ,A,浪潮信息,Unknown,csi300_constituent,CSI300 constituent (weight=0.255%),A core | CSI300 constituent | weight=0.255%
-000807.SZ,A,云铝股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.253%),A core | CSI300 constituent | weight=0.253%
 600176.SS,A,中国巨石,Unknown,csi300_constituent,CSI300 constituent (weight=0.253%),A core | CSI300 constituent | weight=0.253%
+000807.SZ,A,云铝股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.253%),A core | CSI300 constituent | weight=0.253%
 688271.SS,A,联影医疗,Unknown,csi300_constituent,CSI300 constituent (weight=0.251%),A core | CSI300 constituent | weight=0.251%
 601390.SS,A,中国中铁,Unknown,csi300_constituent,CSI300 constituent (weight=0.251%),A core | CSI300 constituent | weight=0.251%
 000630.SZ,A,铜陵有色,Unknown,csi300_constituent,CSI300 constituent (weight=0.248%),A core | CSI300 constituent | weight=0.248%
@@ -125,12 +125,12 @@ ticker,market,name,sector,liquidity_tag,included_reason,note
 600019.SS,A,宝钢股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.244%),A core | CSI300 constituent | weight=0.244%
 601006.SS,A,大秦铁路,Unknown,csi300_constituent,CSI300 constituent (weight=0.240%),A core | CSI300 constituent | weight=0.240%
 600999.SS,A,招商证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.240%),A core | CSI300 constituent | weight=0.240%
-000776.SZ,A,广发证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.239%),A core | CSI300 constituent | weight=0.239%
 600585.SS,A,海螺水泥,Unknown,csi300_constituent,CSI300 constituent (weight=0.239%),A core | CSI300 constituent | weight=0.239%
+000776.SZ,A,广发证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.239%),A core | CSI300 constituent | weight=0.239%
 601100.SS,A,恒立液压,Unknown,csi300_constituent,CSI300 constituent (weight=0.235%),A core | CSI300 constituent | weight=0.235%
 002709.SZ,A,天赐材料,Unknown,csi300_constituent,CSI300 constituent (weight=0.234%),A core | CSI300 constituent | weight=0.234%
-600362.SS,A,江西铜业,Unknown,csi300_constituent,CSI300 constituent (weight=0.234%),A core | CSI300 constituent | weight=0.234%
 601818.SS,A,光大银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.234%),A core | CSI300 constituent | weight=0.234%
+600362.SS,A,江西铜业,Unknown,csi300_constituent,CSI300 constituent (weight=0.234%),A core | CSI300 constituent | weight=0.234%
 603288.SS,A,海天味业,Unknown,csi300_constituent,CSI300 constituent (weight=0.233%),A core | CSI300 constituent | weight=0.233%
 600905.SS,A,三峡能源,Unknown,csi300_constituent,CSI300 constituent (weight=0.231%),A core | CSI300 constituent | weight=0.231%
 601689.SS,A,拓普集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.229%),A core | CSI300 constituent | weight=0.229%
@@ -148,23 +148,23 @@ ticker,market,name,sector,liquidity_tag,included_reason,note
 601872.SS,A,招商轮船,Unknown,csi300_constituent,CSI300 constituent (weight=0.204%),A core | CSI300 constituent | weight=0.204%
 000938.SZ,A,紫光股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.202%),A core | CSI300 constituent | weight=0.202%
 000975.SZ,A,山金国际,Unknown,csi300_constituent,CSI300 constituent (weight=0.201%),A core | CSI300 constituent | weight=0.201%
-000538.SZ,A,云南白药,Unknown,csi300_constituent,CSI300 constituent (weight=0.195%),A core | CSI300 constituent | weight=0.195%
 605499.SS,A,东鹏饮料,Unknown,csi300_constituent,CSI300 constituent (weight=0.195%),A core | CSI300 constituent | weight=0.195%
+000538.SZ,A,云南白药,Unknown,csi300_constituent,CSI300 constituent (weight=0.195%),A core | CSI300 constituent | weight=0.195%
 000157.SZ,A,中联重科,Unknown,csi300_constituent,CSI300 constituent (weight=0.193%),A core | CSI300 constituent | weight=0.193%
-300015.SZ,A,爱尔眼科,Unknown,csi300_constituent,CSI300 constituent (weight=0.192%),A core | CSI300 constituent | weight=0.192%
 600219.SS,A,南山铝业,Unknown,csi300_constituent,CSI300 constituent (weight=0.192%),A core | CSI300 constituent | weight=0.192%
-600436.SS,A,片仔癀,Unknown,csi300_constituent,CSI300 constituent (weight=0.192%),A core | CSI300 constituent | weight=0.192%
+300015.SZ,A,爱尔眼科,Unknown,csi300_constituent,CSI300 constituent (weight=0.192%),A core | CSI300 constituent | weight=0.192%
 601669.SS,A,中国电建,Unknown,csi300_constituent,CSI300 constituent (weight=0.192%),A core | CSI300 constituent | weight=0.192%
+600436.SS,A,片仔癀,Unknown,csi300_constituent,CSI300 constituent (weight=0.192%),A core | CSI300 constituent | weight=0.192%
 600438.SS,A,通威股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.191%),A core | CSI300 constituent | weight=0.191%
-600115.SS,A,中国东航,Unknown,csi300_constituent,CSI300 constituent (weight=0.190%),A core | CSI300 constituent | weight=0.190%
 600048.SS,A,保利发展,Unknown,csi300_constituent,CSI300 constituent (weight=0.190%),A core | CSI300 constituent | weight=0.190%
+600115.SS,A,中国东航,Unknown,csi300_constituent,CSI300 constituent (weight=0.190%),A core | CSI300 constituent | weight=0.190%
 601825.SS,A,沪农商行,Unknown,csi300_constituent,CSI300 constituent (weight=0.189%),A core | CSI300 constituent | weight=0.189%
 002001.SZ,A,新和成,Unknown,csi300_constituent,CSI300 constituent (weight=0.188%),A core | CSI300 constituent | weight=0.188%
 600760.SS,A,中航沈飞,Unknown,csi300_constituent,CSI300 constituent (weight=0.183%),A core | CSI300 constituent | weight=0.183%
 002493.SZ,A,荣盛石化,Unknown,csi300_constituent,CSI300 constituent (weight=0.182%),A core | CSI300 constituent | weight=0.182%
 601377.SS,A,兴业证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.181%),A core | CSI300 constituent | weight=0.181%
-600570.SS,A,恒生电子,Unknown,csi300_constituent,CSI300 constituent (weight=0.177%),A core | CSI300 constituent | weight=0.177%
 002311.SZ,A,海大集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.177%),A core | CSI300 constituent | weight=0.177%
+600570.SS,A,恒生电子,Unknown,csi300_constituent,CSI300 constituent (weight=0.177%),A core | CSI300 constituent | weight=0.177%
 000166.SZ,A,申万宏源,Unknown,csi300_constituent,CSI300 constituent (weight=0.176%),A core | CSI300 constituent | weight=0.176%
 600875.SS,A,东方电气,Unknown,csi300_constituent,CSI300 constituent (weight=0.176%),A core | CSI300 constituent | weight=0.176%
 002179.SZ,A,中航光电,Unknown,csi300_constituent,CSI300 constituent (weight=0.176%),A core | CSI300 constituent | weight=0.176%
@@ -173,14 +173,14 @@ ticker,market,name,sector,liquidity_tag,included_reason,note
 601360.SS,A,三六零,Unknown,csi300_constituent,CSI300 constituent (weight=0.169%),A core | CSI300 constituent | weight=0.169%
 000768.SZ,A,中航西飞,Unknown,csi300_constituent,CSI300 constituent (weight=0.167%),A core | CSI300 constituent | weight=0.167%
 600015.SS,A,华夏银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.166%),A core | CSI300 constituent | weight=0.166%
-688126.SS,A,沪硅产业,Unknown,csi300_constituent,CSI300 constituent (weight=0.162%),A core | CSI300 constituent | weight=0.162%
 300803.SZ,A,指南针,Unknown,csi300_constituent,CSI300 constituent (weight=0.162%),A core | CSI300 constituent | weight=0.162%
+688126.SS,A,沪硅产业,Unknown,csi300_constituent,CSI300 constituent (weight=0.162%),A core | CSI300 constituent | weight=0.162%
 601058.SS,A,赛轮轮胎,Unknown,csi300_constituent,CSI300 constituent (weight=0.161%),A core | CSI300 constituent | weight=0.161%
-002074.SZ,A,国轩高科,Unknown,csi300_constituent,CSI300 constituent (weight=0.160%),A core | CSI300 constituent | weight=0.160%
-002938.SZ,A,鹏鼎控股,Unknown,csi300_constituent,CSI300 constituent (weight=0.160%),A core | CSI300 constituent | weight=0.160%
 601838.SS,A,成都银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.160%),A core | CSI300 constituent | weight=0.160%
-601995.SS,A,中金公司,Unknown,csi300_constituent,CSI300 constituent (weight=0.158%),A core | CSI300 constituent | weight=0.158%
+002938.SZ,A,鹏鼎控股,Unknown,csi300_constituent,CSI300 constituent (weight=0.160%),A core | CSI300 constituent | weight=0.160%
+002074.SZ,A,国轩高科,Unknown,csi300_constituent,CSI300 constituent (weight=0.160%),A core | CSI300 constituent | weight=0.160%
 600415.SS,A,小商品城,Unknown,csi300_constituent,CSI300 constituent (weight=0.158%),A core | CSI300 constituent | weight=0.158%
+601995.SS,A,中金公司,Unknown,csi300_constituent,CSI300 constituent (weight=0.158%),A core | CSI300 constituent | weight=0.158%
 600029.SS,A,南方航空,Unknown,csi300_constituent,CSI300 constituent (weight=0.154%),A core | CSI300 constituent | weight=0.154%
 002648.SZ,A,卫星化学,Unknown,csi300_constituent,CSI300 constituent (weight=0.153%),A core | CSI300 constituent | weight=0.153%
 600066.SS,A,宇通客车,Unknown,csi300_constituent,CSI300 constituent (weight=0.153%),A core | CSI300 constituent | weight=0.153%
@@ -188,9 +188,9 @@ ticker,market,name,sector,liquidity_tag,included_reason,note
 600372.SS,A,中航机载,Unknown,csi300_constituent,CSI300 constituent (weight=0.152%),A core | CSI300 constituent | weight=0.152%
 002736.SZ,A,国信证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.150%),A core | CSI300 constituent | weight=0.150%
 600009.SS,A,上海机场,Unknown,csi300_constituent,CSI300 constituent (weight=0.148%),A core | CSI300 constituent | weight=0.148%
+002236.SZ,A,大华股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.148%),A core | CSI300 constituent | weight=0.148%
 605117.SS,A,德业股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.148%),A core | CSI300 constituent | weight=0.148%
 601998.SS,A,中信银行,Unknown,csi300_constituent,CSI300 constituent (weight=0.148%),A core | CSI300 constituent | weight=0.148%
-002236.SZ,A,大华股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.148%),A core | CSI300 constituent | weight=0.148%
 603893.SS,A,瑞芯微,Unknown,csi300_constituent,CSI300 constituent (weight=0.147%),A core | CSI300 constituent | weight=0.147%
 600482.SS,A,中国动力,Unknown,csi300_constituent,CSI300 constituent (weight=0.147%),A core | CSI300 constituent | weight=0.147%
 600460.SS,A,士兰微,Unknown,csi300_constituent,CSI300 constituent (weight=0.146%),A core | CSI300 constituent | weight=0.146%
@@ -199,36 +199,36 @@ ticker,market,name,sector,liquidity_tag,included_reason,note
 300316.SZ,A,晶盛机电,Unknown,csi300_constituent,CSI300 constituent (weight=0.142%),A core | CSI300 constituent | weight=0.142%
 001979.SZ,A,招商蛇口,Unknown,csi300_constituent,CSI300 constituent (weight=0.139%),A core | CSI300 constituent | weight=0.139%
 601877.SS,A,正泰电器,Unknown,csi300_constituent,CSI300 constituent (weight=0.138%),A core | CSI300 constituent | weight=0.138%
+601077.SS,A,渝农商行,Unknown,csi300_constituent,CSI300 constituent (weight=0.134%),A core | CSI300 constituent | weight=0.134%
 600026.SS,A,中远海能,Unknown,csi300_constituent,CSI300 constituent (weight=0.134%),A core | CSI300 constituent | weight=0.134%
 000301.SZ,A,东方盛虹,Unknown,csi300_constituent,CSI300 constituent (weight=0.134%),A core | CSI300 constituent | weight=0.134%
-601077.SS,A,渝农商行,Unknown,csi300_constituent,CSI300 constituent (weight=0.134%),A core | CSI300 constituent | weight=0.134%
-002422.SZ,A,科伦药业,Unknown,csi300_constituent,CSI300 constituent (weight=0.133%),A core | CSI300 constituent | weight=0.133%
 601117.SS,A,中国化学,Unknown,csi300_constituent,CSI300 constituent (weight=0.133%),A core | CSI300 constituent | weight=0.133%
+002422.SZ,A,科伦药业,Unknown,csi300_constituent,CSI300 constituent (weight=0.133%),A core | CSI300 constituent | weight=0.133%
 601186.SS,A,中国铁建,Unknown,csi300_constituent,CSI300 constituent (weight=0.132%),A core | CSI300 constituent | weight=0.132%
 600196.SS,A,复星医药,Unknown,csi300_constituent,CSI300 constituent (weight=0.131%),A core | CSI300 constituent | weight=0.131%
 600233.SS,A,圆通速递,Unknown,csi300_constituent,CSI300 constituent (weight=0.131%),A core | CSI300 constituent | weight=0.131%
 002252.SZ,A,上海莱士,Unknown,csi300_constituent,CSI300 constituent (weight=0.130%),A core | CSI300 constituent | weight=0.130%
 688036.SS,A,传音控股,Unknown,csi300_constituent,CSI300 constituent (weight=0.129%),A core | CSI300 constituent | weight=0.129%
-000002.SZ,A,万科A,Unknown,csi300_constituent,CSI300 constituent (weight=0.128%),A core | CSI300 constituent | weight=0.128%
-601868.SS,A,中国能建,Unknown,csi300_constituent,CSI300 constituent (weight=0.128%),A core | CSI300 constituent | weight=0.128%
 301236.SZ,A,软通动力,Unknown,csi300_constituent,CSI300 constituent (weight=0.128%),A core | CSI300 constituent | weight=0.128%
+601868.SS,A,中国能建,Unknown,csi300_constituent,CSI300 constituent (weight=0.128%),A core | CSI300 constituent | weight=0.128%
+000002.SZ,A,万科A,Unknown,csi300_constituent,CSI300 constituent (weight=0.128%),A core | CSI300 constituent | weight=0.128%
 601788.SS,A,光大证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.126%),A core | CSI300 constituent | weight=0.126%
 002304.SZ,A,洋河股份,Unknown,csi300_constituent,CSI300 constituent (weight=0.125%),A core | CSI300 constituent | weight=0.125%
-600011.SS,A,华能国际,Unknown,csi300_constituent,CSI300 constituent (weight=0.124%),A core | CSI300 constituent | weight=0.124%
-688047.SS,A,龙芯中科,Unknown,csi300_constituent,CSI300 constituent (weight=0.124%),A core | CSI300 constituent | weight=0.124%
 600886.SS,A,国投电力,Unknown,csi300_constituent,CSI300 constituent (weight=0.124%),A core | CSI300 constituent | weight=0.124%
-601901.SS,A,方正证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.123%),A core | CSI300 constituent | weight=0.123%
-000963.SZ,A,华东医药,Unknown,csi300_constituent,CSI300 constituent (weight=0.123%),A core | CSI300 constituent | weight=0.123%
+688047.SS,A,龙芯中科,Unknown,csi300_constituent,CSI300 constituent (weight=0.124%),A core | CSI300 constituent | weight=0.124%
+600011.SS,A,华能国际,Unknown,csi300_constituent,CSI300 constituent (weight=0.124%),A core | CSI300 constituent | weight=0.124%
 601111.SS,A,中国国航,Unknown,csi300_constituent,CSI300 constituent (weight=0.123%),A core | CSI300 constituent | weight=0.123%
-600188.SS,A,兖矿能源,Unknown,csi300_constituent,CSI300 constituent (weight=0.123%),A core | CSI300 constituent | weight=0.123%
+601901.SS,A,方正证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.123%),A core | CSI300 constituent | weight=0.123%
 601881.SS,A,中国银河,Unknown,csi300_constituent,CSI300 constituent (weight=0.123%),A core | CSI300 constituent | weight=0.123%
+600188.SS,A,兖矿能源,Unknown,csi300_constituent,CSI300 constituent (weight=0.123%),A core | CSI300 constituent | weight=0.123%
+000963.SZ,A,华东医药,Unknown,csi300_constituent,CSI300 constituent (weight=0.123%),A core | CSI300 constituent | weight=0.123%
 601698.SS,A,中国卫通,Unknown,csi300_constituent,CSI300 constituent (weight=0.123%),A core | CSI300 constituent | weight=0.123%
 000661.SZ,A,长春高新,Unknown,csi300_constituent,CSI300 constituent (weight=0.122%),A core | CSI300 constituent | weight=0.122%
-003816.SZ,A,中国广核,Unknown,csi300_constituent,CSI300 constituent (weight=0.121%),A core | CSI300 constituent | weight=0.121%
 601066.SS,A,中信建投,Unknown,csi300_constituent,CSI300 constituent (weight=0.121%),A core | CSI300 constituent | weight=0.121%
+003816.SZ,A,中国广核,Unknown,csi300_constituent,CSI300 constituent (weight=0.121%),A core | CSI300 constituent | weight=0.121%
 300347.SZ,A,泰格医药,Unknown,csi300_constituent,CSI300 constituent (weight=0.120%),A core | CSI300 constituent | weight=0.120%
-600741.SS,A,华域汽车,Unknown,csi300_constituent,CSI300 constituent (weight=0.119%),A core | CSI300 constituent | weight=0.119%
 300759.SZ,A,康龙化成,Unknown,csi300_constituent,CSI300 constituent (weight=0.119%),A core | CSI300 constituent | weight=0.119%
+600741.SS,A,华域汽车,Unknown,csi300_constituent,CSI300 constituent (weight=0.119%),A core | CSI300 constituent | weight=0.119%
 688396.SS,A,华润微,Unknown,csi300_constituent,CSI300 constituent (weight=0.118%),A core | CSI300 constituent | weight=0.118%
 300782.SZ,A,卓胜微,Unknown,csi300_constituent,CSI300 constituent (weight=0.117%),A core | CSI300 constituent | weight=0.117%
 688223.SS,A,晶科能源,Unknown,csi300_constituent,CSI300 constituent (weight=0.117%),A core | CSI300 constituent | weight=0.117%
@@ -237,8 +237,8 @@ ticker,market,name,sector,liquidity_tag,included_reason,note
 601878.SS,A,浙商证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.114%),A core | CSI300 constituent | weight=0.114%
 600588.SS,A,用友网络,Unknown,csi300_constituent,CSI300 constituent (weight=0.113%),A core | CSI300 constituent | weight=0.113%
 601800.SS,A,中国交建,Unknown,csi300_constituent,CSI300 constituent (weight=0.113%),A core | CSI300 constituent | weight=0.113%
-000786.SZ,A,北新建材,Unknown,csi300_constituent,CSI300 constituent (weight=0.111%),A core | CSI300 constituent | weight=0.111%
 300251.SZ,A,光线传媒,Unknown,csi300_constituent,CSI300 constituent (weight=0.111%),A core | CSI300 constituent | weight=0.111%
+000786.SZ,A,北新建材,Unknown,csi300_constituent,CSI300 constituent (weight=0.111%),A core | CSI300 constituent | weight=0.111%
 600674.SS,A,川投能源,Unknown,csi300_constituent,CSI300 constituent (weight=0.110%),A core | CSI300 constituent | weight=0.110%
 601898.SS,A,中煤能源,Unknown,csi300_constituent,CSI300 constituent (weight=0.108%),A core | CSI300 constituent | weight=0.108%
 601319.SS,A,中国人保,Unknown,csi300_constituent,CSI300 constituent (weight=0.107%),A core | CSI300 constituent | weight=0.107%
@@ -248,10 +248,10 @@ ticker,market,name,sector,liquidity_tag,included_reason,note
 601633.SS,A,长城汽车,Unknown,csi300_constituent,CSI300 constituent (weight=0.100%),A core | CSI300 constituent | weight=0.100%
 600515.SS,A,海南机场,Unknown,csi300_constituent,CSI300 constituent (weight=0.094%),A core | CSI300 constituent | weight=0.094%
 002459.SZ,A,晶澳科技,Unknown,csi300_constituent,CSI300 constituent (weight=0.093%),A core | CSI300 constituent | weight=0.093%
-302132.SZ,A,中航成飞,Unknown,csi300_constituent,CSI300 constituent (weight=0.091%),A core | CSI300 constituent | weight=0.091%
 603369.SS,A,今世缘,Unknown,csi300_constituent,CSI300 constituent (weight=0.091%),A core | CSI300 constituent | weight=0.091%
-601618.SS,A,中国中冶,Unknown,csi300_constituent,CSI300 constituent (weight=0.089%),A core | CSI300 constituent | weight=0.089%
+302132.SZ,A,中航成飞,Unknown,csi300_constituent,CSI300 constituent (weight=0.091%),A core | CSI300 constituent | weight=0.091%
 000617.SZ,A,中油资本,Unknown,csi300_constituent,CSI300 constituent (weight=0.089%),A core | CSI300 constituent | weight=0.089%
+601618.SS,A,中国中冶,Unknown,csi300_constituent,CSI300 constituent (weight=0.089%),A core | CSI300 constituent | weight=0.089%
 600600.SS,A,青岛啤酒,Unknown,csi300_constituent,CSI300 constituent (weight=0.086%),A core | CSI300 constituent | weight=0.086%
 301269.SZ,A,华大九天,Unknown,csi300_constituent,CSI300 constituent (weight=0.086%),A core | CSI300 constituent | weight=0.086%
 688506.SS,A,百利天恒,Unknown,csi300_constituent,CSI300 constituent (weight=0.085%),A core | CSI300 constituent | weight=0.085%
@@ -260,12 +260,12 @@ ticker,market,name,sector,liquidity_tag,included_reason,note
 688472.SS,A,阿特斯,Unknown,csi300_constituent,CSI300 constituent (weight=0.083%),A core | CSI300 constituent | weight=0.083%
 600085.SS,A,同仁堂,Unknown,csi300_constituent,CSI300 constituent (weight=0.082%),A core | CSI300 constituent | weight=0.082%
 600845.SS,A,宝信软件,Unknown,csi300_constituent,CSI300 constituent (weight=0.081%),A core | CSI300 constituent | weight=0.081%
-000983.SZ,A,山西焦煤,Unknown,csi300_constituent,CSI300 constituent (weight=0.081%),A core | CSI300 constituent | weight=0.081%
 300866.SZ,A,安克创新,Unknown,csi300_constituent,CSI300 constituent (weight=0.081%),A core | CSI300 constituent | weight=0.081%
+000983.SZ,A,山西焦煤,Unknown,csi300_constituent,CSI300 constituent (weight=0.081%),A core | CSI300 constituent | weight=0.081%
 300122.SZ,A,智飞生物,Unknown,csi300_constituent,CSI300 constituent (weight=0.080%),A core | CSI300 constituent | weight=0.080%
 300832.SZ,A,新产业,Unknown,csi300_constituent,CSI300 constituent (weight=0.080%),A core | CSI300 constituent | weight=0.080%
-600027.SS,A,华电国际,Unknown,csi300_constituent,CSI300 constituent (weight=0.079%),A core | CSI300 constituent | weight=0.079%
 600918.SS,A,中泰证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.079%),A core | CSI300 constituent | weight=0.079%
+600027.SS,A,华电国际,Unknown,csi300_constituent,CSI300 constituent (weight=0.079%),A core | CSI300 constituent | weight=0.079%
 000596.SZ,A,古井贡酒,Unknown,csi300_constituent,CSI300 constituent (weight=0.077%),A core | CSI300 constituent | weight=0.077%
 001965.SZ,A,招商公路,Unknown,csi300_constituent,CSI300 constituent (weight=0.077%),A core | CSI300 constituent | weight=0.077%
 000876.SZ,A,新 希 望,Unknown,csi300_constituent,CSI300 constituent (weight=0.076%),A core | CSI300 constituent | weight=0.076%
@@ -275,20 +275,20 @@ ticker,market,name,sector,liquidity_tag,included_reason,note
 300628.SZ,A,亿联网络,Unknown,csi300_constituent,CSI300 constituent (weight=0.074%),A core | CSI300 constituent | weight=0.074%
 600061.SS,A,国投资本,Unknown,csi300_constituent,CSI300 constituent (weight=0.074%),A core | CSI300 constituent | weight=0.074%
 603260.SS,A,合盛硅业,Unknown,csi300_constituent,CSI300 constituent (weight=0.071%),A core | CSI300 constituent | weight=0.071%
-300413.SZ,A,芒果超媒,Unknown,csi300_constituent,CSI300 constituent (weight=0.071%),A core | CSI300 constituent | weight=0.071%
 000708.SZ,A,中信特钢,Unknown,csi300_constituent,CSI300 constituent (weight=0.071%),A core | CSI300 constituent | weight=0.071%
+300413.SZ,A,芒果超媒,Unknown,csi300_constituent,CSI300 constituent (weight=0.071%),A core | CSI300 constituent | weight=0.071%
 601238.SS,A,广汽集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.069%),A core | CSI300 constituent | weight=0.069%
-600025.SS,A,华能水电,Unknown,csi300_constituent,CSI300 constituent (weight=0.068%),A core | CSI300 constituent | weight=0.068%
 600930.SS,A,华电新能,Unknown,csi300_constituent,CSI300 constituent (weight=0.068%),A core | CSI300 constituent | weight=0.068%
 300999.SZ,A,金龙鱼,Unknown,csi300_constituent,CSI300 constituent (weight=0.068%),A core | CSI300 constituent | weight=0.068%
+600025.SS,A,华能水电,Unknown,csi300_constituent,CSI300 constituent (weight=0.068%),A core | CSI300 constituent | weight=0.068%
 601059.SS,A,信达证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.067%),A core | CSI300 constituent | weight=0.067%
 601018.SS,A,宁波港,Unknown,csi300_constituent,CSI300 constituent (weight=0.065%),A core | CSI300 constituent | weight=0.065%
 688082.SS,A,盛美上海,Unknown,csi300_constituent,CSI300 constituent (weight=0.064%),A core | CSI300 constituent | weight=0.064%
 600161.SS,A,天坛生物,Unknown,csi300_constituent,CSI300 constituent (weight=0.063%),A core | CSI300 constituent | weight=0.063%
 603392.SS,A,万泰生物,Unknown,csi300_constituent,CSI300 constituent (weight=0.061%),A core | CSI300 constituent | weight=0.061%
-688303.SS,A,大全能源,Unknown,csi300_constituent,CSI300 constituent (weight=0.060%),A core | CSI300 constituent | weight=0.060%
 688187.SS,A,时代电气,Unknown,csi300_constituent,CSI300 constituent (weight=0.060%),A core | CSI300 constituent | weight=0.060%
 601456.SS,A,国联民生,Unknown,csi300_constituent,CSI300 constituent (weight=0.060%),A core | CSI300 constituent | weight=0.060%
+688303.SS,A,大全能源,Unknown,csi300_constituent,CSI300 constituent (weight=0.060%),A core | CSI300 constituent | weight=0.060%
 688009.SS,A,中国通号,Unknown,csi300_constituent,CSI300 constituent (weight=0.058%),A core | CSI300 constituent | weight=0.058%
 600018.SS,A,上港集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.055%),A core | CSI300 constituent | weight=0.055%
 603195.SS,A,公牛集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.046%),A core | CSI300 constituent | weight=0.046%
@@ -297,10 +297,10 @@ ticker,market,name,sector,liquidity_tag,included_reason,note
 601136.SS,A,首创证券,Unknown,csi300_constituent,CSI300 constituent (weight=0.039%),A core | CSI300 constituent | weight=0.039%
 300979.SZ,A,华利集团,Unknown,csi300_constituent,CSI300 constituent (weight=0.032%),A core | CSI300 constituent | weight=0.032%
 601298.SS,A,青岛港,Unknown,csi300_constituent,CSI300 constituent (weight=0.025%),A core | CSI300 constituent | weight=0.025%
-600377.SS,A,宁沪高速,Unknown,csi300_constituent,CSI300 constituent (weight=0.023%),A core | CSI300 constituent | weight=0.023%
 001391.SZ,A,国货航,Unknown,csi300_constituent,CSI300 constituent (weight=0.023%),A core | CSI300 constituent | weight=0.023%
-0700.HK,HK,Tencent Holdings,Communication Services,seed_anchor,legacy_universe_anchor,HK core
-3690.HK,HK,Meituan,Consumer Cyclical,seed_anchor,legacy_universe_anchor,HK internet
+600377.SS,A,宁沪高速,Unknown,csi300_constituent,CSI300 constituent (weight=0.023%),A core | CSI300 constituent | weight=0.023%
+00700.HK,HK,TENCENT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+3690.HK,HK,美团,Unknown,special_focus_anchor,dcf_special_focus,special focus | auto-anchored from dcf_special_focus_list
 9988.HK,HK,Alibaba Group HK,Consumer Cyclical,seed_anchor,legacy_universe_anchor,HK internet
 1810.HK,HK,Xiaomi,Technology,seed_anchor,legacy_universe_anchor,HK hardware
 1211.HK,HK,BYD Company HK,Consumer Cyclical,seed_anchor,legacy_universe_anchor,HK auto
@@ -460,7 +460,6 @@ ticker,market,name,sector,liquidity_tag,included_reason,note
 00694.HK,HK,BEIJING AIRPORT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
 00696.HK,HK,TRAVELSKY TECH,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
 00697.HK,HK,SHOUCHENG,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
-00700.HK,HK,TENCENT,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
 00709.HK,HK,GIORDANO INT'L,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
 00710.HK,HK,BOE VARITRONIX,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
 00719.HK,HK,SHANDONG XINHUA,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
@@ -499,13 +498,15 @@ ticker,market,name,sector,liquidity_tag,included_reason,note
 00874.HK,HK,BAIYUNSHAN PH,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
 00880.HK,HK,SJM HOLDINGS,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
 00881.HK,HK,ZHONGSHENG HLDG,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+00883.HK,HK,CNOOC,Unknown,hk_shortsell_eligible,HK main board equity + shortsell eligible,HK core | HK main board equity + shortsell eligible
+NVDA,US,US.NVDA,Unknown,special_focus_anchor,dcf_special_focus,special focus | auto-anchored from dcf_special_focus_list
+PDD,US,拼多多,Unknown,special_focus_anchor,dcf_special_focus,special focus | auto-anchored from dcf_special_focus_list
 AAPL,US,Apple Inc.,Information Technology,sp500_core,S&P500 constituent,US core | S&P500 constituent
-MSFT,US,Microsoft,Technology,seed_anchor,legacy_universe_anchor,US core
 GOOGL,US,Alphabet Inc. (Class A),Communication Services,sp500_core,S&P500 constituent,US core | S&P500 constituent
+MSFT,US,Microsoft,Technology,seed_anchor,legacy_universe_anchor,US core
 AMZN,US,Amazon,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent
 META,US,Meta Platforms,Communication Services,seed_anchor,legacy_universe_anchor,US core
 TSLA,US,Tesla,Consumer Cyclical,seed_anchor,legacy_universe_anchor,US growth
-NVDA,US,NVIDIA,Technology,seed_anchor,legacy_universe_anchor,US growth
 BRK.B,US,Berkshire Hathaway,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 JPM,US,JPMorgan Chase,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 V,US,Visa,Financial Services,seed_anchor,legacy_universe_anchor,US quality
@@ -798,4 +799,3 @@ LIN,US,Linde plc,Materials,sp500_core,S&P500 constituent,US core | S&P500 consti
 LYV,US,Live Nation Entertainment,Communication Services,sp500_core,S&P500 constituent,US core | S&P500 constituent
 LMT,US,Lockheed Martin,Industrials,sp500_core,S&P500 constituent,US core | S&P500 constituent
 L,US,Loews Corporation,Financials,sp500_core,S&P500 constituent,US core | S&P500 constituent
-LOW,US,Lowe's,Consumer Discretionary,sp500_core,S&P500 constituent,US core | S&P500 constituent

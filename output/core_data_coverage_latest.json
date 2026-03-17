@@ -1,15 +1,16 @@
 {
-  "generated_at_utc": "2026-03-16T17:07:09.384724+00:00",
-  "as_of_date": "2026-03-16",
+  "generated_at_utc": "2026-03-17T14:34:16.996512+00:00",
+  "as_of_date": "2026-03-17",
   "db_path": "/Users/lucas/projects/stock-data-hub/data_lake/incremental/market_data_incremental.db",
   "registry_path": "/Users/lucas/codex-project/data/market_data_provider_registry_v1.json",
+  "external_valuation_review_registry_path": "/Users/lucas/codex-project/data/a_share_external_valuation_review_registry.json",
   "real_universe_source_file": "/Users/lucas/projects/hit-zone/data/opportunities.universe_full_market_3markets.csv",
-  "target_symbol_pool_definition": "A股总市值 >= 100亿人民币；港股总市值 >= 100亿港币；美股总市值 >= 50亿美元。",
+  "target_symbol_pool_definition": "A股总市值 >= 100亿人民币的公司；港股总市值 >= 100亿港币的公司；美股总市值 >= 50亿美元的公司（剔除名称以 Trust/Fund/ETF 结尾的基金/信托类证券）。",
   "market_counts": {
-    "A": 2057,
-    "HK": 511,
+    "A": 2055,
+    "HK": 514,
     "US": 1305,
-    "total": 3873
+    "total": 3874
   },
   "coverage_contract": {
     "symbol_core_domains_by_market": {
@@ -81,7 +82,9 @@
   ],
   "headline": [
     "核心系统数据覆盖度已升级为主 KPI；估值覆盖率不再是唯一代理指标。",
-    "特别关注池核心槽位覆盖率 100.00%，活跃信号池 98.88%，Top50 100.00%，全市场股票范围 75.49%。"
+    "特别关注池核心槽位覆盖率 100.00%，全市场股票范围 89.90%。",
+    "活跃信号池与其他中间池仍保留在 JSON 里做内部运营观察，但不再作为对外主口径。",
+    "当前主缺口仍在全市场数据底座，说明数据库层面的核心槽位还没补齐。"
   ],
   "focus_pool": {
     "count": 7,
@@ -93,40 +96,23 @@
     "fully_covered_symbol_count": 7,
     "missing_domain_breakdown": {},
     "stale_domain_breakdown": {},
+    "deferred_domain_breakdown": {},
     "sample_missing_rows": []
   },
   "signal_pool": {
     "count": 21,
-    "required_slot_count": 89,
+    "required_slot_count": 88,
     "covered_slot_count": 88,
-    "core_data_coverage_rate": 0.9887640449438202,
-    "core_slot_fill_rate": 0.9887640449438202,
-    "full_coverage_rate": 0.9523809523809523,
-    "fully_covered_symbol_count": 20,
-    "missing_domain_breakdown": {
+    "core_data_coverage_rate": 1.0,
+    "core_slot_fill_rate": 1.0,
+    "full_coverage_rate": 1.0,
+    "fully_covered_symbol_count": 21,
+    "missing_domain_breakdown": {},
+    "stale_domain_breakdown": {},
+    "deferred_domain_breakdown": {
       "external_valuations": 1
     },
-    "stale_domain_breakdown": {
-      "external_valuations": 1
-    },
-    "sample_missing_rows": [
-      {
-        "symbol": "SH.601136",
-        "name": "首创证券",
-        "market": "A",
-        "missing_domains": [
-          "external_valuations"
-        ],
-        "stale_domains": [
-          "external_valuations"
-        ],
-        "available_domains": [
-          "quote",
-          "fundamentals",
-          "price_history"
-        ]
-      }
-    ]
+    "sample_missing_rows": []
   },
   "top50_pool": {
     "count": 50,
@@ -138,331 +124,324 @@
     "fully_covered_symbol_count": 50,
     "missing_domain_breakdown": {},
     "stale_domain_breakdown": {},
+    "deferred_domain_breakdown": {},
     "sample_missing_rows": []
   },
   "overall_real_universe": {
-    "count": 3873,
-    "required_slot_count": 16286,
-    "covered_slot_count": 12294,
-    "core_data_coverage_rate": 0.7548814933071349,
-    "core_slot_fill_rate": 0.7548814933071349,
-    "full_coverage_rate": 0.284275755228505,
-    "fully_covered_symbol_count": 1101,
+    "count": 3874,
+    "required_slot_count": 16278,
+    "covered_slot_count": 14634,
+    "core_data_coverage_rate": 0.8990047917434574,
+    "core_slot_fill_rate": 0.8990047917434574,
+    "full_coverage_rate": 0.5756324212700051,
+    "fully_covered_symbol_count": 2230,
     "missing_domain_breakdown": {
-      "fundamentals": 212,
-      "external_valuations": 2771,
-      "financial_statements": 1006,
-      "price_history": 3
+      "external_valuations": 1644
     },
     "stale_domain_breakdown": {
-      "fundamentals": 16,
-      "price_history": 3,
-      "external_valuations": 4
+      "external_valuations": 136
+    },
+    "deferred_domain_breakdown": {
+      "external_valuations": 9
     },
     "sample_missing_rows": [
       {
-        "symbol": "US.ABEV",
-        "name": "Ambev SA ADR",
-        "market": "US",
+        "symbol": "BJ.920029",
+        "name": "开发科技",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.ABVX",
-        "name": "Abivax SA ADR",
-        "market": "US",
+        "symbol": "BJ.920045",
+        "name": "蘅东光",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.AEG",
-        "name": "荷兰全球保险",
-        "market": "US",
+        "symbol": "BJ.920068",
+        "name": "天工股份",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.AEM",
-        "name": "伊格尔矿业",
-        "market": "US",
+        "symbol": "BJ.920077",
+        "name": "吉林碳谷",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [
-          "fundamentals"
-        ],
-        "available_domains": [
-          "quote",
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.AG",
-        "name": "First Majestic Silver Corp",
-        "market": "US",
-        "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.AGI",
-        "name": "Alamos Gold Inc-A",
-        "market": "US",
+        "symbol": "BJ.920116",
+        "name": "星图测控",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.ALC",
-        "name": "Alcon Inc",
-        "market": "US",
+        "symbol": "BJ.920185",
+        "name": "贝特瑞",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
-        ],
-        "stale_domains": [
-          "fundamentals"
-        ],
-        "available_domains": [
-          "quote",
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "US.AMX",
-        "name": "美洲移动",
-        "market": "US",
-        "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.AR",
-        "name": "Antero Resources Corp",
-        "market": "US",
+        "symbol": "BJ.920808",
+        "name": "曙光数创",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.ARGX",
-        "name": "argenx SE ADR",
-        "market": "US",
+        "symbol": "BJ.920982",
+        "name": "锦波生物",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.AS",
-        "name": "亚玛芬体育",
-        "market": "US",
+        "symbol": "SH.600004",
+        "name": "白云机场",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.ASML",
-        "name": "阿斯麦",
-        "market": "US",
+        "symbol": "SH.600006",
+        "name": "东风股份",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.ASND",
-        "name": "Ascendis Pharma AS ADR",
-        "market": "US",
+        "symbol": "SH.600007",
+        "name": "中国国贸",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.ASR",
-        "name": "Grupo Aeroportuario del Sureste SAB de CV ADR",
-        "market": "US",
+        "symbol": "SH.600008",
+        "name": "首创环保",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.ASX",
-        "name": "日月光半导体",
-        "market": "US",
+        "symbol": "SH.600012",
+        "name": "皖通高速",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.AU",
-        "name": "AngloGold Ashanti plc",
-        "market": "US",
+        "symbol": "SH.600017",
+        "name": "日照港",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.AUGO",
-        "name": "Aura Minerals Inc",
-        "market": "US",
+        "symbol": "SH.600021",
+        "name": "上海电力",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.AXIA",
-        "name": "AXIA Energia ADR",
-        "market": "US",
+        "symbol": "SH.600022",
+        "name": "山东钢铁",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.AZN",
-        "name": "阿斯利康",
-        "market": "US",
+        "symbol": "SH.600032",
+        "name": "浙江新能",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
         "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
           "price_history"
         ]
       },
       {
-        "symbol": "US.B",
-        "name": "巴里克矿业",
-        "market": "US",
+        "symbol": "SH.600033",
+        "name": "福建高速",
+        "market": "A",
         "missing_domains": [
-          "fundamentals",
-          "external_valuations",
-          "financial_statements"
+          "external_valuations"
         ],
-        "stale_domains": [
-          "fundamentals"
-        ],
+        "stale_domains": [],
+        "deferred_domains": [],
         "available_domains": [
           "quote",
+          "fundamentals",
+          "price_history"
+        ]
+      },
+      {
+        "symbol": "SH.600037",
+        "name": "歌华有线",
+        "market": "A",
+        "missing_domains": [
+          "external_valuations"
+        ],
+        "stale_domains": [],
+        "deferred_domains": [],
+        "available_domains": [
+          "quote",
+          "fundamentals",
+          "price_history"
+        ]
+      },
+      {
+        "symbol": "SH.600038",
+        "name": "中直股份",
+        "market": "A",
+        "missing_domains": [
+          "external_valuations"
+        ],
+        "stale_domains": [],
+        "deferred_domains": [],
+        "available_domains": [
+          "quote",
+          "fundamentals",
           "price_history"
         ]
       }
@@ -539,6 +518,30 @@
         "core_data_coverage_rate": 0.7548814933071349,
         "core_slot_fill_rate": 0.7548814933071349,
         "full_coverage_rate": 0.284275755228505
+      }
+    },
+    {
+      "generated_at_utc": "2026-03-17T10:31:31.330898+00:00",
+      "as_of_date": "2026-03-17",
+      "focus_pool": {
+        "core_data_coverage_rate": 1.0,
+        "core_slot_fill_rate": 1.0,
+        "full_coverage_rate": 1.0
+      },
+      "signal_pool": {
+        "core_data_coverage_rate": 1.0,
+        "core_slot_fill_rate": 1.0,
+        "full_coverage_rate": 1.0
+      },
+      "top50_pool": {
+        "core_data_coverage_rate": 1.0,
+        "core_slot_fill_rate": 1.0,
+        "full_coverage_rate": 1.0
+      },
+      "overall_real_universe": {
+        "core_data_coverage_rate": 0.8990047917434574,
+        "core_slot_fill_rate": 0.8990047917434574,
+        "full_coverage_rate": 0.5756324212700051
       }
     }
   ]

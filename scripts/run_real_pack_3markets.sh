@@ -52,11 +52,13 @@ PER_TICKER_RETRY_BACKOFF_SECONDS="${IML_PER_TICKER_RETRY_BACKOFF_SECONDS:-0.25}"
 CODEX_PROJECT_ROOT="${CODEX_PROJECT_ROOT:-${HOME_DIR}/codex-project}"
 REVIEW_QUEUE_SYNC_SCRIPT="${CODEX_PROJECT_ROOT}/scripts/sync_hit_zone_review_queue_bitable.py"
 REVIEW_WRITEBACK_PULL_SCRIPT="${CODEX_PROJECT_ROOT}/scripts/pull_hit_zone_review_queue_writeback.py"
+FULL_MARKET_REFRESH_SCRIPT="${CODEX_PROJECT_ROOT}/scripts/run_full_market_data_refresh.py"
 MARKET_DATA_HARVEST_SCRIPT="${CODEX_PROJECT_ROOT}/scripts/harvest_market_data_lake.py"
 CORE_DATA_COVERAGE_SCRIPT="${CODEX_PROJECT_ROOT}/scripts/build_core_data_coverage_report.py"
 MARKET_DATA_INCREMENTAL_DB="${MARKET_DATA_INCREMENTAL_DB:-${HOME_DIR}/projects/stock-data-hub/data_lake/incremental/market_data_incremental.db}"
 A_SHARE_GOVERNANCE_JSON="${CODEX_PROJECT_ROOT}/output/a_share_source_governance_latest.json"
 HARVEST_SYMBOLS_FILE="${IML_MARKET_DATA_HARVEST_SYMBOLS_FILE:-$REAL_FILE}"
+IML_FULL_MARKET_REFRESH_MODE="${IML_FULL_MARKET_REFRESH_MODE:-incremental}"
 IML_A_SHARE_REPAIR_ENABLED="${IML_A_SHARE_REPAIR_ENABLED:-1}"
 IML_A_SHARE_REPAIR_DOMAINS="${IML_A_SHARE_REPAIR_DOMAINS:-quote,external_valuations}"
 IML_A_SHARE_REPAIR_MAX_TASKS="${IML_A_SHARE_REPAIR_MAX_TASKS:-2}"
@@ -246,7 +248,34 @@ python3 "$ROOT_DIR/scripts/build_valuation_upgrade_backlog.py" \
   --output-json "$SOURCE_UPGRADE_BACKLOG_JSON" \
   --output-md "$VALUATION_UPGRADE_BACKLOG_MD"
 
-if [[ -f "$MARKET_DATA_HARVEST_SCRIPT" ]]; then
+FULL_MARKET_REFRESH_DONE="0"
+if [[ -f "$FULL_MARKET_REFRESH_SCRIPT" ]]; then
+  if [[ ! -f "$HARVEST_SYMBOLS_FILE" ]]; then
+    HARVEST_SYMBOLS_FILE="$UNIVERSE_FILE"
+  fi
+  REFRESH_ARGS=(
+    --mode "$IML_FULL_MARKET_REFRESH_MODE"
+    --symbols-file "$HARVEST_SYMBOLS_FILE"
+    --snapshot-root "$SNAPSHOT_ROOT"
+    --db-path "$MARKET_DATA_INCREMENTAL_DB"
+    --a-share-repair-domains "$IML_A_SHARE_REPAIR_DOMAINS"
+    --a-share-repair-max-tasks "$IML_A_SHARE_REPAIR_MAX_TASKS"
+    --a-share-repair-max-slices "$IML_A_SHARE_REPAIR_MAX_SLICES"
+  )
+  if [[ -n "$SNAPSHOT_DATE" ]]; then
+    REFRESH_ARGS+=(--snapshot-date "$SNAPSHOT_DATE")
+  fi
+  if [[ "$IML_A_SHARE_REPAIR_ENABLED" != "1" ]]; then
+    REFRESH_ARGS+=(--skip-a-share-repair)
+  fi
+  if python3 "$FULL_MARKET_REFRESH_SCRIPT" "${REFRESH_ARGS[@]}"; then
+    FULL_MARKET_REFRESH_DONE="1"
+  else
+    echo "[warn] full market refresh failed, fallback to legacy harvest"
+  fi
+fi
+
+if [[ "$FULL_MARKET_REFRESH_DONE" != "1" ]] && [[ -f "$MARKET_DATA_HARVEST_SCRIPT" ]]; then
   if [[ ! -f "$HARVEST_SYMBOLS_FILE" ]]; then
     HARVEST_SYMBOLS_FILE="$UNIVERSE_FILE"
   fi
