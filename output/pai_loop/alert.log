@@ -35,3 +35,5 @@
 [2026-03-17 09:57:36] [notify-failed] app script rc=1 detail=TypeError: FeishuDeliveryConfig.__init__() missing 1 required positional argument: 'receive_id_type'
 [2026-03-18 09:49:04] [run-failed] mode=real rc=2 reason=步骤失败或漂移告警 report=/Users/lucas/projects/investor-method-lab/output/pai_loop/latest_report.md
 [2026-03-18 09:49:04] [notify-failed] app script rc=1 detail=TypeError: FeishuDeliveryConfig.__init__() missing 1 required positional argument: 'receive_id_type'
+[2026-03-19 09:54:01] [run-failed] mode=real rc=2 reason=步骤失败或漂移告警 report=/Users/lucas/projects/investor-method-lab/output/pai_loop/latest_report.md
+[2026-03-19 09:54:01] [notify-failed] app script rc=1 detail=TypeError: FeishuDeliveryConfig.__init__() missing 1 required positional argument: 'receive_id_type'

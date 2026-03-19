@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-17T14:34:16.996512+00:00",
-  "as_of_date": "2026-03-17",
+  "generated_at_utc": "2026-03-19T13:25:55.965518+00:00",
+  "as_of_date": "2026-03-19",
   "db_path": "/Users/lucas/projects/stock-data-hub/data_lake/incremental/market_data_incremental.db",
   "registry_path": "/Users/lucas/codex-project/data/market_data_provider_registry_v1.json",
   "external_valuation_review_registry_path": "/Users/lucas/codex-project/data/a_share_external_valuation_review_registry.json",
@@ -82,7 +82,7 @@
   ],
   "headline": [
     "核心系统数据覆盖度已升级为主 KPI；估值覆盖率不再是唯一代理指标。",
-    "特别关注池核心槽位覆盖率 100.00%，全市场股票范围 89.90%。",
+    "特别关注池核心槽位覆盖率 100.00%，全市场股票范围 90.98%。",
     "活跃信号池与其他中间池仍保留在 JSON 里做内部运营观察，但不再作为对外主口径。",
     "当前主缺口仍在全市场数据底座，说明数据库层面的核心槽位还没补齐。"
   ],
@@ -130,21 +130,39 @@
   "overall_real_universe": {
     "count": 3874,
     "required_slot_count": 16278,
-    "covered_slot_count": 14634,
-    "core_data_coverage_rate": 0.8990047917434574,
-    "core_slot_fill_rate": 0.8990047917434574,
-    "full_coverage_rate": 0.5756324212700051,
-    "fully_covered_symbol_count": 2230,
+    "covered_slot_count": 14809,
+    "core_data_coverage_rate": 0.9097554982184544,
+    "core_slot_fill_rate": 0.9097554982184544,
+    "full_coverage_rate": 0.6208053691275168,
+    "fully_covered_symbol_count": 2405,
     "missing_domain_breakdown": {
-      "external_valuations": 1644
+      "price_history": 1,
+      "external_valuations": 1468
     },
     "stale_domain_breakdown": {
-      "external_valuations": 136
+      "price_history": 1,
+      "external_valuations": 349
     },
     "deferred_domain_breakdown": {
       "external_valuations": 9
     },
     "sample_missing_rows": [
+      {
+        "symbol": "HK.00489",
+        "name": "东风集团股份",
+        "market": "HK",
+        "missing_domains": [
+          "price_history"
+        ],
+        "stale_domains": [
+          "price_history"
+        ],
+        "deferred_domains": [],
+        "available_domains": [
+          "quote",
+          "fundamentals"
+        ]
+      },
       {
         "symbol": "BJ.920029",
         "name": "开发科技",
@@ -266,73 +284,15 @@
         ]
       },
       {
-        "symbol": "SH.600004",
-        "name": "白云机场",
-        "market": "A",
-        "missing_domains": [
-          "external_valuations"
-        ],
-        "stale_domains": [],
-        "deferred_domains": [],
-        "available_domains": [
-          "quote",
-          "fundamentals",
-          "price_history"
-        ]
-      },
-      {
         "symbol": "SH.600006",
         "name": "东风股份",
         "market": "A",
         "missing_domains": [
           "external_valuations"
         ],
-        "stale_domains": [],
-        "deferred_domains": [],
-        "available_domains": [
-          "quote",
-          "fundamentals",
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "SH.600007",
-        "name": "中国国贸",
-        "market": "A",
-        "missing_domains": [
+        "stale_domains": [
           "external_valuations"
         ],
-        "stale_domains": [],
-        "deferred_domains": [],
-        "available_domains": [
-          "quote",
-          "fundamentals",
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "SH.600008",
-        "name": "首创环保",
-        "market": "A",
-        "missing_domains": [
-          "external_valuations"
-        ],
-        "stale_domains": [],
-        "deferred_domains": [],
-        "available_domains": [
-          "quote",
-          "fundamentals",
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "SH.600012",
-        "name": "皖通高速",
-        "market": "A",
-        "missing_domains": [
-          "external_valuations"
-        ],
-        "stale_domains": [],
         "deferred_domains": [],
         "available_domains": [
           "quote",
@@ -347,37 +307,9 @@
         "missing_domains": [
           "external_valuations"
         ],
-        "stale_domains": [],
-        "deferred_domains": [],
-        "available_domains": [
-          "quote",
-          "fundamentals",
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "SH.600021",
-        "name": "上海电力",
-        "market": "A",
-        "missing_domains": [
+        "stale_domains": [
           "external_valuations"
         ],
-        "stale_domains": [],
-        "deferred_domains": [],
-        "available_domains": [
-          "quote",
-          "fundamentals",
-          "price_history"
-        ]
-      },
-      {
-        "symbol": "SH.600022",
-        "name": "山东钢铁",
-        "market": "A",
-        "missing_domains": [
-          "external_valuations"
-        ],
-        "stale_domains": [],
         "deferred_domains": [],
         "available_domains": [
           "quote",
@@ -392,7 +324,9 @@
         "missing_domains": [
           "external_valuations"
         ],
-        "stale_domains": [],
+        "stale_domains": [
+          "external_valuations"
+        ],
         "deferred_domains": [],
         "available_domains": [
           "quote",
@@ -401,8 +335,42 @@
         ]
       },
       {
-        "symbol": "SH.600033",
-        "name": "福建高速",
+        "symbol": "SH.600055",
+        "name": "万东医疗",
+        "market": "A",
+        "missing_domains": [
+          "external_valuations"
+        ],
+        "stale_domains": [
+          "external_valuations"
+        ],
+        "deferred_domains": [],
+        "available_domains": [
+          "quote",
+          "fundamentals",
+          "price_history"
+        ]
+      },
+      {
+        "symbol": "SH.600056",
+        "name": "中国医药",
+        "market": "A",
+        "missing_domains": [
+          "external_valuations"
+        ],
+        "stale_domains": [
+          "external_valuations"
+        ],
+        "deferred_domains": [],
+        "available_domains": [
+          "quote",
+          "fundamentals",
+          "price_history"
+        ]
+      },
+      {
+        "symbol": "SH.600058",
+        "name": "五矿发展",
         "market": "A",
         "missing_domains": [
           "external_valuations"
@@ -416,13 +384,15 @@
         ]
       },
       {
-        "symbol": "SH.600037",
-        "name": "歌华有线",
+        "symbol": "SH.600072",
+        "name": "中船科技",
         "market": "A",
         "missing_domains": [
           "external_valuations"
         ],
-        "stale_domains": [],
+        "stale_domains": [
+          "external_valuations"
+        ],
         "deferred_domains": [],
         "available_domains": [
           "quote",
@@ -431,8 +401,59 @@
         ]
       },
       {
-        "symbol": "SH.600038",
-        "name": "中直股份",
+        "symbol": "SH.600075",
+        "name": "新疆天业",
+        "market": "A",
+        "missing_domains": [
+          "external_valuations"
+        ],
+        "stale_domains": [
+          "external_valuations"
+        ],
+        "deferred_domains": [],
+        "available_domains": [
+          "quote",
+          "fundamentals",
+          "price_history"
+        ]
+      },
+      {
+        "symbol": "SH.600108",
+        "name": "亚盛集团",
+        "market": "A",
+        "missing_domains": [
+          "external_valuations"
+        ],
+        "stale_domains": [
+          "external_valuations"
+        ],
+        "deferred_domains": [],
+        "available_domains": [
+          "quote",
+          "fundamentals",
+          "price_history"
+        ]
+      },
+      {
+        "symbol": "SH.600110",
+        "name": "诺德股份",
+        "market": "A",
+        "missing_domains": [
+          "external_valuations"
+        ],
+        "stale_domains": [
+          "external_valuations"
+        ],
+        "deferred_domains": [],
+        "available_domains": [
+          "quote",
+          "fundamentals",
+          "price_history"
+        ]
+      },
+      {
+        "symbol": "SH.600113",
+        "name": "浙江东日",
         "market": "A",
         "missing_domains": [
           "external_valuations"
@@ -542,6 +563,54 @@
         "core_data_coverage_rate": 0.8990047917434574,
         "core_slot_fill_rate": 0.8990047917434574,
         "full_coverage_rate": 0.5756324212700051
+      }
+    },
+    {
+      "generated_at_utc": "2026-03-19T02:31:10.370791+00:00",
+      "as_of_date": "2026-03-18",
+      "focus_pool": {
+        "core_data_coverage_rate": 0.8333333333333334,
+        "core_slot_fill_rate": 0.8333333333333334,
+        "full_coverage_rate": 0.2857142857142857
+      },
+      "signal_pool": {
+        "core_data_coverage_rate": 0.7613636363636364,
+        "core_slot_fill_rate": 0.7613636363636364,
+        "full_coverage_rate": 0.0
+      },
+      "top50_pool": {
+        "core_data_coverage_rate": 0.7830188679245284,
+        "core_slot_fill_rate": 0.7830188679245284,
+        "full_coverage_rate": 0.08
+      },
+      "overall_real_universe": {
+        "core_data_coverage_rate": 0.7009460621697997,
+        "core_slot_fill_rate": 0.7009460621697997,
+        "full_coverage_rate": 0.13397005678884874
+      }
+    },
+    {
+      "generated_at_utc": "2026-03-19T10:13:21.359661+00:00",
+      "as_of_date": "2026-03-19",
+      "focus_pool": {
+        "core_data_coverage_rate": 1.0,
+        "core_slot_fill_rate": 1.0,
+        "full_coverage_rate": 1.0
+      },
+      "signal_pool": {
+        "core_data_coverage_rate": 1.0,
+        "core_slot_fill_rate": 1.0,
+        "full_coverage_rate": 1.0
+      },
+      "top50_pool": {
+        "core_data_coverage_rate": 1.0,
+        "core_slot_fill_rate": 1.0,
+        "full_coverage_rate": 1.0
+      },
+      "overall_real_universe": {
+        "core_data_coverage_rate": 0.9097554982184544,
+        "core_slot_fill_rate": 0.9097554982184544,
+        "full_coverage_rate": 0.6208053691275168
       }
     }
   ]
