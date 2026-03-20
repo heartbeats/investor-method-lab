@@ -1,6 +1,6 @@
 {
-  "generated_at_utc": "2026-03-19T13:25:55.965518+00:00",
-  "as_of_date": "2026-03-19",
+  "generated_at_utc": "2026-03-20T10:49:01.872309+00:00",
+  "as_of_date": "2026-03-20",
   "db_path": "/Users/lucas/projects/stock-data-hub/data_lake/incremental/market_data_incremental.db",
   "registry_path": "/Users/lucas/codex-project/data/market_data_provider_registry_v1.json",
   "external_valuation_review_registry_path": "/Users/lucas/codex-project/data/a_share_external_valuation_review_registry.json",
@@ -82,7 +82,7 @@
   ],
   "headline": [
     "核心系统数据覆盖度已升级为主 KPI；估值覆盖率不再是唯一代理指标。",
-    "特别关注池核心槽位覆盖率 100.00%，全市场股票范围 90.98%。",
+    "特别关注池核心槽位覆盖率 100.00%，全市场股票范围 91.06%。",
     "活跃信号池与其他中间池仍保留在 JSON 里做内部运营观察，但不再作为对外主口径。",
     "当前主缺口仍在全市场数据底座，说明数据库层面的核心槽位还没补齐。"
   ],
@@ -130,23 +130,40 @@
   "overall_real_universe": {
     "count": 3874,
     "required_slot_count": 16278,
-    "covered_slot_count": 14809,
-    "core_data_coverage_rate": 0.9097554982184544,
-    "core_slot_fill_rate": 0.9097554982184544,
-    "full_coverage_rate": 0.6208053691275168,
-    "fully_covered_symbol_count": 2405,
+    "covered_slot_count": 14822,
+    "core_data_coverage_rate": 0.9105541221280256,
+    "core_slot_fill_rate": 0.9105541221280256,
+    "full_coverage_rate": 0.6244192049561177,
+    "fully_covered_symbol_count": 2419,
     "missing_domain_breakdown": {
-      "price_history": 1,
-      "external_valuations": 1468
+      "price_history": 2,
+      "external_valuations": 1454
     },
     "stale_domain_breakdown": {
-      "price_history": 1,
-      "external_valuations": 349
+      "price_history": 2,
+      "external_valuations": 335
     },
     "deferred_domain_breakdown": {
       "external_valuations": 9
     },
     "sample_missing_rows": [
+      {
+        "symbol": "SZ.000711",
+        "name": "ST京蓝",
+        "market": "A",
+        "missing_domains": [
+          "price_history",
+          "external_valuations"
+        ],
+        "stale_domains": [
+          "price_history"
+        ],
+        "deferred_domains": [],
+        "available_domains": [
+          "quote",
+          "fundamentals"
+        ]
+      },
       {
         "symbol": "HK.00489",
         "name": "东风集团股份",
@@ -450,21 +467,6 @@
           "fundamentals",
           "price_history"
         ]
-      },
-      {
-        "symbol": "SH.600113",
-        "name": "浙江东日",
-        "market": "A",
-        "missing_domains": [
-          "external_valuations"
-        ],
-        "stale_domains": [],
-        "deferred_domains": [],
-        "available_domains": [
-          "quote",
-          "fundamentals",
-          "price_history"
-        ]
       }
     ]
   },
@@ -590,7 +592,7 @@
       }
     },
     {
-      "generated_at_utc": "2026-03-19T10:13:21.359661+00:00",
+      "generated_at_utc": "2026-03-20T00:13:55.965663+00:00",
       "as_of_date": "2026-03-19",
       "focus_pool": {
         "core_data_coverage_rate": 1.0,
@@ -608,9 +610,33 @@
         "full_coverage_rate": 1.0
       },
       "overall_real_universe": {
-        "core_data_coverage_rate": 0.9097554982184544,
-        "core_slot_fill_rate": 0.9097554982184544,
-        "full_coverage_rate": 0.6208053691275168
+        "core_data_coverage_rate": 0.9089568743088832,
+        "core_slot_fill_rate": 0.9089568743088832,
+        "full_coverage_rate": 0.6192565823438306
+      }
+    },
+    {
+      "generated_at_utc": "2026-03-20T10:49:01.872371+00:00",
+      "as_of_date": "2026-03-20",
+      "focus_pool": {
+        "core_data_coverage_rate": 1.0,
+        "core_slot_fill_rate": 1.0,
+        "full_coverage_rate": 1.0
+      },
+      "signal_pool": {
+        "core_data_coverage_rate": 1.0,
+        "core_slot_fill_rate": 1.0,
+        "full_coverage_rate": 1.0
+      },
+      "top50_pool": {
+        "core_data_coverage_rate": 1.0,
+        "core_slot_fill_rate": 1.0,
+        "full_coverage_rate": 1.0
+      },
+      "overall_real_universe": {
+        "core_data_coverage_rate": 0.9105541221280256,
+        "core_slot_fill_rate": 0.9105541221280256,
+        "full_coverage_rate": 0.6244192049561177
       }
     }
   ]

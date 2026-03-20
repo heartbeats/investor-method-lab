@@ -1,9 +1,9 @@
 {
   "US.PDD": {
     "symbol": "US.PDD",
-    "price": 100.72,
-    "timestamp": "2026-03-18T20:00:00+00:00",
+    "price": 97.43,
+    "timestamp": "2026-03-19T20:00:00+00:00",
     "source": "tiingo_iex:PDD",
-    "change_pct": -3.497173517294247
+    "change_pct": -3.266481334392367
   }
 }

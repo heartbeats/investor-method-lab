@@ -1,7 +1,7 @@
 {
   "parameter_library:macro_context:fred:v1": {
-    "updated_at": "2026-03-19T00:00:09.896084+00:00",
-    "expires_at": "2026-03-20T00:00:09.896084+00:00",
+    "updated_at": "2026-03-20T00:00:14.256661+00:00",
+    "expires_at": "2026-03-21T00:00:14.256661+00:00",
     "payload": {
       "provider": "fred",
       "status": "ok",
@@ -9,10 +9,10 @@
       "regime": "neutral",
       "regime_label": "中性利率环境",
       "policy_rate": 0.0364,
-      "risk_free_rate": 0.042,
+      "risk_free_rate": 0.0426,
       "policy_rate_pct": 3.64,
-      "risk_free_rate_pct": 4.2,
-      "latest_date": "2026-03-17",
+      "risk_free_rate_pct": 4.26,
+      "latest_date": "2026-03-18",
       "source": "fred:FEDFUNDS,DGS10",
       "series": {
         "policy_rate": {
@@ -24,14 +24,14 @@
         },
         "risk_free_rate": {
           "series_id": "DGS10",
-          "latest_value": 0.042,
-          "latest_value_pct": 4.2,
-          "latest_date": "2026-03-17",
+          "latest_value": 0.0426,
+          "latest_value_pct": 4.26,
+          "latest_date": "2026-03-18",
           "source": "fred:DGS10"
         }
       },
       "errors": [],
-      "fetched_at": "2026-03-19T00:00:05.988025+00:00"
+      "fetched_at": "2026-03-20T00:00:11.433722+00:00"
     }
   }
 }
